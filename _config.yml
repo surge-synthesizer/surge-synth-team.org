@@ -2,9 +2,7 @@
 title: Surge Synth Team # your site title
 author: surgeteam # You :P
 description: > # Meta description of Homepage
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  We maintain and contribute to awesome open source audio plugins!
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://surge-synth-team.org/" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -24,8 +22,8 @@ navigation: # Navigation links
 
 tagline: >
   The Surge Synth Team is a group of musicians, developers, testers, documenters, and general
-  volunteer open source enthusiasts who randomly assembled to work on the [Surge Synthesizer]
-  after [Claes] open sourced it in [September 2018]. As the Surge project became more successful,
+  volunteer open source enthusiasts who randomly assembled to work on the Surge Synthesizer
+  after Claes open sourced it in September 2018. As the Surge project became more successful,
   and we kept having fun, we decided to branch out into other things too!
 
 hero_img: posts/surge_lg.jpg # Main background image: use the path from /assets/img/ => This will output /assets/img/posts/sleek_lg.jpg

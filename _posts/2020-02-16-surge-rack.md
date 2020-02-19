@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Surge Rack"
-featured-img: surge 
+featured-img: surge-rack 
 categories: [Synth]
 ---
 
