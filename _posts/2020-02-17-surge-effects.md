@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Surge Effects"
+summary: The Surge effects module in its own plugin
 featured-img: surge 
 categories: [Effects]
 ---
