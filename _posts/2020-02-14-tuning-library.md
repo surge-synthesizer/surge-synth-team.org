@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Tuning Library"
-featured-img: emile-perron-190221
+featured-img: surge 
 categories: [Synth, Microtuning]
 ---
 

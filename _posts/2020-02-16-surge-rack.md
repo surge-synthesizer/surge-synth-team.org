@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Surge Rack"
-featured-img: emile-perron-190221
+featured-img: surge 
 categories: [Synth]
 ---
 
