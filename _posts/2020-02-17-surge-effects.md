@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Surge Effects"
-featured-img: emile-perron-190221
+featured-img: surge 
 categories: [Effects]
 ---
 
