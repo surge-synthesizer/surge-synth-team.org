@@ -31,7 +31,8 @@ layout: compress
         <div class="container">
           <div class="post-list" itemscope="" itemtype="http://schema.org/Blog">
 
-            {% for post in site.posts %}
+            {% assign sorted_posts = site.posts | sort: 'order' %}
+            {% for post in sorted_posts %}
               {% include card.html %}
             {% endfor %}
 
