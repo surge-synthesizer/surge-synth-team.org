@@ -33,16 +33,14 @@ layout: compress
             {% assign categories = page.categories %}
           {% endif %}
           {% for category in categories %}
-            <a class="label" href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
+            <a class="label" href="{{site.baseurl | relative_url}}categories/#{{category|slugize}}">{{category}}</a>
             {% unless forloop.last %}&nbsp;{% endunless %}
           {% endfor %}
         </div>
       {% endif %}
       <h1 class="hero__title">{{ page.title }}</h1>
       <p class="hero__meta">
-        {% if post %}
-          <p>{{ post.summary | strip_html | truncatewords: 20 }}</p>
-        {% endif %}
+        {{ page.summary | strip_html }}
       </p>
     </div>
   </div>
