@@ -1,5 +1,6 @@
 ---
 layout: post
+order: 3
 title: "Surge Rack"
 featured-img: surge-rack 
 categories: [Synth]
