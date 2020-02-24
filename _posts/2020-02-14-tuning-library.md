@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Tuning Library"
-featured-img: surge 
+summary: We’ve added microtuning support to several instruments. Our core SCL/KBM calculation engine is available as a standalone C++ header.
+featured-img: tuning-library
 categories: [Synth, Microtuning]
 ---
 
