@@ -34,6 +34,7 @@ layout: compress
           {% endif %}
           {% for category in categories %}
             <a class="label" href="{{site.baseurl}}categories/#{{category|slugize}}">{{category}}</a>
+            <span>{{"/" | relative_url}}categories/#{{category|slugize}}</span>
             {% unless forloop.last %}&nbsp;{% endunless %}
           {% endfor %}
         </div>
