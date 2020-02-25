@@ -4,6 +4,8 @@ title: Joining the Team!
 permalink: /join/
 ---
 
+## Joining the Surge Synth Team
+
 Wanna join the surge synth team? There’s no application process! Just show up, be
 friendly, and contribute. We work hard to make a welcoming community of music
 enthusiasts.

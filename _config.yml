@@ -17,14 +17,14 @@ social:
 # THEME SETTINGS
 navigation: # Navigation links
   - {name: 'Home', link: '/'}
+  - {name: 'Open Source', link: '/open-source'}
   - {name: 'Join', link: '/join'}
-  # - {name: 'Contact', link: '/contact'}
 
 tagline: >
   The Surge Synth Team is a group of musicians, developers, testers, documenters, and general
-  volunteer open source enthusiasts who randomly assembled to work on the Surge Synthesizer
-  after Claes open sourced it in September 2018. As the Surge project became more successful,
-  and we kept having fun, we decided to branch out into other things too!
+  volunteer open source enthusiasts who randomly assembled to work on the Surge Synthesizer.
+  As the Surge project became more successful, and we kept having fun, we decided to branch
+  out into other things too!
 
 hero_img: posts/surge_lg.jpg # Main background image: use the path from /assets/img/ => This will output /assets/img/posts/sleek_lg.jpg
 
