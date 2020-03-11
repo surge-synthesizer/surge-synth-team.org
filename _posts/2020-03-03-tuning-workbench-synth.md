@@ -8,7 +8,7 @@ categories: [Synth, Microtuning]
 ---
 
 Tuning Workbench Synth is a synthesizer which lets you experiment with virtual tunings in realtime, allowing you to edit 
-mappings and tunigns and hear a synthesizer change as you adjust individual notes. It also serves as an example of using
+mappings and tunings and hear a synthesizer change as you adjust individual notes. It also serves as an example of using
 our [tuning library](/tuning-library) to add tuning to a virtual instruments.
 
 The synth is entirely free and open source software, released under the GPL3. You can find the entire set of source
