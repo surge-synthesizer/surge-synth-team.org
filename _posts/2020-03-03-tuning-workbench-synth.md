@@ -39,7 +39,7 @@ The generator section controls the sound source. Reading from left to right, it 
    - The VCO provides a set of analog-style oscillators in sine, square, saw, and triangle waves
      with a level for each of the waveforms and up to 10 unison voices with a spread. The spread
      is expressed in percentages of a single note, and is tuning aware.
-   - The Sub-oscillator adds a square wave dropped 1-3 octaves (frequency halvigns)
+   - The Sub-oscillator adds a square wave dropped 1-3 octaves (frequency halvings)
    - The Pluck oscillator provides a simple karplus-strong style attack generator
    - Each can be turned on or off using the power button in the upper right corner of the group boundary
 - Modulators
@@ -54,13 +54,13 @@ The generator section controls the sound source. Reading from left to right, it 
   - The pitch bend control determines how many notes up and down the pitch bend moves. The pitch bend is expressed
     in notes and is tuning aware.
 - The output section
-  - The filter is a filter-per-voice which can be a simple Low-pass, high-pass or band-pass filter
+  - The filter is a filter-per-voice which can be a simple low-pass, high-pass or band-pass filter
   - The delay is a global effect with standard delay controls
   - The master stage sets a global output level and a saturation level. We send the entire synth through
     a soft clipper at the output stage, so saturation drives us into the soft clip for a warming effect
     at lower levels and a distortion effect at higher levels.
 - The top buttons
-  - Presets opens a menu which lets you choose a few factor presets we put together, and save your presets as a separate file if you wish
+  - Presets opens a menu which lets you choose a few factory presets we put together, and save your presets as a separate file if you wish
   - Help opens this page
   - About gives you a screen with version numbers and links to source and so on.
 
@@ -80,7 +80,7 @@ Documentation forthcoming. But you can drag the knobs and graph to retune. Try i
 # Add a feature, Report a Bug
 
 The tuning workbench synth is GPL3 open source software. We welcome contributors who want to build it, expand it, modify it,
-and otherwise help us make it cool. Probably the best thing if you want to do this is join or slack or drop an issue on our github.
+and otherwise help us make it cool. Probably the best thing if you want to do this is join our slack or drop an issue on our github.
 
 And if you find a bug, please do let us know!
 
