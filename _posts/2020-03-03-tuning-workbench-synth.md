@@ -1,6 +1,6 @@
 ---
 layout: post
-order: 6
+order: 7
 title: "Tuning Workbench Synth"
 summary: Tuning Workbench Synth is a synthesizer for learning and experimenting with microtonal scales.
 featured-img: tuning-workbench-synth 
