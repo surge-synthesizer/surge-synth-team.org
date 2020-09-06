@@ -5,6 +5,7 @@ title: "Tuning Library"
 summary: We’ve added microtuning support to several instruments. Our core SCL/KBM calculation engine is available as a standalone C++ header.
 featured-img: tuning-library
 categories: [Synth, Microtuning]
+issue-tracker: "https://github.com/surge-synthesizer/tuning-library/issues"
 ---
 
 Supporting alternate tunings is tricky. You have to parse and interpret SCL and KBM files, you need to test in a bunch of ranges, you need to think
@@ -29,7 +30,7 @@ The details are at [our GitHub repository for the project](https://github.com/su
 4. Use the API as [documented in our header](https://github.com/surge-synthesizer/tuning-library/blob/master/include/Tunings.h)
    and as [exercised in our tests](https://github.com/surge-synthesizer/tuning-library/blob/master/tests/alltests.cpp) to find
    the frequency for your note. Adjust your oscillators accordingly and go.
-   
+
 The [Tuning Workbench Synth](/tuning-workbench-synth) provides a complete working example of doing this in a JUCE plugin.
 
 Also, the code is open source! We welcome pull requests and API enhancements and discussions about what to do next. Our plans
@@ -38,9 +39,9 @@ all participants!
 
 Finally, we licensed the project under an MIT license to allow a broader group of users to add alternative tunings to their code.
 You can include this library in commercial projects and closed source; you can make changes and not contribute them back;
-you can do all the things the MIT license allows. We made this choice since we want to see microtunable virtual instruments flourish! 
+you can do all the things the MIT license allows. We made this choice since we want to see microtunable virtual instruments flourish!
 But while there is no obligation to do so, if you would like to let us know when you integrate the library with your synth
 that would be super polite, and if you want to add the project to the list of open source libraries you consume, you
-can do so using the URL for this page. 
+can do so using the URL for this page.
 
 Enjoy!

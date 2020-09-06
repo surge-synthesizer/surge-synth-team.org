@@ -5,6 +5,7 @@ title: "Surge for Rack"
 summary: The elements of the Surge synthesizer are available as modules for VCV Rack.
 featured-img: surge-rack 
 categories: [Synth]
+issue-tracker: "https://github.com/surge-synthesizer/surge-rack/issues"
 ---
 
 [Surge for Rack](https://surge-synthesizer.github.io/rack_manual) takes the Surge synthesizer and delivers it as a collection 
