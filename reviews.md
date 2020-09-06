@@ -5,6 +5,7 @@ permalink: /reviews-and-guides/
 ---
 
 ## Reviews and Guides
+{:.no_toc}
 
 We sometimes see reviews and guides of the projects we work on, and we have decided to collect
 them here. These aren't the official manuals or tutorials that we have made! You can find those
@@ -16,9 +17,17 @@ Surge Synth Team project, we would love to feature it here! Open an issue or sub
 As long as it falls in line with our principles of respect and decency to all, we will add it.
 
 
+## Projects
+{:.no_toc}
+
+* unordered list
+{:toc}
+
+
 ## Surge
 
 ### Reviews
+{:.no_toc}
 
 - [Surge is free, deep synth for every platform, with MPE support](https://cdm.link/2019/04/surge-free-deep-synth-mpe/), Create Digital Music
 - [Surge FREE Synthesizer Plugin Gets An EPIC Update](https://bedroomproducersblog.com/2020/07/30/surge-synth-update/)
@@ -32,6 +41,7 @@ As long as it falls in line with our principles of respect and decency to all, w
 - [Create music with the help of this complex open-source virtual synthesizer that uses a subtractive hybrid method of synthesis and is surprisingly versatile](https://www.softpedia.com/get/Multimedia/Audio/Audio-Mixers-Synthesizers/Surge-Synthesizer.shtml), Softpedia
 
 ### Guides
+{:.no_toc}
 
 - [Surge Synth: a Tuning Gold Standard](https://www.youtube.com/watch?v=mjgZVmhUC30), John Moriarty on YouTube
 - [Weekend Workshop: Make your first sounds with Surge, the open-source supersynth](https://www.musictech.net/tutorials/weekend-workshop-first-sounds-surgesupersynth/), MusicTech
@@ -41,6 +51,7 @@ As long as it falls in line with our principles of respect and decency to all, w
 ## Stochas
 
 ### Reviews
+{:.no_toc}
 
 - [Audio Vitamins Stochas Step Sequencer Is Now Open-Source](https://bedroomproducersblog.com/2020/08/23/stochas-open-source/)
   , Bedroom Producers Blog
@@ -52,13 +63,14 @@ As long as it falls in line with our principles of respect and decency to all, w
   , Gearnews
 
 ### Guides
+{:.no_toc}
 
 - [This FREE Sequencer Plugin is INSANE! 🤯](https://www.youtube.com/watch?v=Wyx8cz7oxLI), Venus Theory on YouTube
-
 
 ## Tuning Workbench Synth
 
 ### Reviews
+{:.no_toc}
 
 - [Freebie(s) of the Month – SURGE, and Others](https://soundbytesmag.net/freebies-of-the-month-surge-and-others/)
   , SoundBytes net music magazine
@@ -67,11 +79,13 @@ As long as it falls in line with our principles of respect and decency to all, w
 ## Dexed
 
 ### Reviews
+{:.no_toc}
 
 - [Freebie(s) of the Month – SURGE, and Others](https://soundbytesmag.net/freebies-of-the-month-surge-and-others/)
   , SoundBytes net music magazine
 
 ### Guides
+{:.no_toc}
 
 - [Learn FM synthesis basics with free DX7 plug-in Dexed](https://www.musictech.net/tutorials/fm-synthesis-basics-dexed/)
   , MusicTech
