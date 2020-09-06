@@ -5,6 +5,7 @@ title: "Surge Effects Bank"
 summary: The Surge effects module in its own plugin
 featured-img: surge-effects
 categories: [Effects]
+issue-tracker: "https://github.com/surge-synthesizer/surge-fx/issues"
 ---
 
 Surge has a cool set of effects, and also works as an audio input source in most DAWs so you can use them using 

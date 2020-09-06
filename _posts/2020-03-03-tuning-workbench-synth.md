@@ -5,6 +5,7 @@ title: "Tuning Workbench Synth"
 summary: Tuning Workbench Synth is a synthesizer for learning and experimenting with microtonal scales.
 featured-img: tuning-workbench-synth 
 categories: [Synth, Microtuning]
+issue-tracker: "https://github.com/surge-synthesizer/tuning-workbench-synth/issues"
 ---
 
 Tuning Workbench Synth is a synthesizer which lets you experiment with virtual tunings in realtime, allowing you to edit 
