@@ -1,6 +1,6 @@
 ---
 layout: post
-order: 2
+order: 3
 title: "Surge Effects Bank"
 summary: The Surge effects module in its own plugin
 featured-img: surge-effects

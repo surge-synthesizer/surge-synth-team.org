@@ -1,6 +1,6 @@
 ---
 layout: post
-order: 3
+order: 4
 title: "Surge for Rack"
 summary: The elements of the Surge synthesizer are available as modules for VCV Rack.
 featured-img: surge-rack 
