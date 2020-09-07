@@ -16,7 +16,7 @@ social:
 
 # THEME SETTINGS
 navigation: # Navigation links
-  - { name: 'Home', link: '/' }
+  - { name: 'Projects', link: '/' }
   - { name: 'Open Source', link: '/open-source' }
   - { name: 'Reviews and Guides', link: '/reviews-and-guides' }
   - { name: 'Contact Us', link: '/contact-us' }
