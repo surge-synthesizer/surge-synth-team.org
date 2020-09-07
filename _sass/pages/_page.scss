@@ -16,7 +16,7 @@
   &::before {
     position: absolute;
     display: block;
-    content: "";
+    content: '';
     top: 0;
     left: 0;
     width: 100%;
@@ -39,12 +39,12 @@
   &::before {
     position: absolute;
     display: block;
-    content: "";
+    content: '';
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(38, 38, 38, .8);
+    background: rgba(38, 38, 38, 0.8);
   }
 }
 
@@ -67,7 +67,6 @@
   .hero__title {
     font-size: 1.8em;
     color: $bg-color;
-
 
     @include breakpoint($md) {
       padding: 1rem 0;
@@ -92,12 +91,17 @@
 }
 
 .post-list {
-  padding-top: 2.5em;
+  padding-top: 1em;
   display: flex;
   flex-wrap: wrap;
   flex: 1 0 auto;
 
   @include breakpoint($md) {
-    padding-top: 5em;
+    padding-top: 1em;
   }
+}
+
+.post-list-heading {
+  padding-top: 1.5em;
+  font-size: 2.1em;
 }
