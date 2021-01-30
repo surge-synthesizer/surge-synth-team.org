@@ -39,6 +39,10 @@ As long as it falls in line with our principles of respect and decency to all, w
 - [Surge 1.7.0, Must-Have Free Synthesizer Plugin Gets A Massive Feature Update](https://www.synthanatomy.com/2020/07/surge-1-7-0-must-have-free-synthesizer-plugin-gets-a-massive-feature-update.html)
   , Synth Anatomy
 - [Create music with the help of this complex open-source virtual synthesizer that uses a subtractive hybrid method of synthesis and is surprisingly versatile](https://www.softpedia.com/get/Multimedia/Audio/Audio-Mixers-Synthesizers/Surge-Synthesizer.shtml), Softpedia
+- [Surge 1.8.0 Gets A Fresh New GUI, New Filters, Airwindows FX](https://bedroomproducersblog.com/2021/01/21/surge-1-8-0/), Bedroom Producers Blog
+- [Surge 1.8 update adds new filters and mod options to free synth](https://www.musictech.net/news/gear/surge-1-8-update/), MusicTech
+- [Surge Free Synthesizer 1.8 Adds Tons Of New Features (Filters, Modulators, Effects…)](https://www.synthanatomy.com/2021/01/surge-1-8-free-synth-plugin-adds-tons-of-new-features-filters-effects.html), Synth Anatomy
+- [Surge, awesome free soft synth, gets major 1.8 update, Create Digital Music](https://cdm.link/2021/01/surge-awesome-free-soft-synth-gets-major-1-8-update/), Create Digital Music
 
 ### Guides
 {:.no_toc}
@@ -47,6 +51,9 @@ As long as it falls in line with our principles of respect and decency to all, w
 - [Weekend Workshop: Make your first sounds with Surge, the open-source supersynth](https://www.musictech.net/tutorials/weekend-workshop-first-sounds-surgesupersynth/), MusicTech
 - [Weekend Workshop: Master wavetable synthesis for free with Surge](https://www.musictech.net/tutorials/weekend-workshop-master-wavetable-synthesis-for-free-with-surge/), MusicTech
 - [This FREE Synth is better than Massive! Surge](https://www.youtube.com/watch?v=b9nZMV9gv1U), VoodooG on YouTube
+- [Sound design with Surge 1.8 update](https://www.youtube.com/watch?v=Go0NCNeqRsw), Data Broth
+- [SURGE, синт для всех || Хороший звук каждый день](https://vk.com/videos-164129570?list=2bf9292e59623ee776&z=video-164129570_456239099%2Fvideos-164129570), Vospi
+- [Synthesizer Surge 1.8 ist veröffentlicht (Deutsch) / VST für Linux / Windows / Mac](https://www.youtube.com/watch?v=baGxeXJTvOY), Odo Sendaidokai
 
 ## Stochas
 
