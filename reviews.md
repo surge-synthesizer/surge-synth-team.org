@@ -53,9 +53,9 @@ As long as it falls in line with our principles of respect and decency to all, w
 - [Weekend Workshop: Master wavetable synthesis for free with Surge](https://www.musictech.net/tutorials/weekend-workshop-master-wavetable-synthesis-for-free-with-surge/), MusicTech
 - [This FREE Synth is better than Massive! Surge](https://www.youtube.com/watch?v=b9nZMV9gv1U), VoodooG on YouTube
 - [Sound design with Surge 1.8 update](https://www.youtube.com/watch?v=Go0NCNeqRsw), Data Broth
-- [SURGE, синт для всех || Хороший звук каждый день](https://vk.com/videos-164129570?list=2bf9292e59623ee776&z=video-164129570_456239099%2Fvideos-164129570), Vospi
+- [SURGE, синт для всех \|\| Хороший звук каждый день](https://vk.com/videos-164129570?list=2bf9292e59623ee776&z=video-164129570_456239099%2Fvideos-164129570), Vospi
 - [Synthesizer Surge 1.8 ist veröffentlicht (Deutsch) / VST für Linux / Windows / Mac](https://www.youtube.com/watch?v=baGxeXJTvOY), Odo Sendaidokai
-- [One Of The Best FREE Synth Plugins, Now Even Better! 🔥 | Surge 1.8 Update](https://www.youtube.com/watch?v=IeEiqytXVNg), Venus Theory
+- [One Of The Best FREE Synth Plugins, Now Even Better! 🔥 \| Surge 1.8 Update](https://www.youtube.com/watch?v=IeEiqytXVNg), Venus Theory
 
 ## Stochas
 
