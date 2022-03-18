@@ -2,7 +2,7 @@
 layout: post
 order: 3
 title: "Surge Effects Bank"
-summary: The Surge effects module in its own plugin
+summary: The Surge effects module in its own plugin.
 featured-img: surge-effects
 categories: [Effects]
 issue-tracker: "https://github.com/surge-synthesizer/surge-fx/issues"
