@@ -5,6 +5,7 @@ title: "Surge Effects Bank"
 summary: The Surge effects module in its own plugin.
 featured-img: surge-effects
 categories: [Effects]
+external_url: "https://surge-synthesizer.github.io"
 issue-tracker: "https://github.com/surge-synthesizer/surge-fx/issues"
 ---
 
@@ -22,3 +23,5 @@ is a powerful tool in Surge, where the sidechain acts as the modulator and Surge
 Surge vocoder with a sound source other than Surge as a carrier would require two sidechains, a feature which is unsupported 
 in most modern DAWs. With the Surge Effects Bank plugin, you can sidechain a modulator in, while also using the current track as a
 carrier source, allowing other synths or audio sources into the vocoder circuit.
+
+Surge Effects Bank is included with [Surge Synthesizer](https://surge-synthesizer.github.io/).
