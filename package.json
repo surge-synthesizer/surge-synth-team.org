@@ -10,7 +10,7 @@
     "lazysizes": "^5.2.2",
     "normalize.css": "^8.0.1",
     "picturefill": "^3.0.3",
-    "sharp": "^0.25.4",
+    "sharp": "^0.30.5",
     "velocity-animate": "^1.5.2"
   },
   "devDependencies": {
