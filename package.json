@@ -33,7 +33,7 @@
     "gulp-notify": "^3.2.0",
     "gulp-rename": "^2.0.0",
     "gulp-responsive": "^3.0.1",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^5.1.0",
     "gulp-size": "^3.0.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
