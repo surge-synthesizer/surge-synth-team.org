@@ -1,17 +1,17 @@
 ---
 layout: post
 order: 4
-title: "Surge for Rack"
+title: "Surge XT for VCV Rack"
 summary: The elements of the Surge synthesizer are available as modules for VCV Rack.
 featured-img: surge-rack 
 categories: [Synth]
 issue-tracker: "https://github.com/surge-synthesizer/surge-rack/issues"
 ---
 
-[Surge for Rack](https://surge-synthesizer.github.io/rack_manual) takes the Surge synthesizer and delivers it as a collection 
-of modules for [VCV Rack](https://vcvrack.com). The modules expose our oscillators, effects, some of our filters, and our modulators.
+[Surge XT for VCV Rack](https://surge-synthesizer.github.io/rack_manual) takes the Surge XT synthesizer and delivers it as a collection 
+of modules for [VCV Rack](https://vcvrack.com). The modules expose our oscillators, effects, filters, and more.
 
-You can read the entire manual at the link above, and can download the VCV Rack modules by adding Surge for Rack to your VCV Library the way
-you would any other free and open source modules.
+You can read the entire manual at the link above, and can download the VCV Rack modules by adding "Surge XT for Rack" to your VCV Library the way
+you would any other free and open source module collections.
 
 
