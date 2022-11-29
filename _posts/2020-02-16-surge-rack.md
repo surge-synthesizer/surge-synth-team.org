@@ -2,7 +2,7 @@
 layout: post
 order: 4
 title: "Surge XT for VCV Rack"
-summary: The elements of the Surge synthesizer are available as modules for VCV Rack.
+summary: Core elements of Surge XT synthesizer, available as modules for VCV Rack.
 featured-img: surge-rack 
 categories: [Synth]
 issue-tracker: "https://github.com/surge-synthesizer/surge-rack/issues"
