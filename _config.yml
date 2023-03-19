@@ -22,7 +22,7 @@ title: Surge Synth Team
 description: >- # this means to ignore newlines until "baseurl:"
   We maintain and contribute to awesome open source audio plugins!
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://surge-synth-team.org/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://surge-synthesizer.github.io/surge-synth-team.org/" # the base hostname & protocol for your site, e.g. http://example.com
 
 social:
   name: Your Name
