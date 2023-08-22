@@ -6,10 +6,12 @@
     -   (Optional) Install [pnpm](https://pnpm.io/)
 -   Run `npm install` or `pnpm install` depending on your choice of package manager
 -   Run `npm run dev` or `pnpm dev` to run the development server @ http://localhost:3000/
+-   Run `npm run build` or `pnpm build` to build the site to the `dist` directory.
+-   Run `npm run preview` or `pnpm preview` to preview the built site.
 
 ## Adding and editing pages
 
-To make changes, all you need to is fork the project. Once you have done that you can create a branch on your fork make changes and then open a PR. [This](https://github.com/surge-synthesizer/surge/blob/master/doc/git-howto.md) git document for the OSS Surge-Synthesizer project outlines a suggested way of doing work and then creating PRs.
+To make changes, all you need to is fork the project. Once you have done that you can create a branch on your fork make changes and then open a PR. [This](https://github.com/surge-synthesizer/surge/blob/main/doc/How%20to%20Git.md) git document for the OSS Surge-Synthesizer project outlines a suggested way of doing work and then creating PRs.
 
 Once you have created a branch in your fork you can then just click the edit button (upper right corner) to edit a post in the `src/content` folder. Because the posts are markdown documents you can just edit stuff in place in the GitHub editor.
 
@@ -41,11 +43,3 @@ See [Editor Setup](https://tailwindcss.com/docs/editor-setup) for help setting u
 You can use tailwind inline or edit the main file in the `src/css` directory.
 
 Static assets (images, fonts, etc.) live in the `public` directory.
-
-## Building and serving the site
-
-Run `npm run dev` or `pnpm dev` to serve the site.
-
-Run `npm run build` or `pnpm build` to build the site to the `dist` directory.
-
-Run `npm run preview` or `pnpm preview` to preview the built site.
