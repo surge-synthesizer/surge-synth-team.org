@@ -1,11 +1,12 @@
 ---
-order: 1
-title: "Surge XT"
+slug: surge-xt
+title: Surge XT
 summary: Surge XT is an open source hybrid synthesizer, and the synth which started the Surge Synth Team project!
-featured-img: surge 
+order: 1
+thumbnail: /screenshots/surge-xt.png
 categories: [Synth]
-external_url: "https://surge-synthesizer.github.io"
-issue-tracker: "https://github.com/surge-synthesizer/surge/issues"
+url: https://surge-synthesizer.github.io
+issue_tracker: https://github.com/surge-synthesizer/surge/issues
 ---
 
 Surge XT is an open source hybrid synthesizer, originally sold as a commercial product by Vember Audio, ran by Claes Johanson. In 2018, Claes

@@ -7,21 +7,20 @@ const page = defineCollection({
     }),
 });
 
-const post = defineCollection({
+const posts = defineCollection({
     type: "content",
     schema: z.object({
-        order: z.number(),
         title: z.string(),
         summary: z.string(),
-        "featured-image": z.string(),
+        order: z.number(),
+        thumbnail: z.string(),
         categories: z.array(z.string()),
-        "issue-tracker": z.string(),
-        published: z.boolean(),
-        external_url: z.string(),
+        url: z.string(),
+        issue_tracker: z.string(),
     }),
 });
 
 export const collections = {
     page: page,
-    post: post,
+    posts: posts,
 };

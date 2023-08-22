@@ -11,6 +11,9 @@
 }
 
 @layer base {
+    body {
+        @apply dark:bg-darkBackground bg-white text-black dark:text-white;
+    }
     h1,
     h2,
     h3,
@@ -32,7 +35,7 @@
         @apply text-lg;
     }
     a {
-        @apply text-[#FF9000] underline hover:text-black dark:hover:text-white;
+        @apply text-accent2A dark:text-accent1A underline hover:text-current;
     }
     ul {
         @apply list-inside list-disc;

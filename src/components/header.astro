@@ -6,7 +6,7 @@ page === "projects" ? (projects = true) : (projects = false);
 ---
 
 <div
-    class="flex flex-col items-center justify-center gap-2 bg-[url('/images/darkened.png')] bg-center bg-no-repeat p-2 text-white">
+    class="flex flex-col items-center justify-center gap-2 bg-[url('/images/darkened.png')] bg-center bg-no-repeat bg-black p-2 text-white">
     <div
         class="flex flex-row flex-wrap items-center justify-center text-center">
         {
@@ -28,7 +28,7 @@ page === "projects" ? (projects = true) : (projects = false);
     <div class="flex flex-col">
         {
             projects ? (
-                <p class="p-2 text-center">
+                <p class="max-w-[600px] p-2 text-center">
                     The Surge Synth Team is a group of musicians, developers,
                     testers, documenters, and general volunteer open source
                     enthusiasts who randomly assembled to work on the Surge

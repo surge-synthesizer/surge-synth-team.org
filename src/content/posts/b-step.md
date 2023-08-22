@@ -1,10 +1,12 @@
 ---
-order: 8
-title: "B-Step Sequencer"
+slug: b-step
+title: B-Step Sequencer
 summary: The B-Step Sequencer is a midi generating plugin from Thomas Arndt which became open source in March 2022.
-featured-img: bstep
+order: 6
+thumbnail: /screenshots/b-step.jpg
 categories: [Sequencer]
-issue-tracker: "https://github.com/surge-synthesizer/b-step/issues"
+url: /b-step
+issue_tracker: https://github.com/surge-synthesizer/b-step/issues
 ---
 
 The B-Step Sequencer is a midi generating plugin and program which was originally authored by Monoplugs and its principal Thomas Arndt. In March of 2022, after he had open sourced Monique with the Surge team, Thomas donated the B-Step source to the Surge Synth Team.

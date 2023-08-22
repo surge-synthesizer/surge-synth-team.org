@@ -1,10 +1,12 @@
 ---
-order: 10
-title: "Shortcircuit XT"
+slug: shortcircuit-xt
+title: Shortcircuit XT
 summary: Shortcircuit XT is a sampler/sample player.
-featured-img: shortcircuit
+order: 4
+thumbnail: /screenshots/shortcircuit-xt.svg
 categories: [Sampler]
-issue-tracker: "https://github.com/surge-synthesizer/shortcircuit-xt/issues"
+url: /shortcircuit-xt
+issue_tracker: https://github.com/surge-synthesizer/shortcircuit-xt/issues
 ---
 
 What? Shortcircuit is open source? Well yes, but there are big big caveats. Right now we are in the middle of rebuilding Shortcircuit from a (very generously) open sourced copy of the SC2 beta codebase. That codebase was old, ran only on windows, etc... so we are in the middle of a rebuild.

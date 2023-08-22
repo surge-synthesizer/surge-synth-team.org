@@ -1,73 +1,30 @@
 ---
+import { getCollection } from "astro:content";
 import Default from "@layouts/default.astro";
 import Header from "@components/header.astro";
 import Page from "@components/page.astro";
 import Card from "@components/card.astro";
+
+const allPosts = await getCollection("posts");
+
+allPosts.sort((a, b) => {
+    return a.data.order - b.data.order;
+});
 ---
 
 <Default title="Surge Synth Team" {...Astro.props}>
     <Header page="projects" />
 
     <Page title="Projects">
-        <Card
-            title="Surge XT"
-            text="Surge XT is an open source hybrid synthesizer, and the synth which started the Surge Synth Team project!"
-            href="https://surge-synthesizer.github.io/"
-            image="/screenshots/surge.png"
-        />
-        <Card
-            title="Surge XT Effects"
-            text="The Surge effects module in its own plugin."
-            href="https://surge-synthesizer.github.io/"
-            image="/screenshots/surge-effects.jpg"
-        />
-        <Card
-            title="Surge XT for VCV Rack"
-            text="Core elements of Surge XT synthesizer, available as modules for VCV Rack."
-            href="#"
-            image="/screenshots/surge-rack.jpg"
-        />
-        <Card
-            title="Shortcircuit XT"
-            text="Shortcircuit XT is a sampler/sample player."
-            href="#"
-            image="/screenshots/shortcircuit.jpg"
-        />
-        <Card
-            title="Stochas"
-            text="Stochas is a probabilistic polyrhythmic sequencer plugin."
-            href="https://stochas.org/"
-            image="/screenshots/stochas.jpg"
-        />
-        <Card
-            title="B-Step Sequencer"
-            text="The B-Step Sequencer is a midi generating plugin from Thomas Arndt which became open source in March 2022."
-            href="#"
-            image="/screenshots/bstep.jpg"
-        />
-        <Card
-            title="Monique Monosynth"
-            text="Monique is a monophonic synth from Thomas Arndt which became open source in December 2021."
-            href="#"
-            image="/screenshots/monique.jpg"
-        />
-        <Card
-            title="Tuning Workbench Synth"
-            text="Tuning Workbench Synth is a synthesizer for learning and experimenting with microtonal scales."
-            href="#"
-            image="/screenshots/tuning-workbench-synth.jpg"
-        />
-        <Card
-            title="Tuning Library"
-            text="We've added microtuning support to several instruments. Our core SCL/KBM calculation engine is available as a standalone C++ header."
-            href="#"
-            image="/screenshots/tuning-library.jpg"
-        />
-        <Card
-            title="Tuning Note CLAPs"
-            text="Microtuning devices for Bitwig Studio."
-            href="#"
-            image="/screenshots/tuning-claps.jpg"
-        />
+        {
+            allPosts.map((p) => (
+                <Card
+                    title={p.data.title}
+                    text={p.data.summary}
+                    href={p.data.url}
+                    image={p.data.thumbnail}
+                />
+            ))
+        }
     </Page>
 </Default>
