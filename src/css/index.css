@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Inter";
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: oblique 0deg 10deg;
+    src: url("/fonts/Inter.var.woff2?v=3.19") format("woff2");
+}
+
+@layer base {
+    body {
+        @apply dark:bg-darkBackground bg-white text-black dark:text-white;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply w-fit font-black;
+    }
+    h1 {
+        @apply text-4xl;
+    }
+    h2 {
+        @apply text-3xl;
+    }
+    h3 {
+        @apply text-2xl;
+    }
+    h4 {
+        @apply text-xl;
+    }
+    a {
+        @apply text-accent2A dark:text-accent1A underline hover:text-current;
+    }
+    ul {
+        @apply list-inside list-disc;
+    }
+}

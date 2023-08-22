@@ -1,0 +1,16 @@
+---
+const { title, text, href, src } = Astro.props;
+---
+
+<div class="grid gap-6 rounded-3xl bg-neutral-100 p-4 dark:bg-cardBackground">
+    <h2>
+        <a href={href}>{title}</a>
+    </h2>
+    <a href={href}>
+        <img
+            class="select-none rounded-xl bg-transparent shadow-xl shadow-neutral-600 dark:shadow-black"
+            src={src}
+        />
+    </a>
+    <p class="text-center">{text}</p>
+</div>

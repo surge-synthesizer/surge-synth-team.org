@@ -1,0 +1,72 @@
+---
+title: Join the Surge Synth Team
+slug: contact-us
+---
+
+Want to join the Surge Synth Team? There's no application process! Just show up, be
+friendly, and contribute. We work hard to make a welcoming community of music
+enthusiasts.
+
+The best way to reach us is to join our [Discord](https://discord.gg/aFQDdMV) or hit us up
+on [GitHub](https://github.com/surge-synthesizer) but many of us also hang out in this
+[Facebook group](https://www.facebook.com/groups/surgesynth/) or on
+[KvR](https://www.kvraudio.com/forum/viewtopic.php?f=1&t=511922).
+
+And we really don't have any rules other than don't be a jerk! (If you want to be a
+jerk online there are plenty of options). Have an idea? We would love to hear it.
+Happen to be a Windows C++ plugin developer? We need your help! Think you've
+found a bug? You probably have! Want to contribute content? Go for it!
+
+## Feature Requests and Bug Reports
+
+We love to hear from our users! Our projects have been able to attain the quality they have today
+thanks to a dedicated group of musicians who gave patient and clear feedback on bugs and brainstormed
+ideas for new and improved features. We invite you to share your feedback too.
+
+The best way to reach the development team is either to open an issue on GitHub or
+[join our discord](https://discord.gg/aFQDdMV) and chat with us. Here are the GitHub issue pages for our projects:
+
+-   [Surge XT](https://github.com/surge-synthesizer/surge/issues)
+-   [Surge XT Effects](https://github.com/surge-synthesizer/surge/issues)
+-   [Surge XT for VCV Rack](https://github.com/surge-synthesizer/surge-rack/issues)
+-   [Shortcircuit XT](https://github.com/surge-synthesizer/shortcircuit-xt/issues)
+-   [Stochas](https://github.com/surge-synthesizer/surge/issues)
+-   [B-Step Sequencer](https://github.com/surge-synthesizer/b-step/issues)
+-   [Monique Monosynth](https://github.com/surge-synthesizer/monique-monosynth/issues)
+-   [Tuning Workbench Synth](https://github.com/surge-synthesizer/tuning-workbench-synth/issues)
+-   [Tuning Library](https://github.com/surge-synthesizer/tuning-library/issues)
+-   [Tuning Note CLAPs](https://github.com/surge-synthesizer/tuning-note-claps/issues)
+
+And good bug reports make good software! So please feel free to open a GitHub issue! But there are some guidelines
+which may help.
+
+### Guidelines
+
+Good GitHub issues should have clear titles (like "Mouse doesnt map properly to filter section when modulating",
+not "Bug"). They should contain some key information:
+
+-   Include the full version information for your version of the project you are using. This includes the OS,
+    host style, and version. For instance "Windows 64 bit VST3, Surge 1.6.1.1"
+-   Include the full information about your operating system. For instance "MacOS 10.13.4" or "Unbuntu 18.04 LTS"
+-   Include the information about your host. This is especially important since there are lot of hosts and we may not
+    heard of yours. If you can get a trial version of your host letting us know is nice also.
+
+And once all of that is included, please include a clear description of the bug. How you demonstrate it and what
+you expect. Screenshots help, but clear text is good also.
+
+Here's a great bug report:
+
+_"Surge Windows 10 VST3 version 1.6.1.1 in FruityLoops 20. When I am dragging a slider in modulation mode, if I drag
+off the end of the slider and keep dragging, the modulation slider can reset to the max. Unmodulated the slider
+doesn't do that"_
+
+That's a real bug report we got. It was a one line fix once we had that clear description!
+
+For features, be more creative. We love to hear ideas.
+
+And we try to fix bugs in a timely fashion. But as always, the best bug is one which comes with a pull request to
+fix it. Dive in! The code's not that scary.
+
+And thanks,
+
+The Surge Synth Team
