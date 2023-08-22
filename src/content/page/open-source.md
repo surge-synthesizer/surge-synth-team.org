@@ -1,6 +1,6 @@
 ---
 title: Open Source
-permalink: /open-source/
+slug: open-source
 ---
 
 ## Open sourcing your freeware

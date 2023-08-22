@@ -1,7 +1,5 @@
 ---
 const { title } = Astro.props.frontmatter || Astro.props;
-import "@css/inter.css";
-import "@css/emoji.css";
 import "@css/index.css";
 ---
 
@@ -19,7 +17,7 @@ import "@css/index.css";
         <title>{title}</title>
     </head>
 
-    <body class="bg-white dark:bg-black">
+    <body class="bg-white dark:bg-black text-black dark:text-white">
         <slot />
     </body>
 </html>

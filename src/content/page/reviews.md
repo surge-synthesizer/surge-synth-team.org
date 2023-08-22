@@ -1,6 +1,6 @@
 ---
 title: Reviews and Guides
-permalink: /reviews-and-guides/
+slug: reviews-and-guides
 ---
 
 ## Reviews and Guides
