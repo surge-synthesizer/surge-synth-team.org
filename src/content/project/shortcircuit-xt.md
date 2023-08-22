@@ -5,7 +5,7 @@ summary: Shortcircuit XT is a sampler/sample player.
 order: 4
 thumbnail: /screenshots/shortcircuit-xt.svg
 categories: [Sampler]
-url: /shortcircuit-xt
+url: /project/shortcircuit-xt
 issue_tracker: https://github.com/surge-synthesizer/shortcircuit-xt/issues
 ---
 

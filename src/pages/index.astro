@@ -5,7 +5,7 @@ import Header from "@components/header.astro";
 import Page from "@components/page.astro";
 import Card from "@components/card.astro";
 
-const allPosts = await getCollection("posts");
+const allPosts = await getCollection("project");
 
 allPosts.sort((a, b) => {
     return a.data.order - b.data.order;
@@ -22,7 +22,7 @@ allPosts.sort((a, b) => {
                     title={p.data.title}
                     text={p.data.summary}
                     href={p.data.url}
-                    image={p.data.thumbnail}
+                    src={p.data.thumbnail}
                 />
             ))
         }

@@ -5,7 +5,7 @@ summary: The B-Step Sequencer is a midi generating plugin from Thomas Arndt whic
 order: 6
 thumbnail: /screenshots/b-step.jpg
 categories: [Sequencer]
-url: /b-step
+url: /project/b-step
 issue_tracker: https://github.com/surge-synthesizer/b-step/issues
 ---
 

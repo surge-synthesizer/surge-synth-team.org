@@ -1,11 +1,20 @@
 ---
-import { getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
 import Default from "@layouts/default.astro";
 import Header from "@components/header.astro";
 import Page from "@components/page.astro";
+import Thumbnail from "@components/thumbnail.astro";
 
-const entry = await getEntry("page", "open-source");
+export async function getStaticPaths() {
+    const posts = await getCollection("page");
+    return posts.map((entry) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 

@@ -23,16 +23,16 @@
         @apply w-fit font-black;
     }
     h1 {
-        @apply text-3xl;
+        @apply text-4xl;
     }
     h2 {
-        @apply text-2xl;
+        @apply text-3xl;
     }
     h3 {
-        @apply text-xl;
+        @apply text-2xl;
     }
     h4 {
-        @apply text-lg;
+        @apply text-xl;
     }
     a {
         @apply text-accent2A dark:text-accent1A underline hover:text-current;

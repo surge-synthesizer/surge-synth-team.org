@@ -1,15 +1,15 @@
 ---
-const { title, text, href, image } = Astro.props;
+const { title, text, href, src } = Astro.props;
 ---
 
-<div class="dark:bg-cardBackground grid gap-6 rounded-3xl bg-neutral-100 p-4">
-    <h1>
+<div class="grid gap-6 rounded-3xl bg-neutral-100 p-4 dark:bg-cardBackground">
+    <h2>
         <a href={href}>{title}</a>
-    </h1>
+    </h2>
     <a href={href}>
         <img
             class="scale-95 select-none rounded-xl border-2 border-transparent bg-transparent shadow-xl shadow-neutral-600 duration-75 hover:scale-90 hover:border-[#ff9000] dark:shadow-black"
-            src={image}
+            src={src}
         />
     </a>
     <p class="text-center">{text}</p>

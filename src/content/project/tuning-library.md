@@ -5,7 +5,7 @@ summary: We’ve added microtuning support to several instruments. Our core SCL/
 order: 9
 thumbnail: /screenshots/tuning-library.jpg
 categories: [Synth, Microtuning]
-url: /tuning-library
+url: /project/tuning-library
 issue_tracker: https://github.com/surge-synthesizer/tuning-library/issues
 ---
 

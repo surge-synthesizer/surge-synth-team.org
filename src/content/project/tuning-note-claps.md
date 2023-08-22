@@ -5,7 +5,7 @@ summary: Microtuning devices for Bitwig Studio.
 order: 10
 thumbnail: /screenshots/tuning-note-claps.jpg
 categories: [Utility]
-url: /tuning-note-claps
+url: /project/tuning-note-claps
 issue_tracker: https://github.com/surge-synthesizer/tuning-note-claps/issues
 ---
 

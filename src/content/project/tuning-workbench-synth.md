@@ -5,7 +5,7 @@ summary: Tuning Workbench Synth is a synthesizer for learning and experimenting 
 order: 8
 thumbnail: /screenshots/tuning-workbench-synth.jpg
 categories: [Synth, Microtuning]
-url: /tuning-workbench-synth
+url: /project/tuning-workbench-synth
 issue_tracker: https://github.com/surge-synthesizer/tuning-workbench-synth/issues
 ---
 

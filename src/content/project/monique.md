@@ -5,7 +5,7 @@ summary: Monique is a monophonic synth from Thomas Arndt which became open sourc
 order: 7
 thumbnail: /screenshots/monique.jpg
 categories: [Synth]
-url: /monique
+url: /project/monique
 issue_tracker: https://github.com/surge-synthesizer/monique-monosynth/issues
 ---
 

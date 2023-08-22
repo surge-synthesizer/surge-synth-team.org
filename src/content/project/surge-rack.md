@@ -5,7 +5,7 @@ summary: Core elements of Surge XT synthesizer, available as modules for VCV Rac
 order: 3
 thumbnail: /screenshots/surge-rack.jpg
 categories: [Synth]
-url: /surge-rack
+url: /project/surge-rack
 issue_tracker: https://github.com/surge-synthesizer/surge-rack/issues
 ---
 

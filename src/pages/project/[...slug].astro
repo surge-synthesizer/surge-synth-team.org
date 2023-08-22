@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+
+import Default from "@layouts/default.astro";
+import Header from "@components/header.astro";
+import Page from "@components/page.astro";
+import Thumbnail from "@components/thumbnail.astro";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("project");
+    return posts.map((entry) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Default title={"Surge Synth Team - " + entry.data.title} {...Astro.props}>
+    <Header />
+    <Page title={entry.data.title}>
+        <Thumbnail src={entry.data.thumbnail} />
+        <Content />
+    </Page>
+</Default>

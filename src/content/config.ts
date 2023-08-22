@@ -7,7 +7,7 @@ const page = defineCollection({
     }),
 });
 
-const posts = defineCollection({
+const project = defineCollection({
     type: "content",
     schema: z.object({
         title: z.string(),
@@ -22,5 +22,5 @@ const posts = defineCollection({
 
 export const collections = {
     page: page,
-    posts: posts,
+    project: project,
 };
