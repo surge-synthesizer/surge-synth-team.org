@@ -1,11 +1,9 @@
 ---
-title: Contact Us
+title: Join the Surge Synth Team
 slug: contact-us
 ---
 
-## Join the Surge Synth Team
-
-Want to join the Surge Synth Team? There’s no application process! Just show up, be
+Want to join the Surge Synth Team? There's no application process! Just show up, be
 friendly, and contribute. We work hard to make a welcoming community of music
 enthusiasts.
 
@@ -14,9 +12,9 @@ on [GitHub](https://github.com/surge-synthesizer) but many of us also hang out i
 [Facebook group](https://www.facebook.com/groups/surgesynth/) or on
 [KvR](https://www.kvraudio.com/forum/viewtopic.php?f=1&t=511922).
 
-And we really don’t have any rules other than don’t be a jerk! (If you want to be a
+And we really don't have any rules other than don't be a jerk! (If you want to be a
 jerk online there are plenty of options). Have an idea? We would love to hear it.
-Happen to be a Windows C++ plugin developer? We need your help! Think you’ve
+Happen to be a Windows C++ plugin developer? We need your help! Think you've
 found a bug? You probably have! Want to contribute content? Go for it!
 
 ## Feature Requests and Bug Reports
@@ -28,13 +26,16 @@ ideas for new and improved features. We invite you to share your feedback too.
 The best way to reach the development team is either to open an issue on GitHub or
 [join our discord](https://discord.gg/aFQDdMV) and chat with us. Here are the GitHub issue pages for our projects:
 
-{% assign sorted_posts = site.posts | sort: 'order' %}
-{% for post in sorted_posts %}
-{% if post.issue-tracker %}
-
--   [{{ post.title }}]({{ post.issue-tracker }})
-    {% endif %}
-    {% endfor %}
+-   [Surge XT](https://github.com/surge-synthesizer/surge/issues)
+-   [Surge XT Effects](https://github.com/surge-synthesizer/surge/issues)
+-   [Surge XT for VCV Rack](https://github.com/surge-synthesizer/surge-rack/issues)
+-   [Shortcircuit XT](https://github.com/surge-synthesizer/shortcircuit-xt/issues)
+-   [Stochas](https://github.com/surge-synthesizer/surge/issues)
+-   [B-Step Sequencer](https://github.com/surge-synthesizer/b-step/issues)
+-   [Monique Monosynth](https://github.com/surge-synthesizer/monique-monosynth/issues)
+-   [Tuning Workbench Synth](https://github.com/surge-synthesizer/tuning-workbench-synth/issues)
+-   [Tuning Library](https://github.com/surge-synthesizer/tuning-library/issues)
+-   [Tuning Note CLAPs](https://github.com/surge-synthesizer/tuning-note-claps/issues)
 
 And good bug reports make good software! So please feel free to open a GitHub issue! But there are some guidelines
 which may help.

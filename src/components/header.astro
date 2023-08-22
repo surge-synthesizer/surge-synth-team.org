@@ -1,10 +1,8 @@
 ---
 const { page } = Astro.props;
 
-let index;
-page === "index" ? (index = true) : (index = false);
-
-import Link from "@components/link.astro";
+let projects;
+page === "projects" ? (projects = true) : (projects = false);
 ---
 
 <div
@@ -12,13 +10,13 @@ import Link from "@components/link.astro";
     <div
         class="flex flex-row flex-wrap items-center justify-center text-center">
         {
-            index ? (
+            projects ? (
                 <h1 class="flex-1 self-center text-3xl font-black italic">
                     Surge Synth Team
                 </h1>
             ) : (
                 <h1 class="flex-1 self-center text-3xl font-black italic">
-                    <Link link="/" text="Surge Synth Team" />
+                    <a href="/">Surge Synth Team</a>
                 </h1>
             )
         }
@@ -29,7 +27,7 @@ import Link from "@components/link.astro";
     </div>
     <div class="flex flex-col">
         {
-            index ? (
+            projects ? (
                 <p class="p-2 text-center">
                     The Surge Synth Team is a group of musicians, developers,
                     testers, documenters, and general volunteer open source
@@ -45,9 +43,9 @@ import Link from "@components/link.astro";
     </div>
     <div
         class="flex flex-wrap place-content-center gap-2 text-sm font-semibold">
-        <Link text="Open Source" link="open-source" />
-        <Link text="@GitHub" link="https://github.com/surge-synthesizer" />
-        <Link text="Reviews & Guides" link="reviews-and-guides" />
-        <Link text="Contact" link="contact-us" />
+        <a href="https://github.com/surge-synthesizer">Our GitHub</a>
+        <a href="open-source">Open Source</a>
+        <a href="reviews-and-guides">Reviews & Guides</a>
+        <a href="contact-us">Contact Us</a>
     </div>
 </div>

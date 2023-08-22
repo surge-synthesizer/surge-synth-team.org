@@ -9,3 +9,32 @@
     font-style: oblique 0deg 10deg;
     src: url("/fonts/Inter.var.woff2?v=3.19") format("woff2");
 }
+
+@layer base {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply w-fit font-black;
+    }
+    h1 {
+        @apply text-3xl;
+    }
+    h2 {
+        @apply text-2xl;
+    }
+    h3 {
+        @apply text-xl;
+    }
+    h4 {
+        @apply text-lg;
+    }
+    a {
+        @apply text-[#FF9000] underline hover:text-black dark:hover:text-white;
+    }
+    ul {
+        @apply list-inside list-disc;
+    }
+}

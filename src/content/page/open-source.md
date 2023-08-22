@@ -1,9 +1,7 @@
 ---
-title: Open Source
+title: Open sourcing your freeware
 slug: open-source
 ---
-
-## Open sourcing your freeware
 
 You made an awesome plugin, and you were cool enough to share it for free. Maybe your life has gone in another direction, and you don't have time to keep working on it. We are an open-source community that would love to carry your work forward into the future! 
 
