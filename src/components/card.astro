@@ -1,0 +1,19 @@
+---
+const { title, text, link, image } = Astro.props;
+import Link from "@components/link.astro";
+---
+
+<div class="grid gap-6 rounded-3xl bg-neutral-100 p-4 dark:bg-neutral-900">
+    <a class="w-fit" href={link}>
+        <h1 class="text-2xl font-black hover:text-[#ff9000]">
+            {title}
+        </h1>
+    </a>
+    <a href={link}>
+        <img
+            class="scale-95 select-none rounded-xl border-2 border-transparent bg-transparent shadow-xl shadow-neutral-600 duration-75 hover:scale-90 hover:border-[#ff9000] dark:shadow-black"
+            src={image}
+        />
+    </a>
+    <p class="text-center">{text}</p>
+</div>

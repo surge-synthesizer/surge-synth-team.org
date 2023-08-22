@@ -1,0 +1,44 @@
+---
+import Default from "@layouts/default.astro";
+import Card from "@components/card.astro";
+import Link from "@components/link.astro";
+import Header from "@components/header.astro";
+---
+
+<Default title="Surge Synth Team - Open Source" {...Astro.props}>
+    <Header />
+
+    <div class="m-auto grid max-w-[600px] grid-flow-row gap-8 px-4 py-8">
+        <h1 class="text-2xl">Open Sourcing Your Freeware</h1>
+        <p>
+            You made an awesome plugin, and you were cool enough to share it for
+            free. Maybe your life has gone in another direction, and you don't
+            have time to keep working on it. We are an open-source community
+            that would love to carry your work forward into the future!
+        </p>
+        <p>
+            If you would like to know more about open sourcing your audio
+            plugins, please reach out to us on <Link
+                link="https://github.com/surge-synthesizer"
+                text="GitHub"
+            />, <Link
+                link="https://www.kvraudio.com/forum/viewtopic.php?f=1&t=511922"
+                text="KVR"
+            />, our <Link
+                link="https://www.facebook.com/groups/surgesynth/"
+                text="Facebook group"
+            />, or join our <Link
+                link="https://discord.gg/aFQDdMV"
+                text="Discord"
+            />. We might very well be able to help maintain them if you decide
+            to open source them.
+        </p>
+        <p>
+            We generally work with the GPL3 license for plugins and the MIT
+            license for libraries. If you aren't familiar with open source
+            licenses, we are happy to talk with you about how they work and what
+            it would mean to adopt one. In some cases it's a great idea, but it
+            may not be the right choice for everything.
+        </p>
+    </div>
+</Default>
