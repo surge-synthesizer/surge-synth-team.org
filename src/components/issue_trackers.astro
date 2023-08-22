@@ -1,0 +1,21 @@
+---
+const {} = Astro.props;
+
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+
+projects.sort((a, b) => {
+    return a.data.order - b.data.order;
+});
+---
+
+<ul>
+    {
+        projects.map((project) => (
+            <li>
+                <a href={project.data.issue_tracker}>{project.data.title}</a>
+            </li>
+        ))
+    }
+</ul>
