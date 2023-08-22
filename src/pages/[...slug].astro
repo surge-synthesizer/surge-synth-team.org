@@ -4,23 +4,22 @@ import { getCollection } from "astro:content";
 import Default from "@layouts/default.astro";
 import Header from "@components/header.astro";
 import Page from "@components/page.astro";
-import Thumbnail from "@components/thumbnail.astro";
 
 export async function getStaticPaths() {
-    const posts = await getCollection("page");
-    return posts.map((entry) => ({
-        params: { slug: entry.slug },
-        props: { entry },
+    const pages = await getCollection("pages");
+    return pages.map((page) => ({
+        params: { slug: page.slug },
+        props: { page },
     }));
 }
 
-const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { page } = Astro.props;
+const { Content } = await page.render();
 ---
 
-<Default title={"Surge Synth Team - " + entry.data.title} {...Astro.props}>
+<Default title={"Surge Synth Team - " + page.data.title} {...Astro.props}>
     <Header />
-    <Page title={entry.data.title}>
+    <Page title={page.data.title}>
         <Content />
     </Page>
 </Default>

@@ -2,12 +2,12 @@
 import { getCollection } from "astro:content";
 import Default from "@layouts/default.astro";
 import Header from "@components/header.astro";
-import Home from "@components/home.astro";
+import Projects from "@components/projects.astro";
 import Card from "@components/card.astro";
 
-const allPosts = await getCollection("project");
+const projects = await getCollection("projects");
 
-allPosts.sort((a, b) => {
+projects.sort((a, b) => {
     return a.data.order - b.data.order;
 });
 ---
@@ -15,16 +15,16 @@ allPosts.sort((a, b) => {
 <Default title="Surge Synth Team" {...Astro.props}>
     <Header page="projects" />
 
-    <Home title="Projects">
+    <Projects>
         {
-            allPosts.map((p) => (
+            projects.map((project) => (
                 <Card
-                    title={p.data.title}
-                    text={p.data.summary}
-                    href={p.data.url}
-                    src={p.data.thumbnail}
+                    title={project.data.title}
+                    summary={project.data.summary}
+                    href={project.data.url}
+                    src={project.data.thumbnail}
                 />
             ))
         }
-    </Home>
+    </Projects>
 </Default>
