@@ -4,8 +4,10 @@
         "baseUrl": "./",
         "paths": {
             "@components/*": ["src/components/*"],
+            "@content/*": ["src/content"],
+            "@css/*": ["src/css/*"],
             "@layouts/*": ["src/layouts/*"],
-            "@css/*": ["src/css/*"]
+            "@pages/*": ["src/pages/*"]
         },
         "plugins": [{ "name": "@astrojs/ts-plugin" }]
     }
