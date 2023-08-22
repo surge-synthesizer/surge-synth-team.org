@@ -1,5 +1,5 @@
 ---
-const { title, text, href, src } = Astro.props;
+const { title, summary, href, src } = Astro.props;
 ---
 
 <div class="grid gap-6 rounded-3xl bg-neutral-100 p-4 dark:bg-cardBackground">
@@ -12,5 +12,5 @@ const { title, text, href, src } = Astro.props;
             src={src}
         />
     </a>
-    <p class="text-center">{text}</p>
+    <p class="text-center">{summary}</p>
 </div>
