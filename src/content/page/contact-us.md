@@ -30,7 +30,7 @@ The best way to reach the development team is either to open an issue on GitHub 
 -   [Surge XT Effects](https://github.com/surge-synthesizer/surge/issues)
 -   [Surge XT for VCV Rack](https://github.com/surge-synthesizer/surge-rack/issues)
 -   [Shortcircuit XT](https://github.com/surge-synthesizer/shortcircuit-xt/issues)
--   [Stochas](https://github.com/surge-synthesizer/surge/issues)
+-   [Stochas](https://github.com/surge-synthesizer/stochas/issues)
 -   [B-Step Sequencer](https://github.com/surge-synthesizer/b-step/issues)
 -   [Monique Monosynth](https://github.com/surge-synthesizer/monique-monosynth/issues)
 -   [Tuning Workbench Synth](https://github.com/surge-synthesizer/tuning-workbench-synth/issues)
