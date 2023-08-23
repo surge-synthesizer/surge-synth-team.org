@@ -3,14 +3,16 @@ const { title, summary, href, src } = Astro.props;
 ---
 
 <div class="grid gap-6 rounded-3xl bg-neutral-100 p-8 dark:bg-cardBackground">
-    <h2>
-        <a href={href}>{title}</a>
-    </h2>
-    <a href={href}>
-        <img
-            class="select-none rounded-xl bg-transparent shadow-xl shadow-neutral-600 dark:shadow-black"
-            src={src}
-        />
-    </a>
-    <p class="text-center">{summary}</p>
+    <div class="flex flex-col place-content-between gap-4">
+        <h2>
+            <a href={href}>{title}</a>
+        </h2>
+        <a href={href}>
+            <img
+                class="select-none rounded-xl bg-transparent shadow-xl shadow-neutral-600 dark:shadow-black"
+                src={src}
+            />
+        </a>
+    </div>
+    <p class="self-end text-center">{summary}</p>
 </div>
