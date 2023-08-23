@@ -15,7 +15,7 @@ export default {
             },
         },
         fontFamily: {
-            sans: ["Inter", "Noto Emoji"],
+            sans: ["Lato"],
         },
     },
     corePlugins: {

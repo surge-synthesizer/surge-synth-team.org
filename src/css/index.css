@@ -3,6 +3,19 @@
 @tailwind utilities;
 
 @font-face {
+    font-family: "Lato";
+    src: url("fonts/Lato-Regular.woff") format("woff");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Lato";
+    src: url("fonts/Lato-Italic.woff") format("woff");
+    font-style: italic;
+    font-weight: normal;
+}
+
+@font-face {
     font-family: "Inter";
     font-weight: 100 900;
     font-display: swap;
@@ -12,7 +25,7 @@
 
 @layer base {
     body {
-        @apply dark:bg-darkBackground bg-white text-black dark:text-white;
+        @apply bg-white text-black dark:bg-darkBackground dark:text-white;
     }
     h1,
     h2,
@@ -35,7 +48,7 @@
         @apply text-xl;
     }
     a {
-        @apply text-accent2A dark:text-accent1A underline hover:text-current;
+        @apply text-accent2A hover:text-current;
     }
     ul {
         @apply list-inside list-disc;
