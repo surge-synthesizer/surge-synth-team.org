@@ -31,7 +31,7 @@ If you are a VST2 licensee and would like to build a VST2, you may do so using t
 When you launch the tuning workbench synth, you will see the UI below. The main UI is divided into two sections,
 the generator section (at the top) and tuning section (at the bottom).
 
-![The TWS Main Screen](/assets/img/tws-manual/TWS-MainUI.png)
+![The TWS Main Screen](/images/tws-manual/TWS-MainUI.png)
 
 ## The Generator Section
 

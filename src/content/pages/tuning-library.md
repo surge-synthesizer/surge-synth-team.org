@@ -14,7 +14,7 @@ about edge cases. When we turned to do it in Surge, we got it wrong more often t
 open source, we thought about sharing that experience.
 
 So we took our core tuning implementation from Surge and converted it into a standalone MIT licensed C++-14 header-only library.
-We used this to build the [Tuning Workbench Synth](/tuning-workbench-synth/) and also to add tuning to [our Dexed fork](/dexed).
+We used this to build the [Tuning Workbench Synth](/tuning-workbench-synth/).
 Soon we will also backport it into Surge!
 
 But you can use it today!
