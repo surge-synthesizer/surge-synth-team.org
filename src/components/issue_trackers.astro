@@ -3,19 +3,23 @@ const {} = Astro.props;
 
 import { getCollection } from "astro:content";
 
-const projects = await getCollection("projects");
+const pages = await getCollection("pages");
 
-projects.sort((a, b) => {
+pages.sort((a, b) => {
     return a.data.order - b.data.order;
 });
 ---
 
 <ul>
     {
-        projects.map((project) => (
-            <li>
-                <a href={project.data.issue_tracker}>{project.data.title}</a>
-            </li>
-        ))
+        pages.map((page) =>
+            page.data.order !== 0 ? (
+                <li>
+                    <a href={page.data.issue_tracker}>{page.data.title}</a>
+                </li>
+            ) : (
+                ""
+            ),
+        )
     }
 </ul>

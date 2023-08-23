@@ -1,11 +1,11 @@
 ---
 slug: tuning-library
 title: Tuning Library
-summary: We’ve added microtuning support to several instruments. Our core SCL/KBM calculation engine is available as a standalone C++ header.
 order: 9
+summary: We’ve added microtuning support to several instruments. Our core SCL/KBM calculation engine is available as a standalone C++ header.
 thumbnail: /screenshots/tuning-library.jpg
 categories: [Synth, Microtuning]
-url: /project/tuning-library
+url: /tuning-library
 issue_tracker: https://github.com/surge-synthesizer/tuning-library/issues
 ---
 

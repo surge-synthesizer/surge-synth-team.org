@@ -1,9 +1,10 @@
 ---
-title: Open sourcing your freeware
 slug: open-source
+title: Open sourcing your freeware
+order: 0
 ---
 
-You made an awesome plugin, and you were cool enough to share it for free. Maybe your life has gone in another direction, and you don't have time to keep working on it. We are an open-source community that would love to carry your work forward into the future! 
+You made an awesome plugin, and you were cool enough to share it for free. Maybe your life has gone in another direction, and you don't have time to keep working on it. We are an open-source community that would love to carry your work forward into the future!
 
 If you would like to know more about open sourcing your audio plugins, please reach out to us on [GitHub](https://github.com/surge-synthesizer), [KVR](https://www.kvraudio.com/forum/viewtopic.php?f=1&t=511922), our [Facebook group](https://www.facebook.com/groups/surgesynth/), or join our [Discord](https://discord.gg/aFQDdMV). We might very well be able to help maintain them if you decide to open source them.
 

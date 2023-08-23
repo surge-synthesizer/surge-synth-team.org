@@ -5,9 +5,9 @@ import Header from "@components/header.astro";
 import Projects from "@components/projects.astro";
 import Card from "@components/card.astro";
 
-const projects = await getCollection("projects");
+const pages = await getCollection("pages");
 
-projects.sort((a, b) => {
+pages.sort((a, b) => {
     return a.data.order - b.data.order;
 });
 ---
@@ -17,14 +17,18 @@ projects.sort((a, b) => {
 
     <Projects>
         {
-            projects.map((project) => (
-                <Card
-                    title={project.data.title}
-                    summary={project.data.summary}
-                    href={project.data.url}
-                    src={project.data.thumbnail}
-                />
-            ))
+            pages.map((page) =>
+                page.data.order !== 0 ? (
+                    <Card
+                        title={page.data.title}
+                        summary={page.data.summary}
+                        href={page.data.url}
+                        src={page.data.thumbnail}
+                    />
+                ) : (
+                    ""
+                ),
+            )
         }
     </Projects>
 </Default>

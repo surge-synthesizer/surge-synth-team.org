@@ -1,11 +1,11 @@
 ---
 slug: tuning-workbench-synth
 title: Tuning Workbench Synth
-summary: Tuning Workbench Synth is a synthesizer for learning and experimenting with microtonal scales.
 order: 8
+summary: Tuning Workbench Synth is a synthesizer for learning and experimenting with microtonal scales.
 thumbnail: /screenshots/tuning-workbench-synth.jpg
 categories: [Synth, Microtuning]
-url: /project/tuning-workbench-synth
+url: /tuning-workbench-synth
 issue_tracker: https://github.com/surge-synthesizer/tuning-workbench-synth/issues
 ---
 
