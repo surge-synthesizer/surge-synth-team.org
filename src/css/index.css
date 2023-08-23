@@ -21,7 +21,7 @@
 @media (prefers-color-scheme: light) {
     :root {
         --background: #ffffff;
-        --backgroundCard: #e9e9e9;
+        --backgroundCard: #f3f3f3;
     }
 }
 
