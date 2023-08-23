@@ -6,16 +6,18 @@ export default {
     theme: {
         extend: {
             colors: {
-                accent1A: "#FFB949",
-                accent1B: "#D09030",
-                accent2A: "#278BD6",
-                accent2B: "#004F8A",
-                darkBackground: "#262A2F",
-                cardBackground: "#1B1D20",
+                background: "var(--background)",
+                backgroundCard: "var(--backgroundCard)",
+                accentOrange: "var(--accentOrange)",
+                accentBlue: "var(--accentBlue)",
+                accent1A: "var(--accent1A)",
+                accent1B: "var(--accent1B)",
+                accent2A: "var(--accent2A)",
+                accent2B: "var(--accent2B)",
             },
         },
         fontFamily: {
-            sans: ["Inter", "Noto Emoji"],
+            sans: ["Lato"],
         },
     },
     corePlugins: {
