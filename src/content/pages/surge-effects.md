@@ -1,8 +1,8 @@
 ---
 slug: surge-effects
 title: Surge XT Effects
-summary: The Surge effects module in its own plugin.
 order: 2
+summary: The Surge effects module in its own plugin.
 thumbnail: /screenshots/surge-effects.png
 categories: [Effects]
 url: https://surge-synthesizer.github.io

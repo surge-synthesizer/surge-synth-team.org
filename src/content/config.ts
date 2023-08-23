@@ -4,23 +4,15 @@ const pages = defineCollection({
     type: "content",
     schema: z.object({
         title: z.string(),
-    }),
-});
-
-const projects = defineCollection({
-    type: "content",
-    schema: z.object({
-        title: z.string(),
-        summary: z.string(),
         order: z.number(),
-        thumbnail: z.string(),
-        categories: z.array(z.string()),
-        url: z.string(),
-        issue_tracker: z.string(),
+        summary: z.string().optional(),
+        thumbnail: z.string().optional(),
+        categories: z.array(z.string()).optional(),
+        url: z.string().optional(),
+        issue_tracker: z.string().optional(),
     }),
 });
 
 export const collections = {
     pages: pages,
-    projects: projects,
 };

@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import Default from "@layouts/default.astro";
 import Header from "@components/header.astro";
 import Page from "@components/page.astro";
+import Thumbnail from "@components/thumbnail.astro";
 
 export async function getStaticPaths() {
     const pages = await getCollection("pages");
@@ -20,6 +21,7 @@ const { Content } = await page.render();
 <Default title={"Surge Synth Team - " + page.data.title} {...Astro.props}>
     <Header />
     <Page title={page.data.title}>
+        <Thumbnail src={page.data.thumbnail} />
         <Content />
     </Page>
 </Default>

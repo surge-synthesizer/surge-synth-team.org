@@ -1,8 +1,8 @@
 ---
 slug: stochas
 title: Stochas
-summary: Stochas is a probabilistic polyrhythmic sequencer plugin.
 order: 5
+summary: Stochas is a probabilistic polyrhythmic sequencer plugin.
 thumbnail: /screenshots/stochas.png
 categories: [Sequencer]
 url: https://stochas.org

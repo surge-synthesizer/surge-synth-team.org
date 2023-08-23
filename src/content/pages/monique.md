@@ -1,11 +1,11 @@
 ---
 slug: monique
 title: Monique Monosynth
-summary: Monique is a monophonic synth from Thomas Arndt which became open source in December 2021.
 order: 7
+summary: Monique is a monophonic synth from Thomas Arndt which became open source in December 2021.
 thumbnail: /screenshots/monique.jpg
 categories: [Synth]
-url: /project/monique
+url: /monique
 issue_tracker: https://github.com/surge-synthesizer/monique-monosynth/issues
 ---
 
