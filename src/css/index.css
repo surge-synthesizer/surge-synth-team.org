@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --accentOrange: #ff9000;
+    --accentBlue: #2d86fe;
+    --accent1A: #ffb949;
+    --accent1B: #d09030;
+    --accent2A: #278bd6;
+    --accent2B: #004f8a;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #000000;
+        --backgroundCard: #202020;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --background: #ffffff;
+        --backgroundCard: #e9e9e9;
+    }
+}
+
 @font-face {
     font-family: "Lato";
     src: url("/fonts/Lato-Regular.woff") format("woff");
@@ -48,7 +71,7 @@
         @apply text-xl;
     }
     a {
-        @apply text-accent2A hover:text-current;
+        @apply text-black underline hover:text-current dark:text-white;
     }
     ul {
         @apply list-inside list-disc;

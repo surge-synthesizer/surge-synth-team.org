@@ -2,11 +2,59 @@
 
 ### The website is built with [Astro](https://astro.build/) & [Tailwind CSS](https://tailwindcss.com/).
 
-- [Astro Editor Setup](https://docs.astro.build/en/editor-setup/)
+### [Astro Editor Setup](https://docs.astro.build/en/editor-setup/) & [Tailwind Editor Setup](https://tailwindcss.com/docs/editor-setup)
 
-- [Tailwind Editor Setup](https://tailwindcss.com/docs/editor-setup)
+---
 
-### Instructions
+#### **Install these VS Code Extensions**
+
+-   [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)
+-   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+-   [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)
+-   [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+
+Optional:
+
+-   [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
+
+In your VS Code `settings.json` file:
+
+#### Set Prettier as your default formatter
+
+```json
+{
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[astro]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.documentSelectors": ["**/*.astro"]
+}
+```
+
+#### Format on paste, save & type
+
+```json
+{
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
+}
+```
+
+#### Associate CSS files with tailwind
+
+```json
+{
+    "files.associations": {
+        "*.css": "tailwindcss"
+    }
+}
+```
+
+# Working on the site
 
 -   Install [node.js](https://nodejs.org/en)
     -   (Optional) Install [pnpm](https://pnpm.io/)
@@ -19,7 +67,7 @@ Static assets (images, fonts, etc.) live in the `public` directory.
 
 You can use tailwind inline or edit the main file in the `src/css` directory.
 
-### Adding and editing pages
+# Adding and editing pages
 
 To make changes, all you need to is fork the project. Once you have done that you can create a branch on your fork make changes and then open a PR. [This](https://github.com/surge-synthesizer/surge/blob/main/doc/How%20to%20Git.md) git document for the OSS Surge-Synthesizer project outlines a suggested way of doing work and then creating PRs.
 

@@ -2,10 +2,10 @@
 const { title, summary, href, src } = Astro.props;
 ---
 
-<div class="grid gap-6 rounded-3xl bg-neutral-100 p-8 dark:bg-cardBackground">
+<div class="bg-backgroundCard grid gap-6 rounded-3xl p-8">
     <div class="flex flex-col place-content-between gap-4">
         <h2>
-            <a href={href}>{title}</a>
+            <a class="no-underline" href={href}>{title}</a>
         </h2>
         <a href={href}>
             <img

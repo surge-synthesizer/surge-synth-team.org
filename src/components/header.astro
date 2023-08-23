@@ -6,28 +6,26 @@ page === "projects" ? (projects = true) : (projects = false);
 ---
 
 <div
-    class="sticky top-0 flex flex-wrap place-content-center gap-4 bg-neutral-200 p-4 text-lg font-semibold leading-none dark:bg-neutral-800">
-    <a href="/">Projects</a>
-    <a href="https://github.com/surge-synthesizer">Our GitHub</a>
-    <a href="/open-source">Open Source</a>
-    <a href="/reviews-and-guides">Reviews & Guides</a>
-    <a href="/contact-us">Contact Us</a>
+    class="sticky top-0 flex place-content-center bg-neutral-200 font-semibold leading-none dark:bg-neutral-800">
+    <div class="grid grid-flow-col gap-4 p-1">
+        <a class="p-2 no-underline" href="/">Projects</a>
+        <a
+            class="bg-backgroundCard w-fit rounded-lg p-2 no-underline"
+            href="https://github.com/surge-synthesizer">Visit us on GitHub</a
+        >
+        <a class="p-2 no-underline" href="/open-source">Open Source</a>
+        <a class="p-2 no-underline" href="/reviews-and-guides"
+            >Reviews & Guides</a
+        >
+        <a class="p-2 no-underline" href="/contact-us">Contact Us</a>
+    </div>
 </div>
 
-<div
-    class="flex flex-col items-center justify-center gap-2 bg-gradient-to-b from-neutral-200 to-neutral-50 dark:from-neutral-800 dark:to-neutral-900 bg-center p-8">
-    <div
-        class="flex flex-row flex-wrap items-center justify-center text-center">
-        <h1 class="flex-1 self-center text-3xl font-black">Surge Synth Team</h1>
-        <img
-            class="max-h-[50px] min-w-[50px] flex-1 select-none"
-            src="/images/small-logo.svg"
-        />
-    </div>
-    <div class="flex flex-col">
-        {
-            projects ? (
-                <p class="max-w-[600px] p-2 text-center">
+{
+    projects ? (
+        <div class="flex place-content-center bg-gradient-to-b from-neutral-200 to-neutral-50 p-8 text-lg dark:from-neutral-800 dark:to-neutral-900">
+            <div class="flex max-w-[600px] flex-col text-center">
+                <p>
                     The Surge Synth Team is a group of musicians, developers,
                     testers, documenters, and general volunteer open source
                     enthusiasts who randomly assembled to work on the Surge
@@ -35,9 +33,9 @@ page === "projects" ? (projects = true) : (projects = false);
                     and we kept having fun, we decided to branch out into other
                     things too!
                 </p>
-            ) : (
-                ""
-            )
-        }
-    </div>
-</div>
+            </div>
+        </div>
+    ) : (
+        ""
+    )
+}
