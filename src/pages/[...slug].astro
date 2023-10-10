@@ -1,10 +1,9 @@
 ---
 import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 
 import Default from "@layouts/default.astro";
 import Header from "@components/header.astro";
-import Page from "@components/page.astro";
-import Thumbnail from "@components/thumbnail.astro";
 
 export async function getStaticPaths() {
     const pages = await getCollection("pages");
@@ -20,8 +19,24 @@ const { Content } = await page.render();
 
 <Default title={"Surge Synth Team - " + page.data.title} {...Astro.props}>
     <Header />
-    <Page title={page.data.title}>
-        <Thumbnail src={page.data.thumbnail} />
+
+    <div class="m-auto grid max-w-[800px] grid-flow-row gap-8 p-8">
+        <h1 class="place-self-center">{page.data.title}</h1>
+        {
+            page.data.order !== 0 ? (
+                <>
+                    <div class="grid gap-6 rounded-3xl bg-backgroundCard p-8">
+                        <Image
+                            class="select-none rounded-xl bg-transparent shadow-xl shadow-neutral-600 dark:shadow-black"
+                            src={page.data.cover}
+                            alt={page.data.title}
+                        />
+                    </div>
+                </>
+            ) : (
+                ""
+            )
+        }
         <Content />
-    </Page>
+    </div>
 </Default>

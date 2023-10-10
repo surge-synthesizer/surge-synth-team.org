@@ -1,8 +1,5 @@
 ---
-const { page } = Astro.props;
-
-let projects;
-page === "projects" ? (projects = true) : (projects = false);
+const {} = Astro.props;
 ---
 
 <div
@@ -25,22 +22,3 @@ page === "projects" ? (projects = true) : (projects = false);
         >
     </div>
 </div>
-
-{
-    projects ? (
-        <div class="flex place-content-center bg-gradient-to-b from-neutral-200 to-neutral-50 p-8 text-lg dark:from-neutral-800 dark:to-neutral-900">
-            <div class="flex max-w-[600px] flex-col text-center">
-                <p>
-                    The Surge Synth Team is a group of musicians, developers,
-                    testers, documenters, and general volunteer open source
-                    enthusiasts who randomly assembled to work on the Surge
-                    Synthesizer. As the Surge project became more successful,
-                    and we kept having fun, we decided to branch out into other
-                    things too!
-                </p>
-            </div>
-        </div>
-    ) : (
-        ""
-    )
-}
