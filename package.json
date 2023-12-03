@@ -1,6 +1,7 @@
 {
     "name": "surge-synth-team.org",
     "private": true,
+    "type": "module",
     "scripts": {
         "astro": "astro",
         "dev": "astro dev",
