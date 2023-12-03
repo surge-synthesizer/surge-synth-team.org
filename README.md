@@ -1,4 +1,4 @@
-# surge-synth-team.org
+# https://surge-synth-team.org/
 
 **Built with [Astro](https://astro.build/) & [Tailwind CSS](https://tailwindcss.com/)**
 
