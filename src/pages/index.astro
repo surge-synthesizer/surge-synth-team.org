@@ -44,11 +44,11 @@ pages.sort((a, b) => {
                                     </a>
                                 </h2>
                                 <a href={page.data.url}>
-                                    <Image
+                                    {page.data.cover ? (<Image
                                         class="select-none rounded-xl bg-transparent shadow-xl shadow-neutral-600 dark:shadow-black"
                                         alt={page.data.title}
                                         src={page.data.cover}
-                                    />
+                                    />) : ""}
                                 </a>
                             </div>
                             <p class="self-end text-center">
