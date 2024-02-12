@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+
+const { page } = Astro.props;
+const { Content } = await page.render();
+---
+
+<div class="m-auto grid max-w-[800px] grid-flow-row gap-8 p-4">
+    <h1 class="place-self-center">{page.data.title}</h1>
+    {
+        page.data.order !== 0 ? (
+            <>
+                <div class="grid gap-6 rounded-3xl bg-backgroundCard p-8">
+                    {page.data.cover ? (
+                        <Image
+                            class="select-none rounded-xl bg-transparent shadow-xl shadow-neutral-600 dark:shadow-black"
+                            src={page.data.cover}
+                            alt={page.data.title}
+                        />
+                    ) : (
+                        ""
+                    )}
+                </div>
+            </>
+        ) : (
+            ""
+        )
+    }
+    <Content />
+</div>

@@ -1,24 +1,16 @@
 ---
-const {} = Astro.props;
+import { Image } from "astro:assets";
+// import Logo from "$images/sst-logo.svg";
+import Logo from "$public/images/sst-logo.svg";
 ---
 
 <div
-    class="sticky top-0 bg-neutral-200 p-2 font-semibold leading-none dark:bg-neutral-800">
-    <div class="flex flex-row flex-wrap place-content-center gap-2">
-        <a class="w-fit rounded-lg bg-backgroundCard p-2 no-underline" href="/"
-            >Projects</a
-        >
-        <a
-            class="w-fit rounded-lg bg-backgroundCard p-2 no-underline"
-            href="https://github.com/surge-synthesizer">GitHub</a
-        >
-        <a
-            class="w-fit rounded-lg bg-backgroundCard p-2 no-underline"
-            href="/open-source">Open Source</a
-        >
-        <a
-            class="w-fit rounded-lg bg-backgroundCard p-2 no-underline"
-            href="/contact">Contact</a
-        >
-    </div>
+    class="flex flex-col place-content-center items-center gap-4 bg-gradient-to-b from-neutral-200 to-neutral-50 p-4 text-center md:flex-row dark:from-neutral-800 dark:to-neutral-900">
+    <Image class="self-center" alt="SST Logo" src={Logo} />
+    <p class="max-w-lg text-pretty text-justify">
+        The Surge Synth Team is a group of musicians, developers, testers, documenters, and general
+        volunteer open source enthusiasts who randomly assembled to work on the Surge Synthesizer.
+        As the Surge project became more successful, and we kept having fun, we decided to branch
+        out into other things too!
+    </p>
 </div>
