@@ -3,10 +3,10 @@
     "compilerOptions": {
         "baseUrl": "./",
         "paths": {
+            "$public/*": ["public/*"],
             "$components/*": ["src/components/*"],
             "$content/*": ["src/content/*"],
             "$css/*": ["src/css/*"],
-            "$images/*": ["src/images/*"],
             "$layouts/*": ["src/layouts/*"],
             "$pages/*": ["src/pages/*"],
             "$screenshots/*": ["src/screenshots/*"]
