@@ -1,25 +1,66 @@
 ---
-slug: tuning-workbench-synth
-title: Tuning Workbench Synth
+slug: sst-libraries
+title: The SST Libraries
 order: 8
-summary: Tuning Workbench Synth is a synthesizer for learning and experimenting with microtonal scales.
-cover: "$screenshots/tuning-workbench-synth.jpg"
+summary: A collection of libraries from the Surge Synth Team.
+cover: "$screenshots/sst-libraries.png"
 categories: [Synth, Microtuning]
-url: /tuning-workbench-synth
-issue_tracker: https://github.com/surge-synthesizer/tuning-workbench-synth/issues
+url: /sst-libraries
+issue_tracker: https://github.com/surge-synthesizer/tuning-library/issues
 ---
 
 import { Image } from "astro:assets";
 import twsMainUi from "$screenshots/TWS-MainUI.png";
 
+# Tuning Library
+
+We've added microtuning support to several instruments. Our core SCL/KBM calculation engine is available as a standalone C++ header.
+
+Supporting alternate tunings is tricky. You have to parse and interpret SCL and KBM files, you need to test in a bunch of ranges, you need to think
+about edge cases. When we turned to do it in Surge, we got it wrong more often than we got it right. And, since we are committed to
+open source, we thought about sharing that experience.
+
+So we took our core tuning implementation from Surge and converted it into a standalone MIT licensed C++-14 header-only library.
+We used this to build the [Tuning Workbench Synth](/tuning-workbench-synth/).
+Soon we will also backport it into Surge!
+
+But you can use it today!
+
+So if you are a developer writing a virtual instrument, and you want to add support for SCL/KBM tuning, simply add our code to
+your source tree and use our data structures. We provide functions that given an SCL and KBM file or data source will give you
+an object which tells you the frequency of the entire keyboard in a mapping-aware fashion.
+
+The details are at [our GitHub repository for the project](https://github.com/surge-synthesizer/tuning-library) but the short version is:
+
+1. Add our code as a submodule and adjust your include paths
+2. `#include "Tunings.h"`
+3. Write code in your synth to handle getting SCL and KBM files
+4. Use the API as [documented in our header](https://github.com/surge-synthesizer/tuning-library/blob/master/include/Tunings.h)
+   and as [exercised in our tests](https://github.com/surge-synthesizer/tuning-library/blob/master/tests/alltests.cpp) to find
+   the frequency for your note. Adjust your oscillators accordingly and go.
+
+# Tuning Workbench Synth
+
+The [Tuning Workbench Synth](https://github.com/surge-synthesizer/tuning-workbench-synth) provides a complete working example of doing this in a JUCE plugin.
+
 Tuning Workbench Synth is a synthesizer which lets you experiment with virtual tunings in realtime, allowing you to edit
 mappings and tunings and hear a synthesizer change as you adjust individual notes. It also serves as an example of using
-our [tuning library](/tuning-library) to add tuning to a virtual instruments.
+our tuning library to add tuning to a virtual instruments.
 
-The synth is entirely free and open source software, released under the GPL3. You can find the entire set of source
-[at our github](https://github.com/surge-synthesizer/tuning-workbench-synth).
+The synth is entirely free and open source software, released under the GPL3. We welcome pull requests and API enhancements and discussions about what to do next. Our plans
+for new features are in the [issue list](https://github.com/surge-synthesizer/tuning-library/issues) and we welcome any and
+all participants!
 
-# Get TWS
+Finally, we licensed the project under an MIT license to allow a broader group of users to add alternative tunings to their code.
+You can include this library in commercial projects and closed source; you can make changes and not contribute them back;
+you can do all the things the MIT license allows. We made this choice since we want to see microtunable virtual instruments flourish!
+But while there is no obligation to do so, if you would like to let us know when you integrate the library with your synth
+that would be super polite, and if you want to add the project to the list of open source libraries you consume, you
+can do so using the URL for this page.
+
+Enjoy!
+
+## Get TWS
 
 The Tuning Workbench Synth is currently in a late alpha / early beta release. We release each commit to our repo
 as a nightly.
@@ -29,7 +70,7 @@ You can download the [current nightly from our github](https://github.com/surge-
 We distribute a standalone for Linux, a VST3 and Standalone for Windows, and a VST3, AU and Standalone for macOS.
 If you are a VST2 licensee and would like to build a VST2, you may do so using the instructions on our github.
 
-# Using TWS
+## Using TWS
 
 When you launch the tuning workbench synth, you will see the UI below. The main UI is divided into two sections,
 the generator section (at the top) and tuning section (at the bottom).
@@ -82,15 +123,16 @@ You can import an SCL or KBM file by dragging and dropping a file onto any part 
 
 Documentation forthcoming. But you can drag the knobs and graph to retune. Try it!
 
-# Add a feature, Report a Bug
+## Add a feature, Report a Bug
 
 The tuning workbench synth is GPL3 open source software. We welcome contributors who want to build it, expand it, modify it,
 and otherwise help us make it cool. Probably the best thing if you want to do this is join our slack or drop an issue on our github.
 
 And if you find a bug, please do let us know!
 
-## Reviews
+### Reviews
 
 -   [Freebie(s) of the Month - SURGE, and Others](https://soundbytesmag.net/freebies-of-the-month-surge-and-others/)
     , SoundBytes net music magazine
--   [Synth Time (ft. Vito Sicurella)](https://www.patreon.com/posts/034b-bonus-synth-35474052), Now&Xen podcast
+-   [Synth Time (ft. Vito Sicurella)](https://www.patreon.com/posts/034b-bonus-synth-35474052)
+    , Now&Xen podcast

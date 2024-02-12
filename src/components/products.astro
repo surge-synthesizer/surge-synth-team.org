@@ -8,30 +8,28 @@ pages.sort((a, b) => {
 });
 ---
 
-<div class="m-auto grid max-w-6xl grid-flow-row grid-cols-1 gap-8 p-4 md:grid-cols-2">
+<div class="m-auto grid max-w-6xl grid-flow-row grid-cols-1 gap-8 px-8 pb-8 md:grid-cols-2">
     {
         pages.map((page) =>
             page.data.order !== 0 ? (
                 <>
-                    <div class="flex flex-col place-content-between gap-6 rounded-3xl bg-backgroundCard p-8">
-                        <div class="flex flex-col gap-4">
-                            <h2>
-                                <a class="no-underline" href={page.data.url}>
-                                    {page.data.title}
-                                </a>
-                            </h2>
-                            <a href={page.data.url}>
-                                {page.data.cover ? (
-                                    <Image
-                                        class="rounded-lg bg-transparent shadow-xl shadow-neutral-600 dark:shadow-black"
-                                        alt={page.data.title}
-                                        src={page.data.cover}
-                                    />
-                                ) : (
-                                    ""
-                                )}
+                    <div class="flex flex-col place-content-between gap-8 rounded-3xl bg-neutral-50 p-8 dark:bg-neutral-950">
+                        <h2>
+                            <a class="no-underline" href={page.data.url}>
+                                {page.data.title}
                             </a>
-                        </div>
+                        </h2>
+                        <a href={page.data.url}>
+                            {page.data.cover ? (
+                                <Image
+                                    class="rounded-lg shadow-lg shadow-neutral-600 dark:shadow-black"
+                                    alt={page.data.title}
+                                    src={page.data.cover}
+                                />
+                            ) : (
+                                ""
+                            )}
+                        </a>
                         <p class="text-start">{page.data.summary}</p>
                     </div>
                 </>
