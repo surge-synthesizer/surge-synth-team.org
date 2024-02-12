@@ -1,10 +1,9 @@
 ---
-const {} = Astro.props;
-
 import { getCollection } from "astro:content";
 
-const pages = await getCollection("pages");
+const {} = Astro.props;
 
+const pages = await getCollection("pages");
 pages.sort((a, b) => {
     return a.data.order - b.data.order;
 });
