@@ -1,22 +1,10 @@
 import type { Config } from "tailwindcss";
 
 export default {
-    content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+    content: ["./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}"],
     theme: {
         fontFamily: {
             sans: ["Lato"],
-        },
-        extend: {
-            colors: {
-                background: "var(--background)",
-                backgroundCard: "var(--backgroundCard)",
-                accentOrange: "var(--accentOrange)",
-                accentBlue: "var(--accentBlue)",
-                accent1A: "var(--accent1A)",
-                accent1B: "var(--accent1B)",
-                accent2A: "var(--accent2A)",
-                accent2B: "var(--accent2B)",
-            },
         },
     },
 } satisfies Config;

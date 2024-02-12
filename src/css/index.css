@@ -18,32 +18,9 @@
     font-display: block;
 }
 
-:root {
-    --accentOrange: #ff9000;
-    --accentBlue: #2d86fe;
-    --accent1A: #ffb949;
-    --accent1B: #d09030;
-    --accent2A: #278bd6;
-    --accent2B: #004f8a;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #000000;
-        --backgroundCard: #202020;
-    }
-}
-
-@media (prefers-color-scheme: light) {
-    :root {
-        --background: #ffffff;
-        --backgroundCard: #f3f3f3;
-    }
-}
-
 @layer base {
     body {
-        @apply bg-neutral-50 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300;
+        @apply bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300;
     }
     h1,
     h2,
@@ -54,21 +31,24 @@
         @apply w-fit font-black;
     }
     h1 {
-        @apply text-4xl;
-    }
-    h2 {
         @apply text-3xl;
     }
-    h3 {
+    h2 {
         @apply text-2xl;
     }
-    h4 {
+    h3 {
         @apply text-xl;
+    }
+    h4 {
+        @apply text-lg;
     }
     a {
         @apply text-black underline hover:text-current dark:text-white;
     }
     ul {
         @apply list-inside list-disc;
+    }
+    ol {
+        @apply list-inside list-decimal;
     }
 }
