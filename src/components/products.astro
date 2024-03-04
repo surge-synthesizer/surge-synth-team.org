@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 
 const pages = await getCollection("pages");
+
 pages.sort((a, b) => {
     return a.data.order - b.data.order;
 });

@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 const {} = Astro.props;
 
 const pages = await getCollection("pages");
+
 pages.sort((a, b) => {
     return a.data.order - b.data.order;
 });

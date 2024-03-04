@@ -12,5 +12,7 @@
             "$screenshots/*": ["src/screenshots/*"]
         },
         "plugins": [{ "name": "@astrojs/ts-plugin" }]
-    }
+    },
+    "include": ["src"],
+    "references": [{ "path": "./tsconfig.node.json" }]
 }
