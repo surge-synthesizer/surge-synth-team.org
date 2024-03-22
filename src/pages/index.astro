@@ -1,20 +1,40 @@
 ---
+import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import Logo from "public/images/sst-logo.svg";
 
 import Default from "layouts/Default.astro";
-import Projects from "components/Projects.astro";
+
+const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <Default title="Surge Synth Team" {...Astro.props}>
-    <header class="flex flex-col items-center gap-4 place-self-center text-center md:flex-row">
+    <header class="flex flex-col place-content-center gap-4 pb-8 md:flex-row">
         <Image alt="SST Logo" src={Logo} />
-        <p class="max-w-lg text-pretty text-justify">
+        <p class="max-w-lg text-pretty text-center">
             The Surge Synth Team is a group of musicians, developers, testers, documenters, and
             general volunteer open source enthusiasts who randomly assembled to work on the Surge
             Synthesizer. As the Surge project became more successful, and we kept having fun, we
             decided to branch out into other things too!
         </p>
     </header>
-    <Projects />
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+        {
+            projects.map((project) => (
+                <div class="flex flex-col place-content-between gap-8 rounded-3xl bg-neutral-50 p-8 dark:bg-neutral-950">
+                    <h2 class="self-center">
+                        <a href={project.data.url}>{project.data.title}</a>
+                    </h2>
+                    <a href={project.data.url}>
+                        <Image
+                            class="rounded-lg shadow-lg shadow-neutral-600 dark:shadow-black"
+                            alt={project.data.title}
+                            src={project.data.cover}
+                        />
+                    </a>
+                    <p class="self-center text-pretty text-center">{project.data.summary}</p>
+                </div>
+            ))
+        }
+    </div>
 </Default>

@@ -26,6 +26,12 @@
 }
 
 @layer base {
+    h1,
+    h2,
+    h3,
+    h4 {
+        @apply mb-4 font-bold;
+    }
     h1 {
         @apply text-3xl;
     }
@@ -42,9 +48,12 @@
         @apply text-surgeBlue hover:text-surgeBlueBright underline decoration-dotted;
     }
     ul {
-        @apply list-inside list-disc;
+        @apply mb-4 list-inside list-disc;
     }
     ol {
-        @apply list-inside list-decimal;
+        @apply mb-4 list-inside list-decimal;
+    }
+    p {
+        @apply mb-4 text-pretty;
     }
 }
