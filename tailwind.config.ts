@@ -6,5 +6,13 @@ export default {
         fontFamily: {
             sans: ["Lato"],
         },
+        extend: {
+            colors: {
+                surgeOrange: "var(--surgeOrange)",
+                surgeOrangeBright: "var(--surgeOrangeBright)",
+                surgeBlue: "var(--surgeBlue)",
+                surgeBlueBright: "var(--surgeBlueBright)",
+            },
+        },
     },
 } satisfies Config;

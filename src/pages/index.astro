@@ -1,12 +1,20 @@
 ---
-import Default from "$layouts/default.astro";
-import Nav from "$components/nav.astro";
-import Header from "$components/header.astro";
-import Products from "$components/products.astro";
+import { Image } from "astro:assets";
+import Logo from "public/images/sst-logo.svg";
+
+import Default from "layouts/Default.astro";
+import Projects from "components/Projects.astro";
 ---
 
 <Default title="Surge Synth Team" {...Astro.props}>
-    <Nav />
-    <Header />
-    <Products />
+    <header class="flex flex-col items-center gap-4 place-self-center text-center md:flex-row">
+        <Image alt="SST Logo" src={Logo} />
+        <p class="max-w-lg text-pretty text-justify">
+            The Surge Synth Team is a group of musicians, developers, testers, documenters, and
+            general volunteer open source enthusiasts who randomly assembled to work on the Surge
+            Synthesizer. As the Surge project became more successful, and we kept having fun, we
+            decided to branch out into other things too!
+        </p>
+    </header>
+    <Projects />
 </Default>

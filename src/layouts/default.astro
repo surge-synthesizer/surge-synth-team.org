@@ -1,6 +1,6 @@
 ---
-const { title } = Astro.props.frontmatter || Astro.props;
-import "$css/index.css";
+const { title } = Astro.props;
+import "css/index.css";
 ---
 
 <!doctype html>
@@ -39,6 +39,25 @@ import "$css/index.css";
     </head>
 
     <body class="bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">
-        <slot />
+        <nav
+            class="sticky top-0 flex flex-row flex-wrap place-content-center gap-2 bg-neutral-200 p-2 font-semibold leading-none dark:bg-neutral-800">
+            {
+                [
+                    ["Projects", "/"],
+                    ["GitHub", "https://github.com/surge-synthesizer"],
+                    ["Open Source", "/open-source"],
+                    ["Contact", "/contact"],
+                ].map(([title, href]) => (
+                    <a
+                        href={href}
+                        class="rounded-lg bg-neutral-50 p-2 no-underline dark:bg-neutral-950">
+                        {title}
+                    </a>
+                ))
+            }
+        </nav>
+        <div class="m-auto grid max-w-5xl grid-flow-row gap-8 p-8">
+            <slot />
+        </div>
     </body>
 </html>

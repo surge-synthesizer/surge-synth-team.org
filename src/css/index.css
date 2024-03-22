@@ -18,15 +18,14 @@
     font-display: block;
 }
 
+:root {
+    --surgeOrange: #ff9900;
+    --surgeOrangeBright: #ffa826;
+    --surgeBlue: #2d86fe;
+    --surgeBlueBright: #4c98fe;
+}
+
 @layer base {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        @apply w-fit font-black;
-    }
     h1 {
         @apply text-3xl;
     }
@@ -40,7 +39,7 @@
         @apply text-lg;
     }
     a {
-        @apply text-black underline hover:text-current dark:text-white;
+        @apply text-surgeBlue hover:text-surgeBlueBright underline decoration-dotted;
     }
     ul {
         @apply list-inside list-disc;
