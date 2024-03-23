@@ -45,7 +45,7 @@
         @apply text-lg;
     }
     a {
-        @apply text-surgeBlue hover:text-surgeBlueBright underline decoration-dotted;
+        @apply text-surgeBlue hover:text-surgeBlueBright dark:text-surgeOrange dark:hover:text-surgeOrangeBright underline decoration-dotted underline-offset-4;
     }
     ul {
         @apply mb-4 list-inside list-disc;
@@ -55,5 +55,8 @@
     }
     p {
         @apply mb-4 text-pretty;
+    }
+    p:last-child {
+        @apply mb-0;
     }
 }
