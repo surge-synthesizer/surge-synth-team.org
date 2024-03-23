@@ -18,14 +18,19 @@
     font-display: block;
 }
 
+:root {
+    --surgeOrange: #ff9900;
+    --surgeOrangeBright: #ffa826;
+    --surgeBlue: #2d86fe;
+    --surgeBlueBright: #4c98fe;
+}
+
 @layer base {
     h1,
     h2,
     h3,
-    h4,
-    h5,
-    h6 {
-        @apply w-fit font-black;
+    h4 {
+        @apply mb-4 font-bold;
     }
     h1 {
         @apply text-3xl;
@@ -40,12 +45,21 @@
         @apply text-lg;
     }
     a {
-        @apply text-black underline hover:text-current dark:text-white;
+        @apply text-surgeBlue hover:text-surgeBlueBright dark:text-surgeOrange dark:hover:text-surgeOrangeBright underline decoration-dotted underline-offset-4;
     }
     ul {
-        @apply list-inside list-disc;
+        @apply mb-4 list-inside list-disc;
     }
     ol {
-        @apply list-inside list-decimal;
+        @apply mb-4 list-inside list-decimal;
+    }
+    p {
+        @apply mb-4 text-pretty;
+    }
+    p:last-child {
+        @apply mb-0;
+    }
+    img {
+        @apply my-4;
     }
 }
