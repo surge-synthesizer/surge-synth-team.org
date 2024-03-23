@@ -9,7 +9,7 @@ const projects = (await getCollection("projects")).sort((a, b) => a.data.order -
 ---
 
 <Default title="Surge Synth Team" {...Astro.props}>
-    <header class="flex flex-col place-content-center gap-4 pb-8 md:flex-row">
+    <header class="flex flex-col place-content-center place-items-center gap-4 pb-4 md:flex-row">
         <Image class="self-center" alt="SST Logo" src={Logo} />
         <p class="max-w-lg text-pretty text-center">
             The Surge Synth Team is a group of musicians, developers, testers, documenters, and
