@@ -59,4 +59,7 @@
     p:last-child {
         @apply mb-0;
     }
+    img {
+        @apply my-4;
+    }
 }

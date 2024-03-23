@@ -27,7 +27,7 @@ const projects = (await getCollection("projects")).sort((a, b) => a.data.order -
                     </h2>
                     <a href={project.data.url}>
                         <Image
-                            class="rounded-lg shadow-lg shadow-neutral-600 dark:shadow-black"
+                            class="my-0 rounded-lg shadow-lg shadow-neutral-600 dark:shadow-black"
                             alt={project.data.title}
                             src={project.data.cover}
                         />
