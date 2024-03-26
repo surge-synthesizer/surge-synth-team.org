@@ -21,7 +21,8 @@ import "css/index.css";
         <meta property="og:image:height" content="600" />
         <meta property="ig:image:alt" content="Surge Synth Team" />
         <meta property="og:type" content="website" />
-        <meta name="color-scheme" content="light dark" />
+        <meta name="color-scheme" content="dark light" />
+        <meta name="theme-color" content="#FF9900" />
         <meta
             name="description"
             content="We maintain and contribute to awesome open source audio plugins!"
@@ -73,6 +74,9 @@ import "css/index.css";
             ? document.documentElement.classList.add("dark")
             : document.documentElement.classList.remove("dark");
         element.innerHTML = dark ? "🔅&#xFE0E;" : "🔆&#xFE0E;";
+        document
+            .querySelector('meta[name="color-scheme"]')
+            ?.setAttribute("content", dark ? "dark" : "light");
     };
 
     const saveTheme = (element: HTMLElement, dark: boolean) => {
