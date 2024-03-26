@@ -2,7 +2,7 @@
 
 **Built with [Astro](https://astro.build/) & [Tailwind CSS](https://tailwindcss.com/)**
 
-1. Install [node.js](https://nodejs.org/en)
+1. Install [node.js](https://nodejs.org/)
     - (Optional) Install [pnpm](https://pnpm.io/)
 2. `npm install`/`pnpm install` to install dependencies
 3. `npm run dev`/`pnpm dev` to run the development server

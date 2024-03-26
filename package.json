@@ -8,6 +8,7 @@
         "start": "astro dev",
         "host": "astro dev --host",
         "check": "astro check",
+        "sync": "astro sync",
         "build": "astro check && astro build",
         "preview": "astro preview",
         "preinstall": "astro telemetry disable"
@@ -17,13 +18,13 @@
         "react-dom": "^18.2.0"
     },
     "devDependencies": {
-        "@astrojs/check": "^0.5.9",
+        "@astrojs/check": "^0.5.10",
         "@astrojs/mdx": "^2.2.1",
         "@astrojs/react": "^3.1.0",
         "@astrojs/tailwind": "^5.1.0",
-        "@astrojs/ts-plugin": "^1.6.0",
+        "@astrojs/ts-plugin": "^1.6.1",
         "@types/node": "^20.11.30",
-        "@types/react": "^18.2.68",
+        "@types/react": "^18.2.70",
         "@types/react-dom": "^18.2.22",
         "astro": "^4.5.9",
         "autoprefixer": "^10.4.19",
@@ -32,7 +33,7 @@
         "prettier": "^3.2.5",
         "prettier-plugin-astro": "^0.13.0",
         "prettier-plugin-tailwindcss": "^0.5.12",
-        "sharp": "^0.33.2",
+        "sharp": "^0.33.3",
         "tailwindcss": "^3.4.1",
         "typescript": "^5.4.3"
     }

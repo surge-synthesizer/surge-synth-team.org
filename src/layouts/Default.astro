@@ -50,14 +50,49 @@ import "css/index.css";
                 ].map(([title, href]) => (
                     <a
                         href={href}
-                        class="rounded-lg bg-neutral-50 p-2 text-lg leading-none no-underline dark:bg-neutral-950">
+                        class="text-nowrap rounded-lg bg-neutral-50 p-2 text-lg leading-none no-underline dark:bg-neutral-950">
                         {title}
                     </a>
                 ))
             }
+            <span
+                id="theme-toggle"
+                class="select-none rounded-lg bg-neutral-50 p-2 text-lg leading-none no-underline hover:cursor-pointer dark:bg-neutral-950"
+                >🔅&#xFE0E;</span
+            >
         </nav>
         <main class="m-auto max-w-[100ch] p-8">
             <slot />
         </main>
     </body>
 </html>
+
+<script>
+    const setTheme = (element: HTMLElement, dark: boolean) => {
+        dark
+            ? document.documentElement.classList.add("dark")
+            : document.documentElement.classList.remove("dark");
+        element.innerHTML = dark ? "🔅&#xFE0E;" : "🔆&#xFE0E;";
+    };
+
+    const saveTheme = (element: HTMLElement, dark: boolean) => {
+        setTheme(element, dark);
+        localStorage.setItem("theme", dark ? "dark" : "light");
+    };
+
+    const toggle = document.getElementById("theme-toggle") as HTMLSpanElement;
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    if (localStorage.getItem("theme")) {
+        setTheme(toggle, localStorage.getItem("theme") === "dark" ? true : false);
+    } else {
+        saveTheme(toggle, mediaQuery.matches);
+    }
+
+    toggle.addEventListener("click", () => {
+        saveTheme(toggle, localStorage.getItem("theme") === "light");
+    });
+    mediaQuery.addEventListener("change", () => {
+        saveTheme(toggle, mediaQuery.matches);
+    });
+</script>
