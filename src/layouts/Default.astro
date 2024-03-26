@@ -50,14 +50,55 @@ import "css/index.css";
                 ].map(([title, href]) => (
                     <a
                         href={href}
-                        class="rounded-lg bg-neutral-50 p-2 text-lg leading-none no-underline dark:bg-neutral-950">
+                        class="text-nowrap rounded-lg bg-neutral-50 p-2 text-lg leading-none no-underline dark:bg-neutral-950">
                         {title}
                     </a>
                 ))
             }
+            <span
+                id="theme-toggle"
+                class="select-none rounded-lg bg-neutral-50 p-2 text-lg leading-none no-underline hover:cursor-pointer dark:bg-neutral-950"
+                >🔅&#xFE0E;</span
+            >
         </nav>
         <main class="m-auto max-w-[100ch] p-8">
             <slot />
         </main>
     </body>
 </html>
+
+<script>
+    const loadTheme = (dark: boolean) => {
+        if (dark) {
+            document.documentElement.classList.add("dark");
+            toggle.innerHTML = "🔅&#xFE0E;";
+        } else {
+            document.documentElement.classList.remove("dark");
+            toggle.innerHTML = "🔆&#xFE0E;";
+        }
+    };
+
+    const setTheme = (dark: boolean) => {
+        if (dark) {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+            toggle.innerHTML = "🔅&#xFE0E;";
+        } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+            toggle.innerHTML = "🔆&#xFE0E;";
+        }
+    };
+
+    const toggle = document.getElementById("theme-toggle") as HTMLSpanElement;
+
+    if (localStorage.getItem("theme")) {
+        loadTheme(localStorage.getItem("theme") === "dark" ? true : false);
+    } else {
+        setTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
+    }
+
+    toggle.addEventListener("click", () => {
+        setTheme(localStorage.getItem("theme") === "light");
+    });
+</script>

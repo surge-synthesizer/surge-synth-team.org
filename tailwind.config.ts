@@ -15,4 +15,5 @@ export default {
             },
         },
     },
+    darkMode: "selector",
 } satisfies Config;
