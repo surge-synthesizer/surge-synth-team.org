@@ -32,33 +32,43 @@
     h4 {
         @apply mb-4 font-bold;
     }
+
     h1 {
         @apply text-3xl;
     }
+
     h2 {
         @apply text-2xl;
     }
+
     h3 {
         @apply text-xl;
     }
+
     h4 {
         @apply text-lg;
     }
+
     a {
-        @apply text-surgeBlue hover:text-surgeBlueBright dark:text-surgeOrange dark:hover:text-surgeOrangeBright underline decoration-dotted underline-offset-4;
+        @apply text-surgeBlue underline decoration-dotted underline-offset-4 hover:text-surgeBlueBright dark:text-surgeOrange dark:hover:text-surgeOrangeBright;
     }
+
     ul {
         @apply mb-4 list-inside list-disc;
     }
+
     ol {
         @apply mb-4 list-inside list-decimal;
     }
+
     p {
         @apply mb-4 text-pretty;
     }
+
     p:last-child {
         @apply mb-0;
     }
+
     img {
         @apply my-4;
     }
