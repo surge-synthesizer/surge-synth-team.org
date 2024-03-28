@@ -1,0 +1,20 @@
+---
+import ThemeToggle from "components/ThemeToggle.astro";
+---
+
+<nav
+    class="sticky top-0 flex flex-row flex-wrap place-content-center gap-4 bg-neutral-200/90 p-4 font-bold backdrop-blur-md dark:bg-neutral-800/90">
+    {
+        [
+            ["Projects", "/"],
+            ["GitHub", "https://github.com/surge-synthesizer"],
+            ["Open Source", "/open-source"],
+            ["Contact", "/contact"],
+        ].map(([title, href]) => (
+            <a href={href} class="text-nowrap rounded-lg text-lg leading-none no-underline">
+                {title}
+            </a>
+        ))
+    }
+    <ThemeToggle />
+</nav>

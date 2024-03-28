@@ -4,25 +4,27 @@ import { Image } from "astro:assets";
 
 import Default from "layouts/Default.astro";
 
-const { project } = Astro.props;
-const { Content } = await project.render();
-
 export async function getStaticPaths() {
-    const projects = await getCollection("projects");
+    const entries = await getCollection("projects");
 
-    return projects.map((project) => ({
-        params: { projects: project.slug },
-        props: { project },
+    return entries.map((entry) => ({
+        params: { projects: entry.slug },
+        props: { entry },
     }));
 }
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
 ---
 
-<Default title={project.data.title}>
-    <h1 class="place-self-center">{project.data.title}</h1>
+<Default title={entry.data.title}>
+    <h1 class="place-self-center">{entry.data.title}</h1>
     <Image
         class="mb-4 rounded-lg shadow-lg shadow-neutral-600 dark:shadow-black"
-        src={project.data.cover}
-        alt={project.data.title}
+        src={entry.data.cover}
+        alt={entry.data.title}
+        quality="100"
+        format="png"
     />
     <Content />
 </Default>

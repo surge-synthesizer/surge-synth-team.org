@@ -3,20 +3,20 @@ import { getCollection } from "astro:content";
 
 import Default from "layouts/Default.astro";
 
-const { page } = Astro.props;
-const { Content } = await page.render();
-
 export async function getStaticPaths() {
-    const pages = await getCollection("pages");
+    const entries = await getCollection("pages");
 
-    return pages.map((page) => ({
-        params: { pages: page.slug },
-        props: { page },
+    return entries.map((entry) => ({
+        params: { pages: entry.slug },
+        props: { entry },
     }));
 }
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
 ---
 
-<Default title={page.data.title}>
-    <h1 class="place-self-center">{page.data.title}</h1>
+<Default title={entry.data.title}>
+    <h1 class="place-self-center">{entry.data.title}</h1>
     <Content />
 </Default>
