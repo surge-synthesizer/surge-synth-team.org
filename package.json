@@ -14,27 +14,27 @@
         "preinstall": "astro telemetry disable"
     },
     "dependencies": {
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
     },
     "devDependencies": {
-        "@astrojs/check": "^0.5.10",
-        "@astrojs/mdx": "^2.2.1",
-        "@astrojs/react": "^3.1.0",
+        "@astrojs/check": "^0.7.0",
+        "@astrojs/mdx": "^3.0.1",
+        "@astrojs/react": "^3.4.0",
         "@astrojs/tailwind": "^5.1.0",
-        "@astrojs/ts-plugin": "^1.6.1",
-        "@types/node": "^20.11.30",
-        "@types/react": "^18.2.70",
-        "@types/react-dom": "^18.2.22",
-        "astro": "^4.5.9",
+        "@astrojs/ts-plugin": "^1.8.0",
+        "@types/node": "^20.14.0",
+        "@types/react": "^18.3.3",
+        "@types/react-dom": "^18.3.0",
+        "astro": "^4.9.2",
         "autoprefixer": "^10.4.19",
         "postcss": "^8.4.38",
-        "postcss-load-config": "^5.0.3",
-        "prettier": "^3.2.5",
-        "prettier-plugin-astro": "^0.13.0",
-        "prettier-plugin-tailwindcss": "^0.5.12",
-        "sharp": "^0.33.3",
-        "tailwindcss": "^3.4.1",
-        "typescript": "^5.4.3"
+        "postcss-load-config": "^6.0.1",
+        "prettier": "^3.3.0",
+        "prettier-plugin-astro": "^0.14.0",
+        "prettier-plugin-tailwindcss": "^0.6.1",
+        "sharp": "^0.33.4",
+        "tailwindcss": "^3.4.3",
+        "typescript": "^5.4.5"
     }
 }
