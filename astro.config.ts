@@ -5,14 +5,14 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
+    integrations: [mdx(), react(), tailwind()],
     markdown: {
         shikiConfig: {
             themes: {
-                light: "solarized-light",
-                dark: "solarized-dark",
+                light: "dark-plus",
+                dark: "light-plus",
             },
             wrap: true,
         },
     },
-    integrations: [mdx(), react(), tailwind()],
 });
