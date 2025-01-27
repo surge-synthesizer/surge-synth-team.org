@@ -1,77 +1,88 @@
 ---
-import "css/index.css";
-import Nav from "components/Nav.astro";
+import { ClientRouter } from "astro:transitions";
+
+import "../styles/index.css";
+import Nav from "../components/Nav.astro";
+import Theme from "../components/Theme.astro";
 
 interface Props {
-    title: string;
+    title: string | undefined;
 }
 
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
-    <script>
-        const setTheme = (dark: boolean) => {
-            document
-                .querySelector('meta[name="color-scheme"]')
-                ?.setAttribute("content", dark ? "dark" : "light");
-
-            dark
-                ? document.documentElement.classList.add("dark")
-                : document.documentElement.classList.remove("dark");
-        };
-
-        const theme = localStorage.getItem("theme");
-
-        if (theme) {
-            switch (theme) {
-                case "dark": {
-                    setTheme(true);
-                    break;
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:url" content={Astro.url.href} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content="Surge Synth Team" />
+        <meta property="og:image" content="https://surge-synth-team.org/images/og_image.png" />
+        <meta
+            property="og:image:secure_url"
+            content="https://surge-synth-team.org/images/og_image.png"
+        />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="600" />
+        <meta property="ig:image:alt" content="Surge Synth Team" />
+        <meta property="og:type" content="website" />
+        <meta
+            name="description"
+            content="We maintain and contribute to awesome open source audio plugins!"
+        />
+        <link rel="icon" href="/favicon.ico" />
+        <link
+            rel="preload"
+            href="/fonts/Lato-Regular.woff"
+            as="font"
+            type="font/woff"
+            crossorigin
+        />
+        <link rel="preload" href="/fonts/Lato-Italic.woff" as="font" type="font/woff" crossorigin />
+        <title>{title}</title>
+        <script is:inline>
+            function applyTheme() {
+                if (!localStorage.getItem("theme")) {
+                    localStorage.setItem("theme", "auto");
                 }
-                case "light": {
-                    setTheme(false);
-                    break;
+
+                switch (localStorage.getItem("theme")) {
+                    case "auto":
+                        window.matchMedia("(prefers-color-scheme: dark)").matches
+                            ? document.documentElement.setAttribute("data-theme", "dark")
+                            : document.documentElement.setAttribute("data-theme", "light");
+                        break;
+
+                    case "dark":
+                        document.documentElement.setAttribute("data-theme", "dark");
+                        break;
+
+                    case "light":
+                        document.documentElement.setAttribute("data-theme", "light");
+                        break;
                 }
             }
-        } else {
-            localStorage.setItem(
-                "theme",
-                window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light",
-            );
-        }
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:url" content={Astro.url.href} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content="Surge Synth Team" />
-    <meta property="og:image" content="https://surge-synth-team.org/images/og_image.png" />
-    <meta
-        property="og:image:secure_url"
-        content="https://surge-synth-team.org/images/og_image.png"
-    />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="600" />
-    <meta property="ig:image:alt" content="Surge Synth Team" />
-    <meta property="og:type" content="website" />
-    <meta name="color-scheme" content="dark light" />
-    <meta name="theme-color" content="#FF9900" />
-    <meta
-        name="description"
-        content="We maintain and contribute to awesome open source audio plugins!"
-    />
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="preload" href="/fonts/Lato-Regular.woff" as="font" type="font/woff" crossorigin />
-    <link rel="preload" href="/fonts/Lato-Italic.woff" as="font" type="font/woff" crossorigin />
-    <title>{title}</title>
 
-    <body class="bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">
-        <Nav />
-        <main class="m-auto max-w-6xl p-8">
-            <slot />
+            applyTheme();
+
+            document.addEventListener("astro:after-swap", () => {
+                applyTheme();
+            });
+        </script>
+        <ClientRouter />
+    </head>
+
+    <body class="bg-neutral-200 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200">
+        <main class="grid min-h-full grid-rows-[auto_1fr_auto]">
+            <Nav />
+            <div class="mx-auto max-w-4xl self-start p-4">
+                <slot />
+            </div>
+            <Theme />
         </main>
     </body>
 </html>

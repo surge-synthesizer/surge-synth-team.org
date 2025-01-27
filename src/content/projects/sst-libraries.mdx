@@ -3,14 +3,14 @@ slug: sst-libraries
 title: The SST Libraries
 order: 8
 summary: A collection of libraries from the Surge Synth Team.
-cover: "screenshots/sst-libraries.png"
+cover: "./screenshots/sst-libraries.png"
 categories: [Synth, Microtuning]
 url: /sst-libraries
 issue_tracker: https://github.com/surge-synthesizer/tuning-library/issues
 ---
 
 import { Image } from "astro:assets";
-import twsMainUi from "screenshots/TWS-MainUI.png";
+import twsMainUi from "./screenshots/TWS-MainUI.png";
 
 # Tuning Library
 
@@ -81,34 +81,34 @@ the generator section (at the top) and tuning section (at the bottom).
 
 The generator section controls the sound source. Reading from left to right, it contains the following
 
--   Oscillators
-    -   The VCO provides a set of analog-style oscillators in sine, square, saw, and triangle waves
-        with a level for each of the waveforms and up to 10 unison voices with a spread. The spread
-        is expressed in percentages of a single note, and is tuning aware.
-    -   The Sub-oscillator adds a square wave dropped 1-3 octaves (frequency halvings)
-    -   The Pluck oscillator provides a simple karplus-strong style attack generator
-    -   Each can be turned on or off using the power button in the upper right corner of the group boundary
--   Modulators
-    -   The filter envelope is an ADSR envelope which modulates the filter cutoff frequency to depth mod
-    -   The amplitude envelope is an ADSR envelope applied to the VCO and Sub oscillators but not the Pluck oscillator
-    -   The LFO is a per-voice low frequency oscillator with a rate, delay before onset, and attack ramp up time.
-        -   The vertical sliders assign the LFO modulation to the pitch of the playing note, the level of each oscillator,
-            and the cutoff of the filter, respectively
-        -   The 'wheel' power button determines whether to use the MIDI mod wheel as an amplitude modulator for the
-            LFO. If it is on, the LFO is scaled by the mod wheel; if it is off the LFO is unscaled, equivalent to the
-            mod wheel being permanently opeion
-    -   The pitch bend control determines how many notes up and down the pitch bend moves. The pitch bend is expressed
-        in notes and is tuning aware.
--   The output section
-    -   The filter is a filter-per-voice which can be a simple low-pass, high-pass or band-pass filter
-    -   The delay is a global effect with standard delay controls
-    -   The master stage sets a global output level and a saturation level. We send the entire synth through
-        a soft clipper at the output stage, so saturation drives us into the soft clip for a warming effect
-        at lower levels and a distortion effect at higher levels.
--   The top buttons
-    -   Presets opens a menu which lets you choose a few factory presets we put together, and save your presets as a separate file if you wish
-    -   Help opens this page
-    -   About gives you a screen with version numbers and links to source and so on.
+- Oscillators
+    - The VCO provides a set of analog-style oscillators in sine, square, saw, and triangle waves
+      with a level for each of the waveforms and up to 10 unison voices with a spread. The spread
+      is expressed in percentages of a single note, and is tuning aware.
+    - The Sub-oscillator adds a square wave dropped 1-3 octaves (frequency halvings)
+    - The Pluck oscillator provides a simple karplus-strong style attack generator
+    - Each can be turned on or off using the power button in the upper right corner of the group boundary
+- Modulators
+    - The filter envelope is an ADSR envelope which modulates the filter cutoff frequency to depth mod
+    - The amplitude envelope is an ADSR envelope applied to the VCO and Sub oscillators but not the Pluck oscillator
+    - The LFO is a per-voice low frequency oscillator with a rate, delay before onset, and attack ramp up time.
+        - The vertical sliders assign the LFO modulation to the pitch of the playing note, the level of each oscillator,
+          and the cutoff of the filter, respectively
+        - The 'wheel' power button determines whether to use the MIDI mod wheel as an amplitude modulator for the
+          LFO. If it is on, the LFO is scaled by the mod wheel; if it is off the LFO is unscaled, equivalent to the
+          mod wheel being permanently opeion
+    - The pitch bend control determines how many notes up and down the pitch bend moves. The pitch bend is expressed
+      in notes and is tuning aware.
+- The output section
+    - The filter is a filter-per-voice which can be a simple low-pass, high-pass or band-pass filter
+    - The delay is a global effect with standard delay controls
+    - The master stage sets a global output level and a saturation level. We send the entire synth through
+      a soft clipper at the output stage, so saturation drives us into the soft clip for a warming effect
+      at lower levels and a distortion effect at higher levels.
+- The top buttons
+    - Presets opens a menu which lets you choose a few factory presets we put together, and save your presets as a separate file if you wish
+    - Help opens this page
+    - About gives you a screen with version numbers and links to source and so on.
 
 ## The tuning section
 
@@ -132,7 +132,7 @@ And if you find a bug, please do let us know!
 
 ### Reviews
 
--   [Freebie(s) of the Month - SURGE, and Others](https://soundbytesmag.net/freebies-of-the-month-surge-and-others/)
-    , SoundBytes net music magazine
--   [Synth Time (ft. Vito Sicurella)](https://www.patreon.com/posts/034b-bonus-synth-35474052)
-    , Now&Xen podcast
+- [Freebie(s) of the Month - SURGE, and Others](https://soundbytesmag.net/freebies-of-the-month-surge-and-others/)
+  , SoundBytes net music magazine
+- [Synth Time (ft. Vito Sicurella)](https://www.patreon.com/posts/034b-bonus-synth-35474052)
+  , Now&Xen podcast
