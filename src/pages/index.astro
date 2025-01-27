@@ -2,41 +2,51 @@
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 
-import Default from "layouts/Default.astro";
-import sstLogo from "public/images/sst-logo.svg";
+import Default from "../layouts/Default.astro";
+import Logo from "../images/logo.svg";
 
-const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
+const projects = (await getCollection("projects")).sort(
+    (a: any, b: any) => a.data.order - b.data.order,
+);
 ---
 
 <Default title="Surge Synth Team" {...Astro.props}>
-    <header class="flex flex-col place-content-center place-items-center gap-4 pb-4 md:flex-row">
-        <Image class="self-center" alt="SST Logo" src={sstLogo} />
-        <p class="max-w-lg text-pretty text-center">
-            The Surge Synth Team is a group of musicians, developers, testers, documenters, and
-            general volunteer open source enthusiasts who randomly assembled to work on the Surge
-            Synthesizer. As the Surge project became more successful, and we kept having fun, we
-            decided to branch out into other things too!
-        </p>
-    </header>
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-        {
-            projects.map((project) => (
-                <div class="flex flex-col place-content-between gap-8 rounded-3xl bg-neutral-50 p-8 dark:bg-neutral-950">
-                    <h2 class="m-0 self-center">
-                        <a href={project.data.url}>{project.data.title}</a>
-                    </h2>
-                    <a href={project.data.url}>
-                        <Image
-                            class="my-0 rounded-lg shadow-lg shadow-neutral-600 dark:shadow-black"
-                            alt={project.data.title}
-                            src={project.data.cover}
-                            quality="100"
-                            format="png"
-                        />
-                    </a>
-                    <p class="self-center text-pretty text-center">{project.data.summary}</p>
-                </div>
-            ))
-        }
+    <div class="grid gap-4">
+        <header class="flex flex-col place-content-center place-items-center gap-4 md:flex-row">
+            <Image class="self-center" alt="SST Logo" src={Logo} />
+            <article class="prose prose-neutral dark:prose-invert">
+                <p class="max-w-lg text-justify text-sm text-pretty">
+                    The Surge Synth Team is a group of musicians, developers, testers, documenters,
+                    and general volunteer open source enthusiasts who randomly assembled to work on
+                    the Surge Synthesizer. As the Surge project became more successful, and we kept
+                    having fun, we decided to branch out into other things too!
+                </p>
+            </article>
+        </header>
+        <div class="grid grid-cols-1 gap-6 p-2 md:grid-cols-2">
+            {
+                projects.map((project: any) => (
+                    <div class="flex flex-col place-content-between gap-4 rounded-lg bg-neutral-300 p-4 shadow-lg dark:bg-neutral-900">
+                        <a class="self-center text-xl" href={project.data.url}>
+                            {project.data.title}
+                        </a>
+                        <a href={project.data.url}>
+                            <Image
+                                class="m-0 rounded-lg shadow-2xl shadow-black"
+                                alt={project.data.title}
+                                src={project.data.cover}
+                                quality="100"
+                                format="png"
+                            />
+                        </a>
+                        <article class="prose prose-neutral dark:prose-invert">
+                            <p class="self-center text-center text-pretty">
+                                {project.data.summary}
+                            </p>
+                        </article>
+                    </div>
+                ))
+            }
+        </div>
     </div>
 </Default>

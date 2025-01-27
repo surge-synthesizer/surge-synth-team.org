@@ -1,9 +1,5 @@
----
-import ThemeToggle from "components/ThemeToggle.astro";
----
-
 <nav
-    class="sticky top-0 flex flex-row flex-wrap place-content-center gap-4 bg-neutral-200/90 p-4 font-bold backdrop-blur-md dark:bg-neutral-800/90">
+    class="sticky top-0 grid max-h-fit grid-flow-col place-content-center gap-4 border-b-[1px] border-neutral-400 bg-neutral-200/80 p-1 text-nowrap backdrop-blur-3xl select-none dark:border-neutral-700 dark:bg-neutral-900/80">
     {
         [
             ["Projects", "/"],
@@ -11,10 +7,9 @@ import ThemeToggle from "components/ThemeToggle.astro";
             ["Open Source", "/open-source"],
             ["Contact", "/contact"],
         ].map(([title, href]) => (
-            <a href={href} class="text-nowrap rounded-lg text-lg leading-none no-underline">
+            <a href={href} class="text-nowrap no-underline">
                 {title}
             </a>
         ))
     }
-    <ThemeToggle />
 </nav>

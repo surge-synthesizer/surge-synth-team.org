@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@font-face {
+    font-family: "Lato";
+    src: url("/fonts/Lato-Regular.woff") format("woff");
+    font-style: normal;
+    font-weight: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url("/fonts/Lato-Italic.woff") format("woff");
+    font-style: italic;
+    font-weight: normal;
+    font-display: block;
+}
+
+@theme {
+    --font-sans: "Lato";
+}
+
+@layer base {
+    html,
+    body {
+        height: 100%;
+    }
+
+    a {
+        @apply text-orange-700 hover:cursor-pointer hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300;
+    }
+}
