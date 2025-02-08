@@ -5,32 +5,60 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @font-face {
-    font-family: "Lato";
-    src: url("/fonts/Lato-Regular.woff") format("woff");
+    font-family: "Inter";
+    src: url("/fonts/InterVariable.woff2") format("woff2");
     font-style: normal;
-    font-weight: normal;
+    font-weight: 100 900;
     font-display: block;
 }
 
 @font-face {
-    font-family: "Lato";
-    src: url("/fonts/Lato-Italic.woff") format("woff");
+    font-family: "Inter";
+    src: url("/fonts/InterVariable-Italic.woff2") format("woff2");
     font-style: italic;
-    font-weight: normal;
+    font-weight: 100 900;
     font-display: block;
 }
 
 @theme {
-    --font-sans: "Lato";
+    --font-sans: "Inter";
+    --font-sans--font-variation-settings: "opsz" auto;
+    --color-bg-1: #1b1d20;
+    --color-bg-2: #262a2f;
+    --color-bg-3: #333333;
+    --color-bg-1-light: #e4e2df;
+    --color-bg-2-light: #d9d5d0;
+    --color-bg-3-light: #cccccc;
+    --color-generic-content-lowest: #000000;
+    --color-generic-content-low: #777777;
+    --color-generic-content-medium: #afafaf;
+    --color-generic-content-high: #dfdfdf;
+    --color-generic-content-highest: #ffffff;
+    --color-accent-1a: #ffb949;
+    --color-accent-1b: #d09030;
+    --color-accent-2a: #278bd6;
+    --color-accent-2b: #004f8a;
 }
 
 @layer base {
+    html[data-theme="dark"] {
+        scrollbar-color: var(--color-neutral-300) var(--color-bg-2);
+        scrollbar-width: auto;
+    }
+
+    html[data-theme="light"] {
+        scrollbar-color: var(--color-neutral-600) var(--color-bg-2-light);
+        scrollbar-width: auto;
+    }
+
     html,
     body {
         height: 100%;
     }
+}
 
-    a {
-        @apply text-orange-700 hover:cursor-pointer hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300;
+@layer components {
+    .link {
+        @apply text-nowrap text-accent-2b hover:cursor-pointer hover:text-accent-2a dark:text-accent-1b dark:hover:text-accent-1a;
     }
 }

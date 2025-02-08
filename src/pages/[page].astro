@@ -1,13 +1,12 @@
 ---
 import { getCollection, render } from "astro:content";
-
 import Default from "../layouts/Default.astro";
 
 export async function getStaticPaths() {
     const pages = await getCollection("pages");
 
     return pages.map((page) => ({
-        params: { pages: page.id },
+        params: { page: page.id },
         props: { page },
     }));
 }
@@ -18,7 +17,7 @@ const { Content } = await render(page);
 
 <Default title={page.data.title}>
     <article
-        class="prose prose-neutral dark:prose-invert prose-a:text-blue-600 prose-a:hover:text-blue-500 prose-a:dark:text-blue-500 prose-a:dark:hover:text-blue-400">
+        class="prose prose-neutral dark:prose-invert prose-a:text-accent-2b prose-a:hover:text-accent-2a prose-a:dark:text-accent-1b prose-a:dark:hover:text-accent-1a">
         <h1 class="place-self-center">{page.data.title}</h1>
         <Content />
     </article>

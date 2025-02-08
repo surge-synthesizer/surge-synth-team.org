@@ -1,12 +1,9 @@
 ---
 import { ClientRouter } from "astro:transitions";
-
 import "../styles/index.css";
-import Nav from "../components/Nav.astro";
-import Theme from "../components/Theme.astro";
 
 interface Props {
-    title: string | undefined;
+    title: string;
 }
 
 const { title } = Astro.props;
@@ -17,6 +14,11 @@ const { title } = Astro.props;
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="Surge Synth Team" />
+        <meta
+            name="description"
+            content="We maintain and contribute to awesome open source audio plugins!"
+        />
         <meta property="og:url" content={Astro.url.href} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content="Surge Synth Team" />
@@ -30,25 +32,25 @@ const { title } = Astro.props;
         <meta property="og:image:height" content="600" />
         <meta property="ig:image:alt" content="Surge Synth Team" />
         <meta property="og:type" content="website" />
-        <meta
-            name="description"
-            content="We maintain and contribute to awesome open source audio plugins!"
-        />
         <link rel="icon" href="/favicon.ico" />
         <link
             rel="preload"
-            href="/fonts/Lato-Regular.woff"
+            href="/fonts/InterVariable.woff2"
             as="font"
-            type="font/woff"
+            type="font/woff2"
             crossorigin
         />
-        <link rel="preload" href="/fonts/Lato-Italic.woff" as="font" type="font/woff" crossorigin />
+        <link
+            rel="preload"
+            href="/fonts/InterVariable-Italic.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
         <title>{title}</title>
         <script is:inline>
-            function applyTheme() {
-                if (!localStorage.getItem("theme")) {
-                    localStorage.setItem("theme", "auto");
-                }
+            function setTheme() {
+                !localStorage.getItem("theme") && localStorage.setItem("theme", "auto");
 
                 switch (localStorage.getItem("theme")) {
                     case "auto":
@@ -67,22 +69,87 @@ const { title } = Astro.props;
                 }
             }
 
-            applyTheme();
+            function setThemeSelection() {
+                document.getElementById("theme-select").value = localStorage.getItem("theme");
+            }
+
+            setTheme();
+
+            document.addEventListener("readystatechange", (event) => {
+                if (event.target.readyState === "interactive") {
+                    setThemeSelection();
+                }
+            });
 
             document.addEventListener("astro:after-swap", () => {
-                applyTheme();
+                setTheme();
+                setThemeSelection();
             });
         </script>
         <ClientRouter />
     </head>
 
-    <body class="bg-neutral-200 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200">
-        <main class="grid min-h-full grid-rows-[auto_1fr_auto]">
-            <Nav />
-            <div class="mx-auto max-w-4xl self-start p-4">
+    <body class="bg-bg-1-light dark:bg-bg-1">
+        <main class="grid">
+            <nav
+                class="sticky top-0 grid grid-flow-col place-content-center items-center gap-4 bg-bg-2-light/95 p-2 leading-none font-semibold text-nowrap shadow-xl backdrop-blur-lg select-none dark:bg-bg-2/95">
+                {
+                    [
+                        ["Projects", "/"],
+                        ["GitHub", "https://github.com/surge-synthesizer"],
+                        ["Open Source", "/open-source"],
+                        ["Contact", "/contact"],
+                    ].map(([title, href]) => (
+                        <a href={href} class="link">
+                            {title}
+                        </a>
+                    ))
+                }
+                <div class="text-xs text-neutral-600 dark:text-neutral-300">
+                    <select
+                        aria-label="Theme"
+                        name="themes"
+                        id="theme-select"
+                        class="bg-bg-1-light dark:bg-bg-1">
+                        <option value="auto">System</option>
+                        <option value="dark">Dark</option>
+                        <option value="light">Light</option>
+                    </select>
+                </div>
+            </nav>
+
+            <div class="mx-auto max-w-4xl p-4">
                 <slot />
             </div>
-            <Theme />
         </main>
     </body>
 </html>
+
+<script>
+    function themeObserver() {
+        const themeSelect = document.getElementById("theme-select") as HTMLSelectElement;
+
+        themeSelect.addEventListener("change", () => {
+            localStorage.setItem("theme", themeSelect.value);
+
+            switch (themeSelect.value) {
+                case "auto":
+                    window.matchMedia("(prefers-color-scheme: dark)").matches
+                        ? document.documentElement.setAttribute("data-theme", "dark")
+                        : document.documentElement.setAttribute("data-theme", "light");
+                    break;
+
+                case "dark":
+                    document.documentElement.setAttribute("data-theme", "dark");
+                    break;
+
+                case "light":
+                    document.documentElement.setAttribute("data-theme", "light");
+                    break;
+            }
+        });
+    }
+
+    document.addEventListener("astro:after-swap", themeObserver);
+    themeObserver();
+</script>
