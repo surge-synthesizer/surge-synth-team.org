@@ -1,7 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
 import { Image } from "astro:assets";
-import Default from "../layouts/Default.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Article from "../components/Article.astro";
 
 export async function getStaticPaths() {
     const projects = await getCollection("projects");
@@ -16,17 +17,18 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
-<Default title={project.data.title}>
-    <article
-        class="prose prose-neutral dark:prose-invert prose-a:text-accent-2b prose-a:hover:text-accent-2a prose-a:dark:text-accent-1b prose-a:dark:hover:text-accent-1a">
-        <h1 class="place-self-center">{project.data.title}</h1>
-        <Image
-            class="rounded-lg shadow-xl shadow-neutral-400 dark:shadow-neutral-900"
-            src={project.data.cover}
-            alt={project.data.title}
-            quality="100"
-            format="png"
-        />
-        <Content />
-    </article>
-</Default>
+<BaseLayout title={project.data.title}>
+    <div class="mx-auto max-w-fit p-6">
+        <Article>
+            <Image
+                class="rounded-lg shadow-xl shadow-neutral-400 dark:shadow-neutral-900"
+                src={project.data.cover}
+                alt={project.data.title}
+                quality="100"
+                format="png"
+            />
+            <h1>{project.data.title}</h1>
+            <Content />
+        </Article>
+    </div>
+</BaseLayout>
