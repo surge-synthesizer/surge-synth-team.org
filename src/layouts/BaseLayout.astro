@@ -21,7 +21,10 @@ const { title } = Astro.props;
         />
         <meta property="og:url" content={Astro.url.href} />
         <meta property="og:title" content={title} />
-        <meta property="og:description" content="Surge Synth Team" />
+        <meta
+            property="og:description"
+            content="We maintain and contribute to awesome open source audio plugins!"
+        />
         <meta property="og:image" content="https://surge-synth-team.org/images/og_image.png" />
         <meta
             property="og:image:secure_url"
@@ -89,39 +92,33 @@ const { title } = Astro.props;
         <ClientRouter />
     </head>
 
-    <body class="bg-bg-1-light dark:bg-bg-1">
-        <main class="grid">
+    <body class="overflow-hidden bg-bg-1-light dark:bg-bg-1">
+        <div class="flex h-full w-full flex-col">
             <nav
-                class="sticky top-0 grid grid-flow-col place-content-center items-center gap-4 bg-bg-2-light/95 p-2 leading-none font-semibold text-nowrap shadow-xl backdrop-blur-lg select-none dark:bg-bg-2/95">
+                class="sticky top-0 flex flex-wrap items-center justify-center gap-4 bg-bg-2-light/95 p-2 leading-none font-semibold shadow-xl backdrop-blur-lg select-none dark:bg-bg-2/95">
                 {
                     [
                         ["Projects", "/"],
                         ["GitHub", "https://github.com/surge-synthesizer"],
                         ["Open Source", "/open-source"],
                         ["Contact", "/contact"],
-                    ].map(([title, href]) => (
-                        <a href={href} class="link">
-                            {title}
-                        </a>
-                    ))
+                    ].map(([title, href]) => <a href={href}>{title}</a>)
                 }
-                <div class="text-xs text-neutral-600 dark:text-neutral-300">
-                    <select
-                        aria-label="Theme"
-                        name="themes"
-                        id="theme-select"
-                        class="bg-bg-1-light dark:bg-bg-1">
-                        <option value="auto">System</option>
-                        <option value="dark">Dark</option>
-                        <option value="light">Light</option>
-                    </select>
-                </div>
+                <select
+                    aria-label="Theme"
+                    name="themes"
+                    id="theme-select"
+                    class="rounded-sm bg-bg-3-light text-neutral-600 dark:bg-bg-3 dark:text-neutral-300">
+                    <option value="auto">System</option>
+                    <option value="dark">Dark</option>
+                    <option value="light">Light</option>
+                </select>
             </nav>
 
-            <div class="mx-auto max-w-4xl p-4">
+            <div class="overflow-auto">
                 <slot />
             </div>
-        </main>
+        </div>
     </body>
 </html>
 

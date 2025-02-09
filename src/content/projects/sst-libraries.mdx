@@ -12,7 +12,7 @@ issue_tracker: https://github.com/surge-synthesizer/tuning-library/issues
 import { Image } from "astro:assets";
 import twsMainUi from "./screenshots/TWS-MainUI.png";
 
-# Tuning Library
+## Tuning Library
 
 We've added microtuning support to several instruments. Our core SCL/KBM calculation engine is available as a standalone C++ header.
 
@@ -21,7 +21,7 @@ about edge cases. When we turned to do it in Surge, we got it wrong more often t
 open source, we thought about sharing that experience.
 
 So we took our core tuning implementation from Surge and converted it into a standalone MIT licensed C++-14 header-only library.
-We used this to build the [Tuning Workbench Synth](/tuning-workbench-synth/).
+We used this to build the [Tuning Workbench Synth](#tuning-workbench-synth).
 Soon we will also backport it into Surge!
 
 But you can use it today!
@@ -39,7 +39,7 @@ The details are at [our GitHub repository for the project](https://github.com/su
    and as [exercised in our tests](https://github.com/surge-synthesizer/tuning-library/blob/master/tests/alltests.cpp) to find
    the frequency for your note. Adjust your oscillators accordingly and go.
 
-# Tuning Workbench Synth
+## Tuning Workbench Synth
 
 The [Tuning Workbench Synth](https://github.com/surge-synthesizer/tuning-workbench-synth) provides a complete working example of doing this in a JUCE plugin.
 
@@ -60,7 +60,7 @@ can do so using the URL for this page.
 
 Enjoy!
 
-## Get TWS
+### Get TWS
 
 The Tuning Workbench Synth is currently in a late alpha / early beta release. We release each commit to our repo
 as a nightly.
@@ -70,14 +70,14 @@ You can download the [current nightly from our github](https://github.com/surge-
 We distribute a standalone for Linux, a VST3 and Standalone for Windows, and a VST3, AU and Standalone for macOS.
 If you are a VST2 licensee and would like to build a VST2, you may do so using the instructions on our github.
 
-## Using TWS
+### Using TWS
 
 When you launch the tuning workbench synth, you will see the UI below. The main UI is divided into two sections,
 the generator section (at the top) and tuning section (at the bottom).
 
 <Image src={twsMainUi} alt="The TWS Main Screen" quality="100" format="png" />
 
-## The Generator Section
+### The Generator Section
 
 The generator section controls the sound source. Reading from left to right, it contains the following
 
@@ -110,7 +110,7 @@ The generator section controls the sound source. Reading from left to right, it 
     - Help opens this page
     - About gives you a screen with version numbers and links to source and so on.
 
-## The tuning section
+### The tuning section
 
 The tuning section shows the current result of the scale and keyboard mapping, and allows you to edit those mappings.
 
@@ -119,20 +119,20 @@ and edit an SCL or KBM file. When you edit a file, the apply button will become 
 
 You can import an SCL or KBM file by dragging and dropping a file onto any part of the UI or by using the "Load" button in the tabs.
 
-## The Advanced Editor
+### The Advanced Editor
 
 Documentation forthcoming. But you can drag the knobs and graph to retune. Try it!
 
-## Add a feature, Report a Bug
+### Add a feature, Report a Bug
 
 The tuning workbench synth is GPL3 open source software. We welcome contributors who want to build it, expand it, modify it,
 and otherwise help us make it cool. Probably the best thing if you want to do this is join our slack or drop an issue on our github.
 
 And if you find a bug, please do let us know!
 
-### Reviews
+#### Reviews
 
-- [Freebie(s) of the Month - SURGE, and Others](https://soundbytesmag.net/freebies-of-the-month-surge-and-others/)
+- [Freebie(s) of the Month](https://soundbytesmag.net/freebies-of-the-month-surge-and-others/)
   , SoundBytes net music magazine
 - [Synth Time (ft. Vito Sicurella)](https://www.patreon.com/posts/034b-bonus-synth-35474052)
   , Now&Xen podcast

@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
-import Default from "../layouts/Default.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import Logo from "../images/logo.svg";
 
 const projects = (await getCollection("projects")).sort(
@@ -9,9 +9,9 @@ const projects = (await getCollection("projects")).sort(
 );
 ---
 
-<Default title="Surge Synth Team">
-    <div class="grid gap-4">
-        <header class="flex flex-col place-content-center place-items-center gap-4 md:flex-row">
+<BaseLayout title="Surge Synth Team">
+    <div class="m-auto grid max-w-6xl gap-6 p-6">
+        <header class="flex flex-col place-content-center place-items-center gap-6 md:flex-row">
             <Image class="self-center" alt="SST Logo" src={Logo} />
             <p
                 class="prose max-w-lg text-justify text-sm text-pretty prose-neutral dark:prose-invert">
@@ -22,7 +22,7 @@ const projects = (await getCollection("projects")).sort(
             </p>
         </header>
 
-        <div class="grid grid-cols-1 gap-6 p-2 md:grid-cols-2">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
             {
                 projects.map((project: any) => (
                     <div class="flex flex-col place-content-between gap-4 rounded-lg bg-bg-2-light p-4 shadow-lg dark:bg-bg-2">
@@ -38,14 +38,12 @@ const projects = (await getCollection("projects")).sort(
                                 format="png"
                             />
                         </a>
-                        <article class="prose prose-neutral dark:prose-invert">
-                            <p class="self-center text-center text-pretty">
-                                {project.data.summary}
-                            </p>
-                        </article>
+                        <p class="prose self-center text-center text-pretty prose-neutral dark:prose-invert">
+                            {project.data.summary}
+                        </p>
                     </div>
                 ))
             }
         </div>
     </div>
-</Default>
+</BaseLayout>

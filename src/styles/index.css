@@ -55,10 +55,8 @@
     body {
         height: 100%;
     }
-}
 
-@layer components {
-    .link {
+    a {
         @apply text-nowrap text-accent-2b hover:cursor-pointer hover:text-accent-2a dark:text-accent-1b dark:hover:text-accent-1a;
     }
 }
