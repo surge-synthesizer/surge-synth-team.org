@@ -10,7 +10,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-full w-full">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -92,10 +92,10 @@ const { title } = Astro.props;
         <ClientRouter />
     </head>
 
-    <body class="overflow-hidden bg-bg-1-light dark:bg-bg-1">
-        <div class="flex h-full w-full flex-col">
+    <body class="h-full w-full overflow-hidden bg-bg-1-light dark:bg-bg-1">
+        <div class="grid h-full w-full content-start">
             <nav
-                class="sticky top-0 flex flex-wrap items-center justify-center gap-4 bg-bg-2-light/95 p-2 leading-none font-semibold shadow-xl backdrop-blur-lg select-none dark:bg-bg-2/95">
+                class="sticky top-0 grid grid-flow-col items-center justify-center gap-4 bg-bg-2-light/95 p-2 leading-none font-semibold shadow-xl backdrop-blur-lg select-none dark:bg-bg-2/95">
                 {
                     [
                         ["Projects", "/"],
@@ -115,7 +115,7 @@ const { title } = Astro.props;
                 </select>
             </nav>
 
-            <div class="overflow-auto">
+            <div class="grid justify-center overflow-auto p-6">
                 <slot />
             </div>
         </div>

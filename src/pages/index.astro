@@ -10,7 +10,7 @@ const projects = (await getCollection("projects")).sort(
 ---
 
 <BaseLayout title="Surge Synth Team">
-    <div class="m-auto grid max-w-6xl gap-6 p-6">
+    <div class="grid max-w-4xl gap-6">
         <header class="flex flex-col place-content-center place-items-center gap-6 md:flex-row">
             <Image class="self-center" alt="SST Logo" src={Logo} />
             <p
@@ -25,7 +25,7 @@ const projects = (await getCollection("projects")).sort(
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
             {
                 projects.map((project: any) => (
-                    <div class="flex flex-col place-content-between gap-4 rounded-lg bg-bg-2-light p-4 shadow-lg dark:bg-bg-2">
+                    <div class="flex flex-col place-content-between gap-6 rounded-lg bg-bg-2-light p-4 shadow-lg dark:bg-bg-2">
                         <a class="link self-center text-xl font-semibold" href={project.data.url}>
                             {project.data.title}
                         </a>
