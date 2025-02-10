@@ -18,8 +18,9 @@ const { Content } = await render(project);
 ---
 
 <BaseLayout title={project.data.title}>
-    <div class="mx-auto max-w-fit p-6">
+    <div class="grid max-w-4xl gap-6">
         <Article>
+            <h1>{project.data.title}</h1>
             <Image
                 class="rounded-lg shadow-xl shadow-neutral-400 dark:shadow-neutral-900"
                 src={project.data.cover}
@@ -27,7 +28,6 @@ const { Content } = await render(project);
                 quality="100"
                 format="png"
             />
-            <h1>{project.data.title}</h1>
             <Content />
         </Article>
     </div>
