@@ -122,8 +122,17 @@ const navLinks = [
 </html>
 
 <script>
-    function navOffset() {
-        document.documentElement.style.scrollPaddingTop = `${document.getElementById("nav")?.offsetHeight}px`;
+    function navHeight() {
+        const updateNavHeight = () => {
+            const nav = document.getElementById("nav") as HTMLElement;
+            document.documentElement.style.setProperty("--nav-height", `${nav.offsetHeight}px`);
+        };
+
+        updateNavHeight();
+
+        window.addEventListener("resize", () => {
+            updateNavHeight();
+        });
     }
 
     function themeObserver() {
@@ -151,7 +160,7 @@ const navLinks = [
     }
 
     function setup() {
-        navOffset();
+        navHeight();
         themeObserver();
     }
 
