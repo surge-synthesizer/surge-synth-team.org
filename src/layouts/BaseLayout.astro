@@ -7,10 +7,17 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+const navLinks = [
+    ["Projects", "/"],
+    ["GitHub", "https://github.com/surge-synthesizer"],
+    ["Open Source", "/open-source"],
+    ["Contact", "/contact"],
+] as const;
 ---
 
 <!doctype html>
-<html lang="en" class="h-full w-full">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -92,37 +99,33 @@ const { title } = Astro.props;
         <ClientRouter />
     </head>
 
-    <body class="h-full w-full overflow-hidden bg-bg-1-light dark:bg-bg-1">
-        <div class="grid h-full w-full content-start">
-            <nav
-                class="sticky top-0 grid grid-flow-col items-center justify-center gap-4 bg-bg-2-light/95 p-2 leading-none font-semibold shadow-xl backdrop-blur-lg select-none dark:bg-bg-2/95">
-                {
-                    [
-                        ["Projects", "/"],
-                        ["GitHub", "https://github.com/surge-synthesizer"],
-                        ["Open Source", "/open-source"],
-                        ["Contact", "/contact"],
-                    ].map(([title, href]) => <a href={href}>{title}</a>)
-                }
-                <select
-                    aria-label="Theme"
-                    name="themes"
-                    id="theme-select"
-                    class="rounded-sm bg-bg-3-light text-neutral-600 dark:bg-bg-3 dark:text-neutral-300">
-                    <option value="auto">System</option>
-                    <option value="dark">Dark</option>
-                    <option value="light">Light</option>
-                </select>
-            </nav>
+    <body class="bg-bg-1-light dark:bg-bg-1">
+        <nav
+            id="nav"
+            class="sticky top-0 grid grid-flow-col items-center justify-center gap-4 bg-bg-2-light/95 p-2 leading-none font-semibold shadow-xl backdrop-blur-lg select-none dark:bg-bg-2/95">
+            {navLinks.map(([title, href]) => <a href={href}>{title}</a>)}
+            <select
+                aria-label="Theme"
+                name="themes"
+                id="theme-select"
+                class="rounded-sm bg-bg-3-light text-neutral-600 dark:bg-bg-3 dark:text-neutral-300">
+                <option value="auto">System</option>
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+            </select>
+        </nav>
 
-            <div class="grid justify-center overflow-auto p-6">
-                <slot />
-            </div>
+        <div class="w-fit place-self-center p-4">
+            <slot />
         </div>
     </body>
 </html>
 
 <script>
+    function navOffset() {
+        document.documentElement.style.scrollPaddingTop = `${document.getElementById("nav")?.offsetHeight}px`;
+    }
+
     function themeObserver() {
         const themeSelect = document.getElementById("theme-select") as HTMLSelectElement;
 
@@ -147,6 +150,11 @@ const { title } = Astro.props;
         });
     }
 
-    document.addEventListener("astro:after-swap", themeObserver);
-    themeObserver();
+    function setup() {
+        navOffset();
+        themeObserver();
+    }
+
+    document.addEventListener("astro:after-swap", setup);
+    setup();
 </script>
