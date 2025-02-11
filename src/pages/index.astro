@@ -11,10 +11,9 @@ const projects = (await getCollection("projects")).sort(
 
 <BaseLayout title="Surge Synth Team">
     <div class="grid max-w-4xl gap-6">
-        <header class="flex flex-col place-content-center place-items-center gap-6 md:flex-row">
+        <header class="flex flex-col items-center justify-center gap-6 md:flex-row">
             <Image class="self-center" alt="SST Logo" src={Logo} />
-            <p
-                class="prose text-justify text-sm text-pretty prose-neutral dark:prose-invert">
+            <p class="prose text-justify text-sm text-pretty prose-neutral dark:prose-invert">
                 The Surge Synth Team is a group of musicians, developers, testers, documenters, and
                 general volunteer open source enthusiasts who randomly assembled to work on the
                 Surge Synthesizer. As the Surge project became more successful, and we kept having
