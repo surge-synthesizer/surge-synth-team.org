@@ -102,13 +102,13 @@ const navLinks = [
     <body class="bg-bg-1-light dark:bg-bg-1">
         <nav
             id="nav"
-            class="sticky top-0 grid grid-flow-col items-center justify-center gap-4 bg-bg-2-light/95 p-2 leading-none font-semibold shadow-xl backdrop-blur-lg select-none dark:bg-bg-2/95">
+            class="sticky top-0 flex flex-wrap items-center justify-center gap-6 bg-bg-2-light/95 p-2 shadow-md dark:bg-bg-2">
             {navLinks.map(([title, href]) => <a href={href}>{title}</a>)}
             <select
                 aria-label="Theme"
                 name="themes"
                 id="theme-select"
-                class="rounded-sm bg-bg-3-light text-neutral-600 dark:bg-bg-3 dark:text-neutral-300">
+                class="rounded-md bg-bg-3-light text-neutral-600 dark:bg-bg-3 dark:text-neutral-300">
                 <option value="auto">System</option>
                 <option value="dark">Dark</option>
                 <option value="light">Light</option>
