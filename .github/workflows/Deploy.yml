@@ -44,7 +44,7 @@ jobs:
 
       - name: Install node_modules
         run: |
-          pnpm install --frozen-lockfile
+          pnpm install
 
       - name: Astro build
         run: |
