@@ -24,13 +24,13 @@ const projects = (await getCollection("projects")).sort(
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
             {
                 projects.map((project: any) => (
-                    <div class="flex flex-col place-content-between gap-6 rounded-lg bg-bg-2-light p-4 shadow-lg dark:bg-bg-2">
+                    <div class="flex flex-col place-content-between gap-6 rounded-lg bg-neutral-100 p-4 shadow-sm dark:bg-neutral-900">
                         <a class="link self-center text-xl font-semibold" href={project.data.url}>
                             {project.data.title}
                         </a>
                         <a href={project.data.url}>
                             <Image
-                                class="m-0 rounded-lg shadow-xl shadow-neutral-400 dark:shadow-neutral-900"
+                                class="m-0 rounded-lg shadow-2xl shadow-black"
                                 alt={project.data.title}
                                 src={project.data.cover}
                                 quality="100"
