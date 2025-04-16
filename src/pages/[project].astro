@@ -17,7 +17,7 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
-<BaseLayout title={project.data.title}>
+<BaseLayout title={`Surge Synth Team | ${project.data.title}`}>
     <div class="grid max-w-4xl gap-6">
         <Article>
             <h1>{project.data.title}</h1>

@@ -16,7 +16,7 @@ const { page } = Astro.props;
 const { Content } = await render(page);
 ---
 
-<BaseLayout title={page.data.title}>
+<BaseLayout title={`Surge Synth Team | ${page.data.title}`}>
     <div class="max-w-4xl">
         <Article>
             <h1>{page.data.title}</h1>
