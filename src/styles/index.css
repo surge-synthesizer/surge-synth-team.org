@@ -42,7 +42,7 @@
 
 @layer base {
     html[data-theme="dark"] {
-        scrollbar-color: var(--color-neutral-400) var(--color-neutral-900);
+        scrollbar-color: var(--color-neutral-400) var(--color-neutral-700);
         scrollbar-width: auto;
     }
 

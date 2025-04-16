@@ -24,7 +24,7 @@ const projects = (await getCollection("projects")).sort(
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
             {
                 projects.map((project: any) => (
-                    <div class="flex flex-col place-content-between gap-6 rounded-lg bg-neutral-100 p-4 shadow-sm dark:bg-neutral-900">
+                    <div class="flex flex-col place-content-between gap-6 rounded-lg bg-neutral-100 p-4 shadow-sm shadow-neutral-300 dark:bg-neutral-900 dark:shadow-black">
                         <a class="link self-center text-xl font-semibold" href={project.data.url}>
                             {project.data.title}
                         </a>
