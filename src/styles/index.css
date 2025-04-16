@@ -42,12 +42,12 @@
 
 @layer base {
     html[data-theme="dark"] {
-        scrollbar-color: var(--color-neutral-300) var(--color-bg-2);
+        scrollbar-color: var(--color-neutral-400) var(--color-neutral-900);
         scrollbar-width: auto;
     }
 
     html[data-theme="light"] {
-        scrollbar-color: var(--color-neutral-600) var(--color-bg-2-light);
+        scrollbar-color: var(--color-neutral-400) var(--color-neutral-100);
         scrollbar-width: auto;
     }
 
