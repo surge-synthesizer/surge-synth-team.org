@@ -10,9 +10,9 @@ const { title } = Astro.props;
 
 const navLinks = [
     ["Projects", "/"],
-    ["GitHub", "https://github.com/surge-synthesizer"],
     ["Open Source", "/open-source"],
     ["Contact", "/contact"],
+    ["GitHub", "https://github.com/surge-synthesizer"],
 ] as const;
 ---
 
@@ -99,31 +99,29 @@ const navLinks = [
         <ClientRouter />
     </head>
 
-    <body class="bg-neutral-200 dark:bg-neutral-800">
-        <nav id="nav" class="sticky top-0 bg-neutral-100 p-2 shadow-md dark:bg-neutral-700">
-            <menu class="flex flex-wrap items-center justify-center gap-6"
-                >{
-                    navLinks.map(([title, href]) => (
-                        <li>
-                            <a href={href}>{title}</a>
-                        </li>
-                    ))
-                }
-                <li>
+    <body class="bg-light-bg dark:bg-dark-bg">
+        <div>
+            <nav id="nav" class="sticky top-0 bg-light-bg shadow-md dark:bg-dark-bg">
+                <div class="flex flex-wrap justify-center divide-x divide-surge-orange/25">
+                    {
+                        navLinks.map(([title, href]) => (
+                            <a href={href} class="px-2 text-nowrap">
+                                {title}
+                            </a>
+                        ))
+                    }
                     <select
                         aria-label="Theme"
                         name="themes"
                         id="theme-select"
-                        class="rounded-md bg-neutral-200 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200">
+                        class="ml-2 rounded-md border-1 border-surge-orange hover:border-surge-blue">
                         <option value="auto">System</option>
                         <option value="dark">Dark</option>
                         <option value="light">Light</option>
                     </select>
-                </li>
-            </menu>
-        </nav>
+                </div>
+            </nav>
 
-        <div class="w-fit place-self-center p-6">
             <slot />
         </div>
     </body>
