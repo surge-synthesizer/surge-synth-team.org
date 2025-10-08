@@ -18,17 +18,15 @@ const { Content } = await render(project);
 ---
 
 <BaseLayout title={`Surge Synth Team | ${project.data.title}`}>
-    <div class="content-wrapper">
-        <Article>
-            <h1>{project.data.title}</h1>
-            <Image
-                class="rounded-lg shadow-lg shadow-neutral-900"
-                src={project.data.cover}
-                alt={project.data.title}
-                quality="100"
-                format="png"
-            />
-            <Content />
-        </Article>
-    </div>
+    <Article>
+        <h1>{project.data.title}</h1>
+        <Image
+            class="rounded-lg shadow-lg shadow-neutral-900"
+            src={project.data.cover}
+            alt={project.data.title}
+            quality="100"
+            format="png"
+        />
+        <Content />
+    </Article>
 </BaseLayout>

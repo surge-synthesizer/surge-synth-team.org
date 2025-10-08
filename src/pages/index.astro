@@ -10,39 +10,37 @@ const projects = (await getCollection("projects")).sort(
 ---
 
 <BaseLayout title="Surge Synth Team">
-    <div class="content-wrapper">
-        <header class="m-auto flex">
-            <Image alt="SST Logo" src={Logo} class="hidden sm:block" />
-            <p class="prose text-justify text-sm prose-neutral dark:prose-invert">
-                The Surge Synth Team is a group of musicians, developers, testers, documenters, and
-                general volunteer open source enthusiasts who randomly assembled to work on the
-                Surge Synthesizer. As the Surge project became more successful, and we kept having
-                fun, we decided to branch out into other things too!
-            </p>
-        </header>
+    <header class="m-auto flex gap-2">
+        <Image alt="SST Logo" src={Logo} class="hidden sm:block" />
+        <p class="prose text-justify text-sm prose-neutral dark:prose-invert">
+            The Surge Synth Team is a group of musicians, developers, testers, documenters, and
+            general volunteer open source enthusiasts who randomly assembled to work on the Surge
+            Synthesizer. As the Surge project became more successful, and we kept having fun, we
+            decided to branch out into other things too!
+        </p>
+    </header>
 
-        <div class="grid gap-8 px-2 py-8">
-            {
-                projects.map((project: any) => (
-                    <div class="flex flex-col items-center gap-4">
-                        <a class="link text-xl font-semibold" href={project.data.url}>
-                            {project.data.title}
-                        </a>
-                        <a href={project.data.url}>
-                            <Image
-                                alt={project.data.title}
-                                src={project.data.cover}
-                                quality="100"
-                                format="png"
-                                class="rounded-md shadow-md shadow-neutral-800"
-                            />
-                        </a>
-                        <p class="prose self-center text-center text-pretty prose-neutral dark:prose-invert">
-                            {project.data.summary}
-                        </p>
-                    </div>
-                ))
-            }
-        </div>
+    <div class="grid gap-8 pt-8">
+        {
+            projects.map((project: any) => (
+                <div class="flex flex-col items-center gap-4">
+                    <a class="link text-xl font-semibold" href={project.data.url}>
+                        {project.data.title}
+                    </a>
+                    <a href={project.data.url}>
+                        <Image
+                            alt={project.data.title}
+                            src={project.data.cover}
+                            quality="100"
+                            format="png"
+                            class="rounded-md shadow-md shadow-neutral-800"
+                        />
+                    </a>
+                    <p class="prose self-center text-center text-pretty prose-neutral dark:prose-invert">
+                        {project.data.summary}
+                    </p>
+                </div>
+            ))
+        }
     </div>
 </BaseLayout>
