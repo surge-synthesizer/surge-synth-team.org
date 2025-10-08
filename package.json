@@ -12,26 +12,18 @@
         "preinstall": "astro telemetry disable",
         "astro": "astro"
     },
-    "dependencies": {
-        "react": "^19.1.1",
-        "react-dom": "^19.1.1"
-    },
     "devDependencies": {
         "@astrojs/check": "^0.9.4",
-        "@astrojs/mdx": "^4.3.4",
-        "@astrojs/react": "^4.3.0",
+        "@astrojs/mdx": "^4.3.6",
         "@astrojs/ts-plugin": "^1.10.4",
-        "@tailwindcss/typography": "^0.5.16",
-        "@tailwindcss/vite": "^4.1.12",
-        "@types/node": "^24.3.0",
-        "@types/react": "^19.1.12",
-        "@types/react-dom": "^19.1.9",
-        "astro": "^5.13.5",
+        "@tailwindcss/typography": "^0.5.19",
+        "@tailwindcss/vite": "^4.1.13",
+        "@types/node": "^24.5.2",
+        "astro": "^5.13.11",
         "prettier": "^3.6.2",
         "prettier-plugin-astro": "^0.14.1",
         "prettier-plugin-tailwindcss": "^0.6.14",
-        "sharp": "^0.34.3",
-        "tailwindcss": "^4.1.12",
+        "tailwindcss": "^4.1.13",
         "typescript": "^5.9.2"
     }
 }

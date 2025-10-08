@@ -23,39 +23,38 @@
 @theme {
     --font-sans: "Inter";
     --font-sans--font-variation-settings: "opsz" auto;
-    --color-bg-1: #1b1d20;
-    --color-bg-2: #262a2f;
-    --color-bg-3: #333333;
-    --color-bg-1-light: #e4e2df;
-    --color-bg-2-light: #d9d5d0;
-    --color-bg-3-light: #cccccc;
-    --color-generic-content-lowest: #000000;
-    --color-generic-content-low: #777777;
-    --color-generic-content-medium: #afafaf;
-    --color-generic-content-high: #dfdfdf;
-    --color-generic-content-highest: #ffffff;
-    --color-accent-1a: #ffb949;
-    --color-accent-1b: #d09030;
-    --color-accent-2a: #278bd6;
-    --color-accent-2b: #004f8a;
+    --color-light-bg: #f4f4f4;
+    --color-dark-bg: #123463;
+    --color-surge-orange: #ff9000;
+    --color-surge-blue: #2d86fe;
 }
 
 @layer base {
     html[data-theme="dark"] {
-        scrollbar-color: var(--color-neutral-400) var(--color-neutral-700);
+        scrollbar-color: var(--color-surge-orange) var(--color-dark-bg);
         scrollbar-width: auto;
     }
 
     html[data-theme="light"] {
-        scrollbar-color: var(--color-neutral-400) var(--color-neutral-100);
+        scrollbar-color: var(--color-surge-orange) var(--color-light-bg);
         scrollbar-width: auto;
     }
 
     a {
-        @apply text-nowrap text-accent-2b hover:cursor-pointer hover:text-accent-2a dark:text-accent-1b dark:hover:text-accent-1a;
+        @apply text-surge-orange hover:text-surge-blue dark:text-surge-orange dark:hover:text-surge-blue;
+    }
+
+    select {
+        @apply bg-light-bg text-surge-orange hover:text-surge-blue dark:bg-dark-bg dark:text-surge-orange dark:hover:text-surge-blue;
     }
 
     :target {
         scroll-margin-top: var(--nav-height);
+    }
+}
+
+@layer components {
+    .content-wrapper {
+        @apply mx-auto max-w-lg bg-red-400/0 p-4;
     }
 }
