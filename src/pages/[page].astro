@@ -17,10 +17,8 @@ const { Content } = await render(page);
 ---
 
 <BaseLayout title={`Surge Synth Team | ${page.data.title}`}>
-    <div class="content-wrapper">
-        <Article>
-            <h1>{page.data.title}</h1>
-            <Content />
-        </Article>
-    </div>
+    <Article>
+        <h1>{page.data.title}</h1>
+        <Content />
+    </Article>
 </BaseLayout>
