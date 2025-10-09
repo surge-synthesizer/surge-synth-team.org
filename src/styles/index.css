@@ -55,6 +55,6 @@
 
 @layer components {
     .content-wrapper {
-        @apply mx-auto max-w-lg bg-red-400/0 p-4;
+        @apply mx-auto max-w-3xl bg-red-400/0 p-4;
     }
 }
