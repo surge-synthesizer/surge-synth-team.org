@@ -1,0 +1,10 @@
+on:
+  repository_dispatch:
+    types: [pane-notify]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "event_type: ${{ github.event }}"
