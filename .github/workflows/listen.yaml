@@ -1,6 +1,6 @@
 on:
   repository_dispatch:
-    types: [pane-notify]
+    types: [surge-build-release]
 
 jobs:
   build:
