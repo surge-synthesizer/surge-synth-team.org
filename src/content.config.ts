@@ -17,7 +17,6 @@ const projects = defineCollection({
             summary: z.string(),
             cover: image(),
             categories: z.string().array(),
-            url: z.string(),
             issue_tracker: z.string(),
         }),
 });

@@ -32,7 +32,7 @@ const projects = (await getCollection("projects")).sort(
                                 ? "bg-surge-orange flex-row items-center text-zinc-950"
                                 : "flex-row-reverse bg-zinc-50 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50"
                         }`}>
-                        <a href={project.data.url} class="w-1/2 flex-shrink-0">
+                        <a href={`/${project.id}`} class="w-1/2 flex-shrink-0">
                             <Image
                                 alt={project.data.title}
                                 src={project.data.cover}
@@ -49,7 +49,7 @@ const projects = (await getCollection("projects")).sort(
                                         ? "text-zinc-950 hover:text-zinc-50"
                                         : "hover:text-surge-orange text-zinc-950 dark:text-zinc-50"
                                 }`}
-                                href={project.data.url}>
+                                href={`/${project.id}`}>
                                 {project.data.title}
                             </a>
                             <p class="text-justify">{project.data.summary}</p>
