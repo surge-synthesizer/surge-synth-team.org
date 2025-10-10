@@ -4,6 +4,6 @@ on:
       - master
 
 jobs:
-  call-build:
+  build:
     if: github.actor != 'github-actions[bot]'
     uses: ./.github/workflows/build.yaml

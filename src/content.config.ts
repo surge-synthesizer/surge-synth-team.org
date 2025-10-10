@@ -18,6 +18,7 @@ const projects = defineCollection({
             cover: image(),
             categories: z.string().array(),
             issue_tracker: z.string(),
+            repo: z.string().optional(),
         }),
 });
 
