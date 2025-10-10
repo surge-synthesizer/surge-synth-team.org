@@ -9,34 +9,39 @@ const projects = (await getCollection("projects")).sort(
 ---
 
 <Base title="Surge Synth Team | Projects">
-    <header class="flex justify-center bg-zinc-950 text-zinc-50 shadow-xl">
-        <p class="font-blinker max-w-4xl p-2 text-justify leading-none">
-            The Surge Synth Team is a group of musicians, developers, testers, documenters, and
-            general volunteer open source enthusiasts who randomly assembled to work on the Surge
-            Synthesizer. As the Surge project became more successful, and we kept having fun, we
-            decided to branch out into other things too!
-        </p>
-    </header>
-
-    <div class="content-wrapper divide-surge-orange/50 flex flex-col space-y-4 divide-y">
+    <div class="grid">
+        <header>
+            <p class="font-blinker bg-zinc-950 pt-2 text-justify text-xl max-w-xl place-self-center leading-none text-surge-orange">
+                The Surge Synth Team is a group of musicians, developers, testers, documenters, and
+                general volunteer open source enthusiasts who randomly assembled to work on the
+                Surge Synthesizer. As the Surge project became more successful, and we kept having
+                fun, we decided to branch out into other things too!
+            </p>
+        </header>
         {
-            projects.map((project: any) => (
-                <div class="flex flex-col gap-2 pb-8 last:pb-0">
+            projects.map((project: any, index: number) => (
+                <div
+                    class={`grid grid-flow-col-dense grid-cols-2 items-center p-8 ${index % 2 === 0 ? "bg-black text-zinc-100" : "bg-surge-orange text-zinc-900"}`}>
                     <a
-                        class="font-blinker max-w-fit text-justify text-2xl font-bold"
-                        href={project.data.url}>
-                        {project.data.title}
-                    </a>
-                    <p class="text-justify text-lg">{project.data.summary}</p>
-                    <a href={project.data.url}>
+                        href={project.data.url}
+                        class={`w-full ${index % 2 === 1 ? "col-start-2 col-end-3" : ""}`}>
                         <Image
                             alt={project.data.title}
                             src={project.data.cover}
                             quality="100"
                             format="png"
-                            class="rounded-md shadow-xl"
+                            class="h-auto w-full rounded-md shadow-xl"
                         />
                     </a>
+                    <div
+                        class={`flex h-full flex-col items-center justify-center p-4 ${index % 2 === 1 ? "col-start-1 col-end-2" : ""}`}>
+                        <a
+                            class={`font-blinker text-xl font-bold ${index % 2 === 0 ? "hover:text-surge-orange text-zinc-100" : "text-zinc-900 hover:text-white"}`}
+                            href={project.data.url}>
+                            {project.data.title}
+                        </a>
+                        <p class="text-justify">{project.data.summary}</p>
+                    </div>
                 </div>
             ))
         }
