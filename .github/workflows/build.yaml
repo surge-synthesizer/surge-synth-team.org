@@ -1,7 +1,8 @@
 on:
   workflow_dispatch:
   push:
-    branches: [master]
+    branches:
+      - master
   repository_dispatch:
     types: [surge-build-release]
 
@@ -22,19 +23,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          path: repo
 
       - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: repo/package.json
+          run_install: |
+            - cwd: repo
 
       - uses: actions/setup-node@v5
         with:
-          node-version: "22.20.0"
-          cache: "pnpm"
+          node-version: 22.20.0
+          cache: pnpm
+          cache-dependency-path: repo/pnpm-lock.yaml
 
       - id: pages
         uses: actions/configure-pages@v5
 
-      - run: |
-          pnpm install
+      - working-directory: repo
+        run: |
           pnpm build
 
       - uses: actions/upload-pages-artifact@v4
