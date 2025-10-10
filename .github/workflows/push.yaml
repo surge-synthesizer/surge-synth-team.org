@@ -6,11 +6,11 @@ on:
 jobs:
   trigger-build:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.WEB }}
     steps:
-      - env:
-          GITHUB_TOKEN: ${{ secrets.WEB }}
-        run: |
+      - run: |
           gh api repos/${{ github.repository }}/dispatches \
-          --method POST
-          --field event_type=build \
-          --field client_payload='{}'
+            --method POST \
+            --field event_type=build \
+            --field client_payload='{}'
