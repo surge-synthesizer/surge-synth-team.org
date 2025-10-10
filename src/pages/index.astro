@@ -1,6 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
+import LogoBlack from "../images/logo_sst_black.svg";
+// import LogoWhite from "../images/logo_sst_white.svg";
 import Base from "../layouts/Base.astro";
 
 const projects = (await getCollection("projects")).sort(
@@ -10,12 +12,15 @@ const projects = (await getCollection("projects")).sort(
 
 <Base title="Surge Synth Team | Projects">
     <div class="bg-surge-orange text-zinc-950">
-        <p class="mx-auto max-w-2xl p-4 text-justify font-semibold leading-normal">
-            The Surge Synth Team is a group of musicians, developers, testers, documenters, and
-            general volunteer open source enthusiasts who randomly assembled to work on the Surge
-            Synthesizer. As the Surge project became more successful, and we kept having fun, we
-            decided to branch out into other things too!
-        </p>
+        <div class="flex">
+            <Image alt="SST Logo" src={LogoBlack} class="hidden w-1/2 object-contain sm:block p-4" />
+            <p class="w-full text-justify font-semibold sm:w-1/2 p-4">
+                The Surge Synth Team is a group of musicians, developers, testers, documenters, and
+                general volunteer open source enthusiasts who randomly assembled to work on the
+                Surge Synthesizer. As the Surge project became more successful, and we kept having
+                fun, we decided to branch out into other things too!
+            </p>
+        </div>
 
         {
             projects.map((project: any, index: number) => {
