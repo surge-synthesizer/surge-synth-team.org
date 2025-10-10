@@ -2,7 +2,6 @@
 import { getCollection, render } from "astro:content";
 import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
-import Article from "../components/Article.astro";
 
 export async function getStaticPaths() {
     const projects = await getCollection("projects");
@@ -18,15 +17,15 @@ const { Content } = await render(project);
 ---
 
 <Base title={`Surge Synth Team | ${project.data.title}`}>
-    <Article>
+    <article class="content-wrapper">
         <h1>{project.data.title}</h1>
         <Image
-            class="rounded-lg shadow-lg shadow-neutral-900"
+            class="rounded-md shadow-xl"
             src={project.data.cover}
             alt={project.data.title}
             quality="100"
             format="png"
         />
         <Content />
-    </Article>
+    </article>
 </Base>

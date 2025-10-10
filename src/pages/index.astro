@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
-import Logo from "../images/logo.svg";
 
 const projects = (await getCollection("projects")).sort(
     (a: any, b: any) => a.data.order - b.data.order,
@@ -10,10 +9,8 @@ const projects = (await getCollection("projects")).sort(
 ---
 
 <Base title="Surge Synth Team | Projects">
-    <header
-        class="border-1 border-surge-orange/25 dark:bg-surge-blue/5 mx-auto mb-4 flex items-center gap-4 rounded-md bg-white p-4 shadow-md">
-        <Image alt="SST Logo" src={Logo} class="hidden sm:block" />
-        <p class="prose prose-neutral dark:prose-invert text-justify text-sm">
+    <header class="flex justify-center bg-black p-4 text-white shadow-xl">
+        <p class="max-w-4xl text-justify text-sm italic">
             The Surge Synth Team is a group of musicians, developers, testers, documenters, and
             general volunteer open source enthusiasts who randomly assembled to work on the Surge
             Synthesizer. As the Surge project became more successful, and we kept having fun, we
@@ -21,23 +18,21 @@ const projects = (await getCollection("projects")).sort(
         </p>
     </header>
 
-    <div class="divide-surge-orange/25 flex flex-col space-y-4 divide-y">
+    <div class="content-wrapper flex flex-col space-y-4 divide-y divide-black">
         {
             projects.map((project: any) => (
                 <div class="flex flex-col gap-2 pb-8 last:pb-0">
-                    <a class="link text-justify text-lg font-semibold" href={project.data.url}>
+                    <a class="text-justify text-xl font-bold max-w-fit" href={project.data.url}>
                         {project.data.title}
                     </a>
-                    <p class="prose prose-neutral dark:prose-invert text-pretty text-justify text-sm">
-                        {project.data.summary}
-                    </p>
+                    <p class="text-justify text-lg">{project.data.summary}</p>
                     <a href={project.data.url}>
                         <Image
                             alt={project.data.title}
                             src={project.data.cover}
                             quality="100"
                             format="png"
-                            class="rounded-md shadow-md shadow-neutral-800"
+                            class="rounded-md shadow-xl"
                         />
                     </a>
                 </div>

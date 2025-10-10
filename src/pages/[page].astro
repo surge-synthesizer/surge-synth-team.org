@@ -1,7 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
 import Base from "../layouts/Base.astro";
-import Article from "../components/Article.astro";
 
 export async function getStaticPaths() {
     const pages = await getCollection("pages");
@@ -17,8 +16,8 @@ const { Content } = await render(page);
 ---
 
 <Base title={`Surge Synth Team | ${page.data.title}`}>
-    <Article>
+    <article class="content-wrapper">
         <h1>{page.data.title}</h1>
         <Content />
-    </Article>
+    </article>
 </Base>

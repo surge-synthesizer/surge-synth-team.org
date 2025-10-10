@@ -1,5 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import { Image } from "astro:assets";
+import Logo from "../images/logo.svg";
 import "./base.css";
 
 interface Props {
@@ -9,7 +11,6 @@ interface Props {
 const { title } = Astro.props;
 
 const navLinks = [
-    ["Projects", "/"],
     ["Open Source", "/open-source"],
     ["Contact", "/contact"],
     ["GitHub", "https://github.com/surge-synthesizer"],
@@ -99,33 +100,33 @@ const navLinks = [
         <ClientRouter />
     </head>
 
-    <body class="bg-light-bg dark:bg-dark-bg">
-        <div>
-            <nav id="nav" class="bg-light-bg dark:bg-dark-bg sticky top-0 p-1 shadow-md">
-                <div class="divide-surge-orange/25 flex flex-wrap justify-center gap-1 divide-x">
-                    {
-                        navLinks.map(([title, href]) => (
-                            <a href={href} class="text-nowrap px-2">
-                                {title}
-                            </a>
-                        ))
-                    }
-                    <select
-                        aria-label="Theme"
-                        name="themes"
-                        id="theme-select"
-                        class="border-1 border-surge-orange hover:border-surge-blue ml-2 rounded-md">
-                        <option value="auto">System</option>
-                        <option value="dark">Dark</option>
-                        <option value="light">Light</option>
-                    </select>
-                </div>
-            </nav>
-
-            <div class="content-wrapper">
-                <slot />
+    <body class="dark:bg-surge-orange bg-neutral-100 text-black">
+        <nav id="nav" class="sticky top-0 bg-black p-1 shadow-xl">
+            <div
+                class="divide-surge-orange/50 flex flex-wrap items-center justify-center gap-1 divide-x">
+                <a href="/"><Image alt="SST Logo" src={Logo} class="max-w-10 px-2" /></a>
+                {
+                    navLinks.map(([title, href]) => (
+                        <a
+                            href={href}
+                            class="text-surge-orange no-underline hover:text-surge-orange-bright text-nowrap px-2 font-bold">
+                            {title}
+                        </a>
+                    ))
+                }
+                <select
+                    aria-label="Theme"
+                    name="themes"
+                    id="theme-select"
+                    class="text-surge-orange hover:text-surge-orange-bright border-1 border-surge-orange hover:border-surge-orange-bright ml-2 rounded-md bg-black font-bold">
+                    <option value="auto">System</option>
+                    <option value="dark">Dark</option>
+                    <option value="light">Light</option>
+                </select>
             </div>
-        </div>
+        </nav>
+
+        <slot />
     </body>
 </html>
 

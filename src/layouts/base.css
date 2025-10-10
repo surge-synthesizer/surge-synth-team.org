@@ -23,38 +23,36 @@
 @theme {
     --font-sans: "Inter";
     --font-sans--font-variation-settings: "opsz" auto;
-    --color-light-bg: #f4f4f4;
-    --color-dark-bg: #123463;
     --color-surge-orange: #ff9000;
-    --color-surge-blue: #2d86fe;
+    --color-surge-orange-bright: color-mix(in srgb, var(--color-surge-orange) 80%, white);
+    --color-surge-blue: #005cb6;
+    --color-surge-blue-bright: color-mix(in srgb, var(--color-surge-blue) 80%, white);
+    --color-surge-blue2: #2d86fe;
+    --color-surge-blue2-bright: color-mix(in srgb, var(--color-surge-blue2) 80%, white);
 }
 
 @layer base {
     html[data-theme="dark"] {
-        scrollbar-color: var(--color-surge-orange) var(--color-dark-bg);
+        scrollbar-color: var(--color-surge-orange) var(--color-black);
         scrollbar-width: auto;
     }
 
     html[data-theme="light"] {
-        scrollbar-color: var(--color-surge-orange) var(--color-light-bg);
+        scrollbar-color: var(--color-surge-orange) var(--color-black);
         scrollbar-width: auto;
     }
 
     a {
-        @apply text-surge-orange hover:text-surge-blue dark:text-surge-orange dark:hover:text-surge-blue;
+        @apply hover:text-surge-orange text-black underline dark:hover:text-white;
     }
 
-    select {
-        @apply bg-light-bg text-surge-orange hover:text-surge-blue dark:bg-dark-bg dark:text-surge-orange dark:hover:text-surge-blue;
-    }
-
-    :target {
-        scroll-margin-top: var(--nav-height);
+    article {
+        @apply prose prose-a:text-black prose-a:dark:hover:text-white prose-a:hover:text-surge-orange text-black;
     }
 }
 
 @layer components {
     .content-wrapper {
-        @apply mx-auto max-w-3xl bg-red-400/0 p-4;
+        @apply max-w-xl place-self-center p-4;
     }
 }
