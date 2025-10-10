@@ -101,7 +101,7 @@ const navLinks = [
     </head>
 
     <body class="dark:bg-surge-orange bg-neutral-100 text-black">
-        <nav id="nav" class="sticky top-0 bg-black p-1 shadow-xl">
+        <nav id="nav" class="sticky top-0 bg-black p-1 shadow-xl font-blinker">
             <div
                 class="divide-surge-orange/50 flex flex-wrap items-center justify-center gap-1 divide-x">
                 <a href="/"><Image alt="SST Logo" src={Logo} class="max-w-10 px-2" /></a>
@@ -109,7 +109,7 @@ const navLinks = [
                     navLinks.map(([title, href]) => (
                         <a
                             href={href}
-                            class="text-surge-orange no-underline hover:text-surge-orange-bright text-nowrap px-2 font-bold">
+                            class="text-surge-orange no-underline hover:text-surge-orange-bright text-nowrap px-2 font-semibold">
                             {title}
                         </a>
                     ))
