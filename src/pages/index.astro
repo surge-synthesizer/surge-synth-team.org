@@ -9,42 +9,50 @@ const projects = (await getCollection("projects")).sort(
 ---
 
 <Base title="Surge Synth Team | Projects">
-    <div class="grid">
-        <header class="bg-zinc-50 dark:bg-zinc-950">
-            <p
-                class="font-blinker max-w-xl place-self-center pt-4 text-justify text-xl leading-none">
-                The Surge Synth Team is a group of musicians, developers, testers, documenters, and
-                general volunteer open source enthusiasts who randomly assembled to work on the
-                Surge Synthesizer. As the Surge project became more successful, and we kept having
-                fun, we decided to branch out into other things too!
-            </p>
-        </header>
+    <div class="bg-surge-orange text-zinc-950">
+        <p class="mx-auto max-w-2xl p-4 text-justify font-semibold leading-normal">
+            The Surge Synth Team is a group of musicians, developers, testers, documenters, and
+            general volunteer open source enthusiasts who randomly assembled to work on the Surge
+            Synthesizer. As the Surge project became more successful, and we kept having fun, we
+            decided to branch out into other things too!
+        </p>
+
         {
-            projects.map((project: any, index: number) => (
-                <div
-                    class={`grid grid-flow-col-dense grid-cols-2 items-center p-8 ${index % 2 === 0 ? "bg-zinc-50 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50" : "bg-surge-orange text-zinc-900"}`}>
-                    <a
-                        href={project.data.url}
-                        class={`w-full ${index % 2 === 1 ? "col-start-2 col-end-3" : ""}`}>
-                        <Image
-                            alt={project.data.title}
-                            src={project.data.cover}
-                            quality="100"
-                            format="png"
-                            class="h-auto w-full rounded-md shadow-xl"
-                        />
-                    </a>
+            projects.map((project: any, index: number) => {
+                const isEven = index % 2 === 0;
+
+                return (
                     <div
-                        class={`flex h-full flex-col items-center justify-center p-4 ${index % 2 === 1 ? "col-start-1 col-end-2" : ""}`}>
-                        <a
-                            class={`font-blinker text-xl font-bold ${index % 2 === 0 ? "hover:text-surge-orange text-zinc-950 dark:text-zinc-50" : "text-zinc-900 hover:text-white"}`}
-                            href={project.data.url}>
-                            {project.data.title}
+                        class={`flex flex-col items-center gap-2 p-2 sm:gap-6 sm:p-6 md:gap-12 md:p-12 ${
+                            isEven
+                                ? "flex-row items-center bg-zinc-50 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50"
+                                : "bg-surge-orange flex-row-reverse text-zinc-900"
+                        }`}>
+                        <a href={project.data.url} class="w-1/2 flex-shrink-0">
+                            <Image
+                                alt={project.data.title}
+                                src={project.data.cover}
+                                quality="100"
+                                format="png"
+                                class="max-h-[400px] object-contain"
+                            />
                         </a>
-                        <p class="text-justify">{project.data.summary}</p>
+
+                        <div class="">
+                            <a
+                                class={`font-blinker text-3xl font-bold ${
+                                    isEven
+                                        ? "hover:text-surge-orange text-zinc-950 dark:text-zinc-50"
+                                        : "text-zinc-900 hover:text-white"
+                                }`}
+                                href={project.data.url}>
+                                {project.data.title}
+                            </a>
+                            <p class="text-justify">{project.data.summary}</p>
+                        </div>
                     </div>
-                </div>
-            ))
+                );
+            })
         }
     </div>
 </Base>
