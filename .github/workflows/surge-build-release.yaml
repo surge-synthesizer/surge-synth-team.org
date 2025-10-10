@@ -25,9 +25,6 @@ jobs:
       - working-directory: repo
         run: |
           pnpm generate
-
-      - working-directory: repo
-        run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add -A
@@ -35,6 +32,6 @@ jobs:
           gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
           gh repo push origin master
 
-  build:
+  call-build:
     needs: generate
     uses: ./.github/workflows/build.yaml
