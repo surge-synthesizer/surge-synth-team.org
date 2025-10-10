@@ -20,8 +20,73 @@
     font-display: block;
 }
 
+@font-face {
+    font-family: "Blinker";
+    src: url("/fonts/Blinker-Thin.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 100;
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Blinker";
+    src: url("/fonts/Blinker-ExtraLight.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 200;
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Blinker";
+    src: url("/fonts/Blinker-Light.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 300;
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Blinker";
+    src: url("/fonts/Blinker-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Blinker";
+    src: url("/fonts/Blinker-SemiBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 600;
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Blinker";
+    src: url("/fonts/Blinker-Bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Blinker";
+    src: url("/fonts/Blinker-ExtraBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 800;
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Blinker";
+    src: url("/fonts/Blinker-Black.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 900;
+    font-display: block;
+}
+
 @theme {
     --font-sans: "Inter";
+    --font-blinker: "Blinker";
     --font-sans--font-variation-settings: "opsz" auto;
     --color-surge-orange: #ff9000;
     --color-surge-orange-bright: color-mix(in srgb, var(--color-surge-orange) 80%, white);
