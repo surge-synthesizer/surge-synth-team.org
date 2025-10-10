@@ -6,9 +6,28 @@ jobs:
   trigger-build:
     runs-on: ubuntu-latest
     steps:
-      - env:
-          GH_TOKEN: ${{ secrets.WEB }}
-        run: |
-          gh api repos/${{ github.repository }}/dispatches \
-          --method POST
-          --field event_type=build
+      - uses: actions/checkout@v5
+        with:
+          path: repo
+
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: repo/package.json
+          run_install: |
+            - cwd: repo
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22.20.0
+          cache: pnpm
+          cache-dependency-path: repo/pnpm-lock.yaml
+
+      - run: |
+          pnpm generate
+
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add -A
+          git commit -m 'github-actions: Update generated files'
+          git push
