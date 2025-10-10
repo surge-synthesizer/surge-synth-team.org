@@ -12,4 +12,5 @@ jobs:
         run: |
           gh api repos/${{ github.repository }}/dispatches \
           --method POST
-          --field event_type=build
+          --field event_type=build \
+          --field client_payload='{}'
