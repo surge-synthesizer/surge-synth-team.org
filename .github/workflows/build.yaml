@@ -1,7 +1,6 @@
 on:
   workflow_dispatch:
-  repository_dispatch:
-    types: [build]
+  workflow_call:
 
 permissions:
   contents: read

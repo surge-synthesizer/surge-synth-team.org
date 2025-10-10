@@ -3,7 +3,7 @@ on:
     types: [surge-build-release]
 
 jobs:
-  trigger-build:
+  generate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -22,12 +22,19 @@ jobs:
           cache: pnpm
           cache-dependency-path: repo/pnpm-lock.yaml
 
-      - run: |
+      - working-directory: repo
+        run: |
           pnpm generate
 
-      - run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+      - working-directory: repo
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add -A
           git commit -m 'github-actions: Update generated files'
-          git push
+          gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
+          gh repo push origin master
+
+  build:
+    needs: generate
+    uses: ./.github/workflows/build.yaml

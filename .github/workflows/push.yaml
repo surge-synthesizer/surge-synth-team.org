@@ -4,12 +4,6 @@ on:
       - master
 
 jobs:
-  trigger-build:
-    runs-on: ubuntu-latest
-    env:
-      GH_TOKEN: ${{ secrets.WEB }}
-    steps:
-      - run: |
-          gh api repos/${{ github.repository }}/dispatches \
-            --method POST \
-            --field event_type=build
+  call-build:
+    if: github.actor != 'github-actions[bot]'
+    uses: ./.github/workflows/build.yaml
