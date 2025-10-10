@@ -1,0 +1,14 @@
+on:
+  repository_dispatch:
+    types: [surge-build-release]
+
+jobs:
+  trigger-build:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GH_TOKEN: ${{ secrets.WEB }}
+        run: |
+          gh api repos/${{ github.repository }}/dispatches \
+          --method POST
+          --field event_type=build
