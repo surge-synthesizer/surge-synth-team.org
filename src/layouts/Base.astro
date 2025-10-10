@@ -100,8 +100,8 @@ const navLinks = [
         <ClientRouter />
     </head>
 
-    <body class="dark:bg-surge-orange bg-neutral-100 text-black">
-        <nav id="nav" class="sticky top-0 bg-black p-1 shadow-xl font-blinker">
+    <body class="bg-white text-black dark:bg-black dark:text-white">
+        <nav id="nav" class="font-blinker sticky top-0 bg-black p-1 shadow-xl">
             <div
                 class="divide-surge-orange/50 flex flex-wrap items-center justify-center gap-1 divide-x">
                 <a href="/"><Image alt="SST Logo" src={Logo} class="max-w-10 px-2" /></a>
@@ -109,7 +109,7 @@ const navLinks = [
                     navLinks.map(([title, href]) => (
                         <a
                             href={href}
-                            class="text-surge-orange no-underline hover:text-surge-orange-bright text-nowrap px-2 font-semibold">
+                            class="text-surge-orange hover:text-surge-orange-bright text-nowrap px-2 no-underline">
                             {title}
                         </a>
                     ))
@@ -118,7 +118,7 @@ const navLinks = [
                     aria-label="Theme"
                     name="themes"
                     id="theme-select"
-                    class="text-surge-orange hover:text-surge-orange-bright border-1 border-surge-orange hover:border-surge-orange-bright ml-2 rounded-md bg-black font-bold">
+                    class="text-surge-orange hover:text-surge-orange-bright border-1 border-surge-orange hover:border-surge-orange-bright ml-2 rounded-md bg-black font-semibold">
                     <option value="auto">System</option>
                     <option value="dark">Dark</option>
                     <option value="light">Light</option>

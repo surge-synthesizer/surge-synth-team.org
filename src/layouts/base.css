@@ -108,11 +108,11 @@
     }
 
     a {
-        @apply hover:text-surge-orange text-black underline dark:hover:text-white;
+        @apply hover:text-surge-orange-bright text-surge-orange underline;
     }
 
     article {
-        @apply prose prose-a:text-black prose-a:dark:hover:text-white prose-a:hover:text-surge-orange text-black;
+        @apply prose prose-a:hover:text-surge-orange-bright prose-a:text-surge-orange prose-headings:text-black dark:prose-headings:text-white text-black dark:text-white;
     }
 }
 
