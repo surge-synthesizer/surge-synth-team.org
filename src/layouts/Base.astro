@@ -1,6 +1,6 @@
 ---
 import { ClientRouter } from "astro:transitions";
-import "../styles/index.css";
+import "./base.css";
 
 interface Props {
     title: string;
@@ -101,11 +101,11 @@ const navLinks = [
 
     <body class="bg-light-bg dark:bg-dark-bg">
         <div>
-            <nav id="nav" class="sticky top-0 bg-light-bg p-1 shadow-md dark:bg-dark-bg">
-                <div class="flex flex-wrap justify-center gap-1 divide-x divide-surge-orange/25">
+            <nav id="nav" class="bg-light-bg dark:bg-dark-bg sticky top-0 p-1 shadow-md">
+                <div class="divide-surge-orange/25 flex flex-wrap justify-center gap-1 divide-x">
                     {
                         navLinks.map(([title, href]) => (
-                            <a href={href} class="px-2 text-nowrap">
+                            <a href={href} class="text-nowrap px-2">
                                 {title}
                             </a>
                         ))
@@ -114,7 +114,7 @@ const navLinks = [
                         aria-label="Theme"
                         name="themes"
                         id="theme-select"
-                        class="ml-2 rounded-md border-1 border-surge-orange hover:border-surge-blue">
+                        class="border-1 border-surge-orange hover:border-surge-blue ml-2 rounded-md">
                         <option value="auto">System</option>
                         <option value="dark">Dark</option>
                         <option value="light">Light</option>
