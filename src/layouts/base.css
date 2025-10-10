@@ -120,4 +120,8 @@
     .content-wrapper {
         @apply max-w-xl place-self-center p-4;
     }
+
+    .card-image {
+        @apply w-fit rounded-2xl object-contain shadow-2xl shadow-neutral-950;
+    }
 }
