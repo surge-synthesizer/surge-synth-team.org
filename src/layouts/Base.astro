@@ -11,6 +11,7 @@ interface Props {
 const { title } = Astro.props;
 
 const navLinks = [
+    ["Projects", "/"],
     ["Open Source", "/open-source"],
     ["Contact", "/contact"],
     ["GitHub", "https://github.com/surge-synthesizer"],
@@ -104,7 +105,6 @@ const navLinks = [
         <nav id="nav" class="font-blinker sticky top-0 bg-zinc-950 p-1 shadow-md">
             <div
                 class="divide-surge-orange/50 flex flex-wrap items-center justify-center gap-1 divide-x">
-                <a href="/"><Image alt="SST Logo" src={Logo} class="max-w-10 px-2" /></a>
                 {
                     navLinks.map(([title, href]) => (
                         <a
