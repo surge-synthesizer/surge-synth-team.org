@@ -9,7 +9,7 @@ const projects = (await getCollection("projects")).sort(
 ---
 
 <Base title="Surge Synth Team | Projects">
-    <header class="bg-surge-orange flex justify-center text-black shadow-xl">
+    <header class="flex justify-center bg-zinc-950 text-zinc-50 shadow-xl">
         <p class="font-blinker max-w-4xl p-2 text-justify leading-none">
             The Surge Synth Team is a group of musicians, developers, testers, documenters, and
             general volunteer open source enthusiasts who randomly assembled to work on the Surge
@@ -18,7 +18,7 @@ const projects = (await getCollection("projects")).sort(
         </p>
     </header>
 
-    <div class="content-wrapper flex flex-col space-y-4 divide-y divide-black">
+    <div class="content-wrapper divide-surge-orange/50 flex flex-col space-y-4 divide-y">
         {
             projects.map((project: any) => (
                 <div class="flex flex-col gap-2 pb-8 last:pb-0">

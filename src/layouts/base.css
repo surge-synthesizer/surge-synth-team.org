@@ -98,12 +98,12 @@
 
 @layer base {
     html[data-theme="dark"] {
-        scrollbar-color: var(--color-surge-orange) var(--color-black);
+        scrollbar-color: var(--color-surge-orange) var(--color-zinc-950);
         scrollbar-width: auto;
     }
 
     html[data-theme="light"] {
-        scrollbar-color: var(--color-surge-orange) var(--color-black);
+        scrollbar-color: var(--color-surge-orange) var(--color-zinc-950);
         scrollbar-width: auto;
     }
 
@@ -112,7 +112,7 @@
     }
 
     article {
-        @apply prose prose-a:hover:text-surge-orange-bright prose-a:text-surge-orange prose-headings:text-black dark:prose-headings:text-white text-black dark:text-white;
+        @apply prose prose-a:hover:text-surge-orange-bright prose-a:text-surge-orange prose-headings:text-zinc-900 dark:prose-headings:text-zinc-100 text-zinc-900 dark:text-zinc-100;
     }
 }
 
