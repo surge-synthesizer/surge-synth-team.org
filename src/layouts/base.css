@@ -112,7 +112,7 @@
     }
 
     article {
-        @apply prose prose-a:hover:text-surge-orange-bright prose-a:text-surge-orange prose-headings:text-zinc-900 dark:prose-headings:text-zinc-100 text-zinc-900 dark:text-zinc-100;
+        @apply prose prose-a:hover:text-surge-orange-bright prose-a:text-surge-orange prose-headings:text-zinc-950 dark:prose-headings:text-zinc-50 text-zinc-950 dark:text-zinc-50;
     }
 }
 

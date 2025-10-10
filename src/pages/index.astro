@@ -1,8 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
-import LogoBlack from "../images/logo_sst_black.svg";
-// import LogoWhite from "../images/logo_sst_white.svg";
+import Logo from "../images/logo_sst_white.svg";
 import Base from "../layouts/Base.astro";
 
 const projects = (await getCollection("projects")).sort(
@@ -11,13 +10,9 @@ const projects = (await getCollection("projects")).sort(
 ---
 
 <Base title="Surge Synth Team | Projects">
-    <div class="bg-surge-orange text-zinc-950">
+    <div class="bg-black text-zinc-50">
         <div class="flex">
-            <Image
-                alt="SST Logo"
-                src={LogoBlack}
-                class="hidden w-1/2 object-contain p-4 sm:block"
-            />
+            <Image alt="SST Logo" src={Logo} class="hidden w-1/2 object-contain p-4 sm:block" />
             <p class="w-full p-4 text-justify font-semibold sm:w-1/2">
                 The Surge Synth Team is a group of musicians, developers, testers, documenters, and
                 general volunteer open source enthusiasts who randomly assembled to work on the
@@ -34,8 +29,8 @@ const projects = (await getCollection("projects")).sort(
                     <div
                         class={`flex flex-col items-center gap-4 p-4 sm:gap-6 sm:p-6 md:gap-12 md:p-12 ${
                             isEven
-                                ? "flex-row items-center bg-zinc-50 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50"
-                                : "bg-surge-orange flex-row-reverse text-zinc-900"
+                                ? "bg-surge-orange flex-row items-center text-zinc-950"
+                                : "flex-row-reverse bg-zinc-50 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50"
                         }`}>
                         <a href={project.data.url} class="w-1/2 flex-shrink-0">
                             <Image
@@ -51,8 +46,8 @@ const projects = (await getCollection("projects")).sort(
                             <a
                                 class={`font-blinker text-3xl font-bold ${
                                     isEven
-                                        ? "hover:text-surge-orange text-zinc-950 dark:text-zinc-50"
-                                        : "text-zinc-900 hover:text-white"
+                                        ? "text-zinc-950 hover:text-zinc-50"
+                                        : "hover:text-surge-orange text-zinc-950 dark:text-zinc-50"
                                 }`}
                                 href={project.data.url}>
                                 {project.data.title}
