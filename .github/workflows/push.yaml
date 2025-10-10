@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - env:
-          GH_TOKEN: ${{ secrets.WEB }}
+          GITHUB_TOKEN: ${{ secrets.WEB }}
         run: |
           gh api repos/${{ github.repository }}/dispatches \
           --method POST
