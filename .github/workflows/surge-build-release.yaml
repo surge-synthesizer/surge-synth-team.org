@@ -23,15 +23,15 @@ jobs:
           cache: pnpm
           cache-dependency-path: repo/pnpm-lock.yaml
 
-      - uses: actions/setup-python@v6
-        with:
-          python-version: 3.13
+      # - uses: actions/setup-python@v6
+      #   with:
+      #     python-version: 3.13
 
-      - uses: astral-sh/setup-uv@v7
-        with:
-          working-directory: repo
-          python-version: 3.13
-          enable-cache: true
+      # - uses: astral-sh/setup-uv@v7
+      #   with:
+      #     working-directory: repo
+      #     python-version: 3.13
+      #     enable-cache: true
 
       - working-directory: repo
         env:
