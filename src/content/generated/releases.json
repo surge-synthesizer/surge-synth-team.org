@@ -6,9 +6,9 @@
             "linux": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-linux-x64-1.3.4.deb"
         },
         "nightly": {
-            "windows": "https://github.com/surge-synthesizer/surge/releases/download/Nightly/surge-xt-win64-NIGHTLY-2025-10-13-28ed529-setup.exe",
-            "mac": "https://github.com/surge-synthesizer/surge/releases/download/Nightly/surge-xt-macOS-NIGHTLY-2025-10-13-28ed529.dmg",
-            "linux": "https://github.com/surge-synthesizer/surge/releases/download/Nightly/surge-xt-linux-x64-NIGHTLY-2025-10-13-28ed529.deb"
+            "windows": "https://github.com/surge-synthesizer/surge/releases/download/Nightly/surge-xt-win64-NIGHTLY-2025-10-14-591fe19-setup.exe",
+            "mac": "https://github.com/surge-synthesizer/surge/releases/download/Nightly/surge-xt-macOS-NIGHTLY-2025-10-14-591fe19.dmg",
+            "linux": "https://github.com/surge-synthesizer/surge/releases/download/Nightly/surge-xt-linux-x64-NIGHTLY-2025-10-14-591fe19.deb"
         }
     }
 }
