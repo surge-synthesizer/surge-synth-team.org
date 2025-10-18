@@ -1,0 +1,36 @@
+{
+  "build_time": "2025-10-18 13:23:49 UTC",
+  "commits": [
+    {
+      "author": "Morgon Kanter",
+      "commit": "098feda",
+      "date": "2025-10-18T08:39:43-04:00",
+      "message": "Migrate most of the FX parameter overlay into its own component. (#8164)"
+    },
+    {
+      "author": "Mike Thierman",
+      "commit": "06abd2c",
+      "date": "2025-10-16T17:56:59-06:00",
+      "message": "Fix some typos in jq invocation (#8193)"
+    },
+    {
+      "author": "Mike Thierman",
+      "commit": "5fc3f14",
+      "date": "2025-10-16T16:56:51-06:00",
+      "message": "Dispatch build info as JSON to websites (#8192)"
+    },
+    {
+      "author": "Paul",
+      "commit": "aa7c917",
+      "date": "2025-10-15T22:03:21-04:00",
+      "message": "Revert \"Backout the user dir change just to test (#8190)\" (#8191)"
+    }
+  ],
+  "downloads": {
+    "linux64": "https://github.com/surge-synthesizer/surge/releases/download/Nightly/surge-xt-linux-x64-NIGHTLY-2025-10-18-098feda.deb",
+    "macos": "https://github.com/surge-synthesizer/surge/releases/download/Nightly/surge-xt-macOS-NIGHTLY-2025-10-18-098feda.dmg",
+    "win64": "https://github.com/surge-synthesizer/surge/releases/download/Nightly/surge-xt-win64-NIGHTLY-2025-10-18-098feda-setup.exe",
+    "win64zip": "https://github.com/surge-synthesizer/surge/releases/download/Nightly/surge-xt-win64-NIGHTLY-2025-10-18-098feda-pluginsonly.zip"
+  },
+  "version": "NIGHTLY-2025-10-18-098feda"
+}
