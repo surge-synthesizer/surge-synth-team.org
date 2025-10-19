@@ -100,14 +100,14 @@ const navLinks = [
     </head>
 
     <body class="bg-zinc-50 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50">
-        <nav id="nav" class="font-blinker sticky top-0 bg-zinc-950 p-1 shadow-md">
+        <nav id="nav" class="sticky top-0 bg-zinc-950 p-1 font-blinker shadow-md">
             <div
-                class="divide-surge-orange/50 flex flex-wrap items-center justify-center gap-1 divide-x">
+                class="flex flex-wrap items-center justify-center gap-1 divide-x divide-surge-orange/50">
                 {
                     navLinks.map(([title, href]) => (
                         <a
                             href={href}
-                            class="text-surge-orange hover:text-surge-orange-bright text-nowrap px-2 no-underline">
+                            class="px-2 text-nowrap text-surge-orange no-underline hover:text-surge-orange-bright">
                             {title}
                         </a>
                     ))
@@ -116,7 +116,7 @@ const navLinks = [
                     aria-label="Theme"
                     name="themes"
                     id="theme-select"
-                    class="text-surge-orange hover:text-surge-orange-bright border-1 border-surge-orange/50 hover:border-surge-orange-bright/50 ml-2 rounded-md bg-zinc-950 font-semibold">
+                    class="ml-2 rounded-md border-1 border-surge-orange/50 bg-zinc-950 font-semibold text-surge-orange hover:border-surge-orange-bright/50 hover:text-surge-orange-bright">
                     <option value="auto">System</option>
                     <option value="dark">Dark</option>
                     <option value="light">Light</option>
@@ -129,19 +129,6 @@ const navLinks = [
 </html>
 
 <script>
-    function navHeight() {
-        const updateNavHeight = () => {
-            const nav = document.getElementById("nav") as HTMLElement;
-            document.documentElement.style.setProperty("--nav-height", `${nav.offsetHeight}px`);
-        };
-
-        updateNavHeight();
-
-        window.addEventListener("resize", () => {
-            updateNavHeight();
-        });
-    }
-
     function themeObserver() {
         const themeSelect = document.getElementById("theme-select") as HTMLSelectElement;
 
@@ -167,7 +154,6 @@ const navLinks = [
     }
 
     function setup() {
-        navHeight();
         themeObserver();
     }
 
