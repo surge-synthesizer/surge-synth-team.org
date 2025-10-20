@@ -15,5 +15,5 @@ jobs:
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add -A
-          git commit -m 'github-actions: Update generated files'
+          git commit -m 'github-actions: Update surge-build-stable.json from dispatch event' || echo "No changes to commit"
           git push origin master
