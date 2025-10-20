@@ -10,9 +10,7 @@ jobs:
         with:
           token: ${{ secrets.WEB }}
 
-      - env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
+      - run: |
           jq . <<< '${{ toJson(github.event.client_payload) }}' > src/content/generated/surge-build-nightly.json
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
