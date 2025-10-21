@@ -6,4 +6,13 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
     vite: { plugins: [tailwindcss()] },
     integrations: [mdx()],
+    markdown: {
+        shikiConfig: {
+            themes: {
+                light: "dark-plus",
+                dark: "light-plus",
+            },
+            wrap: true,
+        },
+    },
 });
