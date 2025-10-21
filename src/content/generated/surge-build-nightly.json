@@ -1,6 +1,12 @@
 {
-  "build_time": "2025-10-20 23:30:15 UTC",
+  "build_time": "2025-10-21 16:22:53 UTC",
   "commits": [
+    {
+      "author": "Paul",
+      "commit": "ec5eb5f",
+      "date": "2025-10-21T11:35:54-04:00",
+      "message": "Update CLap Juce Extensions with FD support (#8198)"
+    },
     {
       "author": "Mike Thierman",
       "commit": "2ba5eb0",
@@ -18,19 +24,13 @@
       "commit": "098feda",
       "date": "2025-10-18T08:39:43-04:00",
       "message": "Migrate most of the FX parameter overlay into its own component. (#8164)"
-    },
-    {
-      "author": "Mike Thierman",
-      "commit": "06abd2c",
-      "date": "2025-10-16T17:56:59-06:00",
-      "message": "Fix some typos in jq invocation (#8193)"
     }
   ],
   "downloads": {
-    "linux64": "https://github.com/surge-synthesizer/surge/releases/download/Nightly/surge-xt-linux-x64-NIGHTLY-2025-10-20-2ba5eb0.deb",
-    "macos": "https://github.com/surge-synthesizer/surge/releases/download/Nightly/surge-xt-macOS-NIGHTLY-2025-10-20-2ba5eb0.dmg",
-    "win64": "https://github.com/surge-synthesizer/surge/releases/download/Nightly/surge-xt-win64-NIGHTLY-2025-10-20-2ba5eb0-setup.exe",
-    "win64zip": "https://github.com/surge-synthesizer/surge/releases/download/Nightly/surge-xt-win64-NIGHTLY-2025-10-20-2ba5eb0-pluginsonly.zip"
+    "linux64": "https://github.com/surge-synthesizer/surge/releases/download/Nightly/surge-xt-linux-x64-NIGHTLY-2025-10-21-ec5eb5f.deb",
+    "macos": "https://github.com/surge-synthesizer/surge/releases/download/Nightly/surge-xt-macOS-NIGHTLY-2025-10-21-ec5eb5f.dmg",
+    "win64": "https://github.com/surge-synthesizer/surge/releases/download/Nightly/surge-xt-win64-NIGHTLY-2025-10-21-ec5eb5f-setup.exe",
+    "win64zip": "https://github.com/surge-synthesizer/surge/releases/download/Nightly/surge-xt-win64-NIGHTLY-2025-10-21-ec5eb5f-pluginsonly.zip"
   },
-  "version": "NIGHTLY-2025-10-20-2ba5eb0"
+  "version": "NIGHTLY-2025-10-21-ec5eb5f"
 }
