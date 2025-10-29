@@ -1,6 +1,8 @@
 on:
   workflow_dispatch:
   workflow_call:
+  push:
+    branches: [master]
 
 permissions:
   contents: read
@@ -16,31 +18,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-        with:
-          path: repo
 
       - uses: pnpm/action-setup@v4
         with:
-          package_json_file: repo/package.json
-          run_install: |
-            - cwd: repo
+          run_install: true
 
-      - uses: actions/setup-node@v5
-        with:
-          node-version: 22.20.0
-          cache: pnpm
-          cache-dependency-path: repo/pnpm-lock.yaml
+      - uses: actions/setup-node@v6
 
       - id: pages
         uses: actions/configure-pages@v5
 
-      - working-directory: repo
-        run: |
+      - run: |
           pnpm build
 
       - uses: actions/upload-pages-artifact@v4
         with:
-          path: repo/dist
+          path: dist
 
   deploy:
     environment:
