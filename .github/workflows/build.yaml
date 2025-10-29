@@ -26,6 +26,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: ".node-version"
+          cache: pnpm
 
       - id: pages
         uses: actions/configure-pages@v5
