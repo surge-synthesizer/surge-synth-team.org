@@ -22,8 +22,6 @@
 
 @theme {
     --font-sans: "Lato";
-    --font-blinker: "Lato";
-    --font-sans--font-variation-settings: "opsz" auto;
     --color-surge-orange: #ff9000;
     --color-surge-orange-bright: color-mix(in srgb, var(--color-surge-orange) 80%, white);
     --color-surge-blue: #005cb6;
@@ -44,11 +42,11 @@
     }
 
     a {
-        @apply hover:text-surge-orange-bright text-surge-orange underline;
+        @apply text-surge-orange underline hover:text-surge-orange-bright;
     }
 
     article {
-        @apply prose prose-a:hover:text-surge-orange-bright prose-a:text-surge-orange prose-headings:text-zinc-950 dark:prose-headings:text-zinc-50 text-zinc-950 dark:text-zinc-50;
+        @apply prose text-zinc-950 dark:text-zinc-50 prose-headings:text-zinc-950 dark:prose-headings:text-zinc-50 prose-a:text-surge-orange prose-a:hover:text-surge-orange-bright;
     }
 }
 

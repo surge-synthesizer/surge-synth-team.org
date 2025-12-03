@@ -29,10 +29,10 @@ const projects = (await getCollection("projects")).sort(
                     <div
                         class={`flex flex-col items-center gap-4 p-4 sm:gap-6 sm:p-6 md:gap-12 md:p-12 ${
                             isEven
-                                ? "bg-surge-orange flex-row items-center text-zinc-950"
+                                ? "flex-row items-center bg-surge-orange text-zinc-950"
                                 : "flex-row-reverse bg-zinc-50 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50"
                         }`}>
-                        <a href={`/${project.id}`} class="w-1/2 flex-shrink-0">
+                        <a href={`/${project.id}`} class="w-1/2 shrink-0">
                             <Image
                                 alt={project.data.title}
                                 src={project.data.cover}
@@ -44,10 +44,10 @@ const projects = (await getCollection("projects")).sort(
 
                         <div class="">
                             <a
-                                class={`font-blinker text-3xl font-bold ${
+                                class={`text-3xl font-bold ${
                                     isEven
                                         ? "text-zinc-950 hover:text-zinc-50"
-                                        : "hover:text-surge-orange text-zinc-950 dark:text-zinc-50"
+                                        : "text-zinc-950 hover:text-surge-orange dark:text-zinc-50"
                                 }`}
                                 href={`/${project.id}`}>
                                 {project.data.title}
