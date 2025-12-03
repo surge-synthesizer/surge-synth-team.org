@@ -14,18 +14,18 @@
         "astro": "astro"
     },
     "devDependencies": {
-        "@astrojs/check": "^0.9.5",
-        "@astrojs/mdx": "^4.3.7",
-        "@astrojs/ts-plugin": "^1.10.5",
+        "@astrojs/check": "^0.9.6",
+        "@astrojs/mdx": "^4.3.12",
+        "@astrojs/ts-plugin": "^1.10.6",
         "@tailwindcss/typography": "^0.5.19",
-        "@tailwindcss/vite": "^4.1.15",
-        "@types/node": "^24.9.1",
-        "astro": "^5.14.7",
-        "prettier": "^3.6.2",
+        "@tailwindcss/vite": "^4.1.17",
+        "@types/node": "^24.10.1",
+        "astro": "^5.16.4",
+        "prettier": "^3.7.4",
         "prettier-plugin-astro": "^0.14.1",
-        "prettier-plugin-tailwindcss": "^0.7.1",
-        "sharp": "^0.34.4",
-        "tailwindcss": "^4.1.15",
+        "prettier-plugin-tailwindcss": "^0.7.2",
+        "sharp": "^0.34.5",
+        "tailwindcss": "^4.1.17",
         "typescript": "^5.9.3"
     }
 }
