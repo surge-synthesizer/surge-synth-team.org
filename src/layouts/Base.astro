@@ -104,6 +104,15 @@ const current = Astro.params.project ?? null;
         <nav id="nav" class="sticky top-0 bg-zinc-950 p-1 shadow-md">
             <div
                 class="flex flex-wrap items-center justify-center gap-1 divide-x divide-surge-orange/50">
+                {
+                    navLinks.map(([title, href]) => (
+                        <a
+                            href={href}
+                            class="px-2 text-nowrap text-surge-orange no-underline hover:text-surge-orange-bright">
+                            {title}
+                        </a>
+                    ))
+                }
                 <select
                     aria-label="Project"
                     name="projects"
@@ -120,15 +129,6 @@ const current = Astro.params.project ?? null;
                         })
                     }
                 </select>
-                {
-                    navLinks.map(([title, href]) => (
-                        <a
-                            href={href}
-                            class="px-2 text-nowrap text-surge-orange no-underline hover:text-surge-orange-bright">
-                            {title}
-                        </a>
-                    ))
-                }
                 <select
                     aria-label="Theme"
                     name="themes"
