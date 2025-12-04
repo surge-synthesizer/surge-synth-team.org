@@ -19,6 +19,8 @@ const navLinks = [
 const projects = (await getCollection("projects")).sort(
     (a: any, b: any) => a.data.order - b.data.order,
 );
+
+const current = Astro.params.project ?? null;
 ---
 
 <!doctype html>
@@ -107,9 +109,14 @@ const projects = (await getCollection("projects")).sort(
                     name="projects"
                     id="project-select"
                     class="ml-2 rounded-md border border-surge-orange/50 bg-zinc-950 font-semibold text-surge-orange hover:border-surge-orange-bright/50 hover:text-surge-orange-bright">
+                    <option value="" selected={current === null}>Select a project...</option>
                     {
                         projects.map((project) => {
-                            return <option value={project.id}>{project.id}</option>;
+                            return (
+                                <option value={project.id} selected={project.id === current}>
+                                    {project.id}
+                                </option>
+                            );
                         })
                     }
                 </select>
@@ -165,6 +172,10 @@ const projects = (await getCollection("projects")).sort(
         const projectSelect = document.getElementById("project-select") as HTMLSelectElement;
 
         projectSelect.addEventListener("change", () => {
+            if (projectSelect.value === "") {
+                return;
+            }
+
             window.location.href = `/${projectSelect.value}`;
         });
     }
