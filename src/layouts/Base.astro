@@ -102,22 +102,12 @@ const current = Astro.params.project ?? null;
 
     <body class="bg-zinc-50 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50">
         <nav id="nav" class="sticky top-0 bg-zinc-950 p-1 shadow-md">
-            <div
-                class="flex flex-wrap items-center justify-center gap-1 divide-x divide-surge-orange/50">
-                {
-                    navLinks.map(([title, href]) => (
-                        <a
-                            href={href}
-                            class="px-2 text-nowrap text-surge-orange no-underline hover:text-surge-orange-bright">
-                            {title}
-                        </a>
-                    ))
-                }
+            <div class="flex flex-wrap items-center justify-center gap-4">
                 <select
                     aria-label="Project"
                     name="projects"
                     id="project-select"
-                    class="ml-2 rounded-md border border-surge-orange/50 bg-zinc-950 font-semibold text-surge-orange hover:border-surge-orange-bright/50 hover:text-surge-orange-bright">
+                    class="bg-zinc-950 text-surge-orange">
                     <option value="" selected={current === null}>Select a project...</option>
                     {
                         projects.map((project) => {
@@ -129,11 +119,21 @@ const current = Astro.params.project ?? null;
                         })
                     }
                 </select>
+                {
+                    navLinks.map(([title, href]) => (
+                        <a
+                            href={href}
+                            class="px-2 text-nowrap text-surge-orange no-underline hover:text-surge-orange-bright">
+                            {title}
+                        </a>
+                    ))
+                }
                 <select
                     aria-label="Theme"
                     name="themes"
                     id="theme-select"
-                    class="ml-2 rounded-md border border-surge-orange/50 bg-zinc-950 font-semibold text-surge-orange hover:border-surge-orange-bright/50 hover:text-surge-orange-bright">
+                    class="bg-zinc-950 text-surge-orange">
+                    <option value="">Select a theme...</option>
                     <option value="auto">System</option>
                     <option value="dark">Dark</option>
                     <option value="light">Light</option>
