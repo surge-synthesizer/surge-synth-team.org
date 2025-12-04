@@ -1,5 +1,6 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import { getCollection } from "astro:content";
 import "./base.css";
 
 interface Props {
@@ -9,11 +10,15 @@ interface Props {
 const { title } = Astro.props;
 
 const navLinks = [
-    ["Projects", "/"],
+    ["Home", "/"],
     ["Open Source", "/open-source"],
     ["Contact", "/contact"],
     ["GitHub", "https://github.com/surge-synthesizer"],
 ] as const;
+
+const projects = (await getCollection("projects")).sort(
+    (a: any, b: any) => a.data.order - b.data.order,
+);
 ---
 
 <!doctype html>
@@ -97,6 +102,17 @@ const navLinks = [
         <nav id="nav" class="sticky top-0 bg-zinc-950 p-1 shadow-md">
             <div
                 class="flex flex-wrap items-center justify-center gap-1 divide-x divide-surge-orange/50">
+                <select
+                    aria-label="Project"
+                    name="projects"
+                    id="project-select"
+                    class="ml-2 rounded-md border border-surge-orange/50 bg-zinc-950 font-semibold text-surge-orange hover:border-surge-orange-bright/50 hover:text-surge-orange-bright">
+                    {
+                        projects.map((project) => {
+                            return <option value={project.id}>{project.id}</option>;
+                        })
+                    }
+                </select>
                 {
                     navLinks.map(([title, href]) => (
                         <a
@@ -123,7 +139,7 @@ const navLinks = [
 </html>
 
 <script>
-    function themeObserver() {
+    function setup() {
         const themeSelect = document.getElementById("theme-select") as HTMLSelectElement;
 
         themeSelect.addEventListener("change", () => {
@@ -145,10 +161,12 @@ const navLinks = [
                     break;
             }
         });
-    }
 
-    function setup() {
-        themeObserver();
+        const projectSelect = document.getElementById("project-select") as HTMLSelectElement;
+
+        projectSelect.addEventListener("change", () => {
+            window.location.href = `/${projectSelect.value}`;
+        });
     }
 
     document.addEventListener("astro:after-swap", setup);
