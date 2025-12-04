@@ -146,6 +146,8 @@ const current = Astro.params.project ?? null;
 </html>
 
 <script>
+    import { navigate } from "astro:transitions/client";
+
     function setup() {
         const themeSelect = document.getElementById("theme-select") as HTMLSelectElement;
 
@@ -176,7 +178,7 @@ const current = Astro.params.project ?? null;
                 return;
             }
 
-            window.location.href = `/${projectSelect.value}`;
+            navigate(projectSelect.value);
         });
     }
 
