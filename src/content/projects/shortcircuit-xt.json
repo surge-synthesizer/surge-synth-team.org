@@ -1,0 +1,10 @@
+{
+    "title": "Shortcircuit XT",
+    "slug": "shortcircuit-xt",
+    "order": 5,
+    "summary": "Shortcircuit XT is a sample player.",
+    "cover": "./screenshots/shortcircuit-xt.png",
+    "categories": ["Sampler"],
+    "issue_tracker": "https://github.com/surge-synthesizer/shortcircuit-xt/issues",
+    "repo": "surge-synthesizer/shortcircuit-xt"
+}

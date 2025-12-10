@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
 
@@ -13,12 +13,13 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
-const { Content } = await render(project);
+const url =
+    (project.data.url ?? null) ? project.data.url : `https://github.com/${project.data.repo}`;
 ---
 
 <Base title={`Surge Synth Team | ${project.data.title}`}>
     <article class="content-wrapper">
-        <h1>{project.data.title}</h1>
+        <h1><a href={url}>{project.data.title}</a></h1>
         <Image
             class="product-image"
             src={project.data.cover}
@@ -26,6 +27,9 @@ const { Content } = await render(project);
             quality="100"
             format="png"
         />
-        <Content />
+        <p>
+            Categories: {project.data.categories.map((cat) => <>{cat + " "}</>)}
+        </p>
+        <p>{project.data.summary}</p>
     </article>
 </Base>

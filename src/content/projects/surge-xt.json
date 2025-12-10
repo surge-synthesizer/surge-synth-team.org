@@ -1,0 +1,11 @@
+{
+    "title": "Surge XT",
+    "slug": "surge-xt",
+    "order": 1,
+    "summary": "Surge XT is an open source hybrid synthesizer, and the synth which started the Surge Synth Team project!",
+    "cover": "./screenshots/surge-xt.png",
+    "categories": ["Synth"],
+    "issue_tracker": "https://github.com/surge-synthesizer/surge/issues",
+    "repo": "surge-synthesizer/surge",
+    "url": "https://surge-synthesizer.github.io"
+}

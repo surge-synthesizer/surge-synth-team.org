@@ -9,7 +9,7 @@ const pages = defineCollection({
 });
 
 const projects = defineCollection({
-    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/projects" }),
+    loader: glob({ pattern: "**/*.json", base: "./src/content/projects" }),
     schema: ({ image }) =>
         z.object({
             title: z.string(),
@@ -19,10 +19,11 @@ const projects = defineCollection({
             categories: z.string().array(),
             issue_tracker: z.string(),
             repo: z.string().optional(),
+            url: z.string().optional(),
         }),
 });
 
 export const collections = {
-    pages: pages,
-    projects: projects,
+    pages,
+    projects,
 };

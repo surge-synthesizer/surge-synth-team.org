@@ -1,0 +1,11 @@
+{
+    "title": "Stochas",
+    "slug": "stochas",
+    "order": 6,
+    "summary": "Stochas is a probabilistic polyrhythmic sequencer plugin.",
+    "cover": "./screenshots/stochas.png",
+    "categories": ["Sequencer"],
+    "issue_tracker": "https://github.com/surge-synthesizer/stochas/issues",
+    "repo": "surge-synthesizer/stochas",
+    "url": "https://stochas.org/"
+}

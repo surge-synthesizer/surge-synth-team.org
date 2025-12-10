@@ -1,0 +1,10 @@
+{
+    "title": "B-Step Sequencer",
+    "slug": "b-step",
+    "order": 8,
+    "summary": "The B-Step Sequencer is a midi generating plugin from Thomas Arndt which became open source in March 2022.",
+    "cover": "./screenshots/b-step.jpg",
+    "categories": ["Sequencer"],
+    "issue_tracker": "https://github.com/surge-synthesizer/b-step/issues",
+    "repo": "surge-synthesizer/b-step"
+}

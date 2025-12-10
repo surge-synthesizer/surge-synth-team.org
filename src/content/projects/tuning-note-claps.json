@@ -1,0 +1,10 @@
+{
+    "title": "Tuning Note CLAPs",
+    "slug": "tuning-note-claps",
+    "order": 9,
+    "summary": "Microtuning devices for Bitwig Studio.",
+    "cover": "./screenshots/tuning-note-claps.jpg",
+    "categories": ["Utility"],
+    "issue_tracker": "https://github.com/surge-synthesizer/tuning-note-claps/issues",
+    "repo": "surge-synthesizer/tuning-note-claps"
+}

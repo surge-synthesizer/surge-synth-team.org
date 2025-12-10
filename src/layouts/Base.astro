@@ -9,18 +9,15 @@ interface Props {
 
 const { title } = Astro.props;
 
+const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
+const currentProject = Astro.params.project ?? null;
+
 const navLinks = [
     ["Home", "/"],
     ["Open Source", "/open-source"],
     ["Contact", "/contact"],
-    ["GitHub", "https://github.com/surge-synthesizer"],
+    ["GitHub ↗", "https://github.com/surge-synthesizer"],
 ] as const;
-
-const projects = (await getCollection("projects")).sort(
-    (a: any, b: any) => a.data.order - b.data.order,
-);
-
-const current = Astro.params.project ?? null;
 ---
 
 <!doctype html>
@@ -101,46 +98,45 @@ const current = Astro.params.project ?? null;
     </head>
 
     <body class="bg-zinc-50 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50">
-        <nav id="nav" class="sticky top-0 bg-zinc-950 p-1 shadow-md">
-            <div class="flex flex-wrap items-center justify-center gap-4">
-                <select
-                    aria-label="Project"
-                    name="projects"
-                    id="project-select"
-                    class="bg-zinc-950 text-surge-orange">
-                    <option value="" selected={current === null}>Select a project...</option>
-                    {
-                        projects.map((project) => {
-                            return (
-                                <option value={project.id} selected={project.id === current}>
-                                    {project.id}
-                                </option>
-                            );
-                        })
-                    }
-                </select>
+        <nav
+            id="nav"
+            class="sticky top-0 flex flex-wrap items-center justify-center gap-4 bg-zinc-950 p-2 shadow-md">
+            {
+                navLinks.map(([title, href]) => (
+                    <a
+                        href={href}
+                        class="text-nowrap text-surge-orange no-underline hover:text-surge-orange-bright">
+                        {title}
+                    </a>
+                ))
+            }
+            <select
+                aria-label="Project"
+                name="projects"
+                id="project-select"
+                class="rounded border border-surge-orange/25 bg-zinc-950 p-1 text-surge-orange">
+                <option value="" selected={currentProject === null}>Select a project...</option>
                 {
-                    navLinks.map(([title, href]) => (
-                        <a
-                            href={href}
-                            class="px-2 text-nowrap text-surge-orange no-underline hover:text-surge-orange-bright">
-                            {title}
-                        </a>
-                    ))
+                    projects.map((project) => {
+                        return (
+                            <option value={project.id} selected={project.id === currentProject}>
+                                {project.data.title}
+                            </option>
+                        );
+                    })
                 }
-                <select
-                    aria-label="Theme"
-                    name="themes"
-                    id="theme-select"
-                    class="bg-zinc-950 text-surge-orange">
-                    <option value="">Select a theme...</option>
-                    <option value="auto">System</option>
-                    <option value="dark">Dark</option>
-                    <option value="light">Light</option>
-                </select>
-            </div>
+            </select>
+            <select
+                aria-label="Theme"
+                name="themes"
+                id="theme-select"
+                class="rounded border border-surge-orange/25 bg-zinc-950 p-1 text-surge-orange">
+                <option value="">Select a theme...</option>
+                <option value="auto">System</option>
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+            </select>
         </nav>
-
         <slot />
     </body>
 </html>

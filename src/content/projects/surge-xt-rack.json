@@ -1,0 +1,11 @@
+{
+    "title": "Surge XT for VCV Rack",
+    "slug": "surge-xt-rack",
+    "order": 3,
+    "summary": "Core elements of Surge XT synthesizer, available as modules for VCV Rack.",
+    "cover": "./screenshots/surge-rack.jpg",
+    "categories": ["Synth"],
+    "issue_tracker": "https://github.com/surge-synthesizer/surge-rack/issues",
+    "repo": "surge-synthesizer/surge-rack",
+    "url": "https://surge-synthesizer.github.io/rack_xt_manual"
+}
