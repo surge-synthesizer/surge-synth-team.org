@@ -1,14 +1,14 @@
 ---
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
-import Logo from "../images/logo_sst_white.svg";
+import Logo from "../images/logo.svg";
 import Base from "../layouts/Base.astro";
 
 const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <Base title="Surge Synth Team | Projects">
-    <div class="flex items-center justify-center gap-4 bg-black p-4 text-white">
+    <div class="flex items-center justify-center gap-4 p-4">
         <Image alt="SST Logo" src={Logo} class="hidden max-w-xs object-contain sm:block" />
         <p class="max-w-md text-justify text-sm">
             The Surge Synth Team is a group of musicians, developers, testers, documenters, and
@@ -17,7 +17,7 @@ const projects = (await getCollection("projects")).sort((a, b) => a.data.order -
             decided to branch out into other things too!
         </p>
     </div>
-    <div class="bg-black text-zinc-50">
+    <div>
         {
             projects.map((project, index) => {
                 const isEven = index % 2 === 0;

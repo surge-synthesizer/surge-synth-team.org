@@ -46,11 +46,15 @@
     }
 
     article {
-        @apply prose dark:prose-invert text-zinc-950 dark:text-zinc-50 prose-headings:text-zinc-950 dark:prose-headings:text-zinc-50 prose-a:text-surge-orange prose-a:hover:text-surge-orange-bright;
+        @apply prose text-zinc-950 dark:text-zinc-50 dark:prose-invert prose-headings:text-zinc-950 dark:prose-headings:text-zinc-50 prose-a:text-surge-orange prose-a:hover:text-surge-orange-bright;
     }
 }
 
 @layer components {
+    .background {
+        @apply bg-zinc-50 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50;
+    }
+
     .content-wrapper {
         @apply max-w-xl place-self-center p-4;
     }

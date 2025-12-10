@@ -97,10 +97,10 @@ const navLinks = [
         <ClientRouter />
     </head>
 
-    <body class="bg-zinc-50 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50">
+    <body class="background">
         <nav
             id="nav"
-            class="sticky top-0 flex flex-wrap items-center justify-center gap-4 bg-zinc-950 p-2 shadow-md">
+            class="background sticky top-0 flex flex-wrap items-center justify-center gap-4 p-2 shadow-md">
             {
                 navLinks.map(([title, href]) => (
                     <a
@@ -114,7 +114,7 @@ const navLinks = [
                 aria-label="Project"
                 name="projects"
                 id="project-select"
-                class="rounded border border-surge-orange/25 bg-zinc-950 p-1 text-surge-orange">
+                class="background rounded border border-surge-orange/25 p-1 text-surge-orange">
                 <option value="" selected={currentProject === null}>Select a project...</option>
                 {
                     projects.map((project) => {
@@ -130,7 +130,7 @@ const navLinks = [
                 aria-label="Theme"
                 name="themes"
                 id="theme-select"
-                class="rounded border border-surge-orange/25 bg-zinc-950 p-1 text-surge-orange">
+                class="background rounded border border-surge-orange/25 p-1 text-surge-orange">
                 <option value="">Select a theme...</option>
                 <option value="auto">System</option>
                 <option value="dark">Dark</option>
