@@ -40,7 +40,7 @@ const projects = (await getCollection("projects")).sort((a, b) => a.data.order -
                         </a>
                         <div class="">
                             <a
-                                class={`text-3xl font-bold ${isEven ? "text-neutral-900 hover:text-neutral-700" : ""}`}
+                                class={`text-3xl font-bold ${isEven ? "text-surge-blue hover:text-surge-blue-bright" : ""}`}
                                 href={
                                     (project.data.url ?? null)
                                         ? `${project.data.url}`

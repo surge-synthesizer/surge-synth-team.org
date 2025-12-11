@@ -50,7 +50,7 @@
     }
 
     article {
-        @apply prose max-w-xl place-self-center p-4 dark:prose-invert;
+        @apply prose max-w-xl place-self-center p-4 dark:prose-invert prose-a:text-surge-blue dark:prose-a:text-surge-orange;
     }
 }
 
