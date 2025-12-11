@@ -21,6 +21,7 @@ const projects = (await getCollection("projects")).sort((a, b) => a.data.order -
         {
             projects.map((project, index) => {
                 const isEven = index % 2 === 0;
+                const url = project.data.url || `/${project.id}`;
 
                 return (
                     <div
@@ -29,7 +30,7 @@ const projects = (await getCollection("projects")).sort((a, b) => a.data.order -
                                 ? "flex-row items-center bg-surge-orange text-neutral-900"
                                 : "flex-row-reverse"
                         }`}>
-                        <a href={`/${project.id}`} class="w-1/2 shrink-0">
+                        <a href={url} class="w-1/2 shrink-0">
                             <Image
                                 alt={project.data.title}
                                 src={project.data.cover}
@@ -38,16 +39,12 @@ const projects = (await getCollection("projects")).sort((a, b) => a.data.order -
                                 class="product-image"
                             />
                         </a>
-                        <div class="">
-                            <a
-                                class={`text-3xl font-bold ${isEven ? "text-surge-blue hover:text-surge-blue-bright" : ""}`}
-                                href={
-                                    (project.data.url ?? null)
-                                        ? `${project.data.url}`
-                                        : `/${project.id}`
-                                }>
-                                {project.data.title}
-                            </a>
+                        <div>
+                            {url && (
+                                <a class="text-3xl font-bold text-inherit" href={url}>
+                                    {project.data.title}
+                                </a>
+                            )}
                             <p class="text-justify">{project.data.summary}</p>
                         </div>
                     </div>
