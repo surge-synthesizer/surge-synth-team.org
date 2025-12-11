@@ -7,10 +7,10 @@ import Base from "../layouts/Base.astro";
 const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<Base title="Surge Synth Team | Projects">
+<Base title="Home">
     <div class="flex items-center justify-center gap-4 p-4">
         <Image alt="SST Logo" src={Logo} class="hidden max-w-xs object-contain sm:block" />
-        <p class="max-w-md text-justify text-sm">
+        <p class="max-w-md text-justify text-sm font-bold">
             The Surge Synth Team is a group of musicians, developers, testers, documenters, and
             general volunteer open source enthusiasts who randomly assembled to work on the Surge
             Synthesizer. As the Surge project became more successful, and we kept having fun, we
@@ -26,8 +26,8 @@ const projects = (await getCollection("projects")).sort((a, b) => a.data.order -
                     <div
                         class={`flex flex-col items-center gap-4 p-4 sm:gap-6 sm:p-6 md:gap-12 md:p-12 ${
                             isEven
-                                ? "flex-row items-center bg-surge-orange text-zinc-950"
-                                : "flex-row-reverse bg-zinc-50 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50"
+                                ? "flex-row items-center bg-surge-orange text-neutral-900"
+                                : "flex-row-reverse"
                         }`}>
                         <a href={`/${project.id}`} class="w-1/2 shrink-0">
                             <Image
@@ -40,11 +40,7 @@ const projects = (await getCollection("projects")).sort((a, b) => a.data.order -
                         </a>
                         <div class="">
                             <a
-                                class={`text-3xl font-bold ${
-                                    isEven
-                                        ? "text-zinc-950 hover:text-zinc-50"
-                                        : "text-zinc-950 hover:text-surge-orange dark:text-zinc-50"
-                                }`}
+                                class={`text-3xl font-bold ${isEven ? "text-neutral-900 hover:text-neutral-700" : ""}`}
                                 href={
                                     (project.data.url ?? null)
                                         ? `${project.data.url}`

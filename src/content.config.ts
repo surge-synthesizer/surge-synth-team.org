@@ -3,9 +3,12 @@ import { defineCollection, z } from "astro:content";
 
 const pages = defineCollection({
     loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/pages" }),
-    schema: z.object({
-        title: z.string(),
-    }),
+    schema: () =>
+        z.object({
+            title: z.string(),
+            repo: z.string().optional(),
+            url: z.string().optional(),
+        }),
 });
 
 const projects = defineCollection({

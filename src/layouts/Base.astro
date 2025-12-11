@@ -55,7 +55,7 @@ const navLinks = [
             crossorigin
         />
         <link rel="preload" href="/fonts/Lato-Italic.woff" as="font" type="font/woff" crossorigin />
-        <title>{title}</title>
+        <title>{`Surge Synth Team | ${title}`}</title>
         <script is:inline>
             function setTheme() {
                 !localStorage.getItem("theme") && localStorage.setItem("theme", "auto");
@@ -97,24 +97,18 @@ const navLinks = [
         <ClientRouter />
     </head>
 
-    <body class="background">
+    <body class="bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100">
         <nav
             id="nav"
-            class="background sticky top-0 flex flex-wrap items-center justify-center gap-4 p-2 shadow-md">
+            class="sticky top-0 flex flex-wrap items-center justify-center gap-4 bg-inherit p-2 shadow-md shadow-black/25">
             {
                 navLinks.map(([title, href]) => (
-                    <a
-                        href={href}
-                        class="text-nowrap text-surge-orange no-underline hover:text-surge-orange-bright">
+                    <a href={href} class="text-nowrap no-underline">
                         {title}
                     </a>
                 ))
             }
-            <select
-                aria-label="Project"
-                name="projects"
-                id="project-select"
-                class="background rounded border border-surge-orange/25 p-1 text-surge-orange">
+            <select aria-label="Project" name="projects" id="project-select">
                 <option value="" selected={currentProject === null}>Select a project...</option>
                 {
                     projects.map((project) => {
@@ -126,11 +120,7 @@ const navLinks = [
                     })
                 }
             </select>
-            <select
-                aria-label="Theme"
-                name="themes"
-                id="theme-select"
-                class="background rounded border border-surge-orange/25 p-1 text-surge-orange">
+            <select aria-label="Theme" name="themes" id="theme-select">
                 <option value="">Select a theme...</option>
                 <option value="auto">System</option>
                 <option value="dark">Dark</option>

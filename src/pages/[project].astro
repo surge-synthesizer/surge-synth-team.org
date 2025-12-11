@@ -13,13 +13,13 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
-const url =
-    (project.data.url ?? null) ? project.data.url : `https://github.com/${project.data.repo}`;
+const url = project.data.url ?? (project.data.repo && `https://github.com/${project.data.repo}`);
 ---
 
-<Base title={`Surge Synth Team | ${project.data.title}`}>
-    <article class="content-wrapper">
-        <h1><a href={url}>{project.data.title}</a></h1>
+<Base title={project.data.title}>
+    <article>
+        <h1>{project.data.title}</h1>
+        {url && <a href={url}>{url}</a>}
         <Image
             class="product-image"
             src={project.data.cover}

@@ -12,12 +12,14 @@ export async function getStaticPaths() {
 }
 
 const { page } = Astro.props;
+const url = page.data.url ?? (page.data.repo && `https://github.com/${page.data.repo}`);
 const { Content } = await render(page);
 ---
 
-<Base title={`Surge Synth Team | ${page.data.title}`}>
-    <article class="content-wrapper">
+<Base title={page.data.title}>
+    <article>
         <h1>{page.data.title}</h1>
+        {url && <a href={url}>{url}</a>}
         <Content />
     </article>
 </Base>
