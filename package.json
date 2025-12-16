@@ -2,7 +2,7 @@
     "name": "surge-synth-team.org",
     "private": true,
     "type": "module",
-    "packageManager": "pnpm@10.18.2",
+    "packageManager": "pnpm@10.26.0",
     "scripts": {
         "dev": "astro dev",
         "host": "astro dev --host",
