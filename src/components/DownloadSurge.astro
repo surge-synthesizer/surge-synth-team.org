@@ -1,11 +1,11 @@
 ---
-import surge_build_nightly from "../content/generated/surge-build-nightly.json" with { type: "json" };
+import surge_build_stable from "../content/generated/surge-build-stable.json" with { type: "json" };
 ---
 
 <download-button
-    data-windows={surge_build_nightly.releases.win64}
-    data-mac={surge_build_nightly.releases.macos}
-    data-linux={surge_build_nightly.releases.linux64}
+    data-windows={surge_build_stable.releases.win64}
+    data-mac={surge_build_stable.releases.macos}
+    data-linux={surge_build_stable.releases.linux64}
     class="">
     <a
         id="surge-release-link"
