@@ -1,0 +1,73 @@
+---
+import surge_build_nightly from "../content/generated/surge-build-nightly.json" with { type: "json" };
+---
+
+<download-button
+    data-windows={surge_build_nightly.releases.win64}
+    data-mac={surge_build_nightly.releases.macos}
+    data-linux={surge_build_nightly.releases.linux64}
+    class="">
+    <a
+        id="surge-release-link"
+        class="w-fit rounded-md bg-zinc-50 p-2 font-semibold text-zinc-950 no-underline shadow hover:text-surge-orange hover:shadow-surge-orange dark:shadow-white/25"
+        >Download</a
+    >
+</download-button>
+
+<script>
+    import detect_platform from "./detect_platform.ts";
+
+    class DownloadButton extends HTMLElement {
+        connectedCallback() {
+            const releases = {
+                windows: this.dataset.windows!,
+                mac: this.dataset.mac!,
+                linux: this.dataset.linux!,
+            };
+
+            const anchor = this.querySelector("a") as HTMLAnchorElement;
+
+            let downloads_url = "https://surge-synthesizer.github.io/downloads/";
+            let platform = detect_platform();
+
+            if (anchor) {
+                switch (platform) {
+                    case "windows":
+                        anchor.innerText = "Download | Windows";
+                        anchor.href = releases.windows;
+                        break;
+
+                    case "mac":
+                        anchor.innerText = "Download | macOS";
+                        anchor.href = releases.mac;
+                        break;
+
+                    case "linux":
+                        anchor.innerText = "Download | Linux";
+                        anchor.href = releases.linux;
+                        break;
+
+                    case "bsd":
+                        anchor.innerText = "Download | FreeBSD";
+                        anchor.href =
+                            "https://github.com/surge-synthesizer/surge/blob/main/doc/Linux-and-other-Unix-like-distributions.md#surge-on-freebsd";
+                        break;
+
+                    case "android":
+                    case "ios":
+                    case "unknown":
+                        anchor.innerText = "Download";
+                        anchor.href = downloads_url;
+                        break;
+
+                    default:
+                        anchor.innerText = "Download";
+                        anchor.href = downloads_url;
+                        break;
+                }
+            }
+        }
+    }
+
+    customElements.define("download-button", DownloadButton);
+</script>
