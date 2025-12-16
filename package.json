@@ -10,8 +10,7 @@
         "check": "astro check",
         "build": "astro check && astro build",
         "preview": "astro preview",
-        "preinstall": "astro telemetry disable",
-        "astro": "astro"
+        "preinstall": "astro telemetry disable"
     },
     "devDependencies": {
         "@astrojs/check": "^0.9.6",
