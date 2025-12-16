@@ -19,7 +19,13 @@ const url = project.data.url ?? (project.data.repo && `https://github.com/${proj
 <Base title={project.data.title}>
     <article>
         <h1>{project.data.title}</h1>
-        {url && <a href={url}>{url}</a>}
+        {
+            url && (
+                <a class="italic" href={url}>
+                    {url}
+                </a>
+            )
+        }
         <Image
             class="product-image"
             src={project.data.cover}

@@ -19,7 +19,13 @@ const { Content } = await render(page);
 <Base title={page.data.title}>
     <article>
         <h1>{page.data.title}</h1>
-        {url && <a href={url}>{url}</a>}
+        {
+            url && (
+                <a class="italic" href={url}>
+                    {url}
+                </a>
+            )
+        }
         <Content />
     </article>
 </Base>
