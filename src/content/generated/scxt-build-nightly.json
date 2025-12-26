@@ -1,10 +1,22 @@
 {
-    "build_time": "2025-12-26T14:04:35.313874904",
+    "build_time": "2025-12-26T14:07:34.06905371",
     "data": {},
-    "latest_commit": "055f0f3",
+    "latest_commit": "1836889",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "1836889",
+            "date": "2025-12-26T08:45:40-05:00",
+            "message": "Fix the last collected sapmle case (#2064)"
+        },
+        {
+            "author": "Paul",
+            "commit": "ad7e0c4",
+            "date": "2025-12-26T08:42:29-05:00",
+            "message": "Dont double count stereo channels in ram (#2065)"
+        },
         {
             "author": "Mike Thierman",
             "commit": "055f0f3",
@@ -22,26 +34,14 @@
             "commit": "cb87cd7",
             "date": "2025-12-25T02:38:31-07:00",
             "message": "Windows installer: Use max compression, dark mode (#2061)"
-        },
-        {
-            "author": "Andreya-Autumn",
-            "commit": "3443ed2",
-            "date": "2025-12-24T01:29:43+01:00",
-            "message": "fix confusing sf2 mod setup edge case (#2060)"
-        },
-        {
-            "author": "Paul",
-            "commit": "7ae33f4",
-            "date": "2025-12-23T16:21:12-05:00",
-            "message": "All non-conditional SCLOG removed (#2058)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-26-055f0f3-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2025-12-26-055f0f3.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-26-1836889-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2025-12-26-1836889.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-26-055f0f3-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-26-055f0f3-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-26-1836889-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-26-1836889-Windows-64bit.zip"
     },
     "version": "main"
 }
