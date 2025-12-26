@@ -1,0 +1,47 @@
+{
+    "build_time": "2025-12-26T09:04:58.772898479",
+    "data": {},
+    "latest_commit": "63dd6ac",
+    "name": "ob-xf",
+    "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
+    "recent_commits": [
+        {
+            "author": "Mike Thierman",
+            "commit": "63dd6ac",
+            "date": "2025-12-26T01:54:20-07:00",
+            "message": "Website: Notify on Nightly (#549)"
+        },
+        {
+            "author": "EvilDragon",
+            "commit": "b1c2c38",
+            "date": "2025-12-23T15:44:30+01:00",
+            "message": "Implement MIDI program change (#547)"
+        },
+        {
+            "author": "EvilDragon",
+            "commit": "5b8217c",
+            "date": "2025-12-17T17:08:28+01:00",
+            "message": "Add facility to save MIDI mapping (#546)"
+        },
+        {
+            "author": "EvilDragon",
+            "commit": "2ed4c23",
+            "date": "2025-12-15T23:19:59+01:00",
+            "message": "Add more Saif Sameer patches (#544)"
+        },
+        {
+            "author": "Paul",
+            "commit": "61bedc0",
+            "date": "2025-12-14T13:37:31-05:00",
+            "message": "Fix a crash on editor destroy while automating (#541)"
+        }
+    ],
+    "releases": {
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2025-12-26-63dd6ac-Linux.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2025-12-26-63dd6ac.dmg",
+        "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2025-12-26-63dd6ac-Windows.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2025-12-26-63dd6ac-Windows.zip"
+    },
+    "version": "main"
+}
