@@ -9,7 +9,7 @@ export default function (): Platform {
     };
 
     let userAgent = window.navigator.userAgent;
-    let platform = window.navigator.platform;
+    let platform = (window.navigator as any).platform as string;
 
     if (platforms.mac.includes(platform)) return "mac";
     if (platforms.windows.includes(platform)) return "windows";
