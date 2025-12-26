@@ -1,10 +1,16 @@
 {
-    "build_time": "2025-12-26T09:04:58.772898479",
+    "build_time": "2025-12-26T11:32:16.132735757",
     "data": {},
-    "latest_commit": "63dd6ac",
+    "latest_commit": "d3e408a",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "d3e408a",
+            "date": "2025-12-26T12:21:34+01:00",
+            "message": "Implement default patch setting (#548)"
+        },
         {
             "author": "Mike Thierman",
             "commit": "63dd6ac",
@@ -28,20 +34,14 @@
             "commit": "2ed4c23",
             "date": "2025-12-15T23:19:59+01:00",
             "message": "Add more Saif Sameer patches (#544)"
-        },
-        {
-            "author": "Paul",
-            "commit": "61bedc0",
-            "date": "2025-12-14T13:37:31-05:00",
-            "message": "Fix a crash on editor destroy while automating (#541)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2025-12-26-63dd6ac-Linux.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2025-12-26-63dd6ac.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2025-12-26-d3e408a-Linux.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2025-12-26-d3e408a.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2025-12-26-63dd6ac-Windows.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2025-12-26-63dd6ac-Windows.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2025-12-26-d3e408a-Windows.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2025-12-26-d3e408a-Windows.zip"
     },
     "version": "main"
 }
