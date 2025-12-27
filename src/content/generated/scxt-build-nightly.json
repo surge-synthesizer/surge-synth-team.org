@@ -1,10 +1,16 @@
 {
-    "build_time": "2025-12-27T04:09:49.554589275",
+    "build_time": "2025-12-27T15:34:23.747662953",
     "data": {},
-    "latest_commit": "c110150",
+    "latest_commit": "f365203",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "f365203",
+            "date": "2025-12-27T10:01:57-05:00",
+            "message": "Expand tuning frac for semitones (#2069)"
+        },
         {
             "author": "Paul",
             "commit": "c110150",
@@ -28,20 +34,14 @@
             "commit": "ad7e0c4",
             "date": "2025-12-26T08:42:29-05:00",
             "message": "Dont double count stereo channels in ram (#2065)"
-        },
-        {
-            "author": "Mike Thierman",
-            "commit": "055f0f3",
-            "date": "2025-12-26T06:33:08-07:00",
-            "message": "Website: Notify on Nightly (#2063)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-27-c110150-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2025-12-27-c110150.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-27-f365203-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2025-12-27-f365203.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-27-c110150-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-27-c110150-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-27-f365203-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-27-f365203-Windows-64bit.zip"
     },
     "version": "main"
 }
