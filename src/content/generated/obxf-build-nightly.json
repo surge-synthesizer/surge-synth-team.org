@@ -1,10 +1,16 @@
 {
-    "build_time": "2025-12-26T11:32:16.132735757",
+    "build_time": "2025-12-27T16:29:34.262973803",
     "data": {},
-    "latest_commit": "d3e408a",
+    "latest_commit": "6e7f7b5",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "6e7f7b5",
+            "date": "2025-12-27T11:18:40-05:00",
+            "message": "Temporarily supress loadPatch (#550)"
+        },
         {
             "author": "EvilDragon",
             "commit": "d3e408a",
@@ -28,20 +34,14 @@
             "commit": "5b8217c",
             "date": "2025-12-17T17:08:28+01:00",
             "message": "Add facility to save MIDI mapping (#546)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "2ed4c23",
-            "date": "2025-12-15T23:19:59+01:00",
-            "message": "Add more Saif Sameer patches (#544)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2025-12-26-d3e408a-Linux.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2025-12-26-d3e408a.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2025-12-27-6e7f7b5-Linux.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2025-12-27-6e7f7b5.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2025-12-26-d3e408a-Windows.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2025-12-26-d3e408a-Windows.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2025-12-27-6e7f7b5-Windows.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2025-12-27-6e7f7b5-Windows.zip"
     },
     "version": "main"
 }
