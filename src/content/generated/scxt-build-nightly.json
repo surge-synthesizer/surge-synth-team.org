@@ -1,10 +1,16 @@
 {
-    "build_time": "2025-12-30T19:11:33.60189308",
+    "build_time": "2025-12-30T20:14:00.767640448",
     "data": {},
-    "latest_commit": "734fdb7",
+    "latest_commit": "1d250b3",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "1d250b3",
+            "date": "2025-12-30T14:48:19-05:00",
+            "message": "Move to macOS 10.15 as minimum version (#2073)"
+        },
         {
             "author": "Paul",
             "commit": "734fdb7",
@@ -28,20 +34,14 @@
             "commit": "c110150",
             "date": "2025-12-26T22:36:49-05:00",
             "message": "Header button tooltips (#2068)"
-        },
-        {
-            "author": "Paul",
-            "commit": "79343c8",
-            "date": "2025-12-26T22:13:15-05:00",
-            "message": "Audible Frequency params show midi note alt; take typein (#2067)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-30-734fdb7-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2025-12-30-734fdb7.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-30-1d250b3-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2025-12-30-1d250b3.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-30-734fdb7-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-30-734fdb7-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-30-1d250b3-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-30-1d250b3-Windows-64bit.zip"
     },
     "version": "main"
 }
