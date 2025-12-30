@@ -1,10 +1,16 @@
 {
-    "build_time": "2025-12-30T20:14:00.767640448",
+    "build_time": "2025-12-30T23:12:26.135345847",
     "data": {},
-    "latest_commit": "1d250b3",
+    "latest_commit": "95e4ce7",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "95e4ce7",
+            "date": "2025-12-30T17:42:42-05:00",
+            "message": "Voice FX gets factory presets from sst-effects (#2075)"
+        },
         {
             "author": "Paul",
             "commit": "1d250b3",
@@ -28,20 +34,14 @@
             "commit": "f365203",
             "date": "2025-12-27T10:01:57-05:00",
             "message": "Expand tuning frac for semitones (#2069)"
-        },
-        {
-            "author": "Paul",
-            "commit": "c110150",
-            "date": "2025-12-26T22:36:49-05:00",
-            "message": "Header button tooltips (#2068)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-30-1d250b3-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2025-12-30-1d250b3.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-30-95e4ce7-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2025-12-30-95e4ce7.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-30-1d250b3-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-30-1d250b3-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-30-95e4ce7-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2025-12-30-95e4ce7-Windows-64bit.zip"
     },
     "version": "main"
 }
