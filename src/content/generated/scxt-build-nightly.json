@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-01-10T23:37:42.725262296",
+    "build_time": "2026-01-12T00:17:09.582029161",
     "data": {},
-    "latest_commit": "bbda440",
+    "latest_commit": "3bf5170",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "3bf5170",
+            "date": "2026-01-11T16:45:04-07:00",
+            "message": "Move to Ubuntu22 / gcc12 docker image (#2082)"
+        },
         {
             "author": "Paul",
             "commit": "bbda440",
@@ -28,20 +34,14 @@
             "commit": "8fc4844",
             "date": "2025-12-30T22:07:41-05:00",
             "message": "Voice FX presets rough draft done (#2076)"
-        },
-        {
-            "author": "Paul",
-            "commit": "95e4ce7",
-            "date": "2025-12-30T17:42:42-05:00",
-            "message": "Voice FX gets factory presets from sst-effects (#2075)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-10-bbda440-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-01-10-bbda440.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-12-3bf5170-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-01-12-3bf5170.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-10-bbda440-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-10-bbda440-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-12-3bf5170-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-12-3bf5170-Windows-64bit.zip"
     },
     "version": "main"
 }
