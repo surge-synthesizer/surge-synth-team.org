@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-01-02T14:59:38.700978415",
+    "build_time": "2026-01-14T20:30:06.716606342",
     "data": {},
-    "latest_commit": "ccaf2d5",
+    "latest_commit": "92b9f31",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "92b9f31",
+            "date": "2026-01-14T21:18:29+01:00",
+            "message": "A lot of repaint optimizations (#558)"
+        },
+        {
+            "author": "EvilDragon",
+            "commit": "b54e395",
+            "date": "2026-01-14T21:18:13+01:00",
+            "message": "Clean up rework vestiges (#557)"
+        },
         {
             "author": "EvilDragon",
             "commit": "ccaf2d5",
@@ -22,26 +34,14 @@
             "commit": "d3e408a",
             "date": "2025-12-26T12:21:34+01:00",
             "message": "Implement default patch setting (#548)"
-        },
-        {
-            "author": "Mike Thierman",
-            "commit": "63dd6ac",
-            "date": "2025-12-26T01:54:20-07:00",
-            "message": "Website: Notify on Nightly (#549)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "b1c2c38",
-            "date": "2025-12-23T15:44:30+01:00",
-            "message": "Implement MIDI program change (#547)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-02-ccaf2d5-Linux.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-01-02-ccaf2d5.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-14-92b9f31-Linux.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-01-14-92b9f31.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-02-ccaf2d5-Windows.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-02-ccaf2d5-Windows.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-14-92b9f31-Windows.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-14-92b9f31-Windows.zip"
     },
     "version": "main"
 }
