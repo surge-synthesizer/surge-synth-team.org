@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-01-15T00:08:50.781730427",
+    "build_time": "2026-01-16T02:03:47.024026597",
     "data": {},
-    "latest_commit": "12842fe",
+    "latest_commit": "325b5c3",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Andreya-Autumn",
+            "commit": "325b5c3",
+            "date": "2026-01-16T02:24:50+01:00",
+            "message": "Get your tetrads on (#2090)"
+        },
+        {
+            "author": "Paul",
+            "commit": "f1e710f",
+            "date": "2026-01-15T17:54:46-05:00",
+            "message": "Add a develoepr/send full refresh menu item (#2089)"
+        },
         {
             "author": "Andreya-Autumn",
             "commit": "12842fe",
@@ -22,26 +34,14 @@
             "commit": "0d387f0",
             "date": "2026-01-14T01:25:03+01:00",
             "message": "Add voice flanger"
-        },
-        {
-            "author": "Mike Thierman",
-            "commit": "7812fff",
-            "date": "2026-01-12T23:14:47-07:00",
-            "message": "Match juceFileToFSPath/juceStringToFSPath to Surge implementation (#2084)"
-        },
-        {
-            "author": "Paul",
-            "commit": "8b2c07f",
-            "date": "2026-01-12T18:07:51-07:00",
-            "message": "Add a gcc13 build to CI (#2083)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-15-12842fe-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-01-15-12842fe.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-16-325b5c3-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-01-16-325b5c3.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-15-12842fe-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-15-12842fe-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-16-325b5c3-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-16-325b5c3-Windows-64bit.zip"
     },
     "version": "main"
 }
