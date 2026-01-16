@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-01-16T02:06:54.582214016",
+    "build_time": "2026-01-16T17:21:55.646115383",
     "data": {},
-    "latest_commit": "c1f5569",
+    "latest_commit": "5b3a847",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "5b3a847",
+            "date": "2026-01-16T12:08:33-05:00",
+            "message": "Some micro-tweaks i caught while profiling (#560)"
+        },
         {
             "author": "Paul",
             "commit": "c1f5569",
@@ -28,20 +34,14 @@
             "commit": "ccaf2d5",
             "date": "2026-01-02T15:49:51+01:00",
             "message": "Remove Set as Default Patch option from the menu (#552)"
-        },
-        {
-            "author": "Paul",
-            "commit": "6e7f7b5",
-            "date": "2025-12-27T11:18:40-05:00",
-            "message": "Temporarily supress loadPatch (#550)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-16-c1f5569-Linux.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-01-16-c1f5569.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-16-5b3a847-Linux.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-01-16-5b3a847.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-16-c1f5569-Windows.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-16-c1f5569-Windows.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-16-5b3a847-Windows.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-16-5b3a847-Windows.zip"
     },
     "version": "main"
 }
