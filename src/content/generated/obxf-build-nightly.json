@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-01-16T17:21:55.646115383",
+    "build_time": "2026-01-16T22:16:07.774767541",
     "data": {},
-    "latest_commit": "5b3a847",
+    "latest_commit": "22cc2cd",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "22cc2cd",
+            "date": "2026-01-16T17:05:34-05:00",
+            "message": "Downsample the LFO (#561)"
+        },
         {
             "author": "Paul",
             "commit": "5b3a847",
@@ -28,20 +34,14 @@
             "commit": "b54e395",
             "date": "2026-01-14T21:18:13+01:00",
             "message": "Clean up rework vestiges (#557)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "ccaf2d5",
-            "date": "2026-01-02T15:49:51+01:00",
-            "message": "Remove Set as Default Patch option from the menu (#552)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-16-5b3a847-Linux.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-01-16-5b3a847.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-16-22cc2cd-Linux.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-01-16-22cc2cd.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-16-5b3a847-Windows.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-16-5b3a847-Windows.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-16-22cc2cd-Windows.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-16-22cc2cd-Windows.zip"
     },
     "version": "main"
 }
