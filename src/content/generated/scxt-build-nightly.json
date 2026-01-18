@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-01-18T20:54:26.773666488",
+    "build_time": "2026-01-18T23:47:41.939061545",
     "data": {},
-    "latest_commit": "96517a4",
+    "latest_commit": "ca2fb36",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "ca2fb36",
+            "date": "2026-01-18T18:23:55-05:00",
+            "message": "Add a not just can-multip-mod, but should-multip-mod option (#2098)"
+        },
         {
             "author": "Andreya-Autumn",
             "commit": "96517a4",
@@ -28,20 +34,14 @@
             "commit": "5964a0c",
             "date": "2026-01-16T21:39:32-05:00",
             "message": "Implement build flags for VST3, AUv2, Standalone, etc... (#2095)"
-        },
-        {
-            "author": "Andreya-Autumn",
-            "commit": "a43709a",
-            "date": "2026-01-17T02:46:52+01:00",
-            "message": "Finish tetrad, add resonators category"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-18-96517a4-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-01-18-96517a4.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-18-ca2fb36-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-01-18-ca2fb36.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-18-96517a4-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-18-96517a4-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-18-ca2fb36-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-18-ca2fb36-Windows-64bit.zip"
     },
     "version": "main"
 }
