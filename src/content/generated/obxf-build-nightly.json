@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-01-17T13:09:08.080347651",
+    "build_time": "2026-01-18T15:44:12.914052594",
     "data": {},
-    "latest_commit": "9f3e87c",
+    "latest_commit": "4ed673e",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "4ed673e",
+            "date": "2026-01-18T10:34:38-05:00",
+            "message": "Add an install rule for assets on linux (#563)"
+        },
         {
             "author": "Paul",
             "commit": "9f3e87c",
@@ -28,20 +34,14 @@
             "commit": "5b3a847",
             "date": "2026-01-16T12:08:33-05:00",
             "message": "Some micro-tweaks i caught while profiling (#560)"
-        },
-        {
-            "author": "Paul",
-            "commit": "c1f5569",
-            "date": "2026-01-15T20:56:32-05:00",
-            "message": "Some improvements for DSP usage when nothing is happening (#559)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-17-9f3e87c-Linux.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-01-17-9f3e87c.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-18-4ed673e-Linux.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-01-18-4ed673e.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-17-9f3e87c-Windows.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-17-9f3e87c-Windows.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-18-4ed673e-Windows.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-18-4ed673e-Windows.zip"
     },
     "version": "main"
 }
