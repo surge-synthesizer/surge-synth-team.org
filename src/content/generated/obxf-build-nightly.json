@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-01-18T18:38:25.805505478",
+    "build_time": "2026-01-19T13:54:26.284865722",
     "data": {},
-    "latest_commit": "af7c838",
+    "latest_commit": "9aad5a0",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "9aad5a0",
+            "date": "2026-01-19T08:42:17-05:00",
+            "message": "The Many Variations of gcc -w behaviors (#567)"
+        },
         {
             "author": "Paul",
             "commit": "af7c838",
@@ -28,20 +34,14 @@
             "commit": "9f3e87c",
             "date": "2026-01-17T07:58:43-05:00",
             "message": "Update README.md"
-        },
-        {
-            "author": "Paul",
-            "commit": "fe749a8",
-            "date": "2026-01-16T21:44:57-05:00",
-            "message": "Turn on compile commands output in CMake (#562)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-18-af7c838-Linux.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-01-18-af7c838.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-19-9aad5a0-Linux.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-01-19-9aad5a0.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-18-af7c838-Windows.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-18-af7c838-Windows.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-19-9aad5a0-Windows.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-19-9aad5a0-Windows.zip"
     },
     "version": "main"
 }
