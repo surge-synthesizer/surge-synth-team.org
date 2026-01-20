@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-01-19T23:52:35.671755311",
+    "build_time": "2026-01-20T14:27:03.275222807",
     "data": {},
-    "latest_commit": "fb0eb8c",
+    "latest_commit": "97adc93",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "97adc93",
+            "date": "2026-01-20T08:57:05-05:00",
+            "message": "Add 'label-padding' as a json class attribute (#2106)"
+        },
         {
             "author": "Andreya-Autumn",
             "commit": "fb0eb8c",
@@ -28,20 +34,14 @@
             "commit": "ca2fb36",
             "date": "2026-01-18T18:23:55-05:00",
             "message": "Add a not just can-multip-mod, but should-multip-mod option (#2098)"
-        },
-        {
-            "author": "Andreya-Autumn",
-            "commit": "96517a4",
-            "date": "2026-01-18T21:22:17+01:00",
-            "message": "First step towards central RNG (#2099)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-19-fb0eb8c-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-01-19-fb0eb8c.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-20-97adc93-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-01-20-97adc93.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-19-fb0eb8c-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-19-fb0eb8c-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-20-97adc93-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-20-97adc93-Windows-64bit.zip"
     },
     "version": "main"
 }
