@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-01-22T18:41:48.740308437",
+    "build_time": "2026-01-23T20:36:43.177602933",
     "data": {},
-    "latest_commit": "63b57a2",
+    "latest_commit": "fac77cc",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Andreya-Autumn",
+            "commit": "fac77cc",
+            "date": "2026-01-23T21:02:30+01:00",
+            "message": "Fix crash due to initPitch() called on null processor pointer"
+        },
         {
             "author": "Andreya-Autumn",
             "commit": "63b57a2",
@@ -28,20 +34,14 @@
             "commit": "6ecfb0e",
             "date": "2026-01-21T19:09:31+01:00",
             "message": "Further improve Static Phaser and FIlter FM layouts"
-        },
-        {
-            "author": "Andreya-Autumn",
-            "commit": "3f6e61c",
-            "date": "2026-01-21T17:03:49+01:00",
-            "message": "Fix rand LFO display"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-22-63b57a2-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-01-22-63b57a2.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-23-fac77cc-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-01-23-fac77cc.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-22-63b57a2-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-22-63b57a2-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-23-fac77cc-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-23-fac77cc-Windows-64bit.zip"
     },
     "version": "main"
 }
