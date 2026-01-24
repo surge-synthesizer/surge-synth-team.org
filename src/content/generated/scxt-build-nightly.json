@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-01-24T00:36:39.689999469",
+    "build_time": "2026-01-24T13:52:27.323746888",
     "data": {},
-    "latest_commit": "cc471e7",
+    "latest_commit": "a711c98",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "a711c98",
+            "date": "2026-01-24T08:22:24-05:00",
+            "message": "When changing proc type with multiplcative, do the right thing (#2120)"
+        },
         {
             "author": "Andreya-Autumn",
             "commit": "cc471e7",
@@ -28,20 +34,14 @@
             "commit": "2dfe961",
             "date": "2026-01-22T01:49:40+01:00",
             "message": "Block smoothing for FM Filter"
-        },
-        {
-            "author": "Mike Thierman",
-            "commit": "0c2f19d",
-            "date": "2026-01-21T14:58:29-07:00",
-            "message": "sst-cmake: Optional windows desktop shortcut (#2112)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-24-cc471e7-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-01-24-cc471e7.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-24-a711c98-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-01-24-a711c98.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-24-cc471e7-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-24-cc471e7-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-24-a711c98-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-24-a711c98-Windows-64bit.zip"
     },
     "version": "main"
 }
