@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-01-25T21:18:10.770890437",
+    "build_time": "2026-01-25T21:48:01.010680661",
     "data": {},
-    "latest_commit": "c3ef454",
+    "latest_commit": "1c2e816",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "1c2e816",
+            "date": "2026-01-25T16:16:12-05:00",
+            "message": "Add a MIDI/Key Changed mod source (trigger) (#2126)"
+        },
         {
             "author": "Paul",
             "commit": "c3ef454",
@@ -28,20 +34,14 @@
             "commit": "d08434a",
             "date": "2026-01-24T09:17:30-05:00",
             "message": "Add a Knob which can bind to a Discrete (#2121)"
-        },
-        {
-            "author": "Paul",
-            "commit": "a711c98",
-            "date": "2026-01-24T08:22:24-05:00",
-            "message": "When changing proc type with multiplcative, do the right thing (#2120)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-25-c3ef454-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-01-25-c3ef454.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-25-1c2e816-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-01-25-1c2e816.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-25-c3ef454-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-25-c3ef454-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-25-1c2e816-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-01-25-1c2e816-Windows-64bit.zip"
     },
     "version": "main"
 }
