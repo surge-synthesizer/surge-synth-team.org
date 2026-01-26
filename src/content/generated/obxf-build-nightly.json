@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-01-19T13:54:26.284865722",
+    "build_time": "2026-01-26T08:50:19.985419676",
     "data": {},
-    "latest_commit": "9aad5a0",
+    "latest_commit": "d02182c",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "d02182c",
+            "date": "2026-01-26T09:37:26+01:00",
+            "message": "Add patches from Vincy and Den Rize (#568)"
+        },
         {
             "author": "Paul",
             "commit": "9aad5a0",
@@ -28,20 +34,14 @@
             "commit": "4ed673e",
             "date": "2026-01-18T10:34:38-05:00",
             "message": "Add an install rule for assets on linux (#563)"
-        },
-        {
-            "author": "Paul",
-            "commit": "9f3e87c",
-            "date": "2026-01-17T07:58:43-05:00",
-            "message": "Update README.md"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-19-9aad5a0-Linux.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-01-19-9aad5a0.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-26-d02182c-Linux.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-01-26-d02182c.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-19-9aad5a0-Windows.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-19-9aad5a0-Windows.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-26-d02182c-Windows.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-26-d02182c-Windows.zip"
     },
     "version": "main"
 }
