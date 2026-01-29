@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-01-26T08:50:19.985419676",
+    "build_time": "2026-01-29T12:39:57.455397019",
     "data": {},
-    "latest_commit": "d02182c",
+    "latest_commit": "3a9b3b7",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "3a9b3b7",
+            "date": "2026-01-29T13:28:48+01:00",
+            "message": "Remove mouse drag velocity sensitivity on Shift (#570)"
+        },
         {
             "author": "EvilDragon",
             "commit": "d02182c",
@@ -28,20 +34,14 @@
             "commit": "a6d522d",
             "date": "2026-01-18T12:51:37-05:00",
             "message": "Try a gcc13 CI build (#564)"
-        },
-        {
-            "author": "Paul",
-            "commit": "4ed673e",
-            "date": "2026-01-18T10:34:38-05:00",
-            "message": "Add an install rule for assets on linux (#563)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-26-d02182c-Linux.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-01-26-d02182c.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-29-3a9b3b7-Linux.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-01-29-3a9b3b7.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-26-d02182c-Windows.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-26-d02182c-Windows.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-29-3a9b3b7-Windows.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-29-3a9b3b7-Windows.zip"
     },
     "version": "main"
 }
