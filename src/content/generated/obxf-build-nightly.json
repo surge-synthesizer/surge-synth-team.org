@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-01-29T12:39:57.455397019",
+    "build_time": "2026-02-01T16:20:46.726846445",
     "data": {},
-    "latest_commit": "3a9b3b7",
+    "latest_commit": "e358831",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "e358831",
+            "date": "2026-02-01T11:10:56-05:00",
+            "message": "Init from DAW works now (#572)"
+        },
         {
             "author": "EvilDragon",
             "commit": "3a9b3b7",
@@ -28,20 +34,14 @@
             "commit": "af7c838",
             "date": "2026-01-18T13:27:52-05:00",
             "message": "More GCC13 fixes"
-        },
-        {
-            "author": "Paul",
-            "commit": "a6d522d",
-            "date": "2026-01-18T12:51:37-05:00",
-            "message": "Try a gcc13 CI build (#564)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-29-3a9b3b7-Linux.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-01-29-3a9b3b7.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-02-01-e358831-Linux.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-02-01-e358831.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-29-3a9b3b7-Windows.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-01-29-3a9b3b7-Windows.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-02-01-e358831-Windows.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-02-01-e358831-Windows.zip"
     },
     "version": "main"
 }
