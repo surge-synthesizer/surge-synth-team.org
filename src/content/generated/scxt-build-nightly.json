@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-02-01T22:26:40.418799982",
+    "build_time": "2026-02-03T03:51:39.396698924",
     "data": {},
-    "latest_commit": "c580465",
+    "latest_commit": "0629945",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "0629945",
+            "date": "2026-02-02T22:26:06-05:00",
+            "message": "Don't use compound data in sample filename for sf2 etc (#2173)"
+        },
         {
             "author": "Paul",
             "commit": "c580465",
@@ -28,20 +34,14 @@
             "commit": "42f402f",
             "date": "2026-01-31T21:18:50-05:00",
             "message": "Pull clap-wrapoper to latest, fixing windows ableton problem (#2155)"
-        },
-        {
-            "author": "Paul",
-            "commit": "8027306",
-            "date": "2026-01-31T17:51:14-05:00",
-            "message": "Better behavior of drag lots of samples into little space (#2153)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-01-c580465-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-01-c580465.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-03-0629945-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-03-0629945.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-01-c580465-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-01-c580465-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-03-0629945-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-03-0629945-Windows-64bit.zip"
     },
     "version": "main"
 }
