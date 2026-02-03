@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-02-03T00:42:48.732368471",
+    "build_time": "2026-02-03T10:28:06.778486438",
     "data": {},
-    "latest_commit": "d3a574c",
+    "latest_commit": "15bff80",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "15bff80",
+            "date": "2026-02-03T11:16:09+01:00",
+            "message": "Clicking on patch name also opens the browser (#575)"
+        },
         {
             "author": "EvilDragon",
             "commit": "d3a574c",
@@ -28,20 +34,14 @@
             "commit": "d02182c",
             "date": "2026-01-26T09:37:26+01:00",
             "message": "Add patches from Vincy and Den Rize (#568)"
-        },
-        {
-            "author": "Paul",
-            "commit": "9aad5a0",
-            "date": "2026-01-19T08:42:17-05:00",
-            "message": "The Many Variations of gcc -w behaviors (#567)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-02-03-d3a574c-Linux.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-02-03-d3a574c.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-02-03-15bff80-Linux.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-02-03-15bff80.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-02-03-d3a574c-Windows.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-02-03-d3a574c-Windows.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-02-03-15bff80-Windows.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-02-03-15bff80-Windows.zip"
     },
     "version": "main"
 }
