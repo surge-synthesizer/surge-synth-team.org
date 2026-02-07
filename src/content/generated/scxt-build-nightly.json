@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-02-07T00:58:22.802902564",
+    "build_time": "2026-02-07T02:10:13.304213009",
     "data": {},
-    "latest_commit": "deb1ba2",
+    "latest_commit": "c336adb",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "c336adb",
+            "date": "2026-02-06T20:38:15-05:00",
+            "message": "Windows/Linux mouse wheel zoom improvements (#2201)"
+        },
+        {
+            "author": "Paul",
+            "commit": "c7f46bb",
+            "date": "2026-02-06T20:27:21-05:00",
+            "message": "SFZ Parser Tweak (#2200)"
+        },
         {
             "author": "Paul",
             "commit": "deb1ba2",
@@ -22,26 +34,14 @@
             "commit": "f91ea55",
             "date": "2026-02-05T22:40:46-05:00",
             "message": "Fix an SFZ parser crash (#2192)"
-        },
-        {
-            "author": "Paul",
-            "commit": "860bb4b",
-            "date": "2026-02-05T17:30:46-05:00",
-            "message": "Fix a win-to-maclin relative streaming issue (#2189)"
-        },
-        {
-            "author": "Paul",
-            "commit": "8a50041",
-            "date": "2026-02-05T10:33:04-05:00",
-            "message": "DSP: Fix toggle-active-voice in some routing modes (#2185)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-07-deb1ba2-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-07-deb1ba2.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-07-c336adb-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-07-c336adb.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-07-deb1ba2-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-07-deb1ba2-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-07-c336adb-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-07-c336adb-Windows-64bit.zip"
     },
     "version": "main"
 }
