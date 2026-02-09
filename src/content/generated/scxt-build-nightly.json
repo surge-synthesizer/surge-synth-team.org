@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-02-09T00:04:24.162463725",
+    "build_time": "2026-02-09T03:32:16.785936521",
     "data": {},
-    "latest_commit": "6bf0337",
+    "latest_commit": "72a15b2",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "72a15b2",
+            "date": "2026-02-08T21:58:34-05:00",
+            "message": "Turn on semitone formatting for TreeMonster pitch (#2243)"
+        },
+        {
+            "author": "Paul",
+            "commit": "dd32d6d",
+            "date": "2026-02-08T21:28:04-05:00",
+            "message": "DraggableText gets quantize; proper ranges for pitch (#2242)"
+        },
         {
             "author": "Andreya-Autumn",
             "commit": "6bf0337",
@@ -22,26 +34,14 @@
             "commit": "ecfb933",
             "date": "2026-02-08T11:46:46-05:00",
             "message": "Browser: Browser amplitude impacts preview during playback (#2237)"
-        },
-        {
-            "author": "Paul",
-            "commit": "0456cf0",
-            "date": "2026-02-08T11:30:02-05:00",
-            "message": "Edit: Shift-drop of multiple samples velocity stacks (#2236)"
-        },
-        {
-            "author": "Paul",
-            "commit": "5b37bcb",
-            "date": "2026-02-08T10:07:11-05:00",
-            "message": "Linux: use GitHub to do a u24/arm64 build"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-09-6bf0337-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-09-6bf0337.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-09-72a15b2-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-09-72a15b2.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-09-6bf0337-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-09-6bf0337-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-09-72a15b2-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-09-72a15b2-Windows-64bit.zip"
     },
     "version": "main"
 }
