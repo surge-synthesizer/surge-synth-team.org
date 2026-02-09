@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-02-09T04:10:57.035256595",
+    "build_time": "2026-02-09T13:15:30.588930248",
     "data": {},
-    "latest_commit": "30faf2e",
+    "latest_commit": "d9044f8",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Andreya-Autumn",
+            "commit": "d9044f8",
+            "date": "2026-02-09T13:45:09+01:00",
+            "message": "Select [zone] mode after file frop"
+        },
         {
             "author": "Paul",
             "commit": "30faf2e",
@@ -28,20 +34,14 @@
             "commit": "6bf0337",
             "date": "2026-02-09T00:37:36+01:00",
             "message": "Jsonify slewer layout and relocate FM filter to AM mod"
-        },
-        {
-            "author": "Paul",
-            "commit": "17d2343",
-            "date": "2026-02-08T13:40:37-05:00",
-            "message": "More consisntent mouse cursor in zone layout area (#2239)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-09-30faf2e-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-09-30faf2e.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-09-d9044f8-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-09-d9044f8.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-09-30faf2e-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-09-30faf2e-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-09-d9044f8-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-09-d9044f8-Windows-64bit.zip"
     },
     "version": "main"
 }
