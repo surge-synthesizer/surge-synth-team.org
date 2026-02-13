@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-02-12T20:11:48.279107765",
+    "build_time": "2026-02-13T00:29:34.413573945",
     "data": {},
-    "latest_commit": "209be79",
+    "latest_commit": "644151a",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "644151a",
+            "date": "2026-02-12T19:03:29-05:00",
+            "message": "VoiceManager: Fix a bug with simultanous notes not always obeying poly (#2268)"
+        },
+        {
+            "author": "Paul",
+            "commit": "ef8db3e",
+            "date": "2026-02-12T18:52:27-05:00",
+            "message": "UI: Part vs Play part card alignment (#2267)"
+        },
         {
             "author": "Andreya-Autumn",
             "commit": "209be79",
@@ -22,26 +34,14 @@
             "commit": "c6d7fa2",
             "date": "2026-02-11T09:54:19-05:00",
             "message": "A variety of important macro fixes (#2260)"
-        },
-        {
-            "author": "Paul",
-            "commit": "1258695",
-            "date": "2026-02-10T18:30:08-05:00",
-            "message": "CrashFix: Flood of UI messages could mislead serailization thread (#2258)"
-        },
-        {
-            "author": "Paul",
-            "commit": "98870f4",
-            "date": "2026-02-10T11:16:12-05:00",
-            "message": "Add a few test items to the developer menu (#2257)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-12-209be79-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-12-209be79.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-13-644151a-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-13-644151a.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-12-209be79-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-12-209be79-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-13-644151a-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-13-644151a-Windows-64bit.zip"
     },
     "version": "main"
 }
