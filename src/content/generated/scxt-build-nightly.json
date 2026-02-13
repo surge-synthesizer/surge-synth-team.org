@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-02-13T00:29:34.413573945",
+    "build_time": "2026-02-13T23:34:44.904684549",
     "data": {},
-    "latest_commit": "644151a",
+    "latest_commit": "e7c60a2",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Andreya-Autumn",
+            "commit": "e7c60a2",
+            "date": "2026-02-14T00:11:45+01:00",
+            "message": "Update Routing layout (#2273)"
+        },
         {
             "author": "Paul",
             "commit": "644151a",
@@ -28,20 +34,14 @@
             "commit": "4e3fe0b",
             "date": "2026-02-11T14:16:07-05:00",
             "message": "Communicate grouop matrix for lead ranges on endEdit (#2263)"
-        },
-        {
-            "author": "Paul",
-            "commit": "c6d7fa2",
-            "date": "2026-02-11T09:54:19-05:00",
-            "message": "A variety of important macro fixes (#2260)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-13-644151a-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-13-644151a.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-13-e7c60a2-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-13-e7c60a2.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-13-644151a-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-13-644151a-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-13-e7c60a2-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-13-e7c60a2-Windows-64bit.zip"
     },
     "version": "main"
 }
