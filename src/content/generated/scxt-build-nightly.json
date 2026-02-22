@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-02-21T13:52:38.685958441",
+    "build_time": "2026-02-22T00:24:17.209856799",
     "data": {},
-    "latest_commit": "51b7684",
+    "latest_commit": "adf2b05",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "adf2b05",
+            "date": "2026-02-21T18:49:30-05:00",
+            "message": "Fix bus description for Studio One (#2338)"
+        },
         {
             "author": "Paul",
             "commit": "51b7684",
@@ -28,20 +34,14 @@
             "commit": "60cd6ef",
             "date": "2026-02-20T17:25:45-05:00",
             "message": "Glide works for Mono mode also, Preliminary (#2329)"
-        },
-        {
-            "author": "Andreya-Autumn",
-            "commit": "063642e",
-            "date": "2026-02-20T21:36:05+01:00",
-            "message": "Fix filter layouts to use added width"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-21-51b7684-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-21-51b7684.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-22-adf2b05-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-22-adf2b05.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-21-51b7684-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-21-51b7684-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-22-adf2b05-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-22-adf2b05-Windows-64bit.zip"
     },
     "version": "main"
 }
