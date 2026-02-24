@@ -1,0 +1,93 @@
+---
+type Props = {
+    windows: string;
+    mac: string;
+    linux: string;
+    other: string;
+    bsd?: string;
+    label?: string;
+    id?: string;
+    buttonClass?: string;
+};
+
+const {
+    windows,
+    mac,
+    linux,
+    other,
+    bsd,
+    label = "Download",
+    id = "surge-release-link",
+    buttonClass =
+        "inline-flex items-center justify-center rounded-md bg-zinc-50 px-4 py-2 font-semibold text-zinc-950 no-underline shadow hover:text-surge-orange hover:shadow-surge-orange dark:shadow-white/25",
+} = Astro.props as Props;
+---
+
+<download-button
+    data-windows={windows}
+    data-mac={mac}
+    data-linux={linux}
+    data-other={other}
+    data-bsd={bsd}
+    data-label={label}>
+    <a id={id} class={buttonClass}>{label}</a>
+</download-button>
+
+<script>
+    import detectPlatform from "./detect_platform.ts";
+
+    class DownloadButton extends HTMLElement {
+        connectedCallback() {
+            const releases = {
+                windows: this.dataset.windows!,
+                mac: this.dataset.mac!,
+                linux: this.dataset.linux!,
+                other: this.dataset.other!,
+                bsd: this.dataset.bsd,
+                label: this.dataset.label ?? "Download",
+            };
+
+            const anchor = this.querySelector("a") as HTMLAnchorElement | null;
+            if (!anchor) {
+                return;
+            }
+
+            const platform = detectPlatform();
+            const label = releases.label;
+
+            switch (platform) {
+                case "windows":
+                    anchor.innerText = `${label} | Windows`;
+                    anchor.href = releases.windows;
+                    break;
+
+                case "mac":
+                    anchor.innerText = `${label} | macOS`;
+                    anchor.href = releases.mac;
+                    break;
+
+                case "linux":
+                    anchor.innerText = `${label} | Linux`;
+                    anchor.href = releases.linux;
+                    break;
+
+                case "bsd":
+                    anchor.innerText = `${label} | FreeBSD`;
+                    anchor.href = releases.bsd ?? releases.other;
+                    break;
+
+                case "android":
+                case "ios":
+                case "unknown":
+                default:
+                    anchor.innerText = label;
+                    anchor.href = releases.other;
+                    break;
+            }
+        }
+    }
+
+    if (!customElements.get("download-button")) {
+        customElements.define("download-button", DownloadButton);
+    }
+</script>
