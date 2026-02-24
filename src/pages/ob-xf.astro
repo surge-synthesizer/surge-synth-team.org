@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
 import obxf_build_nightly from "../content/generated/obxf-build-nightly.json" with { type: "json" };
+import DownloadButton from "../components/DownloadButton.astro";
 import ObxfCover from "../content/projects/screenshots/ob-xf_3d_render.png";
 import ProjectSelector from "../components/ProjectSelector.astro";
 import ThemeSelector from "../components/ThemeSelector.astro";
@@ -133,15 +134,18 @@ const docsLinks = [
                         OB-Xd. It is inspired by the venerable Oberheim OB-X.
                     </p>
                     <div class="flex flex-wrap gap-3">
-                        <a
+                        <DownloadButton
+                            windows={obxf_build_nightly.releases.win64}
+                            mac={obxf_build_nightly.releases.macos}
+                            linux={obxf_build_nightly.releases.linux64}
+                            other={obxf_build_nightly.releases.other}
+                            label="Download Nightly"
                             id="obxf-release-link"
-                            href={obxf_build_nightly.releases.other}
-                            class="rounded-md bg-surge-orange px-4 py-2 font-bold text-neutral-900 no-underline shadow-md hover:bg-surge-orange-bright">
-                            Download Nightly
-                        </a>
+                            buttonClass="inline-flex items-center justify-center rounded-md bg-surge-orange px-4 py-2 font-semibold text-neutral-900 no-underline shadow-md hover:bg-surge-orange-bright"
+                        />
                         <a
                             href="https://github.com/surge-synthesizer/OB-Xf"
-                            class="rounded-md border border-neutral-900/25 px-4 py-2 font-semibold text-inherit no-underline hover:bg-neutral-900/5 dark:border-neutral-100/25 dark:hover:bg-neutral-100/10">
+                            class="inline-flex items-center justify-center rounded-md border border-neutral-900/25 px-4 py-2 font-semibold text-inherit no-underline hover:bg-neutral-900/5 dark:border-neutral-100/25 dark:hover:bg-neutral-100/10">
                             View on GitHub
                         </a>
                     </div>
@@ -251,24 +255,6 @@ const docsLinks = [
 <script>
     import { navigate } from "astro:transitions/client";
 
-    function detectPlatform() {
-        const userAgent = navigator.userAgent;
-
-        if (/Windows/i.test(userAgent)) {
-            return "windows";
-        }
-
-        if (/Macintosh|Mac OS X/i.test(userAgent)) {
-            return "mac";
-        }
-
-        if (/Linux/i.test(userAgent)) {
-            return "linux";
-        }
-
-        return "other";
-    }
-
     function setupThemeSelection() {
         const themeSelect = document.getElementById("theme-select") as HTMLSelectElement | null;
         if (!themeSelect) {
@@ -311,46 +297,9 @@ const docsLinks = [
         });
     }
 
-    function setupDownloadLink() {
-        const link = document.getElementById("obxf-release-link") as HTMLAnchorElement | null;
-        if (!link) {
-            return;
-        }
-
-        const releases = {
-            windows:
-                "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-02-20-b34831b-Windows.exe",
-            mac: "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-02-20-b34831b.dmg",
-            linux: "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-02-20-b34831b-Linux.deb",
-            other: "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        };
-
-        const platform = detectPlatform();
-
-        switch (platform) {
-            case "windows":
-                link.textContent = "Download Nightly | Windows";
-                link.href = releases.windows;
-                break;
-            case "mac":
-                link.textContent = "Download Nightly | macOS";
-                link.href = releases.mac;
-                break;
-            case "linux":
-                link.textContent = "Download Nightly | Linux";
-                link.href = releases.linux;
-                break;
-            default:
-                link.textContent = "Download Nightly";
-                link.href = releases.other;
-                break;
-        }
-    }
-
     function setup() {
         setupThemeSelection();
         setupProjectSelection();
-        setupDownloadLink();
     }
 
     document.addEventListener("astro:after-swap", setup);
