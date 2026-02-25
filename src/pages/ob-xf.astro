@@ -13,6 +13,14 @@ const navLinks = [
     ["FAQ", "#faq"],
     ["About", "#about"],
 ] as const;
+const latestBuildTime = new Date(obxf_build_nightly.build_time);
+const changelogBuildDate = Number.isNaN(latestBuildTime.getTime())
+    ? null
+    : latestBuildTime.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+      });
 ---
 <Base title="OB-Xf">
     <NavHeader slot="nav" links={navLinks} currentProject="ob-xf" />
@@ -96,14 +104,41 @@ const navLinks = [
             </div>
         </section>
 
-        <section id="changelog" class="mx-auto w-full max-w-6xl px-4 pb-12">
-            <h2 class="text-2xl font-bold">Changelog</h2>
-            <p class="mt-2 max-w-prose text-sm">
-                Placeholder section for release highlights and update notes.
-            </p>
-            <div
-                class="mt-4 rounded-lg border border-dashed border-neutral-900/30 p-6 text-sm dark:border-neutral-100/30">
-                Add changelog snippets or latest-release summaries here.
+        <section id="changelog" class="bg-neutral-900/5 px-4 py-12 dark:bg-neutral-100/5">
+            <div class="mx-auto w-full max-w-6xl">
+                <h2 class="text-2xl font-bold">Changelog</h2>
+                <p class="mt-2 max-w-prose text-sm">
+                    Latest nightly build updates for OB-Xf.
+                    {changelogBuildDate && ` Last build: ${changelogBuildDate}.`}
+                </p>
+                <div
+                    class="mt-4 rounded-lg border border-neutral-900/15 bg-white/80 p-6 dark:border-neutral-100/15 dark:bg-neutral-800/80">
+                    <div class="flex flex-wrap items-center gap-3 text-sm">
+                        <span class="font-semibold">Latest commit: {obxf_build_nightly.latest_commit}</span>
+                        <a
+                            href={obxf_build_nightly.releases.other}
+                            class="text-inherit underline underline-offset-2">
+                            Full release notes
+                        </a>
+                    </div>
+                    <ul class="mt-4 space-y-3 text-sm">
+                        {
+                            obxf_build_nightly.recent_commits.map((entry) => (
+                                <li class="rounded border border-neutral-900/10 p-3 dark:border-neutral-100/10">
+                                    <p class="font-semibold">{entry.message}</p>
+                                    <p class="mt-1 text-xs opacity-80">
+                                        {entry.author} · {entry.commit} ·{" "}
+                                        {new Date(entry.date).toLocaleDateString("en-US", {
+                                            year: "numeric",
+                                            month: "short",
+                                            day: "numeric",
+                                        })}
+                                    </p>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
             </div>
         </section>
 
