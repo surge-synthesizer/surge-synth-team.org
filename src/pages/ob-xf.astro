@@ -104,7 +104,9 @@ const changelogBuildDate = Number.isNaN(latestBuildTime.getTime())
             </div>
         </section>
 
-        <section id="changelog" class="bg-neutral-900/5 px-4 py-12 dark:bg-neutral-100/5">
+        <section
+            id="changelog"
+            class="border-y border-surge-orange/20 bg-linear-to-b from-surge-orange/12 to-neutral-900/5 px-4 py-12 dark:border-surge-orange/30 dark:from-surge-orange/15 dark:to-neutral-100/5">
             <div class="mx-auto w-full max-w-6xl">
                 <h2 class="text-2xl font-bold">Changelog</h2>
                 <p class="mt-2 max-w-prose text-sm">
@@ -112,7 +114,7 @@ const changelogBuildDate = Number.isNaN(latestBuildTime.getTime())
                     {changelogBuildDate && ` Last build: ${changelogBuildDate}.`}
                 </p>
                 <div
-                    class="mt-4 rounded-lg border border-neutral-900/15 bg-white/80 p-6 dark:border-neutral-100/15 dark:bg-neutral-800/80">
+                    class="mt-4 rounded-lg border border-surge-orange/25 bg-white/80 p-6 shadow-sm dark:border-surge-orange/35 dark:bg-neutral-800/80">
                     <div class="flex flex-wrap items-center gap-3 text-sm">
                         <span class="font-semibold">Latest commit: {obxf_build_nightly.latest_commit}</span>
                         <a
@@ -124,7 +126,7 @@ const changelogBuildDate = Number.isNaN(latestBuildTime.getTime())
                     <ul class="mt-4 space-y-3 text-sm">
                         {
                             obxf_build_nightly.recent_commits.map((entry) => (
-                                <li class="rounded border border-neutral-900/10 p-3 dark:border-neutral-100/10">
+                                <li class="rounded border border-surge-orange/20 bg-white/70 p-3 dark:border-surge-orange/30 dark:bg-neutral-900/40">
                                     <p class="font-semibold">{entry.message}</p>
                                     <p class="mt-1 text-xs">
                                         {entry.author} · {entry.commit} ·{" "}
@@ -142,17 +144,19 @@ const changelogBuildDate = Number.isNaN(latestBuildTime.getTime())
             </div>
         </section>
 
-        <section id="faq" class="bg-neutral-900/5 px-4 py-12 dark:bg-neutral-100/5">
+        <section
+            id="faq"
+            class="border-y border-surge-blue/20 bg-linear-to-b from-surge-blue/10 to-neutral-900/5 px-4 py-12 dark:border-surge-blue2/30 dark:from-surge-blue/15 dark:to-neutral-100/5">
             <div class="mx-auto w-full max-w-6xl">
                 <h2 class="text-2xl font-bold">FAQ</h2>
                 <div class="mt-6 space-y-3">
                     <details
-                        class="rounded-lg border border-neutral-900/15 bg-white/80 p-4 dark:border-neutral-100/15 dark:bg-neutral-800/80">
+                        class="rounded-lg border border-surge-blue/25 bg-white/80 p-4 shadow-sm dark:border-surge-blue2/35 dark:bg-neutral-800/80">
                         <summary class="cursor-pointer font-semibold">Question placeholder #1</summary>
                         <p class="mt-2 text-sm">Answer placeholder text.</p>
                     </details>
                     <details
-                        class="rounded-lg border border-neutral-900/15 bg-white/80 p-4 dark:border-neutral-100/15 dark:bg-neutral-800/80">
+                        class="rounded-lg border border-surge-blue/25 bg-white/80 p-4 shadow-sm dark:border-surge-blue2/35 dark:bg-neutral-800/80">
                         <summary class="cursor-pointer font-semibold">Question placeholder #2</summary>
                         <p class="mt-2 text-sm">Answer placeholder text.</p>
                     </details>
