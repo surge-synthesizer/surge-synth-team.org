@@ -52,6 +52,10 @@
     article {
         @apply prose max-w-xl place-self-center p-4 dark:prose-invert;
     }
+
+    [id] {
+        scroll-margin-top: 2rem;
+    }
 }
 
 @layer components {

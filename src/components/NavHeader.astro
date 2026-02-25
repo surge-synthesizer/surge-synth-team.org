@@ -1,0 +1,26 @@
+---
+import ProjectSelector from "./ProjectSelector.astro";
+import ThemeSelector from "./ThemeSelector.astro";
+
+interface Props {
+    links?: ReadonlyArray<readonly [title: string, href: string]>;
+    currentProject?: string | null;
+}
+
+const { links = [], currentProject = null } = Astro.props;
+---
+
+<nav
+    id="nav"
+    class="sticky top-0 flex flex-wrap items-center justify-center gap-4 border-b border-black/10 bg-inherit p-2 shadow-md shadow-black/25 dark:border-white/10">
+    {
+        links.map(([title, href]) => (
+            <a href={href} class="text-nowrap text-inherit no-underline">
+                {title}
+            </a>
+        ))
+    }
+    <slot />
+    <ProjectSelector currentProject={currentProject} />
+    <ThemeSelector />
+</nav>

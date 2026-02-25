@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
+import NavHeader from "../components/NavHeader.astro";
 import Base from "../layouts/Base.astro";
 
 export async function getStaticPaths() {
@@ -14,9 +15,16 @@ export async function getStaticPaths() {
 const { page } = Astro.props;
 const url = page.data.url ?? (page.data.repo && `https://github.com/${page.data.repo}`);
 const { Content } = await render(page);
+const navLinks = [
+    ["Home", "/"],
+    ["Open Source", "/open-source"],
+    ["Contact", "/contact"],
+    ["GitHub ↗", "https://github.com/surge-synthesizer"],
+] as const;
 ---
 
 <Base title={page.data.title}>
+    <NavHeader slot="nav" links={navLinks} />
     <article>
         <h1>{page.data.title}</h1>
         {
