@@ -126,7 +126,7 @@ const changelogBuildDate = Number.isNaN(latestBuildTime.getTime())
                             obxf_build_nightly.recent_commits.map((entry) => (
                                 <li class="rounded border border-neutral-900/10 p-3 dark:border-neutral-100/10">
                                     <p class="font-semibold">{entry.message}</p>
-                                    <p class="mt-1 text-xs opacity-80">
+                                    <p class="mt-1 text-xs">
                                         {entry.author} · {entry.commit} ·{" "}
                                         {new Date(entry.date).toLocaleDateString("en-US", {
                                             year: "numeric",
