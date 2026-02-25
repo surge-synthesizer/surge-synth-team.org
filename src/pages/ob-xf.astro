@@ -1,307 +1,157 @@
 ---
 import { Image } from "astro:assets";
-import { ClientRouter } from "astro:transitions";
 import obxf_build_nightly from "../content/generated/obxf-build-nightly.json" with { type: "json" };
 import DownloadButton from "../components/DownloadButton.astro";
+import NavHeader from "../components/NavHeader.astro";
 import ObxfCover from "../content/projects/screenshots/ob-xf_3d_render.png";
-import ProjectSelector from "../components/ProjectSelector.astro";
-import ThemeSelector from "../components/ThemeSelector.astro";
-import "../layouts/base.css";
+import Base from "../layouts/Base.astro";
 
+const navLinks = [
+    ["Home", "/"],
+    ["FAQ", "#faq"],
+] as const;
 const docsLinks = [
     ["Manual", "#manual"],
     ["Changelog", "#changelog"],
 ] as const;
 ---
-
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="author" content="Surge Synth Team" />
-        <meta
-            name="description"
-            content="OB-Xf is an open source polyphonic synthesizer inspired by the classic Oberheim OB-X."
-        />
-        <meta property="og:url" content={Astro.url.href} />
-        <meta property="og:title" content="OB-Xf" />
-        <meta
-            property="og:description"
-            content="OB-Xf is an open source polyphonic synthesizer inspired by the classic Oberheim OB-X."
-        />
-        <meta property="og:image" content="https://surge-synth-team.org/images/og_image.png" />
-        <meta
-            property="og:image:secure_url"
-            content="https://surge-synth-team.org/images/og_image.png"
-        />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="600" />
-        <meta property="ig:image:alt" content="OB-Xf" />
-        <meta property="og:type" content="website" />
-        <link rel="icon" href="/favicon.ico" />
-        <link
-            rel="preload"
-            href="/fonts/Lato-Regular.woff"
-            as="font"
-            type="font/woff"
-            crossorigin
-        />
-        <link rel="preload" href="/fonts/Lato-Italic.woff" as="font" type="font/woff" crossorigin />
-        <title>Surge Synth Team | OB-Xf</title>
-        <script is:inline>
-            function setTheme() {
-                !localStorage.getItem("theme") && localStorage.setItem("theme", "auto");
-
-                switch (localStorage.getItem("theme")) {
-                    case "auto":
-                        window.matchMedia("(prefers-color-scheme: dark)").matches
-                            ? document.documentElement.setAttribute("data-theme", "dark")
-                            : document.documentElement.setAttribute("data-theme", "light");
-                        break;
-
-                    case "dark":
-                        document.documentElement.setAttribute("data-theme", "dark");
-                        break;
-
-                    case "light":
-                        document.documentElement.setAttribute("data-theme", "light");
-                        break;
-                }
-            }
-
-            function setThemeSelection() {
-                const select = document.getElementById("theme-select");
-                if (select) {
-                    select.value = localStorage.getItem("theme");
-                }
-            }
-
-            setTheme();
-
-            document.addEventListener("readystatechange", (event) => {
-                if (event.target.readyState === "interactive") {
-                    setThemeSelection();
-                }
-            });
-
-            document.addEventListener("astro:after-swap", () => {
-                setTheme();
-                setThemeSelection();
-            });
-        </script>
-        <ClientRouter />
-    </head>
-
-    <body>
-        <nav
-            id="nav"
-            class="border-b border-black/10 dark:border-white/10 sticky top-0 flex flex-wrap items-center justify-center gap-4 bg-inherit p-2 shadow-md shadow-black/25">
-            <a href="/" class="text-nowrap text-inherit no-underline">Home</a>
-            <a href="#faq" class="text-nowrap text-inherit no-underline">FAQ</a>
-            <details class="relative">
-                <summary class="cursor-pointer list-none text-nowrap">Documentation</summary>
-                <div
-                    class="absolute right-0 mt-2 min-w-44 rounded border border-neutral-900/15 bg-neutral-50 p-2 shadow-lg dark:border-neutral-100/15 dark:bg-neutral-800">
-                    {
-                        docsLinks.map(([title, href]) => (
-                            <a
-                                href={href}
-                                class="block rounded px-2 py-1 text-inherit no-underline hover:bg-neutral-900/5 dark:hover:bg-neutral-100/10">
-                                {title}
-                            </a>
-                        ))
-                    }
-                </div>
-            </details>
-            <a href="#about" class="text-nowrap text-inherit no-underline">About</a>
-            <ProjectSelector currentProject="ob-xf" />
-            <ThemeSelector />
-        </nav>
-
-        <main>
-            <section
-                class="mx-auto grid w-full max-w-6xl gap-8 px-4 py-10 md:grid-cols-2 md:items-center md:py-16">
-                <div class="space-y-4">
-                    <p
-                        class="text-xs font-bold tracking-[0.2em] text-surge-blue uppercase dark:text-surge-blue2">
-                        Open Source Analog-Inspired Synth
-                    </p>
-                    <h1 class="text-4xl leading-tight font-extrabold md:text-5xl">OB-Xf</h1>
-                    <p class="max-w-prose text-base text-neutral-800 dark:text-neutral-200">
-                        OB-Xf is a continuation and modernization of the last open source release of
-                        OB-Xd. It is inspired by the venerable Oberheim OB-X.
-                    </p>
-                    <div class="flex flex-wrap gap-3">
-                        <DownloadButton
-                            windows={obxf_build_nightly.releases.win64}
-                            mac={obxf_build_nightly.releases.macos}
-                            linux={obxf_build_nightly.releases.linux64}
-                            other={obxf_build_nightly.releases.other}
-                            label="Download Nightly"
-                            id="obxf-release-link"
-                            buttonClass="inline-flex items-center justify-center rounded-md bg-surge-orange px-4 py-2 font-semibold text-neutral-900 no-underline shadow-md hover:bg-surge-orange-bright"
-                        />
+<Base title="OB-Xf">
+    <NavHeader slot="nav" links={navLinks} currentProject="ob-xf">
+        <details class="relative">
+            <summary class="cursor-pointer list-none text-nowrap">Documentation</summary>
+            <div
+                class="absolute right-0 mt-2 min-w-44 rounded border border-neutral-900/15 bg-neutral-50 p-2 shadow-lg dark:border-neutral-100/15 dark:bg-neutral-800">
+                {
+                    docsLinks.map(([title, href]) => (
                         <a
-                            href="https://github.com/surge-synthesizer/OB-Xf"
-                            class="inline-flex items-center justify-center rounded-md border border-neutral-900/25 px-4 py-2 font-semibold text-inherit no-underline hover:bg-neutral-900/5 dark:border-neutral-100/25 dark:hover:bg-neutral-100/10">
-                            View on GitHub
+                            href={href}
+                            class="block rounded px-2 py-1 text-inherit no-underline hover:bg-neutral-900/5 dark:hover:bg-neutral-100/10">
+                            {title}
                         </a>
-                    </div>
-                </div>
-                <div>
-                    <Image
-                        src={ObxfCover}
-                        alt="OB-Xf interface screenshot"
-                        quality="100"
-                        format="png"
-                        class=""
+                    ))
+                }
+            </div>
+        </details>
+        <a href="#about" class="text-nowrap text-inherit no-underline">About</a>
+    </NavHeader>
+
+    <main>
+        <section
+            class="mx-auto grid w-full max-w-6xl gap-8 px-4 py-10 md:grid-cols-2 md:items-center md:py-16">
+            <div class="space-y-4">
+                <p
+                    class="text-xs font-bold tracking-[0.2em] text-surge-blue uppercase dark:text-surge-blue2">
+                    Open Source Analog-Inspired Synth
+                </p>
+                <h1 class="text-4xl leading-tight font-extrabold md:text-5xl">OB-Xf</h1>
+                <p class="max-w-prose text-base text-neutral-800 dark:text-neutral-200">
+                    OB-Xf is a continuation and modernization of the last open source release of
+                    OB-Xd. It is inspired by the venerable Oberheim OB-X.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <DownloadButton
+                        windows={obxf_build_nightly.releases.win64}
+                        mac={obxf_build_nightly.releases.macos}
+                        linux={obxf_build_nightly.releases.linux64}
+                        other={obxf_build_nightly.releases.other}
+                        label="Download Nightly"
+                        id="obxf-release-link"
+                        buttonClass="inline-flex items-center justify-center rounded-md bg-surge-orange px-4 py-2 font-semibold text-neutral-900 no-underline shadow-md hover:bg-surge-orange-bright"
                     />
+                    <a
+                        href="https://github.com/surge-synthesizer/OB-Xf"
+                        class="inline-flex items-center justify-center rounded-md border border-neutral-900/25 px-4 py-2 font-semibold text-inherit no-underline hover:bg-neutral-900/5 dark:border-neutral-100/25 dark:hover:bg-neutral-100/10">
+                        View on GitHub
+                    </a>
                 </div>
-            </section>
+            </div>
+            <div>
+                <Image
+                    src={ObxfCover}
+                    alt="OB-Xf interface screenshot"
+                    quality="100"
+                    format="png"
+                    class=""
+                />
+            </div>
+        </section>
 
-            <section class="bg-surge-orange/15 px-4 py-12">
-                <div class="mx-auto w-full max-w-6xl">
-                    <h2 class="text-2xl font-bold">Highlights</h2>
-                    <p class="mt-2 max-w-prose text-sm">
-                        Placeholder section for feature callouts. Replace each card with final copy
-                        and imagery.
-                    </p>
-                    <div class="mt-6 grid gap-4 md:grid-cols-3">
-                        <article
-                            class="rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
-                            <h3 class="font-bold">Feature Title 01</h3>
-                            <p class="mt-2 text-sm">
-                                Short description placeholder for an OB-Xf capability.
-                            </p>
-                        </article>
-                        <article
-                            class="rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
-                            <h3 class="font-bold">Feature Title 02</h3>
-                            <p class="mt-2 text-sm">
-                                Short description placeholder for a workflow improvement.
-                            </p>
-                        </article>
-                        <article
-                            class="rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
-                            <h3 class="font-bold">Feature Title 03</h3>
-                            <p class="mt-2 text-sm">
-                                Short description placeholder for sound design options.
-                            </p>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <section id="manual" class="mx-auto w-full max-w-6xl px-4 py-12">
-                <h2 class="text-2xl font-bold">Manual</h2>
+        <section class="bg-surge-orange/15 px-4 py-12">
+            <div class="mx-auto w-full max-w-6xl">
+                <h2 class="text-2xl font-bold">Highlights</h2>
                 <p class="mt-2 max-w-prose text-sm">
-                    Placeholder section for documentation intro and manual links.
+                    Placeholder section for feature callouts. Replace each card with final copy and
+                    imagery.
                 </p>
-                <div
-                    class="mt-4 rounded-lg border border-dashed border-neutral-900/30 p-6 text-sm dark:border-neutral-100/30">
-                    Add manual copy and supporting media here.
+                <div class="mt-6 grid gap-4 md:grid-cols-3">
+                    <article
+                        class="rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
+                        <h3 class="font-bold">Feature Title 01</h3>
+                        <p class="mt-2 text-sm">Short description placeholder for an OB-Xf capability.</p>
+                    </article>
+                    <article
+                        class="rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
+                        <h3 class="font-bold">Feature Title 02</h3>
+                        <p class="mt-2 text-sm">Short description placeholder for a workflow improvement.</p>
+                    </article>
+                    <article
+                        class="rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
+                        <h3 class="font-bold">Feature Title 03</h3>
+                        <p class="mt-2 text-sm">Short description placeholder for sound design options.</p>
+                    </article>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="changelog" class="mx-auto w-full max-w-6xl px-4 pb-12">
-                <h2 class="text-2xl font-bold">Changelog</h2>
-                <p class="mt-2 max-w-prose text-sm">
-                    Placeholder section for release highlights and update notes.
-                </p>
-                <div
-                    class="mt-4 rounded-lg border border-dashed border-neutral-900/30 p-6 text-sm dark:border-neutral-100/30">
-                    Add changelog snippets or latest-release summaries here.
+        <section id="manual" class="mx-auto w-full max-w-6xl px-4 py-12">
+            <h2 class="text-2xl font-bold">Manual</h2>
+            <p class="mt-2 max-w-prose text-sm">
+                Placeholder section for documentation intro and manual links.
+            </p>
+            <div
+                class="mt-4 rounded-lg border border-dashed border-neutral-900/30 p-6 text-sm dark:border-neutral-100/30">
+                Add manual copy and supporting media here.
+            </div>
+        </section>
+
+        <section id="changelog" class="mx-auto w-full max-w-6xl px-4 pb-12">
+            <h2 class="text-2xl font-bold">Changelog</h2>
+            <p class="mt-2 max-w-prose text-sm">
+                Placeholder section for release highlights and update notes.
+            </p>
+            <div
+                class="mt-4 rounded-lg border border-dashed border-neutral-900/30 p-6 text-sm dark:border-neutral-100/30">
+                Add changelog snippets or latest-release summaries here.
+            </div>
+        </section>
+
+        <section id="faq" class="bg-neutral-900/5 px-4 py-12 dark:bg-neutral-100/5">
+            <div class="mx-auto w-full max-w-6xl">
+                <h2 class="text-2xl font-bold">FAQ</h2>
+                <div class="mt-6 space-y-3">
+                    <details
+                        class="rounded-lg border border-neutral-900/15 bg-white/80 p-4 dark:border-neutral-100/15 dark:bg-neutral-800/80">
+                        <summary class="cursor-pointer font-semibold">Question placeholder #1</summary>
+                        <p class="mt-2 text-sm">Answer placeholder text.</p>
+                    </details>
+                    <details
+                        class="rounded-lg border border-neutral-900/15 bg-white/80 p-4 dark:border-neutral-100/15 dark:bg-neutral-800/80">
+                        <summary class="cursor-pointer font-semibold">Question placeholder #2</summary>
+                        <p class="mt-2 text-sm">Answer placeholder text.</p>
+                    </details>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="faq" class="bg-neutral-900/5 px-4 py-12 dark:bg-neutral-100/5">
-                <div class="mx-auto w-full max-w-6xl">
-                    <h2 class="text-2xl font-bold">FAQ</h2>
-                    <div class="mt-6 space-y-3">
-                        <details
-                            class="rounded-lg border border-neutral-900/15 bg-white/80 p-4 dark:border-neutral-100/15 dark:bg-neutral-800/80">
-                            <summary class="cursor-pointer font-semibold"
-                                >Question placeholder #1</summary
-                            >
-                            <p class="mt-2 text-sm">Answer placeholder text.</p>
-                        </details>
-                        <details
-                            class="rounded-lg border border-neutral-900/15 bg-white/80 p-4 dark:border-neutral-100/15 dark:bg-neutral-800/80">
-                            <summary class="cursor-pointer font-semibold"
-                                >Question placeholder #2</summary
-                            >
-                            <p class="mt-2 text-sm">Answer placeholder text.</p>
-                        </details>
-                    </div>
-                </div>
-            </section>
-
-            <section id="about" class="mx-auto w-full max-w-6xl px-4 py-12">
-                <h2 class="text-2xl font-bold">About</h2>
-                <p class="mt-2 max-w-prose text-sm">
-                    Placeholder section for project background, contributors, and links.
-                </p>
-                <div
-                    class="mt-4 rounded-lg border border-dashed border-neutral-900/30 p-6 text-sm dark:border-neutral-100/30">
-                    Add about text, logos, and team imagery here.
-                </div>
-            </section>
-        </main>
-    </body>
-</html>
-
-<script>
-    import { navigate } from "astro:transitions/client";
-
-    function setupThemeSelection() {
-        const themeSelect = document.getElementById("theme-select") as HTMLSelectElement | null;
-        if (!themeSelect) {
-            return;
-        }
-
-        themeSelect.addEventListener("change", () => {
-            localStorage.setItem("theme", themeSelect.value);
-
-            switch (themeSelect.value) {
-                case "auto":
-                    window.matchMedia("(prefers-color-scheme: dark)").matches
-                        ? document.documentElement.setAttribute("data-theme", "dark")
-                        : document.documentElement.setAttribute("data-theme", "light");
-                    break;
-
-                case "dark":
-                    document.documentElement.setAttribute("data-theme", "dark");
-                    break;
-
-                case "light":
-                    document.documentElement.setAttribute("data-theme", "light");
-                    break;
-            }
-        });
-    }
-
-    function setupProjectSelection() {
-        const projectSelect = document.getElementById("project-select") as HTMLSelectElement | null;
-        if (!projectSelect) {
-            return;
-        }
-
-        projectSelect.addEventListener("change", () => {
-            if (projectSelect.value === "") {
-                return;
-            }
-
-            navigate(`/${projectSelect.value}`);
-        });
-    }
-
-    function setup() {
-        setupThemeSelection();
-        setupProjectSelection();
-    }
-
-    document.addEventListener("astro:after-swap", setup);
-    setup();
-</script>
+        <section id="about" class="mx-auto w-full max-w-6xl px-4 py-12">
+            <h2 class="text-2xl font-bold">About</h2>
+            <p class="mt-2 max-w-prose text-sm">
+                Placeholder section for project background, contributors, and links.
+            </p>
+            <div
+                class="mt-4 rounded-lg border border-dashed border-neutral-900/30 p-6 text-sm dark:border-neutral-100/30">
+                Add about text, logos, and team imagery here.
+            </div>
+        </section>
+    </main>
+</Base>

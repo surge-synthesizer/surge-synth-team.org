@@ -2,12 +2,20 @@
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import Logo from "../images/logo.svg";
+import NavHeader from "../components/NavHeader.astro";
 import Base from "../layouts/Base.astro";
 
 const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
+const navLinks = [
+    ["Home", "/"],
+    ["Open Source", "/open-source"],
+    ["Contact", "/contact"],
+    ["GitHub ↗", "https://github.com/surge-synthesizer"],
+] as const;
 ---
 
 <Base title="Home">
+    <NavHeader slot="nav" links={navLinks} />
     <div class="flex items-center justify-center gap-4 p-4">
         <Image alt="SST Logo" src={Logo} class="hidden max-w-xs object-contain sm:block" />
         <p class="max-w-md text-justify text-sm font-bold">

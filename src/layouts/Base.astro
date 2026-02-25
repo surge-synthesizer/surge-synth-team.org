@@ -1,7 +1,5 @@
 ---
 import { ClientRouter } from "astro:transitions";
-import ProjectSelector from "../components/ProjectSelector.astro";
-import ThemeSelector from "../components/ThemeSelector.astro";
 import "./base.css";
 
 interface Props {
@@ -9,14 +7,6 @@ interface Props {
 }
 
 const { title } = Astro.props;
-const currentProject = Astro.params.project ?? null;
-
-const navLinks = [
-    ["Home", "/"],
-    ["Open Source", "/open-source"],
-    ["Contact", "/contact"],
-    ["GitHub ↗", "https://github.com/surge-synthesizer"],
-] as const;
 ---
 
 <!doctype html>
@@ -77,7 +67,10 @@ const navLinks = [
             }
 
             function setThemeSelection() {
-                document.getElementById("theme-select").value = localStorage.getItem("theme");
+                const themeSelect = document.getElementById("theme-select");
+                if (themeSelect) {
+                    themeSelect.value = localStorage.getItem("theme");
+                }
             }
 
             setTheme();
@@ -97,19 +90,7 @@ const navLinks = [
     </head>
 
     <body>
-        <nav
-            id="nav"
-            class="sticky top-0 flex flex-wrap items-center justify-center gap-4 border-b border-black/10 bg-inherit p-2 shadow-md shadow-black/25 dark:border-white/10">
-            {
-                navLinks.map(([title, href]) => (
-                    <a href={href} class="text-nowrap text-inherit no-underline">
-                        {title}
-                    </a>
-                ))
-            }
-            <ProjectSelector currentProject={currentProject} />
-            <ThemeSelector />
-        </nav>
+        <slot name="nav" />
         <slot />
     </body>
 </html>
@@ -118,37 +99,41 @@ const navLinks = [
     import { navigate } from "astro:transitions/client";
 
     function setup() {
-        const themeSelect = document.getElementById("theme-select") as HTMLSelectElement;
+        const themeSelect = document.getElementById("theme-select") as HTMLSelectElement | null;
 
-        themeSelect.addEventListener("change", () => {
-            localStorage.setItem("theme", themeSelect.value);
+        if (themeSelect) {
+            themeSelect.addEventListener("change", () => {
+                localStorage.setItem("theme", themeSelect.value);
 
-            switch (themeSelect.value) {
-                case "auto":
-                    window.matchMedia("(prefers-color-scheme: dark)").matches
-                        ? document.documentElement.setAttribute("data-theme", "dark")
-                        : document.documentElement.setAttribute("data-theme", "light");
-                    break;
+                switch (themeSelect.value) {
+                    case "auto":
+                        window.matchMedia("(prefers-color-scheme: dark)").matches
+                            ? document.documentElement.setAttribute("data-theme", "dark")
+                            : document.documentElement.setAttribute("data-theme", "light");
+                        break;
 
-                case "dark":
-                    document.documentElement.setAttribute("data-theme", "dark");
-                    break;
+                    case "dark":
+                        document.documentElement.setAttribute("data-theme", "dark");
+                        break;
 
-                case "light":
-                    document.documentElement.setAttribute("data-theme", "light");
-                    break;
-            }
-        });
+                    case "light":
+                        document.documentElement.setAttribute("data-theme", "light");
+                        break;
+                }
+            });
+        }
 
-        const projectSelect = document.getElementById("project-select") as HTMLSelectElement;
+        const projectSelect = document.getElementById("project-select") as HTMLSelectElement | null;
 
-        projectSelect.addEventListener("change", () => {
-            if (projectSelect.value === "") {
-                return;
-            }
+        if (projectSelect) {
+            projectSelect.addEventListener("change", () => {
+                if (projectSelect.value === "") {
+                    return;
+                }
 
-            navigate(`/${projectSelect.value}`);
-        });
+                navigate(`/${projectSelect.value}`);
+            });
+        }
     }
 
     document.addEventListener("astro:after-swap", setup);
