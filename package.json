@@ -7,14 +7,14 @@
     },
     "packageManager": "pnpm@10.30.2",
     "scripts": {
+        "astro": "astro",
         "dev": "astro dev",
         "host": "astro dev --host",
         "sync": "astro sync",
         "check": "astro check",
         "build": "astro check && astro build",
         "preview": "astro preview",
-        "preinstall": "astro telemetry disable",
-        "astro": "astro"
+        "preinstall": "astro telemetry disable"
     },
     "devDependencies": {
         "@astrojs/check": "^0.9.6",
