@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-02-26T00:57:34.972454617",
+    "build_time": "2026-02-26T04:17:36.725456455",
     "data": {},
-    "latest_commit": "21496b9",
+    "latest_commit": "793d382",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "793d382",
+            "date": "2026-02-25T22:37:13-05:00",
+            "message": "Random names; and names in matrix (#2350)"
+        },
+        {
+            "author": "Paul",
+            "commit": "7591352",
+            "date": "2026-02-25T19:04:18-05:00",
+            "message": "Drag Edit for 3 band eq (sketch) (#2349)"
+        },
         {
             "author": "Paul",
             "commit": "21496b9",
@@ -22,26 +34,14 @@
             "commit": "23d9e20",
             "date": "2026-02-23T14:55:08-05:00",
             "message": "Warn and autofix sfz when lo>hi in key, vel, etc... (#2342)"
-        },
-        {
-            "author": "Paul",
-            "commit": "14cc4ed",
-            "date": "2026-02-23T08:32:49-05:00",
-            "message": "Key based sources (#2339)"
-        },
-        {
-            "author": "Paul",
-            "commit": "adf2b05",
-            "date": "2026-02-21T18:49:30-05:00",
-            "message": "Fix bus description for Studio One (#2338)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-26-21496b9-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-26-21496b9.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-26-793d382-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-26-793d382.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-26-21496b9-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-26-21496b9-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-26-793d382-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-26-793d382-Windows-64bit.zip"
     },
     "version": "main"
 }
