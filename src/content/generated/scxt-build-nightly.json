@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-02-26T13:42:35.44835499",
+    "build_time": "2026-02-26T14:19:58.726598211",
     "data": {},
-    "latest_commit": "027d295",
+    "latest_commit": "a6999fa",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "a6999fa",
+            "date": "2026-02-26T08:50:05-05:00",
+            "message": "Some expansion and one fix to export SFZ (#2354)"
+        },
+        {
+            "author": "Mike Thierman",
+            "commit": "65eed4d",
+            "date": "2026-02-26T06:38:02-07:00",
+            "message": "Update code check and bump fmt/json libs to fix Windows builds (#2352)"
+        },
         {
             "author": "Paul",
             "commit": "027d295",
@@ -22,26 +34,14 @@
             "commit": "793d382",
             "date": "2026-02-25T22:37:13-05:00",
             "message": "Random names; and names in matrix (#2350)"
-        },
-        {
-            "author": "Paul",
-            "commit": "7591352",
-            "date": "2026-02-25T19:04:18-05:00",
-            "message": "Drag Edit for 3 band eq (sketch) (#2349)"
-        },
-        {
-            "author": "Paul",
-            "commit": "21496b9",
-            "date": "2026-02-25T17:35:23-05:00",
-            "message": "Apply the waveshaper patch from surge issue 8209 (#2347)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-26-027d295-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-26-027d295.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-26-a6999fa-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-26-a6999fa.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-26-027d295-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-26-027d295-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-26-a6999fa-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-26-a6999fa-Windows-64bit.zip"
     },
     "version": "main"
 }
