@@ -1,0 +1,180 @@
+---
+import { Image } from "astro:assets";
+import scxt_build_nightly from "../content/generated/scxt-build-nightly.json" with { type: "json" };
+import DownloadButton from "../components/DownloadButton.astro";
+import NavHeader from "../components/NavHeader.astro";
+import ScxtCover from "../content/projects/screenshots/shortcircuit-xt.png";
+import Base from "../layouts/Base.astro";
+
+const navLinks = [
+    ["Home", "/"],
+    ["Manual", "#manual"],
+    ["Changelog", "#changelog"],
+    ["FAQ", "#faq"],
+    ["About", "#about"],
+] as const;
+const latestBuildTime = new Date(scxt_build_nightly.build_time);
+const changelogBuildDate = Number.isNaN(latestBuildTime.getTime())
+    ? null
+    : latestBuildTime.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+      });
+---
+<Base title="Shortcircuit XT">
+    <NavHeader slot="nav" links={navLinks} currentProject="shortcircuit-xt" />
+
+    <main>
+        <section
+            class="mx-auto grid w-full max-w-6xl gap-8 px-4 py-10 md:grid-cols-2 md:items-center md:py-16">
+            <div class="space-y-4">
+                <p
+                    class="text-xs font-bold tracking-[0.2em] text-surge-blue uppercase dark:text-surge-blue2">
+                    Open Source Sampling Workstation
+                </p>
+                <h1 class="text-4xl leading-tight font-extrabold md:text-5xl">Shortcircuit XT</h1>
+                <p class="max-w-prose text-base text-neutral-800 dark:text-neutral-200">
+                    Shortcircuit XT is a modern open source software sampler focused on workflow,
+                    expressive modulation, and deep sample playback control.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <DownloadButton
+                        windows={scxt_build_nightly.releases.win64}
+                        mac={scxt_build_nightly.releases.macos}
+                        linux={scxt_build_nightly.releases.linux64}
+                        other={scxt_build_nightly.releases.other}
+                        label="Download Nightly"
+                        id="scxt-release-link"
+                        buttonClass="inline-flex items-center justify-center rounded-md bg-surge-orange px-4 py-2 font-semibold text-neutral-900 no-underline shadow-md hover:bg-surge-orange-bright"
+                    />
+                    <a
+                        href="https://github.com/surge-synthesizer/shortcircuit-xt"
+                        class="inline-flex items-center justify-center rounded-md border border-neutral-900/25 px-4 py-2 font-semibold text-inherit no-underline hover:bg-neutral-900/5 dark:border-neutral-100/25 dark:hover:bg-neutral-100/10">
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+            <div>
+                <Image
+                    src={ScxtCover}
+                    alt="Shortcircuit XT interface screenshot"
+                    quality="100"
+                    format="png"
+                    class=""
+                />
+            </div>
+        </section>
+
+        <section class="bg-surge-orange/15 px-4 py-12">
+            <div class="mx-auto w-full max-w-6xl">
+                <h2 class="text-2xl font-bold">Highlights</h2>
+                <p class="mt-2 max-w-prose text-sm">
+                    Placeholder section for feature callouts. Replace each card with final copy and
+                    imagery.
+                </p>
+                <div class="mt-6 grid gap-4 md:grid-cols-3">
+                    <article
+                        class="rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
+                        <h3 class="font-bold">Feature Title 01</h3>
+                        <p class="mt-2 text-sm">
+                            Short description placeholder for a Shortcircuit XT capability.
+                        </p>
+                    </article>
+                    <article
+                        class="rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
+                        <h3 class="font-bold">Feature Title 02</h3>
+                        <p class="mt-2 text-sm">Short description placeholder for a workflow improvement.</p>
+                    </article>
+                    <article
+                        class="rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
+                        <h3 class="font-bold">Feature Title 03</h3>
+                        <p class="mt-2 text-sm">Short description placeholder for modulation and mapping.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="manual" class="mx-auto w-full max-w-6xl px-4 py-12">
+            <h2 class="text-2xl font-bold">Manual</h2>
+            <p class="mt-2 max-w-prose text-sm">
+                Placeholder section for documentation intro and manual links.
+            </p>
+            <div
+                class="mt-4 rounded-lg border border-dashed border-neutral-900/30 p-6 text-sm dark:border-neutral-100/30">
+                Add manual copy and supporting media here.
+            </div>
+        </section>
+
+        <section
+            id="changelog"
+            class="border-y border-surge-orange/20 bg-linear-to-b from-surge-orange/12 to-neutral-900/5 px-4 py-12 dark:border-surge-orange/30 dark:from-surge-orange/15 dark:to-neutral-100/5">
+            <div class="mx-auto w-full max-w-6xl">
+                <h2 class="text-2xl font-bold">Changelog</h2>
+                <p class="mt-2 max-w-prose text-sm">
+                    Latest nightly build updates for Shortcircuit XT.
+                    {changelogBuildDate && ` Last build: ${changelogBuildDate}.`}
+                </p>
+                <div
+                    class="mt-4 rounded-lg border border-surge-orange/25 bg-white/80 p-6 shadow-sm dark:border-surge-orange/35 dark:bg-neutral-800/80">
+                    <div class="flex flex-wrap items-center gap-3 text-sm">
+                        <span class="font-semibold">Latest commit: {scxt_build_nightly.latest_commit}</span>
+                        <a
+                            href={scxt_build_nightly.releases.other}
+                            class="text-inherit underline underline-offset-2">
+                            Full release notes
+                        </a>
+                    </div>
+                    <ul class="mt-4 space-y-3 text-sm">
+                        {
+                            scxt_build_nightly.recent_commits.map((entry) => (
+                                <li class="rounded border border-surge-orange/20 bg-white/70 p-3 dark:border-surge-orange/30 dark:bg-neutral-900/40">
+                                    <p class="font-semibold">{entry.message}</p>
+                                    <p class="mt-1 text-xs">
+                                        {entry.author} · {entry.commit} ·{" "}
+                                        {new Date(entry.date).toLocaleDateString("en-US", {
+                                            year: "numeric",
+                                            month: "short",
+                                            day: "numeric",
+                                        })}
+                                    </p>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section
+            id="faq"
+            class="border-y border-surge-blue/20 bg-linear-to-b from-surge-blue/10 to-neutral-900/5 px-4 py-12 dark:border-surge-blue2/30 dark:from-surge-blue/15 dark:to-neutral-100/5">
+            <div class="mx-auto w-full max-w-6xl">
+                <h2 class="text-2xl font-bold">FAQ</h2>
+                <div class="mt-6 space-y-3">
+                    <details
+                        class="rounded-lg border border-surge-blue/25 bg-white/80 p-4 shadow-sm dark:border-surge-blue2/35 dark:bg-neutral-800/80">
+                        <summary class="cursor-pointer font-semibold">Question placeholder #1</summary>
+                        <p class="mt-2 text-sm">Answer placeholder text.</p>
+                    </details>
+                    <details
+                        class="rounded-lg border border-surge-blue/25 bg-white/80 p-4 shadow-sm dark:border-surge-blue2/35 dark:bg-neutral-800/80">
+                        <summary class="cursor-pointer font-semibold">Question placeholder #2</summary>
+                        <p class="mt-2 text-sm">Answer placeholder text.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="mx-auto w-full max-w-6xl px-4 py-12">
+            <h2 class="text-2xl font-bold">About</h2>
+            <p class="mt-2 max-w-prose text-sm">
+                Placeholder section for project background, contributors, and links.
+            </p>
+            <div
+                class="mt-4 rounded-lg border border-dashed border-neutral-900/30 p-6 text-sm dark:border-neutral-100/30">
+                Add about text, logos, and team imagery here.
+            </div>
+        </section>
+    </main>
+</Base>
