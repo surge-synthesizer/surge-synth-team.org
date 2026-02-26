@@ -1,9 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import obxf_build_nightly from "../content/generated/obxf-build-nightly.json" with { type: "json" };
+import scxt_build_nightly from "../content/generated/scxt-build-nightly.json" with { type: "json" };
 import DownloadButton from "../components/DownloadButton.astro";
 import NavHeader from "../components/NavHeader.astro";
-import ObxfCover from "../content/projects/screenshots/ob-xf_3d_render.png";
+import ScxtCover from "../content/projects/screenshots/shortcircuit-xt.png";
 import Base from "../layouts/Base.astro";
 
 const navLinks = [
@@ -13,7 +13,7 @@ const navLinks = [
     ["FAQ", "#faq"],
     ["About", "#about"],
 ] as const;
-const latestBuildTime = new Date(obxf_build_nightly.build_time);
+const latestBuildTime = new Date(scxt_build_nightly.build_time);
 const changelogBuildDate = Number.isNaN(latestBuildTime.getTime())
     ? null
     : latestBuildTime.toLocaleDateString("en-US", {
@@ -22,8 +22,8 @@ const changelogBuildDate = Number.isNaN(latestBuildTime.getTime())
           day: "numeric",
       });
 ---
-<Base title="OB-Xf">
-    <NavHeader slot="nav" links={navLinks} currentProject="ob-xf" />
+<Base title="Shortcircuit XT">
+    <NavHeader slot="nav" links={navLinks} currentProject="shortcircuit-xt" />
 
     <main>
         <section
@@ -31,25 +31,25 @@ const changelogBuildDate = Number.isNaN(latestBuildTime.getTime())
             <div class="space-y-4">
                 <p
                     class="text-xs font-bold tracking-[0.2em] text-surge-blue uppercase dark:text-surge-blue2">
-                    Open Source Analog-Inspired Synth
+                    Open Source Sampling Workstation
                 </p>
-                <h1 class="text-4xl leading-tight font-extrabold md:text-5xl">OB-Xf</h1>
+                <h1 class="text-4xl leading-tight font-extrabold md:text-5xl">Shortcircuit XT</h1>
                 <p class="max-w-prose text-base text-neutral-800 dark:text-neutral-200">
-                    OB-Xf is a continuation and modernization of the last open source release of
-                    OB-Xd. It is inspired by the venerable Oberheim OB-X.
+                    Shortcircuit XT is a modern open source software sampler focused on workflow,
+                    expressive modulation, and deep sample playback control.
                 </p>
                 <div class="flex flex-wrap gap-3">
                     <DownloadButton
-                        windows={obxf_build_nightly.releases.win64}
-                        mac={obxf_build_nightly.releases.macos}
-                        linux={obxf_build_nightly.releases.linux64}
-                        other={obxf_build_nightly.releases.other}
+                        windows={scxt_build_nightly.releases.win64}
+                        mac={scxt_build_nightly.releases.macos}
+                        linux={scxt_build_nightly.releases.linux64}
+                        other={scxt_build_nightly.releases.other}
                         label="Download Nightly"
-                        id="obxf-release-link"
+                        id="scxt-release-link"
                         buttonClass="inline-flex items-center justify-center rounded-md bg-surge-orange px-4 py-2 font-semibold text-neutral-900 no-underline shadow-md hover:bg-surge-orange-bright"
                     />
                     <a
-                        href="https://github.com/surge-synthesizer/OB-Xf"
+                        href="https://github.com/surge-synthesizer/shortcircuit-xt"
                         class="inline-flex items-center justify-center rounded-md border border-neutral-900/25 px-4 py-2 font-semibold text-inherit no-underline hover:bg-neutral-900/5 dark:border-neutral-100/25 dark:hover:bg-neutral-100/10">
                         View on GitHub
                     </a>
@@ -57,8 +57,8 @@ const changelogBuildDate = Number.isNaN(latestBuildTime.getTime())
             </div>
             <div>
                 <Image
-                    src={ObxfCover}
-                    alt="OB-Xf interface screenshot"
+                    src={ScxtCover}
+                    alt="Shortcircuit XT interface screenshot"
                     quality="100"
                     format="png"
                     class=""
@@ -77,7 +77,7 @@ const changelogBuildDate = Number.isNaN(latestBuildTime.getTime())
                     <article
                         class="place-self-stretch rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
                         <h3 class="font-bold">Feature Title 01</h3>
-                        <p class="mt-2 text-sm">Short description placeholder for an OB-Xf capability.</p>
+                        <p class="mt-2 text-sm">Short description placeholder for a Shortcircuit XT capability.</p>
                     </article>
                     <article
                         class="place-self-stretch rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
@@ -87,7 +87,7 @@ const changelogBuildDate = Number.isNaN(latestBuildTime.getTime())
                     <article
                         class="place-self-stretch rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
                         <h3 class="font-bold">Feature Title 03</h3>
-                        <p class="mt-2 text-sm">Short description placeholder for sound design options.</p>
+                        <p class="mt-2 text-sm">Short description placeholder for modulation and mapping.</p>
                     </article>
                 </div>
             </div>
@@ -110,22 +110,22 @@ const changelogBuildDate = Number.isNaN(latestBuildTime.getTime())
             <div class="mx-auto w-full max-w-6xl">
                 <h2 class="text-2xl font-bold">Changelog</h2>
                 <p class="mt-2 max-w-prose text-sm">
-                    Latest nightly build updates for OB-Xf.
+                    Latest nightly build updates for Shortcircuit XT.
                     {changelogBuildDate && ` Last build: ${changelogBuildDate}.`}
                 </p>
                 <div
                     class="mt-4 rounded-lg border border-surge-orange/25 bg-white/80 p-6 shadow-sm dark:border-surge-orange/35 dark:bg-neutral-800/80">
                     <div class="flex flex-wrap items-center gap-3 text-sm">
-                        <span class="font-semibold">Latest commit: {obxf_build_nightly.latest_commit}</span>
+                        <span class="font-semibold">Latest commit: {scxt_build_nightly.latest_commit}</span>
                         <a
-                            href={obxf_build_nightly.releases.other}
+                            href={scxt_build_nightly.releases.other}
                             class="text-inherit underline underline-offset-2">
                             Full release notes
                         </a>
                     </div>
                     <ul class="mt-4 space-y-3 text-sm">
                         {
-                            obxf_build_nightly.recent_commits.map((entry) => (
+                            scxt_build_nightly.recent_commits.map((entry) => (
                                 <li class="rounded border border-surge-orange/20 bg-white/70 p-3 dark:border-surge-orange/30 dark:bg-neutral-900/40">
                                     <p class="font-semibold">{entry.message}</p>
                                     <p class="mt-1 text-xs">

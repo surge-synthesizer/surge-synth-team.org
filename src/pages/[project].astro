@@ -8,7 +8,7 @@ export async function getStaticPaths() {
     const projects = await getCollection("projects");
 
     return projects
-        .filter((project) => project.id !== "ob-xf")
+        .filter((project) => !["ob-xf", "shortcircuit-xt"].includes(project.id))
         .map((project) => ({
             params: { project: project.id },
             props: { project },
