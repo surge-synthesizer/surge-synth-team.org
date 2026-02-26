@@ -17,22 +17,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - uses: pnpm/action-setup@v4
-        with:
-          run_install: true
 
       - uses: actions/setup-node@v6
         with:
-          node-version-file: ".node-version"
-          cache: pnpm
+          node-version-file: "package.json"
+          cache: "pnpm"
+
+      - run: pnpm install
 
       - id: pages
         uses: actions/configure-pages@v5
 
-      - run: |
-          pnpm build
+      - run: pnpm build
 
       - uses: actions/upload-pages-artifact@v4
         with:
