@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-02-28T03:14:40.081479856",
+    "build_time": "2026-02-28T14:48:09.934089719",
     "data": {},
-    "latest_commit": "66de99e",
+    "latest_commit": "e9ff070",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "e9ff070",
+            "date": "2026-02-28T08:20:29-06:00",
+            "message": "Dont use sample mapping data in drag-drop gesture (#2363)"
+        },
         {
             "author": "Paul",
             "commit": "66de99e",
@@ -28,20 +34,14 @@
             "commit": "434b2d6",
             "date": "2026-02-27T09:09:50-05:00",
             "message": "SFZ Refactoring; Envelopes, and Vel XFades (#2359)"
-        },
-        {
-            "author": "Mike Thierman",
-            "commit": "471ab52",
-            "date": "2026-02-27T04:29:14-07:00",
-            "message": "Explicit version of Inno Setup in release workflow, bump checkout actions to v6 (#2357)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-28-66de99e-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-28-66de99e.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-28-e9ff070-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-28-e9ff070.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-28-66de99e-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-28-66de99e-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-28-e9ff070-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-28-e9ff070-Windows-64bit.zip"
     },
     "version": "main"
 }
