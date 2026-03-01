@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-02-28T15:17:51.159870769",
+    "build_time": "2026-03-01T00:22:38.620558156",
     "data": {},
-    "latest_commit": "fcae989",
+    "latest_commit": "89e59f5",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "89e59f5",
+            "date": "2026-02-28T17:57:37-06:00",
+            "message": "Rework error path so we get original source and line (#2367)"
+        },
         {
             "author": "Paul",
             "commit": "fcae989",
@@ -28,20 +34,14 @@
             "commit": "66de99e",
             "date": "2026-02-27T20:52:25-06:00",
             "message": "Modulation envelope target displays make correct tooltip (#2361)"
-        },
-        {
-            "author": "Paul",
-            "commit": "b607d97",
-            "date": "2026-02-27T18:25:19-06:00",
-            "message": "Fx a problem where variant 16 would screw up the tab display (#2360)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-28-fcae989-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-02-28-fcae989.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-03-01-89e59f5-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-03-01-89e59f5.dmg",
         "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-28-fcae989-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-02-28-fcae989-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-03-01-89e59f5-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-03-01-89e59f5-Windows-64bit.zip"
     },
     "version": "main"
 }
