@@ -39,7 +39,7 @@
     "releases": {
         "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-03-03-c4dba00-Linux.zip",
         "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-03-03-c4dba00.dmg",
-        "other": "https://github.com/shortcircuit-xt/releases-xt/releases/tag/Nightly",
+        "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
         "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-03-03-c4dba00-Windows-64bit.exe",
         "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-03-03-c4dba00-Windows-64bit.zip"
     },

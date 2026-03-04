@@ -1,0 +1,69 @@
+---
+type CommitEntry = {
+    author: string;
+    commit: string;
+    date: string;
+    message: string;
+};
+
+type NightlyBuildData = {
+    build_time: string;
+    latest_commit: string;
+    recent_commits: CommitEntry[];
+    releases: {
+        other: string;
+    };
+};
+
+interface Props {
+    productName: string;
+    nightly: NightlyBuildData;
+    id?: string;
+}
+
+const { productName, nightly, id = "changelog" } = Astro.props as Props;
+
+const latestBuildTime = new Date(nightly.build_time);
+const changelogBuildDate = Number.isNaN(latestBuildTime.getTime())
+    ? null
+    : latestBuildTime.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+      });
+---
+
+<section
+    id={id}
+    class="border-y border-surge-orange/20 bg-linear-to-b from-surge-orange/12 to-neutral-900/5 px-4 py-12 dark:border-surge-orange/30 dark:from-surge-orange/15 dark:to-neutral-100/5">
+    <div class="mx-auto w-full max-w-6xl">
+        <h2 class="text-2xl font-bold">Changelog</h2>
+        <p class="mt-2 max-w-prose text-sm">
+            Latest nightly build updates for {productName}.
+            {changelogBuildDate && ` Last build: ${changelogBuildDate}.`}
+        </p>
+        <div class="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+            <span class="font-semibold">Latest commit: {nightly.latest_commit}</span>
+            <a href={nightly.releases.other} class="text-inherit underline underline-offset-2">
+                Full release notes
+            </a>
+        </div>
+        <ul class="mt-4 divide-y divide-surge-orange/20 border-y border-surge-orange/20 text-sm dark:divide-surge-orange/30 dark:border-surge-orange/30">
+            {
+                nightly.recent_commits.map((entry) => (
+                    <li class="py-4">
+                        <p class="font-semibold">{entry.message}</p>
+                        <p class="mt-1 text-xs">
+                            {entry.author} · {entry.commit} ·{" "}
+                            {new Date(entry.date).toLocaleDateString("en-US", {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                            })}
+                        </p>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</section>

@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import scxt_build_nightly from "../content/generated/scxt-build-nightly.json" with { type: "json" };
+import ChangelogSection from "../components/ChangelogSection.astro";
 import DownloadButton from "../components/DownloadButton.astro";
 import NavHeader from "../components/NavHeader.astro";
 import ScxtCover from "../content/projects/screenshots/shortcircuit-xt.png";
@@ -13,14 +14,6 @@ const navLinks = [
     ["FAQ", "#faq"],
     ["About", "#about"],
 ] as const;
-const latestBuildTime = new Date(scxt_build_nightly.build_time);
-const changelogBuildDate = Number.isNaN(latestBuildTime.getTime())
-    ? null
-    : latestBuildTime.toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-      });
 ---
 <Base title="Shortcircuit XT">
     <NavHeader slot="nav" links={navLinks} currentProject="shortcircuit-xt" />
@@ -104,45 +97,7 @@ const changelogBuildDate = Number.isNaN(latestBuildTime.getTime())
             </div>
         </section>
 
-        <section
-            id="changelog"
-            class="border-y border-surge-orange/20 bg-linear-to-b from-surge-orange/12 to-neutral-900/5 px-4 py-12 dark:border-surge-orange/30 dark:from-surge-orange/15 dark:to-neutral-100/5">
-            <div class="mx-auto w-full max-w-6xl">
-                <h2 class="text-2xl font-bold">Changelog</h2>
-                <p class="mt-2 max-w-prose text-sm">
-                    Latest nightly build updates for Shortcircuit XT.
-                    {changelogBuildDate && ` Last build: ${changelogBuildDate}.`}
-                </p>
-                <div
-                    class="mt-4 rounded-lg border border-surge-orange/25 bg-white/80 p-6 shadow-sm dark:border-surge-orange/35 dark:bg-neutral-800/80">
-                    <div class="flex flex-wrap items-center gap-3 text-sm">
-                        <span class="font-semibold">Latest commit: {scxt_build_nightly.latest_commit}</span>
-                        <a
-                            href={scxt_build_nightly.releases.other}
-                            class="text-inherit underline underline-offset-2">
-                            Full release notes
-                        </a>
-                    </div>
-                    <ul class="mt-4 space-y-3 text-sm">
-                        {
-                            scxt_build_nightly.recent_commits.map((entry) => (
-                                <li class="rounded border border-surge-orange/20 bg-white/70 p-3 dark:border-surge-orange/30 dark:bg-neutral-900/40">
-                                    <p class="font-semibold">{entry.message}</p>
-                                    <p class="mt-1 text-xs">
-                                        {entry.author} · {entry.commit} ·{" "}
-                                        {new Date(entry.date).toLocaleDateString("en-US", {
-                                            year: "numeric",
-                                            month: "short",
-                                            day: "numeric",
-                                        })}
-                                    </p>
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </div>
-            </div>
-        </section>
+        <ChangelogSection productName="Shortcircuit XT" nightly={scxt_build_nightly} />
 
         <section
             id="faq"
