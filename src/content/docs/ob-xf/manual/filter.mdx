@@ -1,0 +1,66 @@
+---
+title: Filter
+sidebar:
+  order: 10
+---
+
+# Filter
+
+The Filter section contains the different parameters for the synthesizer's multimode filter.
+
+## Cutoff and Resonance
+
+- **Cutoff**: This knob sets the cutoff frequency of the filter, from ~33 Hz to ~33 KHz.
+- **Resonance**: This knob sets the resonance (or emphasis) of the filter. Different filter modes will respond differently to high resonance values.
+
+## Filter Modulation
+
+- **Env Amt**: This knob sets the amount of unipolar modulation of the filter cutoff frequency by the filter envelope. The polarity will either be positive or negative, based on the setting of the **Invert** button in the [Filter Envelope Section](#filter-envelope).
+- **Keytrack**: This knob sets the amount of modulation (bipolar) of the filter cutoff frequency by the note pitch. At 100%, the cutoff frequency will track the pitch of the notes played exactly (1 octave up = a doubling in cutoff frequency).
+
+## Filter Modes
+
+There are multiple options to configure the filter, depending on the setting of the 4-Pole button.
+
+### 4 Pole Disabled
+
+With the 4-Pole option is disabled, the filter will closely resemble the original SEM's filter, which is a 2-pole (12 dB/octave) continuous state-variable filter.
+
+#### Mode and BP Button
+
+The **Mode** knob allows to seamlessly blend between different filter types: from low-pass to notch to high-pass.
+The **Band-Pass** button replaces the notch filter with a band-pass filter. The **Mode** knob will therefore blend between low-pass, band-pass and high-pass.
+
+#### Push
+The **Push** button increases the maximum resonance of the filter, allowing it to self-oscillate.
+
+### 4 Pole Enabled
+
+With the 4-Pole option enabled, the filter will have 24 dB/octave topology, with some additional features outlined below.
+
+#### Mode
+
+The **Mode** knob allows to crossfade between the outputs found after each pole of the filter: from 24 dB/octave to 18 dB/octave to 12 dB/octave to 6 dB/octave.
+
+#### Xpander
+
+Switching on the **Xpander** button gives access to a set of different 24 dB/octave filter configurations, still based on the same OB-X filter behaviors. The **Mode** control is replaced with a dropdown menu to select between different filter types:
+
+- **LP4**: 4-pole low-pass filter (24 dB/octave)
+- **LP3**: 3-pole low-pass filter (18 dB/octave)
+- **LP2**: 2-pole low-pass filter (12 dB/octave)
+- **LP1**: 1-pole low-pass filter (6 dB/octave)
+- **HP3**: 3-pole high-pass filter (18 dB/octave)
+- **HP2**: 2-pole high-pass filter (12 dB/octave)
+- **HP1**: 1-pole high-pass filter (6 dB/octave)
+- **BP4**: 4-pole band-pass filter (24 dB/octave)
+- **BP2**: 2-pole band-pass filter (12 dB/octave)
+- **N2**: 2-pole notch filter (12 dB/octave)
+- **PH3**: 3-pole phase-shift filter (18 dB/octave)
+- **HP2 + LP1**: 2-pole high-pass filter in series with a 1-pole low-pass filter
+- **HP3 + LP1**: 3-pole high-pass filter in series with a 1-pole low-pass filter
+- **N2 + LP1**: 2-pole notch filter in series with a 1-pole low-pass filter
+- **PH3 + LP1**: 3-pole phase-shift filter in series with a 1-pole low-pass filter
+
+
+

@@ -9,7 +9,7 @@ import Base from "../layouts/Base.astro";
 
 const navLinks = [
     ["Home", "/"],
-    ["Manual", "#manual"],
+    ["Manual", "/ob-xf/manual/getting-started/"],
     ["Changelog", "#changelog"],
     ["FAQ", "#faq"],
     ["About", "#about"],
@@ -89,12 +89,13 @@ const navLinks = [
         <section id="manual" class="mx-auto w-full max-w-6xl px-4 py-12">
             <h2 class="text-2xl font-bold">Manual</h2>
             <p class="mt-2 max-w-prose text-sm">
-                Placeholder section for documentation intro and manual links.
+                The OB-Xf manual is now available as dedicated docs powered by Astro Starlight.
             </p>
-            <div
-                class="mt-4 rounded-lg border border-dashed border-neutral-900/30 p-6 text-sm dark:border-neutral-100/30">
-                Add manual copy and supporting media here.
-            </div>
+            <a
+                href="/ob-xf/manual/getting-started/"
+                class="mt-4 inline-flex items-center justify-center rounded-md bg-surge-blue px-4 py-2 font-semibold text-white no-underline hover:bg-surge-blue/90 dark:bg-surge-blue2 dark:text-neutral-900 dark:hover:bg-surge-blue2/90">
+                Open Manual
+            </a>
         </section>
 
         <ChangelogSection productName="OB-Xf" nightly={obxf_build_nightly} />

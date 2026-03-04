@@ -1,0 +1,42 @@
+---
+title: LFO
+sidebar:
+  order: 11
+---
+
+# LFO
+
+The LFO (Low-Frequency Oscillator) section contains the parameters for the synthesizer's two LFOs, which can be used to modulate various targets.
+
+## Sync and 1 & 2 Buttons
+- **Sync**: This button enables synchronization of the LFO rate to the host tempo when using a DAW. When enabled, the rate knob will be quantized to musical note divisions (e.g., 1/4, 1/8, 1/16).
+- **1 & 2 **: These buttons are used between LFO 1 and LFO 2, allowing you to edit the parameters of either LFO. Each LFO has its own set of parameters and modulation destinations.
+
+## Rate
+This knob sets the speed of the LFO, ranging from 0 Hz to 250 Hz. When the **Sync** button is enabled, the rate will be quantized to musical note divisions.
+
+## Shape Knobs
+The three shape knobs positioned one on top of the other allow you to set a blend of different waveforms at the LFO output:
+- **Shape 1: Sine - Triangle**: Set to the left to mix in sine wave, to the right for a triangle wave, and in the middle (DC) for neither.
+- **Shape 2: Saw - Ramp**: Set to the left to mix in a pulse wave, to the right for a sawtooth wave, and in the middle (DC) for neither. The vertical slider next to this knob adjusts the pulse width and the ramp's tension, for the pulse and sawtooth waveforms respectively.
+- **Shape 3: Sample&Hold - Sample&Glide**: Set to the left to mix in a sample & hold waveform, to the right for a sample & glide waveform, and in the middle (DC) for neither.
+
+## Destination Columns
+Two columns of destination buttons allow you to select two sets of modulation destinations and their amount.
+
+## Mod 1 and Mod 2
+These knobs set the amount of modulation applied to the selected destinations for each column.
+
+## Destination Buttons
+Each button corresponds to a specific modulation destination. When a button is activated, the LFO will modulate that parameter according to the amount set by the corresponding **Mod** knob. Each button has a positive and negative polarity option, represented by their left and right light indicators, respectively. The available modulation destinations include:
+- **MOD 1**:
+    - **OSC 1**: Modulates the pitch of oscillator 1.
+    - **OSC 2**: Modulates the pitch of oscillator 2.
+    - **Filter**: Modulates the cutoff frequency of the filter.
+- **MOD 2**:
+    - **PW 1**: Modulates the pulse width of oscillator 1.
+    - **PW 2**: Modulates the pulse width of oscillator 2.
+    - **Volume**: Modulates the amplitude at the amplifier stage (post-filter).
+
+
+
