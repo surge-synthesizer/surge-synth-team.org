@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-03-04T16:43:16.422595845",
+    "build_time": "2026-03-04T21:36:26.86118664",
     "data": {},
-    "latest_commit": "5ad1479",
+    "latest_commit": "8380413",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "8380413",
+            "date": "2026-03-04T22:25:09+01:00",
+            "message": "Context menu typein style tweaks (#596)"
+        },
         {
             "author": "EvilDragon",
             "commit": "5ad1479",
@@ -28,20 +34,14 @@
             "commit": "b34831b",
             "date": "2026-02-20T10:16:53+01:00",
             "message": "Add Delete Patch action (#589)"
-        },
-        {
-            "author": "Paul",
-            "commit": "689ec7e",
-            "date": "2026-02-19T17:00:06-05:00",
-            "message": "Avoid a crash when the assets list is empty (#588)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-04-5ad1479-Linux.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-04-5ad1479.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-04-8380413-Linux.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-04-8380413.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-04-5ad1479-Windows.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-04-5ad1479-Windows.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-04-8380413-Windows.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-04-8380413-Windows.zip"
     },
     "version": "main"
 }
