@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-03-03T17:21:38.813498467",
+    "build_time": "2026-03-04T02:22:08.601928176",
     "data": {},
-    "latest_commit": "c4dba00",
+    "latest_commit": "e2b1eb8",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Mike Thierman",
+            "commit": "e2b1eb8",
+            "date": "2026-03-03T18:56:11-07:00",
+            "message": "Website: Fix nightly link (#2378)"
+        },
         {
             "author": "Andreya-Autumn",
             "commit": "c4dba00",
@@ -28,20 +34,14 @@
             "commit": "fc05412",
             "date": "2026-03-01T08:21:23-06:00",
             "message": "Allow zone routing pane to edit group vel sens (#2370)"
-        },
-        {
-            "author": "Andreya-Autumn",
-            "commit": "b4adf60",
-            "date": "2026-03-01T02:52:36+01:00",
-            "message": "Sine Plus gets a waveform display"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-03-03-c4dba00-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-03-03-c4dba00.dmg",
-        "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-03-03-c4dba00-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-03-03-c4dba00-Windows-64bit.zip"
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-03-04-e2b1eb8-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-03-04-e2b1eb8.dmg",
+        "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-03-04-e2b1eb8-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-03-04-e2b1eb8-Windows-64bit.zip"
     },
     "version": "main"
 }
