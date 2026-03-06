@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-03-05T14:44:38.19287776",
+    "build_time": "2026-03-06T19:41:43.783103373",
     "data": {},
-    "latest_commit": "ada65b6",
+    "latest_commit": "be8eb8f",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "be8eb8f",
+            "date": "2026-03-06T14:30:14-05:00",
+            "message": "OnRelease in LAST mode should go to *newest* not *oldest* note (#599)"
+        },
         {
             "author": "EvilDragon",
             "commit": "ada65b6",
@@ -28,20 +34,14 @@
             "commit": "5ad1479",
             "date": "2026-03-04T17:31:57+01:00",
             "message": "Verbiage tweaks for menu scaling options (#595)"
-        },
-        {
-            "author": "Paul",
-            "commit": "35d5395",
-            "date": "2026-03-03T18:20:28-05:00",
-            "message": "Scale menus through Look and Feel (#593)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-05-ada65b6-Linux.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-05-ada65b6.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-06-be8eb8f-Linux.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-06-be8eb8f.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-05-ada65b6-Windows.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-05-ada65b6-Windows.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-06-be8eb8f-Windows.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-06-be8eb8f-Windows.zip"
     },
     "version": "main"
 }
