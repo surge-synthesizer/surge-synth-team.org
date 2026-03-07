@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-03-06T19:41:43.783103373",
+    "build_time": "2026-03-07T12:45:40.078539792",
     "data": {},
-    "latest_commit": "be8eb8f",
+    "latest_commit": "1e15299",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "1e15299",
+            "date": "2026-03-07T07:35:17-05:00",
+            "message": "Sustain Pedal fixes (#600)"
+        },
         {
             "author": "Paul",
             "commit": "be8eb8f",
@@ -28,20 +34,14 @@
             "commit": "8380413",
             "date": "2026-03-04T22:25:09+01:00",
             "message": "Context menu typein style tweaks (#596)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "5ad1479",
-            "date": "2026-03-04T17:31:57+01:00",
-            "message": "Verbiage tweaks for menu scaling options (#595)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-06-be8eb8f-Linux.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-06-be8eb8f.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-07-1e15299-Linux.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-07-1e15299.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-06-be8eb8f-Windows.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-06-be8eb8f-Windows.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-07-1e15299-Windows.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-07-1e15299-Windows.zip"
     },
     "version": "main"
 }
