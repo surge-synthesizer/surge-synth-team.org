@@ -29,7 +29,7 @@ export default defineConfig({
                         { label: "Master", slug: "ob-xf/manual/master" },
                         { label: "Global", slug: "ob-xf/manual/global" },
                         { label: "Control", slug: "ob-xf/manual/control" },
-                        { label: "Oscilllators", slug: "ob-xf/manual/oscillators" },
+                        { label: "Oscillators", slug: "ob-xf/manual/oscillators" },
                         { label: "Mixer", slug: "ob-xf/manual/mixer" },
                         { label: "Filter", slug: "ob-xf/manual/filter" },
                         { label: "LFO", slug: "ob-xf/manual/lfo" },
