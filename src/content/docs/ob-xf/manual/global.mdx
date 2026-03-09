@@ -6,7 +6,7 @@ sidebar:
 
 # Global
 
-The Global section contains different options that affect the entire synthesizer:
+The Global section contains parameters that affect the entire synthesizer.
 
 
 ## Poly
@@ -21,7 +21,7 @@ Enables the layering of multiple voices per note. The number of voices is set by
 
 ## Voices
 
-This value controls the number of voices played per note, from 1 to 8. 
+This value controls the number of voices played per note, from 1 to 32. 
 - Only enabled when [Unison](#unison) is switched on.
 - Higher values create a thicker sound by playing more voices simultaneously, but will reduce resulting polyphony.
 
@@ -34,7 +34,7 @@ Adjusts the amount of pitch variation between voices from 0 to 100 cents.
 
 
 ## HQ
-Enables 2x oversampling at the oscillators and filters level. This improves audio quality at the cost of increased CPU usage.
+Enables 2x oversampling of the whole voice structure. This improves audio quality at the cost of increased CPU usage.
 
 
 ## Glide
@@ -47,10 +47,10 @@ TODO: CONFIRM MAX TIME
 
 ## Env Legato
 
-Sets which envelopes are not retriggered when playing legato (overlapping) notes:
-- **Both (Both Envelopes)**: Neither the Amplifier nor the Filter envelope are retriggered.
-- **Filter (Filter Envelope Only)**: Only the Filter envelope is not retriggered.
-- **Amp (Ampplifier Envelope Only)**: Only the Amp envelope is not retriggered.
+Sets which envelopes are going to continue from their current position (i.e. they will NOT be retriggered) when playing legato (overlapping) notes:
+- **Both (Both Envelopes)**: Both envelopes will continue.
+- **Filter (Filter Envelope Only)**: Only the Filter Envelope will continue, Amp envelope will retrigger.
+- **Amp (Amplifier Envelope Only)**: Only the Amp Envelope is will continue, Filter envelope will retrigger.
 - **Retrig (Always Retrigger)**: Both envelopes are retriggered.
 
 
@@ -65,7 +65,7 @@ Sets which note is prioritized when the maximum number of voices is reached:
 
 ## Learn
 
-Enables MIDI learn mode. When enabled, clicking on a parameter will assign it to the next received MIDI CC message.
+Enables MIDI learn mode. When enabled, clicking on a parameter will focus it for receiving a MIDI CC message. Once you tweak your wanted MIDI controller, you can click on another parameter to repeat the procedure. If you want to remove an assignment, click the X button to the left of the MIDI CC number shown.
 
 
 ## Menu
@@ -83,26 +83,13 @@ This button opens a menu with the following options:
 - **Paste Patch**: Pastes a patch from the clipboard to the synthesizer.
 - **Open User Directory**: Opens the user directory where patches, banks and themes are stored.
 
-
-### Patches
-
-This submenu contains a list of all groups and patches in the current bank. Selecting a patch from the list loads it into the synthesizer.
-
-
-### Banks
-
-This submenu contains a list of all available banks. Selecting a bank from the list loads it into the synthesizer.
-
-
-### MIDI Mappings
-
-#### Clear MIDI Mappings
-
-Clears all MIDI mappings currently assigned to parameters.
+### MIDI Mapping
+- **Clear MIDI Mapping**: Clears all MIDI CC assignments.
+- **Save MIDI Mapping...**: Stores the current MIDI CC assignments to a file for later recall.
 
 ### Themes
 
-This submenu contains a list of all available Fatory and User themes. User themes can be added to the user directory (see [Open User Directory](#file) above).
+This submenu contains a list of all available Factory and User themes. User themes can be added to the user directory (see [Open User Directory](#file) above).
 
 ### Zoom
 
