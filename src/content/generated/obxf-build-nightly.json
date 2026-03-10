@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-03-09T23:15:26.987126574",
+    "build_time": "2026-03-10T20:05:16.800116484",
     "data": {},
-    "latest_commit": "fb70015",
+    "latest_commit": "c76b104",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Joe",
+            "commit": "c76b104",
+            "date": "2026-03-10T19:54:13Z",
+            "message": "Revert \"Enable Windows Clang build in GitHub Actions (#603)\" (#604)"
+        },
+        {
+            "author": "Joe",
+            "commit": "c6990c1",
+            "date": "2026-03-10T19:39:42Z",
+            "message": "Enable Windows Clang build in GitHub Actions (#603)"
+        },
         {
             "author": "EvilDragon",
             "commit": "fb70015",
@@ -22,26 +34,14 @@
             "commit": "be8eb8f",
             "date": "2026-03-06T14:30:14-05:00",
             "message": "OnRelease in LAST mode should go to *newest* not *oldest* note (#599)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "ada65b6",
-            "date": "2026-03-05T15:34:13+01:00",
-            "message": "Fix menus in Audio/MIDI settings dialog not showing text (#598)"
-        },
-        {
-            "author": "Paul",
-            "commit": "e565918",
-            "date": "2026-03-04T17:03:07-05:00",
-            "message": "Fix look and feel on standalone; fix menu scaling error (#597)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-09-fb70015-Linux.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-09-fb70015.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-10-c76b104-Linux.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-10-c76b104.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-09-fb70015-Windows.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-09-fb70015-Windows.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-10-c76b104-Windows.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-10-c76b104-Windows.zip"
     },
     "version": "main"
 }
