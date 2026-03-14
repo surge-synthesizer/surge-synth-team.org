@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-03-10T20:05:16.800116484",
+    "build_time": "2026-03-14T16:21:05.150264771",
     "data": {},
-    "latest_commit": "c76b104",
+    "latest_commit": "dfb8e2a",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "dfb8e2a",
+            "date": "2026-03-14T17:09:40+01:00",
+            "message": "Add more 0.5°patches (#605)"
+        },
         {
             "author": "Joe",
             "commit": "c76b104",
@@ -28,20 +34,14 @@
             "commit": "1e15299",
             "date": "2026-03-07T07:35:17-05:00",
             "message": "Sustain Pedal fixes (#600)"
-        },
-        {
-            "author": "Paul",
-            "commit": "be8eb8f",
-            "date": "2026-03-06T14:30:14-05:00",
-            "message": "OnRelease in LAST mode should go to *newest* not *oldest* note (#599)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-10-c76b104-Linux.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-10-c76b104.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-14-dfb8e2a-Linux.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-14-dfb8e2a.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-10-c76b104-Windows.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-10-c76b104-Windows.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-14-dfb8e2a-Windows.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-14-dfb8e2a-Windows.zip"
     },
     "version": "main"
 }
