@@ -35,6 +35,7 @@ export default defineConfig({
                         { label: "LFO", slug: "ob-xf/manual/lfo" },
                         { label: "Envelopes", slug: "ob-xf/manual/envelopes" },
                         { label: "Voice Variation", slug: "ob-xf/manual/voice-variation" },
+                        { label: "Theme Authoring", slug: "ob-xf/manual/theme-authoring" },
                     ],
                 },
             ],
