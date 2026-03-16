@@ -1,0 +1,431 @@
+---
+title: Theme Authoring
+sidebar:
+  order: 14
+---
+
+# OB-Xf Theme Authoring Guide
+
+This guide explains how to create a custom skin (theme) for OB-Xf. A theme lives in its own
+folder and consists of a `theme.xml` layout file plus a collection of graphical assets — either
+PNG bitmaps or SVG vectors.
+
+---
+
+## Where Themes Live
+
+Themes are stored in the OB-Xf user data directory under:
+
+```
+<UserData>/Surge Synth Team/OB-Xf/Themes/<ThemeName>/
+```
+
+To create a new theme, make a new folder with your theme name and place your `theme.xml` and
+assets inside it.
+
+### Default Bitmap Theme — Installed Location
+
+The built-in **Default** bitmap theme is installed by the OB-Xf installer and is a good
+reference for bitmap-based skins. After running the installer you will find it at:
+
+| Platform | Path |
+|----------|------|
+| **macOS** | `/Library/Application Support/Surge Synth Team/OB-Xf/Themes/Default/` |
+| **Windows (system-wide install)** | `%ProgramData%\Surge Synth Team\OB-Xf\Themes\Default\` |
+| **Windows (per-user install)** | `%LocalAppData%\Surge Synth Team\OB-Xf\Themes\Default\` |
+| **Linux (system-wide install)** | `/usr/share/Surge Synth Team/OB-Xf/Themes/Default/` |
+| **Linux (per-user install)** | `~/.local/share/Surge Synth Team/OB-Xf/Themes/Default/` |
+
+> **Tip (Linux):** The exact data directory OB-Xf is using on your system is shown in the
+> plugin's **About** screen. If the path differs from the defaults above (e.g. because
+> `CMAKE_INSTALL_PREFIX` or `XDG_DATA_HOME` is set), use the path shown there instead.
+
+### Vector Theme — Downloading from GitHub
+
+The **VectorTheme** is the reference for SVG-based skins. It lives in the OB-Xf source
+repository on GitHub. You can download it without cloning the entire repo using `git
+sparse-checkout`, or simply browse and download the folder directly from GitHub.
+
+**Option 1 — Download the folder via the GitHub web UI:**
+
+1. Go to <https://github.com/surge-synthesizer/OB-Xf>
+2. Navigate to `assets/binary/VectorTheme/`
+3. Use the **Download ZIP** button (or a tool such as
+   [DownGit](https://minhaskamal.github.io/DownGit)) to download just that folder.
+4. Extract the contents into a new folder inside your OB-Xf Themes directory, e.g.
+   `<UserData>/Surge Synth Team/OB-Xf/Themes/MyVectorTheme/`.
+
+**Option 2 — Sparse clone with Git:**
+
+```bash
+git clone --filter=blob:none --sparse \
+    https://github.com/surge-synthesizer/OB-Xf.git ob-xf-src
+cd ob-xf-src
+git sparse-checkout set assets/binary/VectorTheme
+```
+
+The theme files will then be at `ob-xf-src/assets/binary/VectorTheme/`. Copy that folder
+(or its contents) into your OB-Xf Themes directory.
+
+---
+
+## theme.xml — Layout File
+
+Every theme must contain a `theme.xml` at the root of the theme folder. This file tells OB-Xf
+where every widget is positioned on screen and which graphical asset it uses.
+
+### File Structure
+
+```xml
+<?xml version="1.0"?>
+<obxf-theme>
+    <widget name="volumeKnob"   x="52"  y="127"              d="40"  pic="knob"     />
+    <widget name="hqModeButton" x="128" y="233" w="23" h="35"        pic="button"   />
+    <widget name="slider-h"     x="844" y="110" w="50" h="13" fh="13" pic="slider-h" />
+    <!-- ... -->
+</obxf-theme>
+```
+
+The root element is `<obxf-theme>`. Each child `<widget>` element describes one control.
+
+### Widget Attributes
+
+| Attribute | Applies to | Description |
+|-----------|-----------|-------------|
+| `name`    | all       | Unique widget identifier — **must not be changed**. |
+| `x`       | all       | Left edge of the widget in pixels (at 1× zoom). |
+| `y`       | all       | Top edge of the widget in pixels (at 1× zoom). |
+| `w`       | buttons, menus, sliders, labels | Width in pixels. |
+| `h`       | buttons, menus, sliders, labels | Height in pixels. |
+| `d`       | knobs (PNG filmstrip) | Diameter of the knob in pixels. Also used as the track length for SVG layered sliders (see below). |
+| `fh`      | sliders, labels | Frame height — the height of a single frame within the filmstrip. |
+| `pic`     | most widgets | Filename of the asset to use, **without extension**. |
+
+### Widget Types
+
+#### Knobs
+
+A widget becomes a **knob** when you supply the `d` attribute instead of `w`/`h`:
+
+```xml
+<widget name="filterCutoffKnob" x="616" y="48" d="40" pic="knob" />
+```
+
+`d` sets both the display diameter and (for PNG themes) the frame size within the filmstrip.
+
+#### Buttons
+
+Buttons use `w` and `h`. The asset is a vertical filmstrip where each frame is `h` pixels tall:
+
+```xml
+<widget name="hqModeButton" x="128" y="233" w="23" h="35" pic="button" />
+```
+
+#### Sliders
+
+A widget becomes a **slider** when you use `w`, `h`, and `fh` (frame height) instead of `d`.
+OB-Xf automatically determines drag direction from the aspect ratio: if `w > h` the slider is
+horizontal; if `h > w` it is vertical.
+
+```xml
+<!-- Horizontal slider -->
+<widget name="filterEnvAttackCurveSlider" x="844" y="110" w="50" h="13" fh="13" pic="slider-h" />
+
+<!-- Vertical slider -->
+<widget name="someVerticalSlider" x="100" y="200" w="13" h="50" fh="13" pic="slider-v" />
+```
+
+#### Menus
+
+Menus use `w` and `h` but do **not** use a `pic` attribute — their appearance is drawn by the
+host/OS. You only control their position and size:
+
+```xml
+<widget name="polyphonyMenu" x="56" y="235" w="31" h="31" />
+```
+
+#### Labels / Decorative Images
+
+Static images (waveform icons, LED indicators, background panels, etc.) use `w`, `h`, and
+optionally `fh`:
+
+```xml
+<widget name="osc1TriangleLabel" x="299" y="170" w="16" h="10" pic="label-osc-triangle" />
+```
+
+### The `pic` Attribute and Default Names
+
+Most widgets have a **hardcoded default filename** that is used when `pic` is omitted. You only
+need to supply `pic` when you want to use a differently-named asset. The comments in the
+reference `theme.xml` files indicate which widgets have hardcoded names (shown as commented-out
+`pic` attributes).
+
+```xml
+<!-- hardcoded name — pic attribute is optional here -->
+<widget name="polyphonyMenu" x="56" y="235" w="31" h="31" /> <!-- pic="menu-poly" -->
+
+<!-- explicit pic — useful when sharing one asset across multiple widgets -->
+<widget name="volumeKnob" x="52" y="127" d="40" pic="knob" />
+```
+
+### Knob-to-Slider Conversion
+
+Any knob can be turned into a slider (and vice versa) purely through the attributes you supply:
+
+- Provide `d` → treated as a **knob**.
+- Provide `w`, `h`, `fh` → treated as a **slider**.
+
+This lets you redesign the interaction style of a control without changing its `name`.
+
+---
+
+## Bitmap (PNG) Themes
+
+In a bitmap theme every asset is a PNG file. OB-Xf supports three zoom levels and selects the
+appropriate file automatically based on the display scale factor.
+
+### Zoom Levels / HiDPI Variants
+
+| Suffix  | Scale | Example filename  |
+|---------|-------|-------------------|
+| *(none)*| 1×    | `knob.png`        |
+| `@2x`   | 2×    | `knob@2x.png`     |
+| `@4x`   | 4×    | `knob@4x.png`     |
+
+You must supply all three variants for every asset. The `@2x` image should be exactly twice the
+pixel dimensions of the base image, and `@4x` exactly four times.
+
+### Knob Filmstrips
+
+A knob asset is a **vertical filmstrip**: a single PNG that contains every rotation frame stacked
+top-to-bottom. The frame size equals the knob diameter `d` × `d` pixels.
+
+**Default theme example — `knob.png`:**
+
+- Diameter (`d`): 40 px
+- Frame size: 40 × 40 px
+- Total frames: 140
+- Image size: 40 × 5 600 px (`40 × 140 = 5600`)
+- `knob@2x.png`: 80 × 11 200 px
+- `knob@4x.png`: 160 × 22 400 px
+
+Frame 0 (top) is the fully counter-clockwise position; the last frame is fully clockwise. OB-Xf
+selects the frame that corresponds to the current parameter value.
+
+### Button Filmstrips
+
+Buttons are also vertical filmstrips. Each frame is `w` × `h` pixels. OB-Xf uses two
+different frame-layout conventions depending on the button type.
+
+#### Standard Toggle Buttons (2 states, 4 frames)
+
+Most buttons are simple on/off toggles. Their filmstrip has **4 frames**:
+
+| Frame | State |
+|-------|-------|
+| 0 | Off — not pressed |
+| 1 | Off — pressed (mouse held down) |
+| 2 | On — not pressed |
+| 3 | On — pressed (mouse held down) |
+
+**Default theme example — `button.png`:**
+
+- Widget size: 23 × 35 px
+- Total frames: 4 (image height 140 px = 4 × 35)
+- `button@2x.png`: 46 × 280 px
+
+#### Multi-State Buttons (N states, N×2 frames)
+
+Some buttons cycle through more than two states. The noise colour button
+(`button-slim-noise`) is the primary example — it has **3 states** (e.g. white noise,
+pink noise, off) and therefore **6 frames**.
+
+The frame layout for an N-state button is:
+
+```
+frame = (stateIndex * 2) + mouseButtonPressed
+```
+
+So for a 3-state button the filmstrip is:
+
+| Frame | State |
+|-------|-------|
+| 0 | State 0 — not pressed |
+| 1 | State 0 — pressed |
+| 2 | State 1 — not pressed |
+| 3 | State 1 — pressed |
+| 4 | State 2 — not pressed |
+| 5 | State 2 — pressed |
+
+**Default theme example — `button-slim-noise.png`:**
+
+- Widget size: 18 × 13 px (`h="13"` in `theme.xml`)
+- Total frames: 6 (image height 78 px = 6 × 13)
+- `button-slim-noise@2x.png`: 36 × 156 px
+
+> **Tip:** To find out how many states a particular button has, count the frames in the
+> Default theme filmstrip (`imageHeight / h`) and divide by 2. If the result is 2 it is a
+> standard toggle; if it is 3 or more it is a multi-state button.
+
+### Slider Filmstrips
+
+Sliders use a filmstrip where each frame is `w` × `fh` pixels (for horizontal sliders) or
+`fh` × `h` pixels (for vertical sliders). The filmstrip encodes every thumb position.
+
+**Default theme example — `slider-h.png` (horizontal):**
+
+- Widget: `w="50" h="13" fh="13"`
+- Frame size: 50 × 13 px
+- Total frames: 190 (image height 2 470 px = 190 × 13)
+
+**Default theme example — `slider-v.png` (vertical):**
+
+- Widget: `w="13" h="50" fh="13"` (example)
+- Frame size: 13 × 13 px (one frame per position)
+- Total frames: ~477 (image height 6 200 px)
+
+### Asset Checklist for a Bitmap Theme
+
+For every asset referenced by `pic` in your `theme.xml`, provide:
+
+```
+<name>.png
+<name>@2x.png
+<name>@4x.png
+```
+
+Also provide the background panel:
+
+```
+background.png
+background@2x.png
+background@4x.png
+```
+
+---
+
+## Vector (SVG) Themes
+
+In a vector theme, assets are SVG files. Because SVGs scale losslessly, you do **not** need
+`@2x` or `@4x` variants — a single SVG file serves all display densities.
+
+### Simple SVG Assets
+
+For static images (backgrounds, labels, button faces, menu decorations) a single SVG file is
+used directly. The filename matches the `pic` attribute in `theme.xml`, with a `.svg` extension:
+
+```
+button.svg
+button-slim.svg
+label-osc-triangle.svg
+background.svg
+```
+
+The SVG's `width` and `height` attributes should match the logical pixel dimensions used in
+`theme.xml`.
+
+### Layered SVGs for Knobs
+
+Knobs in a vector theme are rendered from **two SVG layers**:
+
+| File             | Role |
+|------------------|------|
+| `knob-layer1.svg`| Static background (body, shadow, ring) — does not rotate. |
+| `knob-layer2.svg`| Rotating indicator (pointer, dot, line) — rotated by OB-Xf. |
+
+OB-Xf composites layer 1 underneath layer 2, rotating layer 2 around the centre of the knob to
+reflect the current parameter value. Both SVGs should be the same size (matching the `d`
+attribute in `theme.xml`).
+
+**Design tips:**
+
+- Keep `knob-layer1.svg` as the knob body with no directional indicator.
+- Put only the pointer/indicator in `knob-layer2.svg`, centred on the SVG canvas so rotation
+  works correctly around the middle.
+- The rotation range is typically −135° to +135° (270° total sweep), matching the classic
+  OB-X style.
+
+### Layered SVGs for Sliders
+
+Sliders follow the same two-layer pattern:
+
+| File                  | Role |
+|-----------------------|------|
+| `slider-h-layer1.svg` | Static horizontal track. |
+| `slider-h-layer2.svg` | Thumb / handle that moves horizontally. |
+| `slider-v-layer1.svg` | Static vertical track. |
+| `slider-v-layer2.svg` | Thumb / handle that moves vertically. |
+
+For SVG sliders the `d` attribute in `theme.xml` is repurposed as the **travel distance** in
+pixels — the number of pixels the thumb moves from its minimum to maximum position. The `w` and
+`h` attributes set the overall bounding box of the widget.
+
+### Asset Checklist for a Vector Theme
+
+```
+background.svg
+knob-layer1.svg
+knob-layer2.svg
+slider-h-layer1.svg
+slider-h-layer2.svg
+slider-v-layer1.svg
+slider-v-layer2.svg
+button.svg
+button-slim.svg
+button-alt.svg
+button-slim-alt.svg
+button-clear.svg
+button-clear-red.svg
+button-clear-white.svg
+button-dual.svg
+button-dual-alt.svg
+button-group-patch.svg
+button-slim-noise.svg
+button-slim-vibrato-wave.svg
+label-osc-triangle.svg
+label-osc-pulse.svg
+label-lfo-wave2.svg
+label-filter-mode.svg
+label-filter-options.svg
+label-bg-save-patch.svg
+label-led1.svg
+label-led2.svg
+label-led3.svg
+label-led4.svg
+menu-poly.svg
+menu-voices.svg
+menu-legato.svg
+menu-note-priority.svg
+menu-pitch-bend.svg
+menu-patch.svg
+menu-categories.svg
+menu-xpander.svg
+```
+
+---
+
+## Tips and Workflow
+
+1. **Start from a reference theme.** Copy the Default (PNG) or VectorTheme (SVG) folder and
+   rename it. Edit `theme.xml` and replace assets one at a time.
+
+2. **Keep widget `name` values unchanged.** The names are how OB-Xf identifies controls
+   internally. Changing them will break the layout.
+
+3. **Match logical pixel dimensions.** All coordinates and sizes in `theme.xml` are in logical
+   (1×) pixels. For PNG themes, the `@2x` and `@4x` images must be exact integer multiples of
+   the base image.
+
+4. **Filmstrip frame count matters.** OB-Xf derives the number of animation frames from the
+   image height divided by the frame height (`fh` or `d`). Make sure your filmstrip height is
+   an exact multiple of the frame size.
+
+5. **SVG canvas size.** Set the SVG `width`/`height` to match the logical pixel size of the
+   widget. For knob layers, both SVGs must be the same size.
+
+6. **Test at multiple zoom levels.** Run OB-Xf at 100%, 200%, and 400% UI scale to verify
+   that PNG assets look sharp and SVG assets render correctly at all sizes.
+
+7. **The `pic` attribute is optional for most widgets.** If you omit it, OB-Xf falls back to
+   the hardcoded default filename. You only need `pic` when you want to use a custom name or
+   share one asset across multiple widgets.
