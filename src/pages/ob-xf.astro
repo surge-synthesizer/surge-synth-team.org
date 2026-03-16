@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import obxf_build_stable from "../content/generated/obxf-build-stable.json" with { type: "json" };
 import obxf_build_nightly from "../content/generated/obxf-build-nightly.json" with { type: "json" };
 import ChangelogSection from "../components/ChangelogSection.astro";
 import DownloadButton from "../components/DownloadButton.astro";
@@ -33,11 +34,11 @@ const navLinks = [
                 </p>
                 <div class="flex flex-wrap gap-3">
                     <DownloadButton
-                        windows={obxf_build_nightly.releases.win64}
-                        mac={obxf_build_nightly.releases.macos}
-                        linux={obxf_build_nightly.releases.linux64}
-                        other={obxf_build_nightly.releases.other}
-                        label="Download Nightly"
+                        windows={obxf_build_stable.releases.win64}
+                        mac={obxf_build_stable.releases.macos}
+                        linux={obxf_build_stable.releases.linux64}
+                        other={obxf_build_stable.releases.other}
+                        label="Download v1.0.0"
                         id="obxf-release-link"
                         buttonClass="inline-flex items-center justify-center rounded-md bg-surge-orange px-4 py-2 font-semibold text-neutral-900 no-underline shadow-md hover:bg-surge-orange-bright"
                     />

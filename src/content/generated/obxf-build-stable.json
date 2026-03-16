@@ -1,0 +1,15 @@
+{
+    "build_time": "2026-03-16T02:22:08.000Z",
+    "data": {},
+    "latest_commit": "5044e2e",
+    "name": "ob-xf",
+    "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
+    "releases": {
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/v1.0.0/ob-xf-Linux-2026-03-16-5044e2e.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/v1.0.0/ob-xf-macOS-2026-03-16-5044e2e.dmg",
+        "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/v1.0.0",
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/v1.0.0/ob-xf-Windows-2026-03-16-5044e2e.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/v1.0.0/ob-xf-Windows-2026-03-16-5044e2e.zip"
+    },
+    "version": "1.0.0"
+}
