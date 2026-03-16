@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-03-16T01:55:23.992123739",
+    "build_time": "2026-03-16T02:36:09.09156871",
     "data": {},
-    "latest_commit": "5044e2e",
+    "latest_commit": "6daa631",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "6daa631",
+            "date": "2026-03-15T22:24:31-04:00",
+            "message": "Move CMake version to 1.1.0.build"
+        },
         {
             "author": "Paul Walker",
             "commit": "5044e2e",
@@ -28,20 +34,14 @@
             "commit": "dfb8e2a",
             "date": "2026-03-14T17:09:40+01:00",
             "message": "Add more 0.5°patches (#605)"
-        },
-        {
-            "author": "Joe",
-            "commit": "c76b104",
-            "date": "2026-03-10T19:54:13Z",
-            "message": "Revert \"Enable Windows Clang build in GitHub Actions (#603)\" (#604)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-16-5044e2e-Linux.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-16-5044e2e.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-16-6daa631-Linux.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-16-6daa631.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-16-5044e2e-Windows.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-16-5044e2e-Windows.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-16-6daa631-Windows.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/obxf-2026-03-16-6daa631-Windows.zip"
     },
     "version": "main"
 }
