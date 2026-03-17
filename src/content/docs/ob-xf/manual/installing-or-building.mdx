@@ -16,40 +16,18 @@ To build OB-Xf from source, see [our GitHub repository](https://github.com/surge
 
 On the Windows platform, OB-Xf installs optionally as:
 
-- 32-bit VST3, with filename `OB-Xf.vst3`
 - 64-bit VST3, with filename `OB-Xf.vst3`
-- CLAP plug-in instrument, with filename `OB-Xf.clap`
+- 64-bit CLAP plug-in instrument, with filename `OB-Xf.clap`
 - Standalone executable, with filename `OB-Xf.exe`
 
-System Requirements:
-
-- Windows 7 or newer
-- A reasonably fast CPU (Pentium 4/Athlon 64 or above)
-- At least 4GB of RAM
-- VST-compatible host application
-
-To use the 64-bit version on Windows you also need:
-
-- A CPU supporting the x64 (AMD64/EM64T) instruction set
-- A 64-bit version of Windows
-- An application to host 64-bit VST/CLAP plug-ins (for plugin versions)
-
-VST3 and CLAP versions of the plug-in install to default plug-in locations.
-If your host application does not find OB-Xf, check that your application supports VST3 or CLAP,
-and make it scan for plugins.
+The installer will install assets to the appropriate location for each format.
+Windows builds are also available for arm64 and arm64ec, separately.
 
 
 ## macOS
 
 On macOS, OB-Xf installs as a 64-bit Plug-in Instrument for the Audio Unit (AU), VST3, and CLAP plug-in interfaces,
-and as a standalone application.
-
-System Requirements:
-
-- Mac OS X 10.11 or newer
-- A 64-bit x86 Intel or ARM Apple Silicon CPU
-- At least 4GB of RAM
-- 64-bit AU, CLAP or VST-compatible host application (for plugin versions)
+and as a standalone application. It requires macOS 10.15 or later.
 
 To install OB-Xf, run the packaged installer. You have the option to install AU `OB-Xf.component`, VST3,
 and CLAP, along with factory patches and wavetables. The packaged installer installs OB-Xf for all users
@@ -58,17 +36,14 @@ of your system.
 
 ## Linux
 
-On Linux, OB-Xf is available as a 64-bit VST3 and CLAP as a **deb** and **RPM** package.
-It is also offered as a standalone application.
-
-The system requirements can be hard to determine, as there are many Linux distributions, and other factors.
+On Linux, OB-Xf is available as a 64-bit VST3 CLAP and Standalone as a **deb** package, as a **zip**
+file or as source.
 
 The installation package on the **OB-Xf website** is a Debian package.
 
-The distribution package is built on Ubuntu 18.04.
+The distribution package is built on Ubuntu 22.04
 
 A list of required packages is listed in the source and in the deb file.
-
 
 ## Standalone Version Options
 
@@ -76,9 +51,6 @@ If you are running OB-Xf as a standalone executable, options at the top-left:
 - Configure MIDI and audio inputs and outputs
 - Save and open state files for the synth
 - Reset OB-Xf to the default state
-
-The **BPM** setting is to the left of the virtual keyboard at the bottom of the window.
-This sets the tempo for parameters that can be tempo-synced.
 
 
 
