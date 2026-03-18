@@ -1,62 +1,76 @@
 ---
-title: User Interface Basics
+title: User Interface
 sidebar:
   order: 3
 ---
 
-OB-Xf is seperated in different sections:
-- [Patch Memory](#patch-memory)
-- [Master](#master)
-- [Global](#global)
-- [Oscillators](#oscillators)
-- [Control](#control)
-- [Mixer](#mixer)
-- [Filter](#filter)
-- [LFO](#lfo)
-- [Filter Envelope](#filter-envelope)
-- [Amplitude Envelope](#amplitude-envelope)
-- [Voice Variation](#voice-variation)
+OB-Xf user interface is seperated into the following sections:
+- [Programmer](../#programmer)
+- [Master](../#master)
+- [Global](../#global)
+- [Oscillators](../#oscillators)
+- [Control](../#control)
+- [Mixer](../#mixer)
+- [Filter](../#filter)
+- [LFO](../#lfo)
+- [Filter Envelope](../#envelopes)
+- [Amplifier Envelope](../#envelopes)
+- [Voice Variation](../#voice-variation)
 
-{/* ![Illustration 1: The different sections of the OB-Xf user interface.]() */}
+{/* ![Illustration 1: The different sections of the OB-Xf user interface.](INSERT-IMAGE-PATH-HERE) */}
 
+## Control Types
 
-## Knobs and Controls
+OB-Xf parameters can be controlled with knobs, toggle buttons, multi-state buttons, menus and text entries.
 
-Surge XT parameters display as number fields, value fields, buttons, or knobs.
+### Knobs
 
-Knob movement:
+{/* ![Illustration 2: Nicely cropped image of the Cutoff knob](INSERT-IMAGE-PATH-HERE) */}
 
-- **Left mouse button and drag vertically** rotates the knob
-- **Shift + Left mouse button and drag vertically** moves the knob with fine control
-- **Scroll Wheel** moves the knob in steps
-- **Shift + Scroll Wheel** moves the slider in small steps
+- **Left click** and dragging vertically moves the knob.
+- Holding **Shift** while dragging vertically moves the knob with much higher precision.
+- **Mousewheel** moves the knob in steps.
+- Holding **Shift** while operating the mousewheel moves the slider in small steps.
+- For knobs pertaining to pitch adjustment, holding **Alt (⌥ on macOS)** will jump in predefined intervals (4th, 5th, octave, and their multiples).
+- **Hovering** above the knob will uncover a popup showing the parameter's value.
+- **Double-click** resets the parameter to its default value.
+- **Right-click** displays the parameter's context menu
 
-Other slider actions:
+#### Knob Context Menu
 
-- If you have Alt pressed when you release a left-drag, the slider snaps back to its initial position
-- **Double Left-click** resets the parameter to its default value
-- **Right-click** displays the context menu
-- **Hover** displays its value
+{/* ![Illustration 3: Knob context menu in standalone](INSERT-IMAGE-PATH-HERE) */}
 
-### Knob Context Menu
+The knob context menu provides the full name of the parameter, a text entry field displaying the parameter value (which is also automatically selected and awaiting text input),
+and and option to reset the parameter to its default value.
 
-Right-click on a knob to display its context menu.
+Pan knobs in Voice Variation section provide additional options. More about that in [Voice Variation](#voice-variation) section.
 
-{/* ![Illustration 3: Knob context menu](INSERT-IMAGE-PATH-HERE) */}
+{/* ![Illustration 4: Knob context menu in host](INSERT-IMAGE-PATH-HERE) */}
 
-#### Name and Contextual Help
-
-For help with a parameter, select the **?** option, or hover the parameter and press F1.
-
-#### Edit Value
-
-A text field with the highlighted current value is displayed, and a new value can be typed in. There is no need to enter the unit of the entered value.
-Press Enter to commit the change. To exit without committing the change, press Escape or focus elsewhere.
+Certain hosts can provide additional context menu options for VST3 and CLAP formats, which would show here. These options are usually related to parameter automation, MIDI learn, and so on.
 
 
-#### Host Controls
+### Toggle and Multi-state Buttons
 
-If you use the CLAP or VST3 version of Surge XT, and depending on your host, options from your host may display in this sub-menu. These can be related to automation, MIDI, or parameter values.
+{/* ![Illustration 5: Nicely cropped image of the Oscillator 1 waveform selectors and Osc 1+2/Inv slim buttons where saw and Osc 1+2 are enabled and others disabled](INSERT-IMAGE-PATH-HERE) */}
+
+These controls are as straightforward as they can be. Left click will change their value, the only difference is that multi-state buttons have more states than just on and off.
+They are signified either by existence of two LEDs on them, or by rotating through multiple colors, as showcased below.
+
+{/* ![Illustration 6: Nicely cropped image of noise color button and LFO target buttons in all of their states](INSERT-IMAGE-PATH-HERE) */}
 
 
+### Menus
 
+{/* ![Illustration 7: Nicely cropped image of Note Priority menu, with the context menu showing](INSERT-IMAGE-PATH-HERE) */}
+
+These controls provide multiple options through a context menu, and are stylized to look like 14-segment LCDs for that ultimate vintage synthesizer vibe.
+
+Simply click on the LCD and the options will show!
+
+
+### Text Entry
+
+{/* ![Illustration 8: Nicely cropped image of the patch name text entry field, both unselected and selected](INSERT-IMAGE-PATH-HERE) */}
+
+These controls allow you to input text, which is crucial for specifying important patch information like name, author and license.

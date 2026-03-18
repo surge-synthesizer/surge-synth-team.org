@@ -5,16 +5,19 @@ sidebar:
 ---
 
 # Filter and Amplifier Envelopes
-OB-Xf features two ADSR envelopes per voice: one for the filter and one for the amplifier. Both envelopes have the same set of parameters:
 
-## Basic Parameters
-- **Attack**: This knob sets the time it takes for the envelope to rise from 0 to its maximum level after a note is pressed. The attack time can range from very fast (1 ms) to very slow (up to 60 seconds).
-- **Decay**: This knob sets the time it takes for the envelope to fall from its maximum level to the sustain level after the attack phase is complete. The decay time can also range from very fast (1 ms) to very slow (up to 60 seconds).
-- **Sustain**: This knob sets the level at which the envelope will hold after the decay phase, as long as the note is held. The sustain level can be set from 0% (no sustain) to 100% (full sustain).
-- **Release**: This knob sets the time it takes for the envelope to fall from the sustain level back to 0 after the note is released. The release time can range from very fast (1 ms) to very slow (up to 60 seconds).
-
-## Curve Sliders
-Each envelope also features sliders that control the curvature of the Attack and Release stages. Moving the slider to the left creates a logarithmic curve (faster start), while moving it to the right produces a linear ramp.
+OB-Xf features two ADSR envelopes per voice: one for the filter and one for the amplifier. Both envelopes have a common set of parameters.
 
 
+## Common Parameters
 
+- **Attack:** Sets the time it takes for the envelope to rise from silence to its maximum level after a key was pressed. The attack time can range from very fast (1 ms) to very slow (up to 60 seconds).
+- **Decay:** Sets the time it takes for the envelope to fall from its maximum level to the sustain level after the attack phase is complete. The decay time can range from very fast (1 ms) to very slow (up to 60 seconds).
+- **Sustain:** Sets the level at which the envelope will hold after the decay phase, as long as the key is held (or a sustain pedal is depressed). The sustain level can be set from 0% to 100%.
+- **Release:** Sets the time it takes for the envelope to fall from the sustain level back to silence after a key is released. The release time can range from very fast (1 ms) to very slow (up to 60 seconds).
+- **Curve:** Sets the curvature of the Attack stage. At minimum, the curve is logarithmic, at maximum, the curve is linear.
+- **Velocity:** Sets how much the envelope output will be scaled by the velocity of incoming MIDI notes. Particularly useful for creating vivid sounds that respond to user's playing dynamics in both timbre and volume.
+
+## Invert
+
+This parameter is only available for the Filter Envelope. It simply inverts the output of the envelope, which as a result modulates the target parameters below their current value, rather than above.

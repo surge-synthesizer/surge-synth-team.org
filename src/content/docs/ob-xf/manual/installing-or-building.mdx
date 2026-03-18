@@ -4,53 +4,44 @@ sidebar:
   order: 2
 ---
 
-# <a name="installing-or-building-ob-xf"></a>Building from source
-
-To build OB-Xf from source, see [our GitHub repository](https://github.com/surge-synthesizer/OB-Xf).
-
 # Installing OB-Xf
 
-{/* Download the OB-Xf installer from [WEBSITE GOES HERE](WEBSITE GOES HERE). */}
+It is as easy as downloading the installer from the [product page](https://surge-synth-team.org/ob-xf/) and running it!
+
 
 ## Windows
 
-On the Windows platform, OB-Xf installs optionally as:
+On Windows, the installer provides options for installing the VST3 and CLAP formats, as well as standalone application.
 
-- 64-bit VST3, with filename `OB-Xf.vst3`
-- 64-bit CLAP plug-in instrument, with filename `OB-Xf.clap`
-- Standalone executable, with filename `OB-Xf.exe`
-
-The installer will install assets to the appropriate location for each format.
-Windows builds are also available for arm64 and arm64ec, separately.
+Installer is available for both x86 and ARM64/ARM64EC platforms, separately.
 
 
 ## macOS
 
-On macOS, OB-Xf installs as a 64-bit Plug-in Instrument for the Audio Unit (AU), VST3, and CLAP plug-in interfaces,
-and as a standalone application. It requires macOS 10.15 or later.
+On macOS, the installer provides options for installing the AU (v2), VST3 and CLAP formats, as well as standalone application.
 
-To install OB-Xf, run the packaged installer. You have the option to install AU `OB-Xf.component`, VST3,
-and CLAP, along with factory patches and wavetables. The packaged installer installs OB-Xf for all users
-of your system.
+macOS 10.15 or later is required.
 
 
 ## Linux
 
-On Linux, OB-Xf is available as a 64-bit VST3 CLAP and Standalone as a **deb** package, as a **zip**
-file or as source.
+On Linux, the Debian package provides options for installing the VST3 and CLAP formats, as well as standalone application.
+Individual components are available packaged in a ZIP file
 
-The installation package on the **OB-Xf website** is a Debian package.
+The distribution package is built on Ubuntu 22.04. A list of required packages is listed in the source code and in the .deb itself.
 
-The distribution package is built on Ubuntu 22.04
 
-A list of required packages is listed in the source and in the deb file.
+## Standalone
 
-## Standalone Version Options
+If you are running OB-Xf as a standalone application, we would like to divert your attention to the Options menu in the top-left corner, which provides:
 
-If you are running OB-Xf as a standalone executable, options at the top-left:
-- Configure MIDI and audio inputs and outputs
-- Save and open state files for the synth
-- Reset OB-Xf to the default state
+- Audio/MIDI Settings in order to specify audio device, sample rate, MIDI input(s) and audio output(s) to be used
+- Save and load state of the synthesizer (also known as "presets" or "patches", although OB-Xf provides its own patch management, which is recommended to be used instead)
+- Reset OB-Xf to the default state (reinstantiates the whole synthesizer)
+
+# <a name="installing-or-building-ob-xf"></a>Building from Source Code
+
+To build OB-Xf from source code, steps are outlined in the README of the [GitHub repository](https://github.com/surge-synthesizer/OB-Xf).
 
 
 

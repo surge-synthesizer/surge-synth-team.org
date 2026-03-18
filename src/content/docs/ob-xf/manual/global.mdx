@@ -6,7 +6,6 @@ sidebar:
 
 The Global section contains parameters that affect the entire synthesizer.
 
-
 ## Poly
 
 This value sets the maximum number of voices that can be played simultaneously, from 1 to 32.
@@ -14,62 +13,63 @@ This value sets the maximum number of voices that can be played simultaneously, 
 
 ## Unison
 
-Enables the layering of multiple voices per note. The number of voices is set by the [Voices](#voices) parameter.
+Enables the layering of multiple voices per note. The number of voices is set by the [(Unison) Voices](#unison-voices) parameter.
 
 
-## Voices
+## (Unison) Voices
 
 This value controls the number of voices played per note, from 1 to 32. 
+
 - Only enabled when [Unison](#unison) is switched on.
-- Higher values create a thicker sound by playing more voices simultaneously, but will reduce resulting polyphony.
+- Higher values create a thicker sound, but will reduce resulting polyphony.
 
 
 ## Detune
 
-Adjusts the amount of pitch variation between voices from 0 to 100 cents.
-- When [Unison](#unison) is disabled, increasing this control adds imperfection in the tuning between notes, better representing an OB-X that is not perfectly (or desperatly needs to be!) calibrated.
-- When [Unison](#unison) is enabled, increasing this control creates a thicker, more detuned sound.
+Adjusts the amount of pitch variation between voices from 0 to 100 cents. Increasing this control adds imperfection in the tuning between notes, better representing an analog synth that is not perfectly (or desperatly needs to be!) calibrated. Particularly effective when [Unison](#unison) is enabled.
 
 
-## HQ
+## HQ (High Quality)
 Enables 2x oversampling of the whole voice structure. This improves audio quality at the cost of increased CPU usage.
 
 
 ## Glide
 
-Sets the duration it takes for the pitch to slide from one note to another. 
-TODO: CONFIRM MAX TIME
-- The pitch sliding approximatively follows a logarithmic curve which lasts up to ??? seconds.
+Sets the duration it takes for the pitch to continuously glide from one note to another. 
+
+- The pitch gliding approximatively follows a logarithmic curve.
 - This value can be set to vary per voice with its associated control in the [Voice Variation](#voice-variation) section.
 
 
-## Env Legato
+## Env(elope) Legato
 
 Sets which envelopes are going to continue from their current position (i.e. they will NOT be retriggered) when playing legato (overlapping) notes:
-- **Both (Both Envelopes)**: Both envelopes will continue.
-- **Filter (Filter Envelope Only)**: Only the Filter Envelope will continue, Amp envelope will retrigger.
-- **Amp (Amplifier Envelope Only)**: Only the Amp Envelope is will continue, Filter envelope will retrigger.
-- **Retrig (Always Retrigger)**: Both envelopes are retriggered.
+
+- **Both (Both Envelopes):** Both envelopes will continue.
+- **Filter (Filter Envelope Only):** Only the Filter Envelope will continue, Amp envelope will retrigger.
+- **Amp (Amplifier Envelope Only):** Only the Amp Envelope is will continue, Filter envelope will retrigger.
+- **Retrig (Always Retrigger):** Both envelopes are retriggered.
 
 
 ## Note Priority
 
-Sets which note is prioritized when the maximum number of voices is reached:
-- **Last**: The most recently played note is prioritized.
-- **Low**: The lowest note is prioritized.
-- **High**: The highest note is prioritized.
+Sets which note is prioritized either when the maximum number of voices is reached, or when [Poly](#poly) is set to the same value as [(Unison) Voices](#unison-voices) (which is effectively monophonic mode):
 
+- **Last:** The most recently played note is prioritized.
+- **Low:** The lowest note is prioritized.
+- **High:** The highest note is prioritized.
 
 
 ## Learn
 
-Enables MIDI learn mode. When enabled, clicking on a parameter will focus it for receiving a MIDI CC message. Once you tweak your wanted MIDI controller, you can click on another parameter to repeat the procedure. If you want to remove an assignment, click the X button to the left of the MIDI CC number shown.
+Enables MIDI learn mode. When enabled, clicking on a parameter will focus it for receiving a MIDI CC message.
+Once you tweak your wanted MIDI controller, you can click on another parameter to repeat the procedure.
+If you want to remove an assignment, click the X button to the left of the MIDI CC number shown.
 
 
 ## Menu
 
 This button opens a menu with the following options:
-
 
 ### File
 - **Initialize Patch**: Resets the synthesizer to its default state.
@@ -92,6 +92,4 @@ This submenu contains a list of all available Factory and User themes. User them
 ### Zoom
 
 This submenu contains options to adjust the zoom level of the interface, from 75% to 400%. Some zoom settings may not be available depending on your screen resolution.
-
-
-
+There is also a submenu containing options for context menu scaling.
