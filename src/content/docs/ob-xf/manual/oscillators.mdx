@@ -4,44 +4,46 @@ sidebar:
   order: 8
 ---
 
-The Oscillators section contains 2 independent oscillators, each with its own waveform, pitch, and modulation options.
+OB-Xf contains two independent oscillators, each with its own waveform, pitch, and modulation options.
 
 
-## Tuning Controls
+## Tuning
 
-Each oscillator has its own tuning controls:
-- **OSC1**: Controls the coarse tuning of Oscillator 1, from -24.00 to 24.00 semitones.
-- **Detune**: Controls the fine tuning of Oscillator 2, from 0.1 to 100 cents. Like the OB-X, the two oscillators will never be perfectly in tune with each other, thus why this control won't go down to 0 cents, creating a naturally warmer sound.
-- **OSC2**: Controls the coarse tuning of Oscillator 2, from -24.00 to 24.00 semitones.
+- **Osc 1:** Controls the coarse tuning of Oscillator 1, from -24.00 to 24.00 semitones.
+- **Detune:** Controls the fine tuning of Oscillator 2 only, from 0.1 to 100 cents. Like on any analog synth, the two oscillators will never be perfectly in tune with each other, which is why this control won't go down to 0 cents.
+- **Osc 2:** Controls the coarse tuning of Oscillator 2, from -24.00 to 24.00 semitones.
 
 
-## Waveform Selectors
-Each oscillator has its own waveform selector buttons. On the left is the **sawtooth** wave, and on the right is the **pulse** wave.
-If neither of these buttons is selected, the oscillator outputs a **triangle** wave, and the triangle wave icon between the two buttons is highlighted.
+## Waveform
 
-## Pulse Width and Offset
+Two buttons govern the waveform selection for each oscillator. Available options are **Sawtooth** and **Pulse**. If neither of these buttons are enabled, the oscillator outputs a **Triangle** wave, and the triangle wave icon between the two buttons is highlighted.
 
-- **PW**: Controls the pulse width of both oscillators. It is applicable if either oscillator is set to a pulse wave. It ranges from 50% to 97.5%.
-- **OSC 2 Offset**: Additionally offsets the pulse wave of Oscillator 2 relative to Oscillator 1. It ranges from 50% to 97.5%.
+
+## Pulse Width
+
+- **PW:** Controls the pulse width of Pulse waveform for both oscillators. It is applicable if either oscillator is set to a pulse wave. It ranges from 50% to 97.5%.
+- **OSC 2 Offset:** Additionally offsets the pulse width of Oscillator 2 relative to Oscillator 1. It ranges from 50% to 97.5%.
+
 
 ## Crossmod and Sync
 
-- **Crossmod**: Adjusts the amount of frequency modulation applied from Oscillator 1 to Oscillator 2, ranging from 0% to 100%.
-- **Sync**: Enables hard synchronization of Oscillator 2 to Oscillator 1. Effectively, the waveform of Oscillator 2 is restarted every time Oscillator 1 is itself restarted (waveform begins a new cycle), creating a more complex waveform.
+- **Crossmod:** Adjusts the amount of frequency modulation of Oscillator 2 by the output of Oscillator 1.
+- **Sync:** Enables hard synchronization of Oscillator 2 to Oscillator 1. Effectively, the waveform of Oscillator 2 is restarted every time Oscillator 1 is itself restarted (waveform begins a new cycle), creating a more complex waveform.
+
 
 ## Bright
 
-Increasing the **Bright** control adds en emphasis on high-frequency harmonics to the output of both oscillators, ranging from 0% to 100%. This can help add presence and clarity to the sound.
-
-## Env to Pitch, Env to PW
-
-- **Env to Pitch**: Adjust the amount of modulation applied from the Filter Envelope to the pitch of Oscillator 2 only (if **OSC 1+2** is disabled). It ranges from 0.00 to 36.00 semitones.
-- **Env to PW**: Adjust the amount of modulation applied from the Filter Envelope to the pulse width of Oscillator 2 only (if **OSC 1+2** is disabled).
-
-## Inv and OSC 1+2
-
-- ** Inv**: Inverts the polarity of the **Env to Pitch** and **Env to PW** modulations.
-- **OSC 1+2**: Enables each modulation source to affect both oscillators simultaneously.
+This control adjusts the emphasis of high-frequency harmonics in the output of both oscillators. This can add presence and clarity to the sound.
 
 
+## Filter Envelope Modulations
 
+- **Env to Pitch:** Adjust the amount of modulation applied from the Filter Envelope to the pitch of Oscillator 2 only (if **OSC 1+2** is disabled). It ranges from 0.00 to 36.00 semitones.
+- **Env to PW:** Adjust the amount of modulation applied from the Filter Envelope to the pulse width of Oscillator 2 only (if **OSC 1+2** is disabled).
+
+## Inv(ert) and Osc 1+2
+
+These parameters are available for both Env to Pitch and Env to PW modulations.
+
+- **Inv:** Inverts the polarity of the **Env to Pitch** and **Env to PW** modulations.
+- **Osc 1+2:** When enabled, the modulation is applied to both oscillators equallty. When disabled, modulation is applied to Oscillator 2 only.
