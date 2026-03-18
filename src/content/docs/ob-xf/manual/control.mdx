@@ -1,21 +1,19 @@
 ---
 title: Control
 sidebar:
-  order: 7
+order: 7
 ---
 
-The Control section contains a few options that affect how the synthesizer responds to incoming MIDI data.
+The Control section contains a few options that affect how OB-Xf responds to certain incoming MIDI data.
 
 ## Pitch Bend
 
-- **Down** and **Up**: These  number fields set the range of the pitch bend wheel in semitones, from 0 to 48. 
-- **OSC 2 Only**: makes the pitch bend affect only Oscillator 2.
+- **Down** and **Up**: These menus set the pitch bend amount in semitones, from 0 to 48, separately for positive and negative values of MIDI Pitch Bend messages. 
+- **OSC 2 Only**: Toggling this button makes the pitch bend wheel affect only Oscillator 2. This can be very useful for hard sync sounds.
 
 ## Vibrato
 
-The Vibrato settings include a dedicated LFO that modulates the pitch of both oscillators. Its amplitude is modulated by the Mod Wheel.
+This is a dedicated global LFO that modulates the pitch of both oscillators across all voices simultaneously. Vibrato amount is controlled by the modulation wheel (MIDI CC #1).
+
 - **Rate**: Sets the speed of the vibrato LFO.
-- **Shape**: Switches between a triangle and a square
-
-
-
+- **Shape**: Sets the LFO waveform to a triangle or a unipolar square.
