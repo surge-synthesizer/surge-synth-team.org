@@ -1,0 +1,51 @@
+---
+title: Programmer
+sidebar:
+order: 4
+---
+
+{/* ![Illustration 1: Programmer section]() */}
+
+## Patch Organization
+
+Patches are organized in two main overarching sections: Factory and User. To reveal the menu-based patch browser, click on the **Browse** menu - it doubles as patch number, too!
+
+This browser follows the folder structure as-is on your hard drive. For Factory patches, a folder carries the same meaning as sound category. For User patches, an additional folder level is allowed which is called a Project.
+
+An alternative method to browse patches is also available by means of 16 direct access buttons and the **Group** button. This allows browsing in currently focused folder (or rather, sound category) in 16 groups of 16 patches each, effectively allowing quick access to up to 256 patches. A folder can of course contain more than 256 patches, in this case the 16 direct access buttons will only be able to reach the first 256.
+
+## Selecting a Patch or a Group
+
+Each of the 16 direct access buttons has two LEDs on them - the yellow LED corresponds to the currently selected group, while the red LED corresponds to the currently selected patch from the currently selected group.
+
+To select a group instead of a patch using the direct access buttons, click on the **Group** button first. Its LED will light up yellow, indicating that you are now in group selection mode. Click the **Group** button again to go back to patch selection mode.
+
+## Patch Browser
+
+As mentioned earlier, clicking on the **Browse** menu will open the patch browser, which will outline Factory and User patches, as well as a few housekeeping functions described below:
+
+- **Initialize Patch:** Resets the current state of the synthesizer to the internally specified initial patch, which will output a basic, unfiltered sawtooth waveform. Also available via the **Init** button directly on the user interface.
+- **Load Patch...:** Opens an OS dialog for loading `.fxp` files created by OB-Xf. It is also possible to load `.fxp` files created by OB-Xf simply by drag-and-dropping them onto the OB-Xf user interface.
+- **Save Patch...:** Opens a dialog for loading `.fxp` files created by OB-Xf. Also available via the **Save** button directly on the user interface.
+- **Delete Patch:** Deletes the currently selected User patch and refreshes the Patch Browser. Note that Factory patches cannot be deleted, an error dialog will remind you about this!
+- **Copy Patch:** Copies the current state of the synthesizer into the clipboard.
+- **Paste Patch:** Pastes the synthesizer state stored in the clipboard, as the current state of the synthesizer.
+- **Refresh Patch Browser:"" In case you've brought in additional patches from third parties _while_ OB-Xf was running, you will need to execute this command in order to be able to browse through those patches.
+
+## Save Patch Dialog
+
+{/* ![Illustration 1: Save Patch dialog]() */}
+
+This dialog allows you to specify the **Name** of your patch, your own name as patch **Author**, sound **Category** of the patch, which **License** you'd like to assign to your patch, and the **Project** to which your patch belongs to (entirely optionally).
+
+**Project** is simply an additional folder level inside of which you can store your patches, with categorization by sound type, or without, as you wish. For example, you are working on different songs, you may want to name your project according to the different song names. Or, you are preparing a live gig and you don't want to mix those patches up with any of your produced songs. Or, you have several very different live gigs going on, and you want to group patches according to those. There are likely many more possible usecases for this field, and you're in control here.
+
+**Category** menu offers a fixed list of sound categories to choose from, but also allows none to be selected. In this case, no subfolder will be created when saving the patch.
+
+## Other Facilities
+
+- **Patch Name**: Text entry field which displays the current patch name, **left clicking** it will allow renaming.
+- **Previous/Next**: These buttons allow you to cycle through all available patches sequentially.
+- **Undo**: Backtracks through your parameter edits. Note that loading a different patch is not directly undoable (all parameter changes which happen upon a patch change will become traversable undo steps)!
+- **Init**: Initializes the current patch to a basic saw wave sound.
+- **Rand**: Mildly randomizes almost all parameters of the synthesizer, which can lead to unexpected results. Note that Master section, Polyphony, High Quality Unison Voices parameters are **not** randomized!
