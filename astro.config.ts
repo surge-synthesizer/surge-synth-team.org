@@ -25,7 +25,7 @@ export default defineConfig({
                             label: "User Interface Basics",
                             slug: "ob-xf/manual/user-interface-basics",
                         },
-                        { label: "Patch Memory", slug: "ob-xf/manual/patch-memory" },
+                        { label: "Patch Memory", slug: "ob-xf/manual/programmer" },
                         { label: "Master", slug: "ob-xf/manual/master" },
                         { label: "Global", slug: "ob-xf/manual/global" },
                         { label: "Control", slug: "ob-xf/manual/control" },
