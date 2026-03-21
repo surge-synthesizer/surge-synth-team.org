@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-03-19T10:12:55.992175644",
+    "build_time": "2026-03-21T14:36:17.133776791",
     "data": {},
-    "latest_commit": "5101cb0",
+    "latest_commit": "ef3bcc5",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "ef3bcc5",
+            "date": "2026-03-21T15:25:41+01:00",
+            "message": "Add host menus for toggle and multistate buttons (#610)"
+        },
         {
             "author": "EvilDragon",
             "commit": "5101cb0",
@@ -28,20 +34,14 @@
             "commit": "5044e2e",
             "date": "2026-03-15T21:44:17-04:00",
             "message": "Rename the deb properly also"
-        },
-        {
-            "author": "Paul",
-            "commit": "d6bcb26",
-            "date": "2026-03-15T21:31:36-04:00",
-            "message": "Cleaner version logic; correct installer name (#607)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-19-5101cb0.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-19-5101cb0.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-21-ef3bcc5.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-21-ef3bcc5.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-19-5101cb0.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-19-5101cb0.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-21-ef3bcc5.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-21-ef3bcc5.zip"
     },
     "version": "main"
 }
