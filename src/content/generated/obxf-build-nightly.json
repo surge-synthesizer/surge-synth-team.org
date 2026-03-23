@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-03-21T14:36:17.133776791",
+    "build_time": "2026-03-23T13:11:12.891472476",
     "data": {},
-    "latest_commit": "ef3bcc5",
+    "latest_commit": "c81ae30",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "c81ae30",
+            "date": "2026-03-23T09:00:03-04:00",
+            "message": "Option to bypass LNF and Host Scale at construct time (#611)"
+        },
         {
             "author": "EvilDragon",
             "commit": "ef3bcc5",
@@ -28,20 +34,14 @@
             "commit": "6daa631",
             "date": "2026-03-15T22:24:31-04:00",
             "message": "Move CMake version to 1.1.0.build"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "5044e2e",
-            "date": "2026-03-15T21:44:17-04:00",
-            "message": "Rename the deb properly also"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-21-ef3bcc5.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-21-ef3bcc5.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-23-c81ae30.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-23-c81ae30.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-21-ef3bcc5.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-21-ef3bcc5.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-23-c81ae30.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-23-c81ae30.zip"
     },
     "version": "main"
 }
