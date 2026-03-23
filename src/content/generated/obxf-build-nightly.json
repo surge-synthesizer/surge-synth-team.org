@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-03-23T14:30:12.55521212",
+    "build_time": "2026-03-23T18:06:41.545201081",
     "data": {},
-    "latest_commit": "31ee0c5",
+    "latest_commit": "59ebc6e",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "59ebc6e",
+            "date": "2026-03-23T18:55:02+01:00",
+            "message": "Fix ButtonList for good (#613)"
+        },
         {
             "author": "EvilDragon",
             "commit": "31ee0c5",
@@ -28,20 +34,14 @@
             "commit": "5101cb0",
             "date": "2026-03-19T11:02:37+01:00",
             "message": "Add host context menu to ButtonList (#608)"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "be31d61",
-            "date": "2026-03-16T08:56:06-04:00",
-            "message": "Fix the nightly urls for OB-Xf"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-23-31ee0c5.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-23-31ee0c5.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-23-59ebc6e.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-23-59ebc6e.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-23-31ee0c5.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-23-31ee0c5.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-23-59ebc6e.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-23-59ebc6e.zip"
     },
     "version": "main"
 }
