@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-03-23T18:06:41.545201081",
+    "build_time": "2026-03-23T21:57:59.839079532",
     "data": {},
-    "latest_commit": "59ebc6e",
+    "latest_commit": "25bd65d",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "25bd65d",
+            "date": "2026-03-23T22:47:25+01:00",
+            "message": "Revert \"Don't retrigger envelopes in legato mode if sustain pedal is pressed (#454)\" (#614)"
+        },
         {
             "author": "EvilDragon",
             "commit": "59ebc6e",
@@ -28,20 +34,14 @@
             "commit": "ef3bcc5",
             "date": "2026-03-21T15:25:41+01:00",
             "message": "Add host menus for toggle and multistate buttons (#610)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "5101cb0",
-            "date": "2026-03-19T11:02:37+01:00",
-            "message": "Add host context menu to ButtonList (#608)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-23-59ebc6e.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-23-59ebc6e.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-23-25bd65d.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-23-25bd65d.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-23-59ebc6e.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-23-59ebc6e.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-23-25bd65d.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-23-25bd65d.zip"
     },
     "version": "main"
 }
