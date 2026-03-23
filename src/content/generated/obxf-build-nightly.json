@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-03-23T13:11:12.891472476",
+    "build_time": "2026-03-23T14:30:12.55521212",
     "data": {},
-    "latest_commit": "c81ae30",
+    "latest_commit": "31ee0c5",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "31ee0c5",
+            "date": "2026-03-23T15:18:29+01:00",
+            "message": "Fix ButtonList so that it works again (#612)"
+        },
         {
             "author": "Paul",
             "commit": "c81ae30",
@@ -28,20 +34,14 @@
             "commit": "be31d61",
             "date": "2026-03-16T08:56:06-04:00",
             "message": "Fix the nightly urls for OB-Xf"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "6daa631",
-            "date": "2026-03-15T22:24:31-04:00",
-            "message": "Move CMake version to 1.1.0.build"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-23-c81ae30.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-23-c81ae30.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-23-31ee0c5.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-23-31ee0c5.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-23-c81ae30.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-23-c81ae30.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-23-31ee0c5.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-23-31ee0c5.zip"
     },
     "version": "main"
 }
