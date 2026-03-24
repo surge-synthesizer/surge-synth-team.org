@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-03-23T23:20:37.085036667",
+    "build_time": "2026-03-24T08:45:38.112937721",
     "data": {},
-    "latest_commit": "24c5066",
+    "latest_commit": "ca9876a",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "ca9876a",
+            "date": "2026-03-24T09:33:30+01:00",
+            "message": "Add Aleksey's patches (#616)"
+        },
         {
             "author": "EvilDragon",
             "commit": "24c5066",
@@ -28,20 +34,14 @@
             "commit": "31ee0c5",
             "date": "2026-03-23T15:18:29+01:00",
             "message": "Fix ButtonList so that it works again (#612)"
-        },
-        {
-            "author": "Paul",
-            "commit": "c81ae30",
-            "date": "2026-03-23T09:00:03-04:00",
-            "message": "Option to bypass LNF and Host Scale at construct time (#611)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-23-24c5066.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-23-24c5066.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-24-ca9876a.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-24-ca9876a.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-23-24c5066.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-23-24c5066.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-24-ca9876a.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-24-ca9876a.zip"
     },
     "version": "main"
 }
