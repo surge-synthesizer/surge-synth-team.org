@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-03-25T16:40:35.235834734",
+    "build_time": "2026-03-25T18:13:37.903417633",
     "data": {},
-    "latest_commit": "15a226b",
+    "latest_commit": "9fbe562",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "9fbe562",
+            "date": "2026-03-25T14:02:10-04:00",
+            "message": "Correctly model (I hope) docker release stage installer name"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "3ac6e26",
+            "date": "2026-03-25T12:47:46-04:00",
+            "message": "Docker image gets release tag also for tagged builds"
+        },
         {
             "author": "Paul Walker",
             "commit": "15a226b",
@@ -22,26 +34,14 @@
             "commit": "6f4e75b",
             "date": "2026-03-24T10:52:44-04:00",
             "message": "More version release work"
-        },
-        {
-            "author": "Paul",
-            "commit": "e7a8786",
-            "date": "2026-03-24T10:28:14-04:00",
-            "message": "add release stage building (#618)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "e8dad4b",
-            "date": "2026-03-24T12:45:35+01:00",
-            "message": "Update Aleksey's Keys patches to have Env Legato set to Retrigger (#617)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-25-15a226b.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-25-15a226b.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-25-9fbe562.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-25-9fbe562.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-25-15a226b.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-25-15a226b.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-25-9fbe562.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-25-9fbe562.zip"
     },
     "version": "main"
 }
