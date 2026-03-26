@@ -1,23 +1,23 @@
 {
-    "build_time": "2026-03-24T15:04:35.320674986",
+    "build_time": "2026-03-26T00:23:04.14158391",
     "data": {},
-    "latest_commit": "89eb632",
+    "latest_commit": "893aab8",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
         {
             "author": "Paul Walker",
-            "commit": "89eb632",
-            "date": "2026-03-24T10:52:44-04:00",
-            "message": "More version release work"
+            "commit": "893aab8",
+            "date": "2026-03-25T20:12:44-04:00",
+            "message": "Merge branch 'main' into releases/1.0.2"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/v1.0.1/ob-xf-Linux-2026-03-24-89eb632.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/v1.0.1/ob-xf-macOS-2026-03-24-89eb632.dmg",
-        "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/v1.0.1",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/v1.0.1/ob-xf-Windows-2026-03-24-89eb632.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/v1.0.1/ob-xf-Windows-2026-03-24-89eb632.zip"
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/v1.0.2/ob-xf-Linux-v1.0.2.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/v1.0.2/ob-xf-macOS-v1.0.2.dmg",
+        "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/v1.0.2",
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/v1.0.2/ob-xf-Windows-v1.0.2.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/v1.0.2/ob-xf-Windows-v1.0.2.zip"
     },
-    "version": "v1.0.1"
+    "version": "v1.0.2"
 }
