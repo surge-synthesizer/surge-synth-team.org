@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-03-25T18:13:37.903417633",
+    "build_time": "2026-03-26T00:40:49.167648872",
     "data": {},
-    "latest_commit": "9fbe562",
+    "latest_commit": "094f418",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "094f418",
+            "date": "2026-03-25T20:29:38-04:00",
+            "message": "Dont use remove extension to make windows exe name"
+        },
         {
             "author": "Paul",
             "commit": "9fbe562",
@@ -28,20 +34,14 @@
             "commit": "d079f90",
             "date": "2026-03-25T09:30:04-04:00",
             "message": "Ability for CI to specify version (1.0.1) and still get date-hash if not (#619)"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "6f4e75b",
-            "date": "2026-03-24T10:52:44-04:00",
-            "message": "More version release work"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-25-9fbe562.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-25-9fbe562.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-26-094f418.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-26-094f418.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-25-9fbe562.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-25-9fbe562.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-26-094f418.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-26-094f418.zip"
     },
     "version": "main"
 }
