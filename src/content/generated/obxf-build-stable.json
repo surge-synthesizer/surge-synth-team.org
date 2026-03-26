@@ -1,14 +1,14 @@
 {
-    "build_time": "2026-03-26T00:23:04.14158391",
+    "build_time": "2026-03-26T00:42:31.704751348",
     "data": {},
-    "latest_commit": "893aab8",
+    "latest_commit": "a01f3f3",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
         {
             "author": "Paul Walker",
-            "commit": "893aab8",
-            "date": "2026-03-25T20:12:44-04:00",
+            "commit": "a01f3f3",
+            "date": "2026-03-25T20:30:06-04:00",
             "message": "Merge branch 'main' into releases/1.0.2"
         }
     ],
