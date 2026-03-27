@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-03-26T00:40:49.167648872",
+    "build_time": "2026-03-27T17:44:48.955488739",
     "data": {},
-    "latest_commit": "094f418",
+    "latest_commit": "09a29f1",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "09a29f1",
+            "date": "2026-03-27T13:29:21-04:00",
+            "message": "Turn off edge presets (#621)"
+        },
         {
             "author": "Paul Walker",
             "commit": "094f418",
@@ -28,20 +34,14 @@
             "commit": "15a226b",
             "date": "2026-03-25T12:29:48-04:00",
             "message": "Correctly configure nightly vs release installer"
-        },
-        {
-            "author": "Paul",
-            "commit": "d079f90",
-            "date": "2026-03-25T09:30:04-04:00",
-            "message": "Ability for CI to specify version (1.0.1) and still get date-hash if not (#619)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-26-094f418.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-26-094f418.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-27-09a29f1.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-27-09a29f1.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-26-094f418.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-26-094f418.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-27-09a29f1.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-27-09a29f1.zip"
     },
     "version": "main"
 }
