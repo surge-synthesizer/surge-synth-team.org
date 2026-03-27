@@ -63,3 +63,10 @@
         @apply rounded-xl shadow-xl;
     }
 }
+
+.invert-in-light {
+    filter: invert(1);
+}
+html[data-theme="dark"] .invert-in-light {
+    filter: none;
+}
