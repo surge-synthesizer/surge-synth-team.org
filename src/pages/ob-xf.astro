@@ -21,48 +21,51 @@ const navLinks = [
     <NavHeader slot="nav" links={navLinks} currentProject="ob-xf" />
 
     <main>
-        <section
-            class="mx-auto grid w-full max-w-6xl gap-8 px-4 py-10 md:grid-cols-2 md:items-center md:py-16">
-            <div class="space-y-4">
-                <p
-                    class="text-xs font-bold tracking-[0.2em] text-surge-blue uppercase dark:text-surge-blue2">
-                    Open Source Analog-Inspired Synth
-                </p>
-                <h1 class="text-4xl leading-tight font-extrabold md:text-5xl">OB-Xf</h1>
-                <p class="max-w-prose text-base text-neutral-800 dark:text-neutral-200">
-                    OB-Xf is a continuation and modernization of the last open source release of
-                    OB-Xd. It is inspired by the venerable Oberheim OB-X.
-                </p>
-                <div class="flex flex-wrap gap-3">
-                    <DownloadButton
-                        windows={obxf_build_stable.releases.win64}
-                        mac={obxf_build_stable.releases.macos}
-                        linux={obxf_build_stable.releases.linux64}
-                        other={obxf_build_stable.releases.other}
-                        label={`Download ${obxf_build_stable.version}`}
-                        id="obxf-release-link"
-                        buttonClass="inline-flex items-center justify-center rounded-md bg-surge-orange px-4 py-2 font-semibold text-neutral-900 no-underline shadow-md hover:bg-surge-orange-bright"
-                    />
-                    <a
-                        href="https://github.com/surge-synthesizer/OB-Xf"
-                        class="inline-flex items-center justify-center rounded-md border border-neutral-900/25 px-4 py-2 font-semibold text-inherit no-underline hover:bg-neutral-900/5 dark:border-neutral-100/25 dark:hover:bg-neutral-100/10">
-                        View on GitHub
-                    </a>
+        <section class="w-full bg-white py-8 md:h-[500px] md:py-0 dark:bg-neutral-900">
+            <div class="flex h-full max-w-none flex-col items-center md:flex-row">
+                <div class="flex flex-1 items-center px-6 py-8 md:py-0 md:pl-12">
+                    <div class="max-w-xl space-y-4">
+                        <img
+                            src="/images/obxf_logo.svg"
+                            alt="OB-Xf logo"
+                            class="h-20 w-auto md:h-28"
+                        />
+                        <p class="max-w-prose text-base text-neutral-800 dark:text-neutral-200">
+                            OB-Xf is a continuation and modernization of the last open source
+                            release of OB-Xd. It is inspired by the venerable Oberheim OB-X.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <DownloadButton
+                                windows={obxf_build_stable.releases.win64}
+                                mac={obxf_build_stable.releases.macos}
+                                linux={obxf_build_stable.releases.linux64}
+                                other={obxf_build_stable.releases.other}
+                                label={`Download ${obxf_build_stable.version}`}
+                                id="obxf-release-link"
+                                buttonClass="inline-flex items-center justify-center rounded-md bg-surge-orange px-4 py-2 font-semibold text-neutral-900 no-underline shadow-md hover:bg-surge-orange-bright"
+                            />
+                            <a
+                                href="https://github.com/surge-synthesizer/OB-Xf"
+                                class="inline-flex items-center justify-center rounded-md border border-neutral-900/25 px-4 py-2 font-semibold text-inherit no-underline hover:bg-neutral-900/5 dark:border-neutral-100/25 dark:hover:bg-neutral-100/10">
+                                View on GitHub
+                            </a>
+                        </div>
+                        <a
+                            href={obxf_build_stable.releases.other}
+                            class="text-sm text-inherit underline underline-offset-2 hover:opacity-75">
+                            Install for other platforms
+                        </a>
+                    </div>
                 </div>
-                <a
-                    href={obxf_build_stable.releases.other}
-                    class="text-sm text-inherit underline underline-offset-2 hover:opacity-75">
-                    Install for other platforms
-                </a>
-            </div>
-            <div>
-                <Image
-                    src={ObxfCover}
-                    alt="OB-Xf interface screenshot"
-                    quality="100"
-                    format="png"
-                    class=""
-                />
+                <div class="flex h-[250px] flex-1 items-center justify-center md:h-full">
+                    <Image
+                        src={ObxfCover}
+                        alt="OB-Xf interface screenshot"
+                        quality="100"
+                        format="png"
+                        class="h-full max-h-[400px] w-full object-contain"
+                    />
+                </div>
             </div>
         </section>
 
