@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-03-18T00:12:54.751774477",
+    "build_time": "2026-03-28T13:31:34.845694632",
     "data": {},
-    "latest_commit": "4946d6f",
+    "latest_commit": "eb9a556",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "eb9a556",
+            "date": "2026-03-28T09:07:50-04:00",
+            "message": "Set streaming version to revert version (#2420)"
+        },
+        {
+            "author": "Paul",
+            "commit": "396bc4f",
+            "date": "2026-03-28T08:41:42-04:00",
+            "message": "Revert a bad merge in 4946d6f626 (#2419)"
+        },
         {
             "author": "Andreya-Autumn",
             "commit": "4946d6f",
@@ -22,26 +34,14 @@
             "commit": "cc49b4a",
             "date": "2026-03-15T16:11:24-04:00",
             "message": "Add a fix to very-short-attack-long-delay envelope overshoot (#2408)"
-        },
-        {
-            "author": "Paul",
-            "commit": "a16bc24",
-            "date": "2026-03-15T14:07:48-04:00",
-            "message": "Add SAMPLE_GATED envelope gate mode for zones/voices (#2407)"
-        },
-        {
-            "author": "Paul",
-            "commit": "b8ac8c4",
-            "date": "2026-03-14T13:06:54-04:00",
-            "message": "Add copy, paste, and duplicate for groups (#2406)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-03-18-4946d6f-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-03-18-4946d6f.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-03-28-eb9a556-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-03-28-eb9a556.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-03-18-4946d6f-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-03-18-4946d6f-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-03-28-eb9a556-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-03-28-eb9a556-Windows-64bit.zip"
     },
     "version": "main"
 }
