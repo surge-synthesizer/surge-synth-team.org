@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-03-27T17:44:48.955488739",
+    "build_time": "2026-03-28T17:43:29.797809548",
     "data": {},
-    "latest_commit": "09a29f1",
+    "latest_commit": "0440f11",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "0440f11",
+            "date": "2026-03-28T13:33:06-04:00",
+            "message": "Add test infrastructure with SawOsc, PulseOsc, and TriangleOsc tests (#622)"
+        },
         {
             "author": "Paul",
             "commit": "09a29f1",
@@ -28,20 +34,14 @@
             "commit": "3ac6e26",
             "date": "2026-03-25T12:47:46-04:00",
             "message": "Docker image gets release tag also for tagged builds"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "15a226b",
-            "date": "2026-03-25T12:29:48-04:00",
-            "message": "Correctly configure nightly vs release installer"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-27-09a29f1.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-27-09a29f1.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-28-0440f11.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-28-0440f11.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-27-09a29f1.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-27-09a29f1.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-28-0440f11.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-28-0440f11.zip"
     },
     "version": "main"
 }
