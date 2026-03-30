@@ -15,6 +15,17 @@ const navLinks = [
     ["FAQ", "#faq"],
     ["About", "#about"],
 ] as const;
+
+const stableLinks = [
+    { label: "Windows 64-bit", href: obxf_build_stable.releases.win64 },
+    { label: "macOS 64-bit", href: obxf_build_stable.releases.macos },
+    { label: "Linux 64-bit", href: obxf_build_stable.releases.linux64 },
+];
+const nightlyLinks = [
+    { label: "Windows 64-bit", href: obxf_build_nightly.releases.win64 },
+    { label: "macOS 64-bit", href: obxf_build_nightly.releases.macos },
+    { label: "Linux 64-bit", href: obxf_build_nightly.releases.linux64 },
+];
 ---
 
 <Base title="OB-Xf">
@@ -177,5 +188,115 @@ const navLinks = [
                 Add about text, logos, and team imagery here.
             </div>
         </section>
+
+        {/* System Requirements & Downloads Hero */}
+        <section class="w-full bg-surge-blue py-12 text-white">
+            <div class="mx-auto flex max-w-6xl flex-col gap-20 px-10 md:flex-row md:items-start">
+                {/* Specs */}
+                <div class="flex-1">
+                    <h2 class="mb-8 text-4xl font-bold">System Requirements</h2>
+                    <div class="space-y-12 text-sm">
+                        <div>
+                            <h3 class="mb-4 text-2xl font-bold">Windows</h3>
+                            <ul class="ml-8 list-disc">
+                                <li>Windows 10 or above</li>
+                                <li>
+                                    Recommended: Windows 10 or newer, 3 GHz quad-core processor.
+                                </li>
+                                <li>8 GB RAM or above</li>
+                                <li>VST3 or CLAP compatible host application</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="mb-4 text-2xl font-bold">macOS</h3>
+                            <ul class="ml-8 list-disc">
+                                <li>macOS 10.15 or above</li>
+                                <li>8 GB RAM or above</li>
+                                <li>VST3, AU or CLAP compatible host application</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="mb-4 text-2xl font-bold">Linux</h3>
+                            <ul class="ml-8 list-disc">
+                                <li>PC or ARM system running a Linux distribution</li>
+                                <li>8 GB RAM or above</li>
+                                <li>VST3, CLAP or LV2 compatible host application</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Downloads */}
+                <div class="flex flex-1 flex-col items-start md:items-start">
+                    <div class="w-full max-w-xs">
+                        <h2 class="mb-0 p-0 text-4xl font-bold">Download OB-Xf</h2>
+                        <span class="mt-4 mb-2 block text-2xl font-semibold"
+                            >Version {obxf_build_stable.version}</span
+                        >
+                        <ul class="mt-2 ml-5 list-disc space-y-1">
+                            {
+                                stableLinks.map((link) => (
+                                    <li>
+                                        <a
+                                            href={link.href}
+                                            class={`} text-white underline underline-offset-4 hover:opacity-80`}
+                                            style="text-decoration-style: dotted; text-underline-offset: 4px;">
+                                            {link.label}
+                                        </a>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                        <a
+                            href={obxf_build_stable.releases.other}
+                            class="text-md mt-4 block text-white underline underline-offset-4 hover:opacity-80"
+                            style="text-decoration-style: dotted; text-underline-offset: 4px;">
+                            All available downloads
+                        </a>
+                    </div>
+                    <div class="mt-8 w-full max-w-xs">
+                        <span class="mt-1 mb-2 text-2xl font-semibold">Nightly Builds</span>
+                        <ul class="mt-2 ml-5 list-disc space-y-1">
+                            {
+                                nightlyLinks.map((link) => (
+                                    <li>
+                                        <a
+                                            href={link.href}
+                                            class={`} text-white underline underline-offset-4 hover:opacity-80`}
+                                            style="text-decoration-style: dotted; text-underline-offset: 4px;">
+                                            {link.label}
+                                        </a>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                        <a
+                            href={obxf_build_nightly.releases.other}
+                            class="text-md mt-4 block text-white underline underline-offset-4 hover:opacity-80"
+                            style="text-decoration-style: dotted; text-underline-offset: 4px;">
+                            All available nightly downloads
+                        </a>
+                        <!-- <a
+                            href="#"
+                            class="text-md mt-1 block pt-2 text-white underline underline-offset-4 hover:opacity-80"
+                            style="text-decoration-style: dotted; text-underline-offset: 4px;">
+                            More info about nightly builds
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+    <footer class="w-full bg-neutral-900 py-12 text-white">
+        <div class="mx-auto max-w-6xl px-4 text-center text-base">
+            This project is maintained by the community at the
+            <a
+                href="https://github.com/surge-synthesizer/OB-Xf"
+                class="text-surge-orange underline underline-offset-4 hover:opacity-80"
+                target="_blank"
+                rel="noopener">OB-Xf</a
+            >
+            open source project on GitHub.
+        </div>
+    </footer>
 </Base>
