@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-03-30T13:45:12.516312082",
+    "build_time": "2026-03-30T23:07:07.940027499",
     "data": {},
-    "latest_commit": "452766a",
+    "latest_commit": "f4681e8",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Mirko Caserta",
+            "commit": "f4681e8",
+            "date": "2026-03-31T00:55:57+02:00",
+            "message": "Feature/ios ipad target (#609)"
+        },
         {
             "author": "Paul",
             "commit": "452766a",
@@ -28,20 +34,14 @@
             "commit": "ce09d4d",
             "date": "2026-03-28T15:25:25-04:00",
             "message": "Add Filter golden value and stability tests (#624) (#624)"
-        },
-        {
-            "author": "Paul",
-            "commit": "f5ac57c",
-            "date": "2026-03-28T14:27:10-04:00",
-            "message": "Golden Value tests for the Oscillators (#623)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-30-452766a.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-30-452766a.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-30-f4681e8.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-30-f4681e8.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-30-452766a.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-30-452766a.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-30-f4681e8.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-30-f4681e8.zip"
     },
     "version": "main"
 }
