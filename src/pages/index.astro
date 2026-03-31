@@ -7,7 +7,6 @@ import Base from "../layouts/Base.astro";
 
 const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
 const navLinks = [
-    ["Home", "/"],
     ["Open Source", "/open-source"],
     ["Contact", "/contact"],
     ["GitHub ↗", "https://github.com/surge-synthesizer"],

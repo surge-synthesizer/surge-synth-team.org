@@ -1,6 +1,7 @@
 ---
 import ProjectSelector from "./ProjectSelector.astro";
 import ThemeSelector from "./ThemeSelector.astro";
+import { getCollection } from "astro:content";
 
 interface Props {
     links?: ReadonlyArray<readonly [title: string, href: string]>;
@@ -8,19 +9,50 @@ interface Props {
 }
 
 const { links = [], currentProject = null } = Astro.props;
+
+const projects = await getCollection("projects");
+const currentProjectData = projects.find((p) => p.id === currentProject);
 ---
 
 <nav
     id="nav"
-    class="sticky top-0 flex flex-wrap items-center justify-center gap-4 border-b border-black/10 bg-inherit p-2 shadow-md shadow-black/25 dark:border-white/10">
-    {
-        links.map(([title, href]) => (
-            <a href={href} class="text-nowrap text-inherit no-underline">
-                {title}
-            </a>
-        ))
-    }
-    <slot />
-    <ProjectSelector currentProject={currentProject} />
+    class="sticky top-0 flex place-content-center items-center gap-4 bg-black p-2 font-semibold text-nowrap text-white shadow-xl backdrop-blur-lg select-none dark:bg-neutral-900 print:hidden">
+    <a href="/" title="surge-synth-team.org">
+        <img
+            src="/images/sst-logo.svg"
+            alt="Surge Synth Team logo"
+            loading="lazy"
+            decoding="async"
+            fetchpriority="auto"
+            width="24"
+            height="24"
+            class="m-0 min-h-[24px] min-w-[24px] p-0"
+        />
+    </a>
+    <menu class="flex flex-row flex-wrap items-center gap-4 font-bold">
+        <ProjectSelector currentProject={currentProject} />
+    </menu>
+    {links.length > 0 && (
+        <>
+            <div class="h-5 w-px bg-white/20" />
+            <menu class="flex flex-row flex-wrap items-center gap-4 font-bold">
+                {currentProjectData && (
+                    <li>
+                        <a href={`/${currentProject}`} class="rounded px-2 py-1 text-white transition-colors font-bold">
+                            {currentProjectData.data.title}
+                        </a>
+                    </li>
+                )}
+                {links.map(([title, href]) => (
+                    <li>
+                        <a class="rounded px-2 py-1 text-white transition-colors" href={href}>
+                            {title}
+                        </a>
+                    </li>
+                ))}
+            </menu>
+        </>
+    )}
+    <div class="h-5 w-px bg-white/20" />
     <ThemeSelector />
 </nav>

@@ -9,15 +9,23 @@ const { currentProject = null } = Astro.props;
 const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<select aria-label="Project" name="projects" id="project-select">
-    <option value="" selected={currentProject === null}>Select a project...</option>
-    {
-        projects.map((project) => {
-            return (
-                <option value={project.id} selected={project.id === currentProject}>
-                    {project.data.title}
-                </option>
-            );
-        })
-    }
-</select>
+<li class="group relative">
+    <span
+        class="cursor-pointer rounded px-2 py-1 text-white transition-colors group-hover:bg-white group-hover:text-black"
+        >Projects</span
+    >
+    <ul
+        class="invisible absolute top-full left-0 z-10 min-w-[180px] rounded border border-white/10 bg-black py-2 shadow-lg group-hover:visible dark:bg-neutral-900">
+        {
+            projects.map((project) => (
+                <li>
+                    <a
+                        href={`/${project.id}`}
+                        class={`block px-4 py-2 text-white transition-colors hover:bg-white hover:text-black ${project.id === currentProject ? "font-bold" : ""}`}>
+                        {project.data.title}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</li>
