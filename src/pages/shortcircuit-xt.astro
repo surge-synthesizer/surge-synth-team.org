@@ -8,13 +8,13 @@ import ScxtCover from "../content/projects/screenshots/shortcircuit-xt.png";
 import Base from "../layouts/Base.astro";
 
 const navLinks = [
-    ["Home", "/"],
     ["Manual", "#manual"],
     ["Changelog", "#changelog"],
     ["FAQ", "#faq"],
     ["About", "#about"],
 ] as const;
 ---
+
 <Base title="Shortcircuit XT">
     <NavHeader slot="nav" links={navLinks} currentProject="shortcircuit-xt" />
 

@@ -16,7 +16,6 @@ const { page } = Astro.props;
 const url = page.data.url ?? (page.data.repo && `https://github.com/${page.data.repo}`);
 const { Content } = await render(page);
 const navLinks = [
-    ["Home", "/"],
     ["Open Source", "/open-source"],
     ["Contact", "/contact"],
     ["GitHub ↗", "https://github.com/surge-synthesizer"],
