@@ -1,0 +1,21 @@
+---
+import obxf_build_nightly from "../content/generated/obxf-build-nightly.json" with { type: "json" };
+import ChangelogSection from "../components/ChangelogSection.astro";
+import NavHeader from "../components/NavHeader.astro";
+import Base from "../layouts/Base.astro";
+
+const navLinks = [
+    ["Home", "/"],
+    ["Manual", "/ob-xf/manual/getting-started/"],
+    ["Changelog", "/ob-xf-changelog/"],
+    ["FAQ", "/ob-xf/#faq"],
+    ["About", "/ob-xf/#about"],
+] as const;
+---
+
+<Base title="OB-Xf Changelog">
+    <NavHeader slot="nav" links={navLinks} currentProject="ob-xf" />
+    <main class="mx-auto w-full max-w-6xl px-4 py-12">
+        <ChangelogSection productName="OB-Xf" nightly={obxf_build_nightly} />
+    </main>
+</Base>
