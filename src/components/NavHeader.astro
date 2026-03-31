@@ -16,43 +16,105 @@ const currentProjectData = projects.find((p) => p.id === currentProject);
 
 <nav
     id="nav"
-    class="sticky top-0 flex place-content-center items-center gap-4 bg-black p-2 font-semibold text-nowrap text-white shadow-xl backdrop-blur-lg select-none dark:bg-neutral-900 print:hidden">
-    <a href="/" title="surge-synth-team.org">
-        <img
-            src="/images/sst-logo.svg"
-            alt="Surge Synth Team logo"
-            loading="lazy"
-            decoding="async"
-            fetchpriority="auto"
-            width="24"
-            height="24"
-            class="m-0 min-h-[24px] min-w-[24px] p-0"
-        />
-    </a>
-    <menu class="flex flex-row flex-wrap items-center gap-4 font-bold">
-        <ProjectSelector currentProject={currentProject} />
-    </menu>
-    {links.length > 0 && (
-        <>
-            <div class="h-5 w-px bg-white/20" />
-            <menu class="flex flex-row flex-wrap items-center gap-4 font-bold">
-                {currentProjectData && (
-                    <li>
-                        <a href={`/${currentProject}`} class="rounded px-2 py-1 text-white transition-colors font-bold">
-                            {currentProjectData.data.title}
-                        </a>
-                    </li>
-                )}
-                {links.map(([title, href]) => (
-                    <li>
-                        <a class="rounded px-2 py-1 text-white transition-colors" href={href}>
-                            {title}
-                        </a>
-                    </li>
-                ))}
+    class="sticky top-0 z-50 bg-black font-semibold text-white shadow-xl backdrop-blur-lg select-none dark:bg-neutral-900 print:hidden">
+    <div class="flex items-center gap-3 px-3 py-2">
+        <a href="/" title="surge-synth-team.org" class="shrink-0">
+            <img
+                src="/images/sst-logo.svg"
+                alt="Surge Synth Team logo"
+                loading="lazy"
+                decoding="async"
+                width="24"
+                height="24"
+                class="m-0 min-h-[24px] min-w-[24px] p-0"
+            />
+        </a>
+
+        <div class="hidden md:flex md:flex-1 md:items-center md:gap-3">
+            <menu class="flex shrink-0 items-center">
+                <ProjectSelector currentProject={currentProject} />
             </menu>
-        </>
-    )}
-    <div class="h-5 w-px bg-white/20" />
-    <ThemeSelector />
+
+            {
+                links.length > 0 && (
+                    <>
+                        <div class="h-5 w-px shrink-0 bg-white/20" />
+                        <menu class="flex shrink-0 flex-row items-center gap-2">
+                            {currentProjectData && (
+                                <li>
+                                    <a
+                                        href={`/${currentProject}`}
+                                        class="rounded px-2 py-1 font-bold whitespace-nowrap text-white transition-colors">
+                                        {currentProjectData.data.title}
+                                    </a>
+                                </li>
+                            )}
+                            {links.map(([title, href]) => (
+                                <li>
+                                    <a
+                                        class="rounded px-2 py-1 whitespace-nowrap text-white transition-colors"
+                                        href={href}>
+                                        {title}
+                                    </a>
+                                </li>
+                            ))}
+                        </menu>
+                    </>
+                )
+            }
+        </div>
+
+        <!-- Right: theme + hamburger -->
+        <div class="ml-auto flex shrink-0 items-center gap-3">
+            <div class="h-5 w-px bg-white/20"></div>
+            <ThemeSelector />
+            <button
+                id="nav-hamburger"
+                class="flex flex-col gap-1 rounded p-1 md:hidden"
+                aria-label="Toggle menu">
+                <span class="block h-0.5 w-5 bg-white"></span>
+                <span class="block h-0.5 w-5 bg-white"></span>
+                <span class="block h-0.5 w-5 bg-white"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div
+        id="nav-mobile-menu"
+        class="hidden flex-col gap-1 border-t border-white/10 px-3 py-2 md:hidden">
+        <menu class="flex flex-col gap-1">
+            <ProjectSelector currentProject={currentProject} />
+        </menu>
+        {
+            currentProjectData && (
+                <a
+                    href={`/${currentProject}`}
+                    class="rounded px-2 py-1 font-bold text-white transition-colors">
+                    {currentProjectData.data.title}
+                </a>
+            )
+        }
+        {
+            links.map(([title, href]) => (
+                <a class="rounded px-2 py-1 text-white transition-colors" href={href}>
+                    {title}
+                </a>
+            ))
+        }
+    </div>
 </nav>
+
+<script>
+    function init() {
+        const hamburger = document.getElementById("nav-hamburger");
+        const menu = document.getElementById("nav-mobile-menu");
+        if (!hamburger || !menu) return;
+        hamburger.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+            menu.classList.toggle("flex");
+        });
+    }
+    document.addEventListener("astro:after-swap", init);
+    init();
+</script>
