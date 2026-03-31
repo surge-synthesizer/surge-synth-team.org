@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-03-30T23:07:07.940027499",
+    "build_time": "2026-03-31T23:44:59.492699078",
     "data": {},
-    "latest_commit": "f4681e8",
+    "latest_commit": "ae33d3d",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "ae33d3d",
+            "date": "2026-03-31T19:34:22-04:00",
+            "message": "Add rudimentary MPE support with per-voice modulation matrix (#631)"
+        },
         {
             "author": "Mirko Caserta",
             "commit": "f4681e8",
@@ -28,20 +34,14 @@
             "commit": "85e028d",
             "date": "2026-03-29T10:52:43-04:00",
             "message": "Transpose BLEP/BLAMP tables and unbranch oscillator getValue (#625)"
-        },
-        {
-            "author": "Paul",
-            "commit": "ce09d4d",
-            "date": "2026-03-28T15:25:25-04:00",
-            "message": "Add Filter golden value and stability tests (#624) (#624)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-30-f4681e8.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-30-f4681e8.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-03-31-ae33d3d.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-03-31-ae33d3d.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-30-f4681e8.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-30-f4681e8.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-31-ae33d3d.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-03-31-ae33d3d.zip"
     },
     "version": "main"
 }
