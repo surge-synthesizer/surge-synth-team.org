@@ -9,13 +9,16 @@ const { currentProject = null } = Astro.props;
 const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<li class="group relative">
-    <span
-        class="cursor-pointer rounded px-2 py-1 text-white transition-colors group-hover:bg-white group-hover:text-black"
-        >Projects</span
-    >
+<li class="relative" id="desktop-projects-dropdown">
+    <button
+        type="button"
+        id="desktop-projects-toggle"
+        class="cursor-pointer rounded px-2 py-1 text-white transition-colors">
+        Projects
+    </button>
     <ul
-        class="invisible absolute top-full left-0 z-10 min-w-[180px] rounded border border-white/10 bg-black py-2 shadow-lg group-hover:visible dark:bg-neutral-900">
+        id="desktop-projects-list"
+        class="invisible absolute top-full left-0 z-10 min-w-[180px] rounded border border-white/10 bg-black py-2 shadow-lg dark:bg-neutral-900">
         {
             projects.map((project) => (
                 <li>

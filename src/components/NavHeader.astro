@@ -35,27 +35,33 @@ const currentProjectData = projects.find((p) => p.id === currentProject);
                 <ProjectSelector currentProject={currentProject} />
             </menu>
 
-            {links.length > 0 && (
-                <>
-                    <div class="h-5 w-px shrink-0 bg-white/20" />
-                    <menu class="flex shrink-0 flex-row items-center gap-2">
-                        {currentProjectData && (
-                            <li>
-                                <a href={`/${currentProject}`} class="rounded px-2 py-1 font-bold whitespace-nowrap text-white transition-colors">
-                                    {currentProjectData.data.title}
-                                </a>
-                            </li>
-                        )}
-                        {links.map(([title, href]) => (
-                            <li>
-                                <a class="rounded px-2 py-1 whitespace-nowrap text-white transition-colors" href={href}>
-                                    {title}
-                                </a>
-                            </li>
-                        ))}
-                    </menu>
-                </>
-            )}
+            {
+                links.length > 0 && (
+                    <>
+                        <div class="h-5 w-px shrink-0 bg-white/20" />
+                        <menu class="flex shrink-0 flex-row items-center gap-2">
+                            {currentProjectData && (
+                                <li>
+                                    <a
+                                        href={`/${currentProject}`}
+                                        class="rounded px-2 py-1 font-bold whitespace-nowrap text-white transition-colors">
+                                        {currentProjectData.data.title}
+                                    </a>
+                                </li>
+                            )}
+                            {links.map(([title, href]) => (
+                                <li>
+                                    <a
+                                        class="rounded px-2 py-1 whitespace-nowrap text-white transition-colors"
+                                        href={href}>
+                                        {title}
+                                    </a>
+                                </li>
+                            ))}
+                        </menu>
+                    </>
+                )
+            }
         </div>
 
         <div class="ml-auto flex shrink-0 items-center gap-3">
@@ -72,42 +78,50 @@ const currentProjectData = projects.find((p) => p.id === currentProject);
         </div>
     </div>
 
-    <!-- Mobile menu -->
     <div
         id="nav-mobile-menu"
         class="hidden flex-col gap-1 border-t border-white/10 px-3 py-2 md:hidden">
-
-        <!-- Projects section -->
         <div class="flex flex-col">
-            <button id="mobile-projects-toggle" class="flex items-center justify-between rounded px-2 py-1 text-white transition-colors hover:bg-white/10">
+            <button
+                id="mobile-projects-toggle"
+                class="flex items-center justify-between rounded px-2 py-1 text-white transition-colors hover:bg-white/10">
                 <span>Projects</span>
                 <span id="mobile-projects-chevron" class="transition-transform">▾</span>
             </button>
             <div id="mobile-projects-list" class="hidden flex-col pl-4">
-                {projects.map((project) => (
-                    <a
-                        href={`/${project.id}`}
-                        class={`rounded px-2 py-1 text-white transition-colors hover:bg-white/10 ${project.id === currentProject ? "font-bold" : ""}`}
-                    >
-                        {project.data.title}
-                    </a>
-                ))}
+                {
+                    projects.map((project) => (
+                        <a
+                            href={`/${project.id}`}
+                            class={`rounded px-2 py-1 text-white transition-colors hover:bg-white/10 ${project.id === currentProject ? "font-bold" : ""}`}>
+                            {project.data.title}
+                        </a>
+                    ))
+                }
             </div>
         </div>
 
-        {currentProjectData && (
-            <>
-                <div class="h-px bg-white/10" />
-                <a href={`/${currentProject}`} class="rounded px-2 py-1 font-bold text-white transition-colors hover:bg-white/10">
-                    {currentProjectData.data.title}
+        {
+            currentProjectData && (
+                <>
+                    <div class="h-px bg-white/10" />
+                    <a
+                        href={`/${currentProject}`}
+                        class="rounded px-2 py-1 font-bold text-white transition-colors hover:bg-white/10">
+                        {currentProjectData.data.title}
+                    </a>
+                </>
+            )
+        }
+        {
+            links.map(([title, href]) => (
+                <a
+                    class="rounded px-2 py-1 text-white transition-colors hover:bg-white/10"
+                    href={href}>
+                    {title}
                 </a>
-            </>
-        )}
-        {links.map(([title, href]) => (
-            <a class="rounded px-2 py-1 text-white transition-colors hover:bg-white/10" href={href}>
-                {title}
-            </a>
-        ))}
+            ))
+        }
     </div>
 </nav>
 
@@ -119,18 +133,53 @@ const currentProjectData = projects.find((p) => p.id === currentProject);
         const projectsList = document.getElementById("mobile-projects-list");
         const chevron = document.getElementById("mobile-projects-chevron");
 
-        if (!hamburger || !menu) return;
+        const desktopProjectsToggle = document.getElementById("desktop-projects-toggle");
+        const desktopProjectsList = document.getElementById("desktop-projects-list");
 
-        hamburger.addEventListener("click", () => {
-            menu.classList.toggle("hidden");
-            menu.classList.toggle("flex");
-        });
+        if (hamburger && menu) {
+            hamburger.addEventListener("click", () => {
+                menu.classList.toggle("hidden");
+                menu.classList.toggle("flex");
+            });
+        }
 
-        projectsToggle?.addEventListener("click", () => {
-            projectsList?.classList.toggle("hidden");
-            projectsList?.classList.toggle("flex");
-            if (chevron) chevron.style.transform = projectsList?.classList.contains("flex") ? "rotate(180deg)" : "";
-        });
+        function toggleProjectsList() {
+            if (!projectsList) return;
+            projectsList.classList.toggle("hidden");
+            projectsList.classList.toggle("flex");
+            if (chevron)
+                chevron.style.transform = projectsList.classList.contains("flex")
+                    ? "rotate(180deg)"
+                    : "";
+        }
+
+        projectsToggle?.addEventListener("click", toggleProjectsList);
+
+        if (desktopProjectsToggle && desktopProjectsList) {
+            desktopProjectsToggle.addEventListener("click", (e) => {
+                e.stopPropagation();
+                if (desktopProjectsList.classList.contains("invisible")) {
+                    desktopProjectsList.classList.remove("invisible");
+                    desktopProjectsList.classList.add("visible");
+                } else {
+                    desktopProjectsList.classList.add("invisible");
+                    desktopProjectsList.classList.remove("visible");
+                }
+            });
+
+            document.addEventListener("click", (e) => {
+                const target = e.target as Node;
+                if (
+                    desktopProjectsList &&
+                    desktopProjectsToggle &&
+                    !desktopProjectsList.contains(target) &&
+                    !desktopProjectsToggle.contains(target)
+                ) {
+                    desktopProjectsList.classList.add("invisible");
+                    desktopProjectsList.classList.remove("visible");
+                }
+            });
+        }
     }
 
     document.addEventListener("astro:after-swap", init);
