@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-04-01T22:13:18.134597813",
+    "build_time": "2026-04-03T14:44:17.789457501",
     "data": {},
-    "latest_commit": "d0f401b",
+    "latest_commit": "eff3579",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "eff3579",
+            "date": "2026-04-03T10:17:01-04:00",
+            "message": "Improve drag-and-drop: targeted group drops, batch drops, part-sidebar redirect (#2414, #2415, #2428) (#2429)"
+        },
         {
             "author": "Paul",
             "commit": "d0f401b",
@@ -28,20 +34,14 @@
             "commit": "6ac2879",
             "date": "2026-04-01T11:56:57-04:00",
             "message": "Make the audio modulator send on selection change (#2424)"
-        },
-        {
-            "author": "Paul",
-            "commit": "401b846",
-            "date": "2026-04-01T09:12:49-04:00",
-            "message": "Upgrade voice manager; fix note priority in mono/legato (#2422)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-01-d0f401b-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-04-01-d0f401b.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-03-eff3579-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-04-03-eff3579.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-01-d0f401b-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-01-d0f401b-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-03-eff3579-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-03-eff3579-Windows-64bit.zip"
     },
     "version": "main"
 }
