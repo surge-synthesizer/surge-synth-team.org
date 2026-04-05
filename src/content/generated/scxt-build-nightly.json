@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-04-03T21:34:34.672074437",
+    "build_time": "2026-04-05T12:56:21.007780628",
     "data": {},
-    "latest_commit": "f477627",
+    "latest_commit": "bdd7006",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "bdd7006",
+            "date": "2026-04-05T08:29:32-04:00",
+            "message": "Fix some modulation edge cases in PMD (#2432)"
+        },
         {
             "author": "Andreya-Autumn",
             "commit": "f477627",
@@ -28,20 +34,14 @@
             "commit": "d0f401b",
             "date": "2026-04-01T17:48:02-04:00",
             "message": "Gated, not sounding, drives mono priority LOW/HI mode (#2426)"
-        },
-        {
-            "author": "Paul",
-            "commit": "9c7ee44",
-            "date": "2026-04-01T15:48:03-04:00",
-            "message": "Upgrade VM to meet correct spec for legato repeated notes (#2425)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-03-f477627-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-04-03-f477627.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-05-bdd7006-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-04-05-bdd7006.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-03-f477627-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-03-f477627-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-05-bdd7006-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-05-bdd7006-Windows-64bit.zip"
     },
     "version": "main"
 }
