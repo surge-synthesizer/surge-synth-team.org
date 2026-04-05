@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-04-01T00:10:26.750226501",
+    "build_time": "2026-04-05T12:01:59.816519604",
     "data": {},
-    "latest_commit": "47ab4e4",
+    "latest_commit": "bfab4de",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "bfab4de",
+            "date": "2026-04-05T07:51:13-04:00",
+            "message": "Attempt a linux arm build (#633)"
+        },
         {
             "author": "EvilDragon",
             "commit": "47ab4e4",
@@ -28,20 +34,14 @@
             "commit": "452766a",
             "date": "2026-03-30T09:33:38-04:00",
             "message": "Add noise golden tests; replace pink loop with countr_zero; unbranch noise color dispatch (#627)"
-        },
-        {
-            "author": "Paul",
-            "commit": "e57141c",
-            "date": "2026-03-30T08:32:29-04:00",
-            "message": "Add filter and ADSR benchmarks and env tests; replace juce::jmin/jmax (#626)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-04-01-47ab4e4.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-04-01-47ab4e4.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-04-05-bfab4de.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-04-05-bfab4de.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-04-01-47ab4e4.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-04-01-47ab4e4.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-04-05-bfab4de.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-04-05-bfab4de.zip"
     },
     "version": "main"
 }
