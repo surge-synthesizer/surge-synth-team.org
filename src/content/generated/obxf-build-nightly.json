@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-04-05T12:14:58.933298714",
+    "build_time": "2026-04-05T20:10:50.23484995",
     "data": {},
-    "latest_commit": "be8cc23",
+    "latest_commit": "6517e6c",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "6517e6c",
+            "date": "2026-04-05T15:56:07-04:00",
+            "message": "Few more arm build tweaks"
+        },
         {
             "author": "Paul Walker",
             "commit": "be8cc23",
@@ -28,20 +34,14 @@
             "commit": "ae33d3d",
             "date": "2026-03-31T19:34:22-04:00",
             "message": "Add rudimentary MPE support with per-voice modulation matrix (#631)"
-        },
-        {
-            "author": "Mirko Caserta",
-            "commit": "f4681e8",
-            "date": "2026-03-31T00:55:57+02:00",
-            "message": "Feature/ios ipad target (#609)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-04-05-be8cc23.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-04-05-be8cc23.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-04-05-6517e6c.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-04-05-6517e6c.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-04-05-be8cc23.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-04-05-be8cc23.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-04-05-6517e6c.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-04-05-6517e6c.zip"
     },
     "version": "main"
 }
