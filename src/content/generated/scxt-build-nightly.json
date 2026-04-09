@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-04-09T19:18:22.165301912",
+    "build_time": "2026-04-09T22:24:58.738498447",
     "data": {},
-    "latest_commit": "7fe8fd5",
+    "latest_commit": "c99f958",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "c99f958",
+            "date": "2026-04-09T17:55:04-04:00",
+            "message": "Add exclusive group (choke group) feature; fix overlapping-zone choke (#497) (#2438)"
+        },
         {
             "author": "Paul",
             "commit": "7fe8fd5",
@@ -28,20 +34,14 @@
             "commit": "bdd7006",
             "date": "2026-04-05T08:29:32-04:00",
             "message": "Fix some modulation edge cases in PMD (#2432)"
-        },
-        {
-            "author": "Andreya-Autumn",
-            "commit": "f477627",
-            "date": "2026-04-03T22:43:30+02:00",
-            "message": "Fix wrong part ID in macro host menu"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-09-7fe8fd5-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-04-09-7fe8fd5.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-09-c99f958-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-04-09-c99f958.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-09-7fe8fd5-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-09-7fe8fd5-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-09-c99f958-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-09-c99f958-Windows-64bit.zip"
     },
     "version": "main"
 }
