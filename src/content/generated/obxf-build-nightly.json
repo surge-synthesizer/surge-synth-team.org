@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-04-21T14:55:09.200308915",
+    "build_time": "2026-04-21T16:20:42.147441643",
     "data": {},
-    "latest_commit": "4abd5a9",
+    "latest_commit": "be8c1fd",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "be8c1fd",
+            "date": "2026-04-21T18:08:58+02:00",
+            "message": "Fix some typos in comments (#639)"
+        },
         {
             "author": "EvilDragon",
             "commit": "4abd5a9",
@@ -28,20 +34,14 @@
             "commit": "3f185d6",
             "date": "2026-04-06T10:10:41+02:00",
             "message": "Use kHz units for Cutoff above 1k (#634)"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "6517e6c",
-            "date": "2026-04-05T15:56:07-04:00",
-            "message": "Few more arm build tweaks"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-04-21-4abd5a9.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-04-21-4abd5a9.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-04-21-be8c1fd.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-04-21-be8c1fd.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-04-21-4abd5a9.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-04-21-4abd5a9.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-04-21-be8c1fd.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-04-21-be8c1fd.zip"
     },
     "version": "main"
 }
