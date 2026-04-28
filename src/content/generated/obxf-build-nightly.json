@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-04-21T16:20:42.147441643",
+    "build_time": "2026-04-28T21:59:20.053559777",
     "data": {},
-    "latest_commit": "be8c1fd",
+    "latest_commit": "f18cc54",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "f18cc54",
+            "date": "2026-04-28T23:46:21+02:00",
+            "message": "Implement locking of bend range and HQ parameters (#640)"
+        },
         {
             "author": "EvilDragon",
             "commit": "be8c1fd",
@@ -28,20 +34,14 @@
             "commit": "7d9d45d",
             "date": "2026-04-06T15:28:24+02:00",
             "message": "Correct value display for Osc 2 Detune parameter (#637)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "3f185d6",
-            "date": "2026-04-06T10:10:41+02:00",
-            "message": "Use kHz units for Cutoff above 1k (#634)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-04-21-be8c1fd.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-04-21-be8c1fd.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-04-28-f18cc54.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-04-28-f18cc54.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-04-21-be8c1fd.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-04-21-be8c1fd.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-04-28-f18cc54.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-04-28-f18cc54.zip"
     },
     "version": "main"
 }
