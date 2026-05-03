@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-04-28T23:04:19.853459618",
+    "build_time": "2026-05-03T14:40:00.926200634",
     "data": {},
-    "latest_commit": "f61ce88",
+    "latest_commit": "822b98a",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "822b98a",
+            "date": "2026-05-03T15:29:01+01:00",
+            "message": "Move to xcode 16.2 for all macOS builds (#644)"
+        },
         {
             "author": "EvilDragon",
             "commit": "f61ce88",
@@ -28,20 +34,14 @@
             "commit": "4abd5a9",
             "date": "2026-04-21T16:43:24+02:00",
             "message": "Add Osc 2 Keytrack functionality (#638)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "a82ad70",
-            "date": "2026-04-09T00:30:53+02:00",
-            "message": "Patch Mutator part 2: Implementation (#635)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-04-28-f61ce88.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-04-28-f61ce88.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-03-822b98a.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-03-822b98a.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-04-28-f61ce88.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-04-28-f61ce88.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-03-822b98a.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-03-822b98a.zip"
     },
     "version": "main"
 }
