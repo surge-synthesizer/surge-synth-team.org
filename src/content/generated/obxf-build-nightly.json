@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-05-05T10:17:59.936279682",
+    "build_time": "2026-05-05T20:37:25.828445554",
     "data": {},
-    "latest_commit": "27d4cb1",
+    "latest_commit": "b77cba2",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "b77cba2",
+            "date": "2026-05-05T22:26:03+02:00",
+            "message": "Implement importing and conversion of OB-Xd patches (#649)"
+        },
         {
             "author": "EvilDragon",
             "commit": "27d4cb1",
@@ -28,20 +34,14 @@
             "commit": "916707b",
             "date": "2026-05-03T23:17:47+02:00",
             "message": "Add theme-adjustable color for text input widgets (#645)"
-        },
-        {
-            "author": "Paul",
-            "commit": "822b98a",
-            "date": "2026-05-03T15:29:01+01:00",
-            "message": "Move to xcode 16.2 for all macOS builds (#644)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-05-27d4cb1.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-05-27d4cb1.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-05-b77cba2.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-05-b77cba2.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-05-27d4cb1.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-05-27d4cb1.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-05-b77cba2.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-05-b77cba2.zip"
     },
     "version": "main"
 }
