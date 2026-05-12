@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-05-11T22:42:33.901353608",
+    "build_time": "2026-05-12T19:21:34.375693788",
     "data": {},
-    "latest_commit": "15102fc",
+    "latest_commit": "89b4b0d",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "89b4b0d",
+            "date": "2026-05-12T21:08:53+02:00",
+            "message": "Don't crash on loading presets without voice matrix (#651)"
+        },
         {
             "author": "EvilDragon",
             "commit": "15102fc",
@@ -28,20 +34,14 @@
             "commit": "060975a",
             "date": "2026-05-04T15:05:47+02:00",
             "message": "Implement randomization heuristics (#647)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "b4ac26a",
-            "date": "2026-05-04T14:51:04+02:00",
-            "message": "Clicking RAND uses mutation instead of randomization (#646)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-11-15102fc.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-11-15102fc.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-12-89b4b0d.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-12-89b4b0d.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-11-15102fc.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-11-15102fc.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-12-89b4b0d.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-12-89b4b0d.zip"
     },
     "version": "main"
 }
