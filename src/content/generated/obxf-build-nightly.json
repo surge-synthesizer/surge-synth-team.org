@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-05-15T20:03:36.59041657",
+    "build_time": "2026-05-15T21:13:20.618600599",
     "data": {},
-    "latest_commit": "bb5676f",
+    "latest_commit": "fa63167",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "fa63167",
+            "date": "2026-05-15T23:00:30+02:00",
+            "message": "Split PluginEditor to multiple files. PluginEditor/Processor to ObxfEditor/Processor (#657)"
+        },
         {
             "author": "EvilDragon",
             "commit": "bb5676f",
@@ -28,20 +34,14 @@
             "commit": "0efe824",
             "date": "2026-05-13T13:00:47+02:00",
             "message": "Add MPE button to the Global section (#653)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "44ba7ef",
-            "date": "2026-05-13T00:15:49+02:00",
-            "message": "Update the header blurb in all code files (#652)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-15-bb5676f.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-15-bb5676f.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-15-fa63167.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-15-fa63167.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-15-bb5676f.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-15-bb5676f.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-15-fa63167.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-15-fa63167.zip"
     },
     "version": "main"
 }
