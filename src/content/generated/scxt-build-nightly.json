@@ -1,10 +1,28 @@
 {
-    "build_time": "2026-04-19T17:48:46.186925784",
+    "build_time": "2026-05-15T22:01:06.518466497",
     "data": {},
-    "latest_commit": "c8e20d9",
+    "latest_commit": "eefe3ac",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "eefe3ac",
+            "date": "2026-05-15T17:39:09-04:00",
+            "message": "Restructure messaging + json includes to cut build parse time ~32% (#2450)"
+        },
+        {
+            "author": "Paul",
+            "commit": "21e24d9",
+            "date": "2026-05-15T15:08:19-04:00",
+            "message": "Add basic import tests to the test suite (#2449)"
+        },
+        {
+            "author": "Paul",
+            "commit": "68bca1b",
+            "date": "2026-05-15T10:19:57-04:00",
+            "message": "Add theme editor window with per-session color edits (#2447)"
+        },
         {
             "author": "Paul",
             "commit": "c8e20d9",
@@ -16,32 +34,14 @@
             "commit": "8a6c4e1",
             "date": "2026-04-18T17:11:25-04:00",
             "message": "Add undo regression fence (Chunk 1 of undo coverage plan) (#2440)"
-        },
-        {
-            "author": "Paul",
-            "commit": "c99f958",
-            "date": "2026-04-09T17:55:04-04:00",
-            "message": "Add exclusive group (choke group) feature; fix overlapping-zone choke (#497) (#2438)"
-        },
-        {
-            "author": "Paul",
-            "commit": "7fe8fd5",
-            "date": "2026-04-09T14:53:58-04:00",
-            "message": "Fix WAV drag-drop zone preview regression from eff3579 (#2437)"
-        },
-        {
-            "author": "Paul",
-            "commit": "22bd4fc",
-            "date": "2026-04-06T11:52:28-04:00",
-            "message": "More wireframe work (#2434)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-19-c8e20d9-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-04-19-c8e20d9.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-15-eefe3ac-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-05-15-eefe3ac.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-19-c8e20d9-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-04-19-c8e20d9-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-15-eefe3ac-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-15-eefe3ac-Windows-64bit.zip"
     },
     "version": "main"
 }
