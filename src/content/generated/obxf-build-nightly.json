@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-05-14T00:10:42.957442735",
+    "build_time": "2026-05-15T20:03:36.59041657",
     "data": {},
-    "latest_commit": "8a28b27",
+    "latest_commit": "bb5676f",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "bb5676f",
+            "date": "2026-05-15T21:08:40+02:00",
+            "message": "Panels! (#656)"
+        },
+        {
+            "author": "EvilDragon",
+            "commit": "3a0aa4a",
+            "date": "2026-05-15T10:56:59+02:00",
+            "message": "Implement generic panel groups (#655)"
+        },
         {
             "author": "EvilDragon",
             "commit": "8a28b27",
@@ -22,26 +34,14 @@
             "commit": "44ba7ef",
             "date": "2026-05-13T00:15:49+02:00",
             "message": "Update the header blurb in all code files (#652)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "89b4b0d",
-            "date": "2026-05-12T21:08:53+02:00",
-            "message": "Don't crash on loading presets without voice matrix (#651)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "15102fc",
-            "date": "2026-05-12T00:28:37+02:00",
-            "message": "OB-Xd import: compensate pitch further (#650)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-14-8a28b27.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-14-8a28b27.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-15-bb5676f.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-15-bb5676f.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-14-8a28b27.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-14-8a28b27.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-15-bb5676f.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-15-bb5676f.zip"
     },
     "version": "main"
 }
