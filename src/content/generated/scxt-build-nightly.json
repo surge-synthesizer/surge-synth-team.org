@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-05-15T22:01:06.518466497",
+    "build_time": "2026-05-16T16:36:15.586375565",
     "data": {},
-    "latest_commit": "eefe3ac",
+    "latest_commit": "e6a5957",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "e6a5957",
+            "date": "2026-05-16T12:10:36-04:00",
+            "message": "Substantial Refactor of Importer Path (sf2, sfz, etc) (#2453)"
+        },
         {
             "author": "Paul",
             "commit": "eefe3ac",
@@ -28,20 +34,14 @@
             "commit": "c8e20d9",
             "date": "2026-04-19T13:24:08-04:00",
             "message": "Add DAW extra state scaffolding for per-instance settings (#2441)"
-        },
-        {
-            "author": "Paul",
-            "commit": "8a6c4e1",
-            "date": "2026-04-18T17:11:25-04:00",
-            "message": "Add undo regression fence (Chunk 1 of undo coverage plan) (#2440)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-15-eefe3ac-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-05-15-eefe3ac.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-16-e6a5957-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-05-16-e6a5957.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-15-eefe3ac-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-15-eefe3ac-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-16-e6a5957-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-16-e6a5957-Windows-64bit.zip"
     },
     "version": "main"
 }
