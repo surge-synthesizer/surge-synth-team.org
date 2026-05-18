@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-05-17T23:29:48.233588212",
+    "build_time": "2026-05-18T00:43:18.885998863",
     "data": {},
-    "latest_commit": "ebaf020",
+    "latest_commit": "d4f5a04",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "d4f5a04",
+            "date": "2026-05-17T20:17:03-04:00",
+            "message": "Add check-multi-loadability CLI; surface EXS import errors (#2461)"
+        },
         {
             "author": "Paul",
             "commit": "ebaf020",
@@ -28,20 +34,14 @@
             "commit": "bb7be2f",
             "date": "2026-05-16T18:03:33-04:00",
             "message": "EXS expansion  + AIFF SSND-offset crash fix (#2457)"
-        },
-        {
-            "author": "Paul",
-            "commit": "e90b017",
-            "date": "2026-05-16T15:35:19-04:00",
-            "message": "Add defensive loop guard; flac smpl sanity check (#2456)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-17-ebaf020-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-05-17-ebaf020.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-18-d4f5a04-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-05-18-d4f5a04.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-17-ebaf020-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-17-ebaf020-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-18-d4f5a04-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-18-d4f5a04-Windows-64bit.zip"
     },
     "version": "main"
 }
