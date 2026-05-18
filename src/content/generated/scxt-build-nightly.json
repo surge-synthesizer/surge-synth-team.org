@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-05-18T13:42:09.669729649",
+    "build_time": "2026-05-18T15:07:08.742828722",
     "data": {},
-    "latest_commit": "2f26cff",
+    "latest_commit": "e1480a7",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "e1480a7",
+            "date": "2026-05-18T10:39:37-04:00",
+            "message": "Add severity to report messages; emit import-complete; ctx.warn (#2464)"
+        },
         {
             "author": "Paul",
             "commit": "2f26cff",
@@ -28,20 +34,14 @@
             "commit": "ebaf020",
             "date": "2026-05-17T18:13:35-04:00",
             "message": "Add MIDI/CC modulation import across SF2/EXS/AKP/SFZ (#2460)"
-        },
-        {
-            "author": "Paul",
-            "commit": "0c008ee",
-            "date": "2026-05-17T10:37:44-04:00",
-            "message": "Add abstract FilterType enum for importers and wire up SFZ filters (#2459)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-18-2f26cff-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-05-18-2f26cff.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-18-e1480a7-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-05-18-e1480a7.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-18-2f26cff-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-18-2f26cff-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-18-e1480a7-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-05-18-e1480a7-Windows-64bit.zip"
     },
     "version": "main"
 }
