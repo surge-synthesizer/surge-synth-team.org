@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-05-20T11:23:46.692226672",
+    "build_time": "2026-05-20T11:59:03.716343695",
     "data": {},
-    "latest_commit": "becdc6f",
+    "latest_commit": "3e420d9",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "3e420d9",
+            "date": "2026-05-20T13:45:44+02:00",
+            "message": "Implement voice reallocation mode (as opposed to round-robin) (#659)"
+        },
         {
             "author": "EvilDragon",
             "commit": "becdc6f",
@@ -28,20 +34,14 @@
             "commit": "bb5676f",
             "date": "2026-05-15T21:08:40+02:00",
             "message": "Panels! (#656)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "3a0aa4a",
-            "date": "2026-05-15T10:56:59+02:00",
-            "message": "Implement generic panel groups (#655)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-20-becdc6f.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-20-becdc6f.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-20-3e420d9.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-20-3e420d9.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-20-becdc6f.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-20-becdc6f.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-20-3e420d9.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-20-3e420d9.zip"
     },
     "version": "main"
 }
