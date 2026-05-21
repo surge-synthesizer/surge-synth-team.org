@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-05-21T09:27:33.875653854",
+    "build_time": "2026-05-21T12:51:48.840908819",
     "data": {},
-    "latest_commit": "a082427",
+    "latest_commit": "754cdce",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "754cdce",
+            "date": "2026-05-21T14:35:01+02:00",
+            "message": "Update vector theme with the new MPE widget (#665)"
+        },
+        {
+            "author": "EvilDragon",
+            "commit": "a46cfd8",
+            "date": "2026-05-21T14:31:33+02:00",
+            "message": "Add MPE Glide Range widget to MPE panel (#664)"
+        },
         {
             "author": "EvilDragon",
             "commit": "a082427",
@@ -22,26 +34,14 @@
             "commit": "0014d91",
             "date": "2026-05-20T16:18:02+02:00",
             "message": "Update filter panels on patch load (#661)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "3e420d9",
-            "date": "2026-05-20T13:45:44+02:00",
-            "message": "Implement voice reallocation mode (as opposed to round-robin) (#659)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "becdc6f",
-            "date": "2026-05-20T13:08:07+02:00",
-            "message": "Optimize the \"scan-every-every\" loop in enterMidiLearnMode() (#660)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-21-a082427.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-21-a082427.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-21-754cdce.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-21-754cdce.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-21-a082427.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-21-a082427.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-21-754cdce.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-21-754cdce.zip"
     },
     "version": "main"
 }
