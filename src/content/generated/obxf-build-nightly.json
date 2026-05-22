@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-05-22T11:05:37.814937794",
+    "build_time": "2026-05-22T15:35:30.569130548",
     "data": {},
-    "latest_commit": "581a86d",
+    "latest_commit": "831d4e6",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "831d4e6",
+            "date": "2026-05-22T17:22:54+02:00",
+            "message": "Add Voice Reassign parameter and UI widget (#671)"
+        },
         {
             "author": "EvilDragon",
             "commit": "581a86d",
@@ -28,20 +34,14 @@
             "commit": "754cdce",
             "date": "2026-05-21T14:35:01+02:00",
             "message": "Update vector theme with the new MPE widget (#665)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "a46cfd8",
-            "date": "2026-05-21T14:31:33+02:00",
-            "message": "Add MPE Glide Range widget to MPE panel (#664)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-22-581a86d.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-22-581a86d.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-22-831d4e6.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-22-831d4e6.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-22-581a86d.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-22-581a86d.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-22-831d4e6.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-22-831d4e6.zip"
     },
     "version": "main"
 }
