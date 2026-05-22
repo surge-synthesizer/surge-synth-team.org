@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-05-22T10:52:58.887178866",
+    "build_time": "2026-05-22T11:05:37.814937794",
     "data": {},
-    "latest_commit": "d47a19a",
+    "latest_commit": "581a86d",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "581a86d",
+            "date": "2026-05-22T12:53:11+02:00",
+            "message": "Cache anySilent check in Motherboard::processSample() (#670)"
+        },
         {
             "author": "EvilDragon",
             "commit": "d47a19a",
@@ -28,20 +34,14 @@
             "commit": "a46cfd8",
             "date": "2026-05-21T14:31:33+02:00",
             "message": "Add MPE Glide Range widget to MPE panel (#664)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "a082427",
-            "date": "2026-05-21T11:11:34+02:00",
-            "message": "Add widgets to MTS-ESP panel (#663)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-22-d47a19a.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-22-d47a19a.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-22-581a86d.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-22-581a86d.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-22-d47a19a.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-22-d47a19a.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-22-581a86d.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-22-581a86d.zip"
     },
     "version": "main"
 }
