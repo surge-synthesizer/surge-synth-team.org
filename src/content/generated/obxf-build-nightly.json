@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-05-22T15:35:30.569130548",
+    "build_time": "2026-05-25T12:03:05.127585107",
     "data": {},
-    "latest_commit": "831d4e6",
+    "latest_commit": "9ff195c",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Mario Kruselj",
+            "commit": "9ff195c",
+            "date": "2026-05-25T13:49:57+02:00",
+            "message": "Fix positioning of MPE Strike and Lift icons in label-bg-global.svg"
+        },
         {
             "author": "EvilDragon",
             "commit": "831d4e6",
@@ -28,20 +34,14 @@
             "commit": "39c29e7",
             "date": "2026-05-21T15:33:44+02:00",
             "message": "Ask user for confirmation when deleting patches (#667)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "754cdce",
-            "date": "2026-05-21T14:35:01+02:00",
-            "message": "Update vector theme with the new MPE widget (#665)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-22-831d4e6.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-22-831d4e6.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-25-9ff195c.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-25-9ff195c.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-22-831d4e6.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-22-831d4e6.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-25-9ff195c.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-25-9ff195c.zip"
     },
     "version": "main"
 }
