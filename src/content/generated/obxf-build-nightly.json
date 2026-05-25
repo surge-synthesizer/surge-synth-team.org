@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-05-25T12:03:05.127585107",
+    "build_time": "2026-05-25T12:09:46.858986837",
     "data": {},
-    "latest_commit": "9ff195c",
+    "latest_commit": "f573120",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "f573120",
+            "date": "2026-05-25T13:51:46+02:00",
+            "message": "Finalize the MPE panel (#673)"
+        },
         {
             "author": "Mario Kruselj",
             "commit": "9ff195c",
@@ -28,20 +34,14 @@
             "commit": "d47a19a",
             "date": "2026-05-22T12:40:37+02:00",
             "message": "Fix undo history spam in Live (#669)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "39c29e7",
-            "date": "2026-05-21T15:33:44+02:00",
-            "message": "Ask user for confirmation when deleting patches (#667)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-25-9ff195c.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-25-9ff195c.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-25-f573120.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-25-f573120.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-25-9ff195c.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-25-9ff195c.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-25-f573120.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-25-f573120.zip"
     },
     "version": "main"
 }
