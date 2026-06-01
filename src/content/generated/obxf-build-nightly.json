@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-05-31T23:06:36.294796272",
+    "build_time": "2026-06-01T21:30:36.850436827",
     "data": {},
-    "latest_commit": "b67ee6a",
+    "latest_commit": "b2f894e",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "b2f894e",
+            "date": "2026-06-01T23:18:25+02:00",
+            "message": "Reset voice counter on polyphony change (#679)"
+        },
         {
             "author": "EvilDragon",
             "commit": "b67ee6a",
@@ -28,20 +34,14 @@
             "commit": "9ff195c",
             "date": "2026-05-25T13:49:57+02:00",
             "message": "Fix positioning of MPE Strike and Lift icons in label-bg-global.svg"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "831d4e6",
-            "date": "2026-05-22T17:22:54+02:00",
-            "message": "Add Voice Reassign parameter and UI widget (#671)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-05-31-b67ee6a.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-05-31-b67ee6a.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-06-01-b2f894e.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-06-01-b2f894e.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-31-b67ee6a.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-05-31-b67ee6a.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-01-b2f894e.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-01-b2f894e.zip"
     },
     "version": "main"
 }
