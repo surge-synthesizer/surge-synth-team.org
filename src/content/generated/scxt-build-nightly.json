@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-06-10T17:54:41.734081714",
+    "build_time": "2026-06-11T10:01:11.952071929",
     "data": {},
-    "latest_commit": "14183be",
+    "latest_commit": "f7378e2",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "f7378e2",
+            "date": "2026-06-11T11:29:06+02:00",
+            "message": "Fix clap note fallthrough (#2514)"
+        },
         {
             "author": "Paul",
             "commit": "14183be",
@@ -28,20 +34,14 @@
             "commit": "dd8217a",
             "date": "2026-06-09T11:06:06+02:00",
             "message": "Temposync Modulation in Percent; PMD Features in ModMatrix (#2507)"
-        },
-        {
-            "author": "Paul",
-            "commit": "84e2085",
-            "date": "2026-06-07T17:17:24+02:00",
-            "message": "Remove theme/Layout.h (#2505)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-06-10-14183be-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-06-10-14183be.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-06-11-f7378e2-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-06-11-f7378e2.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-06-10-14183be-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-06-10-14183be-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-06-11-f7378e2-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-06-11-f7378e2-Windows-64bit.zip"
     },
     "version": "main"
 }
