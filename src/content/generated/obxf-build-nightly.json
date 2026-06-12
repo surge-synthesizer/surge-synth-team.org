@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-06-09T11:44:50.714490692",
+    "build_time": "2026-06-12T23:51:40.916300895",
     "data": {},
-    "latest_commit": "733cac5",
+    "latest_commit": "a09cbb3",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "a09cbb3",
+            "date": "2026-06-13T01:40:22+02:00",
+            "message": "Add Python bindings! (#683)"
+        },
         {
             "author": "EvilDragon",
             "commit": "733cac5",
@@ -28,20 +34,14 @@
             "commit": "b67ee6a",
             "date": "2026-06-01T00:53:30+02:00",
             "message": "Support importing old OB-Xd banks with different XML wrapper and root element (#678)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "27ca44e",
-            "date": "2026-05-29T13:54:46+02:00",
-            "message": "Update OB-Xd patch compatibility info in README (#676)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-06-09-733cac5.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-06-09-733cac5.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-06-12-a09cbb3.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-06-12-a09cbb3.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-09-733cac5.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-09-733cac5.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-12-a09cbb3.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-12-a09cbb3.zip"
     },
     "version": "main"
 }
