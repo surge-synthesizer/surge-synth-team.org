@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-06-14T16:06:49.535209514",
+    "build_time": "2026-06-14T16:24:32.58927257",
     "data": {},
-    "latest_commit": "9c91df6",
+    "latest_commit": "c9c040c",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "c9c040c",
+            "date": "2026-06-14T17:57:54+02:00",
+            "message": "Add group EGs as zone modulation sources (#2522)"
+        },
         {
             "author": "Paul",
             "commit": "9c91df6",
@@ -28,20 +34,14 @@
             "commit": "805cadb",
             "date": "2026-06-11T23:01:26+02:00",
             "message": "Some small cleanups (#2517)"
-        },
-        {
-            "author": "Paul",
-            "commit": "f7378e2",
-            "date": "2026-06-11T11:29:06+02:00",
-            "message": "Fix clap note fallthrough (#2514)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-06-14-9c91df6-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-06-14-9c91df6.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-06-14-c9c040c-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-06-14-c9c040c.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-06-14-9c91df6-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-06-14-9c91df6-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-06-14-c9c040c-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-06-14-c9c040c-Windows-64bit.zip"
     },
     "version": "main"
 }
