@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-06-13T09:22:28.9205489",
+    "build_time": "2026-06-14T23:10:41.546641525",
     "data": {},
-    "latest_commit": "f61c086",
+    "latest_commit": "f7cc061",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "f7cc061",
+            "date": "2026-06-15T00:57:47+02:00",
+            "message": "Resolve SaveDialog crashes and stale state after theme reload (#685)"
+        },
         {
             "author": "EvilDragon",
             "commit": "f61c086",
@@ -28,20 +34,14 @@
             "commit": "81b8a73",
             "date": "2026-06-08T08:37:39+02:00",
             "message": "Improve mousewheel behavior for ButtonList (#680)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "b2f894e",
-            "date": "2026-06-01T23:18:25+02:00",
-            "message": "Reset voice counter on polyphony change (#679)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-06-13-f61c086.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-06-13-f61c086.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-06-14-f7cc061.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-06-14-f7cc061.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-13-f61c086.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-13-f61c086.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-14-f7cc061.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-14-f7cc061.zip"
     },
     "version": "main"
 }
