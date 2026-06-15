@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-06-14T23:10:41.546641525",
+    "build_time": "2026-06-15T15:03:12.660792638",
     "data": {},
-    "latest_commit": "f7cc061",
+    "latest_commit": "31aca96",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "31aca96",
+            "date": "2026-06-15T16:50:33+02:00",
+            "message": "Add Vintage Wood theme to the installer (#686)"
+        },
         {
             "author": "EvilDragon",
             "commit": "f7cc061",
@@ -28,20 +34,14 @@
             "commit": "733cac5",
             "date": "2026-06-09T13:31:52+02:00",
             "message": "Add popup to MTS-ESP status display for long scale names (#681)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "81b8a73",
-            "date": "2026-06-08T08:37:39+02:00",
-            "message": "Improve mousewheel behavior for ButtonList (#680)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-06-14-f7cc061.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-06-14-f7cc061.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-06-15-31aca96.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-06-15-31aca96.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-14-f7cc061.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-14-f7cc061.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-15-31aca96.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-15-31aca96.zip"
     },
     "version": "main"
 }
