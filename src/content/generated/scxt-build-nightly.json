@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-06-15T18:06:58.207818186",
+    "build_time": "2026-06-15T20:41:58.761118745",
     "data": {},
-    "latest_commit": "579fae7",
+    "latest_commit": "16726e4",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "16726e4",
+            "date": "2026-06-15T16:01:02-04:00",
+            "message": "Make mod matrix menu order optionally explicit (#2527)"
+        },
         {
             "author": "Paul",
             "commit": "579fae7",
@@ -28,20 +34,14 @@
             "commit": "cfeaf66",
             "date": "2026-06-14T20:51:31+02:00",
             "message": "Complete undo support across the synth (closes #2305) (#2513)"
-        },
-        {
-            "author": "Paul",
-            "commit": "c9c040c",
-            "date": "2026-06-14T17:57:54+02:00",
-            "message": "Add group EGs as zone modulation sources (#2522)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-06-15-579fae7-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-06-15-579fae7.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-06-15-16726e4-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-06-15-16726e4.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-06-15-579fae7-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-06-15-579fae7-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-06-15-16726e4-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-06-15-16726e4-Windows-64bit.zip"
     },
     "version": "main"
 }
