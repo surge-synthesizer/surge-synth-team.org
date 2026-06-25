@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-06-24T19:33:02.593582572",
+    "build_time": "2026-06-25T17:59:40.828380807",
     "data": {},
-    "latest_commit": "4fef52b",
+    "latest_commit": "38b2d64",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "38b2d64",
+            "date": "2026-06-25T19:35:28+02:00",
+            "message": "A slew of fixes, part 2 (#692)"
+        },
         {
             "author": "EvilDragon",
             "commit": "4fef52b",
@@ -28,20 +34,14 @@
             "commit": "4419e02",
             "date": "2026-06-23T18:08:38+02:00",
             "message": "A slew of fixes, part 1 (#688)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "31aca96",
-            "date": "2026-06-15T16:50:33+02:00",
-            "message": "Add Vintage Wood theme to the installer (#686)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-06-24-4fef52b.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-06-24-4fef52b.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-06-25-38b2d64.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-06-25-38b2d64.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-24-4fef52b.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-24-4fef52b.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-25-38b2d64.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-25-38b2d64.zip"
     },
     "version": "main"
 }
