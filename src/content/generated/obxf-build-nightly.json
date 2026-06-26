@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-06-26T08:45:50.515550493",
+    "build_time": "2026-06-26T11:54:38.578878557",
     "data": {},
-    "latest_commit": "872c4aa",
+    "latest_commit": "22e9b96",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "22e9b96",
+            "date": "2026-06-26T13:42:56+02:00",
+            "message": "A couple of MPE fixes (#694)"
+        },
         {
             "author": "EvilDragon",
             "commit": "872c4aa",
@@ -28,20 +34,14 @@
             "commit": "7efae5b",
             "date": "2026-06-24T15:46:59+02:00",
             "message": "Pin latest CJE, param group root gets no separator (#690)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "0022776",
-            "date": "2026-06-24T13:49:44+02:00",
-            "message": "Add parameter clumping (#689)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-06-26-872c4aa.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-06-26-872c4aa.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-06-26-22e9b96.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-06-26-22e9b96.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-26-872c4aa.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-26-872c4aa.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-26-22e9b96.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-26-22e9b96.zip"
     },
     "version": "main"
 }
