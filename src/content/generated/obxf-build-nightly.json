@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-06-26T11:54:38.578878557",
+    "build_time": "2026-06-26T14:37:59.216679195",
     "data": {},
-    "latest_commit": "22e9b96",
+    "latest_commit": "57b65c3",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "57b65c3",
+            "date": "2026-06-26T16:25:30+02:00",
+            "message": "Add basic RPN handling, max MPE bend range 96 st (#695)"
+        },
         {
             "author": "EvilDragon",
             "commit": "22e9b96",
@@ -28,20 +34,14 @@
             "commit": "4fef52b",
             "date": "2026-06-24T21:20:25+02:00",
             "message": "Fix ButtonList round-trip in host-side context menu options (#691)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "7efae5b",
-            "date": "2026-06-24T15:46:59+02:00",
-            "message": "Pin latest CJE, param group root gets no separator (#690)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-06-26-22e9b96.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-06-26-22e9b96.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-06-26-57b65c3.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-06-26-57b65c3.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-26-22e9b96.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-26-22e9b96.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-26-57b65c3.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-26-57b65c3.zip"
     },
     "version": "main"
 }
