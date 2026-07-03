@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-06-30T21:01:54.021314",
+    "build_time": "2026-07-03T09:08:49.269729248",
     "data": {},
-    "latest_commit": "9b28250",
+    "latest_commit": "7139bad",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "7139bad",
+            "date": "2026-07-03T10:56:10+02:00",
+            "message": "Fix FIFO overflow when initializing patch (#697)"
+        },
         {
             "author": "EvilDragon",
             "commit": "9b28250",
@@ -28,20 +34,14 @@
             "commit": "872c4aa",
             "date": "2026-06-26T10:33:49+02:00",
             "message": "A slew of fixes, part 3 (#693)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "38b2d64",
-            "date": "2026-06-25T19:35:28+02:00",
-            "message": "A slew of fixes, part 2 (#692)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-06-30-9b28250.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-06-30-9b28250.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-07-03-7139bad.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-07-03-7139bad.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-30-9b28250.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-06-30-9b28250.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-07-03-7139bad.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-07-03-7139bad.zip"
     },
     "version": "main"
 }
