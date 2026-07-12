@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-07-03T09:08:49.269729248",
+    "build_time": "2026-07-12T12:11:45.886305864",
     "data": {},
-    "latest_commit": "7139bad",
+    "latest_commit": "5a9378a",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "5a9378a",
+            "date": "2026-07-12T13:59:39+02:00",
+            "message": "Fix garbled filter controls on undo (#698)"
+        },
         {
             "author": "EvilDragon",
             "commit": "7139bad",
@@ -28,20 +34,14 @@
             "commit": "22e9b96",
             "date": "2026-06-26T13:42:56+02:00",
             "message": "A couple of MPE fixes (#694)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "872c4aa",
-            "date": "2026-06-26T10:33:49+02:00",
-            "message": "A slew of fixes, part 3 (#693)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-07-03-7139bad.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-07-03-7139bad.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-07-12-5a9378a.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-07-12-5a9378a.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-07-03-7139bad.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-07-03-7139bad.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-07-12-5a9378a.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-07-12-5a9378a.zip"
     },
     "version": "main"
 }
