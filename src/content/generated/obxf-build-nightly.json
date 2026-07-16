@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-07-14T10:12:10.083930062",
+    "build_time": "2026-07-16T09:30:48.55124853",
     "data": {},
-    "latest_commit": "28408a6",
+    "latest_commit": "7ecb8fd",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "7ecb8fd",
+            "date": "2026-07-16T11:18:15+02:00",
+            "message": "Pin default themes to top of the list, rescan themes on menu open (#700)"
+        },
         {
             "author": "EvilDragon",
             "commit": "28408a6",
@@ -28,20 +34,14 @@
             "commit": "9b28250",
             "date": "2026-06-30T22:47:50+02:00",
             "message": "Updated Default raster skin with new features (#696)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "57b65c3",
-            "date": "2026-06-26T16:25:30+02:00",
-            "message": "Add basic RPN handling, max MPE bend range 96 st (#695)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-07-14-28408a6.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-07-14-28408a6.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-07-16-7ecb8fd.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-07-16-7ecb8fd.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-07-14-28408a6.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-07-14-28408a6.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-07-16-7ecb8fd.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-07-16-7ecb8fd.zip"
     },
     "version": "main"
 }
