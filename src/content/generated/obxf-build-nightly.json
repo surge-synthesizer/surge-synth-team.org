@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-07-16T09:30:48.55124853",
+    "build_time": "2026-07-17T12:06:18.467978452",
     "data": {},
-    "latest_commit": "7ecb8fd",
+    "latest_commit": "720315b",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "720315b",
+            "date": "2026-07-17T13:54:53+02:00",
+            "message": "Make Randomize undoable (#701)"
+        },
         {
             "author": "EvilDragon",
             "commit": "7ecb8fd",
@@ -28,20 +34,14 @@
             "commit": "7139bad",
             "date": "2026-07-03T10:56:10+02:00",
             "message": "Fix FIFO overflow when initializing patch (#697)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "9b28250",
-            "date": "2026-06-30T22:47:50+02:00",
-            "message": "Updated Default raster skin with new features (#696)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-07-16-7ecb8fd.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-07-16-7ecb8fd.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-07-17-720315b.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-07-17-720315b.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-07-16-7ecb8fd.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-07-16-7ecb8fd.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-07-17-720315b.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-07-17-720315b.zip"
     },
     "version": "main"
 }
