@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-07-24T13:21:54.298314277",
+    "build_time": "2026-07-25T01:29:32.601972579",
     "data": {},
-    "latest_commit": "81531b0",
+    "latest_commit": "7b71137",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "7b71137",
+            "date": "2026-07-24T21:06:22-04:00",
+            "message": "Flip the sign convention for aShape (#2569)"
+        },
         {
             "author": "Paul",
             "commit": "81531b0",
@@ -28,20 +34,14 @@
             "commit": "23cbcfc",
             "date": "2026-07-23T19:02:12-04:00",
             "message": "Use the discrete draggable text value for integer parameters (#2564)"
-        },
-        {
-            "author": "Paul",
-            "commit": "59c68bf",
-            "date": "2026-07-23T17:12:43-04:00",
-            "message": "Add a toggle mode to macros (#2563)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-24-81531b0-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-07-24-81531b0.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-25-7b71137-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-07-25-7b71137.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-24-81531b0-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-24-81531b0-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-25-7b71137-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-25-7b71137-Windows-64bit.zip"
     },
     "version": "main"
 }
