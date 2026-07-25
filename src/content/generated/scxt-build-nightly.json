@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-07-25T01:29:32.601972579",
+    "build_time": "2026-07-25T02:23:49.627229606",
     "data": {},
-    "latest_commit": "7b71137",
+    "latest_commit": "13f6f19",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "13f6f19",
+            "date": "2026-07-24T21:59:01-04:00",
+            "message": "Refine what an LFO one shot does per shape (#2570)"
+        },
         {
             "author": "Paul",
             "commit": "7b71137",
@@ -28,20 +34,14 @@
             "commit": "7300903",
             "date": "2026-07-23T19:45:25-04:00",
             "message": "Make glide work in mono mode for zones with a sample (#2566)"
-        },
-        {
-            "author": "Paul",
-            "commit": "23cbcfc",
-            "date": "2026-07-23T19:02:12-04:00",
-            "message": "Use the discrete draggable text value for integer parameters (#2564)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-25-7b71137-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-07-25-7b71137.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-25-13f6f19-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-07-25-13f6f19.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-25-7b71137-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-25-7b71137-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-25-13f6f19-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-25-13f6f19-Windows-64bit.zip"
     },
     "version": "main"
 }
