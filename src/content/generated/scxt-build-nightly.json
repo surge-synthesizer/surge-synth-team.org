@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-07-27T14:02:44.945964928",
+    "build_time": "2026-07-28T02:41:52.560512539",
     "data": {},
-    "latest_commit": "4adaad1",
+    "latest_commit": "95b1c17",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "95b1c17",
+            "date": "2026-07-27T22:18:24-04:00",
+            "message": "Fix some legato multi zone stuck note cases (#2576)"
+        },
         {
             "author": "Paul Walker",
             "commit": "4adaad1",
@@ -28,20 +34,14 @@
             "commit": "2cc0227",
             "date": "2026-07-26T18:07:59-04:00",
             "message": "Let a played-out zone in a legato group sound again (#2574)"
-        },
-        {
-            "author": "Paul",
-            "commit": "8a6de30",
-            "date": "2026-07-25T21:14:14-04:00",
-            "message": "Intersect preset and instrument ranges on SF2 import (#2573)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-27-4adaad1-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-07-27-4adaad1.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-28-95b1c17-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-07-28-95b1c17.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-27-4adaad1-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-27-4adaad1-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-28-95b1c17-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-28-95b1c17-Windows-64bit.zip"
     },
     "version": "main"
 }
