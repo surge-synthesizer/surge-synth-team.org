@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-07-28T22:53:17.025197005",
+    "build_time": "2026-07-29T16:35:40.769940748",
     "data": {},
-    "latest_commit": "5e85c27",
+    "latest_commit": "96481a8",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "96481a8",
+            "date": "2026-07-29T12:11:28-04:00",
+            "message": "Add round robin group trigger conditions (#2578)"
+        },
         {
             "author": "Paul",
             "commit": "5e85c27",
@@ -28,20 +34,14 @@
             "commit": "2f0746c",
             "date": "2026-07-25T20:37:48-04:00",
             "message": "Keep the live keyswitch selection out of the client-editable group settings"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "9273557",
-            "date": "2026-07-25T19:21:50-04:00",
-            "message": "Ask group triggers whether a condition holds, separately from whether the group plays"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-28-5e85c27-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-07-28-5e85c27.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-29-96481a8-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-07-29-96481a8.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-28-5e85c27-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-28-5e85c27-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-29-96481a8-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-29-96481a8-Windows-64bit.zip"
     },
     "version": "main"
 }
