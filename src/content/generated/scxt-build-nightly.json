@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-07-29T16:35:40.769940748",
+    "build_time": "2026-07-30T17:06:31.840191819",
     "data": {},
-    "latest_commit": "96481a8",
+    "latest_commit": "9cd3a3d",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "9cd3a3d",
+            "date": "2026-07-30T10:50:38-04:00",
+            "message": "Apply SFZ <global> opcodes to the regions beneath them"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "a808b93",
+            "date": "2026-07-30T10:45:37-04:00",
+            "message": "Support the #include directive in SFZ files"
+        },
         {
             "author": "Paul",
             "commit": "96481a8",
@@ -22,26 +34,14 @@
             "commit": "95b1c17",
             "date": "2026-07-27T22:18:24-04:00",
             "message": "Fix some legato multi zone stuck note cases (#2576)"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "4adaad1",
-            "date": "2026-07-25T22:31:31-04:00",
-            "message": "Let an articulation span several groups and show its keys on the keyboard"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "2f0746c",
-            "date": "2026-07-25T20:37:48-04:00",
-            "message": "Keep the live keyswitch selection out of the client-editable group settings"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-29-96481a8-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-07-29-96481a8.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-30-9cd3a3d-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-07-30-9cd3a3d.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-29-96481a8-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-29-96481a8-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-30-9cd3a3d-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-30-9cd3a3d-Windows-64bit.zip"
     },
     "version": "main"
 }
