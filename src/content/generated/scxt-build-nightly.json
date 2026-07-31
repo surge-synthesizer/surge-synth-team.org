@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-07-31T16:36:06.105766084",
+    "build_time": "2026-07-31T20:37:08.750228728",
     "data": {},
-    "latest_commit": "7d79b3a",
+    "latest_commit": "b2266c2",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "b2266c2",
+            "date": "2026-07-31T12:59:22-04:00",
+            "message": "Fix a crash redoing the first sample added to a part"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "5355e10",
+            "date": "2026-07-31T12:47:26-04:00",
+            "message": "Undo a multi-element browser drop in one step"
+        },
         {
             "author": "Paul",
             "commit": "7d79b3a",
@@ -22,26 +34,14 @@
             "commit": "9cd3a3d",
             "date": "2026-07-30T10:50:38-04:00",
             "message": "Apply SFZ <global> opcodes to the regions beneath them"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "a808b93",
-            "date": "2026-07-30T10:45:37-04:00",
-            "message": "Support the #include directive in SFZ files"
-        },
-        {
-            "author": "Paul",
-            "commit": "96481a8",
-            "date": "2026-07-29T12:11:28-04:00",
-            "message": "Add round robin group trigger conditions (#2578)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-31-7d79b3a-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-07-31-7d79b3a.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-31-b2266c2-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-07-31-b2266c2.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-31-7d79b3a-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-31-7d79b3a-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-31-b2266c2-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-31-b2266c2-Windows-64bit.zip"
     },
     "version": "main"
 }
