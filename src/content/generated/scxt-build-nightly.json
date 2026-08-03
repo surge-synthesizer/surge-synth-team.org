@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-07-31T20:37:08.750228728",
+    "build_time": "2026-08-03T14:11:24.884284864",
     "data": {},
-    "latest_commit": "b2266c2",
+    "latest_commit": "7b6c055",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "7b6c055",
+            "date": "2026-08-03T09:11:27-04:00",
+            "message": "Double click on zoom magnifier resets zoom"
+        },
         {
             "author": "Paul Walker",
             "commit": "b2266c2",
@@ -28,20 +34,14 @@
             "commit": "6dbb802",
             "date": "2026-07-30T12:46:39-04:00",
             "message": "FIx an off-by-one in part bus routing menu loop"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "9cd3a3d",
-            "date": "2026-07-30T10:50:38-04:00",
-            "message": "Apply SFZ <global> opcodes to the regions beneath them"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-31-b2266c2-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-07-31-b2266c2.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-03-7b6c055-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-08-03-7b6c055.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-31-b2266c2-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-07-31-b2266c2-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-03-7b6c055-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-03-7b6c055-Windows-64bit.zip"
     },
     "version": "main"
 }
