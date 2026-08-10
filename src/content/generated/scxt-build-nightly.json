@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-08-10T17:25:22.16072214",
+    "build_time": "2026-08-10T19:55:30.698730682",
     "data": {},
-    "latest_commit": "cd0ec6a",
+    "latest_commit": "d972777",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "d972777",
+            "date": "2026-08-10T14:45:35-04:00",
+            "message": "Let the group move tests wait for the audio thread"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "ac54375",
+            "date": "2026-08-10T13:00:45-04:00",
+            "message": "Add edit all to the sample variant display"
+        },
         {
             "author": "Paul",
             "commit": "cd0ec6a",
@@ -22,26 +34,14 @@
             "commit": "7b6c055",
             "date": "2026-08-03T09:11:27-04:00",
             "message": "Double click on zoom magnifier resets zoom"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "b2266c2",
-            "date": "2026-07-31T12:59:22-04:00",
-            "message": "Fix a crash redoing the first sample added to a part"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "5355e10",
-            "date": "2026-07-31T12:47:26-04:00",
-            "message": "Undo a multi-element browser drop in one step"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-10-cd0ec6a-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-08-10-cd0ec6a.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-10-d972777-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-08-10-d972777.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-10-cd0ec6a-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-10-cd0ec6a-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-10-d972777-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-10-d972777-Windows-64bit.zip"
     },
     "version": "main"
 }
