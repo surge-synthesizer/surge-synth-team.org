@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-07-17T12:06:18.467978452",
+    "build_time": "2026-08-12T14:02:39.132359109",
     "data": {},
-    "latest_commit": "720315b",
+    "latest_commit": "6fc32ed",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "6fc32ed",
+            "date": "2026-08-12T15:49:38+02:00",
+            "message": "Update Vintage Wood skin (#702)"
+        },
         {
             "author": "EvilDragon",
             "commit": "720315b",
@@ -28,20 +34,14 @@
             "commit": "5a9378a",
             "date": "2026-07-12T13:59:39+02:00",
             "message": "Fix garbled filter controls on undo (#698)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "7139bad",
-            "date": "2026-07-03T10:56:10+02:00",
-            "message": "Fix FIFO overflow when initializing patch (#697)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-07-17-720315b.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-07-17-720315b.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-08-12-6fc32ed.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-08-12-6fc32ed.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-07-17-720315b.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-07-17-720315b.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-08-12-6fc32ed.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-08-12-6fc32ed.zip"
     },
     "version": "main"
 }
