@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-08-13T00:06:31.976591955",
+    "build_time": "2026-08-13T15:13:56.005035991",
     "data": {},
-    "latest_commit": "9c97afb",
+    "latest_commit": "3c03300",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "3c03300",
+            "date": "2026-08-13T10:50:33-04:00",
+            "message": "Remember the last directory used to save a patch (#2611)"
+        },
+        {
+            "author": "Paul",
+            "commit": "3160a6a",
+            "date": "2026-08-13T10:49:56-04:00",
+            "message": "Fix a jucegui scroll bar paint issue (#2610)"
+        },
         {
             "author": "Paul",
             "commit": "9c97afb",
@@ -22,26 +34,14 @@
             "commit": "b4f92b6",
             "date": "2026-08-11T16:57:42-04:00",
             "message": "Make the panic button stop all sounds on press (#2607)"
-        },
-        {
-            "author": "Paul",
-            "commit": "0182461",
-            "date": "2026-08-11T11:28:17-04:00",
-            "message": "Make one shot a property of the zone rather than of a variant (#2605)"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "133f566",
-            "date": "2026-08-10T21:06:37-04:00",
-            "message": "Cover the UI lag path for value edits on a sounding zone"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-13-9c97afb-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-08-13-9c97afb.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-13-3c03300-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-08-13-3c03300.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-13-9c97afb-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-13-9c97afb-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-13-3c03300-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-13-3c03300-Windows-64bit.zip"
     },
     "version": "main"
 }
