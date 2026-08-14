@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-08-12T14:02:39.132359109",
+    "build_time": "2026-08-14T08:37:49.807669786",
     "data": {},
-    "latest_commit": "6fc32ed",
+    "latest_commit": "c373dcb",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "c373dcb",
+            "date": "2026-08-14T10:24:16+02:00",
+            "message": "Add and update a few patches from Alexey (#703)"
+        },
         {
             "author": "EvilDragon",
             "commit": "6fc32ed",
@@ -28,20 +34,14 @@
             "commit": "28408a6",
             "date": "2026-07-14T12:00:02+02:00",
             "message": "Add undo support for non-parameters (#699)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "5a9378a",
-            "date": "2026-07-12T13:59:39+02:00",
-            "message": "Fix garbled filter controls on undo (#698)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-08-12-6fc32ed.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-08-12-6fc32ed.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-08-14-c373dcb.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-08-14-c373dcb.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-08-12-6fc32ed.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-08-12-6fc32ed.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-08-14-c373dcb.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-08-14-c373dcb.zip"
     },
     "version": "main"
 }
