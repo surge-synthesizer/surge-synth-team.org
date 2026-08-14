@@ -1,47 +1,47 @@
 {
-    "build_time": "2026-08-14T14:45:27.076727056",
+    "build_time": "2026-08-14T19:53:00.609180588",
     "data": {},
-    "latest_commit": "45e2821",
+    "latest_commit": "2bb971a",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
         {
             "author": "Paul Walker",
-            "commit": "45e2821",
-            "date": "2026-08-14T09:56:44-04:00",
-            "message": "Zero a part's default output whenever no group wrote it"
+            "commit": "2bb971a",
+            "date": "2026-08-14T14:40:02-04:00",
+            "message": "Honour move and copy when dragging an effect between slots"
         },
         {
             "author": "Paul Walker",
-            "commit": "fa90693",
-            "date": "2026-08-14T09:44:16-04:00",
-            "message": "Return 'false' on invalid audio port info query"
+            "commit": "1deb87e",
+            "date": "2026-08-14T14:03:25-04:00",
+            "message": "Bound an absolute zone key end edit to the MIDI range"
         },
         {
             "author": "Paul Walker",
-            "commit": "6d6537b",
-            "date": "2026-08-14T09:29:40-04:00",
-            "message": "Stop mistaking an ordinary path for a windows one when unstreaming"
+            "commit": "a108341",
+            "date": "2026-08-14T13:44:17-04:00",
+            "message": "Restore the tab a modulation pane was left on"
         },
         {
             "author": "Paul Walker",
-            "commit": "23fa139",
-            "date": "2026-08-13T20:39:35-04:00",
-            "message": "Validate message and stream indices before they reach the engine"
+            "commit": "c63f0f6",
+            "date": "2026-08-14T13:44:07-04:00",
+            "message": "Send one value from a quantized knob drag, not two"
         },
         {
             "author": "Paul Walker",
-            "commit": "a4e51ef",
-            "date": "2026-08-13T19:54:47-04:00",
-            "message": "Stop dropping host callback requests raised during onMainThread"
+            "commit": "305825d",
+            "date": "2026-08-14T11:55:42-04:00",
+            "message": "Keep zones selected after moving them to another group"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-14-45e2821-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-08-14-45e2821.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-14-2bb971a-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-08-14-2bb971a.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-14-45e2821-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-14-45e2821-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-14-2bb971a-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-14-2bb971a-Windows-64bit.zip"
     },
     "version": "main"
 }
