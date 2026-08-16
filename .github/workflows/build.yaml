@@ -26,8 +26,7 @@ jobs:
     runs-on: ubuntu-slim
     outputs:
       report_ok: ${{ steps.report.outputs.ok }}
-      open_prs: ${{ steps.report.outputs.open_prs }}
-      open_issues: ${{ steps.report.outputs.open_issues }}
+      discord_payload: ${{ steps.report.outputs.discord_payload }}
     steps:
       - uses: actions/checkout@v6
       - uses: pnpm/action-setup@v4
@@ -49,20 +48,28 @@ jobs:
         name: Generate the surge repo activity report
         continue-on-error: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # The built-in GITHUB_TOKEN is scoped to this repo, so it cannot read
+          # the org's Dependabot alerts; that section degrades to "not
+          # available". Set DEPENDABOT_READ_TOKEN (a PAT with security read on
+          # the org) to populate it.
+          GITHUB_TOKEN: ${{ secrets.DEPENDABOT_READ_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
           python3 scripts/surge_report.py \
             --publish-dir . \
             --public-only \
             --out "$RUNNER_TEMP/report" \
-            --summary-json "$RUNNER_TEMP/summary.json"
-          python3 - <<'PY' >> "$GITHUB_OUTPUT"
-          import json, os
-          s = json.load(open(os.path.join(os.environ["RUNNER_TEMP"], "summary.json")))
-          print("ok=true")
-          print(f"open_prs={s['open_prs']}")
-          print(f"open_issues={s['open_issues']}")
-          PY
+            --summary-json "$RUNNER_TEMP/summary.json" \
+            --discord-payload "$RUNNER_TEMP/discord.json" \
+            --report-url "https://surge-synth-team.org/reports/surge-repo-activity/"
+          # The payload is a single line of JSON, so it survives a job output
+          # verbatim and the deploy job can curl it without rebuilding it.
+          # printf, not echo: the JSON contains a \n escape before the link and
+          # some shells' echo would expand it into a real newline, which would
+          # both corrupt the JSON and break GITHUB_OUTPUT's key=value parsing.
+          {
+            printf 'ok=true\n'
+            printf 'discord_payload=%s\n' "$(cat "$RUNNER_TEMP/discord.json")"
+          } >> "$GITHUB_OUTPUT"
       - run: pnpm build
       - uses: actions/upload-pages-artifact@v4
         with:
@@ -87,20 +94,17 @@ jobs:
           github.event.inputs.notify_discord == 'true')
         env:
           WEBHOOK: ${{ secrets.DISCORD_REPO_REPORTS_WEBHOOK }}
-          OPEN_PRS: ${{ needs.build.outputs.open_prs }}
-          OPEN_ISSUES: ${{ needs.build.outputs.open_issues }}
+          PAYLOAD: ${{ needs.build.outputs.discord_payload }}
         run: |
           if [ -z "$WEBHOOK" ]; then
             echo "DISCORD_REPO_REPORTS_WEBHOOK is not set; skipping the post"
             exit 0
           fi
 
-          # The counts come from our own summary JSON and are integers, so it
-          # is safe to interpolate them straight into the JSON body. The \\n is
-          # emitted as a literal backslash-n, which is the JSON escape for the
-          # newline before the link.
-          printf '{"content": "**surge-synthesizer report available.** %s open PRs and %s open issues.\\nhttps://surge-synth-team.org/reports/surge-repo-activity/", "allowed_mentions": {"parse": []}}' \
-            "$OPEN_PRS" "$OPEN_ISSUES" > payload.json
+          # Built by surge_report.py so the message text lives in one testable
+          # place rather than being assembled from shell.
+          printf '%s' "$PAYLOAD" > payload.json
+          cat payload.json
 
           # --fail-with-body exits non-zero on 4xx/5xx but still prints what
           # Discord said. curl sends its own User-Agent; urllib's default one

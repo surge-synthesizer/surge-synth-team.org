@@ -208,6 +208,123 @@ def search_all(search_query, verbose=True):
     return nodes
 
 
+def rest_get_all(path, verbose=True):
+    """GET a paginated REST endpoint.
+
+    Returns None (rather than raising) when the token lacks the permission,
+    so an optional section can degrade instead of failing the whole report.
+    Dependabot alerts need a token with security/repo read on the org; the
+    Actions GITHUB_TOKEN is scoped to its own repo and will usually 403 here.
+    """
+    token = api_token()
+    sep = "&" if "?" in path else "?"
+    url = f"https://api.github.com{path}{sep}per_page=100"
+
+    if not token:
+        # gh --paginate follows Link headers itself; --jq '.[]' gives us one
+        # JSON object per line across all pages.
+        proc = subprocess.run(
+            ["gh", "api", "--paginate", url, "--jq", ".[]"],
+            capture_output=True, text=True,
+        )
+        if proc.returncode != 0:
+            if verbose:
+                print(f"  ! cannot read {path}: {proc.stderr.strip()[:160]}\n"
+                      f"    skipping that section", file=sys.stderr)
+            return None
+        return [json.loads(line) for line in proc.stdout.splitlines() if line.strip()]
+
+    # This endpoint family paginates by cursor, not by page number, so follow
+    # the Link header rather than incrementing a counter.
+    items = []
+    while url:
+        req = urllib.request.Request(
+            url,
+            headers={
+                "Authorization": f"Bearer {token}",
+                "Accept": "application/vnd.github+json",
+                "User-Agent": "surge-synth-team-report",
+            },
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                batch = json.loads(resp.read().decode("utf-8"))
+                link = resp.headers.get("Link", "")
+        except urllib.error.HTTPError as exc:
+            detail = exc.read().decode("utf-8", "replace")[:200].strip()
+            if exc.code in (401, 403, 404):
+                if verbose:
+                    print(f"  ! no access to {path} (HTTP {exc.code}); "
+                          f"skipping that section", file=sys.stderr)
+                return None
+            raise GitHubError(f"HTTP {exc.code} for {path}: {detail}") from None
+
+        if not isinstance(batch, list):
+            break
+        items.extend(batch)
+        match = re.search(r'<([^>]+)>;\s*rel="next"', link)
+        url = match.group(1) if match else None
+    return items
+
+
+SEVERITY_ORDER = ["critical", "high", "medium", "low"]
+
+
+def collect_security(org, verbose=True):
+    """Open Dependabot alerts across the org, or None if unavailable."""
+    if verbose:
+        print("  fetching Dependabot alerts…", file=sys.stderr)
+    alerts = rest_get_all(f"/orgs/{org}/dependabot/alerts?state=open", verbose)
+    if alerts is None:
+        return None
+
+    by_repo = defaultdict(lambda: dict.fromkeys(SEVERITY_ORDER, 0))
+    packages = defaultdict(lambda: {"count": 0, "severity": "low", "repos": set(),
+                                    "fix": None, "scope": set()})
+    runtime = 0
+    for alert in alerts:
+        repo = alert["repository"]["name"]
+        sev = alert["security_advisory"]["severity"]
+        sev = sev if sev in SEVERITY_ORDER else "low"
+        by_repo[repo][sev] += 1
+
+        dep = alert.get("dependency") or {}
+        scope = dep.get("scope") or "unknown"
+        if scope == "runtime":
+            runtime += 1
+        name = (dep.get("package") or {}).get("name") or "?"
+        entry = packages[name]
+        entry["count"] += 1
+        entry["repos"].add(repo)
+        entry["scope"].add(scope)
+        if SEVERITY_ORDER.index(sev) < SEVERITY_ORDER.index(entry["severity"]):
+            entry["severity"] = sev
+        patched = (alert.get("security_vulnerability") or {}).get(
+            "first_patched_version") or {}
+        ident = patched.get("identifier")
+        # Keep the highest patched version seen; stacked advisories on one
+        # package each name a different fix, and only the newest clears them.
+        if ident and (entry["fix"] is None or _version_key(ident) > _version_key(entry["fix"])):
+            entry["fix"] = ident
+
+    return {
+        "total": len(alerts),
+        "runtime": runtime,
+        "by_repo": {k: v for k, v in by_repo.items()},
+        "by_severity": {
+            s: sum(v[s] for v in by_repo.values()) for s in SEVERITY_ORDER
+        },
+        "packages": {
+            k: {**v, "repos": sorted(v["repos"]), "scope": sorted(v["scope"])}
+            for k, v in packages.items()
+        },
+    }
+
+
+def _version_key(text):
+    return [int(p) if p.isdigit() else 0 for p in re.split(r"[.\-+]", text)[:4]]
+
+
 SAFE_LOGIN = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$")
 
 
@@ -265,7 +382,8 @@ def pct(part, whole):
 # ---------------------------------------------------------------------------
 
 
-def collect(org, days, long_days, contrib_days, public_only, verbose=True):
+def collect(org, days, long_days, contrib_days, public_only, verbose=True,
+            with_security=True):
     now = dt.datetime.now(dt.timezone.utc)
     since_short = (now - dt.timedelta(days=days)).date()
     since_long = (now - dt.timedelta(days=long_days)).date()
@@ -382,8 +500,11 @@ def collect(org, days, long_days, contrib_days, public_only, verbose=True):
                 "url": node["url"],
             }
 
+    security = collect_security(org, verbose) if with_security else None
+
     return {
         "org": org,
+        "security": security,
         "generated": now,
         "days": days,
         "long_days": long_days,
@@ -568,6 +689,47 @@ def render_markdown(d):
         add("Age mix is each repo's open issues as a share of its own total; glyph "
             "density rises with age: `░` ≤ 1 week · `▒` ≤ 1 month · "
             "`▓` ≤ 1 year · `█` > 1 year. Volume is the Open column.")
+    add("")
+
+    # --- 5. security ------------------------------------------------------
+    sec = d.get("security")
+    add("## 5. Open Dependabot alerts")
+    add("")
+    if sec is None:
+        add("*Not available — the token used for this run cannot read the "
+            "org's Dependabot alerts.*")
+    elif not sec["total"]:
+        add("*No open Dependabot alerts. Nice.*")
+    else:
+        sevs = sec["by_severity"]
+        add(f"**{sec['total']}** open · "
+            + " · ".join(f"{sevs[s]} {s}" for s in SEVERITY_ORDER if sevs[s])
+            + f" · **{sec['runtime']}** in runtime dependencies")
+        add("")
+        add("| Repo | Alerts | Critical | High | Medium | Low |")
+        add("|---|---:|---:|---:|---:|---:|")
+        for repo, counts in sorted(
+            sec["by_repo"].items(),
+            key=lambda kv: (-sum(kv[1].values()), kv[0].lower()),
+        ):
+            add(f"| {repo} | {sum(counts.values())} | {counts['critical']} | "
+                f"{counts['high']} | {counts['medium']} | {counts['low']} |")
+        add("")
+        add("| Package | Alerts | Worst | Scope | Fixed in | Repos |")
+        add("|---|---:|---|---|---|---|")
+        for name, info in sorted(
+            sec["packages"].items(),
+            key=lambda kv: (SEVERITY_ORDER.index(kv[1]["severity"]),
+                            -kv[1]["count"], kv[0]),
+        ):
+            add(f"| {name} | {info['count']} | {info['severity']} | "
+                f"{', '.join(info['scope'])} | {info['fix'] or '—'} | "
+                f"{', '.join(info['repos'])} |")
+        add("")
+        add("Several advisories can stack on one package; *Fixed in* is the "
+            "highest patched version seen, which is the one that clears them "
+            "all. Runtime-scope alerts ship with the product; development-scope "
+            "ones only affect the build.")
     add("")
     return "\n".join(L)
 
@@ -837,6 +999,10 @@ def render_html(d):
         ("New issues", d["new_issue_total"], f"last {d['days']} days"),
         ("New contributors", len(d["newcomers"]), f"last {d['contrib_days']} days"),
         ("Open issues", d["open_issue_total"], f"across {len(d['ages'])} repos"),
+        ("Dependabot alerts",
+         d["security"]["total"] if d.get("security") else "—",
+         (f"{d['security']['runtime']} runtime" if d.get("security")
+          else "not available")),
     ]:
         add(f"<div class='tile'><div class='label'>{esc(label)}</div>"
             f"<div class='value'>{value}</div><div class='sub'>{esc(sub)}</div></div>")
@@ -1053,8 +1219,63 @@ def render_html(d):
             "0% → 100%. The total row is unshaded (different scale).</p>")
     add("</section>")
 
+    # --- 5. security -------------------------------------------------------
+    sec = d.get("security")
+    add("<section><h2>5 · Open Dependabot alerts</h2>")
+    if sec is None:
+        add("<p class='section-note'>Not available — the token used for this "
+            "run cannot read the org's Dependabot alerts.</p>")
+    elif not sec["total"]:
+        add("<p class='section-note'>No open Dependabot alerts.</p>")
+    else:
+        sevs = sec["by_severity"]
+        add(f"<p class='section-note'>{sec['total']} open across "
+            f"{len(sec['by_repo'])} repos · "
+            + " · ".join(f"{sevs[s]} {esc(s)}" for s in SEVERITY_ORDER if sevs[s])
+            + f" · {sec['runtime']} in runtime dependencies (the rest only "
+              f"affect the build).</p>")
+        add("<div class='card scroll'><table class='act'><thead><tr><th>Repo</th>"
+            "<th class='num'>Alerts</th><th class='num'>Critical</th>"
+            "<th class='num'>High</th><th class='num'>Medium</th>"
+            "<th class='num'>Low</th></tr></thead><tbody>")
+        for repo, counts in sorted(
+            sec["by_repo"].items(),
+            key=lambda kv: (-sum(kv[1].values()), kv[0].lower()),
+        ):
+            total = sum(counts.values())
+            cells = "".join(
+                f"<td class='hm hm-{heat_step(pct(counts[s], total))}'>"
+                f"{counts[s]}</td>"
+                for s in SEVERITY_ORDER
+            )
+            add(f"<tr><td>{repo_label(repo)}</td>"
+                f"<td class='num'>{total}</td>{cells}</tr>")
+        add("</tbody></table></div>")
+
+        add("<div class='repo-head'><span class='repo-name'>By package</span>"
+            "<span class='repo-count'>highest patched version clears the "
+            "stacked advisories</span></div>")
+        add("<div class='card scroll'><table class='act'><thead><tr>"
+            "<th>Package</th><th class='num'>Alerts</th><th>Worst</th>"
+            "<th>Scope</th><th>Fixed in</th><th>Repos</th>"
+            "</tr></thead><tbody>")
+        for name, info in sorted(
+            sec["packages"].items(),
+            key=lambda kv: (SEVERITY_ORDER.index(kv[1]["severity"]),
+                            -kv[1]["count"], kv[0]),
+        ):
+            runtime_badge = ("<span class='badge stale'>runtime</span>"
+                             if "runtime" in info["scope"]
+                             else "<span class='badge'>build only</span>")
+            add(f"<tr><td>{esc(name)}</td><td class='num'>{info['count']}</td>"
+                f"<td>{esc(info['severity'])}</td><td>{runtime_badge}</td>"
+                f"<td class='dim'>{esc(info['fix'] or '—')}</td>"
+                f"<td class='dim'>{esc(', '.join(info['repos']))}</td></tr>")
+        add("</tbody></table></div>")
+    add("</section>")
+
     add(f"<footer>Read-only report generated by surge_report.py from the GitHub "
-        f"GraphQL API · {esc(org)} · {esc(stamp)}</footer>")
+        f"API · {esc(org)} · {esc(stamp)}</footer>")
     add(f"</div><script>{TIP_JS}</script></body></html>")
     return "\n".join(o)
 
@@ -1143,8 +1364,16 @@ def main(argv=None):
     ap.add_argument("--summary-json", default=None,
                     help="write the headline counts to this JSON file, for a "
                          "downstream notification step")
+    ap.add_argument("--discord-payload", default=None,
+                    help="write a ready-to-POST Discord webhook JSON body to "
+                         "this file; the workflow curls it verbatim")
+    ap.add_argument("--report-url", default=None,
+                    help="public URL of the published report, used in the "
+                         "Discord payload")
     ap.add_argument("--public-only", action="store_true",
                     help="exclude private repos from every query")
+    ap.add_argument("--no-security", action="store_true",
+                    help="skip the Dependabot alert section entirely")
     ap.add_argument("--open", dest="open_browser", action="store_true",
                     help="open the HTML report in a browser")
     ap.add_argument("--quiet", action="store_true", help="suppress progress output")
@@ -1164,7 +1393,8 @@ def main(argv=None):
               f"windows", file=sys.stderr)
     try:
         data = collect(args.org, args.days, long_days, args.contrib_days,
-                       args.public_only, verbose=not args.quiet)
+                       args.public_only, verbose=not args.quiet,
+                       with_security=not args.no_security)
     except GitHubError as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
@@ -1220,6 +1450,10 @@ def main(argv=None):
             "new_contributors": len(data["newcomers"]),
             "days": data["days"],
             "contrib_days": data["contrib_days"],
+            "alerts": (data["security"]["total"] if data.get("security")
+                       else None),
+            "alerts_runtime": (data["security"]["runtime"]
+                               if data.get("security") else None),
         }
         os.makedirs(os.path.dirname(os.path.abspath(args.summary_json)) or ".",
                     exist_ok=True)
@@ -1227,6 +1461,25 @@ def main(argv=None):
             json.dump(summary, fh, indent=2)
         if not args.quiet:
             print(f"wrote summary {args.summary_json}", file=sys.stderr)
+
+    if args.discord_payload:
+        sec = data.get("security")
+        line = (f"**{data['org']} report available.** "
+                f"{data['open_pr_count']} open PRs and "
+                f"{data['open_issue_total']} open issues")
+        if sec and sec["total"]:
+            line += (f", {sec['total']} Dependabot alerts "
+                     f"({sec['runtime']} in runtime deps)")
+        line += "."
+        url = args.report_url or f"https://{args.site_name}/reports/{args.slug}/"
+        payload = {"content": f"{line}\n{url}",
+                   "allowed_mentions": {"parse": []}}
+        os.makedirs(os.path.dirname(os.path.abspath(args.discord_payload)) or ".",
+                    exist_ok=True)
+        with open(args.discord_payload, "w", encoding="utf-8") as fh:
+            json.dump(payload, fh)  # single line, safe for a job output
+        if not args.quiet:
+            print(f"wrote discord payload {args.discord_payload}", file=sys.stderr)
 
     if args.discord_webhook:
         attach = {"md": [md_path], "html": [html_path], "both": [md_path, html_path]}[

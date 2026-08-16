@@ -65,6 +65,42 @@ Both paths are equivalent; only the transport differs.
 without it the report names private org repos (`surge-xt2` currently shows up
 in the 90-day activity table).
 
+### Dependabot alerts need a better token
+
+Section 5 lists open Dependabot alerts **across the whole org**. That endpoint
+needs a token with security read on the org, and the Actions `GITHUB_TOKEN` is
+scoped to this repo only — so by default the section renders as "not
+available" rather than failing the run.
+
+To populate it, add a PAT with `security_events` (or `repo`) read on
+`surge-synthesizer` as the repo secret **`DEPENDABOT_READ_TOKEN`**. The
+workflow prefers it and falls back to `GITHUB_TOKEN`:
+
+```yaml
+GITHUB_TOKEN: ${{ secrets.DEPENDABOT_READ_TOKEN || secrets.GITHUB_TOKEN }}
+```
+
+Two API quirks are already handled, and are easy to reintroduce:
+
+- The alerts endpoint paginates **by cursor, not by page number**. Passing
+  `page=2` returns HTTP 400, so `rest_get_all()` follows the `Link` header
+  instead. Do not "simplify" it back to a page counter.
+- Only 401/403/404 are treated as "no access" and degrade the section. Any
+  other status raises, so a genuine bug is not silently reported as a
+  permissions problem.
+
+### The Discord message is built in Python
+
+`--discord-payload` writes the complete webhook JSON body, and the workflow
+curls that file verbatim. Message wording lives in `main()`, not in the
+workflow, so it can be tested by running the script.
+
+The payload crosses from the build job to the deploy job as a job output. It
+is deliberately single-line JSON, and the workflow uses `printf`, never
+`echo`, to write it: the content contains a `\n` escape before the link, and
+some shells' `echo` expands that into a real newline, which corrupts both the
+JSON and `GITHUB_OUTPUT`'s `key=value` parsing.
+
 ### Gotcha: Discord needs a User-Agent
 
 Discord sits behind Cloudflare, which **rejects urllib's default

@@ -1,8 +1,8 @@
 # surge-synthesizer — daily report
 
-*Generated 2026-08-16 14:21 UTC · activity windows: 7 and 90 days · new contributors over 30 days*
+*Generated 2026-08-16 15:02 UTC · activity windows: 7 and 90 days · new contributors over 30 days*
 
-**16** open PRs · **62** merges in 7d · **53** new issues in 7d · **3** new contributors in 30d · **622** open issues
+**15** open PRs · **63** merges in 7d · **53** new issues in 7d · **3** new contributors in 30d · **622** open issues
 
 ## 1. Open pull requests
 
@@ -31,13 +31,6 @@
 | [#668](https://github.com/surge-synthesizer/OB-Xf/pull/668) | Reinstate Set Current Patch as Default functionality | mkruselj | 2mo | — |
 | [#672](https://github.com/surge-synthesizer/OB-Xf/pull/672) | Don't merge yet, MTS-ESP improvements | Andreya-Autumn | 2mo | draft |
 
-### surge-synthesizer.github.io (2)
-
-| PR | Title | Author | Age | Status |
-|---|---|---|---|---|
-| [#422](https://github.com/surge-synthesizer/surge-synthesizer.github.io/pull/422) | docs(ai tools): add surge docs mcp reference | rithulkamesh | 2mo | — |
-| [#425](https://github.com/surge-synthesizer/surge-synthesizer.github.io/pull/425) | Bump sharp from 0.34.5 to 0.35.0 | dependabot | today | — |
-
 ### tuning-library (2)
 
 | PR | Title | Author | Age | Status |
@@ -57,6 +50,12 @@
 |---|---|---|---|---|
 | [#253](https://github.com/surge-synthesizer/sst-effects/pull/253) | Step the Bonsai tape noise LCG in unsigned arithmetic | manuaudio | 1d | — |
 
+### surge-synthesizer.github.io (1)
+
+| PR | Title | Author | Age | Status |
+|---|---|---|---|---|
+| [#422](https://github.com/surge-synthesizer/surge-synthesizer.github.io/pull/422) | docs(ai tools): add surge docs mcp reference | rithulkamesh | 2mo | — |
+
 ## 2. Activity
 
 ### Last 7 days (since 2026-08-09)
@@ -71,11 +70,11 @@
 | sst-basic-blocks | 2 | `█` | 0 | `` |
 | sst-jucegui | 2 | `█` | 0 | `` |
 | surge-synth-team.org | 2 | `█` | 0 | `` |
+| surge-synthesizer.github.io | 2 | `█` | 0 | `` |
 | tuning-library | 2 | `█` | 0 | `` |
 | eurorack | 1 | `█` | 0 | `` |
 | surge-rack | 0 | `` | 1 | `░` |
-| surge-synthesizer.github.io | 1 | `█` | 0 | `` |
-| **total** | **62** | | **53** | |
+| **total** | **63** | | **53** | |
 
 `█` merged PRs · `░` new issues — both bars share one scale within this table.
 
@@ -92,9 +91,9 @@
 | sst-voicemanager | 11 | `█` | 0 | `` |
 | sst-plugininfra | 6 | `█` | 0 | `` |
 | sst-effects | 4 | `█` | 0 | `` |
+| surge-synthesizer.github.io | 3 | `█` | 0 | `` |
 | sst-cpputils | 2 | `█` | 0 | `` |
 | surge-synth-team.org | 2 | `█` | 0 | `` |
-| surge-synthesizer.github.io | 2 | `█` | 0 | `` |
 | tuning-library | 2 | `█` | 0 | `` |
 | eurorack | 1 | `█` | 0 | `` |
 | sst-clap-helpers | 1 | `█` | 0 | `` |
@@ -102,7 +101,7 @@
 | stochas | 0 | `` | 1 | `░` |
 | surge-rack | 0 | `` | 1 | `░` |
 | tuning-workbench-synth | 0 | `` | 1 | `░` |
-| **total** | **352** | | **129** | |
+| **total** | **353** | | **129** | |
 
 `█` merged PRs · `░` new issues — both bars share one scale within this table.
 
@@ -152,3 +151,30 @@
 | **total** | **622** | **12** | **20** | **116** | **474** | |
 
 Age mix is each repo's open issues as a share of its own total; glyph density rises with age: `░` ≤ 1 week · `▒` ≤ 1 month · `▓` ≤ 1 year · `█` > 1 year. Volume is the Open column.
+
+## 5. Open Dependabot alerts
+
+**43** open · 27 high · 12 medium · 4 low · **18** in runtime dependencies
+
+| Repo | Alerts | Critical | High | Medium | Low |
+|---|---:|---:|---:|---:|---:|
+| sst-githubactions | 20 | 0 | 8 | 8 | 4 |
+| surge-synthesizer.github.io | 13 | 0 | 11 | 2 | 0 |
+| surge-synth-team.org | 10 | 0 | 8 | 2 | 0 |
+
+| Package | Alerts | Worst | Scope | Fixed in | Repos |
+|---|---:|---|---|---|---|
+| undici | 12 | high | runtime | 6.28.0 | sst-githubactions |
+| fast-uri | 10 | high | development | 3.1.5 | surge-synth-team.org, surge-synthesizer.github.io |
+| lodash | 4 | high | development | 4.18.0 | surge-synth-team.org, surge-synthesizer.github.io |
+| fast-xml-parser | 3 | high | runtime | 5.7.0 | sst-githubactions |
+| js-yaml | 3 | high | development | 4.3.1 | surge-synth-team.org |
+| basic-ftp | 2 | high | development | 5.2.2 | surge-synthesizer.github.io |
+| brace-expansion | 2 | high | runtime | 1.1.17 | sst-githubactions |
+| ip-address | 2 | high | development | 10.3.1 | surge-synthesizer.github.io |
+| extract-zip | 1 | high | development | — | surge-synthesizer.github.io |
+| fast-xml-builder | 1 | high | runtime | 1.1.7 | sst-githubactions |
+| ws | 1 | high | development | 8.21.0 | surge-synthesizer.github.io |
+| esbuild | 2 | low | development | 0.28.1 | sst-githubactions |
+
+Several advisories can stack on one package; *Fixed in* is the highest patched version seen, which is the one that clears them all. Runtime-scope alerts ship with the product; development-scope ones only affect the build.
