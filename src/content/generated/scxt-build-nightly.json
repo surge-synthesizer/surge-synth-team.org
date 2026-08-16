@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-08-14T23:06:25.85178583",
+    "build_time": "2026-08-16T18:19:33.709373688",
     "data": {},
-    "latest_commit": "835deb1",
+    "latest_commit": "01c06ec",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "01c06ec",
+            "date": "2026-08-16T12:44:52-04:00",
+            "message": "Report a zone move with no source zones rather than asserting"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "a674af3",
+            "date": "2026-08-16T12:44:46-04:00",
+            "message": "Oversample a pitched up voice across its whole block"
+        },
         {
             "author": "Paul Walker",
             "commit": "835deb1",
@@ -22,26 +34,14 @@
             "commit": "1deb87e",
             "date": "2026-08-14T14:03:25-04:00",
             "message": "Bound an absolute zone key end edit to the MIDI range"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "a108341",
-            "date": "2026-08-14T13:44:17-04:00",
-            "message": "Restore the tab a modulation pane was left on"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "c63f0f6",
-            "date": "2026-08-14T13:44:07-04:00",
-            "message": "Send one value from a quantized knob drag, not two"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-14-835deb1-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-08-14-835deb1.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-16-01c06ec-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-08-16-01c06ec.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-14-835deb1-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-14-835deb1-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-16-01c06ec-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-16-01c06ec-Windows-64bit.zip"
     },
     "version": "main"
 }
