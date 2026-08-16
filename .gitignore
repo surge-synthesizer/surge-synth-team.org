@@ -24,3 +24,6 @@ pnpm-debug.log*
 # Editor setting folder
 .idea/
 .vscode/
+
+# Python bytecode from running scripts/ directly
+__pycache__/
