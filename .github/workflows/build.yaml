@@ -1,8 +1,16 @@
 on:
   workflow_dispatch:
+    inputs:
+      notify_discord:
+        description: "Also post the report summary to Discord"
+        type: boolean
+        default: false
   workflow_call:
   push:
     branches: [master]
+  schedule:
+    # Daily at 12:00 UTC, to refresh /reports/surge-repo-activity and announce it.
+    - cron: "0 12 * * *"
 
 permissions:
   contents: read
@@ -16,6 +24,10 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-slim
+    outputs:
+      report_ok: ${{ steps.report.outputs.ok }}
+      open_prs: ${{ steps.report.outputs.open_prs }}
+      open_issues: ${{ steps.report.outputs.open_issues }}
     steps:
       - uses: actions/checkout@v6
       - uses: pnpm/action-setup@v4
@@ -23,9 +35,34 @@ jobs:
         with:
           node-version-file: "package.json"
           cache: "pnpm"
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
       - run: pnpm install
       - id: pages
         uses: actions/configure-pages@v5
+      # Regenerates public/reports/* in the working tree before the build, so
+      # the deployed report is current and nothing is committed by CI. On
+      # failure the build still ships the last committed copy, which carries
+      # its own "Generated ..." timestamp rather than looking fresh.
+      - id: report
+        name: Generate the surge repo activity report
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/surge_report.py \
+            --publish-dir . \
+            --public-only \
+            --out "$RUNNER_TEMP/report" \
+            --summary-json "$RUNNER_TEMP/summary.json"
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, os
+          s = json.load(open(os.path.join(os.environ["RUNNER_TEMP"], "summary.json")))
+          print("ok=true")
+          print(f"open_prs={s['open_prs']}")
+          print(f"open_issues={s['open_issues']}")
+          PY
       - run: pnpm build
       - uses: actions/upload-pages-artifact@v4
         with:
@@ -40,3 +77,46 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
+
+      # Announce only on the daily run (or an explicit dispatch), so ordinary
+      # pushes to master do not spam the channel.
+      - name: Announce the report on Discord
+        if: >-
+          needs.build.outputs.report_ok == 'true' &&
+          (github.event_name == 'schedule' ||
+          github.event.inputs.notify_discord == 'true')
+        env:
+          WEBHOOK: ${{ secrets.DISCORD_REPO_REPORTS_WEBHOOK }}
+          OPEN_PRS: ${{ needs.build.outputs.open_prs }}
+          OPEN_ISSUES: ${{ needs.build.outputs.open_issues }}
+        run: |
+          python3 - <<'PY'
+          import json, os, sys, urllib.request
+
+          webhook = os.environ.get("WEBHOOK", "").strip()
+          if not webhook:
+              print("DISCORD_REPO_REPORTS_WEBHOOK is not set; skipping the post")
+              sys.exit(0)
+
+          content = (
+              "**surge-synthesizer report available.** "
+              f"{os.environ['OPEN_PRS']} open PRs and "
+              f"{os.environ['OPEN_ISSUES']} open issues.\n"
+              "https://surge-synth-team.org/reports/surge-repo-activity/"
+          )
+          body = json.dumps(
+              {"content": content, "allowed_mentions": {"parse": []}}
+          ).encode()
+          req = urllib.request.Request(
+              webhook,
+              data=body,
+              headers={"Content-Type": "application/json"},
+              method="POST",
+          )
+          with urllib.request.urlopen(req, timeout=30) as resp:
+              print(f"posted to Discord: HTTP {resp.status}")
+          PY

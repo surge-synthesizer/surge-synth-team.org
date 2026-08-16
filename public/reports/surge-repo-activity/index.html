@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>surge-synthesizer daily report — 2026-08-16</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11,11,11,0.10);
+  --merged: #2a78d6;
+  --issues: #eb6834;
+  --age-week: #86b6ef;
+  --age-month: #3987e5;
+  --age-year: #256abf;
+  --age-older: #104281;
+  --stale-bg: rgba(236,131,90,0.16);
+  --stale-ink: #8a4021;
+  /* heatmap: share of a repo's open issues falling in the bucket */
+  --hm-1: #cde2fb; --hm-1-ink: #0b0b0b;
+  --hm-2: #9ec5f4; --hm-2-ink: #0b0b0b;
+  --hm-3: #6da7ec; --hm-3-ink: #0b0b0b;
+  --hm-4: #2a78d6; --hm-4-ink: #ffffff;
+  --hm-5: #1c5cab; --hm-5-ink: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255,255,255,0.10);
+    --merged: #3987e5;
+    --issues: #d95926;
+    --age-week: #b7d3f6;
+    --age-month: #6da7ec;
+    --age-year: #3987e5;
+    --age-older: #1c5cab;
+    --stale-bg: rgba(236,131,90,0.20);
+    --stale-ink: #ec835a;
+    --hm-1: #104281; --hm-1-ink: #ffffff;
+    --hm-2: #1c5cab; --hm-2-ink: #ffffff;
+    --hm-3: #2a78d6; --hm-3-ink: #ffffff;
+    --hm-4: #5598e7; --hm-4-ink: #0b0b0b;
+    --hm-5: #9ec5f4; --hm-5-ink: #0b0b0b;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --ink: #ffffff;
+  --ink-2: #c3c2b7;
+  --muted: #898781;
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --border: rgba(255,255,255,0.10);
+  --merged: #3987e5;
+  --issues: #d95926;
+  --age-week: #b7d3f6;
+  --age-month: #6da7ec;
+  --age-year: #3987e5;
+  --age-older: #1c5cab;
+  --stale-bg: rgba(236,131,90,0.20);
+  --stale-ink: #ec835a;
+  --hm-1: #104281; --hm-1-ink: #ffffff;
+  --hm-2: #1c5cab; --hm-2-ink: #ffffff;
+  --hm-3: #2a78d6; --hm-3-ink: #ffffff;
+  --hm-4: #5598e7; --hm-4-ink: #0b0b0b;
+  --hm-5: #9ec5f4; --hm-5-ink: #0b0b0b;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 40px 24px 96px; }
+
+.crumb { font-size: 13px; color: var(--muted); margin: 0 0 18px; }
+.crumb a { color: var(--ink-2); border-bottom-color: transparent; }
+.crumb a:hover { border-bottom-color: currentColor; }
+.crumb .sep { padding: 0 7px; opacity: .55; }
+header.top { border-bottom: 1px solid var(--grid); padding-bottom: 24px; margin-bottom: 32px; }
+h1 { font-size: 30px; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 6px; }
+h1 .org { color: var(--muted); font-weight: 400; }
+.stamp { color: var(--ink-2); font-size: 13.5px; margin: 0; }
+.notice {
+  margin-top: 16px; padding: 10px 14px; font-size: 13px; color: var(--ink-2);
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+}
+
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 24px; }
+.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+.tile .label { font-size: 12.5px; color: var(--ink-2); margin-bottom: 6px; }
+.tile .value { font-size: 32px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+.tile .sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+section { margin-top: 48px; }
+h2 { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+     color: var(--ink-2); margin: 0 0 4px; }
+.section-note { color: var(--muted); font-size: 13px; margin: 0 0 18px; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 16px; margin: 0 0 14px; font-size: 12.5px; color: var(--ink-2); }
+.legend .item { display: inline-flex; align-items: center; gap: 7px; }
+.swatch { width: 11px; height: 11px; border-radius: 3px; flex: none; }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+th, td { text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--grid); vertical-align: middle; }
+th { font-size: 11.5px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+     color: var(--muted); background: var(--surface); position: sticky; top: 0; }
+tbody tr:last-child td { border-bottom: none; }
+tr.total td { font-weight: 600; border-top: 1px solid var(--axis); }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td.dim { color: var(--muted); }
+a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--axis); }
+a:hover { border-bottom-color: currentColor; }
+table.pr { table-layout: fixed; min-width: 760px; }
+table.age { min-width: 860px; }
+table.age td:first-child, table.act td:first-child { white-space: nowrap; }
+
+/* heatmap cells: shade = share of that repo's own open issues */
+td.hm { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap;
+        border-left: 2px solid var(--surface); }
+td.hm-0 { color: var(--muted); }
+td.hm-1 { background: var(--hm-1); color: var(--hm-1-ink); }
+td.hm-2 { background: var(--hm-2); color: var(--hm-2-ink); }
+td.hm-3 { background: var(--hm-3); color: var(--hm-3-ink); }
+td.hm-4 { background: var(--hm-4); color: var(--hm-4-ink); }
+td.hm-5 { background: var(--hm-5); color: var(--hm-5-ink); }
+.hm-key { display: inline-flex; align-items: center; gap: 0; margin-left: 4px;
+          vertical-align: middle; }
+.hm-key i { width: 22px; height: 11px; display: block; }
+.hm-key i + i { border-left: 2px solid var(--surface); }
+table.pr td.title-cell { white-space: normal; }
+.repo-head { display: flex; align-items: baseline; gap: 10px; margin: 26px 0 10px; }
+.repo-head:first-of-type { margin-top: 0; }
+.repo-name { font-size: 15px; font-weight: 600; }
+.repo-count { font-size: 12.5px; color: var(--muted); }
+.title-cell { max-width: 440px; }
+.badge { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 999px;
+         border: 1px solid var(--border); color: var(--ink-2); margin-right: 4px; white-space: nowrap; }
+.badge.stale { background: var(--stale-bg); color: var(--stale-ink); border-color: transparent; }
+.lock { font-size: 11px; color: var(--muted); }
+
+.bar-cell { width: 46%; min-width: 200px; }
+.bar-row { display: flex; align-items: center; gap: 2px; height: 14px; }
+.bar-row .seg { height: 100%; min-width: 2px; }
+.bar-row .seg:last-child { border-radius: 0 4px 4px 0; }
+.grp { display: flex; flex-direction: column; gap: 3px; }
+.grp .bar-row { height: 9px; }
+
+#tip {
+  position: fixed; z-index: 50; pointer-events: none; opacity: 0;
+  transition: opacity .09s ease; background: var(--surface); color: var(--ink);
+  border: 1px solid var(--border); border-radius: 8px; padding: 8px 11px;
+  font-size: 12.5px; line-height: 1.45; box-shadow: 0 6px 22px rgba(0,0,0,0.18);
+  max-width: 260px;
+}
+#tip .tip-title { font-weight: 600; margin-bottom: 3px; }
+#tip .tip-row { color: var(--ink-2); white-space: nowrap; }
+
+footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--grid);
+         color: var(--muted); font-size: 12.5px; }
+</style></head><body><div id='tip'></div><div class='wrap'>
+<header class='top'>
+<p class='crumb'><a href='/'>surge-synth-team.org</a><span class='sep'>/</span><span>surge repo activity</span></p>
+<h1>Daily report <span class='org'>· surge-synthesizer</span></h1>
+<p class='stamp'>Generated 2026-08-16 14:21 UTC · activity windows: 7 and 90 days · new contributors over 30 days</p>
+<div class='tiles'>
+<div class='tile'><div class='label'>Open pull requests</div><div class='value'>16</div><div class='sub'>across 7 repos</div></div>
+<div class='tile'><div class='label'>Merged PRs</div><div class='value'>62</div><div class='sub'>last 7 days</div></div>
+<div class='tile'><div class='label'>New issues</div><div class='value'>53</div><div class='sub'>last 7 days</div></div>
+<div class='tile'><div class='label'>New contributors</div><div class='value'>3</div><div class='sub'>last 30 days</div></div>
+<div class='tile'><div class='label'>Open issues</div><div class='value'>622</div><div class='sub'>across 27 repos</div></div>
+</div>
+</header>
+<section><h2>1 · Open pull requests</h2>
+<p class='section-note'>16 open, oldest first within each repo.</p>
+<div class='repo-head'><span class='repo-name'>surge</span><span class='repo-count'>5 open</span></div>
+<div class='card scroll'><table class='pr'><colgroup><col style='width:78px'><col><col style='width:150px'><col style='width:70px'><col style='width:190px'></colgroup><thead><tr><th class='num'>PR</th><th>Title</th><th>Author</th><th class='num'>Age</th><th>Status</th></tr></thead><tbody>
+<tr><td class='num'><a href='https://github.com/surge-synthesizer/surge/pull/8322'>#8322</a></td><td class='title-cell'>FilterAnalysis: display extra filter parameters in Parameters mode; fix hint-field misuse</td><td class='dim'>copilot-swe-agent</td><td class='num' data-tip="opened 2026-03-29">4mo</td><td><span class='badge'>draft</span><span class='badge stale'>stale</span></td></tr>
+<tr><td class='num'><a href='https://github.com/surge-synthesizer/surge/pull/8525'>#8525</a></td><td class='title-cell'>Refuse a WAV whose data chunk cannot be sized</td><td class='dim'>manuaudio</td><td class='num' data-tip="opened 2026-08-14">2d</td><td><span class=dim>—</span></td></tr>
+<tr><td class='num'><a href='https://github.com/surge-synthesizer/surge/pull/8528'>#8528</a></td><td class='title-cell'>Bound the patch and wavetable readers by the data they were given</td><td class='dim'>manuaudio</td><td class='num' data-tip="opened 2026-08-15">1d</td><td><span class=dim>—</span></td></tr>
+<tr><td class='num'><a href='https://github.com/surge-synthesizer/surge/pull/8529'>#8529</a></td><td class='title-cell'>Do not size the arbdata buffer from the size the frame claims</td><td class='dim'>manuaudio</td><td class='num' data-tip="opened 2026-08-15">1d</td><td><span class=dim>—</span></td></tr>
+<tr><td class='num'><a href='https://github.com/surge-synthesizer/surge/pull/8530'>#8530</a></td><td class='title-cell'>Bound wavetable samples before converting them to int</td><td class='dim'>manuaudio</td><td class='num' data-tip="opened 2026-08-15">1d</td><td><span class=dim>—</span></td></tr>
+</tbody></table></div>
+<div class='repo-head'><span class='repo-name'>shortcircuit-factory-content</span><span class='repo-count'>3 open</span></div>
+<div class='card scroll'><table class='pr'><colgroup><col style='width:78px'><col><col style='width:150px'><col style='width:70px'><col style='width:190px'></colgroup><thead><tr><th class='num'>PR</th><th>Title</th><th>Author</th><th class='num'>Age</th><th>Status</th></tr></thead><tbody>
+<tr><td class='num'><a href='https://github.com/surge-synthesizer/shortcircuit-factory-content/pull/4'>#4</a></td><td class='title-cell'>Add CC0 factory content: [wt-batch-1]</td><td class='dim'>wintocode</td><td class='num' data-tip="opened 2026-02-08">6mo</td><td><span class='badge stale'>stale</span></td></tr>
+<tr><td class='num'><a href='https://github.com/surge-synthesizer/shortcircuit-factory-content/pull/5'>#5</a></td><td class='title-cell'>Adds HandBells</td><td class='dim'>kamilner</td><td class='num' data-tip="opened 2026-02-10">6mo</td><td><span class='badge stale'>stale</span></td></tr>
+<tr><td class='num'><a href='https://github.com/surge-synthesizer/shortcircuit-factory-content/pull/8'>#8</a></td><td class='title-cell'>Add Rieme Glass Bell and Crushed Rieme Glass Bell</td><td class='dim'>bruxisma</td><td class='num' data-tip="opened 2026-02-18">5mo</td><td><span class='badge stale'>stale</span></td></tr>
+</tbody></table></div>
+<div class='repo-head'><span class='repo-name'>OB-Xf</span><span class='repo-count'>2 open</span></div>
+<div class='card scroll'><table class='pr'><colgroup><col style='width:78px'><col><col style='width:150px'><col style='width:70px'><col style='width:190px'></colgroup><thead><tr><th class='num'>PR</th><th>Title</th><th>Author</th><th class='num'>Age</th><th>Status</th></tr></thead><tbody>
+<tr><td class='num'><a href='https://github.com/surge-synthesizer/OB-Xf/pull/668'>#668</a></td><td class='title-cell'>Reinstate Set Current Patch as Default functionality</td><td class='dim'>mkruselj</td><td class='num' data-tip="opened 2026-05-21">2mo</td><td><span class=dim>—</span></td></tr>
+<tr><td class='num'><a href='https://github.com/surge-synthesizer/OB-Xf/pull/672'>#672</a></td><td class='title-cell'>Don&#x27;t merge yet, MTS-ESP improvements</td><td class='dim'>Andreya-Autumn</td><td class='num' data-tip="opened 2026-05-22">2mo</td><td><span class='badge'>draft</span></td></tr>
+</tbody></table></div>
+<div class='repo-head'><span class='repo-name'>surge-synthesizer.github.io</span><span class='repo-count'>2 open</span></div>
+<div class='card scroll'><table class='pr'><colgroup><col style='width:78px'><col><col style='width:150px'><col style='width:70px'><col style='width:190px'></colgroup><thead><tr><th class='num'>PR</th><th>Title</th><th>Author</th><th class='num'>Age</th><th>Status</th></tr></thead><tbody>
+<tr><td class='num'><a href='https://github.com/surge-synthesizer/surge-synthesizer.github.io/pull/422'>#422</a></td><td class='title-cell'>docs(ai tools): add surge docs mcp reference</td><td class='dim'>rithulkamesh</td><td class='num' data-tip="opened 2026-05-20">2mo</td><td><span class=dim>—</span></td></tr>
+<tr><td class='num'><a href='https://github.com/surge-synthesizer/surge-synthesizer.github.io/pull/425'>#425</a></td><td class='title-cell'>Bump sharp from 0.34.5 to 0.35.0</td><td class='dim'>dependabot</td><td class='num' data-tip="opened 2026-08-16">today</td><td><span class=dim>—</span></td></tr>
+</tbody></table></div>
+<div class='repo-head'><span class='repo-name'>tuning-library</span><span class='repo-count'>2 open</span></div>
+<div class='card scroll'><table class='pr'><colgroup><col style='width:78px'><col><col style='width:150px'><col style='width:70px'><col style='width:190px'></colgroup><thead><tr><th class='num'>PR</th><th>Title</th><th>Author</th><th class='num'>Age</th><th>Status</th></tr></thead><tbody>
+<tr><td class='num'><a href='https://github.com/surge-synthesizer/tuning-library/pull/90'>#90</a></td><td class='title-cell'>Deprecate string fname for ASCL and fix tests</td><td class='dim'>infojunkie</td><td class='num' data-tip="opened 2026-02-17">6mo</td><td><span class='badge stale'>stale</span></td></tr>
+<tr><td class='num'><a href='https://github.com/surge-synthesizer/tuning-library/pull/93'>#93</a></td><td class='title-cell'>Bound the ASCL name/position paths and the interpolated table</td><td class='dim'>manuaudio</td><td class='num' data-tip="opened 2026-08-16">today</td><td><span class=dim>—</span></td></tr>
+</tbody></table></div>
+<div class='repo-head'><span class='repo-name'>b-step</span><span class='repo-count'>1 open</span></div>
+<div class='card scroll'><table class='pr'><colgroup><col style='width:78px'><col><col style='width:150px'><col style='width:70px'><col style='width:190px'></colgroup><thead><tr><th class='num'>PR</th><th>Title</th><th>Author</th><th class='num'>Age</th><th>Status</th></tr></thead><tbody>
+<tr><td class='num'><a href='https://github.com/surge-synthesizer/b-step/pull/112'>#112</a></td><td class='title-cell'>Bring to juce8, c++20, etc...</td><td class='dim'>baconpaul</td><td class='num' data-tip="opened 2026-04-07">4mo</td><td><span class='badge stale'>stale</span></td></tr>
+</tbody></table></div>
+<div class='repo-head'><span class='repo-name'>sst-effects</span><span class='repo-count'>1 open</span></div>
+<div class='card scroll'><table class='pr'><colgroup><col style='width:78px'><col><col style='width:150px'><col style='width:70px'><col style='width:190px'></colgroup><thead><tr><th class='num'>PR</th><th>Title</th><th>Author</th><th class='num'>Age</th><th>Status</th></tr></thead><tbody>
+<tr><td class='num'><a href='https://github.com/surge-synthesizer/sst-effects/pull/253'>#253</a></td><td class='title-cell'>Step the Bonsai tape noise LCG in unsigned arithmetic</td><td class='dim'>manuaudio</td><td class='num' data-tip="opened 2026-08-15">1d</td><td><span class=dim>—</span></td></tr>
+</tbody></table></div>
+</section>
+<section><h2>2 · Activity</h2>
+<p class='section-note'>Merged pull requests and newly opened issues by repo, over two windows. Bars share one scale within each table, not across them.</p>
+<div class='legend'><span class='item'><span class='swatch' style='background:var(--merged)'></span>Merged PRs</span><span class='item'><span class='swatch' style='background:var(--issues)'></span>New issues</span></div>
+<div class='repo-head'><span class='repo-name'>Last 7 days</span><span class='repo-count'>since 2026-08-09</span></div>
+<div class='card scroll'><table class='act'><thead><tr><th>Repo</th><th class='num'>Merged</th><th class='num'>New issues</th><th class='bar-cell'></th></tr></thead><tbody>
+<tr><td>SpectrumWorx</td><td class='num'>25</td><td class='num'>47</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:25 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;SpectrumWorx&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 25 in 7d&lt;/div&gt;"></span><span style='flex:22 1 0'></span></span><span class='bar-row'><span class="seg" style="flex:47 1 0;background:var(--issues)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;SpectrumWorx&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;New issues: 47 in 7d&lt;/div&gt;"></span><span style='flex:0 1 0'></span></span></span></td></tr>
+<tr><td>shortcircuit-xt</td><td class='num'>13</td><td class='num'>2</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:13 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;shortcircuit-xt&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 13 in 7d&lt;/div&gt;"></span><span style='flex:34 1 0'></span></span><span class='bar-row'><span class="seg" style="flex:2 1 0;background:var(--issues)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;shortcircuit-xt&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;New issues: 2 in 7d&lt;/div&gt;"></span><span style='flex:45 1 0'></span></span></span></td></tr>
+<tr><td>surge</td><td class='num'>9</td><td class='num'>2</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:9 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 9 in 7d&lt;/div&gt;"></span><span style='flex:38 1 0'></span></span><span class='bar-row'><span class="seg" style="flex:2 1 0;background:var(--issues)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;New issues: 2 in 7d&lt;/div&gt;"></span><span style='flex:45 1 0'></span></span></span></td></tr>
+<tr><td>OB-Xf</td><td class='num'>2</td><td class='num'>1</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:2 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;OB-Xf&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 2 in 7d&lt;/div&gt;"></span><span style='flex:45 1 0'></span></span><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--issues)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;OB-Xf&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;New issues: 1 in 7d&lt;/div&gt;"></span><span style='flex:46 1 0'></span></span></span></td></tr>
+<tr><td>sst-plugininfra</td><td class='num'>3</td><td class='num'>0</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:3 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-plugininfra&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 3 in 7d&lt;/div&gt;"></span><span style='flex:44 1 0'></span></span><span class='bar-row'></span></span></td></tr>
+<tr><td>sst-basic-blocks</td><td class='num'>2</td><td class='num'>0</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:2 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-basic-blocks&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 2 in 7d&lt;/div&gt;"></span><span style='flex:45 1 0'></span></span><span class='bar-row'></span></span></td></tr>
+<tr><td>sst-jucegui</td><td class='num'>2</td><td class='num'>0</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:2 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-jucegui&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 2 in 7d&lt;/div&gt;"></span><span style='flex:45 1 0'></span></span><span class='bar-row'></span></span></td></tr>
+<tr><td>surge-synth-team.org</td><td class='num'>2</td><td class='num'>0</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:2 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-synth-team.org&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 2 in 7d&lt;/div&gt;"></span><span style='flex:45 1 0'></span></span><span class='bar-row'></span></span></td></tr>
+<tr><td>tuning-library</td><td class='num'>2</td><td class='num'>0</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:2 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;tuning-library&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 2 in 7d&lt;/div&gt;"></span><span style='flex:45 1 0'></span></span><span class='bar-row'></span></span></td></tr>
+<tr><td>eurorack</td><td class='num'>1</td><td class='num'>0</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;eurorack&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 1 in 7d&lt;/div&gt;"></span><span style='flex:46 1 0'></span></span><span class='bar-row'></span></span></td></tr>
+<tr><td>surge-rack</td><td class='num'>0</td><td class='num'>1</td><td class='bar-cell'><span class='grp'><span class='bar-row'></span><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--issues)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-rack&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;New issues: 1 in 7d&lt;/div&gt;"></span><span style='flex:46 1 0'></span></span></span></td></tr>
+<tr><td>surge-synthesizer.github.io</td><td class='num'>1</td><td class='num'>0</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-synthesizer.github.io&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 1 in 7d&lt;/div&gt;"></span><span style='flex:46 1 0'></span></span><span class='bar-row'></span></span></td></tr>
+<tr class='total'><td>total</td><td class='num'>62</td><td class='num'>53</td><td></td></tr>
+</tbody></table></div>
+<div class='repo-head'><span class='repo-name'>Last 90 days</span><span class='repo-count'>since 2026-05-18</span></div>
+<div class='card scroll'><table class='act'><thead><tr><th>Repo</th><th class='num'>Merged</th><th class='num'>New issues</th><th class='bar-cell'></th></tr></thead><tbody>
+<tr><td>shortcircuit-xt</td><td class='num'>100</td><td class='num'>52</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:100 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;shortcircuit-xt&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 100 in 90d&lt;/div&gt;"></span><span style='flex:23 1 0'></span></span><span class='bar-row'><span class="seg" style="flex:52 1 0;background:var(--issues)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;shortcircuit-xt&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;New issues: 52 in 90d&lt;/div&gt;"></span><span style='flex:71 1 0'></span></span></span></td></tr>
+<tr><td>surge</td><td class='num'>123</td><td class='num'>20</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:123 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 123 in 90d&lt;/div&gt;"></span><span style='flex:0 1 0'></span></span><span class='bar-row'><span class="seg" style="flex:20 1 0;background:var(--issues)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;New issues: 20 in 90d&lt;/div&gt;"></span><span style='flex:103 1 0'></span></span></span></td></tr>
+<tr><td>SpectrumWorx</td><td class='num'>25</td><td class='num'>47</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:25 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;SpectrumWorx&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 25 in 90d&lt;/div&gt;"></span><span style='flex:98 1 0'></span></span><span class='bar-row'><span class="seg" style="flex:47 1 0;background:var(--issues)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;SpectrumWorx&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;New issues: 47 in 90d&lt;/div&gt;"></span><span style='flex:76 1 0'></span></span></span></td></tr>
+<tr><td>OB-Xf</td><td class='num'>38</td><td class='num'>7</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:38 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;OB-Xf&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 38 in 90d&lt;/div&gt;"></span><span style='flex:85 1 0'></span></span><span class='bar-row'><span class="seg" style="flex:7 1 0;background:var(--issues)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;OB-Xf&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;New issues: 7 in 90d&lt;/div&gt;"></span><span style='flex:116 1 0'></span></span></span></td></tr>
+<tr><td>sst-basic-blocks</td><td class='num'>18</td><td class='num'>0</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:18 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-basic-blocks&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 18 in 90d&lt;/div&gt;"></span><span style='flex:105 1 0'></span></span><span class='bar-row'></span></span></td></tr>
+<tr><td>sst-jucegui</td><td class='num'>16</td><td class='num'>0</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:16 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-jucegui&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 16 in 90d&lt;/div&gt;"></span><span style='flex:107 1 0'></span></span><span class='bar-row'></span></span></td></tr>
+<tr><td>sst-voicemanager</td><td class='num'>11</td><td class='num'>0</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:11 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-voicemanager&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 11 in 90d&lt;/div&gt;"></span><span style='flex:112 1 0'></span></span><span class='bar-row'></span></span></td></tr>
+<tr><td>sst-plugininfra</td><td class='num'>6</td><td class='num'>0</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:6 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-plugininfra&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 6 in 90d&lt;/div&gt;"></span><span style='flex:117 1 0'></span></span><span class='bar-row'></span></span></td></tr>
+<tr><td>sst-effects</td><td class='num'>4</td><td class='num'>0</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:4 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-effects&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 4 in 90d&lt;/div&gt;"></span><span style='flex:119 1 0'></span></span><span class='bar-row'></span></span></td></tr>
+<tr><td>sst-cpputils</td><td class='num'>2</td><td class='num'>0</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:2 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-cpputils&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 2 in 90d&lt;/div&gt;"></span><span style='flex:121 1 0'></span></span><span class='bar-row'></span></span></td></tr>
+<tr><td>surge-synth-team.org</td><td class='num'>2</td><td class='num'>0</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:2 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-synth-team.org&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 2 in 90d&lt;/div&gt;"></span><span style='flex:121 1 0'></span></span><span class='bar-row'></span></span></td></tr>
+<tr><td>surge-synthesizer.github.io</td><td class='num'>2</td><td class='num'>0</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:2 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-synthesizer.github.io&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 2 in 90d&lt;/div&gt;"></span><span style='flex:121 1 0'></span></span><span class='bar-row'></span></span></td></tr>
+<tr><td>tuning-library</td><td class='num'>2</td><td class='num'>0</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:2 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;tuning-library&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 2 in 90d&lt;/div&gt;"></span><span style='flex:121 1 0'></span></span><span class='bar-row'></span></span></td></tr>
+<tr><td>eurorack</td><td class='num'>1</td><td class='num'>0</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;eurorack&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 1 in 90d&lt;/div&gt;"></span><span style='flex:122 1 0'></span></span><span class='bar-row'></span></span></td></tr>
+<tr><td>sst-clap-helpers</td><td class='num'>1</td><td class='num'>0</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-clap-helpers&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 1 in 90d&lt;/div&gt;"></span><span style='flex:122 1 0'></span></span><span class='bar-row'></span></span></td></tr>
+<tr><td>sst-filters</td><td class='num'>1</td><td class='num'>0</td><td class='bar-cell'><span class='grp'><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--merged)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-filters&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;Merged PRs: 1 in 90d&lt;/div&gt;"></span><span style='flex:122 1 0'></span></span><span class='bar-row'></span></span></td></tr>
+<tr><td>stochas</td><td class='num'>0</td><td class='num'>1</td><td class='bar-cell'><span class='grp'><span class='bar-row'></span><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--issues)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;stochas&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;New issues: 1 in 90d&lt;/div&gt;"></span><span style='flex:122 1 0'></span></span></span></td></tr>
+<tr><td>surge-rack</td><td class='num'>0</td><td class='num'>1</td><td class='bar-cell'><span class='grp'><span class='bar-row'></span><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--issues)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-rack&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;New issues: 1 in 90d&lt;/div&gt;"></span><span style='flex:122 1 0'></span></span></span></td></tr>
+<tr><td>tuning-workbench-synth</td><td class='num'>0</td><td class='num'>1</td><td class='bar-cell'><span class='grp'><span class='bar-row'></span><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--issues)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;tuning-workbench-synth&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;New issues: 1 in 90d&lt;/div&gt;"></span><span style='flex:122 1 0'></span></span></span></td></tr>
+<tr class='total'><td>total</td><td class='num'>352</td><td class='num'>129</td><td></td></tr>
+</tbody></table></div>
+</section>
+<section><h2>3 · New contributors, last 30 days</h2>
+<p class='section-note'>Authors whose first ever merged PR in surge-synthesizer landed since 2026-07-17. Bots excluded.</p>
+<div class='card scroll'><table class='act'><thead><tr><th>Contributor</th><th>First merged PR</th><th>Repo</th><th>Merged on</th><th class='num'>Merges since</th></tr></thead><tbody>
+<tr><td><a href='https://github.com/edwloef'>@edwloef</a></td><td class='title-cell'><a href='https://github.com/surge-synthesizer/shortcircuit-xt/pull/2548'>#2548</a> implement loading extensible PCM and float .wav files</td><td class='dim'>shortcircuit-xt</td><td class='dim'>2026-07-17</td><td class='num' data-tip="repos: shortcircuit-xt">2</td></tr>
+<tr><td><a href='https://github.com/ironcross32'>@ironcross32</a></td><td class='title-cell'><a href='https://github.com/surge-synthesizer/surge/pull/8456'>#8456</a> Screen Reader Accessible MSEG editor</td><td class='dim'>surge</td><td class='dim'>2026-07-17</td><td class='num' data-tip="repos: surge">2</td></tr>
+<tr><td><a href='https://github.com/manuaudio'>@manuaudio</a></td><td class='title-cell'><a href='https://github.com/surge-synthesizer/sst-basic-blocks/pull/304'>#304</a> Return nullopt instead of throwing on malformed type-ins</td><td class='dim'>sst-basic-blocks</td><td class='dim'>2026-08-13</td><td class='num' data-tip="repos: eurorack, sst-basic-blocks, sst-plugininfra, surge, tuning-library">13</td></tr>
+<tr class='total'><td>3 new</td><td colspan='4' class='dim'>of 6 authors with merges in the window</td></tr>
+</tbody></table></div>
+</section>
+<section><h2>4 · Open issue age</h2>
+<p class='section-note'>Every open issue bucketed by how long it has been open. Each bar is that repo's own backlog split into shares, oldest darkest — volume is the Open column, sorted descending. Bucket cells are shaded by that bucket's share of the repo's backlog.</p>
+<div class='legend'>
+<span class='item'><span class='swatch' style='background:var(--age-week)'></span>≤ 1 week</span>
+<span class='item'><span class='swatch' style='background:var(--age-month)'></span>≤ 1 month</span>
+<span class='item'><span class='swatch' style='background:var(--age-year)'></span>≤ 1 year</span>
+<span class='item'><span class='swatch' style='background:var(--age-older)'></span>&gt; 1 year</span>
+</div>
+<div class='card scroll'><table class='age'><thead><tr><th>Repo</th><th class='num'>Open</th><th class='bar-cell'>Age mix</th><th class='num'>≤ 1w</th><th class='num'>≤ 1mo</th><th class='num'>≤ 1y</th><th class='num'>&gt; 1y</th></tr></thead><tbody>
+<tr><td>surge</td><td class='num'>176</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--age-month)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 month: 1 (1% of 176)&lt;/div&gt;"></span><span class="seg" style="flex:12 1 0;background:var(--age-year)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 year: 12 (7% of 176)&lt;/div&gt;"></span><span class="seg" style="flex:163 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 163 (93% of 176)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 176 open (0%)&lt;/div&gt;">0</td><td class='hm hm-1' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;1 of 176 open (1%)&lt;/div&gt;">1</td><td class='hm hm-1' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;12 of 176 open (7%)&lt;/div&gt;">12</td><td class='hm hm-5' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;163 of 176 open (93%)&lt;/div&gt;">163</td></tr>
+<tr><td>shortcircuit-xt</td><td class='num'>175</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--age-week)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;shortcircuit-xt&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 week: 1 (1% of 175)&lt;/div&gt;"></span><span class="seg" style="flex:4 1 0;background:var(--age-month)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;shortcircuit-xt&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 month: 4 (2% of 175)&lt;/div&gt;"></span><span class="seg" style="flex:75 1 0;background:var(--age-year)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;shortcircuit-xt&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 year: 75 (43% of 175)&lt;/div&gt;"></span><span class="seg" style="flex:95 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;shortcircuit-xt&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 95 (54% of 175)&lt;/div&gt;"></span></span></td><td class='hm hm-1' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;shortcircuit-xt · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;1 of 175 open (1%)&lt;/div&gt;">1</td><td class='hm hm-1' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;shortcircuit-xt · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;4 of 175 open (2%)&lt;/div&gt;">4</td><td class='hm hm-3' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;shortcircuit-xt · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;75 of 175 open (43%)&lt;/div&gt;">75</td><td class='hm hm-4' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;shortcircuit-xt · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;95 of 175 open (54%)&lt;/div&gt;">95</td></tr>
+<tr><td>stochas</td><td class='num'>50</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:2 1 0;background:var(--age-year)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;stochas&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 year: 2 (4% of 50)&lt;/div&gt;"></span><span class="seg" style="flex:48 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;stochas&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 48 (96% of 50)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;stochas · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 50 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;stochas · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 50 open (0%)&lt;/div&gt;">0</td><td class='hm hm-1' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;stochas · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;2 of 50 open (4%)&lt;/div&gt;">2</td><td class='hm hm-5' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;stochas · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;48 of 50 open (96%)&lt;/div&gt;">48</td></tr>
+<tr><td>surge-rack</td><td class='num'>42</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--age-month)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-rack&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 month: 1 (2% of 42)&lt;/div&gt;"></span><span class="seg" style="flex:1 1 0;background:var(--age-year)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-rack&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 year: 1 (2% of 42)&lt;/div&gt;"></span><span class="seg" style="flex:40 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-rack&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 40 (95% of 42)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-rack · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 42 open (0%)&lt;/div&gt;">0</td><td class='hm hm-1' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-rack · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;1 of 42 open (2%)&lt;/div&gt;">1</td><td class='hm hm-1' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-rack · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;1 of 42 open (2%)&lt;/div&gt;">1</td><td class='hm hm-5' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-rack · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;40 of 42 open (95%)&lt;/div&gt;">40</td></tr>
+<tr><td>SpectrumWorx</td><td class='num'>25</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:11 1 0;background:var(--age-week)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;SpectrumWorx&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 week: 11 (44% of 25)&lt;/div&gt;"></span><span class="seg" style="flex:14 1 0;background:var(--age-month)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;SpectrumWorx&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 month: 14 (56% of 25)&lt;/div&gt;"></span></span></td><td class='hm hm-3' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;SpectrumWorx · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;11 of 25 open (44%)&lt;/div&gt;">11</td><td class='hm hm-4' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;SpectrumWorx · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;14 of 25 open (56%)&lt;/div&gt;">14</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;SpectrumWorx · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 25 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;SpectrumWorx · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 25 open (0%)&lt;/div&gt;">0</td></tr>
+<tr><td>tuning-workbench-synth</td><td class='num'>24</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--age-year)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;tuning-workbench-synth&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 year: 1 (4% of 24)&lt;/div&gt;"></span><span class="seg" style="flex:23 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;tuning-workbench-synth&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 23 (96% of 24)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;tuning-workbench-synth · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 24 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;tuning-workbench-synth · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 24 open (0%)&lt;/div&gt;">0</td><td class='hm hm-1' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;tuning-workbench-synth · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;1 of 24 open (4%)&lt;/div&gt;">1</td><td class='hm hm-5' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;tuning-workbench-synth · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;23 of 24 open (96%)&lt;/div&gt;">23</td></tr>
+<tr><td>dexed</td><td class='num'>22</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:22 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;dexed&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 22 (100% of 22)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;dexed · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 22 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;dexed · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 22 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;dexed · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 22 open (0%)&lt;/div&gt;">0</td><td class='hm hm-5' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;dexed · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;22 of 22 open (100%)&lt;/div&gt;">22</td></tr>
+<tr><td>conduit</td><td class='num'>17</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:17 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;conduit&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 17 (100% of 17)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;conduit · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 17 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;conduit · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 17 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;conduit · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 17 open (0%)&lt;/div&gt;">0</td><td class='hm hm-5' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;conduit · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;17 of 17 open (100%)&lt;/div&gt;">17</td></tr>
+<tr><td>ji-lattice-plugin</td><td class='num'>16</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:16 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;ji-lattice-plugin&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 16 (100% of 16)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;ji-lattice-plugin · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 16 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;ji-lattice-plugin · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 16 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;ji-lattice-plugin · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 16 open (0%)&lt;/div&gt;">0</td><td class='hm hm-5' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;ji-lattice-plugin · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;16 of 16 open (100%)&lt;/div&gt;">16</td></tr>
+<tr><td>b-step</td><td class='num'>15</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:7 1 0;background:var(--age-year)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;b-step&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 year: 7 (47% of 15)&lt;/div&gt;"></span><span class="seg" style="flex:8 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;b-step&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 8 (53% of 15)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;b-step · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 15 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;b-step · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 15 open (0%)&lt;/div&gt;">0</td><td class='hm hm-3' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;b-step · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;7 of 15 open (47%)&lt;/div&gt;">7</td><td class='hm hm-4' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;b-step · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;8 of 15 open (53%)&lt;/div&gt;">8</td></tr>
+<tr><td>monique-monosynth</td><td class='num'>13</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:13 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;monique-monosynth&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 13 (100% of 13)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;monique-monosynth · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 13 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;monique-monosynth · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 13 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;monique-monosynth · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 13 open (0%)&lt;/div&gt;">0</td><td class='hm hm-5' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;monique-monosynth · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;13 of 13 open (100%)&lt;/div&gt;">13</td></tr>
+<tr><td>OB-Xf</td><td class='num'>10</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:7 1 0;background:var(--age-year)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;OB-Xf&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 year: 7 (70% of 10)&lt;/div&gt;"></span><span class="seg" style="flex:3 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;OB-Xf&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 3 (30% of 10)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;OB-Xf · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 10 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;OB-Xf · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 10 open (0%)&lt;/div&gt;">0</td><td class='hm hm-4' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;OB-Xf · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;7 of 10 open (70%)&lt;/div&gt;">7</td><td class='hm hm-3' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;OB-Xf · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;3 of 10 open (30%)&lt;/div&gt;">3</td></tr>
+<tr><td>surge-synthesizer.github.io</td><td class='num'>6</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--age-year)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-synthesizer.github.io&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 year: 1 (17% of 6)&lt;/div&gt;"></span><span class="seg" style="flex:5 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-synthesizer.github.io&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 5 (83% of 6)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-synthesizer.github.io · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 6 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-synthesizer.github.io · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 6 open (0%)&lt;/div&gt;">0</td><td class='hm hm-2' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-synthesizer.github.io · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;1 of 6 open (17%)&lt;/div&gt;">1</td><td class='hm hm-5' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-synthesizer.github.io · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;5 of 6 open (83%)&lt;/div&gt;">5</td></tr>
+<tr><td>clap-saw-demo</td><td class='num'>4</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:4 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;clap-saw-demo&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 4 (100% of 4)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;clap-saw-demo · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 4 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;clap-saw-demo · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 4 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;clap-saw-demo · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 4 open (0%)&lt;/div&gt;">0</td><td class='hm hm-5' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;clap-saw-demo · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;4 of 4 open (100%)&lt;/div&gt;">4</td></tr>
+<tr><td>sst-effects</td><td class='num'>4</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--age-year)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-effects&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 year: 1 (25% of 4)&lt;/div&gt;"></span><span class="seg" style="flex:3 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-effects&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 3 (75% of 4)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-effects · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 4 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-effects · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 4 open (0%)&lt;/div&gt;">0</td><td class='hm hm-2' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-effects · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;1 of 4 open (25%)&lt;/div&gt;">1</td><td class='hm hm-4' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-effects · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;3 of 4 open (75%)&lt;/div&gt;">3</td></tr>
+<tr><td>tuning-library</td><td class='num'>4</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:4 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;tuning-library&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 4 (100% of 4)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;tuning-library · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 4 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;tuning-library · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 4 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;tuning-library · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 4 open (0%)&lt;/div&gt;">0</td><td class='hm hm-5' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;tuning-library · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;4 of 4 open (100%)&lt;/div&gt;">4</td></tr>
+<tr><td>sst-basic-blocks</td><td class='num'>3</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:2 1 0;background:var(--age-year)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-basic-blocks&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 year: 2 (67% of 3)&lt;/div&gt;"></span><span class="seg" style="flex:1 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-basic-blocks&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 1 (33% of 3)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-basic-blocks · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 3 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-basic-blocks · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 3 open (0%)&lt;/div&gt;">0</td><td class='hm hm-4' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-basic-blocks · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;2 of 3 open (67%)&lt;/div&gt;">2</td><td class='hm hm-3' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-basic-blocks · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;1 of 3 open (33%)&lt;/div&gt;">1</td></tr>
+<tr><td>sst-voicemanager</td><td class='num'>3</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--age-year)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-voicemanager&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 year: 1 (33% of 3)&lt;/div&gt;"></span><span class="seg" style="flex:2 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-voicemanager&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 2 (67% of 3)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-voicemanager · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 3 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-voicemanager · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 3 open (0%)&lt;/div&gt;">0</td><td class='hm hm-3' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-voicemanager · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;1 of 3 open (33%)&lt;/div&gt;">1</td><td class='hm hm-4' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-voicemanager · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;2 of 3 open (67%)&lt;/div&gt;">2</td></tr>
+<tr><td>libgig-modified</td><td class='num'>2</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:2 1 0;background:var(--age-year)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;libgig-modified&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 year: 2 (100% of 2)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;libgig-modified · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 2 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;libgig-modified · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 2 open (0%)&lt;/div&gt;">0</td><td class='hm hm-5' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;libgig-modified · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;2 of 2 open (100%)&lt;/div&gt;">2</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;libgig-modified · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 2 open (0%)&lt;/div&gt;">0</td></tr>
+<tr><td>sst-filters</td><td class='num'>2</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--age-year)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-filters&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 year: 1 (50% of 2)&lt;/div&gt;"></span><span class="seg" style="flex:1 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-filters&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 1 (50% of 2)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-filters · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 2 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-filters · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 2 open (0%)&lt;/div&gt;">0</td><td class='hm hm-3' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-filters · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;1 of 2 open (50%)&lt;/div&gt;">1</td><td class='hm hm-3' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-filters · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;1 of 2 open (50%)&lt;/div&gt;">1</td></tr>
+<tr><td>sst-plugininfra</td><td class='num'>2</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:2 1 0;background:var(--age-year)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-plugininfra&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 year: 2 (100% of 2)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-plugininfra · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 2 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-plugininfra · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 2 open (0%)&lt;/div&gt;">0</td><td class='hm hm-5' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-plugininfra · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;2 of 2 open (100%)&lt;/div&gt;">2</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-plugininfra · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 2 open (0%)&lt;/div&gt;">0</td></tr>
+<tr><td>stochas.org</td><td class='num'>2</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:2 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;stochas.org&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 2 (100% of 2)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;stochas.org · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 2 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;stochas.org · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 2 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;stochas.org · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 2 open (0%)&lt;/div&gt;">0</td><td class='hm hm-5' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;stochas.org · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;2 of 2 open (100%)&lt;/div&gt;">2</td></tr>
+<tr><td>midi-monitor</td><td class='num'>1</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;midi-monitor&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 1 (100% of 1)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;midi-monitor · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 1 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;midi-monitor · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 1 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;midi-monitor · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 1 open (0%)&lt;/div&gt;">0</td><td class='hm hm-5' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;midi-monitor · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;1 of 1 open (100%)&lt;/div&gt;">1</td></tr>
+<tr><td>sst-cpputils</td><td class='num'>1</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-cpputils&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 1 (100% of 1)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-cpputils · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 1 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-cpputils · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 1 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-cpputils · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 1 open (0%)&lt;/div&gt;">0</td><td class='hm hm-5' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;sst-cpputils · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;1 of 1 open (100%)&lt;/div&gt;">1</td></tr>
+<tr><td>surge-python</td><td class='num'>1</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-python&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 1 (100% of 1)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-python · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 1 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-python · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 1 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-python · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 1 open (0%)&lt;/div&gt;">0</td><td class='hm hm-5' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-python · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;1 of 1 open (100%)&lt;/div&gt;">1</td></tr>
+<tr><td>surge-rs</td><td class='num'>1</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--age-year)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-rs&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;≤ 1 year: 1 (100% of 1)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-rs · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 1 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-rs · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 1 open (0%)&lt;/div&gt;">0</td><td class='hm hm-5' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-rs · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;1 of 1 open (100%)&lt;/div&gt;">1</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;surge-rs · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 1 open (0%)&lt;/div&gt;">0</td></tr>
+<tr><td>vstgui</td><td class='num'>1</td><td class='bar-cell'><span class='bar-row'><span class="seg" style="flex:1 1 0;background:var(--age-older)" data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;vstgui&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;&amp;gt; 1 year: 1 (100% of 1)&lt;/div&gt;"></span></span></td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;vstgui · ≤ 1 week&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 1 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;vstgui · ≤ 1 month&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 1 open (0%)&lt;/div&gt;">0</td><td class='hm hm-0' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;vstgui · ≤ 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;0 of 1 open (0%)&lt;/div&gt;">0</td><td class='hm hm-5' data-tip="&lt;div class=&#x27;tip-title&#x27;&gt;vstgui · &amp;gt; 1 year&lt;/div&gt;&lt;div class=&#x27;tip-row&#x27;&gt;1 of 1 open (100%)&lt;/div&gt;">1</td></tr>
+<tr class='total'><td>total</td><td class='num'>622</td><td></td><td class='num'>12</td><td class='num'>20</td><td class='num'>116</td><td class='num'>474</td></tr>
+</tbody></table></div>
+<p class='section-note' style='margin-top:12px'>Cell shade is the bucket's share of that repo's open issues: <span class='hm-key'><i style='background:var(--hm-1)'></i><i style='background:var(--hm-2)'></i><i style='background:var(--hm-3)'></i><i style='background:var(--hm-4)'></i><i style='background:var(--hm-5)'></i></span> 0% → 100%. The total row is unshaded (different scale).</p>
+</section>
+<footer>Read-only report generated by surge_report.py from the GitHub GraphQL API · surge-synthesizer · 2026-08-16 14:21 UTC</footer>
+</div><script>
+(function () {
+  var tip = document.getElementById('tip');
+  function show(e) {
+    var t = e.currentTarget.getAttribute('data-tip');
+    if (!t) return;
+    tip.innerHTML = t;
+    tip.style.opacity = '1';
+    move(e);
+  }
+  function move(e) {
+    var pad = 14, r = tip.getBoundingClientRect();
+    var x = e.clientX + pad, y = e.clientY + pad;
+    if (x + r.width > window.innerWidth - 8) x = e.clientX - r.width - pad;
+    if (y + r.height > window.innerHeight - 8) y = e.clientY - r.height - pad;
+    tip.style.left = x + 'px';
+    tip.style.top = y + 'px';
+  }
+  function hide() { tip.style.opacity = '0'; }
+  document.querySelectorAll('[data-tip]').forEach(function (el) {
+    el.addEventListener('mouseenter', show);
+    el.addEventListener('mousemove', move);
+    el.addEventListener('mouseleave', hide);
+  });
+})();
+</script></body></html>
