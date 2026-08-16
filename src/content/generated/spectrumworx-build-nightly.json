@@ -1,0 +1,47 @@
+{
+    "build_time": "2026-08-16T21:47:23.240843219",
+    "data": {},
+    "latest_commit": "7560034",
+    "name": "spectrumworx",
+    "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
+    "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "7560034",
+            "date": "2026-08-16T17:34:29-04:00",
+            "message": "Tell surge-synth-team.org what each nightly shipped"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "731d2dc",
+            "date": "2026-08-16T17:08:05-04:00",
+            "message": "Open a module combo box's menu on the first press too"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "36fefa0",
+            "date": "2026-08-16T16:48:01-04:00",
+            "message": "Fire the event test's trigger on a plugin that is running"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "a523a93",
+            "date": "2026-08-16T16:17:45-04:00",
+            "message": "Hear a parameter event where the host timed it"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "582526e",
+            "date": "2026-08-16T16:04:27-04:00",
+            "message": "Light the Presets and Settings buttons when their panel is open"
+        }
+    ],
+    "releases": {
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-16-7560034.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-16-7560034.dmg",
+        "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-16-7560034.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-16-7560034.zip"
+    },
+    "version": "main"
+}
