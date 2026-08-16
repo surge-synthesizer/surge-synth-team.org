@@ -38,7 +38,7 @@ const generated = defineCollection({
     schema: () =>
         z.object({
             build_time: z.string(),
-            data: z.record(z.any()),
+            data: z.record(z.string(), z.any()),
             latest_commit: z.string(),
             name: z.string(),
             project_repo: z.string().url(),
@@ -52,7 +52,7 @@ const generated = defineCollection({
                     }),
                 )
                 .optional(),
-            releases: z.record(z.string()),
+            releases: z.record(z.string(), z.string()),
             version: z.string(),
         }),
 });
