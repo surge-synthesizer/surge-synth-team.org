@@ -1097,11 +1097,22 @@ def post_to_discord(webhook, message, attachments):
     req = urllib.request.Request(
         webhook,
         data=bytes(body),
-        headers={"Content-Type": f"multipart/form-data; boundary={boundary}"},
+        headers={
+            "Content-Type": f"multipart/form-data; boundary={boundary}",
+            # Required. Discord is behind Cloudflare, which rejects urllib's
+            # default "Python-urllib/x.y" agent with a 403 (error 1010).
+            "User-Agent": "surge-report/1.0 (+https://surge-synth-team.org)",
+        },
         method="POST",
     )
-    with urllib.request.urlopen(req) as resp:
-        return resp.status
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            return resp.status
+    except urllib.error.HTTPError as exc:
+        detail = exc.read().decode("utf-8", "replace")[:500].strip()
+        raise GitHubError(
+            f"Discord rejected the post: HTTP {exc.code}: {detail}"
+        ) from None
 
 
 # ---------------------------------------------------------------------------

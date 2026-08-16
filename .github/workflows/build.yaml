@@ -78,10 +78,6 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v5
 
-      - uses: actions/setup-python@v6
-        with:
-          python-version: "3.x"
-
       # Announce only on the daily run (or an explicit dispatch), so ordinary
       # pushes to master do not spam the channel.
       - name: Announce the report on Discord
@@ -94,29 +90,23 @@ jobs:
           OPEN_PRS: ${{ needs.build.outputs.open_prs }}
           OPEN_ISSUES: ${{ needs.build.outputs.open_issues }}
         run: |
-          python3 - <<'PY'
-          import json, os, sys, urllib.request
+          if [ -z "$WEBHOOK" ]; then
+            echo "DISCORD_REPO_REPORTS_WEBHOOK is not set; skipping the post"
+            exit 0
+          fi
 
-          webhook = os.environ.get("WEBHOOK", "").strip()
-          if not webhook:
-              print("DISCORD_REPO_REPORTS_WEBHOOK is not set; skipping the post")
-              sys.exit(0)
+          # The counts come from our own summary JSON and are integers, so it
+          # is safe to interpolate them straight into the JSON body. The \\n is
+          # emitted as a literal backslash-n, which is the JSON escape for the
+          # newline before the link.
+          printf '{"content": "**surge-synthesizer report available.** %s open PRs and %s open issues.\\nhttps://surge-synth-team.org/reports/surge-repo-activity/", "allowed_mentions": {"parse": []}}' \
+            "$OPEN_PRS" "$OPEN_ISSUES" > payload.json
 
-          content = (
-              "**surge-synthesizer report available.** "
-              f"{os.environ['OPEN_PRS']} open PRs and "
-              f"{os.environ['OPEN_ISSUES']} open issues.\n"
-              "https://surge-synth-team.org/reports/surge-repo-activity/"
-          )
-          body = json.dumps(
-              {"content": content, "allowed_mentions": {"parse": []}}
-          ).encode()
-          req = urllib.request.Request(
-              webhook,
-              data=body,
-              headers={"Content-Type": "application/json"},
-              method="POST",
-          )
-          with urllib.request.urlopen(req, timeout=30) as resp:
-              print(f"posted to Discord: HTTP {resp.status}")
-          PY
+          # --fail-with-body exits non-zero on 4xx/5xx but still prints what
+          # Discord said. curl sends its own User-Agent; urllib's default one
+          # is refused by Cloudflare with a 403 (error 1010).
+          curl --fail-with-body -sS -X POST \
+            -H "Content-Type: application/json" \
+            --data @payload.json \
+            -w '\ndiscord: HTTP %{http_code}\n' \
+            "$WEBHOOK"

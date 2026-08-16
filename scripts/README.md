@@ -65,6 +65,19 @@ Both paths are equivalent; only the transport differs.
 without it the report names private org repos (`surge-xt2` currently shows up
 in the 90-day activity table).
 
+### Gotcha: Discord needs a User-Agent
+
+Discord sits behind Cloudflare, which **rejects urllib's default
+`Python-urllib/x.y` agent with HTTP 403, Cloudflare error 1010** — before the
+request ever reaches Discord. It looks exactly like a bad webhook secret but
+is not. The workflow uses `curl`, which sends an acceptable agent of its own;
+`post_to_discord()` in the script sets one explicitly. If you rewrite either,
+keep the User-Agent.
+
+The tell: a 403 with body `error code: 1010` is Cloudflare, whereas a genuinely
+bad webhook returns 401/404 with a JSON body like
+`{"message": "Unknown Webhook", "code": 10015}`.
+
 ### Read-only
 
 Every GitHub call is a GraphQL **query**. `gh_graphql()` refuses to send any
