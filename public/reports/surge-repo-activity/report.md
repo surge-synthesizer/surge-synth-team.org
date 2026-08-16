@@ -1,12 +1,12 @@
 # surge-synthesizer — daily report
 
-*Generated 2026-08-16 15:02 UTC · activity windows: 7 and 90 days · new contributors over 30 days*
+*Generated 2026-08-16 16:10 UTC · activity windows: 7 and 90 days · new contributors over 30 days*
 
-**15** open PRs · **63** merges in 7d · **53** new issues in 7d · **3** new contributors in 30d · **622** open issues
+**15** open PRs · **64** merges in 7d · **53** new issues in 7d · **3** new contributors in 30d · **622** open issues
 
 ## 1. Open pull requests
 
-### surge (5)
+### [surge](https://github.com/surge-synthesizer/surge/pulls) (5)
 
 | PR | Title | Author | Age | Status |
 |---|---|---|---|---|
@@ -16,7 +16,7 @@
 | [#8529](https://github.com/surge-synthesizer/surge/pull/8529) | Do not size the arbdata buffer from the size the frame claims | manuaudio | 1d | — |
 | [#8530](https://github.com/surge-synthesizer/surge/pull/8530) | Bound wavetable samples before converting them to int | manuaudio | 1d | — |
 
-### shortcircuit-factory-content (3)
+### [shortcircuit-factory-content](https://github.com/surge-synthesizer/shortcircuit-factory-content/pulls) (3)
 
 | PR | Title | Author | Age | Status |
 |---|---|---|---|---|
@@ -24,33 +24,33 @@
 | [#5](https://github.com/surge-synthesizer/shortcircuit-factory-content/pull/5) | Adds HandBells | kamilner | 6mo | stale |
 | [#8](https://github.com/surge-synthesizer/shortcircuit-factory-content/pull/8) | Add Rieme Glass Bell and Crushed Rieme Glass Bell | bruxisma | 5mo | stale |
 
-### OB-Xf (2)
+### [OB-Xf](https://github.com/surge-synthesizer/OB-Xf/pulls) (2)
 
 | PR | Title | Author | Age | Status |
 |---|---|---|---|---|
 | [#668](https://github.com/surge-synthesizer/OB-Xf/pull/668) | Reinstate Set Current Patch as Default functionality | mkruselj | 2mo | — |
 | [#672](https://github.com/surge-synthesizer/OB-Xf/pull/672) | Don't merge yet, MTS-ESP improvements | Andreya-Autumn | 2mo | draft |
 
-### tuning-library (2)
+### [tuning-library](https://github.com/surge-synthesizer/tuning-library/pulls) (2)
 
 | PR | Title | Author | Age | Status |
 |---|---|---|---|---|
 | [#90](https://github.com/surge-synthesizer/tuning-library/pull/90) | Deprecate string fname for ASCL and fix tests | infojunkie | 6mo | stale |
 | [#93](https://github.com/surge-synthesizer/tuning-library/pull/93) | Bound the ASCL name/position paths and the interpolated table | manuaudio | today | — |
 
-### b-step (1)
+### [b-step](https://github.com/surge-synthesizer/b-step/pulls) (1)
 
 | PR | Title | Author | Age | Status |
 |---|---|---|---|---|
 | [#112](https://github.com/surge-synthesizer/b-step/pull/112) | Bring to juce8, c++20, etc... | baconpaul | 4mo | stale |
 
-### sst-effects (1)
+### [sst-effects](https://github.com/surge-synthesizer/sst-effects/pulls) (1)
 
 | PR | Title | Author | Age | Status |
 |---|---|---|---|---|
-| [#253](https://github.com/surge-synthesizer/sst-effects/pull/253) | Step the Bonsai tape noise LCG in unsigned arithmetic | manuaudio | 1d | — |
+| [#254](https://github.com/surge-synthesizer/sst-effects/pull/254) | Bump the fmt pin to 12.1.0 to unbreak the macOS CI legs | manuaudio | today | — |
 
-### surge-synthesizer.github.io (1)
+### [surge-synthesizer.github.io](https://github.com/surge-synthesizer/surge-synthesizer.github.io/pulls) (1)
 
 | PR | Title | Author | Age | Status |
 |---|---|---|---|---|
@@ -60,50 +60,51 @@
 
 ### Last 7 days (since 2026-08-09)
 
-| Repo | Merged PRs | | New issues | |
-|---|---:|---|---:|---|
-| SpectrumWorx | 25 | `███████` | 47 | `░░░░░░░░░░░░░░` |
-| shortcircuit-xt | 13 | `████` | 2 | `░` |
-| surge | 9 | `███` | 2 | `░` |
-| OB-Xf | 2 | `█` | 1 | `░` |
-| sst-plugininfra | 3 | `█` | 0 | `` |
-| sst-basic-blocks | 2 | `█` | 0 | `` |
-| sst-jucegui | 2 | `█` | 0 | `` |
-| surge-synth-team.org | 2 | `█` | 0 | `` |
-| surge-synthesizer.github.io | 2 | `█` | 0 | `` |
-| tuning-library | 2 | `█` | 0 | `` |
-| eurorack | 1 | `█` | 0 | `` |
-| surge-rack | 0 | `` | 1 | `░` |
-| **total** | **63** | | **53** | |
+| Repo | Merged PRs | | New issues | | Closed issues | |
+|---|---:|---|---:|---|---:|---|
+| [SpectrumWorx](https://github.com/surge-synthesizer/SpectrumWorx) | 25 | `███████` | 47 | `░░░░░░░░░░░░░░` | 22 | `▒▒▒▒▒▒▒` |
+| [shortcircuit-xt](https://github.com/surge-synthesizer/shortcircuit-xt) | 13 | `████` | 2 | `░` | 14 | `▒▒▒▒` |
+| [surge](https://github.com/surge-synthesizer/surge) | 9 | `███` | 2 | `░` | 3 | `▒` |
+| [OB-Xf](https://github.com/surge-synthesizer/OB-Xf) | 2 | `█` | 1 | `░` | 1 | `▒` |
+| [sst-plugininfra](https://github.com/surge-synthesizer/sst-plugininfra) | 3 | `█` | 0 | `` | 0 | `` |
+| [sst-basic-blocks](https://github.com/surge-synthesizer/sst-basic-blocks) | 2 | `█` | 0 | `` | 0 | `` |
+| [sst-jucegui](https://github.com/surge-synthesizer/sst-jucegui) | 2 | `█` | 0 | `` | 0 | `` |
+| [surge-synth-team.org](https://github.com/surge-synthesizer/surge-synth-team.org) | 2 | `█` | 0 | `` | 0 | `` |
+| [surge-synthesizer.github.io](https://github.com/surge-synthesizer/surge-synthesizer.github.io) | 2 | `█` | 0 | `` | 0 | `` |
+| [tuning-library](https://github.com/surge-synthesizer/tuning-library) | 2 | `█` | 0 | `` | 0 | `` |
+| [eurorack](https://github.com/surge-synthesizer/eurorack) | 1 | `█` | 0 | `` | 0 | `` |
+| [sst-effects](https://github.com/surge-synthesizer/sst-effects) | 1 | `█` | 0 | `` | 0 | `` |
+| [surge-rack](https://github.com/surge-synthesizer/surge-rack) | 0 | `` | 1 | `░` | 0 | `` |
+| **total** | **64** | | **53** | | **40** | |
 
-`█` merged PRs · `░` new issues — both bars share one scale within this table.
+`█` merged PRs · `░` new issues · `▒` closed issues — all three bars share one scale within this table.
 
 ### Last 90 days (since 2026-05-18)
 
-| Repo | Merged PRs | | New issues | |
-|---|---:|---|---:|---|
-| shortcircuit-xt | 100 | `███████████` | 52 | `░░░░░░` |
-| surge | 123 | `██████████████` | 20 | `░░` |
-| SpectrumWorx | 25 | `███` | 47 | `░░░░░` |
-| OB-Xf | 38 | `████` | 7 | `░` |
-| sst-basic-blocks | 18 | `██` | 0 | `` |
-| sst-jucegui | 16 | `██` | 0 | `` |
-| sst-voicemanager | 11 | `█` | 0 | `` |
-| sst-plugininfra | 6 | `█` | 0 | `` |
-| sst-effects | 4 | `█` | 0 | `` |
-| surge-synthesizer.github.io | 3 | `█` | 0 | `` |
-| sst-cpputils | 2 | `█` | 0 | `` |
-| surge-synth-team.org | 2 | `█` | 0 | `` |
-| tuning-library | 2 | `█` | 0 | `` |
-| eurorack | 1 | `█` | 0 | `` |
-| sst-clap-helpers | 1 | `█` | 0 | `` |
-| sst-filters | 1 | `█` | 0 | `` |
-| stochas | 0 | `` | 1 | `░` |
-| surge-rack | 0 | `` | 1 | `░` |
-| tuning-workbench-synth | 0 | `` | 1 | `░` |
-| **total** | **353** | | **129** | |
+| Repo | Merged PRs | | New issues | | Closed issues | |
+|---|---:|---|---:|---|---:|---|
+| [shortcircuit-xt](https://github.com/surge-synthesizer/shortcircuit-xt) | 100 | `███████████` | 52 | `░░░░░░` | 90 | `▒▒▒▒▒▒▒▒▒▒` |
+| [surge](https://github.com/surge-synthesizer/surge) | 123 | `██████████████` | 20 | `░░` | 61 | `▒▒▒▒▒▒▒` |
+| [SpectrumWorx](https://github.com/surge-synthesizer/SpectrumWorx) | 25 | `███` | 47 | `░░░░░` | 22 | `▒▒▒` |
+| [OB-Xf](https://github.com/surge-synthesizer/OB-Xf) | 38 | `████` | 7 | `░` | 11 | `▒` |
+| [sst-basic-blocks](https://github.com/surge-synthesizer/sst-basic-blocks) | 18 | `██` | 0 | `` | 0 | `` |
+| [sst-jucegui](https://github.com/surge-synthesizer/sst-jucegui) | 16 | `██` | 0 | `` | 0 | `` |
+| [sst-voicemanager](https://github.com/surge-synthesizer/sst-voicemanager) | 11 | `█` | 0 | `` | 0 | `` |
+| [sst-plugininfra](https://github.com/surge-synthesizer/sst-plugininfra) | 6 | `█` | 0 | `` | 0 | `` |
+| [sst-effects](https://github.com/surge-synthesizer/sst-effects) | 5 | `█` | 0 | `` | 0 | `` |
+| [surge-synthesizer.github.io](https://github.com/surge-synthesizer/surge-synthesizer.github.io) | 3 | `█` | 0 | `` | 0 | `` |
+| [sst-cpputils](https://github.com/surge-synthesizer/sst-cpputils) | 2 | `█` | 0 | `` | 0 | `` |
+| [surge-synth-team.org](https://github.com/surge-synthesizer/surge-synth-team.org) | 2 | `█` | 0 | `` | 0 | `` |
+| [tuning-library](https://github.com/surge-synthesizer/tuning-library) | 2 | `█` | 0 | `` | 0 | `` |
+| [eurorack](https://github.com/surge-synthesizer/eurorack) | 1 | `█` | 0 | `` | 0 | `` |
+| [sst-clap-helpers](https://github.com/surge-synthesizer/sst-clap-helpers) | 1 | `█` | 0 | `` | 0 | `` |
+| [sst-filters](https://github.com/surge-synthesizer/sst-filters) | 1 | `█` | 0 | `` | 0 | `` |
+| [stochas](https://github.com/surge-synthesizer/stochas) | 0 | `` | 1 | `░` | 0 | `` |
+| [surge-rack](https://github.com/surge-synthesizer/surge-rack) | 0 | `` | 1 | `░` | 0 | `` |
+| [tuning-workbench-synth](https://github.com/surge-synthesizer/tuning-workbench-synth) | 0 | `` | 1 | `░` | 0 | `` |
+| **total** | **354** | | **129** | | **184** | |
 
-`█` merged PRs · `░` new issues — both bars share one scale within this table.
+`█` merged PRs · `░` new issues · `▒` closed issues — all three bars share one scale within this table.
 
 ## 3. New contributors, last 30 days
 
@@ -111,70 +112,71 @@
 
 | Contributor | First merged PR | Repo | Merged on | Merges since |
 |---|---|---|---|---:|
-| [@edwloef](https://github.com/edwloef) | [#2548](https://github.com/surge-synthesizer/shortcircuit-xt/pull/2548) implement loading extensible PCM and float .wav files | shortcircuit-xt | 2026-07-17 | 2 |
-| [@ironcross32](https://github.com/ironcross32) | [#8456](https://github.com/surge-synthesizer/surge/pull/8456) Screen Reader Accessible MSEG editor | surge | 2026-07-17 | 2 |
-| [@manuaudio](https://github.com/manuaudio) | [#304](https://github.com/surge-synthesizer/sst-basic-blocks/pull/304) Return nullopt instead of throwing on malformed type-ins | sst-basic-blocks | 2026-08-13 | 13 |
+| [@edwloef](https://github.com/edwloef) | [#2548](https://github.com/surge-synthesizer/shortcircuit-xt/pull/2548) implement loading extensible PCM and float .wav files | [shortcircuit-xt](https://github.com/surge-synthesizer/shortcircuit-xt) | 2026-07-17 | 2 |
+| [@ironcross32](https://github.com/ironcross32) | [#8456](https://github.com/surge-synthesizer/surge/pull/8456) Screen Reader Accessible MSEG editor | [surge](https://github.com/surge-synthesizer/surge) | 2026-07-17 | 2 |
+| [@manuaudio](https://github.com/manuaudio) | [#304](https://github.com/surge-synthesizer/sst-basic-blocks/pull/304) Return nullopt instead of throwing on malformed type-ins | [sst-basic-blocks](https://github.com/surge-synthesizer/sst-basic-blocks) | 2026-08-13 | 14 |
 
 **3** new of **6** authors with merges in the window.
 
 ## 4. Open issue age
 
-| Repo | Open | ≤ 1w | ≤ 1mo | ≤ 1y | > 1y | Age mix |
-|---|---:|---:|---:|---:|---:|---|
-| surge | 176 | 0 | 1 | 12 | 163 | `▒▓▓█████████████████████████████` |
-| shortcircuit-xt | 175 | 1 | 4 | 75 | 95 | `░▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓████████████████` |
-| stochas | 50 | 0 | 0 | 2 | 48 | `▓███████████████████████████████` |
-| surge-rack | 42 | 0 | 1 | 1 | 40 | `▒▓██████████████████████████████` |
-| SpectrumWorx | 25 | 11 | 14 | 0 | 0 | `░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒` |
-| tuning-workbench-synth | 24 | 0 | 0 | 1 | 23 | `▓███████████████████████████████` |
-| dexed | 22 | 0 | 0 | 0 | 22 | `████████████████████████████████` |
-| conduit | 17 | 0 | 0 | 0 | 17 | `████████████████████████████████` |
-| ji-lattice-plugin | 16 | 0 | 0 | 0 | 16 | `████████████████████████████████` |
-| b-step | 15 | 0 | 0 | 7 | 8 | `▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█████████████████` |
-| monique-monosynth | 13 | 0 | 0 | 0 | 13 | `████████████████████████████████` |
-| OB-Xf | 10 | 0 | 0 | 7 | 3 | `▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██████████` |
-| surge-synthesizer.github.io | 6 | 0 | 0 | 1 | 5 | `▓▓▓▓▓███████████████████████████` |
-| clap-saw-demo | 4 | 0 | 0 | 0 | 4 | `████████████████████████████████` |
-| sst-effects | 4 | 0 | 0 | 1 | 3 | `▓▓▓▓▓▓▓▓████████████████████████` |
-| tuning-library | 4 | 0 | 0 | 0 | 4 | `████████████████████████████████` |
-| sst-basic-blocks | 3 | 0 | 0 | 2 | 1 | `▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓███████████` |
-| sst-voicemanager | 3 | 0 | 0 | 1 | 2 | `▓▓▓▓▓▓▓▓▓▓▓█████████████████████` |
-| libgig-modified | 2 | 0 | 0 | 2 | 0 | `▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓` |
-| sst-filters | 2 | 0 | 0 | 1 | 1 | `▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓████████████████` |
-| sst-plugininfra | 2 | 0 | 0 | 2 | 0 | `▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓` |
-| stochas.org | 2 | 0 | 0 | 0 | 2 | `████████████████████████████████` |
-| midi-monitor | 1 | 0 | 0 | 0 | 1 | `████████████████████████████████` |
-| sst-cpputils | 1 | 0 | 0 | 0 | 1 | `████████████████████████████████` |
-| surge-python | 1 | 0 | 0 | 0 | 1 | `████████████████████████████████` |
-| surge-rs | 1 | 0 | 0 | 1 | 0 | `▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓` |
-| vstgui | 1 | 0 | 0 | 0 | 1 | `████████████████████████████████` |
-| **total** | **622** | **12** | **20** | **116** | **474** | |
+| Repo | Open | ≤ 1w | ≤ 1mo | ≤ 1y | > 1y | Age mix | Closed 30d |
+|---|---:|---:|---:|---:|---:|---|---:|
+| [surge](https://github.com/surge-synthesizer/surge/issues) | 176 | 0 | 1 | 12 | 163 | `▒▓▓█████████████████████████████` | 19 |
+| [shortcircuit-xt](https://github.com/surge-synthesizer/shortcircuit-xt/issues) | 175 | 1 | 4 | 75 | 95 | `░▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓████████████████` | 39 |
+| [stochas](https://github.com/surge-synthesizer/stochas/issues) | 50 | 0 | 0 | 2 | 48 | `▓███████████████████████████████` | 0 |
+| [surge-rack](https://github.com/surge-synthesizer/surge-rack/issues) | 42 | 0 | 1 | 1 | 40 | `▒▓██████████████████████████████` | 0 |
+| [SpectrumWorx](https://github.com/surge-synthesizer/SpectrumWorx/issues) | 25 | 11 | 14 | 0 | 0 | `░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒` | 22 |
+| [tuning-workbench-synth](https://github.com/surge-synthesizer/tuning-workbench-synth/issues) | 24 | 0 | 0 | 1 | 23 | `▓███████████████████████████████` | 0 |
+| [dexed](https://github.com/surge-synthesizer/dexed/issues) | 22 | 0 | 0 | 0 | 22 | `████████████████████████████████` | 0 |
+| [conduit](https://github.com/surge-synthesizer/conduit/issues) | 17 | 0 | 0 | 0 | 17 | `████████████████████████████████` | 0 |
+| [ji-lattice-plugin](https://github.com/surge-synthesizer/ji-lattice-plugin/issues) | 16 | 0 | 0 | 0 | 16 | `████████████████████████████████` | 0 |
+| [b-step](https://github.com/surge-synthesizer/b-step/issues) | 15 | 0 | 0 | 7 | 8 | `▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█████████████████` | 0 |
+| [monique-monosynth](https://github.com/surge-synthesizer/monique-monosynth/issues) | 13 | 0 | 0 | 0 | 13 | `████████████████████████████████` | 0 |
+| [OB-Xf](https://github.com/surge-synthesizer/OB-Xf/issues) | 10 | 0 | 0 | 7 | 3 | `▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██████████` | 1 |
+| [surge-synthesizer.github.io](https://github.com/surge-synthesizer/surge-synthesizer.github.io/issues) | 6 | 0 | 0 | 1 | 5 | `▓▓▓▓▓███████████████████████████` | 0 |
+| [clap-saw-demo](https://github.com/surge-synthesizer/clap-saw-demo/issues) | 4 | 0 | 0 | 0 | 4 | `████████████████████████████████` | 0 |
+| [sst-effects](https://github.com/surge-synthesizer/sst-effects/issues) | 4 | 0 | 0 | 1 | 3 | `▓▓▓▓▓▓▓▓████████████████████████` | 0 |
+| [tuning-library](https://github.com/surge-synthesizer/tuning-library/issues) | 4 | 0 | 0 | 0 | 4 | `████████████████████████████████` | 0 |
+| [sst-basic-blocks](https://github.com/surge-synthesizer/sst-basic-blocks/issues) | 3 | 0 | 0 | 2 | 1 | `▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓███████████` | 0 |
+| [sst-voicemanager](https://github.com/surge-synthesizer/sst-voicemanager/issues) | 3 | 0 | 0 | 1 | 2 | `▓▓▓▓▓▓▓▓▓▓▓█████████████████████` | 0 |
+| [libgig-modified](https://github.com/surge-synthesizer/libgig-modified/issues) | 2 | 0 | 0 | 2 | 0 | `▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓` | 0 |
+| [sst-filters](https://github.com/surge-synthesizer/sst-filters/issues) | 2 | 0 | 0 | 1 | 1 | `▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓████████████████` | 0 |
+| [sst-plugininfra](https://github.com/surge-synthesizer/sst-plugininfra/issues) | 2 | 0 | 0 | 2 | 0 | `▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓` | 0 |
+| [stochas.org](https://github.com/surge-synthesizer/stochas.org/issues) | 2 | 0 | 0 | 0 | 2 | `████████████████████████████████` | 0 |
+| [midi-monitor](https://github.com/surge-synthesizer/midi-monitor/issues) | 1 | 0 | 0 | 0 | 1 | `████████████████████████████████` | 0 |
+| [sst-cpputils](https://github.com/surge-synthesizer/sst-cpputils/issues) | 1 | 0 | 0 | 0 | 1 | `████████████████████████████████` | 0 |
+| [surge-python](https://github.com/surge-synthesizer/surge-python/issues) | 1 | 0 | 0 | 0 | 1 | `████████████████████████████████` | 0 |
+| [surge-rs](https://github.com/surge-synthesizer/surge-rs/issues) | 1 | 0 | 0 | 1 | 0 | `▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓` | 0 |
+| [vstgui](https://github.com/surge-synthesizer/vstgui/issues) | 1 | 0 | 0 | 0 | 1 | `████████████████████████████████` | 0 |
+| **total** | **622** | **12** | **20** | **116** | **474** | | **81** |
 
 Age mix is each repo's open issues as a share of its own total; glyph density rises with age: `░` ≤ 1 week · `▒` ≤ 1 month · `▓` ≤ 1 year · `█` > 1 year. Volume is the Open column.
 
-## 5. Open Dependabot alerts
+## 5. Releases
 
-**43** open · 27 high · 12 medium · 4 low · **18** in runtime dependencies
+### Nightly builds
 
-| Repo | Alerts | Critical | High | Medium | Low |
-|---|---:|---:|---:|---:|---:|
-| sst-githubactions | 20 | 0 | 8 | 8 | 4 |
-| surge-synthesizer.github.io | 13 | 0 | 11 | 2 | 0 |
-| surge-synth-team.org | 10 | 0 | 8 | 2 | 0 |
+| Product | Last nightly | Age | |
+|---|---|---:|---|
+| [surge](https://github.com/surge-synthesizer/surge/releases) | 2026-08-16 | today |  |
+| [SpectrumWorx](https://github.com/surge-synthesizer/SpectrumWorx/releases) | 2026-08-16 | today |  |
+| [shortcircuit-xt](https://github.com/surge-synthesizer/shortcircuit-xt/releases) | 2026-08-14 | 2d |  |
+| [OB-Xf](https://github.com/surge-synthesizer/OB-Xf/releases) | 2026-08-14 | 2d |  |
+| [tuning-note-claps](https://github.com/surge-synthesizer/tuning-note-claps/releases) | 2026-02-26 | 5mo |  |
+| [stochas](https://github.com/surge-synthesizer/stochas/releases) | 2025-02-20 | 1y 5mo | dormant |
+| [monique-monosynth](https://github.com/surge-synthesizer/monique-monosynth/releases) | 2024-08-07 | 2y | dormant |
+| [b-step](https://github.com/surge-synthesizer/b-step/releases) | 2024-07-28 | 2y | dormant |
 
-| Package | Alerts | Worst | Scope | Fixed in | Repos |
-|---|---:|---|---|---|---|
-| undici | 12 | high | runtime | 6.28.0 | sst-githubactions |
-| fast-uri | 10 | high | development | 3.1.5 | surge-synth-team.org, surge-synthesizer.github.io |
-| lodash | 4 | high | development | 4.18.0 | surge-synth-team.org, surge-synthesizer.github.io |
-| fast-xml-parser | 3 | high | runtime | 5.7.0 | sst-githubactions |
-| js-yaml | 3 | high | development | 4.3.1 | surge-synth-team.org |
-| basic-ftp | 2 | high | development | 5.2.2 | surge-synthesizer.github.io |
-| brace-expansion | 2 | high | runtime | 1.1.17 | sst-githubactions |
-| ip-address | 2 | high | development | 10.3.1 | surge-synthesizer.github.io |
-| extract-zip | 1 | high | development | — | surge-synthesizer.github.io |
-| fast-xml-builder | 1 | high | runtime | 1.1.7 | sst-githubactions |
-| ws | 1 | high | development | 8.21.0 | surge-synthesizer.github.io |
-| esbuild | 2 | low | development | 0.28.1 | sst-githubactions |
+Nightly tags are re-uploaded in place, so this is when the assets last changed, not when the tag was cut. *dormant* marks a nightly untouched for over 365 days.
 
-Several advisories can stack on one package; *Fixed in* is the highest patched version seen, which is the one that clears them all. Runtime-scope alerts ship with the product; development-scope ones only affect the build.
+### Latest stable release
+
+| Product | Version | Released | Age |
+|---|---|---|---:|
+| [OB-Xf](https://github.com/surge-synthesizer/OB-Xf/releases) | [v1.0.3](https://github.com/surge-synthesizer/OB-Xf/releases/tag/v1.0.3) | 2026-03-27 | 4mo |
+| [tuning-note-claps](https://github.com/surge-synthesizer/tuning-note-claps/releases) | [v1.1.0](https://github.com/surge-synthesizer/tuning-note-claps/releases/tag/v1.1.0) | 2025-07-14 | 1y 1mo |
+| [stochas](https://github.com/surge-synthesizer/stochas/releases) | [v1.3.13](https://github.com/surge-synthesizer/stochas/releases/tag/v1.3.13) | 2024-11-16 | 1y 9mo |
+| [surge](https://github.com/surge-synthesizer/releases-xt/releases) *(via releases-xt)* | [1.3.4](https://github.com/surge-synthesizer/releases-xt/releases/tag/1.3.4) | 2024-08-11 | 2y |
+
+Drafts and prereleases are excluded.

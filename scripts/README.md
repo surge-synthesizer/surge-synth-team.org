@@ -17,15 +17,23 @@ of every repository in the `surge-synthesizer` org.
    and badges for draft / approved / changes requested, plus `stale` at 90+
    days.
 2. **Activity** — two tables, a short window and a long window (7 and 90 days
-   by default): merged PRs and newly opened issues per repo. Bars share one
-   scale *within* a table, never across the two.
+   by default): merged PRs, newly opened issues, and closed issues per repo.
+   Bars share one scale *within* a table, never across the two.
 3. **New contributors** — authors whose *first ever* merged PR in the org
    landed in the last 30 days, with that PR, its repo, and merges since. Bots
    are excluded via the GraphQL `__typename`.
 4. **Open issue age** — per repo, the open count, a stacked bar splitting the
-   backlog into ≤ 1 week / ≤ 1 month / ≤ 1 year / > 1 year, and those four
-   counts as heatmap cells shaded by each bucket's share of that repo's
-   backlog.
+   backlog into ≤ 1 week / ≤ 1 month / ≤ 1 year / > 1 year, those four counts
+   as heatmap cells shaded by each bucket's share of that repo's backlog, and
+   how many issues the repo closed in the last 30 days.
+5. **Releases** — for each shipping product, when its nightly was last
+   refreshed and what its latest stable release is, with ages.
+
+Every repo name links to the tab its numbers came from — pulls, issues or
+releases.
+
+All windows derive from a single long-window fetch, so `--days`,
+`--closed-days` and the 90-day table cost no extra queries between them.
 
 The output is one self-contained HTML file — no external requests, follows the
 viewer's light/dark preference, hover tooltips on every bar and cell.
@@ -65,29 +73,24 @@ Both paths are equivalent; only the transport differs.
 without it the report names private org repos (`surge-xt2` currently shows up
 in the 90-day activity table).
 
-### Dependabot alerts need a better token
+### Which products appear in the release section
 
-Section 5 lists open Dependabot alerts **across the whole org**. That endpoint
-needs a token with security read on the org, and the Actions `GITHUB_TOKEN` is
-scoped to this repo only — so by default the section renders as "not
-available" rather than failing the run.
+`RELEASE_PRODUCTS` is an allowlist, not a skiplist, because several repos
+publish "releases" that are really asset hosts — a manual PDF, a skin
+library — and those sort to the top as the newest release. Add a repo there
+when it becomes something people download.
 
-To populate it, add a PAT with `security_events` (or `repo`) read on
-`surge-synthesizer` as the repo secret **`DEPENDABOT_READ_TOKEN`**. The
-workflow prefers it and falls back to `GITHUB_TOKEN`:
+`STABLE_RELEASE_SOURCE` handles products whose stable releases are cut in a
+different repo from the one they are developed in. Surge XT is the only one
+today: nightlies come from `surge`, but tagged releases live in `releases-xt`,
+so without the mapping Surge would show no version at all. The row keeps the
+product's name, links to the source repo, and says "via releases-xt".
 
-```yaml
-GITHUB_TOKEN: ${{ secrets.DEPENDABOT_READ_TOKEN || secrets.GITHUB_TOKEN }}
-```
-
-Two API quirks are already handled, and are easy to reintroduce:
-
-- The alerts endpoint paginates **by cursor, not by page number**. Passing
-  `page=2` returns HTTP 400, so `rest_get_all()` follows the `Link` header
-  instead. Do not "simplify" it back to a page counter.
-- Only 401/403/404 are treated as "no access" and degrade the section. Any
-  other status raises, so a genuine bug is not silently reported as a
-  permissions problem.
+Nightly rows use the release's `updatedAt`, not `publishedAt`. A nightly keeps
+one tag and is re-uploaded in place, so `publishedAt` is when the tag was first
+cut — years ago for Surge — while `updatedAt` tracks the newest asset. Ages
+are computed from calendar dates so they always agree with the date shown
+beside them.
 
 ### The Discord message is built in Python
 
@@ -140,11 +143,14 @@ Then `pnpm build && pnpm preview` to see it in place.
 | `--days` | 7 | short activity window |
 | `--long-days` | 90 | long activity window; widened automatically if another window exceeds it |
 | `--contrib-days` | 30 | new-contributor window |
+| `--closed-days` | 30 | window for the closed-issues column in section 4 |
 | `--org` | `surge-synthesizer` | org to report on |
 | `--publish-dir` | — | site repo root; writes `public/reports/<slug>/` |
 | `--slug` | `surge-repo-activity` | path under `/reports/` |
 | `--site-name` | `surge-synth-team.org` | name in the page breadcrumb |
-| `--summary-json` | — | writes headline counts for the Discord step |
+| `--summary-json` | — | writes headline counts as JSON |
+| `--discord-payload` | — | writes the webhook body the deploy job posts |
+| `--report-url` | — | link used in the Discord message |
 | `--public-only` | off | exclude private repos entirely |
 | `--discord-webhook` | — | post the markdown as an attachment (unused by CI) |
 

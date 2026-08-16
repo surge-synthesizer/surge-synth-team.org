@@ -48,11 +48,8 @@ jobs:
         name: Generate the surge repo activity report
         continue-on-error: true
         env:
-          # The built-in GITHUB_TOKEN is scoped to this repo, so it cannot read
-          # the org's Dependabot alerts; that section degrades to "not
-          # available". Set DEPENDABOT_READ_TOKEN (a PAT with security read on
-          # the org) to populate it.
-          GITHUB_TOKEN: ${{ secrets.DEPENDABOT_READ_TOKEN || secrets.GITHUB_TOKEN }}
+          # Only public org data is read, which the built-in token can see.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python3 scripts/surge_report.py \
             --publish-dir . \

@@ -173,7 +173,7 @@ query($q: String!, $after: String) {
         repository { name isPrivate }
       }
       ... on Issue {
-        number title url createdAt
+        number title url createdAt closedAt
         author { login }
         repository { name isPrivate }
       }
@@ -208,121 +208,122 @@ def search_all(search_query, verbose=True):
     return nodes
 
 
-def rest_get_all(path, verbose=True):
-    """GET a paginated REST endpoint.
+# The shipping products the release section covers. An allowlist rather than a
+# skiplist: several repos publish "releases" that are really asset hosts (a
+# manual PDF, a skin library) and would otherwise sort to the top as the newest
+# release. Add a repo here when it becomes something people download.
+RELEASE_PRODUCTS = [
+    "surge",
+    "shortcircuit-xt",
+    "OB-Xf",
+    "SpectrumWorx",
+    "stochas",
+    "b-step",
+    "monique-monosynth",
+    "tuning-note-claps",
+]
 
-    Returns None (rather than raising) when the token lacks the permission,
-    so an optional section can degrade instead of failing the whole report.
-    Dependabot alerts need a token with security/repo read on the org; the
-    Actions GITHUB_TOKEN is scoped to its own repo and will usually 403 here.
-    """
-    token = api_token()
-    sep = "&" if "?" in path else "?"
-    url = f"https://api.github.com{path}{sep}per_page=100"
+# Products whose stable releases are cut somewhere other than the repo they are
+# developed in. Surge XT builds nightlies in surge/ but tags stable in
+# releases-xt/, so without this it would show no stable version at all.
+STABLE_RELEASE_SOURCE = {
+    "surge": "releases-xt",
+}
+NIGHTLY_RE = re.compile(r"nightly", re.I)
+DORMANT_DAYS = 365
 
-    if not token:
-        # gh --paginate follows Link headers itself; --jq '.[]' gives us one
-        # JSON object per line across all pages.
-        proc = subprocess.run(
-            ["gh", "api", "--paginate", url, "--jq", ".[]"],
-            capture_output=True, text=True,
-        )
-        if proc.returncode != 0:
-            if verbose:
-                print(f"  ! cannot read {path}: {proc.stderr.strip()[:160]}\n"
-                      f"    skipping that section", file=sys.stderr)
-            return None
-        return [json.loads(line) for line in proc.stdout.splitlines() if line.strip()]
-
-    # This endpoint family paginates by cursor, not by page number, so follow
-    # the Link header rather than incrementing a counter.
-    items = []
-    while url:
-        req = urllib.request.Request(
-            url,
-            headers={
-                "Authorization": f"Bearer {token}",
-                "Accept": "application/vnd.github+json",
-                "User-Agent": "surge-synth-team-report",
-            },
-        )
-        try:
-            with urllib.request.urlopen(req, timeout=60) as resp:
-                batch = json.loads(resp.read().decode("utf-8"))
-                link = resp.headers.get("Link", "")
-        except urllib.error.HTTPError as exc:
-            detail = exc.read().decode("utf-8", "replace")[:200].strip()
-            if exc.code in (401, 403, 404):
-                if verbose:
-                    print(f"  ! no access to {path} (HTTP {exc.code}); "
-                          f"skipping that section", file=sys.stderr)
-                return None
-            raise GitHubError(f"HTTP {exc.code} for {path}: {detail}") from None
-
-        if not isinstance(batch, list):
-            break
-        items.extend(batch)
-        match = re.search(r'<([^>]+)>;\s*rel="next"', link)
-        url = match.group(1) if match else None
-    return items
-
-
-SEVERITY_ORDER = ["critical", "high", "medium", "low"]
-
-
-def collect_security(org, verbose=True):
-    """Open Dependabot alerts across the org, or None if unavailable."""
-    if verbose:
-        print("  fetching Dependabot alerts…", file=sys.stderr)
-    alerts = rest_get_all(f"/orgs/{org}/dependabot/alerts?state=open", verbose)
-    if alerts is None:
-        return None
-
-    by_repo = defaultdict(lambda: dict.fromkeys(SEVERITY_ORDER, 0))
-    packages = defaultdict(lambda: {"count": 0, "severity": "low", "repos": set(),
-                                    "fix": None, "scope": set()})
-    runtime = 0
-    for alert in alerts:
-        repo = alert["repository"]["name"]
-        sev = alert["security_advisory"]["severity"]
-        sev = sev if sev in SEVERITY_ORDER else "low"
-        by_repo[repo][sev] += 1
-
-        dep = alert.get("dependency") or {}
-        scope = dep.get("scope") or "unknown"
-        if scope == "runtime":
-            runtime += 1
-        name = (dep.get("package") or {}).get("name") or "?"
-        entry = packages[name]
-        entry["count"] += 1
-        entry["repos"].add(repo)
-        entry["scope"].add(scope)
-        if SEVERITY_ORDER.index(sev) < SEVERITY_ORDER.index(entry["severity"]):
-            entry["severity"] = sev
-        patched = (alert.get("security_vulnerability") or {}).get(
-            "first_patched_version") or {}
-        ident = patched.get("identifier")
-        # Keep the highest patched version seen; stacked advisories on one
-        # package each name a different fix, and only the newest clears them.
-        if ident and (entry["fix"] is None or _version_key(ident) > _version_key(entry["fix"])):
-            entry["fix"] = ident
-
-    return {
-        "total": len(alerts),
-        "runtime": runtime,
-        "by_repo": {k: v for k, v in by_repo.items()},
-        "by_severity": {
-            s: sum(v[s] for v in by_repo.values()) for s in SEVERITY_ORDER
-        },
-        "packages": {
-            k: {**v, "repos": sorted(v["repos"]), "scope": sorted(v["scope"])}
-            for k, v in packages.items()
-        },
+RELEASES_QUERY = """
+query($org: String!, $after: String) {
+  organization(login: $org) {
+    repositories(first: 50, after: $after, isArchived: false,
+                 orderBy: {field: NAME, direction: ASC}) {
+      pageInfo { hasNextPage endCursor }
+      nodes {
+        name
+        isPrivate
+        releases(first: 20, orderBy: {field: CREATED_AT, direction: DESC}) {
+          nodes {
+            tagName name url isPrerelease isDraft
+            createdAt publishedAt updatedAt
+          }
+        }
+      }
     }
+  }
+}
+"""
 
 
-def _version_key(text):
-    return [int(p) if p.isdigit() else 0 for p in re.split(r"[.\-+]", text)[:4]]
+def collect_releases(org, public_only, now, verbose=True):
+    """Nightly freshness and latest stable release for every product repo.
+
+    A nightly release keeps one tag and is re-uploaded in place, so its
+    publishedAt is the date the tag was first cut — often years ago — while
+    updatedAt tracks the most recent asset upload. Use updatedAt for nightlies
+    and publishedAt for stable releases.
+    """
+    if verbose:
+        print("  fetching releases…", file=sys.stderr)
+
+    repos, cursor = [], None
+    while True:
+        data = gh_graphql(RELEASES_QUERY, {"org": org, "after": cursor})
+        block = data["organization"]["repositories"]
+        repos.extend(block["nodes"])
+        if not block["pageInfo"]["hasNextPage"]:
+            break
+        cursor = block["pageInfo"]["endCursor"]
+
+    by_name = {r["name"]: r for r in repos}
+
+    def usable_releases(repo_name):
+        repo = by_name.get(repo_name)
+        if repo is None or (public_only and repo["isPrivate"]):
+            return None, []
+        return repo, [r for r in repo["releases"]["nodes"] if not r["isDraft"]]
+
+    nightlies, stable = [], []
+    for name in RELEASE_PRODUCTS:
+        repo, rels = usable_releases(name)
+        if repo is None:
+            continue
+
+        nightly_rels = [r for r in rels if NIGHTLY_RE.search(r["tagName"] or "")]
+        if nightly_rels:
+            rel = max(nightly_rels, key=lambda r: r["updatedAt"] or "")
+            when = parse_ts(rel["updatedAt"])
+            nightlies.append({
+                "repo": name, "private": repo["isPrivate"],
+                "tag": rel["tagName"], "url": rel["url"], "when": when,
+                # From calendar dates, so the age always agrees with the date
+                # shown beside it; a timestamp delta can read "2d" next to a
+                # date that another row calls "1d".
+                "age_days": (now.date() - when.date()).days,
+            })
+
+        # Surge XT builds nightlies in surge/ but cuts stable releases in
+        # releases-xt/, so the stable row has to come from a different repo.
+        source = STABLE_RELEASE_SOURCE.get(name, name)
+        src_repo, src_rels = usable_releases(source)
+        if src_repo is None:
+            continue
+        stable_rels = [
+            r for r in src_rels
+            if not NIGHTLY_RE.search(r["tagName"] or "") and not r["isPrerelease"]
+        ]
+        if stable_rels:
+            rel = max(stable_rels,
+                      key=lambda r: r["publishedAt"] or r["createdAt"] or "")
+            when = parse_ts(rel["publishedAt"] or rel["createdAt"])
+            stable.append({
+                "repo": name, "source": source, "private": src_repo["isPrivate"],
+                "tag": rel["tagName"], "url": rel["url"], "when": when,
+                "age_days": (now.date() - when.date()).days,
+            })
+
+    nightlies.sort(key=lambda r: r["age_days"])
+    stable.sort(key=lambda r: r["age_days"])
+    return {"nightlies": nightlies, "stable": stable}
 
 
 SAFE_LOGIN = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$")
@@ -382,12 +383,13 @@ def pct(part, whole):
 # ---------------------------------------------------------------------------
 
 
-def collect(org, days, long_days, contrib_days, public_only, verbose=True,
-            with_security=True):
+def collect(org, days, long_days, contrib_days, closed_days, public_only,
+            verbose=True):
     now = dt.datetime.now(dt.timezone.utc)
     since_short = (now - dt.timedelta(days=days)).date()
     since_long = (now - dt.timedelta(days=long_days)).date()
     since_contrib = (now - dt.timedelta(days=contrib_days)).date()
+    since_closed = (now - dt.timedelta(days=closed_days)).date()
     scope = f"org:{org}" + (" is:public" if public_only else "")
 
     if verbose:
@@ -398,6 +400,7 @@ def collect(org, days, long_days, contrib_days, public_only, verbose=True,
     merged_prs = search_all(f"{scope} is:pr merged:>={since_long}", verbose)
     new_issues = search_all(f"{scope} is:issue created:>={since_long}", verbose)
     open_issues = search_all(f"{scope} is:issue is:open sort:created-asc", verbose)
+    closed_issues = search_all(f"{scope} is:issue closed:>={since_long}", verbose)
 
     private_repos = set()
 
@@ -428,8 +431,8 @@ def collect(org, days, long_days, contrib_days, public_only, verbose=True,
 
     # --- Section 2: recent activity, two windows ---------------------------
     def activity_since(cutoff):
-        act = defaultdict(lambda: {"merged": 0, "issues": 0})
-        merged = issues = 0
+        act = defaultdict(lambda: {"merged": 0, "issues": 0, "closed": 0})
+        merged = issues = closed = 0
         for node in merged_prs:
             if parse_ts(node["mergedAt"]).date() >= cutoff:
                 act[repo_of(node)]["merged"] += 1
@@ -438,10 +441,15 @@ def collect(org, days, long_days, contrib_days, public_only, verbose=True,
             if parse_ts(node["createdAt"]).date() >= cutoff:
                 act[repo_of(node)]["issues"] += 1
                 issues += 1
-        return dict(act), merged, issues
+        for node in closed_issues:
+            stamp = node.get("closedAt")
+            if stamp and parse_ts(stamp).date() >= cutoff:
+                act[repo_of(node)]["closed"] += 1
+                closed += 1
+        return dict(act), merged, issues, closed
 
-    act_short, merged_short, issues_short = activity_since(since_short)
-    act_long, merged_long, issues_long = activity_since(since_long)
+    act_short, merged_short, issues_short, closed_short = activity_since(since_short)
+    act_long, merged_long, issues_long, closed_long = activity_since(since_long)
 
     # --- Section 3: new contributors ---------------------------------------
     window_prs = [
@@ -485,6 +493,14 @@ def collect(org, days, long_days, contrib_days, public_only, verbose=True,
     newcomers.sort(key=lambda c: c["first_at"])
 
     # --- Section 3: open issue ages ----------------------------------------
+    closed_recent = defaultdict(int)
+    closed_recent_total = 0
+    for node in closed_issues:
+        stamp = node.get("closedAt")
+        if stamp and parse_ts(stamp).date() >= since_closed:
+            closed_recent[repo_of(node)] += 1
+            closed_recent_total += 1
+
     ages = defaultdict(lambda: dict.fromkeys(BUCKET_KEYS, 0))
     oldest = {}
     for node in open_issues:
@@ -500,11 +516,17 @@ def collect(org, days, long_days, contrib_days, public_only, verbose=True,
                 "url": node["url"],
             }
 
-    security = collect_security(org, verbose) if with_security else None
+    # A repo that closed its last open issue inside the window would otherwise
+    # drop out of the table while still counting toward the total, so the
+    # column would not add up. Keep it with an all-zero row instead.
+    for name in closed_recent:
+        ages.setdefault(name, dict.fromkeys(BUCKET_KEYS, 0))
+
+    releases = collect_releases(org, public_only, now, verbose)
 
     return {
         "org": org,
-        "security": security,
+        "releases": releases,
         "generated": now,
         "days": days,
         "long_days": long_days,
@@ -526,6 +548,12 @@ def collect(org, days, long_days, contrib_days, public_only, verbose=True,
         "bots_skipped": sorted(bots_seen),
         "contrib_authors": len(by_author),
         "ages": dict(ages),
+        "closed_recent": dict(closed_recent),
+        "closed_days": closed_days,
+        "closed_total": closed_recent_total,
+        "closed_short": closed_short,
+        "closed_long": closed_long,
+        "since_closed": since_closed.isoformat(),
         "oldest": oldest,
         "open_issue_total": len(open_issues),
     }
@@ -553,6 +581,11 @@ def md_bar(counts, width=32):
         out.append(ch * max(0, n))
         placed += max(0, n)
     return "".join(out)
+
+
+def md_repo(org, name, path=""):
+    """Repo name as a markdown link to the tab a section's numbers came from."""
+    return f"[{name}](https://github.com/{org}/{name}{path})"
 
 
 def render_markdown(d):
@@ -585,7 +618,7 @@ def render_markdown(d):
     else:
         for repo in sorted(d["prs_by_repo"], key=lambda r: (-len(d["prs_by_repo"][r]), r.lower())):
             prs = d["prs_by_repo"][repo]
-            add(f"### {repo} ({len(prs)})")
+            add(f"### {md_repo(org, repo, '/pulls')} ({len(prs)})")
             add("")
             add("| PR | Title | Author | Age | Status |")
             add("|---|---|---|---|---|")
@@ -608,7 +641,8 @@ def render_markdown(d):
     add("## 2. Activity")
     add("")
 
-    def activity_table(act, merged_total, issue_total, window_days, since):
+    def activity_table(act, merged_total, issue_total, closed_total,
+                       window_days, since):
         add(f"### Last {window_days} days (since {since})")
         add("")
         if not act:
@@ -617,28 +651,33 @@ def render_markdown(d):
             return
         rows = sorted(
             act.items(),
-            key=lambda kv: (-(kv[1]["merged"] + kv[1]["issues"]), kv[0].lower()),
+            key=lambda kv: (-(kv[1]["merged"] + kv[1]["issues"]
+                              + kv[1]["closed"]), kv[0].lower()),
         )
-        peak = max(max(v["merged"], v["issues"]) for _, v in rows) or 1
+        peak = max(max(v["merged"], v["issues"], v["closed"])
+                   for _, v in rows) or 1
 
         def ascii_bar(count, ch, width=14):
             return "" if not count else ch * max(1, round(width * count / peak))
 
-        add("| Repo | Merged PRs | | New issues | |")
-        add("|---|---:|---|---:|---|")
+        add("| Repo | Merged PRs | | New issues | | Closed issues | |")
+        add("|---|---:|---|---:|---|---:|---|")
         for repo, v in rows:
-            add(f"| {repo} | {v['merged']} | `{ascii_bar(v['merged'], '█')}` "
-                f"| {v['issues']} | `{ascii_bar(v['issues'], '░')}` |")
-        add(f"| **total** | **{merged_total}** | | **{issue_total}** | |")
+            add(f"| {md_repo(org, repo)} | {v['merged']} | `{ascii_bar(v['merged'], '█')}` "
+                f"| {v['issues']} | `{ascii_bar(v['issues'], '░')}` "
+                f"| {v['closed']} | `{ascii_bar(v['closed'], '▒')}` |")
+        add(f"| **total** | **{merged_total}** | | **{issue_total}** | | "
+            f"**{closed_total}** | |")
         add("")
-        add("`█` merged PRs · `░` new issues — both bars share one scale "
-            "within this table.")
+        add("`█` merged PRs · `░` new issues · `▒` closed issues — all three "
+            "bars share one scale within this table.")
         add("")
 
     activity_table(d["activity"], d["merged_total"], d["new_issue_total"],
-                   d["days"], d["since"])
+                   d["closed_short"], d["days"], d["since"])
     activity_table(d["activity_long"], d["merged_total_long"],
-                   d["new_issue_total_long"], d["long_days"], d["since_long"])
+                   d["new_issue_total_long"], d["closed_long"],
+                   d["long_days"], d["since_long"])
 
     # --- 3. new contributors -----------------------------------------------
     add(f"## 3. New contributors, last {d['contrib_days']} days")
@@ -656,7 +695,7 @@ def render_markdown(d):
             title = c["first_title"].replace("|", "\\|")
             add(f"| [@{c['login']}](https://github.com/{c['login']}) | "
                 f"[#{c['first_number']}]({c['first_url']}) {title} | "
-                f"{c['first_repo']} | {c['first_at'].strftime('%Y-%m-%d')} | "
+                f"{md_repo(org, c['first_repo'])} | {c['first_at'].strftime('%Y-%m-%d')} | "
                 f"{c['merges']} |")
         add("")
         add(f"**{len(d['newcomers'])}** new of **{d['contrib_authors']}** authors "
@@ -672,18 +711,21 @@ def render_markdown(d):
         rows = sorted(
             d["ages"].items(), key=lambda kv: (-sum(kv[1].values()), kv[0].lower())
         )
-        add("| Repo | Open | ≤ 1w | ≤ 1mo | ≤ 1y | > 1y | Age mix |")
-        add("|---|---:|---:|---:|---:|---:|---|")
+        add(f"| Repo | Open | ≤ 1w | ≤ 1mo | ≤ 1y | > 1y | Age mix "
+            f"| Closed {d['closed_days']}d |")
+        add("|---|---:|---:|---:|---:|---:|---|---:|")
         for repo, counts in rows:
             total = sum(counts.values())
             add(
-                f"| {repo} | {total} | {counts['week']} | {counts['month']} | "
-                f"{counts['year']} | {counts['older']} | `{md_bar(counts)}` |"
+                f"| {md_repo(org, repo, '/issues')} | {total} | {counts['week']} | {counts['month']} | "
+                f"{counts['year']} | {counts['older']} | `{md_bar(counts)}` "
+                f"| {d['closed_recent'].get(repo, 0)} |"
             )
         totals = {k: sum(c[k] for c in d["ages"].values()) for k in BUCKET_KEYS}
         add(
             f"| **total** | **{d['open_issue_total']}** | **{totals['week']}** | "
-            f"**{totals['month']}** | **{totals['year']}** | **{totals['older']}** | |"
+            f"**{totals['month']}** | **{totals['year']}** | "
+            f"**{totals['older']}** | | **{d['closed_total']}** |"
         )
         add("")
         add("Age mix is each repo's open issues as a share of its own total; glyph "
@@ -691,46 +733,47 @@ def render_markdown(d):
             "`▓` ≤ 1 year · `█` > 1 year. Volume is the Open column.")
     add("")
 
-    # --- 5. security ------------------------------------------------------
-    sec = d.get("security")
-    add("## 5. Open Dependabot alerts")
+    # --- 5. releases -------------------------------------------------------
+    rel = d.get("releases") or {"nightlies": [], "stable": []}
+    add("## 5. Releases")
     add("")
-    if sec is None:
-        add("*Not available — the token used for this run cannot read the "
-            "org's Dependabot alerts.*")
-    elif not sec["total"]:
-        add("*No open Dependabot alerts. Nice.*")
+
+    add("### Nightly builds")
+    add("")
+    if not rel["nightlies"]:
+        add("*No repos publish a nightly release.*")
     else:
-        sevs = sec["by_severity"]
-        add(f"**{sec['total']}** open · "
-            + " · ".join(f"{sevs[s]} {s}" for s in SEVERITY_ORDER if sevs[s])
-            + f" · **{sec['runtime']}** in runtime dependencies")
+        add("| Product | Last nightly | Age | |")
+        add("|---|---|---:|---|")
+        for r in rel["nightlies"]:
+            flag = "dormant" if r["age_days"] >= DORMANT_DAYS else ""
+            add(f"| {md_repo(org, r['repo'], '/releases')} | "
+                f"{r['when'].strftime('%Y-%m-%d')} | "
+                f"{humanize_age(r['age_days'])} | {flag} |")
         add("")
-        add("| Repo | Alerts | Critical | High | Medium | Low |")
-        add("|---|---:|---:|---:|---:|---:|")
-        for repo, counts in sorted(
-            sec["by_repo"].items(),
-            key=lambda kv: (-sum(kv[1].values()), kv[0].lower()),
-        ):
-            add(f"| {repo} | {sum(counts.values())} | {counts['critical']} | "
-                f"{counts['high']} | {counts['medium']} | {counts['low']} |")
-        add("")
-        add("| Package | Alerts | Worst | Scope | Fixed in | Repos |")
-        add("|---|---:|---|---|---|---|")
-        for name, info in sorted(
-            sec["packages"].items(),
-            key=lambda kv: (SEVERITY_ORDER.index(kv[1]["severity"]),
-                            -kv[1]["count"], kv[0]),
-        ):
-            add(f"| {name} | {info['count']} | {info['severity']} | "
-                f"{', '.join(info['scope'])} | {info['fix'] or '—'} | "
-                f"{', '.join(info['repos'])} |")
-        add("")
-        add("Several advisories can stack on one package; *Fixed in* is the "
-            "highest patched version seen, which is the one that clears them "
-            "all. Runtime-scope alerts ship with the product; development-scope "
-            "ones only affect the build.")
+        add(f"Nightly tags are re-uploaded in place, so this is when the assets "
+            f"last changed, not when the tag was cut. *dormant* marks a nightly "
+            f"untouched for over {DORMANT_DAYS} days.")
     add("")
+
+    add("### Latest stable release")
+    add("")
+    if not rel["stable"]:
+        add("*No repos publish a tagged stable release.*")
+    else:
+        add("| Product | Version | Released | Age |")
+        add("|---|---|---|---:|")
+        for r in rel["stable"]:
+            src = r.get("source", r["repo"])
+            via = "" if src == r["repo"] else f" *(via {src})*"
+            add(f"| [{r['repo']}](https://github.com/{org}/{src}/releases){via} "
+                f"| [{r['tag']}]({r['url']}) | "
+                f"{r['when'].strftime('%Y-%m-%d')} | "
+                f"{humanize_age(r['age_days'])} |")
+        add("")
+        add("Drafts and prereleases are excluded.")
+    add("")
+
     return "\n".join(L)
 
 
@@ -756,6 +799,7 @@ CSS = """
   --border: rgba(11,11,11,0.10);
   --merged: #2a78d6;
   --issues: #eb6834;
+  --closed: #1baf7a;
   --age-week: #86b6ef;
   --age-month: #3987e5;
   --age-year: #256abf;
@@ -782,6 +826,8 @@ CSS = """
     --border: rgba(255,255,255,0.10);
     --merged: #3987e5;
     --issues: #d95926;
+  --closed: #199e70;
+    --closed: #199e70;
     --age-week: #b7d3f6;
     --age-month: #6da7ec;
     --age-year: #3987e5;
@@ -807,6 +853,7 @@ CSS = """
   --border: rgba(255,255,255,0.10);
   --merged: #3987e5;
   --issues: #d95926;
+  --closed: #199e70;
   --age-week: #b7d3f6;
   --age-month: #6da7ec;
   --age-year: #3987e5;
@@ -998,11 +1045,11 @@ def render_html(d):
         ("Merged PRs", d["merged_total"], f"last {d['days']} days"),
         ("New issues", d["new_issue_total"], f"last {d['days']} days"),
         ("New contributors", len(d["newcomers"]), f"last {d['contrib_days']} days"),
-        ("Open issues", d["open_issue_total"], f"across {len(d['ages'])} repos"),
-        ("Dependabot alerts",
-         d["security"]["total"] if d.get("security") else "—",
-         (f"{d['security']['runtime']} runtime" if d.get("security")
-          else "not available")),
+        ("Open issues", d["open_issue_total"],
+         f"across {sum(1 for v in d['ages'].values() if sum(v.values()))} repos"),
+        ("Nightlies", len(d["releases"]["nightlies"]),
+         f"{sum(1 for r in d['releases']['nightlies'] if r['age_days'] < 7)}"
+         f" refreshed this week"),
     ]:
         add(f"<div class='tile'><div class='label'>{esc(label)}</div>"
             f"<div class='value'>{value}</div><div class='sub'>{esc(sub)}</div></div>")
@@ -1016,9 +1063,13 @@ def render_html(d):
 
     priv = d["private_repos"]
 
-    def repo_label(name):
+    def repo_label(name, path="", label=None):
+        """Repo name as a link. `path` points at the relevant tab, so each
+        section links where its numbers came from (issues, pulls, releases).
+        `label` lets a product keep its own name while linking elsewhere."""
         mark = " <span class='lock'>● private</span>" if name in priv else ""
-        return f"{esc(name)}{mark}"
+        href = f"https://github.com/{org}/{name}{path}"
+        return f"<a href='{esc(href)}'>{esc(label or name)}</a>{mark}"
 
     # --- 1. open PRs -------------------------------------------------------
     add("<section><h2>1 · Open pull requests</h2>")
@@ -1030,7 +1081,8 @@ def render_html(d):
     else:
         for repo in sorted(d["prs_by_repo"], key=lambda r: (-len(d["prs_by_repo"][r]), r.lower())):
             prs = d["prs_by_repo"][repo]
-            add(f"<div class='repo-head'><span class='repo-name'>{repo_label(repo)}</span>"
+            add(f"<div class='repo-head'><span class='repo-name'>"
+                f"{repo_label(repo, '/pulls')}</span>"
                 f"<span class='repo-count'>{len(prs)} open</span></div>")
             add("<div class='card scroll'><table class='pr'>"
                 "<colgroup><col style='width:78px'><col><col style='width:150px'>"
@@ -1068,9 +1120,12 @@ def render_html(d):
         "<span class='item'><span class='swatch' style='background:var(--merged)'></span>"
         "Merged PRs</span>"
         "<span class='item'><span class='swatch' style='background:var(--issues)'></span>"
-        "New issues</span></div>")
+        "New issues</span>"
+        "<span class='item'><span class='swatch' style='background:var(--closed)'></span>"
+        "Closed issues</span></div>")
 
-    def activity_table(act, merged_total, issue_total, window_days, since):
+    def activity_table(act, merged_total, issue_total, closed_total,
+                       window_days, since):
         add(f"<div class='repo-head'><span class='repo-name'>Last {window_days} days"
             f"</span><span class='repo-count'>since {esc(since)}</span></div>")
         if not act:
@@ -1079,11 +1134,14 @@ def render_html(d):
             return
         rows = sorted(
             act.items(),
-            key=lambda kv: (-(kv[1]["merged"] + kv[1]["issues"]), kv[0].lower()),
+            key=lambda kv: (-(kv[1]["merged"] + kv[1]["issues"]
+                              + kv[1]["closed"]), kv[0].lower()),
         )
-        peak = max(max(v["merged"], v["issues"]) for _, v in rows) or 1
+        peak = max(max(v["merged"], v["issues"], v["closed"])
+                   for _, v in rows) or 1
         add("<div class='card scroll'><table class='act'><thead><tr><th>Repo</th>"
             "<th class='num'>Merged</th><th class='num'>New issues</th>"
+            "<th class='num'>Closed</th>"
             "<th class='bar-cell'></th></tr></thead><tbody>")
         for repo, v in rows:
             def row(count, var, name):
@@ -1100,19 +1158,23 @@ def render_html(d):
                 f"<tr><td>{repo_label(repo)}</td>"
                 f"<td class='num'>{v['merged']}</td>"
                 f"<td class='num'>{v['issues']}</td>"
+                f"<td class='num'>{v['closed']}</td>"
                 f"<td class='bar-cell'><span class='grp'>"
                 f"{row(v['merged'], '--merged', 'Merged PRs')}"
                 f"{row(v['issues'], '--issues', 'New issues')}"
+                f"{row(v['closed'], '--closed', 'Closed issues')}"
                 f"</span></td></tr>"
             )
         add(f"<tr class='total'><td>total</td><td class='num'>{merged_total}</td>"
-            f"<td class='num'>{issue_total}</td><td></td></tr>")
+            f"<td class='num'>{issue_total}</td>"
+            f"<td class='num'>{closed_total}</td><td></td></tr>")
         add("</tbody></table></div>")
 
     activity_table(d["activity"], d["merged_total"], d["new_issue_total"],
-                   d["days"], d["since"])
+                   d["closed_short"], d["days"], d["since"])
     activity_table(d["activity_long"], d["merged_total_long"],
-                   d["new_issue_total_long"], d["long_days"], d["since_long"])
+                   d["new_issue_total_long"], d["closed_long"],
+                   d["long_days"], d["since_long"])
     add("</section>")
 
     # --- 3. new contributors -----------------------------------------------
@@ -1151,7 +1213,7 @@ def render_html(d):
     add("<p class='section-note'>Every open issue bucketed by how long it has been "
         "open. Each bar is that repo's own backlog split into shares, oldest "
         "darkest — volume is the Open column, sorted descending. Bucket cells are "
-        "shaded by that bucket's share of the repo's backlog.</p>")
+        "shaded by that bucket's share of the repo's backlog. The last column counts issues closed in the window, whenever they were opened.</p>")
     if not d["ages"]:
         add("<div class='card'><table><tbody><tr><td class='dim'>No open issues."
             "</td></tr></tbody></table></div>")
@@ -1168,6 +1230,7 @@ def render_html(d):
             "<th class='num'>Open</th><th class='bar-cell'>Age mix</th>"
             "<th class='num'>≤ 1w</th><th class='num'>≤ 1mo</th>"
             "<th class='num'>≤ 1y</th><th class='num'>&gt; 1y</th>"
+            f"<th class='num'>Closed {d['closed_days']}d</th>"
             "</tr></thead><tbody>")
         for repo, counts in rows:
             total = sum(counts.values())
@@ -1196,16 +1259,19 @@ def render_html(d):
                     f"{n}</td>"
                 )
             add(
-                f"<tr><td>{repo_label(repo)}</td><td class='num'>{total}</td>"
+                f"<tr><td>{repo_label(repo, '/issues')}</td>"
+                f"<td class='num'>{total}</td>"
                 f"<td class='bar-cell'><span class='bar-row'>{''.join(segs)}</span></td>"
-                f"{''.join(cells)}</tr>"
+                f"{''.join(cells)}"
+                f"<td class='num'>{d['closed_recent'].get(repo, 0)}</td></tr>"
             )
         totals = {k: sum(c[k] for c in d["ages"].values()) for k in BUCKET_KEYS}
         add(
             f"<tr class='total'><td>total</td><td class='num'>{d['open_issue_total']}</td>"
             f"<td></td><td class='num'>{totals['week']}</td>"
             f"<td class='num'>{totals['month']}</td><td class='num'>{totals['year']}</td>"
-            f"<td class='num'>{totals['older']}</td></tr>"
+            f"<td class='num'>{totals['older']}</td>"
+            f"<td class='num'>{d['closed_total']}</td></tr>"
         )
         add("</tbody></table></div>")
         add("<p class='section-note' style='margin-top:12px'>Cell shade is the "
@@ -1219,58 +1285,51 @@ def render_html(d):
             "0% → 100%. The total row is unshaded (different scale).</p>")
     add("</section>")
 
-    # --- 5. security -------------------------------------------------------
-    sec = d.get("security")
-    add("<section><h2>5 · Open Dependabot alerts</h2>")
-    if sec is None:
-        add("<p class='section-note'>Not available — the token used for this "
-            "run cannot read the org's Dependabot alerts.</p>")
-    elif not sec["total"]:
-        add("<p class='section-note'>No open Dependabot alerts.</p>")
+    # --- 5. releases -------------------------------------------------------
+    rel = d.get("releases") or {"nightlies": [], "stable": []}
+    add("<section><h2>5 · Releases</h2>")
+    add("<p class='section-note'>Nightly tags are re-uploaded in place, so a "
+        "nightly's date is when its assets last changed, not when the tag was "
+        "cut. Stable rows exclude drafts and prereleases.</p>")
+
+    add("<div class='repo-head'><span class='repo-name'>Nightly builds</span>"
+        f"<span class='repo-count'>{len(rel['nightlies'])} products</span></div>")
+    if not rel["nightlies"]:
+        add("<div class='card'><table><tbody><tr><td class='dim'>No repos "
+            "publish a nightly release.</td></tr></tbody></table></div>")
     else:
-        sevs = sec["by_severity"]
-        add(f"<p class='section-note'>{sec['total']} open across "
-            f"{len(sec['by_repo'])} repos · "
-            + " · ".join(f"{sevs[s]} {esc(s)}" for s in SEVERITY_ORDER if sevs[s])
-            + f" · {sec['runtime']} in runtime dependencies (the rest only "
-              f"affect the build).</p>")
-        add("<div class='card scroll'><table class='act'><thead><tr><th>Repo</th>"
-            "<th class='num'>Alerts</th><th class='num'>Critical</th>"
-            "<th class='num'>High</th><th class='num'>Medium</th>"
-            "<th class='num'>Low</th></tr></thead><tbody>")
-        for repo, counts in sorted(
-            sec["by_repo"].items(),
-            key=lambda kv: (-sum(kv[1].values()), kv[0].lower()),
-        ):
-            total = sum(counts.values())
-            cells = "".join(
-                f"<td class='hm hm-{heat_step(pct(counts[s], total))}'>"
-                f"{counts[s]}</td>"
-                for s in SEVERITY_ORDER
-            )
-            add(f"<tr><td>{repo_label(repo)}</td>"
-                f"<td class='num'>{total}</td>{cells}</tr>")
+        add("<div class='card scroll'><table class='act'><thead><tr>"
+            "<th>Product</th><th>Last nightly</th><th class='num'>Age</th>"
+            "<th>Status</th></tr></thead><tbody>")
+        for r in rel["nightlies"]:
+            badge = ("<span class='badge stale'>dormant</span>"
+                     if r["age_days"] >= DORMANT_DAYS
+                     else "<span class='dim'>—</span>")
+            add(f"<tr><td>{repo_label(r['repo'], '/releases')}</td>"
+                f"<td class='dim'><a href='{esc(r['url'])}'>"
+                f"{esc(r['when'].strftime('%Y-%m-%d'))}</a></td>"
+                f"<td class='num'>{esc(humanize_age(r['age_days']))}</td>"
+                f"<td>{badge}</td></tr>")
         add("</tbody></table></div>")
 
-        add("<div class='repo-head'><span class='repo-name'>By package</span>"
-            "<span class='repo-count'>highest patched version clears the "
-            "stacked advisories</span></div>")
+    add("<div class='repo-head'><span class='repo-name'>Latest stable release"
+        f"</span><span class='repo-count'>{len(rel['stable'])} products</span>"
+        "</div>")
+    if not rel["stable"]:
+        add("<div class='card'><table><tbody><tr><td class='dim'>No repos "
+            "publish a tagged stable release.</td></tr></tbody></table></div>")
+    else:
         add("<div class='card scroll'><table class='act'><thead><tr>"
-            "<th>Package</th><th class='num'>Alerts</th><th>Worst</th>"
-            "<th>Scope</th><th>Fixed in</th><th>Repos</th>"
-            "</tr></thead><tbody>")
-        for name, info in sorted(
-            sec["packages"].items(),
-            key=lambda kv: (SEVERITY_ORDER.index(kv[1]["severity"]),
-                            -kv[1]["count"], kv[0]),
-        ):
-            runtime_badge = ("<span class='badge stale'>runtime</span>"
-                             if "runtime" in info["scope"]
-                             else "<span class='badge'>build only</span>")
-            add(f"<tr><td>{esc(name)}</td><td class='num'>{info['count']}</td>"
-                f"<td>{esc(info['severity'])}</td><td>{runtime_badge}</td>"
-                f"<td class='dim'>{esc(info['fix'] or '—')}</td>"
-                f"<td class='dim'>{esc(', '.join(info['repos']))}</td></tr>")
+            "<th>Product</th><th>Version</th><th>Released</th>"
+            "<th class='num'>Age</th></tr></thead><tbody>")
+        for r in rel["stable"]:
+            src = r.get("source", r["repo"])
+            via = ("" if src == r["repo"]
+                   else f" <span class='repo-count'>via {esc(src)}</span>")
+            add(f"<tr><td>{repo_label(src, '/releases', label=r['repo'])}{via}</td>"
+                f"<td><a href='{esc(r['url'])}'>{esc(r['tag'])}</a></td>"
+                f"<td class='dim'>{esc(r['when'].strftime('%Y-%m-%d'))}</td>"
+                f"<td class='num'>{esc(humanize_age(r['age_days']))}</td></tr>")
         add("</tbody></table></div>")
     add("</section>")
 
@@ -1353,6 +1412,8 @@ def main(argv=None):
                     help="long activity window in days")
     ap.add_argument("--contrib-days", type=int, default=30,
                     help="window for the new-contributors section")
+    ap.add_argument("--closed-days", type=int, default=30,
+                    help="window for the closed-issues column")
     ap.add_argument("--out", default=".", help="output directory")
     ap.add_argument("--publish-dir", default=None,
                     help="root of the Astro site repo; writes the report to "
@@ -1372,8 +1433,6 @@ def main(argv=None):
                          "Discord payload")
     ap.add_argument("--public-only", action="store_true",
                     help="exclude private repos from every query")
-    ap.add_argument("--no-security", action="store_true",
-                    help="skip the Dependabot alert section entirely")
     ap.add_argument("--open", dest="open_browser", action="store_true",
                     help="open the HTML report in a browser")
     ap.add_argument("--quiet", action="store_true", help="suppress progress output")
@@ -1393,8 +1452,8 @@ def main(argv=None):
               f"windows", file=sys.stderr)
     try:
         data = collect(args.org, args.days, long_days, args.contrib_days,
-                       args.public_only, verbose=not args.quiet,
-                       with_security=not args.no_security)
+                       args.closed_days, args.public_only,
+                       verbose=not args.quiet)
     except GitHubError as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
@@ -1450,10 +1509,6 @@ def main(argv=None):
             "new_contributors": len(data["newcomers"]),
             "days": data["days"],
             "contrib_days": data["contrib_days"],
-            "alerts": (data["security"]["total"] if data.get("security")
-                       else None),
-            "alerts_runtime": (data["security"]["runtime"]
-                               if data.get("security") else None),
         }
         os.makedirs(os.path.dirname(os.path.abspath(args.summary_json)) or ".",
                     exist_ok=True)
@@ -1463,14 +1518,9 @@ def main(argv=None):
             print(f"wrote summary {args.summary_json}", file=sys.stderr)
 
     if args.discord_payload:
-        sec = data.get("security")
         line = (f"**{data['org']} report available.** "
                 f"{data['open_pr_count']} open PRs and "
-                f"{data['open_issue_total']} open issues")
-        if sec and sec["total"]:
-            line += (f", {sec['total']} Dependabot alerts "
-                     f"({sec['runtime']} in runtime deps)")
-        line += "."
+                f"{data['open_issue_total']} open issues.")
         url = args.report_url or f"https://{args.site_name}/reports/{args.slug}/"
         payload = {"content": f"{line}\n{url}",
                    "allowed_mentions": {"parse": []}}
