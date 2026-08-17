@@ -1,47 +1,47 @@
 {
-    "build_time": "2026-08-16T21:47:23.240843219",
+    "build_time": "2026-08-17T00:56:54.18121416",
     "data": {},
-    "latest_commit": "7560034",
+    "latest_commit": "ae59224",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
         {
             "author": "Paul Walker",
-            "commit": "7560034",
-            "date": "2026-08-16T17:34:29-04:00",
-            "message": "Tell surge-synth-team.org what each nightly shipped"
+            "commit": "ae59224",
+            "date": "2026-08-16T20:04:36-04:00",
+            "message": "Leave the cursor alone on a knob the LFO owns"
         },
         {
             "author": "Paul Walker",
-            "commit": "731d2dc",
-            "date": "2026-08-16T17:08:05-04:00",
-            "message": "Open a module combo box's menu on the first press too"
+            "commit": "2199b41",
+            "date": "2026-08-16T18:19:12-04:00",
+            "message": "Stop the input buffers overflowing on a large render block"
         },
         {
             "author": "Paul Walker",
-            "commit": "36fefa0",
-            "date": "2026-08-16T16:48:01-04:00",
-            "message": "Fire the event test's trigger on a plugin that is running"
+            "commit": "40938d4",
+            "date": "2026-08-16T18:11:10-04:00",
+            "message": "Pin that cutting a block into hops does not change the sound"
         },
         {
             "author": "Paul Walker",
-            "commit": "a523a93",
-            "date": "2026-08-16T16:17:45-04:00",
-            "message": "Hear a parameter event where the host timed it"
+            "commit": "1e37609",
+            "date": "2026-08-16T18:11:00-04:00",
+            "message": "Give text room to breathe, and take the bold weight off"
         },
         {
             "author": "Paul Walker",
-            "commit": "582526e",
-            "date": "2026-08-16T16:04:27-04:00",
-            "message": "Light the Presets and Settings buttons when their panel is open"
+            "commit": "6f134a7",
+            "date": "2026-08-16T18:10:51-04:00",
+            "message": "Show the phase-vocoder effects as (PV) rather than (pvd)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-16-7560034.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-16-7560034.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-17-ae59224.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-17-ae59224.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-16-7560034.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-16-7560034.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-17-ae59224.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-17-ae59224.zip"
     },
     "version": "main"
 }
