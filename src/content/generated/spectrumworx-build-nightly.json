@@ -1,47 +1,47 @@
 {
-    "build_time": "2026-08-17T00:56:54.18121416",
+    "build_time": "2026-08-17T12:55:53.121353091",
     "data": {},
-    "latest_commit": "ae59224",
+    "latest_commit": "a68a232",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
         {
             "author": "Paul Walker",
+            "commit": "a68a232",
+            "date": "2026-08-17T08:21:28-04:00",
+            "message": "Overlap the digest's analysis windows so nothing hides between them"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "0749d55",
+            "date": "2026-08-16T22:34:53-04:00",
+            "message": "Delay by the latency the plugin reports, whatever the block size"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "38c27c3",
+            "date": "2026-08-16T22:34:31-04:00",
+            "message": "Write down where the latency comes from"
+        },
+        {
+            "author": "EvilDragon",
+            "commit": "e22edac",
+            "date": "2026-08-17T12:56:15+02:00",
+            "message": "Slight tweak to README (#95)"
+        },
+        {
+            "author": "Paul Walker",
             "commit": "ae59224",
             "date": "2026-08-16T20:04:36-04:00",
             "message": "Leave the cursor alone on a knob the LFO owns"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "2199b41",
-            "date": "2026-08-16T18:19:12-04:00",
-            "message": "Stop the input buffers overflowing on a large render block"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "40938d4",
-            "date": "2026-08-16T18:11:10-04:00",
-            "message": "Pin that cutting a block into hops does not change the sound"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "1e37609",
-            "date": "2026-08-16T18:11:00-04:00",
-            "message": "Give text room to breathe, and take the bold weight off"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "6f134a7",
-            "date": "2026-08-16T18:10:51-04:00",
-            "message": "Show the phase-vocoder effects as (PV) rather than (pvd)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-17-ae59224.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-17-ae59224.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-17-a68a232.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-17-a68a232.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-17-ae59224.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-17-ae59224.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-17-a68a232.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-17-a68a232.zip"
     },
     "version": "main"
 }
