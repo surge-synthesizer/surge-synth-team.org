@@ -1,0 +1,180 @@
+---
+import { Image } from "astro:assets";
+import spectrumworx_build_nightly from "../content/generated/spectrumworx-build-nightly.json" with { type: "json" };
+import ChangelogSection from "../components/ChangelogSection.astro";
+import DownloadButton from "../components/DownloadButton.astro";
+import NavHeader from "../components/NavHeader.astro";
+import SpectrumWorxCover from "../content/projects/screenshots/spectrumworx.png";
+import Base from "../layouts/Base.astro";
+
+// Unlisted on purpose: no src/content/projects/spectrumworx.json means this page
+// is absent from the home page and both nav project menus. See the note below.
+const navLinks = [
+    ["Highlights", "#highlights"],
+    ["Manual", "#manual"],
+    ["Changelog", "#changelog"],
+    ["FAQ", "#faq"],
+    ["About", "#about"],
+] as const;
+---
+
+<Base title="SpectrumWorx">
+    <NavHeader slot="nav" links={navLinks} />
+
+    <main>
+        <section
+            class="mx-auto grid w-full max-w-6xl gap-8 px-4 py-10 md:grid-cols-2 md:items-center md:py-16">
+            <div class="space-y-4">
+                <p
+                    class="text-xs font-bold tracking-[0.2em] text-surge-blue uppercase dark:text-surge-blue2">
+                    Spectral Audio Effect
+                </p>
+                <h1 class="text-4xl leading-tight font-extrabold md:text-5xl">SpectrumWorx</h1>
+                <p class="max-w-prose text-base text-neutral-800 dark:text-neutral-200">
+                    SpectrumWorx is a modular spectral effect: it decomposes your audio into the
+                    frequency domain, lets you stack and chain effects on that spectrum, then
+                    resynthesizes the result. Originally developed by Little Endian and open sourced
+                    in 2024, it now runs as CLAP, VST3, and AU on Windows, macOS, and Linux.
+                </p>
+                <p
+                    class="inline-block rounded-md border border-surge-orange/40 bg-surge-orange/15 px-3 py-2 text-sm">
+                    <strong>Work in progress.</strong> Nightly builds are a modernization sprint, not
+                    a finished release. Expect rough edges.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <DownloadButton
+                        windows={spectrumworx_build_nightly.releases.win64}
+                        mac={spectrumworx_build_nightly.releases.macos}
+                        linux={spectrumworx_build_nightly.releases.linux64}
+                        other={spectrumworx_build_nightly.releases.other}
+                        label="Download Nightly"
+                        id="spectrumworx-release-link"
+                        buttonClass="inline-flex items-center justify-center rounded-md bg-surge-orange px-4 py-2 font-semibold text-neutral-900 no-underline shadow-md hover:bg-surge-orange-bright"
+                    />
+                    <a
+                        href="https://github.com/surge-synthesizer/SpectrumWorx"
+                        class="inline-flex items-center justify-center rounded-md border border-neutral-900/25 px-4 py-2 font-semibold text-inherit no-underline hover:bg-neutral-900/5 dark:border-neutral-100/25 dark:hover:bg-neutral-100/10">
+                        View on GitHub
+                    </a>
+                </div>
+                <p class="text-xs text-neutral-700 dark:text-neutral-300">
+                    Source is GPL-3.0-or-later; released binaries link JUCE 8 under its AGPLv3 arm
+                    and are therefore AGPL-3.0-or-later.
+                </p>
+            </div>
+            <div>
+                <Image
+                    src={SpectrumWorxCover}
+                    alt="SpectrumWorx interface screenshot"
+                    quality="100"
+                    format="png"
+                    class=""
+                />
+            </div>
+        </section>
+
+        <section
+            class="mx-auto w-full max-w-6xl px-4 py-6 print:hidden"
+            aria-label="Publishing instructions">
+            <div
+                class="rounded-lg border-2 border-dashed border-surge-blue/50 bg-surge-blue/10 p-4 text-sm dark:border-surge-blue2/50 dark:bg-surge-blue/15">
+                <p class="font-bold">This page is unlisted.</p>
+                <p class="mt-2 max-w-prose">
+                    It is reachable at <code>/spectrumworx</code> but does not appear on the home page
+                    or in either navigation menu, because both are generated from the
+                    <code>projects</code> content collection and SpectrumWorx has no entry in it.
+                </p>
+                <p class="mt-2 max-w-prose">
+                    To make it live, create <code>src/content/projects/spectrumworx.json</code>
+                    alongside the other project files (<code>title</code>, <code>order</code>,
+                    <code>summary</code>, <code>cover</code>, <code>categories</code>,
+                    <code>issue_tracker</code>, <code>repo</code>), add
+                    <code>"spectrumworx"</code> to the exclusion list in
+                    <code>src/pages/[project].astro</code> so this hand-written page wins over the generated
+                    one, then delete this box.
+                </p>
+            </div>
+        </section>
+
+        <section id="highlights" class="bg-surge-orange/15 px-4 py-12">
+            <div class="mx-auto w-full max-w-6xl">
+                <h2 class="text-2xl font-bold">Highlights</h2>
+                <p class="mt-2 max-w-prose text-sm">
+                    Placeholder section for feature callouts. Replace each card with final copy and
+                    imagery.
+                </p>
+                <div class="mt-6 grid gap-4 md:grid-cols-3">
+                    <article
+                        class="place-self-stretch rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
+                        <h3 class="font-bold">Feature Title 01</h3>
+                        <p class="mt-2 text-sm">
+                            Short description placeholder for a SpectrumWorx capability.
+                        </p>
+                    </article>
+                    <article
+                        class="place-self-stretch rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
+                        <h3 class="font-bold">Feature Title 02</h3>
+                        <p class="mt-2 text-sm">
+                            Short description placeholder for the modular effect chain.
+                        </p>
+                    </article>
+                    <article
+                        class="place-self-stretch rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
+                        <h3 class="font-bold">Feature Title 03</h3>
+                        <p class="mt-2 text-sm">
+                            Short description placeholder for sidechain and modulation.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="manual" class="mx-auto w-full max-w-6xl px-4 py-12">
+            <h2 class="text-2xl font-bold">Manual</h2>
+            <p class="mt-2 max-w-prose text-sm">
+                Placeholder section for documentation intro and manual links.
+            </p>
+            <div
+                class="mt-4 rounded-lg border border-dashed border-neutral-900/30 p-6 text-sm dark:border-neutral-100/30">
+                Add manual copy and supporting media here.
+            </div>
+        </section>
+
+        <ChangelogSection productName="SpectrumWorx" nightly={spectrumworx_build_nightly} />
+
+        <section
+            id="faq"
+            class="border-y border-surge-blue/20 bg-linear-to-b from-surge-blue/10 to-neutral-900/5 px-4 py-12 dark:border-surge-blue2/30 dark:from-surge-blue/15 dark:to-neutral-100/5">
+            <div class="mx-auto w-full max-w-6xl">
+                <h2 class="text-2xl font-bold">FAQ</h2>
+                <div class="mt-6 space-y-3">
+                    <details
+                        class="rounded-lg border border-surge-blue/25 bg-white/80 p-4 shadow-sm dark:border-surge-blue2/35 dark:bg-neutral-800/80">
+                        <summary class="cursor-pointer font-semibold">
+                            Question placeholder #1
+                        </summary>
+                        <p class="mt-2 text-sm">Answer placeholder text.</p>
+                    </details>
+                    <details
+                        class="rounded-lg border border-surge-blue/25 bg-white/80 p-4 shadow-sm dark:border-surge-blue2/35 dark:bg-neutral-800/80">
+                        <summary class="cursor-pointer font-semibold">
+                            Question placeholder #2
+                        </summary>
+                        <p class="mt-2 text-sm">Answer placeholder text.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="mx-auto w-full max-w-6xl px-4 py-12">
+            <h2 class="text-2xl font-bold">About</h2>
+            <p class="mt-2 max-w-prose text-sm">
+                Placeholder section for project background, contributors, and links.
+            </p>
+            <div
+                class="mt-4 rounded-lg border border-dashed border-neutral-900/30 p-6 text-sm dark:border-neutral-100/30">
+                Add about text, logos, and team imagery here.
+            </div>
+        </section>
+    </main>
+</Base>
