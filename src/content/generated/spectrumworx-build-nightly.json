@@ -1,47 +1,47 @@
 {
-    "build_time": "2026-08-17T16:56:56.170816149",
+    "build_time": "2026-08-18T08:58:57.119537099",
     "data": {},
-    "latest_commit": "f369fbf",
+    "latest_commit": "bfc3e5d",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
         {
             "author": "Paul Walker",
+            "commit": "bfc3e5d",
+            "date": "2026-08-17T21:45:53-04:00",
+            "message": "Say the sample rate and channel layout in the build-stamp bar"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "b712ca5",
+            "date": "2026-08-17T18:38:30-04:00",
+            "message": "Give each channel its own random numbers"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "d551723",
+            "date": "2026-08-17T12:37:33-04:00",
+            "message": "Name effects by the name that cannot move"
+        },
+        {
+            "author": "Mario Kruselj",
+            "commit": "4225f06",
+            "date": "2026-08-17T16:54:00+02:00",
+            "message": "Rename PV start/stop -> To PV/From PV"
+        },
+        {
+            "author": "Paul Walker",
             "commit": "f369fbf",
             "date": "2026-08-17T09:57:49-04:00",
             "message": "Take four rough edges off the interface"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "a68a232",
-            "date": "2026-08-17T08:21:28-04:00",
-            "message": "Overlap the digest's analysis windows so nothing hides between them"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "0749d55",
-            "date": "2026-08-16T22:34:53-04:00",
-            "message": "Delay by the latency the plugin reports, whatever the block size"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "38c27c3",
-            "date": "2026-08-16T22:34:31-04:00",
-            "message": "Write down where the latency comes from"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "e22edac",
-            "date": "2026-08-17T12:56:15+02:00",
-            "message": "Slight tweak to README (#95)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-17-f369fbf.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-17-f369fbf.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-18-bfc3e5d.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-18-bfc3e5d.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-17-f369fbf.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-17-f369fbf.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-18-bfc3e5d.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-18-bfc3e5d.zip"
     },
     "version": "main"
 }
