@@ -516,11 +516,9 @@ def collect(org, days, long_days, contrib_days, closed_days, public_only,
                 "url": node["url"],
             }
 
-    # A repo that closed its last open issue inside the window would otherwise
-    # drop out of the table while still counting toward the total, so the
-    # column would not add up. Keep it with an all-zero row instead.
-    for name in closed_recent:
-        ages.setdefault(name, dict.fromkeys(BUCKET_KEYS, 0))
+    # Repos with no open issues are left out entirely, even if they closed some
+    # in the window; an all-zero row is noise. The Closed total still counts
+    # them, so that column can exceed the sum of the rows.
 
     releases = collect_releases(org, public_only, now, verbose)
 
@@ -731,6 +729,9 @@ def render_markdown(d):
         add("Age mix is each repo's open issues as a share of its own total; glyph "
             "density rises with age: `░` ≤ 1 week · `▒` ≤ 1 month · "
             "`▓` ≤ 1 year · `█` > 1 year. Volume is the Open column.")
+        add("")
+        add("Only repos with open issues are listed, so the Closed total can "
+            "exceed the column.")
     add("")
 
     # --- 5. releases -------------------------------------------------------
@@ -1213,7 +1214,9 @@ def render_html(d):
     add("<p class='section-note'>Every open issue bucketed by how long it has been "
         "open. Each bar is that repo's own backlog split into shares, oldest "
         "darkest — volume is the Open column, sorted descending. Bucket cells are "
-        "shaded by that bucket's share of the repo's backlog. The last column counts issues closed in the window, whenever they were opened.</p>")
+        "shaded by that bucket's share of the repo's backlog. The last column counts "
+        "issues closed in the window, whenever they were opened; repos with no "
+        "open issues are not listed, so that total can exceed its column.</p>")
     if not d["ages"]:
         add("<div class='card'><table><tbody><tr><td class='dim'>No open issues."
             "</td></tr></tbody></table></div>")
