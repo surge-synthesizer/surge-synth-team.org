@@ -1,47 +1,47 @@
 {
-    "build_time": "2026-08-17T21:24:31.515871498",
+    "build_time": "2026-08-18T02:41:50.68191066",
     "data": {},
-    "latest_commit": "19278a8",
+    "latest_commit": "7794b45",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
         {
-            "author": "Paul",
-            "commit": "19278a8",
-            "date": "2026-08-17T16:59:13-04:00",
-            "message": "Make the invert scroll setting work and add wheel to part and tab selectors (#2619)"
+            "author": "Paul Walker",
+            "commit": "7794b45",
+            "date": "2026-08-17T20:15:47-04:00",
+            "message": "Give up on a host which stops accepting state, and terminate clap strings"
         },
         {
             "author": "Paul Walker",
-            "commit": "01c06ec",
-            "date": "2026-08-16T12:44:52-04:00",
-            "message": "Report a zone move with no source zones rather than asserting"
+            "commit": "8c769bd",
+            "date": "2026-08-17T20:14:11-04:00",
+            "message": "Detect a file map failure rather than falling through to it"
         },
         {
             "author": "Paul Walker",
-            "commit": "a674af3",
-            "date": "2026-08-16T12:44:46-04:00",
-            "message": "Oversample a pitched up voice across its whole block"
+            "commit": "d32b0c8",
+            "date": "2026-08-17T20:05:01-04:00",
+            "message": "Range check the float binding index in an effect layout"
         },
         {
             "author": "Paul Walker",
-            "commit": "835deb1",
-            "date": "2026-08-14T17:55:53-04:00",
-            "message": "Detune each variant in a unison stack by its own pitch offset"
+            "commit": "424d618",
+            "date": "2026-08-17T20:04:06-04:00",
+            "message": "Measure the editor data cache window in bytes, not squared"
         },
         {
             "author": "Paul Walker",
-            "commit": "2bb971a",
-            "date": "2026-08-14T14:40:02-04:00",
-            "message": "Honour move and copy when dragging an effect between slots"
+            "commit": "39d83b6",
+            "date": "2026-08-17T20:00:10-04:00",
+            "message": "Shut the browser worker threads down without racing their wakeup"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-17-19278a8-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-08-17-19278a8.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-18-7794b45-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-08-18-7794b45.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-17-19278a8-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-17-19278a8-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-18-7794b45-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-18-7794b45-Windows-64bit.zip"
     },
     "version": "main"
 }
