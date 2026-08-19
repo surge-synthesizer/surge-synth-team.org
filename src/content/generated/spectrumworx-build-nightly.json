@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-08-19T18:54:41.354681333",
+    "build_time": "2026-08-19T19:17:15.356035336",
     "data": {},
-    "latest_commit": "6286081",
+    "latest_commit": "fc8ab02",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "fc8ab02",
+            "date": "2026-08-19T14:42:43-04:00",
+            "message": "Stop guessing whether the side chain port is patched"
+        },
         {
             "author": "Paul Walker",
             "commit": "6286081",
@@ -28,20 +34,14 @@
             "commit": "a34730a",
             "date": "2026-08-19T16:27:32+02:00",
             "message": "Rename Ex/Imploder's Limit -> Threshold (#126)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "afccb56",
-            "date": "2026-08-19T13:30:41+02:00",
-            "message": "Tweak names of LFO waveforms (#125)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-19-6286081.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-19-6286081.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-19-fc8ab02.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-19-fc8ab02.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-19-6286081.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-19-6286081.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-19-fc8ab02.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-19-fc8ab02.zip"
     },
     "version": "main"
 }
