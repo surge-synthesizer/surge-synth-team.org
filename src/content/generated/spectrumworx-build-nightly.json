@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-08-19T15:00:54.349654333",
+    "build_time": "2026-08-19T18:54:41.354681333",
     "data": {},
-    "latest_commit": "88f095c",
+    "latest_commit": "6286081",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "6286081",
+            "date": "2026-08-19T14:27:24-04:00",
+            "message": "Remove 2 WIN32-onyl assumes which were no longer valid"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "86a0af3",
+            "date": "2026-08-19T10:51:41-04:00",
+            "message": "Open the Octaver's low pass by default"
+        },
         {
             "author": "Paul Walker",
             "commit": "88f095c",
@@ -22,26 +34,14 @@
             "commit": "afccb56",
             "date": "2026-08-19T13:30:41+02:00",
             "message": "Tweak names of LFO waveforms (#125)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "ee0efed",
-            "date": "2026-08-19T12:44:06+02:00",
-            "message": "Prettifying parameter related stuff etc. (#123)"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "ba00347",
-            "date": "2026-08-18T19:55:45-04:00",
-            "message": "Give the module menu its own order"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-19-88f095c.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-19-88f095c.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-19-6286081.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-19-6286081.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-19-88f095c.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-19-88f095c.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-19-6286081.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-19-6286081.zip"
     },
     "version": "main"
 }
