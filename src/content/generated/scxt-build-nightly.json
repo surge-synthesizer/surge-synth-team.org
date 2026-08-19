@@ -1,47 +1,47 @@
 {
-    "build_time": "2026-08-18T15:55:57.916557894",
+    "build_time": "2026-08-19T15:06:07.708967687",
     "data": {},
-    "latest_commit": "130597b",
+    "latest_commit": "54269e6",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
         {
-            "author": "Paul",
-            "commit": "130597b",
-            "date": "2026-08-18T11:29:50-04:00",
-            "message": "Guarantee the save-as extension the file chooser didn't add (#2629)"
+            "author": "Paul Walker",
+            "commit": "54269e6",
+            "date": "2026-08-19T10:01:51-04:00",
+            "message": "Guard the screens consistently when macro and part responses arrive"
         },
         {
             "author": "Paul Walker",
-            "commit": "7794b45",
-            "date": "2026-08-17T20:15:47-04:00",
-            "message": "Give up on a host which stops accepting state, and terminate clap strings"
+            "commit": "0535192",
+            "date": "2026-08-19T09:36:38-04:00",
+            "message": "Retire four pieces of misleading editor and messaging code"
         },
         {
             "author": "Paul Walker",
-            "commit": "8c769bd",
-            "date": "2026-08-17T20:14:11-04:00",
-            "message": "Detect a file map failure rather than falling through to it"
+            "commit": "d66a94d",
+            "date": "2026-08-18T21:03:30-04:00",
+            "message": "Only clear the part busses which are in use"
         },
         {
             "author": "Paul Walker",
-            "commit": "d32b0c8",
-            "date": "2026-08-17T20:05:01-04:00",
-            "message": "Range check the float binding index in an effect layout"
+            "commit": "0ef0459",
+            "date": "2026-08-18T21:03:24-04:00",
+            "message": "Clear the busses once a block, from the code which fills them"
         },
         {
             "author": "Paul Walker",
-            "commit": "424d618",
-            "date": "2026-08-17T20:04:06-04:00",
-            "message": "Measure the editor data cache window in bytes, not squared"
+            "commit": "5666296",
+            "date": "2026-08-18T21:03:17-04:00",
+            "message": "Rebind a macro editor to the macro it reports"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-18-130597b-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-08-18-130597b.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-19-54269e6-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-08-19-54269e6.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-18-130597b-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-18-130597b-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-19-54269e6-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-08-19-54269e6-Windows-64bit.zip"
     },
     "version": "main"
 }
