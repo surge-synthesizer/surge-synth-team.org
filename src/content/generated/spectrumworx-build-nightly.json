@@ -1,47 +1,47 @@
 {
-    "build_time": "2026-08-18T23:13:51.009830995",
+    "build_time": "2026-08-19T01:23:31.567611546",
     "data": {},
-    "latest_commit": "331b51a",
+    "latest_commit": "ba00347",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "ba00347",
+            "date": "2026-08-18T19:55:45-04:00",
+            "message": "Give the module menu its own order"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "023f200",
+            "date": "2026-08-18T19:30:50-04:00",
+            "message": "Let an enumerated value read shorter than it is listed"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "392239e",
+            "date": "2026-08-18T19:21:05-04:00",
+            "message": "Make the LFO's N, T and D buttons one choice"
+        },
+        {
+            "author": "Paul",
+            "commit": "1211ac7",
+            "date": "2026-08-18T20:53:15-04:00",
+            "message": "Update README.md"
+        },
         {
             "author": "Paul",
             "commit": "331b51a",
             "date": "2026-08-18T18:58:07-04:00",
             "message": "Let the user choose a colour scheme (#119)"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "0deba45",
-            "date": "2026-08-18T17:35:50-04:00",
-            "message": "Draw the skin instead of shipping it"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "7f162d7",
-            "date": "2026-08-18T17:13:58+02:00",
-            "message": "Some capitalization and minor verbiage tweaks (#112)"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "09e7b85",
-            "date": "2026-08-18T09:23:39-04:00",
-            "message": "Let the patch choose what feeds the side chain"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "bfc3e5d",
-            "date": "2026-08-17T21:45:53-04:00",
-            "message": "Say the sample rate and channel layout in the build-stamp bar"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-18-331b51a.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-18-331b51a.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-19-ba00347.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-19-ba00347.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-18-331b51a.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-18-331b51a.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-19-ba00347.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-19-ba00347.zip"
     },
     "version": "main"
 }
