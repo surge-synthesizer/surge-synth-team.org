@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-08-19T11:07:09.897629876",
+    "build_time": "2026-08-19T11:46:19.40197938",
     "data": {},
-    "latest_commit": "ee0efed",
+    "latest_commit": "afccb56",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "afccb56",
+            "date": "2026-08-19T13:30:41+02:00",
+            "message": "Tweak names of LFO waveforms (#125)"
+        },
         {
             "author": "EvilDragon",
             "commit": "ee0efed",
@@ -28,20 +34,14 @@
             "commit": "392239e",
             "date": "2026-08-18T19:21:05-04:00",
             "message": "Make the LFO's N, T and D buttons one choice"
-        },
-        {
-            "author": "Paul",
-            "commit": "1211ac7",
-            "date": "2026-08-18T20:53:15-04:00",
-            "message": "Update README.md"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-19-ee0efed.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-19-ee0efed.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-19-afccb56.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-19-afccb56.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-19-ee0efed.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-19-ee0efed.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-19-afccb56.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-19-afccb56.zip"
     },
     "version": "main"
 }
