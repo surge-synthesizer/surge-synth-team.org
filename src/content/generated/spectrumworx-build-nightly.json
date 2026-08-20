@@ -1,47 +1,47 @@
 {
-    "build_time": "2026-08-19T19:17:15.356035336",
+    "build_time": "2026-08-20T01:07:59.980079959",
     "data": {},
-    "latest_commit": "fc8ab02",
+    "latest_commit": "fe439b3",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
         {
             "author": "Paul Walker",
-            "commit": "fc8ab02",
-            "date": "2026-08-19T14:42:43-04:00",
-            "message": "Stop guessing whether the side chain port is patched"
+            "commit": "fe439b3",
+            "date": "2026-08-19T19:04:46-04:00",
+            "message": "Name the LFO waveform white in the palette"
         },
         {
             "author": "Paul Walker",
-            "commit": "6286081",
-            "date": "2026-08-19T14:27:24-04:00",
-            "message": "Remove 2 WIN32-onyl assumes which were no longer valid"
+            "commit": "a6b0e65",
+            "date": "2026-08-19T18:35:58-04:00",
+            "message": "Pin how much of an LFO sweep a knob is allowed to lose"
         },
         {
             "author": "Paul Walker",
-            "commit": "86a0af3",
-            "date": "2026-08-19T10:51:41-04:00",
-            "message": "Open the Octaver's low pass by default"
+            "commit": "56422d2",
+            "date": "2026-08-19T18:35:50-04:00",
+            "message": "Draw the LFO waveform marks instead of parsing them"
         },
         {
             "author": "Paul Walker",
-            "commit": "88f095c",
-            "date": "2026-08-19T10:08:20-04:00",
-            "message": "Let an enumerated parameter choose the order its menu reads down"
+            "commit": "4499308",
+            "date": "2026-08-19T18:35:35-04:00",
+            "message": "Draw the editor at 1:1 and retire the build-stamp bar"
         },
         {
-            "author": "EvilDragon",
-            "commit": "a34730a",
-            "date": "2026-08-19T16:27:32+02:00",
-            "message": "Rename Ex/Imploder's Limit -> Threshold (#126)"
+            "author": "Paul",
+            "commit": "60a8b20",
+            "date": "2026-08-19T17:20:04-04:00",
+            "message": "Open the preset browser inside a tree, and give it a navigation row (#135)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-19-fc8ab02.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-19-fc8ab02.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-20-fe439b3.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-20-fe439b3.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-19-fc8ab02.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-19-fc8ab02.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-20-fe439b3.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-20-fe439b3.zip"
     },
     "version": "main"
 }
