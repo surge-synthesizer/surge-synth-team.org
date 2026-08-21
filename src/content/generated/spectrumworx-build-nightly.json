@@ -1,47 +1,47 @@
 {
-    "build_time": "2026-08-21T13:45:46.478946458",
+    "build_time": "2026-08-21T18:17:59.942279921",
     "data": {},
-    "latest_commit": "dceb78b",
+    "latest_commit": "e1f3b7b",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
         {
-            "author": "EvilDragon",
-            "commit": "dceb78b",
-            "date": "2026-08-21T15:29:08+02:00",
-            "message": "Update how module joiners are painted (#165)"
+            "author": "Paul Walker",
+            "commit": "e1f3b7b",
+            "date": "2026-08-21T12:56:41-04:00",
+            "message": "Skip the open-menu wheel case where no window can be made"
         },
         {
-            "author": "Paul",
-            "commit": "00dde81",
-            "date": "2026-08-21T09:14:53-04:00",
-            "message": "Fix the crash on removing a module with a shared control selected (#164)"
+            "author": "Paul Walker",
+            "commit": "7da41e4",
+            "date": "2026-08-21T12:51:03-04:00",
+            "message": "Round the corners of a knob's parameter menu"
         },
         {
-            "author": "EvilDragon",
-            "commit": "afdf6ae",
-            "date": "2026-08-21T14:55:57+02:00",
-            "message": "Improve LFO param names reported to host (#160)"
+            "author": "Paul Walker",
+            "commit": "9506144",
+            "date": "2026-08-21T12:39:49-04:00",
+            "message": "Remember the whole of where the user was in the panel column"
         },
         {
-            "author": "Paul",
-            "commit": "d95146d",
-            "date": "2026-08-21T08:40:36-04:00",
-            "message": "Upgrade clap-wrapper to support auv2 request restart (#162)"
+            "author": "Paul Walker",
+            "commit": "2305979",
+            "date": "2026-08-21T12:39:34-04:00",
+            "message": "Dismiss the settings combo's menu before the editor goes"
         },
         {
-            "author": "Paul",
-            "commit": "0c70178",
-            "date": "2026-08-21T04:11:21-04:00",
-            "message": "Faster Mouse; and Shift Drag for Fine (#148)"
+            "author": "Paul Walker",
+            "commit": "5f6ec67",
+            "date": "2026-08-21T12:18:55-04:00",
+            "message": "Scroll a combo box the way the knob beside it scrolls"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-21-dceb78b.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-21-dceb78b.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-21-e1f3b7b.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-21-e1f3b7b.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-21-dceb78b.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-21-dceb78b.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-21-e1f3b7b.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-21-e1f3b7b.zip"
     },
     "version": "main"
 }
