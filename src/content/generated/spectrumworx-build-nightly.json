@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-08-21T08:27:35.49285547",
+    "build_time": "2026-08-21T13:11:07.052867031",
     "data": {},
-    "latest_commit": "0c70178",
+    "latest_commit": "afdf6ae",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "afdf6ae",
+            "date": "2026-08-21T14:55:57+02:00",
+            "message": "Improve LFO param names reported to host (#160)"
+        },
+        {
+            "author": "Paul",
+            "commit": "d95146d",
+            "date": "2026-08-21T08:40:36-04:00",
+            "message": "Upgrade clap-wrapper to support auv2 request restart (#162)"
+        },
         {
             "author": "Paul",
             "commit": "0c70178",
@@ -22,26 +34,14 @@
             "commit": "3004eb3",
             "date": "2026-08-20T20:37:15-04:00",
             "message": "Advance the LFO clock per engine chunk rather than per host block"
-        },
-        {
-            "author": "Paul",
-            "commit": "c05e81c",
-            "date": "2026-08-20T16:30:03-04:00",
-            "message": "Draw square popup menus where windows cannot be transparent (#149)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "e4049d6",
-            "date": "2026-08-20T21:40:21+02:00",
-            "message": "Some About page tweaks (#146)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-21-0c70178.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-21-0c70178.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-21-afdf6ae.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-21-afdf6ae.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-21-0c70178.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-21-0c70178.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-21-afdf6ae.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-21-afdf6ae.zip"
     },
     "version": "main"
 }
