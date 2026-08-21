@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-08-20T20:45:54.328754308",
+    "build_time": "2026-08-21T02:06:54.944014923",
     "data": {},
-    "latest_commit": "c05e81c",
+    "latest_commit": "708cb76",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "708cb76",
+            "date": "2026-08-20T20:54:09-04:00",
+            "message": "Count a period beginning from the LFO's own position"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "3004eb3",
+            "date": "2026-08-20T20:37:15-04:00",
+            "message": "Advance the LFO clock per engine chunk rather than per host block"
+        },
         {
             "author": "Paul",
             "commit": "c05e81c",
@@ -22,26 +34,14 @@
             "commit": "56e5211",
             "date": "2026-08-20T16:31:00+02:00",
             "message": "Cleanup/consistency sweep on preset comments (#144)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "5dbab59",
-            "date": "2026-08-20T12:52:40+02:00",
-            "message": "Fixing more UI nitpicks (#138)"
-        },
-        {
-            "author": "Paul",
-            "commit": "4d13a74",
-            "date": "2026-08-19T23:48:29-04:00",
-            "message": "Take the pixel nitpicks off the rescaled interface (#137)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-20-c05e81c.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-20-c05e81c.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-21-708cb76.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-21-708cb76.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-20-c05e81c.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-20-c05e81c.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-21-708cb76.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-21-708cb76.zip"
     },
     "version": "main"
 }
