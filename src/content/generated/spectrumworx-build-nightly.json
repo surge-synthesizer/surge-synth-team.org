@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-08-21T18:17:59.942279921",
+    "build_time": "2026-08-21T21:44:02.00864198",
     "data": {},
-    "latest_commit": "e1f3b7b",
+    "latest_commit": "006a03a",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "006a03a",
+            "date": "2026-08-21T16:52:24-04:00",
+            "message": "Update clap-wrapper for the VST3 latency and tail fixes"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "e251430",
+            "date": "2026-08-21T16:52:33-04:00",
+            "message": "Tell the host about a new latency while activating, not while deactivating"
+        },
         {
             "author": "Paul Walker",
             "commit": "e1f3b7b",
@@ -22,26 +34,14 @@
             "commit": "9506144",
             "date": "2026-08-21T12:39:49-04:00",
             "message": "Remember the whole of where the user was in the panel column"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "2305979",
-            "date": "2026-08-21T12:39:34-04:00",
-            "message": "Dismiss the settings combo's menu before the editor goes"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "5f6ec67",
-            "date": "2026-08-21T12:18:55-04:00",
-            "message": "Scroll a combo box the way the knob beside it scrolls"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-21-e1f3b7b.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-21-e1f3b7b.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-21-006a03a.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-21-006a03a.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-21-e1f3b7b.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-21-e1f3b7b.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-21-006a03a.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-21-006a03a.zip"
     },
     "version": "main"
 }
