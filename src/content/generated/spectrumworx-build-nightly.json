@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-08-21T21:44:02.00864198",
+    "build_time": "2026-08-21T22:13:55.847435825",
     "data": {},
-    "latest_commit": "006a03a",
+    "latest_commit": "c7840a7",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "c7840a7",
+            "date": "2026-08-21T23:58:07+02:00",
+            "message": "Show LFO Phase in ° instead of % (#168)"
+        },
         {
             "author": "Paul Walker",
             "commit": "006a03a",
@@ -28,20 +34,14 @@
             "commit": "7da41e4",
             "date": "2026-08-21T12:51:03-04:00",
             "message": "Round the corners of a knob's parameter menu"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "9506144",
-            "date": "2026-08-21T12:39:49-04:00",
-            "message": "Remember the whole of where the user was in the panel column"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-21-006a03a.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-21-006a03a.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-21-c7840a7.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-21-c7840a7.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-21-006a03a.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-21-006a03a.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-21-c7840a7.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-21-c7840a7.zip"
     },
     "version": "main"
 }
