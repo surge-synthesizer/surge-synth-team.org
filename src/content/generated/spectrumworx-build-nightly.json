@@ -1,47 +1,47 @@
 {
-    "build_time": "2026-08-22T22:27:11.993631971",
+    "build_time": "2026-08-22T23:37:15.08383507",
     "data": {},
-    "latest_commit": "544f5bd",
+    "latest_commit": "a57cd5c",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
         {
-            "author": "EvilDragon",
-            "commit": "544f5bd",
-            "date": "2026-08-23T00:12:49+02:00",
-            "message": "Add full logo on About page, update logos elsewhere (#183)"
+            "author": "Paul Walker",
+            "commit": "a57cd5c",
+            "date": "2026-08-22T18:55:46-04:00",
+            "message": "Bring show-ui's editor host up to the interface"
         },
         {
             "author": "Paul Walker",
-            "commit": "4ded285",
-            "date": "2026-08-22T16:55:22-04:00",
-            "message": "Say what the code does rather than where it came from"
+            "commit": "77c4fa2",
+            "date": "2026-08-22T18:42:14-04:00",
+            "message": "Say the new code's comments shorter"
         },
         {
             "author": "Paul Walker",
-            "commit": "4f0af94",
-            "date": "2026-08-22T09:47:15-04:00",
-            "message": "Apply a pending spectral setup when Ardour will not restart"
+            "commit": "4698c2f",
+            "date": "2026-08-22T18:24:54-04:00",
+            "message": "Give an LFO's sync and waveform a real choice at the host edge"
         },
         {
             "author": "Paul Walker",
-            "commit": "e09a61c",
-            "date": "2026-08-22T09:19:41-04:00",
-            "message": "Report a chain change only when the slot actually moved"
+            "commit": "069866d",
+            "date": "2026-08-22T17:45:20-04:00",
+            "message": "Highlight the preset a restored session is playing"
         },
         {
-            "author": "EvilDragon",
-            "commit": "c7840a7",
-            "date": "2026-08-21T23:58:07+02:00",
-            "message": "Show LFO Phase in ° instead of % (#168)"
+            "author": "Paul Walker",
+            "commit": "64b0de0",
+            "date": "2026-08-22T17:22:21-04:00",
+            "message": "Stop a preset load counting as an edit of the preset it loads"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-22-544f5bd.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-22-544f5bd.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-22-a57cd5c.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-22-a57cd5c.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-22-544f5bd.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-22-544f5bd.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-22-a57cd5c.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-22-a57cd5c.zip"
     },
     "version": "main"
 }
