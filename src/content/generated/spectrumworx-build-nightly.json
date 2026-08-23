@@ -1,47 +1,47 @@
 {
-    "build_time": "2026-08-23T17:00:27.859427841",
+    "build_time": "2026-08-23T22:26:52.226012205",
     "data": {},
-    "latest_commit": "60649ac",
+    "latest_commit": "a218a2a",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
         {
-            "author": "Paul Walker",
-            "commit": "60649ac",
-            "date": "2026-08-23T12:19:39-04:00",
-            "message": "Move an LFO's period onto the grid its new sync type has"
+            "author": "EvilDragon",
+            "commit": "a218a2a",
+            "date": "2026-08-24T00:10:25+02:00",
+            "message": "Add our usual icons to the About page (#197)"
         },
         {
             "author": "Paul Walker",
-            "commit": "8319990",
-            "date": "2026-08-23T11:41:25-04:00",
-            "message": "Keep the value a preset saved beside an enabled LFO"
-        },
-        {
-            "author": "Paul",
-            "commit": "b34da9c",
-            "date": "2026-08-23T11:36:20-04:00",
-            "message": "Ci/gcc16 (#193)"
+            "commit": "2ec08b2",
+            "date": "2026-08-23T17:45:44-04:00",
+            "message": "Harden the standard library on the GCC 15 leg, and say so"
         },
         {
             "author": "Paul Walker",
-            "commit": "592e2a1",
-            "date": "2026-08-23T10:48:41-04:00",
-            "message": "Answer an empty random range instead of dividing by it"
+            "commit": "7f67e4f",
+            "date": "2026-08-23T17:44:24-04:00",
+            "message": "Take the end of a peak run without indexing past it"
         },
         {
             "author": "Paul Walker",
-            "commit": "fe0c53c",
-            "date": "2026-08-23T10:09:31-04:00",
-            "message": "Stop a fuzzed parameter set corrupting the spectrum"
+            "commit": "0dcfd8b",
+            "date": "2026-08-23T17:12:14-04:00",
+            "message": "Announce a chain change with a flag rather than a message"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "966f4e5",
+            "date": "2026-08-23T17:00:00-04:00",
+            "message": "Deepen the echo ring to sixteen thousand"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-23-60649ac.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-23-60649ac.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-23-a218a2a.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-23-a218a2a.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-23-60649ac.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-23-60649ac.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-23-a218a2a.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-23-a218a2a.zip"
     },
     "version": "main"
 }
