@@ -1,10 +1,28 @@
 {
-    "build_time": "2026-08-23T13:28:19.890699869",
+    "build_time": "2026-08-23T15:52:46.674366658",
     "data": {},
-    "latest_commit": "664fd9a",
+    "latest_commit": "b34da9c",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "b34da9c",
+            "date": "2026-08-23T11:36:20-04:00",
+            "message": "Ci/gcc16 (#193)"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "592e2a1",
+            "date": "2026-08-23T10:48:41-04:00",
+            "message": "Answer an empty random range instead of dividing by it"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "fe0c53c",
+            "date": "2026-08-23T10:09:31-04:00",
+            "message": "Stop a fuzzed parameter set corrupting the spectrum"
+        },
         {
             "author": "Paul Walker",
             "commit": "664fd9a",
@@ -16,32 +34,14 @@
             "commit": "f448959",
             "date": "2026-08-23T08:06:35-04:00",
             "message": "Name an LFO after the parameter it drives when no module is loaded"
-        },
-        {
-            "author": "Paul",
-            "commit": "dd950cd",
-            "date": "2026-08-23T08:46:30-04:00",
-            "message": "Make BUILD_SHARED_LIBS=OFF actually hold (#186) (#189)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "713971e",
-            "date": "2026-08-23T13:52:11+02:00",
-            "message": "Settings panel minor tweaks (#187)"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "9cd3a0c",
-            "date": "2026-08-22T19:43:32-04:00",
-            "message": "Draw the LFO's waveform mark in every editor, not only the first"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-23-664fd9a.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-23-664fd9a.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-23-b34da9c.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-23-b34da9c.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-23-664fd9a.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-23-664fd9a.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-23-b34da9c.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-23-b34da9c.zip"
     },
     "version": "main"
 }
