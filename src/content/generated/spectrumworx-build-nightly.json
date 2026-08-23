@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-08-22T23:37:15.08383507",
+    "build_time": "2026-08-23T00:33:58.734238714",
     "data": {},
-    "latest_commit": "a57cd5c",
+    "latest_commit": "9cd3a0c",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "9cd3a0c",
+            "date": "2026-08-22T19:43:32-04:00",
+            "message": "Draw the LFO's waveform mark in every editor, not only the first"
+        },
         {
             "author": "Paul Walker",
             "commit": "a57cd5c",
@@ -28,20 +34,14 @@
             "commit": "069866d",
             "date": "2026-08-22T17:45:20-04:00",
             "message": "Highlight the preset a restored session is playing"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "64b0de0",
-            "date": "2026-08-22T17:22:21-04:00",
-            "message": "Stop a preset load counting as an edit of the preset it loads"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-22-a57cd5c.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-22-a57cd5c.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-23-9cd3a0c.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-23-9cd3a0c.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-22-a57cd5c.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-22-a57cd5c.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-23-9cd3a0c.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-23-9cd3a0c.zip"
     },
     "version": "main"
 }
