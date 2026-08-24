@@ -1,47 +1,47 @@
 {
-    "build_time": "2026-08-24T13:21:52.133712117",
+    "build_time": "2026-08-24T18:06:24.205784184",
     "data": {},
-    "latest_commit": "2c81e30",
+    "latest_commit": "f57fd2f",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
         {
             "author": "Paul",
-            "commit": "2c81e30",
-            "date": "2026-08-24T09:04:57-04:00",
-            "message": "Ring the control whose LFO strip is showing (#207)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "dea7e61",
-            "date": "2026-08-24T14:12:27+02:00",
-            "message": "Even more themes! (#205)"
-        },
-        {
-            "author": "Paul",
-            "commit": "a53dd6b",
-            "date": "2026-08-23T21:07:34-04:00",
-            "message": "Keep the selected control when the keyboard goes elsewhere (#201)"
+            "commit": "f57fd2f",
+            "date": "2026-08-24T13:45:07-04:00",
+            "message": "Keep a quantised knob's value when the window opens before the sample rate (#213)"
         },
         {
             "author": "Paul Walker",
-            "commit": "66d7fe4",
-            "date": "2026-08-23T19:08:01-04:00",
-            "message": "Tell the host a parameter is being edited only when it is"
+            "commit": "92a044f",
+            "date": "2026-08-24T11:36:21-04:00",
+            "message": "Put the parameter menu on the switches that had none"
         },
         {
-            "author": "EvilDragon",
-            "commit": "a218a2a",
-            "date": "2026-08-24T00:10:25+02:00",
-            "message": "Add our usual icons to the About page (#197)"
+            "author": "Paul Walker",
+            "commit": "1f47c38",
+            "date": "2026-08-24T11:35:57-04:00",
+            "message": "Return a parameter to its own value when its LFO is switched off"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "06bbf2a",
+            "date": "2026-08-24T09:31:58-04:00",
+            "message": "Make the whole LFO waveform well open its menu"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "66ae458",
+            "date": "2026-08-24T09:17:58-04:00",
+            "message": "Let the LFO panel follow the tempo when the host is automating hard"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-24-2c81e30.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-24-2c81e30.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-24-f57fd2f.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-24-f57fd2f.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-24-2c81e30.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-24-2c81e30.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-24-f57fd2f.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-24-f57fd2f.zip"
     },
     "version": "main"
 }
