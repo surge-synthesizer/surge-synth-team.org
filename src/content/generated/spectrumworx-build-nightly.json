@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-08-24T20:51:47.94170792",
+    "build_time": "2026-08-25T01:47:25.20144518",
     "data": {},
-    "latest_commit": "062da3e",
+    "latest_commit": "2bd7069",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "2bd7069",
+            "date": "2026-08-24T21:30:04-04:00",
+            "message": "Trade the mouse-over reaction for a hover display and a still LFO (#218)"
+        },
+        {
+            "author": "EvilDragon",
+            "commit": "9d79223",
+            "date": "2026-08-25T01:11:17+02:00",
+            "message": "A bit of tweak for context menus (#216)"
+        },
         {
             "author": "EvilDragon",
             "commit": "062da3e",
@@ -22,26 +34,14 @@
             "commit": "f41782c",
             "date": "2026-08-24T14:19:48-04:00",
             "message": "Name the module a parameter belongs to in its menu header"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "e4b6506",
-            "date": "2026-08-24T14:13:45-04:00",
-            "message": "Make the frequency range's menu about the thumb pressed, not the selection"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "c311d0c",
-            "date": "2026-08-24T14:06:30-04:00",
-            "message": "Make the LFO panel follow host automation of the sync mask and waveform"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-24-062da3e.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-24-062da3e.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-25-2bd7069.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-25-2bd7069.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-24-062da3e.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-24-062da3e.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-25-2bd7069.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-25-2bd7069.zip"
     },
     "version": "main"
 }
