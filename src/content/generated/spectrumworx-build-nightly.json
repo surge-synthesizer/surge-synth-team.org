@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-08-27T22:09:12.758552737",
+    "build_time": "2026-08-28T02:08:11.413891396",
     "data": {},
-    "latest_commit": "b5b4868",
+    "latest_commit": "b420ab9",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "b420ab9",
+            "date": "2026-08-27T18:40:51-04:00",
+            "message": "Render every factory preset in a checked build"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "925bd6b",
+            "date": "2026-08-27T18:40:36-04:00",
+            "message": "Keep a strided negate inside the range it was given"
+        },
         {
             "author": "Paul Walker",
             "commit": "b5b4868",
@@ -22,26 +34,14 @@
             "commit": "8f51ab4",
             "date": "2026-08-27T17:17:06-04:00",
             "message": "Render the tests through the denormal guard the plugin renders through"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "0669dd4",
-            "date": "2026-08-27T17:16:58-04:00",
-            "message": "Keep a moving average of magnitudes non-negative"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "56f9fbf",
-            "date": "2026-08-27T13:55:33+02:00",
-            "message": "Fix unit for Depth parameter of Pitch Spring (#234)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-27-b5b4868.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-27-b5b4868.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-28-b420ab9.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-28-b420ab9.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-27-b5b4868.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-27-b5b4868.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-28-b420ab9.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-28-b420ab9.zip"
     },
     "version": "main"
 }
