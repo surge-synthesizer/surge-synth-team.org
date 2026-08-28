@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-08-28T02:08:11.413891396",
+    "build_time": "2026-08-28T13:02:13.289133268",
     "data": {},
-    "latest_commit": "b420ab9",
+    "latest_commit": "936d49a",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "936d49a",
+            "date": "2026-08-27T23:59:06-04:00",
+            "message": "Hold the comparing effects to what they select"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "405d7c2",
+            "date": "2026-08-27T23:53:50-04:00",
+            "message": "Copy the bin a comparison chose, not the first one"
+        },
         {
             "author": "Paul Walker",
             "commit": "b420ab9",
@@ -22,26 +34,14 @@
             "commit": "b5b4868",
             "date": "2026-08-27T17:17:24-04:00",
             "message": "Render every effect and all but two presets in a checked build"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "291b2c9",
-            "date": "2026-08-27T17:17:16-04:00",
-            "message": "Measure modulo's remainder against the dividend it came from"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "8f51ab4",
-            "date": "2026-08-27T17:17:06-04:00",
-            "message": "Render the tests through the denormal guard the plugin renders through"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-28-b420ab9.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-28-b420ab9.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-28-936d49a.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-28-936d49a.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-28-b420ab9.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-28-b420ab9.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-28-936d49a.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-28-936d49a.zip"
     },
     "version": "main"
 }
