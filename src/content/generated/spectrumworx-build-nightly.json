@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-08-28T13:02:13.289133268",
+    "build_time": "2026-08-28T13:23:15.275395255",
     "data": {},
-    "latest_commit": "936d49a",
+    "latest_commit": "8532b02",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "8532b02",
+            "date": "2026-08-28T09:07:14-04:00",
+            "message": "Test Harness Flushes an active plugin from the audio thread (#240)"
+        },
         {
             "author": "Paul Walker",
             "commit": "936d49a",
@@ -28,20 +34,14 @@
             "commit": "925bd6b",
             "date": "2026-08-27T18:40:36-04:00",
             "message": "Keep a strided negate inside the range it was given"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "b5b4868",
-            "date": "2026-08-27T17:17:24-04:00",
-            "message": "Render every effect and all but two presets in a checked build"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-28-936d49a.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-28-936d49a.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-28-8532b02.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-28-8532b02.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-28-936d49a.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-28-936d49a.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-28-8532b02.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-28-8532b02.zip"
     },
     "version": "main"
 }
