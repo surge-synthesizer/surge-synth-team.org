@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-08-31T19:50:39.963839942",
+    "build_time": "2026-08-31T23:27:23.888843868",
     "data": {},
-    "latest_commit": "91ff371",
+    "latest_commit": "a874a33",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "a874a33",
+            "date": "2026-09-01T01:11:11+02:00",
+            "message": "Fix preset tests looking for ESS (#250)"
+        },
+        {
+            "author": "EvilDragon",
+            "commit": "f724f54",
+            "date": "2026-08-31T22:20:34+02:00",
+            "message": "Remove ESS folder and relocate its presets among other folders (#249)"
+        },
         {
             "author": "Paul Walker",
             "commit": "91ff371",
@@ -22,26 +34,14 @@
             "commit": "f4a7757",
             "date": "2026-08-31T12:22:16-04:00",
             "message": "Round with the CRT, which is what these tricks were avoiding in 2009"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "820320a",
-            "date": "2026-08-31T12:21:20-04:00",
-            "message": "Ask the standard library for the bits instead of shifting for them"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "7176195",
-            "date": "2026-08-31T12:19:43-04:00",
-            "message": "Stop reading the word in front of a value that is already a power of two"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-31-91ff371.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-31-91ff371.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-31-a874a33.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-31-a874a33.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-31-91ff371.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-31-91ff371.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-31-a874a33.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-31-a874a33.zip"
     },
     "version": "main"
 }
