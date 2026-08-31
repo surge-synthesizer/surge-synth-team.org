@@ -1,10 +1,28 @@
 {
-    "build_time": "2026-08-30T21:57:42.529062513",
+    "build_time": "2026-08-31T01:26:59.933619909",
     "data": {},
-    "latest_commit": "d66c206",
+    "latest_commit": "07be611",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "07be611",
+            "date": "2026-08-30T20:24:25-04:00",
+            "message": "Remember both sides of the preset browser's toggle"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "10f04e4",
+            "date": "2026-08-30T20:18:31-04:00",
+            "message": "Read a synced period the way a musician writes one"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "032a34d",
+            "date": "2026-08-30T20:10:16-04:00",
+            "message": "Empty the header when the rack empties"
+        },
         {
             "author": "Paul Walker",
             "commit": "d66c206",
@@ -16,32 +34,14 @@
             "commit": "7974854",
             "date": "2026-08-30T16:39:11-04:00",
             "message": "Ask for an author name before saving a patch"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "f86e0e3",
-            "date": "2026-08-30T16:30:14-04:00",
-            "message": "Credit for people we believe to be authors in pre 3.0 patches"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "7e0950e",
-            "date": "2026-08-30T16:29:54-04:00",
-            "message": "Sign saved patches with an author name from settings"
-        },
-        {
-            "author": "Paul",
-            "commit": "8532b02",
-            "date": "2026-08-28T09:07:14-04:00",
-            "message": "Test Harness Flushes an active plugin from the audio thread (#240)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-30-d66c206.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-30-d66c206.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-31-07be611.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-31-07be611.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-30-d66c206.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-30-d66c206.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-31-07be611.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-31-07be611.zip"
     },
     "version": "main"
 }
