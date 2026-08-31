@@ -8,10 +8,12 @@ export default defineConfig({
     vite: { plugins: [tailwindcss()] },
     redirects: {
         "/ob-xf/manual/": "/ob-xf/manual/getting-started/",
+        "/spectrumworx/manual/": "/spectrumworx/manual/getting-started/",
     },
     integrations: [
         starlight({
-            title: "OB-Xf Manual",
+            title: "Surge Synth Team Manuals",
+            routeMiddleware: "./src/starlightRouteData.ts",
             sidebar: [
                 {
                     label: "OB-Xf Manual",
@@ -36,6 +38,47 @@ export default defineConfig({
                         { label: "Envelopes", slug: "ob-xf/manual/envelopes" },
                         { label: "Voice Variation", slug: "ob-xf/manual/voice-variation" },
                         { label: "Theme Authoring", slug: "ob-xf/manual/theme-authoring" },
+                    ],
+                },
+                {
+                    label: "SpectrumWorx Manual",
+                    items: [
+                        { label: "Getting Started", slug: "spectrumworx/manual/getting-started" },
+                        { label: "To Update for 3.0", slug: "spectrumworx/manual/to-update-for-3-0" },
+                        {
+                            label: "Installing SpectrumWorx",
+                            slug: "spectrumworx/manual/installing",
+                        },
+                        { label: "The Interface", slug: "spectrumworx/manual/the-interface" },
+                        { label: "The Main Window", slug: "spectrumworx/manual/main-window" },
+                        { label: "LFOs", slug: "spectrumworx/manual/lfo" },
+                        { label: "The Module Bank", slug: "spectrumworx/manual/module-bank" },
+                        { label: "Settings: Engine", slug: "spectrumworx/manual/settings-engine" },
+                        {
+                            label: "Settings: GUI and About",
+                            slug: "spectrumworx/manual/settings-gui",
+                        },
+                        { label: "Presets", slug: "spectrumworx/manual/presets" },
+                        {
+                            label: "The Modules",
+                            collapsed: true,
+                            items: [
+                                { label: "Overview", slug: "spectrumworx/manual/modules" },
+                                { label: "Pitch", slug: "spectrumworx/manual/modules-pitch" },
+                                { label: "Timbre", slug: "spectrumworx/manual/modules-timbre" },
+                                { label: "Time", slug: "spectrumworx/manual/modules-time" },
+                                { label: "Space", slug: "spectrumworx/manual/modules-space" },
+                                { label: "Phase", slug: "spectrumworx/manual/modules-phase" },
+                                { label: "Loudness", slug: "spectrumworx/manual/modules-loudness" },
+                                { label: "Combine", slug: "spectrumworx/manual/modules-combine" },
+                                {
+                                    label: "Phase Vocoder",
+                                    slug: "spectrumworx/manual/modules-phase-vocoder",
+                                },
+                                { label: "Miscellaneous", slug: "spectrumworx/manual/modules-misc" },
+                            ],
+                        },
+                        { label: "Credits", slug: "spectrumworx/manual/credits" },
                     ],
                 },
             ],

@@ -1,0 +1,43 @@
+---
+title: "Modules: Phase Vocoder"
+sidebar:
+  order: 19
+---
+
+All of these are special versions of modules that also appear in other categories. However,
+Phase Vocoder modules operate differently under the hood.
+
+"PV" stands for "Phase Vocoder", but you should not confuse this with the familiar sort of
+"robot voice" vocoder — though it should be obvious that SpectrumWorx can provide all manner of
+robotic voices. Normally, SpectrumWorx draws upon Fourier transform algorithms to work its magic
+in the frequency domain. The Fourier transform is used to transform time samples to the
+frequency domain, so we end up with various amplitudes and phases of the resulting sine waves —
+but the sine waves produced by the Fourier transform are only approximations; they don't
+represent the "true" frequencies present in the input signal.
+
+Phase vocoding, on the other hand, can be used to find the true frequencies. After the true
+frequencies are found, we can manipulate amplitudes and frequencies rather than simply
+amplitudes and phases. This opens up new territory for effects processing. For example, accurate
+pitch shifting is possible since we know the true frequencies.
+
+## To PV and From PV
+
+**To PV** and **From PV** are the pair of modules that enter and leave the phase vocoder domain.
+Modules placed between them in the bank operate on true frequencies rather than on magnitude and
+phase.
+
+## The variants
+
+The remaining seven modules are the phase vocoder versions of modules documented elsewhere in
+this manual. Their controls are the same, so those descriptions are not repeated here:
+
+- **Pitch Shifter (PV)** — see [Pitch Shifter](/spectrumworx/manual/modules-pitch/)
+- **Pitch Follower (PV)** — see [Pitch Follower](/spectrumworx/manual/modules-pitch/)
+- **TuneWorx (PV)** — see [TuneWorx](/spectrumworx/manual/modules-pitch/)
+- **Pitch Magnet (PV)** — see [Pitch Magnet](/spectrumworx/manual/modules-pitch/)
+- **Pitch Spring (PV)** — see [Pitch Spring](/spectrumworx/manual/modules-pitch/)
+- **Imploder (PV)** — see [Imploder](/spectrumworx/manual/modules-time/)
+- **Exploder (PV)** — see [Exploder](/spectrumworx/manual/modules-time/)
+
+Many modules that are not designed to work in the phase vocoder domain can provide some
+surprising results when used in it, so experiment — but proceed with caution!

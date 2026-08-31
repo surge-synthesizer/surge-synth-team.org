@@ -1,0 +1,101 @@
+---
+title: To Update for 3.0
+sidebar:
+  order: 2
+---
+
+This page is not part of the manual. It is a working list of everything in the rest of these
+pages that is stale, wrong, or missing relative to the current SpectrumWorx build, written down
+while converting Little Endian's 2.9 User's Guide into this site. **Delete this page before the
+3.0 release.**
+
+The conversion was faithful except where noted below under "already changed".
+
+## Already changed during conversion
+
+- **Installing SpectrumWorx** was rewritten. The original described a VST2.4 installer on
+  Windows and a VST2.4/AU installer on macOS only. It now describes the CLAP/VST3/AU/standalone
+  builds on Windows, macOS and Linux. **Verify the packaging claims** — in particular whether a
+  program folder with `Presets`, `Samples` and `Documentation` is still installed, and where.
+- **How to use SpectrumWorx** was rewritten. The original said "It can't be opened as a
+  standalone device", which is no longer true.
+- **Settings: Registration** was dropped entirely. The original section covered purchasing,
+  demo mode and pointing the plugin at a license file on disk. Confirm the Registration tab is
+  gone from the Settings window; if it is still there, it needs a section saying what it now
+  does.
+- Module names were corrected to the spellings the code actually ships:
+  *Exaggerator* (guide said "Exagerrator") and *Burrito* (guide said "Buritto").
+- The **PV domain** page was renamed **Phase Vocoder** to match the menu, and the seven variants
+  are now listed by name with links back to their base modules. The guide listed none of them.
+- **The Interface** said the numbered screenshot shows "a Slew Limiter, Whisperer, TuneWorx and a
+  Slicer". The second module in that screenshot is Frevcho, so the text was corrected.
+- The host-specific paragraphs under **Input mode** were dropped, not rewritten — see below.
+
+## Screenshots — all seven need retaking
+
+Every image in this manual is a 2.9-era screenshot lifted from the original PDF, at its original
+resolution (the largest is 960 × 365). The skin has been vectorized since, so all of them are
+both stale and too small for a modern display.
+
+| Page | Image | Also wrong because |
+| --- | --- | --- |
+| Getting Started | Main window + bank | — |
+| The Interface | Numbered guide to all four windows | — |
+| Main Window | Main window alone | — |
+| Module Bank | Bank with the module menu open | Menu group is now **Phase Vocoder**, not **PV domain** |
+| Settings: Engine | Engine tab | Shows a **Registration** tab |
+| Presets | Presets browser | Path reads `C:\Program Files\Little Endian\Spectr…` |
+| Time Modules | Slicer module strip | — |
+
+## Undocumented in the original
+
+- **Zero padding factor.** It appears as an Engine parameter in two of the screenshots and is
+  never described anywhere in the guide. It needs a section on the Settings: Engine page.
+- **The Engine tab readouts.** The current Engine tab shows Ripple amount, Frequency
+  resolution, Time resolution and Latency. The guide only explains Ripple.
+- **`PVD start` and `PVD stop`** (shown in the menu as **To PV** and **From PV**) are real
+  modules — they are the pair that enters and leaves the phase vocoder domain. The guide
+  mentions "PVD start" once in passing and never documents either as a module. The Phase
+  Vocoder page needs to explain that PV modules must be bracketed by them.
+
+## Wrong or contradictory in the original
+
+- **LFO waveform count.** The Waveform section says "one of seven different waveforms" and then
+  lists eleven: Sine, Square, Triangle, Sawtooth, htootwaS, Exponent, Hrandom, Grandom, Whacho,
+  Dirac up, Dirac down. Count the shipped set and fix the number.
+- **Overlap factor units.** The guide gives overlap as percentages (0%, 50%, 75%, 87.5%) but the
+  Settings: Engine screenshot displays "4" while the numbered-windows screenshot displays
+  "75.0 %". Decide which the UI shows and make the text match.
+- **Slice time value.** "Module name, parameter name and value" says the Slice time reads
+  325 ms; the screenshot it describes reads 395 ms.
+- **Module count.** The guide says "over fifty" and "more than fifty". The current build has
+  exactly 57 effects — 7 Pitch, 8 Timbre, 6 Time, 3 Space, 4 Phase, 5 Loudness, 10 Combine,
+  9 Phase Vocoder, 5 Miscellaneous. Worth stating the real number.
+- **Menu group name and order.** The guide says modules come from "eight available categories".
+  The build has nine groups and names the phase vocoder one **Phase Vocoder**.
+
+## Needs re-verification against the modernized code
+
+- **External audio / DirectShow.** The guide states that Windows file loading goes through
+  DirectShow, and lists limitations that follow from it: no streaming, 8/16/packed-24-bit only,
+  mono and stereo only, resampling capped at 48 kHz, "all VST programs share the same sample".
+  Check every one of these against whatever decoder the current build uses.
+- **Input Mode.** This was the most VST2-specific section in the manual, and four paragraphs of
+  it were dropped during conversion rather than carried over: a host reporting whether it
+  supports I/O changes, an Ableton Live workaround that routed all changes through 4in-2out, a
+  Reaper wrapper-window display bug, and an AU notice that the parameter is disabled under AU.
+  The equivalent CLAP and VST3 story needs writing from scratch. The original text is in
+  `doc/manual/SpectrumWorx-User's Guide.doc` in the plugin repo if you want it back.
+- **Load last session on startup.** Carries an AU-protocol notice and warnings about hosts
+  overriding the setting from their project files. Re-check under CLAP.
+- **About that CPU.** Benchmarked against "an average Core 2 Duo CPU" approaching 10%. Either
+  re-measure or drop the numbers.
+
+## Branding and front matter
+
+- The guide is copyright "© 2014 Little Endian Ltd.", revision 2.9, and points support at
+  `www.littleendian.com`. Contact and support routing should point at the Surge Synth Team.
+- **Settings: About** describes finding the version and the team. Confirm what that tab shows
+  now and who is credited.
+- The **Credits** page is Little Endian's original credits list. It should stay, with the
+  modernization contributors added.

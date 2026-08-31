@@ -1,0 +1,62 @@
+---
+title: "Modules: Pitch"
+sidebar:
+  order: 12
+---
+
+## Pitch Shifter
+
+This module is as straightforward as it gets. It shifts the pitch of the incoming signal in
+semitones and cents. You can go anywhere between two octaves higher and two octaves lower than
+the original signal. It can also act upon a selected frequency range; any frequencies that fall
+outside of this range will not be affected. The selected band of frequencies is determined by
+the **Frequency range** slider located in the Main window.
+
+## Pitch Follower
+
+The main channel is pitch-shifted to the dominant frequency detected in the side channel (via
+**External audio** or via **Settings / Input mode**). The **Speed** parameter determines how
+quickly the pitch-shifting to the target frequency should be done, in order to provide a
+smoother result.
+
+## TuneWorx
+
+You know the sound: it's the classic Autotune effect. The main channel's pitch is detected and
+shifted to the nearest selected semitone. If all semitones are selected, you'll get a chromatic
+scale. Check out the Autotune subfolder in the Presets browser for some musical scale presets!
+
+## Pitch Magnet
+
+This one forces the input channel pitch to the pitch selected with the **Target** knob. The
+**Strength** knob determines the speed with which to reach the target pitch.
+
+## Sumo Pitch
+
+What happens when your channels are pitted against one another like Sumo wrestlers? The input
+signal and side channel are analyzed with the internal pitch detector. Both are then
+pitch-shifted towards each other and towards a center pitch. The speed of the shift is
+selectable with the **Speed** knob. After both signals have been shifted, they are blended
+together. The amount of blending is controlled with the **Blend** knob: when set to 0, only the
+main channel is output; a setting of 100% sends only the side channel to the output.
+
+## Pitch Spring
+
+This is a pitch oscillator. You can choose the **Depth** and **Period** (rate) of the
+oscillation. There is also a direction combo box where you can select how the "spring"
+oscillates:
+
+- **Up** will cause the spring to oscillate between the incoming pitch and a positive (higher)
+  pitch determined by the Depth knob's setting.
+- **Down** will cause it to swing from the incoming pitch to a negative (lower) pitch as
+  determined by the Depth knob.
+- **Symmetric** will result in the pitch oscillating back and forth from a negative pitch,
+  through the original pitch of the incoming signal, and towards a positive pitch.
+
+## Octaver
+
+This is an octaver effect: it adds two (or just one) octaves onto the original signal. It can
+add an octave that is two octaves down or one octave down from the original signal (to turn your
+guitar into a bass, for example), or it can add two or one octave up from the original sound to
+achieve a kind of harmonizer effect (a 12 string guitar, for example). It can also mix down and
+up octaves. Each octave has a gain control, and both octaves share a common cut-off frequency to
+limit the operation to only the low-passed signal. Fun!

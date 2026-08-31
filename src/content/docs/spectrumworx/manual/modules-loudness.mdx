@@ -1,0 +1,40 @@
+---
+title: "Modules: Loudness"
+sidebar:
+  order: 17
+---
+
+## Gain
+
+Really, this is just a simple gain function. Try it with a selected frequency range, as
+determined by the Start and Stop frequency slider — and randomize this fellow with an LFO!
+
+## Exaggerator
+
+With its single knob, the Exaggerator is a deceptively simple-looking module. However, the
+results are anything but standard! Exaggerator applies an exponential function to magnitudes,
+emphasizing or suppressing peaks. The **Intensity** knob is bipolar, with no effect when set to
+the 12 o'clock position. If a positive setting is dialed in, the higher the amplitude of the
+incoming signal the more it will be amplified. If a negative setting is selected, the higher the
+amplitude of the incoming signal the more it will be suppressed.
+
+## Denoiser
+
+This effect applies the standard de-noising formula. SpectrumWorx's algorithm uses the side
+channel input as a noise footprint, or a sum of main and side channel. The main channel will be
+attenuated when the side channel contains noise (in the latter case). The **Amount** knob
+controls the intensity of the de-noising algorithm.
+
+## Quiet Boost
+
+This module boosts low gain components. It amplifies signal below the desired **Threshold**,
+working as a sort of expander in the time domain. The **Ratio** of expansion can be selected,
+and there's a **Noise threshold** control — the module won't boost anything below this
+threshold, because we don't want to boost all the noise!
+
+## Freqnamics
+
+Freqnamics provides dynamics processing in the frequency domain, just like the Quiet Boost
+module described above, except this one compresses rather than expands. Freqnamics acts as both
+a limiter and a noise gate. Use the **Limiter** knob to set the threshold of the hard limiter,
+and the **Noise gate** knob to set the threshold of the noise gate.

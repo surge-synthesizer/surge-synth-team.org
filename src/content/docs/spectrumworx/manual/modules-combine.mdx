@@ -1,0 +1,100 @@
+---
+title: "Modules: Combine"
+sidebar:
+  order: 18
+---
+
+Every module on this page mixes the main input with a side channel, which you supply either by
+loading a file into the [External audio](/spectrumworx/manual/main-window/) area or by routing a
+side chain from your host.
+
+## Talking Wind
+
+This is a classic vocoding effect, but with a SpectrumWorx twist! As you probably already know,
+vocoding uses the frequency spectrum and amplitude of one signal (the modulator) to modulate
+another (the carrier). Often a human voice will be used as the modulator and then applied to a
+sound such as white noise to produce the familiar "talking wind" effect.
+
+The Talking Wind module offers a handful of controls. The **Envelope border** knob controls the
+perceived smoothness of the modulator. An **Envelope gain** knob can be used to add some gain to
+the envelope to amplify the effect. The **Gain** knob is provided to tame the final output,
+since it can often become quite loud. The carrier is loaded as an external audio file or fed
+into a side channel input; the modulator is passed through the main input.
+
+## Convolver
+
+A multi-effect: a convolution reverb or a vocoder, depending on the **Phase** parameter! If
+Phase is set to **Sum**, this is in fact a convolution reverb, where the impulse response can
+only be as long as the frame size. The IR is fed via external audio.
+
+Convolver has two basic ways of operation, triggered and continuous. The triggered option grabs
+the IR exactly at the time frames when the **Grab IR** button is pressed — this should be LFO
+controlled! The IR is then constantly convolved with the input signal, until the button is
+pressed again. In continuous mode the IRs are constantly taken from external audio, so every
+frame ends up with a different IR, which produces pretty chaotic results.
+
+The **Phase** parameter controls what happens with the main and side channel phases. If **Sum**
+is selected, phases are added, representing a "normal" convolution. If **Side** is selected,
+phases are taken from the side channel, enabling a vocoding effect. The third option takes
+phases from the main channel, which is also a vocoding effect, but this time the main channel
+becomes the carrier.
+
+## Ethereal
+
+This is a strange one! It compares the side channel signal with that of the main channel, and it
+replaces the main signal with the side signal if certain conditions are met (main minus side
+greater than or less than a **Threshold**). It can replace magnitudes or phases, or both.
+
+## Vaxateer
+
+Like Ethereal, this is another module that provides conditional replacement of the main signal
+with that of the side channel. It works by calculating the RMS value (Root Mean Square) of the
+target signal — which can be the main or side channel — and then, if the **Swap condition** is
+satisfied, replaces the main signal with the side channel content. There are eight available
+swap conditions, selectable via a combo box.
+
+## Shapeless
+
+An interesting effect that transfers the frequency "shape" from the side channel to the signal
+passing through the main input. A **Shape width** parameter regulates the coarseness of the
+shape estimators.
+
+## Colorifer
+
+This one also transfers the frequency shape from the side channel to the signal arriving through
+the main input. It calculates main divided by side over the selected band width, and then
+applies this "color" to the main channel. There is an option to also replace the phase of the
+main channel with that from the side. This produces some extremely bizarre and inspiring
+effects — for the experimentally minded among you!
+
+## Merger
+
+This effect provides conditional combinations of the main signal with that of the side channel.
+It copies the side channel to the main channel if the selected conditions are met, and depending
+on the **Threshold** setting. The conditions are available in the combo box.
+
+## Blender
+
+Provides linear blending of two channels. In the modules above, some frequencies in the main
+channel were replaced with side channel frequencies; in the Blender, all frequencies are instead
+combined. The **Amount** knob controls how much of each channel is sent to the output. A setting
+of 0 results in only the main channel passing through, 50 means both channels are equally
+considered, and 100 results in only the side channel material being heard.
+
+## Inserter
+
+We're getting pretty esoteric here! This module inserts a band of frequency bins from the side
+channel into the main channel. The **Source** value is the position (given in percentages) from
+where the spectrum is copied. The **Destination** is the target position in the main channel's
+spectrum. The **Size** knob controls how much of the spectrum is copied.
+
+"bw%" refers to bandwidth percentage. For example, if a signal is sampled at 44100 Hz then 50%
+would be half the spectrum, which is half of the highest frequency (22050 Hz) — so 50% would be
+11025 Hz. You can select whether magnitudes, phases or both will be copied.
+
+## Burrito
+
+The Burrito module copies the side channel to the main channel from random locations. The
+**Range period** parameter controls how often it will randomly change positions. The **Target
+range** value defines how many locations are to be replaced, or added if **Sum** is selected in
+the combo box.
