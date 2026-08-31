@@ -1,47 +1,47 @@
 {
-    "build_time": "2026-08-31T13:37:48.968468948",
+    "build_time": "2026-08-31T17:05:44.702944681",
     "data": {},
-    "latest_commit": "43947ce",
+    "latest_commit": "9142783",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
         {
             "author": "Paul Walker",
-            "commit": "43947ce",
-            "date": "2026-08-31T08:45:58-04:00",
-            "message": "Record the three tones a two-octave pitch magnet puts out"
+            "commit": "9142783",
+            "date": "2026-08-31T12:23:21-04:00",
+            "message": "Compare floats by value on every compiler, not by bit pattern on one"
         },
         {
             "author": "Paul Walker",
-            "commit": "132518a",
-            "date": "2026-08-30T21:56:34-04:00",
-            "message": "Snap a synced LFO period to the nearest beat count the meter has"
+            "commit": "f4a7757",
+            "date": "2026-08-31T12:22:16-04:00",
+            "message": "Round with the CRT, which is what these tricks were avoiding in 2009"
         },
         {
             "author": "Paul Walker",
-            "commit": "07be611",
-            "date": "2026-08-30T20:24:25-04:00",
-            "message": "Remember both sides of the preset browser's toggle"
+            "commit": "820320a",
+            "date": "2026-08-31T12:21:20-04:00",
+            "message": "Ask the standard library for the bits instead of shifting for them"
         },
         {
             "author": "Paul Walker",
-            "commit": "10f04e4",
-            "date": "2026-08-30T20:18:31-04:00",
-            "message": "Read a synced period the way a musician writes one"
+            "commit": "7176195",
+            "date": "2026-08-31T12:19:43-04:00",
+            "message": "Stop reading the word in front of a value that is already a power of two"
         },
         {
             "author": "Paul Walker",
-            "commit": "032a34d",
-            "date": "2026-08-30T20:10:16-04:00",
-            "message": "Empty the header when the rack empties"
+            "commit": "a3b2c48",
+            "date": "2026-08-31T12:19:12-04:00",
+            "message": "Delete the math helpers nothing calls"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-31-43947ce.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-31-43947ce.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-08-31-9142783.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-08-31-9142783.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-31-43947ce.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-31-43947ce.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-31-9142783.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-08-31-9142783.zip"
     },
     "version": "main"
 }
