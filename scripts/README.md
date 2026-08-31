@@ -15,8 +15,10 @@ python3 scripts/build-manual-pdf.py              # every manual
 python3 scripts/build-manual-pdf.py spectrumworx # just one
 ```
 
-CI does **not** run this. The PDFs are committed artifacts; regenerate and
-commit them when you change manual content.
+CI does **not** run this — `ubuntu-slim` has neither `pandoc` nor a TeX
+distribution, and installing a TeX would cost minutes per run. The PDFs are
+committed artifacts; regenerate and commit them when you change manual content.
+CI only *checks* that you did — see below.
 
 Manuals are registered in the `MANUALS` table at the top. Pages are ordered by
 their `sidebar.order` frontmatter and joined with a `\newpage`, so the PDF
@@ -41,6 +43,37 @@ Pandoc 3.9 emits `\includegraphics[alt={…}]`, and the `alt` key only arrived i
 `Package keyval Error: alt undefined` and no PDF. Setting an empty `alt`
 attribute suppresses that key while keeping the figure caption. Drop the
 workaround only after confirming the TeX everyone builds with is new enough.
+
+### Staleness: `--check`
+
+```sh
+python3 scripts/build-manual-pdf.py --check
+```
+
+Reports whether each committed PDF predates the manual it was built from, and
+exits non-zero if any does. `--json FILE` writes the same verdict for
+`surge_report.py --stale-manuals` to fold into the daily Discord post, which
+names the manual, both dates, and the command to fix it.
+
+`build.yaml` runs this on every build with `continue-on-error`, so a stale PDF
+shows as a warning in the Actions UI without failing the deploy, and is
+announced on the days the report posts. If the report step itself fails there
+is no Discord post at all, so the notice waits for the next run.
+
+The rubric is **commit dates, not mtimes** — `git log -1 --format=%cI` over the
+manual directory and `src/images/<slug>/` versus the same for the PDF. A fresh
+checkout gives every file the same mtime, so mtimes would say nothing. Two
+consequences:
+
+- **The checkout must not be shallow.** `git log` on a depth-1 clone sees one
+  commit and would call everything stale, so `build.yaml` sets
+  `fetch-depth: 0`. The script detects a shallow clone and skips rather than
+  crying wolf; if you ever see the check silently pass in CI, that is the
+  first thing to look at.
+- **Editing a manual and rebuilding its PDF in the same commit reads as
+  fresh**, which is the intended workflow. A commit that touches a manual
+  without changing rendered output still trips the check — rerun the script,
+  commit the (possibly identical) PDF, and it goes quiet.
 
 ## surge_report.py
 
@@ -95,6 +128,11 @@ plus the link to Discord via the `DISCORD_REPO_REPORTS_WEBHOOK` repository
 secret. Ordinary pushes to `master` deploy without announcing, so the channel
 does not get spammed. If the secret is missing the step logs and exits 0
 rather than failing the run.
+
+The same message carries a warning when a manual PDF has fallen behind its
+manual, built by `stale_manual_notice()` from the JSON that
+`build-manual-pdf.py --check` wrote earlier in the job. Nothing stale means
+nothing added, so the usual message is unchanged.
 
 ### Authentication
 
@@ -187,6 +225,7 @@ Then `pnpm build && pnpm preview` to see it in place.
 | `--site-name` | `surge-synth-team.org` | name in the page breadcrumb |
 | `--summary-json` | — | writes headline counts as JSON |
 | `--discord-payload` | — | writes the webhook body the deploy job posts |
+| `--stale-manuals` | — | JSON from `build-manual-pdf.py --check`; stale PDFs are called out in the message |
 | `--report-url` | — | link used in the Discord message |
 | `--public-only` | off | exclude private repos entirely |
 | `--discord-webhook` | — | post the markdown as an attachment (unused by CI) |

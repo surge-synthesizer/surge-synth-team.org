@@ -1347,6 +1347,37 @@ def render_html(d):
 # ---------------------------------------------------------------------------
 
 
+def stale_manual_notice(path):
+    """Lines naming any manual PDF that predates the manual, and how to fix it.
+
+    Reads what `build-manual-pdf.py --check --json` wrote. Nothing to say is the
+    normal case, so this returns "" and the report message is unchanged.
+    """
+    if not path or not os.path.exists(path):
+        return ""
+    try:
+        with open(path, encoding="utf-8") as fh:
+            results = json.load(fh)
+    except (OSError, ValueError) as exc:
+        print(f"could not read {path}: {exc}", file=sys.stderr)
+        return ""
+
+    stale = [r for r in results if r.get("stale")]
+    if not stale:
+        return ""
+
+    lines = ["", "⚠️ **Manual PDFs are out of date.** "
+                 "They are committed artifacts, not built by CI."]
+    for r in stale:
+        built = r.get("pdf_committed") or "never committed"
+        lines.append(
+            f"• **{r['title']}** — manual last changed "
+            f"{r.get('source_committed')}, PDF last built {built}. "
+            f"Rebuild with `{r['fix']}` and commit `{r['pdf']}`."
+        )
+    return "\n".join(lines)
+
+
 def post_to_discord(webhook, message, attachments):
     """POST a message with file attachments to a Discord webhook (multipart)."""
     boundary = uuid.uuid4().hex
@@ -1434,6 +1465,9 @@ def main(argv=None):
     ap.add_argument("--report-url", default=None,
                     help="public URL of the published report, used in the "
                          "Discord payload")
+    ap.add_argument("--stale-manuals", default=None,
+                    help="JSON written by build-manual-pdf.py --check; any "
+                         "stale manual PDF is called out in the Discord payload")
     ap.add_argument("--public-only", action="store_true",
                     help="exclude private repos from every query")
     ap.add_argument("--open", dest="open_browser", action="store_true",
@@ -1525,7 +1559,8 @@ def main(argv=None):
                 f"{data['open_pr_count']} open PRs and "
                 f"{data['open_issue_total']} open issues.")
         url = args.report_url or f"https://{args.site_name}/reports/{args.slug}/"
-        payload = {"content": f"{line}\n{url}",
+        content = f"{line}\n{url}" + stale_manual_notice(args.stale_manuals)
+        payload = {"content": content,
                    "allowed_mentions": {"parse": []}}
         os.makedirs(os.path.dirname(os.path.abspath(args.discord_payload)) or ".",
                     exist_ok=True)

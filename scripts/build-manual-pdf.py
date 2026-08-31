@@ -2,11 +2,13 @@
 """Convert an MDX manual under src/content/docs to a single PDF via pandoc."""
 
 import argparse
+import json
 import re
 import subprocess
 import sys
 import tempfile
 from dataclasses import dataclass, field
+from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
@@ -25,8 +27,21 @@ class Manual:
         return ROOT / "src/content/docs" / self.slug / "manual"
 
     @property
+    def image_dir(self) -> Path:
+        return ROOT / "src/images" / self.slug
+
+    @property
     def output(self) -> Path:
         return ROOT / "public" / f"{self.slug}-manual.pdf"
+
+    @property
+    def sources(self) -> list[Path]:
+        """Everything whose content ends up inside the PDF."""
+        return [d for d in (self.source_dir, self.image_dir) if d.is_dir()]
+
+    @property
+    def fix_command(self) -> str:
+        return f"python3 scripts/build-manual-pdf.py {self.slug}"
 
 
 MANUALS = {
@@ -145,6 +160,70 @@ def build(manual: Manual) -> None:
     print(f"Done: {manual.output}")
 
 
+def git(*args: str) -> str:
+    result = subprocess.run(
+        ["git", *args], cwd=ROOT, capture_output=True, text=True, check=False
+    )
+    return result.stdout.strip() if result.returncode == 0 else ""
+
+
+def last_commit_date(paths: list[Path]) -> datetime | None:
+    """When any of these paths was last committed, or None if never."""
+    if not paths:
+        return None
+    rel = [str(p.relative_to(ROOT)) for p in paths]
+    stamp = git("log", "-1", "--format=%cI", "--", *rel)
+    return datetime.fromisoformat(stamp) if stamp else None
+
+
+def stamp(when: datetime | None) -> str | None:
+    # minutes, not just the date: two commits a minute apart on the same day
+    # is exactly the confusing case
+    return when.strftime("%Y-%m-%d %H:%M") if when else None
+
+
+def check(manual: Manual) -> dict:
+    """Is the committed PDF older than the manual it was built from?"""
+    pdf = last_commit_date([manual.output])
+    source = last_commit_date(manual.sources)
+    stale = pdf is None or (source is not None and source > pdf)
+    return {
+        "slug": manual.slug,
+        "title": manual.title,
+        "pdf": manual.output.relative_to(ROOT).as_posix(),
+        "pdf_committed": stamp(pdf),
+        "source_committed": stamp(source),
+        "stale": stale,
+        "fix": manual.fix_command,
+    }
+
+
+def run_checks(manuals: list[Manual], out: str | None) -> int:
+    # git log on a shallow clone sees one commit and would call everything
+    # stale; CI must check out with fetch-depth: 0
+    if git("rev-parse", "--is-shallow-repository") == "true":
+        print(
+            "Shallow clone: commit dates are not available, skipping the check.",
+            file=sys.stderr,
+        )
+        if out:
+            Path(out).write_text(json.dumps([]), encoding="utf-8")
+        return 0
+
+    results = [check(m) for m in manuals]
+    for r in results:
+        state = "STALE" if r["stale"] else "ok"
+        print(
+            f"{state:5} {r['slug']}: manual {r['source_committed']}, "
+            f"pdf {r['pdf_committed'] or 'never committed'}"
+        )
+
+    if out:
+        Path(out).write_text(json.dumps(results), encoding="utf-8")
+
+    return 1 if any(r["stale"] for r in results) else 0
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -152,11 +231,26 @@ def main() -> None:
         nargs="?",
         default="all",
         choices=["all", *MANUALS],
-        help="which manual to build (default: all)",
+        help="which manual to act on (default: all)",
+    )
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="report whether each PDF predates its manual instead of building; "
+             "exits 1 if any is stale",
+    )
+    parser.add_argument(
+        "--json",
+        metavar="FILE",
+        help="with --check, write the verdict for surge_report.py to read",
     )
     args = parser.parse_args()
 
-    targets = MANUALS.values() if args.manual == "all" else [MANUALS[args.manual]]
+    targets = list(MANUALS.values()) if args.manual == "all" else [MANUALS[args.manual]]
+
+    if args.check:
+        sys.exit(run_checks(targets, args.json))
+
     for manual in targets:
         build(manual)
 
