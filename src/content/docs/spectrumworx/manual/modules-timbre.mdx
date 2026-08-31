@@ -1,0 +1,63 @@
+---
+title: "Modules: Timbre"
+sidebar:
+  order: 13
+---
+
+## Bandpass
+
+This is a simple bandpass filter with a variable range. An **Attenuation** knob controls how
+much of the signal is filtered. **Start frequency** and **Stop frequency** controls (located in
+the Main window) control the lower and upper range of the bandpass.
+
+## Bandstop
+
+A simple bandstop or "notch" filter. The user controls attenuation and the start and stop
+frequencies that will be suppressed. It's the exact opposite of the Bandpass module.
+
+## Ah-ah
+
+This is sort of like a wah-wah. It filters a region with a variable center frequency. You must
+use an LFO to modulate the **Center frequency** knob for the intended effect. We recommend an
+LFO with a period of 0.5 seconds and a range from 300 to 1300 Hz. **Width** determines the width
+of the moving region, and **Gain** controls how much gain is applied to it.
+
+## Smoother
+
+Smooths the frequency spectrum of the incoming signal, causing it to lose sharpness and detail
+for a blurred image.
+
+## Sharper
+
+The opposite of the above module: this one sharpens the spectrum. The smoothed signal is
+subtracted from the original to arrive at the sharpened signal. The amount of sharpening is
+controlled by the **Sharpness** knob, which represents the length of the averaging filter in Hz.
+The sharpness is increased with the **Intensity** knob and then hard-limited with the **Limit**
+control to make it more stable.
+
+## Centroid
+
+Centroid is an adaptive, self-tuning bandpass filter which follows the center frequency with a
+controllable symmetric band curve (**Border slope**). The module determines the time-variable
+center frequency with different processing modes:
+
+- **Centroid** finds the weighted center frequency.
+- **Peak** finds the highest peak in the spectrum.
+- **Dominant** estimates the dominant pitch.
+
+Frequencies outside the **Bandwidth** region around the centroid frequency are removed; the rest
+inside the band is smoothed with the Border slope from center to borders.
+
+## Tonal
+
+This one lets through only highly tonal frequencies. First the module finds peaks in the
+spectrum, then it estimates the peak strength (how strong the peak is when compared to its
+neighbors), and if the strength is above the value determined by the **Peak strength** knob, and
+if the peak is stronger than that determined by the **Global threshold** or **Local threshold**
+settings, the peak will be passed through. The rest of the signal is attenuated by the
+**Attenuation** control.
+
+## Atonal
+
+Similar to the Tonal module described above, but instead it attenuates the peaks and allows the
+non-peak components to pass through.

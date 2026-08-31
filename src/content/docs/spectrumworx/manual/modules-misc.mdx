@@ -1,0 +1,51 @@
+---
+title: "Modules: Miscellaneous"
+sidebar:
+  order: 20
+---
+
+## Armonizer
+
+A familiar pitch harmonizer like that found on the Eventide Clockworks devices, this module adds
+a pitch-shifted copy of an incoming signal to the original. Use the **Interval** knob to select
+how many semitones to shift the signal. The **Blend amount** knob controls the blending of
+original and shifted signals.
+
+## Slew Limiter
+
+Limits the speed of the change of magnitudes. It's kind of like the familiar slew limiter in the
+time domain (used to create portamento), but here it's in the frequency domain of course! As
+with any slew limiter, you can select the direction of the slew using the combo box, and the
+**Slew rate** itself.
+
+Note: if the signal is silent at the beginning and then abruptly rises, it might take some time
+for the slew to produce a sound — if the slew rate is short, the signal will climb slowly from
+silence to the target frequency.
+
+## Shifter
+
+This module shifts frequency bins along the frequency axis to produce unusual clangorous and
+metallic effects. You can control the **Target** (whether you want to shift only magnitudes,
+only phases, or both), the amount of shift with the **Offset** knob (in %bw, percentage of the
+bandwidth), and use the **Tail** combo box to determine what shall be done with the tail data.
+
+An example from the factory floor: if your input is, say, "ABCDEFGHIJKLMN" and is shifted by
+three places, then **Leave** will produce `ABCABCDEFGHI`, **Clear** will produce `000ABCDEFGHI`
+and **Circular** will produce `JKLABCDEFGHI`.
+
+Note: in some cases Shifter will produce silent output due to sinusoids cancelling out at some
+shift ranges. This happens only when both magnitudes and phases are shifted, and depends very
+much on the engine settings (Overlap and Window type).
+
+## Swappah
+
+Swaps the three frequency bands determined by the band borders. Swap order is determined by the
+**Swap order** combo box selection. For example, "High Low Mid" copies the high to low, mid to
+high, and low to mid.
+
+## Quantizer
+
+This quantizes the spectrum. The range is cut into bands of a given width, and all frequencies
+in any region will have the same amplitude, determined by the first frequency component in that
+band. The **Origami** knob allows frequency components to differ from the first one, but to
+linearly ascend towards the end of the band.

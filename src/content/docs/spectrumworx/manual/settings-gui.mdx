@@ -1,0 +1,60 @@
+---
+title: "Settings: GUI and About"
+sidebar:
+  order: 9
+---
+
+As you've probably guessed, this is where you can tell SpectrumWorx how you'd like its interface
+to behave, and affect aspects of its appearance.
+
+## Mouse over reaction
+
+This determines how SpectrumWorx displays the various parameter settings in the main plug-in
+window when using your mouse in the rack. You have three options here:
+
+- **Never** only displays the information for the currently selected parameter.
+- **Module selected** will cause the information for all knobs of a selected module to appear
+  when you mouse over them.
+- **Always / nothing selected** will display information for any knob and/or module any time the
+  cursor passes over it.
+
+## LFO update behavior
+
+This setting determines how and under what circumstances SpectrumWorx updates its various
+parameter displays if those specific parameters are being modulated by an LFO. Basically, it can
+look as if any LFO-affected knobs are being tweaked all by themselves.
+
+We probably needn't tell you what setting this function to **Never** will do. However, setting
+it to **Always** will result in all LFO-driven knobs being updated all of the time. It can look
+pretty cool, too, though it will use slightly more of your CPU. **Control selected** will display
+the LFO action only for a selected knob, while **Control active** will display the action of any
+control you might have moused over, given the appropriate settings of the Mouse over reaction
+function.
+
+## Load last session on startup
+
+A simple on/off switch that does just what it says on the label. Erm, that is, your last session
+will be loaded up when you instantiate the plug-in. Keep in mind that a session includes all
+settings, including Engine settings. If, for instance, you change the frame length, that change
+will only be remembered if you have this option selected.
+
+As already mentioned in the Input mode section, this need not work as expected in all hosts, as
+certain hosts can and will override your last session settings with the settings they have saved
+in their project files (which incidentally might often be the same settings as the ones saved in
+your last session preset).
+
+## Hide cursor on knob drag
+
+Switch this on if you want the cursor to disappear while you turn a knob. Otherwise, leave it
+off.
+
+## Set window and menu opacity
+
+This slider will determine the opacity of your Settings and Presets windows as well as pop-up
+menus. All the way left makes them fairly transparent, while all the way right makes them
+entirely opaque.
+
+## Settings: About
+
+Find out what version you are running and who is behind the superlative SpectrumWorx by clicking
+the **About** tab.

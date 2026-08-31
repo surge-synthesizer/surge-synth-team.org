@@ -1,0 +1,62 @@
+---
+title: "Modules: Time"
+sidebar:
+  order: 14
+---
+
+## Freeze
+
+A module with an attitude! Freeze is a time freezer: press the **Freeze** button and the
+incoming sound will freeze in its current state, and will stay that way until another **Freeze**
+or until it is sent back to normal state via the **Melt** button. The transition from one frozen
+state to the next, and from frozen to normal state, is controlled with the **Transition time**
+knob — this enables the transition to be smooth and gradual.
+
+## Slicer
+
+![The Slicer module](../../../../images/spectrumworx/slicer-module.png)
+
+This is one of the coolest modules in the collection. It slices the signal into chunks that are
+alternated with one of three different options, defined by the combo box on the module's face:
+
+- **Sample & Hold** fills the gaps with a "frozen" sample of the last frame from the main input
+  before the slice began.
+- **Silence**.
+- **Side channel** or external audio.
+
+The **On time** knob determines the length of the main input slices (normal mode), and the
+**Slice time** knob controls the length of the silence, Sample & Hold or side channel slices.
+Some very cool effects can be obtained by using very small values.
+
+## Wobbler
+
+As you can probably guess, this module creates a sinusoidal-based "wobbling" sound by changing
+the amplitudes of the input frequencies. The **Amplitude** knob defines the intensity of the
+wobbling (or how much the sound seems to go up and down). An **Offset** parameter is provided so
+that you can shift the whole input down before the wobbling stage — it might therefore be
+advisable to start with a negative Offset value that reflects the positive setting of the
+Amplitude setting. The **Period** function defines the rate of wobbling.
+
+## Reverser
+
+This one breaks the input down into chunks and reverses them. For instance, the name
+"SpectrumWorx" might be output as "cepSmurtxroW". There is only one parameter: **Chunk length**.
+You can achieve some supremely alien effects with this one. One warning note: Reverser
+introduces delay. However, that delay can actually be used to create some interest as well.
+
+## Imploder
+
+Imploder freezes incoming high amplitudes and introduces a slow decay towards the selected
+**Limit** level. Additionally, the frequency is gradually altered, controlled by the
+**Glissando** knob; glissandos are given in cents per second. **Decay** governs the time needed
+to decay from the current amplitude value down to the Limit value. Amplitudes lower than the
+**Gate** parameter are left untouched. Amplitudes are decayed until a higher signal is received
+at the input or until the Limit is reached.
+
+## Exploder
+
+Pretty much the same idea found in the Imploder: this one also freezes amplitudes, but instead
+of introducing decay it ramps them up towards the **Limit**. Glissando is applied in the same
+way as it is in the Imploder. Amplitudes are ramped up until a louder signal is received at the
+input or until the Limit is reached. Amplitudes lower than the **Gate** parameter are left
+untouched.

@@ -1,9 +1,46 @@
 # scripts/
 
 Helper scripts run by CI or by hand. Both are plain Python 3, stdlib only
-(`build-ob-xf-manual.py` additionally shells out to `pandoc`).
+(`build-manual-pdf.py` additionally shells out to `pandoc`).
 
 ---
+
+## build-manual-pdf.py
+
+Flattens an MDX manual under `src/content/docs/<slug>/manual/` into one PDF at
+`public/<slug>-manual.pdf`, which the manual's Getting Started page links to.
+
+```sh
+python3 scripts/build-manual-pdf.py              # every manual
+python3 scripts/build-manual-pdf.py spectrumworx # just one
+```
+
+CI does **not** run this. The PDFs are committed artifacts; regenerate and
+commit them when you change manual content.
+
+Manuals are registered in the `MANUALS` table at the top. Pages are ordered by
+their `sidebar.order` frontmatter and joined with a `\newpage`, so the PDF
+follows the same order as the sidebar. A manual's `exclude` lists page stems to
+leave out — `spectrumworx` uses it to drop `to-update-for-3-0`, which is site
+scaffolding rather than manual content.
+
+### Two rewrites happen before pandoc sees the text
+
+Both exist because pandoc reads a temp file, not the page's own directory:
+
+- **Relative image paths become absolute.** A page refers to
+  `../../../../images/spectrumworx/x.png`; that resolves against the source
+  file, not the temp file.
+- **Site-absolute links become `https://surge-synth-team.org/…`.** A PDF has no
+  site root, so `/ob-xf/manual/lfo/` would otherwise be a dead link.
+
+### Gotcha: images carry `{alt=""}`
+
+Pandoc 3.9 emits `\includegraphics[alt={…}]`, and the `alt` key only arrived in
+`graphicx` in 2022 — against the TeX Live currently in use this fails with
+`Package keyval Error: alt undefined` and no PDF. Setting an empty `alt`
+attribute suppresses that key while keeping the figure caption. Drop the
+workaround only after confirming the TeX everyone builds with is new enough.
 
 ## surge_report.py
 

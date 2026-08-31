@@ -1,0 +1,42 @@
+---
+title: Installing SpectrumWorx
+sidebar:
+  order: 3
+---
+
+Installing SpectrumWorx is as easy as downloading the build from the
+[product page](/spectrumworx/) and running the installer, which will guide you through the
+process.
+
+## Windows
+
+The installer offers the CLAP and VST3 formats and the standalone application.
+
+## macOS
+
+The installer offers the CLAP, VST3 and AU (v2) formats and the standalone application.
+
+## Linux
+
+A Debian package offers the CLAP and VST3 formats and the standalone application. The
+individual components are also available packaged in a ZIP file.
+
+## Building from source
+
+Steps for building SpectrumWorx yourself are in the README of the
+[GitHub repository](https://github.com/surge-synthesizer/SpectrumWorx).
+
+## How to use SpectrumWorx
+
+SpectrumWorx is an effect. It doesn't make any sound on its own (unless you are using a module
+that loads and plays a sample), and it should be opened as an effect in your signal path.
+Different hosts provide different methods for using effects, and you'll have to consult your
+host's manual to figure out how this is done. A standalone application is also provided if you
+want to run SpectrumWorx without a host.
+
+SpectrumWorx can be applied to virtual instruments, recorded audio or even a live audio input.
+Some latency is inevitable, but many hosts will compensate for any delay introduced into the
+signal (again, you'll need to consult your manual to find out whether this is automatic or if
+you have to do it manually). The amount of delay depends primarily on the SpectrumWorx engine
+setup, while certain modules that are inherently delay-based (like the Reverser) can add to the
+amount of perceived audio delay.
