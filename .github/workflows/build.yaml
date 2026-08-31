@@ -29,6 +29,9 @@ jobs:
       discord_payload: ${{ steps.report.outputs.discord_payload }}
     steps:
       - uses: actions/checkout@v6
+        with:
+          # the manual PDF check compares commit dates; a shallow clone has none
+          fetch-depth: 0
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6
         with:
@@ -40,6 +43,15 @@ jobs:
       - run: pnpm install
       - id: pages
         uses: actions/configure-pages@v5
+      # The PDFs are committed artifacts: the runner has neither pandoc nor a
+      # TeX, so CI can only notice that one has fallen behind its manual, not
+      # rebuild it. Exits non-zero when stale, which shows here as a warning;
+      # the report step folds the same verdict into the Discord post.
+      - name: Check the manual PDFs against their manuals
+        continue-on-error: true
+        run: |
+          python3 scripts/build-manual-pdf.py --check \
+            --json "$RUNNER_TEMP/stale-manuals.json"
       # Regenerates public/reports/* in the working tree before the build, so
       # the deployed report is current and nothing is committed by CI. On
       # failure the build still ships the last committed copy, which carries
@@ -57,6 +69,7 @@ jobs:
             --out "$RUNNER_TEMP/report" \
             --summary-json "$RUNNER_TEMP/summary.json" \
             --discord-payload "$RUNNER_TEMP/discord.json" \
+            --stale-manuals "$RUNNER_TEMP/stale-manuals.json" \
             --report-url "https://surge-synth-team.org/reports/surge-repo-activity/"
           # The payload is a single line of JSON, so it survives a job output
           # verbatim and the deploy job can curl it without rebuilding it.
