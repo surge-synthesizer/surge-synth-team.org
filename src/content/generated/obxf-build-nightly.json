@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-09-01T22:21:40.7153007",
+    "build_time": "2026-09-02T12:14:26.91026688",
     "data": {},
-    "latest_commit": "41bd6b8",
+    "latest_commit": "db086c9",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "db086c9",
+            "date": "2026-09-02T13:59:12+02:00",
+            "message": "Revert hiding host menus in FL (#712)"
+        },
         {
             "author": "Paul",
             "commit": "41bd6b8",
@@ -28,20 +34,14 @@
             "commit": "6fc32ed",
             "date": "2026-08-12T15:49:38+02:00",
             "message": "Update Vintage Wood skin (#702)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "720315b",
-            "date": "2026-07-17T13:54:53+02:00",
-            "message": "Make Randomize undoable (#701)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-09-01-41bd6b8.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-09-01-41bd6b8.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-09-02-db086c9.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-09-02-db086c9.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-09-01-41bd6b8.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-09-01-41bd6b8.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-09-02-db086c9.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-09-02-db086c9.zip"
     },
     "version": "main"
 }
