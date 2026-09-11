@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-09-10T22:58:50.983130962",
+    "build_time": "2026-09-11T01:37:07.152627138",
     "data": {},
-    "latest_commit": "500f51f",
+    "latest_commit": "bf85b32",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "bf85b32",
+            "date": "2026-09-10T18:56:05-04:00",
+            "message": "Lay the input buffers out the same way on every compiler"
+        },
         {
             "author": "Paul Walker",
             "commit": "500f51f",
@@ -28,20 +34,14 @@
             "commit": "644253f",
             "date": "2026-09-08T18:16:03-04:00",
             "message": "Stop asserting that a host never moves its playhead backwards"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "df8665c",
-            "date": "2026-09-10T07:33:31-04:00",
-            "message": "Let a host ask for a mono port layout"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-09-10-500f51f.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-09-10-500f51f.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-09-10-bf85b32.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-09-10-bf85b32.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-10-500f51f.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-10-500f51f.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-10-bf85b32.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-10-bf85b32.zip"
     },
     "version": "main"
 }
