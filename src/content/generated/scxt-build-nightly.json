@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-09-08T22:44:18.792458772",
+    "build_time": "2026-09-11T02:57:08.99042897",
     "data": {},
-    "latest_commit": "b3c5e8a",
+    "latest_commit": "1af5617",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "1af5617",
+            "date": "2026-09-10T22:32:52-04:00",
+            "message": "Add bipolar and three state alternate modulators (#2650)"
+        },
         {
             "author": "Paul Walker",
             "commit": "b3c5e8a",
@@ -28,20 +34,14 @@
             "commit": "6e08305",
             "date": "2026-09-08T11:25:03-04:00",
             "message": "Fix a min/max which caused a paint FPE in LFO Step painter (#2645)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "9b468bf",
-            "date": "2026-09-01T02:38:26+02:00",
-            "message": "Some nomenclature tweaks (#2641)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-08-b3c5e8a-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-08-b3c5e8a.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-11-1af5617-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-11-1af5617.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-08-b3c5e8a-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-08-b3c5e8a-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-11-1af5617-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-11-1af5617-Windows-64bit.zip"
     },
     "version": "main"
 }
