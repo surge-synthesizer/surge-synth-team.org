@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-09-11T01:37:07.152627138",
+    "build_time": "2026-09-12T13:35:57.398157377",
     "data": {},
-    "latest_commit": "bf85b32",
+    "latest_commit": "b078b21",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "b078b21",
+            "date": "2026-09-12T08:33:08-04:00",
+            "message": "Check that Mix 0 survives a latency change on a live instance"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "11efa2d",
+            "date": "2026-09-12T08:32:55-04:00",
+            "message": "Check that Mix 0 hands back the input unchanged"
+        },
         {
             "author": "Paul Walker",
             "commit": "bf85b32",
@@ -22,26 +34,14 @@
             "commit": "6c5d487",
             "date": "2026-09-08T17:21:04-04:00",
             "message": "Answer to both an aumf and the aufx 3.0 shipped as"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "54ef74e",
-            "date": "2026-09-08T17:20:16-04:00",
-            "message": "Take notes and controllers in, and record what arrives"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "644253f",
-            "date": "2026-09-08T18:16:03-04:00",
-            "message": "Stop asserting that a host never moves its playhead backwards"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-09-10-bf85b32.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-09-10-bf85b32.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-09-12-b078b21.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-09-12-b078b21.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-10-bf85b32.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-10-bf85b32.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-12-b078b21.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-12-b078b21.zip"
     },
     "version": "main"
 }
