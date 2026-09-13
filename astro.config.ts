@@ -9,6 +9,7 @@ export default defineConfig({
     redirects: {
         "/ob-xf/manual/": "/ob-xf/manual/getting-started/",
         "/spectrumworx/manual/": "/spectrumworx/manual/getting-started/",
+        "/shortcircuit-xt/manual/": "/shortcircuit-xt/manual/getting-started/",
     },
     integrations: [
         starlight({
@@ -79,6 +80,110 @@ export default defineConfig({
                             ],
                         },
                         { label: "Credits", slug: "spectrumworx/manual/credits" },
+                    ],
+                },
+                {
+                    label: "Shortcircuit XT Manual",
+                    items: [
+                        {
+                            label: "Getting Started",
+                            items: [
+                                {
+                                    label: "What is Shortcircuit XT?",
+                                    slug: "shortcircuit-xt/manual/getting-started",
+                                },
+                                { label: "Installing", slug: "shortcircuit-xt/manual/installing" },
+                            ],
+                        },
+                        {
+                            label: "Instrument Structure",
+                            items: [
+                                {
+                                    label: "Parts, Groups and Zones",
+                                    slug: "shortcircuit-xt/manual/structure-parts-groups-zones",
+                                },
+                                {
+                                    label: "Mixer and Mix Buses",
+                                    slug: "shortcircuit-xt/manual/structure-mixer-buses",
+                                },
+                                {
+                                    label: "Routing",
+                                    slug: "shortcircuit-xt/manual/structure-routing",
+                                },
+                            ],
+                        },
+                        {
+                            label: "Navigating the UI",
+                            items: [
+                                {
+                                    label: "Zone, Group and Part Editor",
+                                    slug: "shortcircuit-xt/manual/ui-editor",
+                                },
+                                {
+                                    label: "Mixer Screen",
+                                    slug: "shortcircuit-xt/manual/ui-mixer-screen",
+                                },
+                                { label: "Play Mode", slug: "shortcircuit-xt/manual/ui-play-mode" },
+                                { label: "The Browser", slug: "shortcircuit-xt/manual/ui-browser" },
+                            ],
+                        },
+                        {
+                            label: "Inside a Zone",
+                            items: [
+                                {
+                                    label: "The Sample, The Variants, and Empty Zones",
+                                    slug: "shortcircuit-xt/manual/zone-sample",
+                                },
+                                { label: "The Range", slug: "shortcircuit-xt/manual/zone-range" },
+                                {
+                                    label: "Processors",
+                                    slug: "shortcircuit-xt/manual/zone-processors",
+                                },
+                                {
+                                    label: "Modulation",
+                                    slug: "shortcircuit-xt/manual/zone-modulation",
+                                },
+                            ],
+                        },
+                        {
+                            label: "Inside a Group",
+                            items: [
+                                {
+                                    label: "Monophonic vs Polyphonic",
+                                    slug: "shortcircuit-xt/manual/group-mono-poly",
+                                },
+                                {
+                                    label: "Voice Management",
+                                    slug: "shortcircuit-xt/manual/group-voice-management",
+                                },
+                            ],
+                        },
+                        {
+                            label: "Using Parts for Multitimbral Playback",
+                            items: [
+                                {
+                                    label: "Multitimbral Playback",
+                                    slug: "shortcircuit-xt/manual/parts-multitimbral",
+                                },
+                                { label: "FX", slug: "shortcircuit-xt/manual/parts-fx" },
+                            ],
+                        },
+                        { label: "Using the Mixer", slug: "shortcircuit-xt/manual/mixer" },
+                        { label: "Importing Formats", slug: "shortcircuit-xt/manual/importing" },
+                        {
+                            label: "Other Features",
+                            items: [
+                                { label: "MPE", slug: "shortcircuit-xt/manual/mpe" },
+                                {
+                                    label: "Microtuning",
+                                    slug: "shortcircuit-xt/manual/microtuning",
+                                },
+                            ],
+                        },
+                        {
+                            label: "License, Source and Credits",
+                            slug: "shortcircuit-xt/manual/credits",
+                        },
                     ],
                 },
             ],

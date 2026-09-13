@@ -1,0 +1,54 @@
+---
+title: The Range
+sidebar:
+  order: 11
+---
+
+A zone's range is edited in the **MAPPING** tab of the pane at the top of the edit screen. The
+**SAMPLE** tab is covered in
+[The Sample, The Variants, and Empty Zones](/shortcircuit-xt/manual/zone-sample/).
+
+## Mapping controls
+
+The **MAPPING** tab edits the lead zone:
+
+- **Root Key**: the key at which the sample plays at its recorded pitch.
+- **Key Range**: the lowest and highest keys the zone plays.
+- **Key XFade**: fade-in and fade-out widths, inside the key range.
+- **Vel Range** and **Vel XFade**: the same, for velocity.
+- **Pitch Bend**: bend range down and up, in keys. **GRP** uses the group's range.
+- **Pitch**: tuning offset in semitones.
+- **Amplitude**: level offset, -36 to +36 dB.
+- **Keytrack**: how far pitch follows the keyboard, from -2x to 2x.
+- **Pan**
+
+Changes to the key and velocity ranges move all selected zones together. Hold Alt to change only
+the lead zone.
+
+## The zone map
+
+The map shows keys across and velocity up, with each zone as a rectangle.
+
+- Drag a zone to move its keys and velocity. The root key moves with it.
+- Drag an edge to resize the key or velocity range, or a corner for both.
+- Click where zones overlap to cycle through them.
+- Drag on empty space to select several zones.
+- Cmd/Ctrl-drag on empty space to draw a new empty zone.
+- Double-click the lead zone to open the **SAMPLE** tab.
+- The lock button stops drags from moving zones.
+
+Click the keyboard below the map to play a note; the height of the click sets velocity. Drag
+from the root key to move it.
+
+## Dropping samples
+
+Drop audio files on the map to create zones. The drop position sets the root key, and dropping
+higher makes a wider key range.
+
+- Several files are placed side by side.
+- Hold **Shift** to stack them as velocity layers over one key range.
+- Hold **Alt** to make one zone with the files as
+  [variants](/shortcircuit-xt/manual/zone-sample/#the-variants).
+
+Samples dropped on the map use their loop points but not any mapping stored in the file. Drop
+them on the group and zone tree instead to use the file's root key and ranges.

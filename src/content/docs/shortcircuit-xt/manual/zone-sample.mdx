@@ -1,0 +1,64 @@
+---
+title: The Sample, The Variants, and Empty Zones
+sidebar:
+  order: 10
+---
+
+A zone plays one sample, a choice of samples called variants, or no sample at all.
+
+## The sample
+
+The **SAMPLE** tab of the mapping pane edits the lead zone's sample. Double-click the lead zone
+on the map to open it.
+
+Each sample has:
+
+- **Start** and **End**
+- A loop mode: **Loop**, **Loop Alternate**, **Loop Until Release**, **Loop Alternate Until
+  Release** or **Loop For Count**
+- **∞** to turn looping on, loop **Start** and **End**, and **XF** crossfade length
+- Reverse
+- **SRC**: interpolation, **Sinc**, **Linear**, **Zero-Order Hold (Anti-Aliased)** or **Zero Order
+  Hold**
+- Volume, pan and tuning
+
+Drag the handles on the waveform to set start and end, at the bottom, and loop points, at the top.
+
+Click the sample name beside **File** to load a different file into the current variant. The
+arrows beside it step to the previous or next sample in the same folder.
+
+## The variants
+
+A zone holds up to 16 variants, shown as numbered tabs. Drop a sample on **+** to add one, or on a
+tab to replace it. To make a zone from several files at once, hold Alt while dropping them on the
+map.
+
+**Variants** chooses which variant plays for each note:
+
+- **Round Robin**: each in turn.
+- **Shuffle**: each once, in random order, before repeating.
+- **Random**
+- **Random (no repeats)**: never the same variant twice in a row.
+- **Unison**: all of them at once.
+
+Each variant has its own copy of the sample controls above. **EDIT ALL** applies edits to every
+variant, except start, end, loop points, crossfade and normalization, which stay per variant.
+
+Right-click a variant tab to delete or normalize it.
+
+## Empty zones
+
+An empty zone has a range but no sample. Create one by:
+
+- right-clicking a group in the tree and choosing **Create Empty Zone**, which maps keys 48 to 72
+- right-clicking empty space on the map and choosing **Create Empty Zone**, which fills the gap
+  around the click
+- Cmd/Ctrl-dragging on empty space on the map
+
+An empty zone still plays a voice for each note, running its envelopes, modulators and
+processors. With a processor from the **Generators** category, such as Virtual Analog or Sine +,
+an empty zone is a synthesizer voice.
+
+The voice lasts as long as the amp envelope. An empty zone with no processors makes no sound.
+
+Drop a sample on an empty zone's **SAMPLE** tab to give it one.

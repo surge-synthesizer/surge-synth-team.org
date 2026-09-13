@@ -1,0 +1,39 @@
+---
+title: Parts, Groups and Zones
+sidebar:
+  order: 3
+---
+
+A Shortcircuit XT instrument, called a **multi**, is a three level hierarchy.
+
+## Parts
+
+A multi has 16 parts. Each part is an instrument in its own right, with its own MIDI channel,
+level, pan, tuning, 16 macros and four FX slots. Parts are how Shortcircuit XT plays several
+instruments at once. See [Multitimbral Playback](/shortcircuit-xt/manual/parts-multitimbral/).
+
+A part can be saved and loaded on its own, as a `.scp` file. A whole multi is a `.scm` file.
+
+## Groups
+
+A part holds any number of groups. A group collects zones and adds what is shared by all of them:
+
+- play mode (poly, mono or legato) and polyphony
+- trigger conditions, such as keyswitches and round robins
+- four processors, run on the mixed output of the group's voices
+- group LFOs, envelopes and a modulation matrix
+- an output, normally to its part
+
+## Zones
+
+A group holds any number of zones. A zone maps a sample, or no sample at all, to the keyboard:
+
+- a key range, root key and velocity range
+- up to 16 sample variants, for round robins inside one zone, or none for an
+  [empty zone](/shortcircuit-xt/manual/zone-sample/#empty-zones)
+- four processors, run separately for every voice
+- an amp envelope, four more envelopes, four LFOs and a modulation matrix
+- an output, normally to its group
+
+When a note arrives, every zone in every group whose range and trigger conditions match plays a
+voice. A single note can play many zones at once.

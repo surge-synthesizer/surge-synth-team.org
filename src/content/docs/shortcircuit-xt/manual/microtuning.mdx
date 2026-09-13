@@ -1,0 +1,38 @@
+---
+title: Microtuning
+sidebar:
+  order: 21
+---
+
+Tuning is a single setting for the whole instance. Open the tuning menu from the **Tune** button in
+the header, or from **Tuning** in the main menu.
+
+## Tuning modes
+
+- **Twelve-Tone Equal Temperament**
+- **MTS-ESP Continuous**: follows an MTS-ESP master, retuning notes while they sound. This is the
+  default. With no master connected, Shortcircuit XT plays in 12-TET.
+- **MTS-ESP Note-On Only**: follows an MTS-ESP master, fixing each note's pitch when it starts.
+- **SCL/KBM Scale**: uses a Scala scale and keyboard mapping. Available once a scale is loaded.
+
+## Scala files
+
+The **SCL/KBM** submenu offers **Load SCL...**, **Load KBM...**, **Edit SCL/KBM...** and **Reset
+to No SCL/KBM**.
+
+Loading a file applies it and switches to SCL/KBM mode. A KBM loaded without an SCL maps a 12-TET
+scale. If a file fails to parse, the current tuning is kept.
+
+**Edit SCL/KBM...** opens a text editor with **SCL** and **KBM** tabs. **Load...** fills the text
+box and **Apply** retunes the instrument.
+
+The loaded scale is saved with your DAW session, not in multi files.
+
+## Tuning and zones
+
+Shortcircuit XT retunes the incoming note first, then uses the nearest 12-TET key to that tuned
+pitch to choose zones. Each sample then plays from its root key at the tuned pitch.
+
+Keyswitches and other trigger conditions use the untuned MIDI key.
+
+Part, group and zone tuning offsets are in 12-TET semitones.

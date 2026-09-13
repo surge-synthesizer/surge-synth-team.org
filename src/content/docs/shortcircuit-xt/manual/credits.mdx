@@ -1,0 +1,50 @@
+---
+title: License, Source and Credits
+sidebar:
+  order: 22
+---
+
+## License
+
+The Shortcircuit XT source, outside its `libs/` folder, is licensed under the MIT license. Some of
+the libraries it uses are GPL3 or AGPL3 licensed, so released Shortcircuit XT binaries are
+distributed under the AGPL v3 or later.
+
+## Source
+
+The source is on GitHub at
+[surge-synthesizer/shortcircuit-xt](https://github.com/surge-synthesizer/shortcircuit-xt). The
+README there explains how to build it. Report bugs on the
+[issue tracker](https://github.com/surge-synthesizer/shortcircuit-xt/issues).
+
+## Open source libraries
+
+Shortcircuit XT is built on these open source projects. The About screen lists them too.
+
+| Project | Used for |
+| --- | --- |
+| [CLAP](https://github.com/free-audio/) | The CLAP plugin standard, with clap-helpers and clap-wrapper |
+| [JUCE](https://github.com/juce-framework/JUCE) | The user interface, used under GPL3 |
+| [VST3 SDK](https://github.com/steinbergmedia/vst3sdk) | VST3 support, used under GPL3 |
+| [Audio Unit SDK](https://github.com/apple/AudioUnitSDK) | Audio Unit support |
+| [Surge Synth Team libraries](https://github.com/surge-synthesizer/) | Much of the DSP and UI, from the `sst-` libraries and tuning-library |
+| [MTS-ESP](https://github.com/oddsound/MTS-ESP/) | Microtuning |
+| [Mutable Instruments eurorack](https://github.com/pichenettes/eurorack) | The Nimbus effect |
+| [superparasites](https://github.com/patrickdowling/superparasites) | The Nimbus effect's expanded firmware |
+| [libgig](https://github.com/drbye78/libgig) | SF2, GIG and RIFF file support |
+| [Xiph](https://github.com/xiph) | FLAC, Ogg and Opus support |
+| [minimp3](https://github.com/lieff/minimp3) | MP3 support |
+| [SQLite](https://github.com/sqlite/sqlite) | The browser database |
+| [taocpp json](https://github.com/taocpp/json) | JSON streaming |
+| [SIMDE](https://github.com/simd-everywhere/simde) | SIMD on ARM and other instruction sets |
+| [fmt](https://github.com/fmtlib/fmt) | String formatting |
+| [md5sum](https://github.com/dnomd343/md5sum) | MD5 checksums |
+| [miniz](https://github.com/richgel999/miniz) | Zip archives |
+| [gulrak filesystem](https://github.com/gulrak/filesystem) | Filesystem support on older systems |
+| [natsort](http://sourcefrog.net/projects/natsort/) | Natural sorting of names |
+| [RtAudio and RtMidi](https://github.com/thestk) | Audio and MIDI in the standalone application |
+| [Melatonin Inspector](https://github.com/sudara/melatonin_inspector) | A developer UI tool |
+
+The Surge Synth Team libraries include code from the VCV Rack MixMaster project, the Bog
+compressor, and a Hilbert filter shared by Sean Costello. The SVF filter is based on
+[a paper by Cytomic](https://cytomic.com/files/dsp/SvfLinearTrapOptimised2.pdf).

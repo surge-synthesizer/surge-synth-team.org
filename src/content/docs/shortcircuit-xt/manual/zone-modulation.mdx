@@ -1,0 +1,70 @@
+---
+title: Modulation
+sidebar:
+  order: 13
+---
+
+Each zone has its own modulators and an 18 row modulation matrix. Every voice runs its own copy.
+Groups have a similar set, running once for the group.
+
+| | Zone | Group |
+| --- | --- | --- |
+| Envelopes | AMP EG plus EG2 to EG5 | GRP EG1, GRP EG2 |
+| LFOs | LFO 1 to 4 | GLFO 1 to 4 |
+| Phasors | A to D | A to D |
+| Randoms | A to D | A to D |
+| Envelope followers | 2 | 2 |
+| Matrix rows | 18 | 18 |
+
+## Envelopes
+
+The **AMP EG** controls the zone's volume. The other envelopes do nothing until routed in the
+matrix.
+
+Each envelope has delay, attack, hold, decay, sustain and release, with shape controls for attack,
+decay and release. The menu sets how the envelope follows the note:
+
+- **Gated (DAHDSR)**: holds at sustain until the key is released.
+- **No Sustain**
+- **Oneshot**
+- **Sample Gated** (zones only)
+- **Gate on Voice Sounding** (groups only): gated while any voice in the group sounds.
+
+## LFOs
+
+Choose a shape from the LFO menu:
+
+- **Sine**, **Triangle**, **Saw**, **Pulse**, **Smooth Noise**, **S&H Noise**, with rate, phase,
+  deform and angle, plus delay, attack and release.
+- **Step Sequencer**: 1 to 32 steps. Drag to draw.
+- **Envelope**: a DAHDSR envelope with a rate multiplier and loop.
+
+The trigger mode sets when the LFO restarts: **KEYTRIG**, **SONGPOS**, **RANDOM**, **RELEASE** or
+**ONESHOT**.
+
+## MISC and AUDIO
+
+The **MISC** tab holds the phasors and randoms.
+
+- **Phasors** ramp in time with the song or the voice, at a note division or a ratio of the tempo.
+- **Randoms** pick a new value when the voice or group starts, from a choice of distributions.
+
+The **AUDIO** tab holds two envelope followers, taken before or after the processors.
+
+## The modulation matrix
+
+Each row connects a **SOURCE** to a **TARGET** with a depth. A **VIA** source scales the row, and a
+curve can reshape the source.
+
+Zone sources include the LFOs and envelopes, the group's LFOs and envelopes, MIDI (mod wheel,
+velocity, aftertouch, pitch bend), MIDI CCs, key tracking, MPE, note expressions, voice state,
+phasors, randoms, envelope followers and the part's macros.
+
+Zone targets include envelope and LFO parameters, zone tune, pan and amplitude, sample start,
+every processor parameter, and the depth of other matrix rows.
+
+## Macros
+
+Each part has 16 macros, edited in the **MACROS** tab of the mapping pane. A macro can be
+**Unipolar**, **Bipolar** or a **Toggle**, and can be renamed. Macros are available as modulation
+sources in every zone and group of the part, and appear to your DAW as plugin parameters.
