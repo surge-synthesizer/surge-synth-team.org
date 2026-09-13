@@ -1,0 +1,45 @@
+---
+title: MPE
+sidebar:
+  order: 20
+---
+
+## Enabling MPE
+
+How Shortcircuit XT uses MIDI channels is a single setting for the whole instance. Click the
+channel mode button in the header, which reads **OMNI**, **MPE** or **Ch/Oct**, and choose
+**MPE**.
+
+In MPE mode every part responds to every channel, and the MIDI channel button on each part is
+disabled. MIDI channel 1 is the global channel.
+
+The channel mode is saved with your DAW session, not in multi files. Choose **Use MPE as default
+for new instances** from the same menu to make it the default.
+
+## MPE settings
+
+The **MPE Settings** submenu of the channel mode menu applies to all parts:
+
+- **Bend range**: 12, 24, 48 or 96 semitones. The default is 24.
+- **MPE Pitch Smoothing**: Off, 10ms, 25ms, 50ms or 100ms.
+
+## What MPE controls
+
+- **Pitch bend** on a member channel bends that note only.
+- **Pitch bend** on the global channel reaches the normal **Pitch Bend** source for all parts.
+- **Channel pressure** on a member channel becomes the per-note **Pressure** source.
+- **CC74** on a member channel becomes the per-note **Timbre** source.
+- **Channel pressure** on the global channel becomes **Channel AT**.
+
+**Voice Pitch Bend**, **Pressure** and **Timbre** appear in the **MPE** category of the zone
+modulation matrix. Per-note pitch bend always changes pitch; pressure and timbre do nothing until
+you route them.
+
+## CLAP note expressions
+
+In CLAP hosts, note expressions are available in the **Note Expressions** category of the zone
+modulation matrix: Volume, Pan, Tuning, Vibrato, Expression, Brightness and Pressure.
+
+Volume, Pan and Tuning act on the note directly. The others only act through the matrix.
+
+Polyphonic aftertouch is available as the **Poly AT** source.

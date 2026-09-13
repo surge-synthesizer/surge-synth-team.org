@@ -1,0 +1,35 @@
+---
+title: Voice Management
+sidebar:
+  order: 15
+---
+
+## Voice limits
+
+Voices are limited at three levels:
+
+- **Engine**: 512 voices in total.
+- **Part**: the voice limit button on the part card, from 4 to 512.
+- **Group**: the **Polyphony** button in **GROUP SETTINGS**, available in Poly mode. **PART**
+  means the group has no limit of its own; otherwise choose 1 to 64 voices.
+
+When a limit is reached, the oldest voice is stolen. Released voices are stolen before held ones.
+
+## Exclusive groups
+
+**Exclusive Group** in **GROUP SETTINGS** puts groups in a choke group. When a group starts a
+voice, voices in other groups with the same exclusive group number are quickly faded out. Choose
+**New Group** to create a new number.
+
+## Group settings
+
+The rest of the **GROUP SETTINGS** card applies to all selected groups:
+
+- **Volume** and **Pan**
+- **Tuning**: -24 to +24 semitones.
+- **PB**: pitch bend range down and up, 0 to 48 keys. Zones use this unless they set their own.
+
+The group **ROUTING** pane also has:
+
+- **Vel**: velocity sensitivity for the group.
+- **2xOS**: runs the group and its zones oversampled. On by default.

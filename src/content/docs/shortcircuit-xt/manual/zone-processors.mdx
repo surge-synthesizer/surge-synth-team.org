@@ -1,0 +1,56 @@
+---
+title: Processors
+sidebar:
+  order: 12
+---
+
+A zone has four processor slots, **PROCESSOR 1** to **PROCESSOR 4**, below the mapping pane. Zone
+processors run separately for every voice, so a filter in a zone filters each note on its own.
+
+Groups have the same four slots. Group processors run once, on the summed voices of the group.
+
+## Choosing a processor
+
+Click a slot's name to choose a processor. Processors are grouped by category:
+
+| Category | Processors |
+| --- | --- |
+| Audio Rate Mod | FM Filter, Freqshift Mod, Noise AM, Phase Mod, Ring Mod |
+| Delay | Dual Delay\*, Microgate, Simple Delay |
+| Distortion | Bitcrusher, Slewer, Treemonster, WaveShaper |
+| Dynamics | Auto Wah, Compressor |
+| EQ | 3 Band Parametric, 6 Band Graphic, Tilt EQ |
+| Filters | Cutoff Warp, Fast SVF, K35, Linear Ladder, Morph, OB-Xd 4-Pole, OB-Xd Xpander, Resonance Warp, Sample & Hold, Static Phaser, Tripole, Utility Filter, Vember Classic, Vintage Ladder |
+| Generators | 3op Phase Mod, Correlated Noise, Sine +, Tilt Noise, Virtual Analog |
+| Modulation | Chorus, Circle Flanger, Phaser, Shepard Phaser, Tremolo |
+| Resonators | Comb, String Resonator, Tetrad Resonator |
+| Reverb | Reverb 1\*, Reverb 2\* |
+| Utility | Gain Matrix, Stereo Tool, Volume & Pan, Widener |
+
+\* Groups only.
+
+## Slot controls
+
+- **Power button**: turns the processor on or off.
+- **Mix**: blends the processed and unprocessed signal.
+- **Keytrack** and **Temposync** buttons appear on processors that support them.
+- The menu has **Copy**, **Paste**, and processor presets.
+
+Drag a slot onto another to swap them. Hold Cmd/Ctrl to copy instead.
+
+## Processor routing
+
+The **ROUTING** pane sets how the four slots connect:
+
+| Button | Routing |
+| --- | --- |
+| S1 | 1 > 2 > 3 > 4 |
+| S2 | 1 and 2 in parallel, then 3 and 4 in parallel |
+| S3 | 1, then 2 and 3 in parallel, then 4 |
+| P1 | all four in parallel |
+| P2 | 1 > 2 in parallel with 3 > 4 |
+| P3 | 1, 2 and 3 in parallel, then 4 |
+| BYP | bypass all processors |
+
+Parallel branches are averaged. The numbered boxes in the ROUTING pane set each processor's
+output level; double-click a box's label to bypass that slot.

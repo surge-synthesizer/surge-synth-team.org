@@ -1,0 +1,70 @@
+---
+title: Zone, Group and Part Editor
+sidebar:
+  order: 6
+---
+
+## The header
+
+The header runs across the top of every screen. It holds:
+
+- **EDIT**, **MIX** and **PLAY** to switch screens.
+- **Undo** and **Redo**
+- The save button and the **Multi and Instrument IO** menu. See
+  [Saving and loading](#saving-and-loading).
+- **Tune** opens the [tuning](/shortcircuit-xt/manual/microtuning/) menu.
+- **OMNI**, **MPE** or **Ch/Oct** sets the [MIDI channel mode](/shortcircuit-xt/manual/parts-multitimbral/).
+- **!** stops all sound. Right-click for **All Sounds Off** and **All Notes Off**.
+- **CPU** and **RAM** readouts, and the main output meter.
+- The Shortcircuit logo opens the main menu, with zoom, themes, the log and the About screen.
+
+## Layout
+
+The **EDIT** screen has the parts, groups and zones sidebar on the left and the
+[browser](/shortcircuit-xt/manual/ui-browser/) on the right. The centre shows whatever is selected.
+
+The sidebar's **PARTS**, **GROUPS** and **ZONES** tabs choose what the centre edits.
+
+- **ZONES** and **GROUPS** show the mapping pane at the top, four processors, the modulation
+  matrix and routing, two envelopes, and the LFOs. In **GROUPS** these panes edit the group, and
+  the sidebar adds the group's trigger conditions and settings.
+- **PARTS** shows the part's macros and its four [FX](/shortcircuit-xt/manual/parts-fx/).
+
+Cmd/Ctrl+1, 2 and 3 select zones, groups and parts. Alt+G swaps between groups and zones.
+
+## Selection
+
+Group and zone selections are separate, and both are kept when you switch tabs. The panes always
+show the **lead** selection; an edit applies to everything selected.
+
+In the **ZONES** tab:
+
+- Click a zone to select it.
+- Shift-click to select a run of zones; Cmd/Ctrl-click to add or remove one.
+- Click a group to select all its zones.
+
+In the **GROUPS** tab, click a group to select it; Shift or Cmd/Ctrl-click adds to the selection.
+
+## The group and zone tree
+
+- The **Part** menu at the top of the tree chooses which part to edit.
+- **+** at the bottom adds a group. Drop zones on it to move them to a new group.
+- Drag rows to reorder zones and groups, or to move zones between groups.
+- **M** on a group row mutes the group.
+- Right-click a group or zone for rename, copy, paste, duplicate, delete and move.
+
+## Saving and loading
+
+A whole instrument is a **multi** (`.scm`); a single part is a `.scp` file. The save menu offers
+each in three forms:
+
+- **Only**: refers to samples where they are on disk.
+- **with Collected Samples**: copies the samples to a folder beside the file.
+- **as Monolith**: stores the samples inside the file.
+
+The same menu can export a part as SFZ, which keeps only a small subset of features.
+
+Loads can be undone.
+
+**Reset Engine To** starts again from an empty part, 16 empty parts, a basic synth, or your
+templates in `Patches/Templates`. It does not ask for confirmation, and clears the undo history.

@@ -1,0 +1,60 @@
+---
+title: Importing Formats
+sidebar:
+  order: 19
+---
+
+## Supported files
+
+| Kind | Extensions |
+| --- | --- |
+| Samples | `.wav`, `.flac`, `.aif`, `.aiff`, `.mp3`, `.opus` |
+| Instruments | `.sf2`, `.sfz`, `.exs`, `.gig`, `.akp`, `.multisample` |
+| Shortcircuit XT | `.scm` (multi), `.scp` (part) |
+
+Samples must be mono or stereo.
+
+## Importing an instrument
+
+Double-click an instrument in the [browser](/shortcircuit-xt/manual/ui-browser/), or drag it onto
+the mapping pane or a part card. When dragging, drop on one half to **replace** the part or the
+other half to **add to** it.
+
+An import adds new groups to the selected part. It does not create a new part. The whole import
+is a single undo step.
+
+Dragging an SF2 file with several instruments asks which one to import. Double-clicking it imports
+all of them.
+
+Features Shortcircuit XT cannot import are skipped.
+
+## What each format brings in
+
+- **SF2**: one group per instrument, with key and velocity ranges, root key, tuning, loops, pan,
+  level, both envelopes, the filter, the vibrato LFO and the common modulators. The modulation LFO
+  and exclusive classes are not imported.
+- **SFZ**: regions with key and velocity ranges and fades, root key, tuning, level, loops, amp
+  and filter envelopes, filter, and common CC and velocity modulation. `seq_position` round robins
+  become variants. `#define` is not supported.
+- **EXS**: groups with volume, pan, polyphony and exclusive groups; zones with ranges, tuning,
+  start and end, reverse, one-shot, release trigger and loops; the filter and both envelopes.
+  Round robin groups are imported as parallel zones.
+- **GIG**: one group per instrument, with one zone for each velocity and layer split. Other
+  dimensions, such as round robin and keyswitch, keep only their first zone. LFOs are not
+  imported.
+- **AKP**: key and velocity ranges, tuning, pan, level, two envelopes and a low pass filter. Samples
+  are looked for beside the `.akp` file; missing samples are skipped.
+- **.multisample**: groups, key and velocity ranges and fades, root key, tuning and loops.
+
+## Metadata in sample files
+
+Shortcircuit XT reads the root key, key and velocity ranges and loop from WAV (`smpl` and `inst`
+chunks), AIFF and FLAC files. WAV cue and `strc` markers become slices shown on the waveform.
+
+## Missing samples
+
+If a multi or part refers to samples that cannot be found, the **Missing Sample Resolution** screen
+lists them. Click **Resolve** to locate a file. With **Auto-Resolve Siblings** on, other missing
+files from the same folder are found too.
+
+To reopen the screen, right-click a zone and choose **Resolve Missing Samples**.

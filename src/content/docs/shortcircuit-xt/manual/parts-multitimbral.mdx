@@ -1,0 +1,44 @@
+---
+title: Multitimbral Playback
+sidebar:
+  order: 16
+---
+
+A multi has 16 parts, each an independent instrument. A new multi has only Part 1 active.
+
+Parts are managed in the **PARTS** tab of the edit screen sidebar. Each active part has a card.
+**Add Part** activates the next inactive part.
+
+## Choosing which part plays
+
+The channel mode button in the header, **OMNI**, **MPE** or **Ch/Oct**, sets how all parts use
+MIDI channels.
+
+- **Omni**: each part's MIDI button sets the channel it listens to, either **Omni** for all
+  channels or **Channel 1** to **Channel 16**. Part N starts on channel N.
+- **Channel/Octave**: every part plays on every channel, and the channel shifts the note. Channels
+  1 to 8 shift up 0 to 7 octaves; channels 9 to 16 shift down 8 to 1 octaves. With a microtuning
+  loaded, an octave is the scale's repeat interval.
+- **MPE**: every part plays on every channel. See [MPE](/shortcircuit-xt/manual/mpe/).
+
+The **Part Options** menu at the top of the sidebar has **Set All to Omni** and **Set to
+Incremental MIDI Channels**.
+
+## The part card
+
+- **Name**: click for the **Part I/O** menu, with rename, save, load and **Deactivate Part**.
+- **M** and **S**: mute and solo. A muted part does not respond to new notes.
+- **MIDI**: the part's channel, in Omni mode.
+- **Level** and **Pan**
+- **OUT**: where the part's output goes. See [Routing](/shortcircuit-xt/manual/structure-routing/).
+- **Voice limit**: the most voices the part can play, from 4 to 512.
+- **Tuning**: in semitones, -36 to +36.
+- **Transpose**: shifts incoming notes by -36 to +36 keys before zones are chosen.
+
+## Saving and loading parts
+
+A part saves to a `.scp` file. **Save Part** refers to samples where they are, **Save Part with
+Collected Samples** copies them to a folder beside the file, and **Save Part as Monolith** stores
+them inside the file.
+
+Dropping a `.scp` file on a part card replaces that part.

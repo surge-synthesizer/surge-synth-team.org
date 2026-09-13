@@ -1,0 +1,50 @@
+// render with: dot -Tsvg routing.dot -o routing.svg
+digraph routing {
+    graph [rankdir=TB, compound=true, bgcolor="white", fontname="Helvetica", fontsize=12, nodesep=0.6, ranksep=0.5, pad=0.3];
+    node [shape=box, style="rounded,filled", fillcolor="#f4f4f4", color="#555555", fontname="Helvetica", fontsize=12, width=2.2];
+    edge [color="#333333", fontname="Helvetica", fontsize=10];
+
+    voice [label="Voice"];
+    zone [label="Zone processors"];
+    group [label="Group processors"];
+    part [label="Part level, pan and FX"];
+
+    subgraph cluster_mixer {
+        label="Internal mixer";
+        labeljust="r";
+        color="#999999";
+        style="rounded,dashed";
+        fontcolor="#555555";
+        partbus [label="BUS N\nFX, pan, level", fillcolor="#ffe8cc"];
+        aux [label="AUX 1-4\nFX, pan, level", fillcolor="#ffe8cc"];
+        main [label="MAIN\nFX, pan, level", fillcolor="#ffe8cc"];
+        partbus -> aux [label=" aux sends"];
+        {rank=same; aux}
+    }
+
+    subgraph cluster_outputs {
+        label="Plugin outputs";
+        labeljust="r";
+        labelloc="b";
+        color="#999999";
+        style="rounded,dashed";
+        fontcolor="#555555";
+        mainout [label="Main Out", fillcolor="#d8e8ff"];
+        outn [label="Out 1-20", fillcolor="#d8e8ff"];
+    }
+
+    voice -> zone [penwidth=2];
+    zone -> group [penwidth=2];
+    group -> part [penwidth=2];
+    part -> partbus [penwidth=2];
+    partbus -> main [penwidth=2];
+    aux -> main;
+    main -> mainout [penwidth=2];
+
+    partbus -> outn [style=dashed, lhead=cluster_outputs];
+    aux -> outn [style=dashed];
+
+    override [shape=note, fillcolor="white", width=0, label="Zones, groups and parts\ncan each send to any bus instead"];
+    {rank=same; group; override}
+    override -> partbus [style=dashed, lhead=cluster_mixer];
+}
