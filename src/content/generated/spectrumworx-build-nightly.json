@@ -1,47 +1,47 @@
 {
-    "build_time": "2026-09-13T23:16:23.852383832",
+    "build_time": "2026-09-14T03:20:11.177011157",
     "data": {},
-    "latest_commit": "b54c31a",
+    "latest_commit": "755c2c5",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "755c2c5",
+            "date": "2026-09-13T22:01:40-04:00",
+            "message": "Load pre-3.0 presets at the level they were made at"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "8a581d1",
+            "date": "2026-09-13T22:01:30-04:00",
+            "message": "Apply the Out gain to the dry signal as well as the wet"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "9909e7b",
+            "date": "2026-09-13T19:07:51-04:00",
+            "message": "Hand the shared module controls their editor as they are built"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "4e659c4",
+            "date": "2026-09-13T19:04:14-04:00",
+            "message": "Construct a module's LFO storage before the base that fills it"
+        },
         {
             "author": "Paul",
             "commit": "b54c31a",
             "date": "2026-09-13T18:51:47-04:00",
             "message": "Remove pragmas, Turn on MSVC Warnings, etc (#261)"
-        },
-        {
-            "author": "Paul",
-            "commit": "f96d0de",
-            "date": "2026-09-13T08:14:24-04:00",
-            "message": "Put the main thread's Program back level after a full echo ring (#260)"
-        },
-        {
-            "author": "Paul",
-            "commit": "a6cdc9c",
-            "date": "2026-09-12T17:36:43-04:00",
-            "message": "Give each plugin instance its own LFO tempo and meter (#259)"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "b01fbb4",
-            "date": "2026-09-12T12:27:26-04:00",
-            "message": "Give the frequency range chunkier beads and the knobs' halo"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "02c3396",
-            "date": "2026-09-12T12:13:44-04:00",
-            "message": "Show a frequency thumb's LFO while the pointer is on it"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-09-13-b54c31a.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-09-13-b54c31a.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-09-14-755c2c5.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-09-14-755c2c5.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-13-b54c31a.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-13-b54c31a.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-14-755c2c5.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-14-755c2c5.zip"
     },
     "version": "main"
 }
