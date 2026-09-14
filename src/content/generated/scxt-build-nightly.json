@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-09-13T13:44:57.567097547",
+    "build_time": "2026-09-14T02:16:32.698192683",
     "data": {},
-    "latest_commit": "a2f009c",
+    "latest_commit": "8cda0ce",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "8cda0ce",
+            "date": "2026-09-13T21:45:12-04:00",
+            "message": "Replace the playback ratio target with sample pitch shift and fine pitch shift (#2658)"
+        },
         {
             "author": "Paul",
             "commit": "a2f009c",
@@ -28,20 +34,14 @@
             "commit": "f919f7d",
             "date": "2026-09-12T17:07:18-04:00",
             "message": "Fix SemiSine high freq and sweep blowout (#2653)"
-        },
-        {
-            "author": "Paul",
-            "commit": "ee5f277",
-            "date": "2026-09-12T14:08:47-04:00",
-            "message": "Build FLAC, MP3 and Opus on arm64ec (#2652)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-13-a2f009c-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-13-a2f009c.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-14-8cda0ce-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-14-8cda0ce.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-13-a2f009c-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-13-a2f009c-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-14-8cda0ce-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-14-8cda0ce-Windows-64bit.zip"
     },
     "version": "main"
 }
