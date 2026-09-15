@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-09-15T15:05:46.336746314",
+    "build_time": "2026-09-15T16:37:23.087243073",
     "data": {},
-    "latest_commit": "9f266a4",
+    "latest_commit": "ca10cf7",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "ca10cf7",
+            "date": "2026-09-15T11:53:52-04:00",
+            "message": "Give every clickable part of the editor a hover state"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "30827e4",
+            "date": "2026-09-15T11:52:03-04:00",
+            "message": "Open the About page from the logo again"
+        },
         {
             "author": "Paul Walker",
             "commit": "9f266a4",
@@ -22,26 +34,14 @@
             "commit": "1d8387d",
             "date": "2026-09-15T07:10:23-04:00",
             "message": "Make the editor usable from the keyboard and a screen reader (#266)"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "e2f4831",
-            "date": "2026-09-14T15:05:52-04:00",
-            "message": "Keep modulo's result between zero and the divisor"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "755c2c5",
-            "date": "2026-09-13T22:01:40-04:00",
-            "message": "Load pre-3.0 presets at the level they were made at"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-09-15-9f266a4.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-09-15-9f266a4.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-09-15-ca10cf7.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-09-15-ca10cf7.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-15-9f266a4.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-15-9f266a4.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-15-ca10cf7.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-15-ca10cf7.zip"
     },
     "version": "main"
 }
