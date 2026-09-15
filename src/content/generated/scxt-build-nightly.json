@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-09-14T21:06:16.937976916",
+    "build_time": "2026-09-15T01:32:18.130938108",
     "data": {},
-    "latest_commit": "4a7d67a",
+    "latest_commit": "bbba5f4",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "bbba5f4",
+            "date": "2026-09-14T21:06:45-04:00",
+            "message": "jucegui can deactivate glyph buttons"
+        },
+        {
+            "author": "Paul",
+            "commit": "8e5294a",
+            "date": "2026-09-14T21:04:39-04:00",
+            "message": "Show the edit panes as inactive when no zone or group is selected (#2666)"
+        },
         {
             "author": "Paul",
             "commit": "4a7d67a",
@@ -22,26 +34,14 @@
             "commit": "1530bd1",
             "date": "2026-09-14T15:14:26-04:00",
             "message": "Keep processor floats in range when an int param changes (#2662)"
-        },
-        {
-            "author": "Paul",
-            "commit": "6964044",
-            "date": "2026-09-14T12:48:36-04:00",
-            "message": "Add stepped and bipolar stepped macro modes (#2660)"
-        },
-        {
-            "author": "Paul",
-            "commit": "3d52ee3",
-            "date": "2026-09-14T12:32:47-04:00",
-            "message": "Stop collect and monolith saves when a sample file has gone missing (#2659)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-14-4a7d67a-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-14-4a7d67a.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-15-bbba5f4-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-15-bbba5f4.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-14-4a7d67a-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-14-4a7d67a-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-15-bbba5f4-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-15-bbba5f4-Windows-64bit.zip"
     },
     "version": "main"
 }
