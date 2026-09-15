@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-09-15T11:26:32.428592407",
+    "build_time": "2026-09-15T15:05:46.336746314",
     "data": {},
-    "latest_commit": "1d8387d",
+    "latest_commit": "9f266a4",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "9f266a4",
+            "date": "2026-09-15T09:39:46-04:00",
+            "message": "Keep a session's missing audio file, and say so without stopping a restore"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "06b1abc",
+            "date": "2026-09-15T09:39:25-04:00",
+            "message": "Build with AppleClang 21 at the macOS 10.15 deployment target"
+        },
         {
             "author": "Paul",
             "commit": "1d8387d",
@@ -22,26 +34,14 @@
             "commit": "755c2c5",
             "date": "2026-09-13T22:01:40-04:00",
             "message": "Load pre-3.0 presets at the level they were made at"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "8a581d1",
-            "date": "2026-09-13T22:01:30-04:00",
-            "message": "Apply the Out gain to the dry signal as well as the wet"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "9909e7b",
-            "date": "2026-09-13T19:07:51-04:00",
-            "message": "Hand the shared module controls their editor as they are built"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-09-15-1d8387d.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-09-15-1d8387d.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-09-15-9f266a4.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-09-15-9f266a4.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-15-1d8387d.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-15-1d8387d.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-15-9f266a4.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-15-9f266a4.zip"
     },
     "version": "main"
 }
