@@ -1,47 +1,47 @@
 {
-    "build_time": "2026-09-16T17:14:52.918892897",
+    "build_time": "2026-09-16T18:39:29.936969921",
     "data": {},
-    "latest_commit": "3cdc639",
+    "latest_commit": "ad0ca89",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
         {
-            "author": "Paul",
-            "commit": "3cdc639",
-            "date": "2026-09-16T12:48:52-04:00",
-            "message": "Add an editable keyboard shortcut system (#2673)"
+            "author": "Paul Walker",
+            "commit": "ad0ca89",
+            "date": "2026-09-16T13:48:44-04:00",
+            "message": "Make zone and group menus act on the whole selection"
         },
         {
-            "author": "Paul",
-            "commit": "8e41a96",
-            "date": "2026-09-15T12:56:44-04:00",
-            "message": "Add group solo and exclusive and range clicks to group mute and solo (#2670)"
+            "author": "Paul Walker",
+            "commit": "27125e9",
+            "date": "2026-09-15T14:07:26-04:00",
+            "message": "Label mod rows whose processor target has gone away"
         },
         {
-            "author": "Paul",
-            "commit": "18f68c2",
-            "date": "2026-09-15T11:42:01-04:00",
-            "message": "Fix the playback pitch ceiling, ping-pong tuning and a short loop crash (#2665)"
+            "author": "Paul Walker",
+            "commit": "7e8fe02",
+            "date": "2026-09-15T13:59:58-04:00",
+            "message": "Learn keyswitch keys by playing them"
         },
         {
-            "author": "Paul",
-            "commit": "a38390b",
-            "date": "2026-09-15T11:41:38-04:00",
-            "message": "Silence the libc++ unsupported platform warning on newer Xcode (#2669)"
+            "author": "Paul Walker",
+            "commit": "5df039f",
+            "date": "2026-09-15T13:55:16-04:00",
+            "message": "Let a part choose its default keyswitch articulation"
         },
         {
-            "author": "Paul",
-            "commit": "93b9810",
-            "date": "2026-09-15T09:00:06-04:00",
-            "message": "Cancel a type-in by clicking away from it (#2667)"
+            "author": "Paul Walker",
+            "commit": "40f5def",
+            "date": "2026-09-15T13:45:13-04:00",
+            "message": "Show keyswitch state in the group tree, and follow switches live"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-16-3cdc639-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-16-3cdc639.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-16-ad0ca89-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-16-ad0ca89.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-16-3cdc639-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-16-3cdc639-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-16-ad0ca89-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-16-ad0ca89-Windows-64bit.zip"
     },
     "version": "main"
 }
