@@ -1,47 +1,47 @@
 {
-    "build_time": "2026-09-16T18:40:35.248035232",
+    "build_time": "2026-09-16T22:39:50.379390358",
     "data": {},
-    "latest_commit": "6adfde3",
+    "latest_commit": "33f6e00",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
         {
-            "author": "Paul",
-            "commit": "6adfde3",
-            "date": "2026-09-16T14:14:20-04:00",
-            "message": "Report browser database errors to the user (#2675)"
+            "author": "Paul Walker",
+            "commit": "33f6e00",
+            "date": "2026-09-16T16:53:35-04:00",
+            "message": "Copy, cut and paste variants"
         },
         {
             "author": "Paul Walker",
-            "commit": "ad0ca89",
-            "date": "2026-09-16T13:48:44-04:00",
-            "message": "Make zone and group menus act on the whole selection"
+            "commit": "f30fa6a",
+            "date": "2026-09-16T16:43:04-04:00",
+            "message": "Copy, cut and paste mod matrix rows from the keyboard"
         },
         {
             "author": "Paul Walker",
-            "commit": "27125e9",
-            "date": "2026-09-15T14:07:26-04:00",
-            "message": "Label mod rows whose processor target has gone away"
+            "commit": "308a27b",
+            "date": "2026-09-16T16:43:01-04:00",
+            "message": "Copy, cut and paste processors from the keyboard"
         },
         {
             "author": "Paul Walker",
-            "commit": "7e8fe02",
-            "date": "2026-09-15T13:59:58-04:00",
-            "message": "Learn keyswitch keys by playing them"
+            "commit": "4d1b11e",
+            "date": "2026-09-16T16:42:58-04:00",
+            "message": "Navigate folders, preview samples and jump to names from the keyboard in the browser"
         },
         {
             "author": "Paul Walker",
-            "commit": "5df039f",
-            "date": "2026-09-15T13:55:16-04:00",
-            "message": "Let a part choose its default keyswitch articulation"
+            "commit": "42cf62a",
+            "date": "2026-09-16T16:41:18-04:00",
+            "message": "Add cut, paste after the selection, tab rename and fold keys to the zone and group lists"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-16-6adfde3-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-16-6adfde3.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-16-33f6e00-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-16-33f6e00.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-16-6adfde3-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-16-6adfde3-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-16-33f6e00-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-16-33f6e00-Windows-64bit.zip"
     },
     "version": "main"
 }
