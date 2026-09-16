@@ -1,0 +1,88 @@
+---
+title: Keyboard Shortcuts
+sidebar:
+  order: 22
+---
+
+Shortcircuit XT ships with a set of shortcuts, and you can change any of them.
+
+## The shortcut editor
+
+Open it from the main menu under the Shortcircuit logo, or with Alt/Opt+B.
+
+Each row is one action, with its key, a **Learn** button and a switch on the left.
+
+- **Learn** takes the next key you press. Escape stops learning and keeps the old key.
+- The switch turns an action off without losing its key.
+- **Reset** returns one action to its default, **Reset All** returns every action.
+- **OK** applies and saves; **Cancel** leaves everything as it was.
+
+If the key you press already belongs to another action, the editor says so and waits for you to
+try another.
+
+Your changes are saved in `ShortcircuitXTKeyboardMappings.xml`, in the same folder as your
+patches and themes. Only the actions you changed are written, so defaults which change in a
+later release still reach you.
+
+## How a key finds its target
+
+Some actions are global: undo, switching screens, opening a screen. The rest act on whichever
+panel has the keyboard focus, so **Copy** copies a zone in the zone list and a group in the
+group list.
+
+Clicking a row in the zone, group or browser list gives the keys to that list.
+
+Text fields, and controls like knobs, take the keys first while they are focused.
+
+## The defaults
+
+Cmd is the Mac key; Ctrl is Windows and Linux. Opt is the Mac key; Alt is Windows and Linux.
+
+### Anywhere
+
+| Action | Key |
+| --- | --- |
+| Undo | Cmd/Ctrl+Z |
+| Redo | Cmd+Shift+Z on Mac, Ctrl+Y elsewhere |
+| Keyboard Shortcuts | Alt/Opt+B |
+| Tuning Editor | Alt/Opt+T |
+| Show Log, About Shortcircuit XT | unassigned |
+| Edit Zones, Groups, Parts | Cmd/Ctrl+1, 2, 3 |
+| Mixer Screen, Play Screen | Cmd/Ctrl+4, 5 |
+| Swap Group and Zone Editing | Alt/Opt+G |
+
+### In a list
+
+| Action | Key |
+| --- | --- |
+| Select All | Cmd/Ctrl+A |
+| Select Previous, Select Next | Up, Down |
+| Open or Load | Return |
+| Collapse, Expand | Left, Right |
+| Rename | Cmd/Ctrl+R |
+| Copy, Paste, Duplicate | Cmd/Ctrl+C, V, D |
+| Delete | Backspace on Mac, Delete elsewhere |
+
+Where each one acts:
+
+- **Zone list**: selects, renames, copies, pastes, duplicates and deletes zones. Up and Down walk
+  the rows you can see, so zones inside a folded group are skipped.
+- **Group list**: the same, on groups. Deleting several groups is a single undo step.
+- **Mapping pane**: select all, copy, paste, duplicate and delete, on zones. In group editing
+  only copy and paste act.
+- **[Browser](/shortcircuit-xt/manual/ui-browser/)**: Up and Down move through files, Left and
+  Right open and close an instrument file such as an SF2, and Return does what a double-click
+  does.
+
+Delete applies to everything selected, while Rename, Copy and Duplicate act on the lead
+selection.
+
+## Keys you cannot change
+
+- **Escape** closes a dialog and cancels a type-in; **Return** confirms.
+- **Tab** and **Shift+Tab** move the keyboard focus.
+- On a focused knob or switch: **Up** and **Down** change the value, **Shift** for a finer step
+  and Cmd/Ctrl for a coarser one, **Home** and **End** for the extremes, **Delete** to return to
+  the default, **Shift+Return** to type a value, and **Shift+F10** or the Menu key for the
+  right-click menu.
+- Text fields keep their own editing and selection keys.
