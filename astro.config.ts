@@ -178,6 +178,10 @@ export default defineConfig({
                                     label: "Microtuning",
                                     slug: "shortcircuit-xt/manual/microtuning",
                                 },
+                                {
+                                    label: "Keyboard Shortcuts",
+                                    slug: "shortcircuit-xt/manual/keyboard-shortcuts",
+                                },
                             ],
                         },
                         {
