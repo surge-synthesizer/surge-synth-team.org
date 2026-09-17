@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-09-15T16:37:23.087243073",
+    "build_time": "2026-09-17T06:04:02.975042954",
     "data": {},
-    "latest_commit": "ca10cf7",
+    "latest_commit": "8884468",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "8884468",
+            "date": "2026-09-17T01:47:34-04:00",
+            "message": "Compact the preset browser (#269)"
+        },
         {
             "author": "Paul Walker",
             "commit": "ca10cf7",
@@ -28,20 +34,14 @@
             "commit": "06b1abc",
             "date": "2026-09-15T09:39:25-04:00",
             "message": "Build with AppleClang 21 at the macOS 10.15 deployment target"
-        },
-        {
-            "author": "Paul",
-            "commit": "1d8387d",
-            "date": "2026-09-15T07:10:23-04:00",
-            "message": "Make the editor usable from the keyboard and a screen reader (#266)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-09-15-ca10cf7.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-09-15-ca10cf7.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-09-17-8884468.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-09-17-8884468.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-15-ca10cf7.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-15-ca10cf7.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-17-8884468.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-17-8884468.zip"
     },
     "version": "main"
 }
