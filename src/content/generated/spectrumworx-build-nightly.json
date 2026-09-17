@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-09-17T06:04:02.975042954",
+    "build_time": "2026-09-17T12:44:24.663064649",
     "data": {},
-    "latest_commit": "8884468",
+    "latest_commit": "1fbea52",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "1fbea52",
+            "date": "2026-09-16T23:10:58-04:00",
+            "message": "Let go of a deleted preset, and of the Author box"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "54eab3b",
+            "date": "2026-09-16T23:07:10-04:00",
+            "message": "Stop the preset browser reading rows the listing does not have"
+        },
         {
             "author": "Paul",
             "commit": "8884468",
@@ -22,26 +34,14 @@
             "commit": "30827e4",
             "date": "2026-09-15T11:52:03-04:00",
             "message": "Open the About page from the logo again"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "9f266a4",
-            "date": "2026-09-15T09:39:46-04:00",
-            "message": "Keep a session's missing audio file, and say so without stopping a restore"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "06b1abc",
-            "date": "2026-09-15T09:39:25-04:00",
-            "message": "Build with AppleClang 21 at the macOS 10.15 deployment target"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-09-17-8884468.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-09-17-8884468.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-2026-09-17-1fbea52.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-2026-09-17-1fbea52.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-17-8884468.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-17-8884468.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-17-1fbea52.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-2026-09-17-1fbea52.zip"
     },
     "version": "main"
 }
