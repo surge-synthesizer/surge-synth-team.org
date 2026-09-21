@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-09-21T11:39:10.092750072",
+    "build_time": "2026-09-21T17:22:48.557368541",
     "data": {},
-    "latest_commit": "dc5bbe3",
+    "latest_commit": "4ca51e4",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "4ca51e4",
+            "date": "2026-09-21T12:57:31-04:00",
+            "message": "Match HALion's loop crossfade, and stop reverse and alternate loops clicking (#2687)"
+        },
         {
             "author": "Paul",
             "commit": "dc5bbe3",
@@ -28,20 +34,14 @@
             "commit": "b092546",
             "date": "2026-09-19T10:55:00-04:00",
             "message": "Import SFZ lorand/hirand stacks as random round robins (#2682)"
-        },
-        {
-            "author": "Paul",
-            "commit": "8ee2556",
-            "date": "2026-09-18T16:44:22-04:00",
-            "message": "Complete the .multisample importer: loops, endpoints and round robins (#2681)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-dc5bbe3-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-21-dc5bbe3.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-4ca51e4-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-21-4ca51e4.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-dc5bbe3-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-dc5bbe3-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-4ca51e4-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-4ca51e4-Windows-64bit.zip"
     },
     "version": "main"
 }
