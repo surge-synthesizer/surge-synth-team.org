@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-09-21T19:37:44.633464605",
+    "build_time": "2026-09-21T20:45:09.779509758",
     "data": {},
-    "latest_commit": "4b5682e",
+    "latest_commit": "c006662",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "c006662",
+            "date": "2026-09-21T15:48:07-04:00",
+            "message": "Import a group's SFZ lorand/hirand as a dice trigger"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "d3e7ff0",
+            "date": "2026-09-21T15:31:19-04:00",
+            "message": "Add a dice group trigger which fires on a slice of a per note roll"
+        },
         {
             "author": "Paul",
             "commit": "4b5682e",
@@ -22,26 +34,14 @@
             "commit": "4ca51e4",
             "date": "2026-09-21T12:57:31-04:00",
             "message": "Match HALion's loop crossfade, and stop reverse and alternate loops clicking (#2687)"
-        },
-        {
-            "author": "Paul",
-            "commit": "dc5bbe3",
-            "date": "2026-09-21T07:10:15-04:00",
-            "message": "Give a group three oversampling choices rather than two (#2685)"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "61c516c",
-            "date": "2026-09-19T12:29:36-04:00",
-            "message": "Show the plugin format, host and install path in the about screen"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-4b5682e-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-21-4b5682e.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-c006662-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-21-c006662.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-4b5682e-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-4b5682e-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-c006662-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-c006662-Windows-64bit.zip"
     },
     "version": "main"
 }
