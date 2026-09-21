@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-09-21T17:22:48.557368541",
+    "build_time": "2026-09-21T19:20:04.561404535",
     "data": {},
-    "latest_commit": "4ca51e4",
+    "latest_commit": "cb67e4f",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "cb67e4f",
+            "date": "2026-09-21T14:48:41-04:00",
+            "message": "Reflect the sub-position too when a ping-pong loop mirrors its read (#2690)"
+        },
         {
             "author": "Paul",
             "commit": "4ca51e4",
@@ -28,20 +34,14 @@
             "commit": "a642984",
             "date": "2026-09-19T12:29:29-04:00",
             "message": "Update clap-wrapper and give the bundles a real version"
-        },
-        {
-            "author": "Paul",
-            "commit": "b092546",
-            "date": "2026-09-19T10:55:00-04:00",
-            "message": "Import SFZ lorand/hirand stacks as random round robins (#2682)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-4ca51e4-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-21-4ca51e4.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-cb67e4f-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-21-cb67e4f.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-4ca51e4-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-4ca51e4-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-cb67e4f-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-cb67e4f-Windows-64bit.zip"
     },
     "version": "main"
 }
