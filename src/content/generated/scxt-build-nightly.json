@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-09-21T20:45:09.779509758",
+    "build_time": "2026-09-22T14:56:16.676976655",
     "data": {},
-    "latest_commit": "c006662",
+    "latest_commit": "6628b99",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "6628b99",
+            "date": "2026-09-22T10:31:00-04:00",
+            "message": "Copy and paste a whole part, and keep a part name through an undo (#2695)"
+        },
         {
             "author": "Paul Walker",
             "commit": "c006662",
@@ -28,20 +34,14 @@
             "commit": "cb67e4f",
             "date": "2026-09-21T14:48:41-04:00",
             "message": "Reflect the sub-position too when a ping-pong loop mirrors its read (#2690)"
-        },
-        {
-            "author": "Paul",
-            "commit": "4ca51e4",
-            "date": "2026-09-21T12:57:31-04:00",
-            "message": "Match HALion's loop crossfade, and stop reverse and alternate loops clicking (#2687)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-c006662-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-21-c006662.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-22-6628b99-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-22-6628b99.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-c006662-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-21-c006662-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-22-6628b99-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-22-6628b99-Windows-64bit.zip"
     },
     "version": "main"
 }
