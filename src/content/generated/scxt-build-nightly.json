@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-09-22T16:09:31.71237169",
+    "build_time": "2026-09-27T23:52:53.069173049",
     "data": {},
-    "latest_commit": "8e187d2",
+    "latest_commit": "df606fe",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "df606fe",
+            "date": "2026-09-27T18:59:35-04:00",
+            "message": "Draw the loop crossfade with the shape it actually has"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "65b758c",
+            "date": "2026-09-24T00:59:32-04:00",
+            "message": "Add a curve control for the loop crossfade"
+        },
         {
             "author": "Paul",
             "commit": "8e187d2",
@@ -22,26 +34,14 @@
             "commit": "c006662",
             "date": "2026-09-21T15:48:07-04:00",
             "message": "Import a group's SFZ lorand/hirand as a dice trigger"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "d3e7ff0",
-            "date": "2026-09-21T15:31:19-04:00",
-            "message": "Add a dice group trigger which fires on a slice of a per note roll"
-        },
-        {
-            "author": "Paul",
-            "commit": "4b5682e",
-            "date": "2026-09-21T15:11:39-04:00",
-            "message": "Support the SFZ #define directive (#2692)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-22-8e187d2-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-22-8e187d2.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-27-df606fe-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-27-df606fe.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-22-8e187d2-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-22-8e187d2-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-27-df606fe-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-27-df606fe-Windows-64bit.zip"
     },
     "version": "main"
 }
