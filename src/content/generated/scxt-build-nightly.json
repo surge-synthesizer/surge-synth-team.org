@@ -1,47 +1,47 @@
 {
-    "build_time": "2026-09-28T03:08:25.632905611",
+    "build_time": "2026-09-28T20:03:10.741790724",
     "data": {},
-    "latest_commit": "f91154a",
+    "latest_commit": "a4cffc0",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
         {
             "author": "Paul Walker",
+            "commit": "a4cffc0",
+            "date": "2026-09-28T11:18:27-04:00",
+            "message": "Let a zone end its voices where its group can follow"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "3c7b57b",
+            "date": "2026-09-27T23:56:11-04:00",
+            "message": "Make MTS-ESP one switch in the tuning menu, and say whether a source is there"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "ba111b4",
+            "date": "2026-09-27T23:35:51-04:00",
+            "message": "Load the browser selection straight into the selected zone"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "e71c0be",
+            "date": "2026-09-28T08:51:43-04:00",
+            "message": "Give the color picker the theme, and repaint the window it lives in"
+        },
+        {
+            "author": "Paul Walker",
             "commit": "f91154a",
             "date": "2026-09-27T22:20:30-04:00",
             "message": "Count the processor memory pool in the RAM display"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "a043942",
-            "date": "2026-09-27T21:46:19-04:00",
-            "message": "Draw an alternate loop's crossfade as the engine performs it"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "ea09540",
-            "date": "2026-09-27T21:46:11-04:00",
-            "message": "Hide the variant controls until there are variants"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "02a4acb",
-            "date": "2026-09-24T09:04:48-04:00",
-            "message": "Wait for the paste selection rather than the zones it selects"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "f733e23",
-            "date": "2026-09-23T18:48:36-04:00",
-            "message": "Spruce up the multisample drop gestures"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-28-f91154a-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-28-f91154a.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-28-a4cffc0-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-28-a4cffc0.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-28-f91154a-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-28-f91154a-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-28-a4cffc0-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-28-a4cffc0-Windows-64bit.zip"
     },
     "version": "main"
 }
