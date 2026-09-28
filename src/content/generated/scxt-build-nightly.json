@@ -1,10 +1,28 @@
 {
-    "build_time": "2026-09-27T23:52:53.069173049",
+    "build_time": "2026-09-28T01:33:21.187201173",
     "data": {},
-    "latest_commit": "df606fe",
+    "latest_commit": "02a4acb",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "02a4acb",
+            "date": "2026-09-24T09:04:48-04:00",
+            "message": "Wait for the paste selection rather than the zones it selects"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "f733e23",
+            "date": "2026-09-23T18:48:36-04:00",
+            "message": "Spruce up the multisample drop gestures"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "d19b9ea",
+            "date": "2026-09-22T10:14:46-04:00",
+            "message": "Fix garbage zone bounds on multi-sample drops"
+        },
         {
             "author": "Paul Walker",
             "commit": "df606fe",
@@ -16,32 +34,14 @@
             "commit": "65b758c",
             "date": "2026-09-24T00:59:32-04:00",
             "message": "Add a curve control for the loop crossfade"
-        },
-        {
-            "author": "Paul",
-            "commit": "8e187d2",
-            "date": "2026-09-22T11:44:49-04:00",
-            "message": "Let group volume reach its full +12 dB range (#2699)"
-        },
-        {
-            "author": "Paul",
-            "commit": "6628b99",
-            "date": "2026-09-22T10:31:00-04:00",
-            "message": "Copy and paste a whole part, and keep a part name through an undo (#2695)"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "c006662",
-            "date": "2026-09-21T15:48:07-04:00",
-            "message": "Import a group's SFZ lorand/hirand as a dice trigger"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-27-df606fe-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-27-df606fe.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-28-02a4acb-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-28-02a4acb.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-27-df606fe-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-27-df606fe-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-28-02a4acb-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-28-02a4acb-Windows-64bit.zip"
     },
     "version": "main"
 }
