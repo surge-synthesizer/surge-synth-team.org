@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-09-28T01:33:21.187201173",
+    "build_time": "2026-09-28T02:45:43.980543959",
     "data": {},
-    "latest_commit": "02a4acb",
+    "latest_commit": "a043942",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "a043942",
+            "date": "2026-09-27T21:46:19-04:00",
+            "message": "Draw an alternate loop's crossfade as the engine performs it"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "ea09540",
+            "date": "2026-09-27T21:46:11-04:00",
+            "message": "Hide the variant controls until there are variants"
+        },
         {
             "author": "Paul Walker",
             "commit": "02a4acb",
@@ -22,26 +34,14 @@
             "commit": "d19b9ea",
             "date": "2026-09-22T10:14:46-04:00",
             "message": "Fix garbage zone bounds on multi-sample drops"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "df606fe",
-            "date": "2026-09-27T18:59:35-04:00",
-            "message": "Draw the loop crossfade with the shape it actually has"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "65b758c",
-            "date": "2026-09-24T00:59:32-04:00",
-            "message": "Add a curve control for the loop crossfade"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-28-02a4acb-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-28-02a4acb.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-28-a043942-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-09-28-a043942.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-28-02a4acb-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-28-02a4acb-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-28-a043942-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-09-28-a043942-Windows-64bit.zip"
     },
     "version": "main"
 }
