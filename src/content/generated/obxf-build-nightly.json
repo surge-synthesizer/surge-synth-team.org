@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-09-13T22:54:18.047058031",
+    "build_time": "2026-09-29T09:00:50.129450112",
     "data": {},
-    "latest_commit": "051f453",
+    "latest_commit": "984a8c7",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "984a8c7",
+            "date": "2026-09-29T10:44:49+02:00",
+            "message": "Fix left side roundrect edges on a few widgets in vector skins (#715)"
+        },
         {
             "author": "EvilDragon",
             "commit": "051f453",
@@ -28,20 +34,14 @@
             "commit": "db086c9",
             "date": "2026-09-02T13:59:12+02:00",
             "message": "Revert hiding host menus in FL (#712)"
-        },
-        {
-            "author": "Paul",
-            "commit": "41bd6b8",
-            "date": "2026-09-01T18:09:12-04:00",
-            "message": "Turn off host menus in FL and Davinci Resolve (#710)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-09-13-051f453.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-09-13-051f453.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-09-29-984a8c7.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-09-29-984a8c7.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-09-13-051f453.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-09-13-051f453.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-09-29-984a8c7.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-09-29-984a8c7.zip"
     },
     "version": "main"
 }
