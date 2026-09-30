@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-09-29T09:00:50.129450112",
+    "build_time": "2026-09-30T10:34:29.949469928",
     "data": {},
-    "latest_commit": "984a8c7",
+    "latest_commit": "b08ffb6",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Mario Kruselj",
+            "commit": "b08ffb6",
+            "date": "2026-09-30T11:44:22+02:00",
+            "message": "Open patch browser on right click of patch name"
+        },
+        {
+            "author": "Mario Kruselj",
+            "commit": "00d28ca",
+            "date": "2026-09-30T11:43:10+02:00",
+            "message": "Show patch category, author and project in patch name hover popup"
+        },
         {
             "author": "EvilDragon",
             "commit": "984a8c7",
@@ -22,26 +34,14 @@
             "commit": "4a8c6ff",
             "date": "2026-09-13T23:44:44+02:00",
             "message": "Update JUCE fork (Audio/MIDI settings dialog a11y updates) (#713)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "7b36368",
-            "date": "2026-09-13T23:41:16+02:00",
-            "message": "Reinstate Set Current Patch as Default functionality (#668)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "db086c9",
-            "date": "2026-09-02T13:59:12+02:00",
-            "message": "Revert hiding host menus in FL (#712)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-09-29-984a8c7.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-09-29-984a8c7.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-09-30-b08ffb6.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-09-30-b08ffb6.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-09-29-984a8c7.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-09-29-984a8c7.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-09-30-b08ffb6.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-09-30-b08ffb6.zip"
     },
     "version": "main"
 }
