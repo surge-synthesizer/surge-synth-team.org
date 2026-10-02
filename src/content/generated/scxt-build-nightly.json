@@ -1,10 +1,28 @@
 {
-    "build_time": "2026-10-01T21:17:31.682451661",
+    "build_time": "2026-10-02T16:02:54.112974084",
     "data": {},
-    "latest_commit": "b6f93c9",
+    "latest_commit": "a605775",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "a605775",
+            "date": "2026-10-02T11:37:13-04:00",
+            "message": "Import the SF2 fields we used to ignore (#2725)"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "b0d171a",
+            "date": "2026-10-01T19:21:26-04:00",
+            "message": "Show a playhead on every variant a unison voice is playing"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "5d91e25",
+            "date": "2026-10-01T19:06:47-04:00",
+            "message": "Pan unison variants past the first to the side they are set to"
+        },
         {
             "author": "Paul",
             "commit": "b6f93c9",
@@ -16,32 +34,14 @@
             "commit": "0b79425",
             "date": "2026-09-29T16:30:48-04:00",
             "message": "Sidebar gestures, part/group/zone menus, linked zone selection and zone edits in group mode (#2721)"
-        },
-        {
-            "author": "Paul",
-            "commit": "f06db08",
-            "date": "2026-09-29T08:35:35-04:00",
-            "message": "Let sample and loop point edits reach playing voices (#2720)"
-        },
-        {
-            "author": "Paul",
-            "commit": "7a351be",
-            "date": "2026-09-29T07:17:20-04:00",
-            "message": "Keep loops from the first sample from reading the pad before the loop (#2717)"
-        },
-        {
-            "author": "Paul",
-            "commit": "4239c79",
-            "date": "2026-09-28T20:09:06-04:00",
-            "message": "Let negative Start Pos modulation reach before the start marker (#2719)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-01-b6f93c9-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-10-01-b6f93c9.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-02-a605775-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-10-02-a605775.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-01-b6f93c9-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-01-b6f93c9-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-02-a605775-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-02-a605775-Windows-64bit.zip"
     },
     "version": "main"
 }
