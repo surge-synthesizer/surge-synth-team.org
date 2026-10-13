@@ -1,10 +1,28 @@
 {
-    "build_time": "2026-10-13T13:55:40.089740075",
+    "build_time": "2026-10-13T15:04:50.765890749",
     "data": {},
-    "latest_commit": "010014b",
+    "latest_commit": "7038829",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "7038829",
+            "date": "2026-10-13T10:07:15-04:00",
+            "message": "Updated JUCE to 8.0.16"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "fd8459e",
+            "date": "2026-10-13T10:05:47-04:00",
+            "message": "Added a Fast SVF (24db) voice filter"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "b1cf4a2",
+            "date": "2026-10-13T10:05:44-04:00",
+            "message": "PR tests build and run in release"
+        },
         {
             "author": "Paul",
             "commit": "010014b",
@@ -16,32 +34,14 @@
             "commit": "d726dbf",
             "date": "2026-10-12T19:31:22-04:00",
             "message": "Open multi and part files in the browser (#2750)"
-        },
-        {
-            "author": "Paul",
-            "commit": "f2cd57d",
-            "date": "2026-10-12T13:32:32-04:00",
-            "message": "Loading a multi or part no longer changes the view (#2749)"
-        },
-        {
-            "author": "Paul",
-            "commit": "46a5704",
-            "date": "2026-10-12T08:27:09-04:00",
-            "message": "SFZ import reads offset and end as sample start and end (#2748)"
-        },
-        {
-            "author": "Paul",
-            "commit": "2eae1ed",
-            "date": "2026-10-11T10:29:00-04:00",
-            "message": "Value popups no longer stick after a typed edit is dismissed (#2745)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-13-010014b-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-10-13-010014b.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-13-7038829-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-10-13-7038829.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-13-010014b-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-13-010014b-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-13-7038829-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-13-7038829-Windows-64bit.zip"
     },
     "version": "main"
 }
