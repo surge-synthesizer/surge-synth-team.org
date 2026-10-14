@@ -30,6 +30,7 @@ const projects = defineCollection({
             issue_tracker: z.string(),
             repo: z.string().optional(),
             url: z.string().optional(),
+            manual: z.string().optional(),
         }),
 });
 
