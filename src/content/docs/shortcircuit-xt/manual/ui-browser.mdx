@@ -20,20 +20,48 @@ The file list shows folders and files Shortcircuit XT can load. Double-click a f
 or **..** to go up.
 
 Instrument files such as SF2, SFZ and GIG have an arrow. Click it to list the instruments and
-samples inside.
+samples inside. Multi (`.scm`) and part (`.scp`) files open the same way:
+
+- A multi lists **Full Multi**, each active part, and any samples stored in a monolith.
+- A part file lists the part and any samples stored in it.
+
+Loading:
 
 - **Double-click** a sample to add it to the selected group, or an instrument to import it into
-  the selected part.
+  the selected part. A multi loads as the whole multi, and a part file or a part of a multi loads
+  into the selected part.
 - **Drag** files to the mapping pane, the group and zone tree, or a part card. See
   [The Range](/shortcircuit-xt/manual/zone-range/) and
-  [Importing Formats](/shortcircuit-xt/manual/importing/).
+  [Importing Formats](/shortcircuit-xt/manual/importing/). A part dragged onto a part card loads
+  into that part.
 
-Click a file to give the list the keyboard. **Up** and **Down** then move through the list,
-**Left** and **Right** open and close an instrument file, and **Return** does what a double-click
-does. See [Keyboard Shortcuts](/shortcircuit-xt/manual/keyboard-shortcuts/).
+A sample listed inside any instrument, multi or part file loads as a sample, not as its file.
 
-## Previewing
+## The keyboard
 
-- **Auto Preview**: plays a sample when you click it. On by default.
-- **Launch Preview**: plays the last clicked sample.
+Click a file to give the list the keyboard.
+
+- **Up** and **Down** move through the list.
+- **Right** enters a folder, or opens an instrument file.
+- **Left** closes an instrument file, or goes up a folder and lands on the folder you left.
+- **Return** does what a double-click does. On a folder it enters and selects the first entry.
+- Typing a name jumps to the first entry starting with it. Letters typed within a second build
+  up the name; typing the same letter again moves to the next match.
+
+See [Keyboard Shortcuts](/shortcircuit-xt/manual/keyboard-shortcuts/).
+
+## Previewing and auto-load
+
+The footer holds:
+
+- **Auto Preview**, the speaker: plays a sample when you click it or move onto it with the keys.
+  Moving onto a folder stops it. On by default.
+- **Launch Preview**: plays the last sample clicked or moved onto.
 - The slider sets the preview volume.
+- **AUTO-LOAD**: clicking or moving onto a sample loads it into the lead zone in place of its
+  sample. Off by default.
+
+Auto-load keeps the zone's key and velocity ranges, crossfades, root key, and the variant's
+tuning and level. Start, end and loop come from the new sample; a sample with no loop leaves the
+zone unlooped. A zone with several variants is left with one. Each load is its own undo step.
+Samples inside instrument files are not auto-loaded.

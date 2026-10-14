@@ -8,9 +8,11 @@ Shortcircuit XT ships with a set of shortcuts, and you can change any of them.
 
 ## The shortcut editor
 
-Open it from the main menu under the Shortcircuit logo, or with Alt/Opt+B.
+Open it with **Keyboard Shortcuts...** in the main menu under the Shortcircuit logo, or with
+Alt/Opt+B.
 
-Each row is one action, with its key, a **Learn** button and a switch on the left.
+Actions are listed under **General**, **Screens** and **Selection and Clipboard**. Each row is
+one action, with a switch on the left, its key, a **Learn** button and a **Reset** button.
 
 - **Learn** takes the next key you press. Escape stops learning and keeps the old key.
 - The switch turns an action off without losing its key.
@@ -20,9 +22,9 @@ Each row is one action, with its key, a **Learn** button and a switch on the lef
 If the key you press already belongs to another action, the editor says so and waits for you to
 try another.
 
-Your changes are saved in `ShortcircuitXTKeyboardMappings.xml`, in the same folder as your
-patches and themes. Only the actions you changed are written, so defaults which change in a
-later release still reach you.
+Your changes are saved in `ShortcircuitXTKeyboardMappings.xml`, in your user folder beside the
+`Patches` and `Themes` folders. Only the actions you changed are written, so defaults which
+change in a later release still reach you.
 
 ## How a key finds its target
 
@@ -30,7 +32,8 @@ Some actions are global: undo, switching screens, opening a screen. The rest act
 panel has the keyboard focus, so **Copy** copies a zone in the zone list and a group in the
 group list.
 
-Clicking a row in the zone, group or browser list gives the keys to that list.
+Clicking a row in the zone, group or browser list gives the keys to that list. Clicking a part
+card, a processor, a modulation row or the variant tabs gives the clipboard keys to that.
 
 Text fields, and controls like knobs, take the keys first while they are focused.
 
@@ -51,7 +54,7 @@ Cmd is the Mac key; Ctrl is Windows and Linux. Opt is the Mac key; Alt is Window
 | Mixer Screen, Play Screen | Cmd/Ctrl+4, 5 |
 | Swap Group and Zone Editing | Alt/Opt+G |
 
-### In a list
+### Selection and clipboard
 
 | Action | Key |
 | --- | --- |
@@ -60,22 +63,37 @@ Cmd is the Mac key; Ctrl is Windows and Linux. Opt is the Mac key; Alt is Window
 | Open or Load | Return |
 | Collapse, Expand | Left, Right |
 | Rename | Cmd/Ctrl+R |
-| Copy, Paste, Duplicate | Cmd/Ctrl+C, V, D |
+| Copy, Cut, Paste, Duplicate | Cmd/Ctrl+C, X, V, D |
 | Delete | Backspace on Mac, Delete elsewhere |
 
 Where each one acts:
 
-- **Zone list**: selects, renames, copies, pastes, duplicates and deletes zones. Up and Down walk
-  the rows you can see, so zones inside a folded group are skipped.
-- **Group list**: the same, on groups. Deleting several groups is a single undo step.
-- **Mapping pane**: select all, copy, paste, duplicate and delete, on zones. In group editing
-  only copy and paste act.
-- **[Browser](/shortcircuit-xt/manual/ui-browser/)**: Up and Down move through files, Left and
-  Right open and close an instrument file such as an SF2, and Return does what a double-click
-  does.
+- **Zone list**: selects, renames, copies, cuts, pastes, duplicates and deletes zones. Up and
+  Down step from the lead zone through the rows you can see, so zones inside a folded group are
+  skipped. Left and Right fold and unfold the lead zone's group. Paste lands after the lead zone,
+  or at the end of the lead group.
+- **Group list**: the same, on groups. Paste lands after the lead group. Deleting several groups
+  is a single undo step.
+- **Mapping pane**: select all, copy, cut, paste, duplicate and delete, on zones. In group
+  editing only copy and paste act, unless **Allow Zone Edits in Group Mode** is on.
+- **Part card**: copy and paste the whole part.
+- **Variant tabs**: copy, cut and paste the shown variant. Paste puts the copy after the shown
+  variant.
+- **Processor**: copy, cut and paste the processor. Cut sets the slot to none.
+- **Modulation row**: copy, cut and paste the row holding the focused control. Cut clears the
+  row.
+- **[Browser](/shortcircuit-xt/manual/ui-browser/)**: Up and Down move through the list. Right
+  enters a folder or opens an instrument file such as an SF2; Left closes it or goes up a folder.
+  Return does what a double-click does.
 
-Delete applies to everything selected, while Rename, Copy and Duplicate act on the lead
-selection.
+Rename acts on the lead zone or group. Copy, Cut, Duplicate and Delete act on everything
+selected, and Cut is a single undo step.
+
+While renaming a zone or group, **Tab** keeps the name and moves the rename to the next row, and
+**Shift+Tab** to the previous one.
+
+In the browser, typing a name jumps to the first entry starting with it. Letters typed within a
+second build up the name; typing the same letter again moves to the next match.
 
 ## Keys you cannot change
 

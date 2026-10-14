@@ -18,8 +18,9 @@ A part can be saved and loaded on its own, as a `.scp` file. A whole multi is a 
 
 A part holds any number of groups. A group collects zones and adds what is shared by all of them:
 
-- play mode (poly, mono or legato) and polyphony
-- trigger conditions, such as keyswitches and round robins
+- play mode (poly, piano, mono or legato) and polyphony
+- [trigger conditions](/shortcircuit-xt/manual/group-triggers/), such as keyswitches, round
+  robins and release triggers
 - four processors, run on the mixed output of the group's voices
 - group LFOs, envelopes and a modulation matrix
 - an output, normally to its part
@@ -36,4 +37,5 @@ A group holds any number of zones. A zone maps a sample, or no sample at all, to
 - an output, normally to its group
 
 When a note arrives, every zone in every group whose range and trigger conditions match plays a
-voice. A single note can play many zones at once.
+voice. A single note can play many zones at once. Groups set to release trigger play when the
+note ends instead.

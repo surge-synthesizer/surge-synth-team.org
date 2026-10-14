@@ -10,26 +10,37 @@ Voices are limited at three levels:
 
 - **Engine**: 512 voices in total.
 - **Part**: the voice limit button on the part card, from 4 to 512.
-- **Group**: the **Polyphony** button in **GROUP SETTINGS**, available in Poly mode. **PART**
-  means the group has no limit of its own; otherwise choose 1 to 64 voices.
+- **Group**: the polyphony button in **GROUP SETTINGS**, available in Poly and Piano mode.
+  **PART** means the group has no limit of its own; otherwise choose from 1 to 64 voices.
 
 When a limit is reached, the oldest voice is stolen. Released voices are stolen before held ones.
 
 ## Exclusive groups
 
-**Exclusive Group** in **GROUP SETTINGS** puts groups in a choke group. When a group starts a
-voice, voices in other groups with the same exclusive group number are quickly faded out. Choose
-**New Group** to create a new number.
+The exclusive group button in **GROUP SETTINGS** puts groups in a choke group. It reads **OFF**
+until a number is chosen. When a group starts a voice, voices in other groups with the same
+exclusive group number are quickly faded out. Choose **New Group** to create a new number.
 
 ## Group settings
 
 The rest of the **GROUP SETTINGS** card applies to all selected groups:
 
-- **Volume** and **Pan**
+- **Volume**, up to +12 dB, and **Pan**
 - **Tuning**: -24 to +24 semitones.
 - **PB**: pitch bend range down and up, 0 to 48 keys. Zones use this unless they set their own.
 
 The group **ROUTING** pane also has:
 
 - **Vel**: velocity sensitivity for the group.
-- **2xOS**: runs the group and its zones oversampled. On by default.
+- **HQ**: oversampling for the group and its zones. Click to step through **HQ: OFF**,
+  **HQ: ON** and **HQ: AUTO**, or right-click for a menu.
+  - **Off (1x)**: never oversamples.
+  - **On (2x)**: always runs the group and its zones at twice the sample rate. The default for
+    new groups.
+  - **Auto (2x when pitched up)**: oversamples only a voice pitched up far enough to alias.
+    Imported instruments use this.
+
+## Sounding groups
+
+While a group is producing sound, its row in the group and zone tree shows a speaker. The
+speaker stays lit while the group's processors ring out after its voices end.

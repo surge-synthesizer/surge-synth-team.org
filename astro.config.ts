@@ -156,6 +156,10 @@ export default defineConfig({
                                     label: "Voice Management",
                                     slug: "shortcircuit-xt/manual/group-voice-management",
                                 },
+                                {
+                                    label: "Trigger Conditions",
+                                    slug: "shortcircuit-xt/manual/group-triggers",
+                                },
                             ],
                         },
                         {

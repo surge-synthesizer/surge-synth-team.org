@@ -21,12 +21,13 @@ MIDI channels.
   loaded, an octave is the scale's repeat interval.
 - **MPE**: every part plays on every channel. See [MPE](/shortcircuit-xt/manual/mpe/).
 
-The **Part Options** menu at the top of the sidebar has **Set All to Omni** and **Set to
-Incremental MIDI Channels**.
+The **PARTS** panel menu has **Set All to Omni** and **Set to Incremental MIDI Channels**, and
+chooses between **Expanded Display**, where each card shows the part's description, and
+**Compressed Display**, where the description shows when you hover over the card.
 
 ## The part card
 
-- **Name**: click for the **Part I/O** menu, with rename, save, load and **Deactivate Part**.
+- **Name**: click to rename.
 - **M** and **S**: mute and solo. A muted part does not respond to new notes.
 - **MIDI**: the part's channel, in Omni mode.
 - **Level** and **Pan**
@@ -35,10 +36,32 @@ Incremental MIDI Channels**.
 - **Tuning**: in semitones, -36 to +36.
 - **Transpose**: shifts incoming notes by -36 to +36 keys before zones are chosen.
 
+Right-click the card or its name for the part menu. The **PARTS** panel menu has the same items
+for the selected part.
+
+- **Load Part...** and **Reload Part**, which goes back to the file on disk.
+- **Save Part**, **Save Part As...**, **Save Part as Monolith...** and **Save Part with Collected
+  Samples...**
+- **Initialize Part**: empties the part, keeping its MIDI channel and output.
+- **Delete Part**: deactivates the part.
+- **Duplicate Part**: copies the part into the first inactive part.
+- **Copy Part** and **Paste Part**
+
+Paste replaces the part with the copy, including its name, description, groups, macros and part
+FX. The part keeps its own MIDI channel and output. Click a card and use Cmd/Ctrl+C and
+Cmd/Ctrl+V to do the same from the keyboard.
+
+## Part settings
+
+With the **PARTS** tab selected, the **SETTINGS** tab beside **MACROS** holds **Default
+Articulation**: the latching keyswitch the part arms when no other is live. **Lowest Group** is
+the default. See [Trigger Conditions](/shortcircuit-xt/manual/group-triggers/#keyswitches).
+
 ## Saving and loading parts
 
-A part saves to a `.scp` file. **Save Part** refers to samples where they are, **Save Part with
-Collected Samples** copies them to a folder beside the file, and **Save Part as Monolith** stores
-them inside the file.
+A part saves to a `.scp` file. **Save Part** writes back to the file the part came from, with no
+dialog. **Save Part As...** refers to samples where they are, **Save Part with Collected
+Samples...** copies them to a folder beside the file, and **Save Part as Monolith...** stores them
+inside the file.
 
 Dropping a `.scp` file on a part card replaces that part.

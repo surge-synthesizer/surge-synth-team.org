@@ -10,13 +10,16 @@ The header runs across the top of every screen. It holds:
 
 - **EDIT**, **MIX** and **PLAY** to switch screens.
 - **Undo** and **Redo**
-- The save button and the **Multi and Instrument IO** menu. See
-  [Saving and loading](#saving-and-loading).
+- The name of the multi, or of the selected part while the sidebar is on **GROUPS** or
+  **ZONES**. Click it to rename. The arrows beside it load the previous or next file in the folder
+  it came from. Right-click it for the save and load menu.
+- The disk button opens the **Save and Load** menu. See [Saving and loading](#saving-and-loading).
 - **Tune** opens the [tuning](/shortcircuit-xt/manual/microtuning/) menu.
 - **OMNI**, **MPE** or **Ch/Oct** sets the [MIDI channel mode](/shortcircuit-xt/manual/parts-multitimbral/).
 - **!** stops all sound. Right-click for **All Sounds Off** and **All Notes Off**.
 - **CPU** and **RAM** readouts, and the main output meter.
-- The Shortcircuit logo opens the main menu, with zoom, themes, the log and the About screen.
+- The Shortcircuit logo opens the main menu, with tuning, zoom, themes, keyboard shortcuts, the
+  log and the About screen. Right-clicking the header opens it too.
 
 ## Layout
 
@@ -28,10 +31,15 @@ The sidebar's **PARTS**, **GROUPS** and **ZONES** tabs choose what the centre ed
 - **ZONES** and **GROUPS** show the mapping pane at the top, four processors, the modulation
   matrix and routing, two envelopes, and the LFOs. In **GROUPS** these panes edit the group, and
   the sidebar adds the group's trigger conditions and settings.
-- **PARTS** shows the part's macros and its four [FX](/shortcircuit-xt/manual/parts-fx/).
+- **PARTS** shows the part's **MACROS** and **SETTINGS** tabs and its four
+  [FX](/shortcircuit-xt/manual/parts-fx/).
 
-Cmd/Ctrl+1, 2 and 3 select zones, groups and parts. Alt+G swaps between groups and zones. Every
-shortcut can be changed; see [Keyboard Shortcuts](/shortcircuit-xt/manual/keyboard-shortcuts/).
+Cmd/Ctrl+1, 2 and 3 select zones, groups and parts. Alt/Opt+G swaps between groups and zones.
+Every shortcut can be changed; see
+[Keyboard Shortcuts](/shortcircuit-xt/manual/keyboard-shortcuts/).
+
+Loading a multi or part leaves the screens and tabs as they are; only a DAW session brings back
+the view it was saved with. The mixer keeps its selected bus when the editor is reopened.
 
 ## Selection
 
@@ -40,32 +48,107 @@ show the **lead** selection; an edit applies to everything selected.
 
 In the **ZONES** tab:
 
-- Click a zone to select it.
-- Shift-click to select a run of zones; Cmd/Ctrl-click to add or remove one.
-- Click a group to select all its zones.
+- Click a zone to select it and make it the lead.
+- Shift-click to select the run of zones from the last one clicked. Shift-Cmd/Ctrl-click adds
+  the run to the selection.
+- Cmd/Ctrl-click to add or remove one zone. Alt/Opt-click adds a zone and makes it the lead.
+- Click a group to select all its zones. Cmd/Ctrl or Alt/Opt-click adds them to the selection.
 
-In the **GROUPS** tab, click a group to select it; Shift or Cmd/Ctrl-click adds to the selection.
+In the **GROUPS** tab, click a group to select it. Shift, Shift-Cmd/Ctrl and Cmd/Ctrl-click work
+as they do on zones.
+
+A group can link its zones, so that selecting any of them selects them all, with the first as the
+lead. Turn it on with **Link Zone Selection** in the group's menu, or **Link Zone Selection in
+Selected Groups** in the mapping pane menu. Linked groups show a link glyph in the tree, and their
+zones are hatched on the map.
+
+With **Allow Zone Edits in Group Mode** on in the mapping pane menu, clicking and editing zones on
+the map leaves the sidebar on **GROUPS**.
 
 ## The group and zone tree
 
 - The **Part** menu at the top of the tree chooses which part to edit.
 - **+** at the bottom adds a group. Drop zones on it to move them to a new group.
-- Drag rows to reorder zones and groups, or to move zones between groups.
-- **M** on a group row mutes the group.
-- Right-click a group or zone for rename, copy, paste, duplicate, delete and move.
+- The arrow on a group row folds and unfolds it.
+- Double-click a row to rename it.
+- **M** and **S** on a group row mute and solo it. They act on every selected group when the
+  group is selected. Hold Alt/Opt to mute or solo that group alone, Shift to sweep to the nearest
+  group already set, or Cmd/Ctrl to change that group only.
+
+Drag rows to reorder zones and groups, or to move zones between groups. A line shows where they
+will land. Dragging a selected row moves the whole selection; hold Shift when the drag starts to
+move just that row. Hold Cmd/Ctrl or Alt/Opt at the drop to copy instead of move.
+
+Glyphs on a row show its state:
+
+- A speaker beside a zone while it plays a voice, and on a group while the group is sounding,
+  including while its effects ring out.
+- A keyboard on a group with a keyswitch, lit while it is the live articulation.
+- A link on a group whose zones select together.
+- A zone whose sample is missing is drawn in the warning colour.
+
+## Zone and group menus
+
+Right-click a zone or group for its menu. Right-clicking inside a selection of several acts on all
+of them, and the menu is headed, for example, **3 Selected Zones**. Right-clicking anything else
+acts on just that row. The **GROUPS** and **ZONES** panel menus hold the same items for the
+selection, plus **Expand All Groups**, **Collapse All Groups**, **Auto-Expand Selected Groups**
+and **Auto-Expand Selected Zones**. Right-clicking the map gives the zone menu as well.
+
+The zone menu has:
+
+- **Rename**, **Cut**, **Copy**, **Duplicate**, **Paste** and **Delete**. Paste lands after the
+  clicked or lead zone.
+- **Delete All Zones with Missing Samples**
+- **Exchange Sample...** and **Reveal Sample in Finder** (Explorer on Windows, File Manager on
+  Linux), for a single zone.
+- **Select All Zones** and **Deselect All Zones**
+- **Move to New Group**: to one empty group or a clone of the selected group, or each zone to its
+  own.
+- **Move to Existing Group**
+- **Batch Functions**: move root keys to the first, centre or last key of each zone, and apply or
+  remove key and velocity crossfades between zones.
+
+The group menu has:
+
+- **Rename**, **Copy**, **Cut**, **Duplicate** and **Delete**
+- **Paste with Zones** and **Paste without Zones**, after the clicked or lead group, and **Paste
+  Zone** into the clicked group.
+- **Delete Empty Groups**, **Add New Group** and **Create Empty Zone**
+- **Link Zone Selection**
+- **Select All Groups** and **Deselect All Groups**
+
+The menus on rows and on the map end with the **Current Part** items: **Delete All Zones and
+Groups**, and **Resolve Missing Samples** when samples are missing.
 
 ## Saving and loading
 
-A whole instrument is a **multi** (`.scm`); a single part is a `.scp` file. The save menu offers
-each in three forms:
+A whole instrument is a **multi** (`.scm`); a single part is a `.scp` file. The disk button's
+**Save and Load** menu has:
 
-- **Only**: refers to samples where they are on disk.
-- **with Collected Samples**: copies the samples to a folder beside the file.
-- **as Monolith**: stores the samples inside the file.
+- **Save Multi** and **Save Part N**: write back to the file the multi or part was loaded from or
+  last saved to, with no dialog. A renamed multi or part is saved as a new file beside it. With
+  no file yet, they ask where to save.
+- **Save Multi As...** and **Save Part N As...**: refer to samples where they are on disk.
+- **as Monolith...**: stores the samples inside the file.
+- **with Collected Samples...**: copies the samples to a folder beside the file.
+- **Export**: the part as SFZ, which keeps only a small subset of features, and **Collect All
+  Samples** or **Collect Part N Samples** into a folder.
+- **Load Multi** and **Load Part Into N**
+- **Reset Engine To**
 
-The same menu can export a part as SFZ, which keeps only a small subset of features.
+**Save Multi** and **Save Part N** are not available for a monolith; use **as Monolith...**.
 
-Loads can be undone.
+Loading or saving names the multi or part after its file. Loads can be undone.
 
-**Reset Engine To** starts again from an empty part, 16 empty parts, a basic synth, or your
-templates in `Patches/Templates`. It does not ask for confirmation, and clears the undo history.
+Dropping a single `.scm` or `.scp` file on the header asks, then loads it as the multi or into
+the selected part.
+
+**Reset Engine To** starts again from **Empty Part**, **16 Empty Parts** or **Basic Synth**, or
+from your templates in `Patches/Templates`. A built-in template does not ask for confirmation,
+and clears the undo history.
+
+The same menu sets a **Startup Default**: a multi or part that every new instance loads. Choose
+**Set Startup Default...** to pick a file, its name to reset to it, or **Clear Startup Default**.
+A startup part loads into part 1 of an empty multi. If the file cannot be loaded, the instance
+starts empty and the startup default is cleared.

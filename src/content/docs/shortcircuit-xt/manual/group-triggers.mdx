@@ -1,0 +1,89 @@
+---
+title: Trigger Conditions
+sidebar:
+  order: 16
+---
+
+A group plays a note only when its trigger conditions hold. They are set in the **TRIGGER
+CONDITIONS** card of the **GROUPS** sidebar tab, above **GROUP SETTINGS**.
+
+The card has a release trigger row and four condition rows. Each condition row has a numbered
+switch to turn it on or off, a type menu, and up to two values. A group with no conditions plays
+every note in its zones' ranges. When several conditions are set, all of them must hold.
+
+Edits apply to every selected group. If the selected groups have differently shaped conditions,
+the card says **Mixed Triggers**; **Make Consistent** copies the lead group's conditions to the
+others.
+
+## Condition types
+
+| Type menu | Button | The group plays when |
+| --- | --- | --- |
+| **KeySwitch** | KSWITCH | its switch key was the last one played. See below. |
+| **KeySwitch (Momentary)** | KSW/MOM | its switch key is held down |
+| **Program Change** | PROGRAM | the part's last program change is in the range, 0 to 127 |
+| **Pitch Bend** | PBEND | pitch bend is in the range, -8192 to 8191 |
+| **Dice per Key Press** | DICE/KEY | the note's dice roll is in the range, 0 to 1 |
+| **Round Robin** > **Cycle** | RR/CYC | its turn in the cycle comes round |
+| **Round Robin** > **Random** | RR/RND | it is picked at random from its set |
+| **Round Robin** > **Shuffle** | RR/SHF | it is picked from its set, each once before repeating |
+| **MIDI CC** > **CC 0** to **CC 127** | MIDICC N | the controller is in the range, 0 to 127 |
+| **Macros** > **Macro 1** to **Macro 16** | MACRO N | the part macro is in the range, 0 to 1 |
+
+### Keyswitches
+
+A **KeySwitch** group plays only while its switch key is the live articulation. Playing a switch
+key makes it live and silences the part's other KeySwitch groups. Several groups can share a key,
+and all of them then play together. The switch key itself does not sound in those groups.
+
+A **KeySwitch (Momentary)** group plays only while its key is held.
+
+The MIDI button beside the key learns it: turn it on and play a key, from a controller, the host
+or the onscreen keyboard. That key becomes the switch key, and the learning press neither sounds
+nor throws a switch. Turning the button off, choosing another type or another group cancels
+learning.
+
+Groups with a keyswitch show a keyboard glyph in the group and zone tree, lit while the group is
+the live articulation and dim while it is switched off. The keyboard under the mapping view marks
+the part's switch keys.
+
+The part chooses which articulation is live when nothing has been played: **Default
+Articulation**, in the **KEYSWITCHES** section of the part's **SETTINGS** tab, is either **Lowest
+Group**, the first KeySwitch group in the part, or one of the part's switch keys.
+
+### Round robins
+
+A round robin condition puts the group in a numbered set: **RR1** to **RR32** for Cycle, **RN1**
+to **RN32** for Random and **SH1** to **SH32** for Shuffle. The three kinds have separate sets.
+
+- **Cycle**: each group in the set also has a position, from 1 to 100. Each note moves the set
+  on to the next position in use, then back to the first. Groups sharing a position play
+  together.
+- **Random** and **Shuffle**: each note picks one group from the set.
+
+A group can be in only one round robin. A note that no group in the set would play does not move
+the set on.
+
+### Dice
+
+Every note rolls one random number from 0 to 1, shared by every group in the part. A **Dice per
+Key Press** group plays when the roll lands in its range, including the low end and excluding the
+high end. Groups whose ranges split 0 to 1 between them play exactly one per note.
+
+## Release triggers
+
+**RELEASE TRIGGER** makes the group play when a key is released rather than when it is pressed,
+at the velocity the key was pressed with. Its zones and conditions are chosen as for a note on.
+
+With it on, the row shows:
+
+- **RT**: turns release triggering off again.
+- **ONE PER**: a new release voice on a key ends the group's earlier release voice on that key.
+- The countdown time, 0 to 30 seconds, 5 by default. The **Voice** > **Release Countdown**
+  modulation source is 1 for a key released at once and falls to 0 for a key held for the
+  countdown time, so a release can get quieter the longer the note was held.
+- **ON PEDAL**: the group plays when the sustain pedal is lifted instead, sounding every zone at
+  its root key. The countdown is then measured from when the pedal went down.
+
+A release voice has no held key behind it. Its amp envelope follows the sample, and its other
+envelopes, and the group's envelopes, run as one shots.
