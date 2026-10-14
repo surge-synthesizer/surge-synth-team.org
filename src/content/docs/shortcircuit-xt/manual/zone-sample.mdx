@@ -9,29 +9,75 @@ A zone plays one sample, a choice of samples called variants, or no sample at al
 ## The sample
 
 The **SAMPLE** tab of the mapping pane edits the lead zone's sample. Double-click the lead zone
-on the map to open it.
+on the map to open it, and double-click the waveform to go back to **MAPPING**.
 
 Each sample has:
 
 - **Start** and **End**
 - A loop mode: **Loop**, **Loop Alternate**, **Loop Until Release**, **Loop Alternate Until
   Release** or **Loop For Count**
-- **∞** to turn looping on, loop **Start** and **End**, and **XF** crossfade length
-- Reverse
+- **∞** to turn looping on, loop **Start** and **End**, **XF** crossfade length, and the crossfade
+  curve
+- Reverse, which also draws the waveform reversed
 - **SRC**: interpolation, **Sinc**, **Linear**, **Zero-Order Hold (Anti-Aliased)** or **Zero Order
   Hold**
 - Volume, pan and tuning
 
-Drag the handles on the waveform to set start and end, at the bottom, and loop points, at the top.
+The loop controls are hidden until looping is on. While the **AMP EG** is **Sample Gated**, only
+**Loop For Count** is available.
 
-Click the sample name beside **File** to load a different file into the current variant. The
-arrows beside it step to the previous or next sample in the same folder.
+The info button beside **File** shows the sample rate, channels, bit depth and length. Click the
+sample name to load a different file into the current variant. The arrows beside it step to the
+previous or next sample in the same folder.
+
+## Editing on the waveform
+
+Drag the handles on the waveform to set start and end, at the bottom, and loop points, at the
+top. Edits reach notes that are already playing.
+
+- Markers snap to slices from WAV cue markers when dragged close to one.
+- Hold **Shift** while dragging a marker to snap it to a zero crossing near the mouse.
+- Right-click the waveform for the **Zero Crossings** items, which move one marker, or all of them
+  with **Snap All to Zero Crossings**, to the nearest zero crossing. A stereo sample crosses where
+  the sum of its channels does.
+
+## The loop crossfade
+
+**XF** fades the end of the loop into the material before the loop start. With looping on, each
+loop marker has a fade node on the waveform. Drag a node, or Alt-drag a loop marker, to set the
+crossfade length by moving sideways and its curve by moving up and down.
+
+The curve runs from 0% (linear) through 100% (equal power, the default) to 150%. It shapes
+forward loops only, and is greyed out for the alternate modes.
+
+The crossfade always fits inside the loop and after the sample start. Start, loop start and loop
+end stop where they would cut into it.
+
+## Editing several zones
+
+The sample controls act on the same variant of every selected zone. Start, end, loop points and
+**XF** are positions in one sample, so dragging or typing them changes only the lead zone. Type
+**+N** or **-N** instead to move that marker by N samples in every selected zone.
+
+The pane's menu button, with the **SAMPLE** tab showing, applies these to the same variant of
+every selected zone:
+
+- **Restore Loops from Samples**: uses the loop stored in each sample file and turns looping on.
+  A sample with no stored loop is left as it is.
+- **Copy Current Loop Settings**, **Copy Current Sample Start** and **Copy Current Sample End**:
+  copy from the variant shown, fitted to each sample's length.
+- **Adjust Loop Starts -1** and **+1**, **Adjust Loop Ends -1** and **+1**: nudge looping variants
+  by one sample.
+
+Each is a single undo step.
 
 ## The variants
 
 A zone holds up to 16 variants, shown as numbered tabs. Drop a sample on **+** to add one, or on a
-tab to replace it. To make a zone from several files at once, hold Alt while dropping them on the
-map.
+tab or the waveform to replace it. To make a zone from several files at once, hold Alt while
+dropping them on the map.
+
+The **Variants** menu and **EDIT ALL** appear once a zone has two or more variants.
 
 **Variants** chooses which variant plays for each note:
 
@@ -42,9 +88,12 @@ map.
 - **Unison**: all of them at once.
 
 Each variant has its own copy of the sample controls above. **EDIT ALL** applies edits to every
-variant, except start, end, loop points, crossfade and normalization, which stay per variant.
+variant, except start, end, loop points, crossfade and normalization, which stay per variant. With
+**EDIT ALL** on, the menu actions above reach every variant.
 
-Right-click a variant tab to delete or normalize it.
+Right-click a variant tab to copy, paste, delete or normalize it. Paste puts the copy after the
+variant clicked, or at the end from **+**, and can go into another zone. With the variant display
+focused, Cmd/Ctrl+C copies the variant shown, Cmd/Ctrl+X cuts it and Cmd/Ctrl+V pastes after it.
 
 ## Empty zones
 

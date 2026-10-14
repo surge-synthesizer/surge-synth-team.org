@@ -12,7 +12,8 @@ sidebar:
 | Instruments | `.sf2`, `.sfz`, `.exs`, `.gig`, `.akp`, `.multisample` |
 | Shortcircuit XT | `.scm` (multi), `.scp` (part) |
 
-Samples must be mono or stereo.
+Samples must be mono or stereo. WAV and AIFF load from 8 to 32 bit, including 12 and 20 bit, and
+WAV also loads 32 and 64 bit float. FLAC loads at any depth from 4 to 32 bit.
 
 ## Importing an instrument
 
@@ -30,12 +31,27 @@ Features Shortcircuit XT cannot import are skipped.
 
 ## What each format brings in
 
-- **SF2**: one group per instrument, with key and velocity ranges, root key, tuning, loops, pan,
-  level, both envelopes, the filter, the vibrato LFO and the common modulators. The modulation LFO
-  and exclusive classes are not imported.
-- **SFZ**: regions with key and velocity ranges and fades, root key, tuning, level, loops, amp
-  and filter envelopes, filter, and common CC and velocity modulation. `seq_position` round robins
-  become variants. `#define` is not supported.
+- **SF2**: one group per instrument, with key and velocity ranges, root key, tuning and scale
+  tuning, sample offsets, loops including loop until release, pan, level, both envelopes with
+  key number scaling, the filter, the vibrato and modulation LFOs with their delays, and the
+  file's modulators, including preset level and global ones. Zones with an exclusive class get a
+  group of their own, in an
+  [exclusive group](/shortcircuit-xt/manual/group-voice-management/#exclusive-groups). Reverb
+  and chorus sends, fixed key and fixed velocity are not imported.
+- **SFZ**: regions with key and velocity ranges, velocity fades, root key (including
+  `pitch_keycenter=sample`), keytrack, tuning and transpose, level, pan, offset and end, reverse,
+  loops (`loop_mode`, including `one_shot`, and `loop_type`), amp and filter envelopes, filter,
+  and common CC and velocity modulation. `<global>`, `<master>` and `<group>` opcodes are
+  inherited, and `#include` and `#define` are supported. Some opcodes become group settings:
+  - `trigger=release` regions go to a group of their own which plays on release.
+  - `sw_last` and `sw_down` become **KeySwitch** and **KeySwitch (Momentary)** trigger
+    conditions, and `sw_default` sets the part's default articulation.
+  - `group` and `off_by` become exclusive groups. One way chokes import as mutual.
+  - `seq_position` on a region makes variants of one zone. On a header it gives each group a
+    **Round Robin** > **Cycle** trigger condition.
+  - Regions sharing a key and velocity range and split by `lorand` and `hirand` become one zone
+    with **Random** variants. `lorand` and `hirand` on a `<group>` become a **Dice per Key Press**
+    trigger condition.
 - **EXS**: groups with volume, pan, polyphony and exclusive groups; zones with ranges, tuning,
   start and end, reverse, one-shot, release trigger and loops; the filter and both envelopes.
   Round robin groups are imported as parallel zones.
@@ -44,7 +60,9 @@ Features Shortcircuit XT cannot import are skipped.
   imported.
 - **AKP**: key and velocity ranges, tuning, pan, level, two envelopes and a low pass filter. Samples
   are looked for beside the `.akp` file; missing samples are skipped.
-- **.multisample**: groups, key and velocity ranges and fades, root key, tuning and loops.
+- **.multisample**: groups, key and velocity ranges and fades, root key, keytrack, tuning, gain,
+  sample start and end, reverse and loops, including ping-pong loops and loop fades. Round robin
+  samples sharing a mapping become variants of one zone.
 
 ## Metadata in sample files
 

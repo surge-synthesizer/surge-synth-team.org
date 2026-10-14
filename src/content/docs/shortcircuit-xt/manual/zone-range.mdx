@@ -10,7 +10,7 @@ A zone's range is edited in the **MAPPING** tab of the pane at the top of the ed
 
 ## Mapping controls
 
-The **MAPPING** tab edits the lead zone:
+The **MAPPING** tab shows the lead zone:
 
 - **Root Key**: the key at which the sample plays at its recorded pitch.
 - **Key Range**: the lowest and highest keys the zone plays.
@@ -19,36 +19,69 @@ The **MAPPING** tab edits the lead zone:
 - **Pitch Bend**: bend range down and up, in keys. **GRP** uses the group's range.
 - **Pitch**: tuning offset in semitones.
 - **Amplitude**: level offset, -36 to +36 dB.
-- **Keytrack**: how far pitch follows the keyboard, from -2x to 2x.
+- **Keytrack**: how far pitch follows the keyboard, from -200% to 200%.
 - **Pan**
 
-Changes to the key and velocity ranges move all selected zones together. Hold Alt to change only
-the lead zone.
+Edits apply to every selected zone. For the root key, key and velocity ranges and crossfades:
+
+- Dragging, or typing **+N** or **-N**, moves each zone from its own value.
+- Typing a value sets it on every selected zone. If any zone cannot take it, none change.
+- Hold Alt to change only the lead zone.
 
 ## The zone map
 
-The map shows keys across and velocity up, with each zone as a rectangle.
+The map shows keys across and velocity up, with each zone as a rectangle. It shows the zones of
+the groups that hold the selection.
 
+- Click a zone to select it. Cmd/Ctrl-click adds or removes a zone; Alt-click a selected zone to
+  make it the lead.
+- Click where zones overlap to cycle through them.
+- Drag on empty space to select several zones; the last zone the box reaches becomes the lead.
+  Hold **Shift** to add to the selection.
 - Drag a zone to move its keys and velocity. The root key moves with it.
 - Drag an edge to resize the key or velocity range, or a corner for both.
-- Click where zones overlap to cycle through them.
-- Drag on empty space to select several zones.
 - Cmd/Ctrl-drag on empty space to draw a new empty zone.
 - Double-click the lead zone to open the **SAMPLE** tab.
 - The lock button stops drags from moving zones.
 
+Right-click a zone for the same zone menu as the group and zone tree, including **Batch
+Functions** to move root keys to the first, centre or last key of each zone, and to add or remove
+key and velocity crossfades. Right-click empty space for **Create Empty Zone** and the same items
+for the selection.
+
 Click the keyboard below the map to play a note; the height of the click sets velocity. Drag
-from the root key to move it.
+from the root key to move the root key of the selected zones; this plays no notes. Keyswitch keys
+are shaded on the keyboard.
+
+## The mapping menu
+
+The pane's menu button, with the **MAPPING** tab showing, has:
+
+- **Show Zone Names**: draws names on the zone rectangles. On by default.
+- **Allow Zone Edits in Group Mode**: lets you click and edit zones on the map while the sidebar
+  stays on **GROUPS**. Otherwise clicking the map switches the sidebar to **ZONES**.
+- **Move Root Key with Zone**: when off, dragging a zone leaves its root key where it was. On by
+  default.
+- **Link Zone Selection in Selected Groups**: selecting any zone in a linked group selects all of
+  them. Linked zones are drawn hatched.
 
 ## Dropping samples
 
-Drop audio files on the map to create zones. The drop position sets the root key, and dropping
-higher makes a wider key range.
+Drop audio files on the map to create zones. The key under the cursor is the first zone's lowest
+key, and dropping higher makes each zone wider: up to 24 keys over the lower 70% of the map, then
+whole octaves, filling the keyboard at the top. The map and the keyboard preview where the zones
+and roots will land.
 
-- Several files are placed side by side.
+- One sample roots in the middle of its zone.
+- Several files are placed side by side, each rooted at its lowest key.
 - Hold **Shift** to stack them as velocity layers over one key range.
 - Hold **Alt** to make one zone with the files as
   [variants](/shortcircuit-xt/manual/zone-sample/#the-variants).
+- With **Shift**, hold **Ctrl** (Control on Mac) to freeze the key span. Moving up then widens the
+  lower velocity layers, and moving down the upper ones.
+
+Drop on the keyboard below the map to put every file on the one key under the cursor. The upper
+half of the keyboard splits them over velocity; the lower half overlaps them.
 
 Samples dropped on the map use their loop points but not any mapping stored in the file. Drop
 them on the group and zone tree instead to use the file's root key and ranges.

@@ -9,7 +9,7 @@ Groups have a similar set, running once for the group.
 
 | | Zone | Group |
 | --- | --- | --- |
-| Envelopes | AMP EG plus EG2 to EG5 | GRP EG1, GRP EG2 |
+| Envelopes | AMP EG plus EG2 to EG5 | GRP EG1 plus GEG2 to GEG5 |
 | LFOs | LFO 1 to 4 | GLFO 1 to 4 |
 | Phasors | A to D | A to D |
 | Randoms | A to D | A to D |
@@ -19,16 +19,22 @@ Groups have a similar set, running once for the group.
 ## Envelopes
 
 The **AMP EG** controls the zone's volume. The other envelopes do nothing until routed in the
-matrix.
+matrix. EG2 to EG5 share one panel as tabs; in a group, so do GEG2 to GEG5.
 
 Each envelope has delay, attack, hold, decay, sustain and release, with shape controls for attack,
-decay and release. The menu sets how the envelope follows the note:
+decay and release. The metronome button in the panel header syncs all of the envelope's times to
+the host tempo, so they are set in note values. The menu sets how the envelope follows the note:
 
 - **Gated (DAHDSR)**: holds at sustain until the key is released.
 - **No Sustain**
 - **Oneshot**
 - **Sample Gated** (zones only)
-- **Gate on Voice Sounding** (groups only): gated while any voice in the group sounds.
+
+In **No Sustain** and **Oneshot**, the sustain slider becomes a breakpoint, **B**. The AMP EG
+title shows the mode, such as **AMP EG (OneShot)**.
+
+Group envelopes also have **Gate on Voice Sounding**, which keeps the envelope gated while any
+voice in the group sounds.
 
 ## LFOs
 
@@ -42,6 +48,9 @@ Choose a shape from the LFO menu:
 The trigger mode sets when the LFO restarts: **KEYTRIG**, **SONGPOS**, **RANDOM**, **RELEASE** or
 **ONESHOT**.
 
+The metronome button in the panel header syncs the LFO's rate, and its delay, attack, release and
+envelope times, to the host tempo.
+
 ## MISC and AUDIO
 
 The **MISC** tab holds the phasors and randoms.
@@ -54,14 +63,32 @@ The **AUDIO** tab holds two envelope followers, taken before or after the proces
 ## The modulation matrix
 
 Each row connects a **SOURCE** to a **TARGET** with a depth. A **VIA** source scales the row, and a
-curve can reshape the source.
+curve can reshape the source. The source menus also set smoothing, from 10 to 500 ms.
 
-Zone sources include the LFOs and envelopes, the group's LFOs and envelopes, MIDI (mod wheel,
-velocity, aftertouch, pitch bend), MIDI CCs, key tracking, MPE, note expressions, voice state,
-phasors, randoms, envelope followers and the part's macros.
+The curve menu has powers and simple maps such as **x^2** and **1 - x**, and the **Rectifiers**,
+**Comparators**, **Waveforms**, **Scale** and **Curve 01 remappers** categories. The remappers are
+rising and falling curves for a 0 to 1 source: early or late, slow or fast.
 
-Zone targets include envelope and LFO parameters, zone tune, pan and amplitude, sample start,
-every processor parameter, and the depth of other matrix rows.
+Zone sources include the LFOs and envelopes, the group's LFOs and envelopes (GEG 1 to GEG 5),
+MIDI (mod wheel, velocity, release velocity, aftertouch, pitch bend), MIDI CCs, key tracking,
+MPE, note expressions, voice state, phasors, randoms, envelope followers and the part's macros.
+The **Voice** category includes **Release Countdown**, for
+[release triggers](/shortcircuit-xt/manual/group-triggers/#release-triggers).
+
+Zone targets include envelope and LFO parameters, zone tune, pan and amplitude, sample **Start
+Pos**, every processor parameter, and the depth of other matrix rows. A negative **Start Pos**
+amount can start a voice before the start marker, or past the end marker on a reversed zone, as
+far as the sample runs.
+
+The depth tooltip shows the target's value at rest and at full throw. For a bipolar source it
+shows both directions, and the depth bar also shows the opposite throw faintly.
+
+If a row targets a processor parameter that is no longer there, because the slot was changed, the
+row is greyed and named like **P1.4: none**. Changing the slot back brings the route back.
+
+Right-click a row for **Copy**, **Paste**, **Duplicate to**, **Swap with** and **Move to**. With
+one of a row's controls focused, Cmd/Ctrl+C copies the row, Cmd/Ctrl+V pastes over it and
+Cmd/Ctrl+X copies it and clears it.
 
 ## Macros
 

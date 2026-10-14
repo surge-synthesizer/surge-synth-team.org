@@ -20,7 +20,7 @@ Click a slot's name to choose a processor. Processors are grouped by category:
 | Distortion | Bitcrusher, Slewer, Treemonster, WaveShaper |
 | Dynamics | Auto Wah, Compressor |
 | EQ | 3 Band Parametric, 6 Band Graphic, Tilt EQ |
-| Filters | Cutoff Warp, Fast SVF, K35, Linear Ladder, Morph, OB-Xd 4-Pole, OB-Xd Xpander, Resonance Warp, Sample & Hold, Static Phaser, Tripole, Utility Filter, Vember Classic, Vintage Ladder |
+| Filters | Cutoff Warp, Fast SVF, Fast SVF (24db), K35, Linear Ladder, Morph, OB-Xd 4-Pole, OB-Xd Xpander, Resonance Warp, Sample & Hold, Static Phaser, Tripole, Utility Filter, Vember Classic, Vintage Ladder |
 | Generators | 3op Phase Mod, Correlated Noise, Sine +, Tilt Noise, Virtual Analog |
 | Modulation | Chorus, Circle Flanger, Phaser, Shepard Phaser, Tremolo |
 | Resonators | Comb, String Resonator, Tetrad Resonator |
@@ -33,10 +33,21 @@ Click a slot's name to choose a processor. Processors are grouped by category:
 
 - **Power button**: turns the processor on or off.
 - **Mix**: blends the processed and unprocessed signal.
-- **Keytrack** and **Temposync** buttons appear on processors that support them.
-- The menu has **Copy**, **Paste**, and processor presets.
+- **Keytrack** (keyboard glyph) and **Temposync** (metronome glyph) buttons appear on processors
+  that support them. With Temposync on, timed parameters such as delay times and LFO rates are
+  set in note values and follow the host tempo. **Microgate**'s repeat length then follows the
+  tempo and its repeats stay on the beat.
+- The menu has **Copy**, **Paste**, and processor presets. On a group processor it also has
+  **Pitch Mode**, which sets the note the processor tracks: **Constant**, **Note Priority**,
+  **Latest Note**, **Highest Note** or **Lowest Note**.
+
+With a control in a processor focused, Cmd/Ctrl+C copies the processor, Cmd/Ctrl+V pastes over
+it, and Cmd/Ctrl+X copies it and empties the slot.
 
 Drag a slot onto another to swap them. Hold Cmd/Ctrl to copy instead.
+
+When the selected zones or groups have different processors in a slot, the slot says **Multiple
+Types Selected** and offers to copy the lead's processor to all of them.
 
 ## Processor routing
 

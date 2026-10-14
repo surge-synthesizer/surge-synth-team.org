@@ -53,6 +53,13 @@ const navLinks = [
                                 </a>
                             )}
                             <p class="text-justify">{project.data.summary}</p>
+                            {project.data.manual && (
+                                <a
+                                    class="mt-2 inline-block font-semibold text-inherit underline underline-offset-2 hover:opacity-75"
+                                    href={project.data.manual}>
+                                    Manual
+                                </a>
+                            )}
                         </div>
                     </div>
                 );

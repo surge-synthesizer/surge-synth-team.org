@@ -6,5 +6,6 @@
     "cover": "./screenshots/shortcircuit-xt.png",
     "categories": ["Sampler"],
     "issue_tracker": "https://github.com/surge-synthesizer/shortcircuit-xt/issues",
-    "repo": "surge-synthesizer/shortcircuit-xt"
+    "repo": "surge-synthesizer/shortcircuit-xt",
+    "manual": "/shortcircuit-xt/manual/getting-started/"
 }

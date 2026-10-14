@@ -4,15 +4,22 @@ sidebar:
   order: 14
 ---
 
-Play mode is set per group, in the **GROUP SETTINGS** card of the **GROUPS** sidebar tab.
+Play mode is set per group, with the play mode button in the **GROUP SETTINGS** card of the
+**GROUPS** sidebar tab. The button reads **POLY**, **PIANO**, **MONO** or **LEG**.
 
-- **Poly**: every note plays its own voices.
+- **Poly**: every note plays its own voices. Playing a key that is still sounding adds new voices
+  on top of the old ones.
+- **Piano**: polyphonic, but playing a key again ends the voices the group has sounding on that
+  key and starts fresh ones. Repeated notes under the sustain pedal do not pile up, and each
+  restrike picks its zones again, so velocity layers and round robins follow every strike.
 - **Mono**: one note at a time. A new note stops the old voice and starts a new one, restarting
   the sample and envelopes.
 - **Legato**: one note at a time. A new note played while the old one is held changes the pitch
   without restarting the sample or envelopes.
 
 Because play mode belongs to the group, two mono groups in one part each play their own note.
+
+Play mode, note priority and glide settings apply to every selected group.
 
 ## Note priority
 
@@ -27,3 +34,8 @@ Glide is available in Mono and Legato. Its mode button chooses between:
 - **RATE**: the set time is for an octave, so wider intervals take longer.
 
 A glide time of zero turns glide off.
+
+The same menu has **Fingered Portamento**. With it on, a note glides only from a note that is
+still held; a note played after the last one was released starts on pitch, even if the old
+voice is still ringing out. With it off, a note glides from whatever voice is still sounding.
+Fingered Portamento is on for new groups. Sessions saved before it existed load with it off.
