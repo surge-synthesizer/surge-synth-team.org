@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-10-13T17:06:47.710207692",
+    "build_time": "2026-10-14T16:02:43.618763597",
     "data": {},
-    "latest_commit": "a0918e7",
+    "latest_commit": "e0544bf",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "e0544bf",
+            "date": "2026-10-14T11:35:29-04:00",
+            "message": "Draw the fixed group sidebar dividers as solid lines (#2765)"
+        },
+        {
+            "author": "Paul",
+            "commit": "79fd683",
+            "date": "2026-10-14T11:35:08-04:00",
+            "message": "Tuning-aware pitch bend menu item now controls pitch bend (#2762)"
+        },
         {
             "author": "Paul",
             "commit": "a0918e7",
@@ -22,26 +34,14 @@
             "commit": "8e2f6fb",
             "date": "2026-10-13T11:20:07-04:00",
             "message": "Add a piano play mode for groups (#2753)"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "7038829",
-            "date": "2026-10-13T10:07:15-04:00",
-            "message": "Updated JUCE to 8.0.16"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "fd8459e",
-            "date": "2026-10-13T10:05:47-04:00",
-            "message": "Added a Fast SVF (24db) voice filter"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-13-a0918e7-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-10-13-a0918e7.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-14-e0544bf-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-10-14-e0544bf.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-13-a0918e7-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-13-a0918e7-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-14-e0544bf-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-14-e0544bf-Windows-64bit.zip"
     },
     "version": "main"
 }
