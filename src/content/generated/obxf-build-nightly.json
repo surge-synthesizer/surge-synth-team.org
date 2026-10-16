@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-09-30T10:34:29.949469928",
+    "build_time": "2026-10-16T06:24:27.449867433",
     "data": {},
-    "latest_commit": "b08ffb6",
+    "latest_commit": "c1b7a51",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "c1b7a51",
+            "date": "2026-10-16T08:11:01+02:00",
+            "message": "Re-derive editor size when the theme changes (#718)"
+        },
         {
             "author": "Mario Kruselj",
             "commit": "b08ffb6",
@@ -28,20 +34,14 @@
             "commit": "051f453",
             "date": "2026-09-14T00:37:50+02:00",
             "message": "Fix osc triangle label height in vector skins (#714)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "4a8c6ff",
-            "date": "2026-09-13T23:44:44+02:00",
-            "message": "Update JUCE fork (Audio/MIDI settings dialog a11y updates) (#713)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-09-30-b08ffb6.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-09-30-b08ffb6.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-10-16-c1b7a51.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-10-16-c1b7a51.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-09-30-b08ffb6.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-09-30-b08ffb6.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-10-16-c1b7a51.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-10-16-c1b7a51.zip"
     },
     "version": "main"
 }
