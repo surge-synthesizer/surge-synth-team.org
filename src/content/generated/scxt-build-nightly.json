@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-10-20T19:05:04.166104143",
+    "build_time": "2026-10-20T22:14:34.645474629",
     "data": {},
-    "latest_commit": "8cee87c",
+    "latest_commit": "1c86e03",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "1c86e03",
+            "date": "2026-10-20T17:48:57-04:00",
+            "message": "Add 50% and 66% zoom, a typed zoom value, and show host scale on the about screen (#2772)"
+        },
         {
             "author": "Paul",
             "commit": "8cee87c",
@@ -28,20 +34,14 @@
             "commit": "3ed15fd",
             "date": "2026-10-15T11:42:48-04:00",
             "message": "Update clap-helpers for cached param id lookups, and CLAP to 1.2.10 (#2768)"
-        },
-        {
-            "author": "Paul",
-            "commit": "8485d6b",
-            "date": "2026-10-14T21:38:22-04:00",
-            "message": "Zohaa without a pow per sample, and a Cubic interpolation mode (#2760)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-20-8cee87c-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-10-20-8cee87c.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-20-1c86e03-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-10-20-1c86e03.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-20-8cee87c-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-20-8cee87c-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-20-1c86e03-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-20-1c86e03-Windows-64bit.zip"
     },
     "version": "main"
 }
