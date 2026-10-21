@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-10-21T02:07:44.149464124",
+    "build_time": "2026-10-21T02:35:31.255131239",
     "data": {},
-    "latest_commit": "f76c9b9",
+    "latest_commit": "b21cee6",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "b21cee6",
+            "date": "2026-10-20T20:49:22-04:00",
+            "message": "Velocity ranges start at 1"
+        },
         {
             "author": "Paul Walker",
             "commit": "f76c9b9",
@@ -28,20 +34,14 @@
             "commit": "1c86e03",
             "date": "2026-10-20T17:48:57-04:00",
             "message": "Add 50% and 66% zoom, a typed zoom value, and show host scale on the about screen (#2772)"
-        },
-        {
-            "author": "Paul",
-            "commit": "8cee87c",
-            "date": "2026-10-20T14:22:34-04:00",
-            "message": "Glide time can be modulated from the group and voice matrices (#2758)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-21-f76c9b9-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-10-21-f76c9b9.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-21-b21cee6-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-10-21-b21cee6.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-21-f76c9b9-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-21-f76c9b9-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-21-b21cee6-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-21-b21cee6-Windows-64bit.zip"
     },
     "version": "main"
 }
