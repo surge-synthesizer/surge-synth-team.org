@@ -1,10 +1,28 @@
 {
-    "build_time": "2026-10-20T22:14:34.645474629",
+    "build_time": "2026-10-21T02:07:44.149464124",
     "data": {},
-    "latest_commit": "1c86e03",
+    "latest_commit": "f76c9b9",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "f76c9b9",
+            "date": "2026-10-20T20:00:46-04:00",
+            "message": "MIDI learn notes now play, and MIDI select works with nothing selected"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "7cf8602",
+            "date": "2026-10-20T20:00:44-04:00",
+            "message": "Loop crossfade handle sits on its curve and drags one way at a time"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "11c4cd9",
+            "date": "2026-10-20T20:00:35-04:00",
+            "message": "Reversed sample markers keep their S and E labels"
+        },
         {
             "author": "Paul",
             "commit": "1c86e03",
@@ -16,32 +34,14 @@
             "commit": "8cee87c",
             "date": "2026-10-20T14:22:34-04:00",
             "message": "Glide time can be modulated from the group and voice matrices (#2758)"
-        },
-        {
-            "author": "Paul",
-            "commit": "8fd5833",
-            "date": "2026-10-20T11:03:58-04:00",
-            "message": "Make the mapping header buttons and file navigator work (#2761)"
-        },
-        {
-            "author": "Paul",
-            "commit": "47b74ef",
-            "date": "2026-10-16T21:30:32-04:00",
-            "message": "Processor label audit and mod tooltip review (#2767)"
-        },
-        {
-            "author": "Paul",
-            "commit": "3ed15fd",
-            "date": "2026-10-15T11:42:48-04:00",
-            "message": "Update clap-helpers for cached param id lookups, and CLAP to 1.2.10 (#2768)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-20-1c86e03-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-10-20-1c86e03.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-21-f76c9b9-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-10-21-f76c9b9.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-20-1c86e03-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-20-1c86e03-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-21-f76c9b9-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-10-21-f76c9b9-Windows-64bit.zip"
     },
     "version": "main"
 }
