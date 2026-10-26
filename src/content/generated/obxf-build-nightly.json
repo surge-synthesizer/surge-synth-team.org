@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-10-26T23:01:57.696717676",
+    "build_time": "2026-10-26T23:49:28.785568749",
     "data": {},
-    "latest_commit": "df98ef3",
+    "latest_commit": "6ea908d",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "6ea908d",
+            "date": "2026-10-26T19:35:57-04:00",
+            "message": "Restore the 1.0 envelope release curve (#721)"
+        },
         {
             "author": "Paul Walker",
             "commit": "df98ef3",
@@ -28,20 +34,14 @@
             "commit": "c1b7a51",
             "date": "2026-10-16T08:11:01+02:00",
             "message": "Re-derive editor size when the theme changes (#718)"
-        },
-        {
-            "author": "Mario Kruselj",
-            "commit": "b08ffb6",
-            "date": "2026-09-30T11:44:22+02:00",
-            "message": "Open patch browser on right click of patch name"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-10-26-df98ef3.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-10-26-df98ef3.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-10-26-6ea908d.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-10-26-6ea908d.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-10-26-df98ef3.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-10-26-df98ef3.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-10-26-6ea908d.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-10-26-6ea908d.zip"
     },
     "version": "main"
 }
