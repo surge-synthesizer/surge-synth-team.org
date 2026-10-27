@@ -6,7 +6,6 @@ import DownloadButton from "../components/DownloadButton.astro";
 import NavHeader from "../components/NavHeader.astro";
 import SpectrumWorxCover from "../content/projects/screenshots/spectrumworx.png";
 import Base from "../layouts/Base.astro";
-import "./spectrumworx.css";
 import spectrumworx_logo from "../images/spectrumworx/spectrumworx_logo_full.svg";
 
 // Unlisted on purpose: no src/content/projects/spectrumworx.json means this page
@@ -20,25 +19,31 @@ const navLinks = [
 ] as const;
 ---
 
-<Base title="SpectrumWorx">
+<Base title="SpectrumWorx" project="spectrumworx">
     <NavHeader slot="nav" links={navLinks} />
 
     <main class="sw-page">
         <section
             class="mx-auto grid w-full max-w-6xl gap-8 px-4 py-10 md:grid-cols-2 md:items-center md:py-16">
             <div class="space-y-4">
-                <p class="sw-text-accent text-xs font-bold tracking-[0.2em] uppercase">
+                <p
+                    class="text-xs font-bold tracking-[0.2em] text-spectrumworx-blue uppercase dark:text-spectrumworx-blue2">
                     Spectral Audio Effect
                 </p>
                 <!-- <h1 class="text-4xl leading-tight font-extrabold md:text-5xl">SpectrumWorx</h1> -->
-                <img id="sw-title" src={spectrumworx_logo.src} alt="SpectrumWorx" />
+                <img
+                    src={spectrumworx_logo.src}
+                    alt="SpectrumWorx"
+                    class="w-full max-w-55 md:max-w-75"
+                />
                 <p class="max-w-prose text-base text-neutral-800 dark:text-neutral-200">
                     SpectrumWorx is a modular spectral effect: it decomposes your audio into the
                     frequency domain, lets you stack and chain effects on that spectrum, then
                     resynthesizes the result. Originally developed by Little Endian and open sourced
                     in 2024, it now runs as CLAP, VST3, and AU on Windows, macOS, and Linux.
                 </p>
-                <p class="wip inline-block rounded-md border px-3 py-2 text-sm">
+                <p
+                    class="inline-block rounded-md border border-spectrumworx-yellow/30 bg-spectrumworx-yellow/5 px-3 py-2 text-sm">
                     <strong>Work in progress.</strong> Nightly builds are a modernization sprint, not
                     a finished release. Expect rough edges.
                 </p>
@@ -50,7 +55,7 @@ const navLinks = [
                         other={spectrumworx_build_nightly.releases.other}
                         label="Download Nightly"
                         id="spectrumworx-release-link"
-                        buttonClass="inline-flex items-center justify-center rounded-md sw-bg-accent px-4 py-2 font-semibold text-neutral-900 no-underline shadow-md"
+                        buttonClass="inline-flex items-center justify-center rounded-md bg-spectrumworx-blue px-4 py-2 font-semibold text-neutral-900 no-underline shadow-md hover:bg-spectrumworx-blue-bright"
                     />
                     <a
                         href="https://github.com/surge-synthesizer/SpectrumWorx"
@@ -69,7 +74,7 @@ const navLinks = [
                     alt="SpectrumWorx interface screenshot"
                     quality="100"
                     format="png"
-                    class="sw-cover"
+                    class="rounded-md"
                 />
             </div>
         </section>
@@ -77,7 +82,8 @@ const navLinks = [
         <section
             class="mx-auto w-full max-w-6xl px-4 py-6 print:hidden"
             aria-label="Publishing instructions">
-            <div class="wip rounded-lg border-2 border-dashed p-4 text-sm">
+            <div
+                class="rounded-lg border-2 border-dashed border-spectrumworx-yellow/30 bg-spectrumworx-yellow/5 p-4 text-sm">
                 <p class="font-bold">This page is unlisted.</p>
                 <p class="mt-2 max-w-prose">
                     It is reachable at <code>/spectrumworx</code> but does not appear on the home page
@@ -96,7 +102,7 @@ const navLinks = [
             </div>
         </section>
 
-        <section id="highlights" class="sw-bg-muted px-4 py-12">
+        <section id="highlights" class="bg-spectrumworx-gray/15 px-4 py-12 dark:bg-spectrumworx-gray">
             <div class="mx-auto w-full max-w-6xl">
                 <h2 class="text-2xl font-bold">Highlights</h2>
                 <p class="mt-2 max-w-prose text-sm">
@@ -142,19 +148,21 @@ const navLinks = [
 
         <ChangelogSection productName="SpectrumWorx" nightly={spectrumworx_build_nightly} />
 
-        <section id="faq" class="px-4 py-12">
+        <section
+            id="faq"
+            class="border-y border-spectrumworx-blue-dim bg-linear-to-b from-spectrumworx-blue-bright/25 to-spectrumworx-gray/5 px-4 py-12">
             <div class="mx-auto w-full max-w-6xl">
                 <h2 class="text-2xl font-bold">FAQ</h2>
                 <div class="mt-6 space-y-3">
                     <details
-                        class="rounded-lg border border-surge-blue/25 bg-white/80 p-4 shadow-sm dark:border-surge-blue2/35 dark:bg-neutral-800/80">
+                        class="rounded-lg border border-spectrumworx-blue-bright bg-white/80 p-4 shadow-sm dark:bg-neutral-800/80">
                         <summary class="cursor-pointer font-semibold">
                             Question placeholder #1
                         </summary>
                         <p class="mt-2 text-sm">Answer placeholder text.</p>
                     </details>
                     <details
-                        class="rounded-lg border border-surge-blue/25 bg-white/80 p-4 shadow-sm dark:border-surge-blue2/35 dark:bg-neutral-800/80">
+                        class="rounded-lg border border-spectrumworx-blue-bright bg-white/80 p-4 shadow-sm dark:bg-neutral-800/80">
                         <summary class="cursor-pointer font-semibold">
                             Question placeholder #2
                         </summary>

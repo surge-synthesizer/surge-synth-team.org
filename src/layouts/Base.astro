@@ -4,13 +4,14 @@ import "./base.css";
 
 interface Props {
     title: string;
+    project?: string;
 }
 
-const { title } = Astro.props;
+const { title, project } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-project={project}>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

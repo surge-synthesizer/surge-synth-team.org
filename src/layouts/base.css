@@ -28,16 +28,26 @@
     --color-surge-blue-bright: color-mix(in srgb, var(--color-surge-blue) 80%, white);
     --color-surge-blue2: #2d86fe;
     --color-surge-blue2-bright: color-mix(in srgb, var(--color-surge-blue2) 80%, white);
+    --color-spectrumworx-blue: #58b6d4;
+    --color-spectrumworx-blue-bright: #80c5db;
+    --color-spectrumworx-blue-dim: #65838c;
+    --color-spectrumworx-blue2: #4dbbde;
+    --color-spectrumworx-gray: #2b2b2b;
+    --color-spectrumworx-yellow: #fffb82;
+
+    /* Default Surge product colors */
+    --color-product: var(--color-surge-orange);
+    --color-product-track: var(--color-zinc-950);
 }
 
 @layer base {
-    html[data-theme="dark"] {
-        scrollbar-color: var(--color-surge-orange) var(--color-zinc-950);
-        scrollbar-width: auto;
+    html[data-project="spectrumworx"] {
+        --color-product: var(--color-spectrumworx-blue);
+        --color-product-track: var(--color-spectrumworx-gray);
     }
 
-    html[data-theme="light"] {
-        scrollbar-color: var(--color-surge-orange) var(--color-zinc-950);
+    html {
+        scrollbar-color: var(--color-product) var(--color-product-track);
         scrollbar-width: auto;
     }
 
