@@ -1,0 +1,72 @@
+.sw-page {
+    --color-sw-accent: #58b6d4;
+    --color-sw-accent2: #4dbbde;
+    --color-sw-accent-bright: #80c5db;
+    --color-sw-accent-dim: #65838c;
+    --color-sw-secondary: #2b2b2b;
+    --color-sw-wip: #fffb8250;
+    --color-sw-wip2: #fffb8210;
+}
+
+html {
+    scrollbar-color: #58b6d4 #2b2b2b;
+}
+
+.sw-cover {
+    border-radius: 5px;
+}
+
+.sw-text-accent {
+    color: var(--color-sw-accent);
+}
+
+.sw-text-accent2 {
+    color: var(--color-sw-accent2);
+}
+
+.sw-bg-accent {
+    background-color: var(--color-sw-accent);
+}
+
+.sw-bg-accent:hover {
+    background-color: var(--color-sw-accent-bright);
+}
+
+.sw-bg-muted {
+    background-color: var(--color-sw-secondary);
+}
+
+li {
+    border-color: var(--color-sw-accent);
+}
+
+#faq {
+    border-top: 1px solid var(--color-sw-accent-dim);
+    border-bottom: 1px solid var(--color-sw-accent-dim);
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-sw-accent-bright) 25%, transparent),
+      color-mix(in srgb, var(--color-sw-secondary) 5%, transparent)
+
+    );
+}
+
+#faq * {
+    border-color: var(--color-sw-accent-bright);
+}
+
+.wip {
+    border-color: var(--color-sw-wip);
+    background-color: var(--color-sw-wip2);
+}
+
+#sw-title {
+    width: 100%;
+    max-width: 220px;
+}
+
+@media (min-width: 48rem) {
+    #sw-title {
+        max-width: 300px;
+    }
+}
