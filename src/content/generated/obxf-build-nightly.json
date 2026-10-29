@@ -1,47 +1,47 @@
 {
-    "build_time": "2026-10-26T23:49:28.785568749",
+    "build_time": "2026-10-29T17:31:53.26211323",
     "data": {},
-    "latest_commit": "6ea908d",
+    "latest_commit": "fef8dda",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "fef8dda",
+            "date": "2026-10-28T00:46:20-04:00",
+            "message": "Run the filter stage four voices at a time with SIMD"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "efd55c6",
+            "date": "2026-10-28T00:20:48-04:00",
+            "message": "Run the voice control, envelopes and oscillators four voices at a time with SIMD"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "c32a745",
+            "date": "2026-10-27T23:59:29-04:00",
+            "message": "Compute the one-pole smoothers in float from precomputed coefficients"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "908822d",
+            "date": "2026-10-27T23:53:48-04:00",
+            "message": "Render voices a block at a time in separate stages"
+        },
         {
             "author": "Paul",
             "commit": "6ea908d",
             "date": "2026-10-26T19:35:57-04:00",
             "message": "Restore the 1.0 envelope release curve (#721)"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "df98ef3",
-            "date": "2026-10-26T17:43:09-04:00",
-            "message": "Add CLAP remote controls"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "3aa9f1c",
-            "date": "2026-10-26T17:17:44-04:00",
-            "message": "Add CLAP preset discovery and preset load"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "d2cf373",
-            "date": "2026-10-26T17:17:36-04:00",
-            "message": "Silence #warning on newer AppleClang"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "c1b7a51",
-            "date": "2026-10-16T08:11:01+02:00",
-            "message": "Re-derive editor size when the theme changes (#718)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-10-26-6ea908d.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-10-26-6ea908d.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-10-29-fef8dda.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-10-29-fef8dda.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-10-26-6ea908d.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-10-26-6ea908d.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-10-29-fef8dda.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-10-29-fef8dda.zip"
     },
     "version": "main"
 }
