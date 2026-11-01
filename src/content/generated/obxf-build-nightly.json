@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-10-29T17:31:53.26211323",
+    "build_time": "2026-11-01T14:24:08.435048389",
     "data": {},
-    "latest_commit": "fef8dda",
+    "latest_commit": "ab86cee",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "ab86cee",
+            "date": "2026-10-29T21:41:32-04:00",
+            "message": "Retune each note from its own MIDI channel's MTS-ESP tuning"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "0280817",
+            "date": "2026-10-29T21:30:36-04:00",
+            "message": "Bend the pitch wheel and MPE glide along the MTS-ESP scale"
+        },
         {
             "author": "Paul Walker",
             "commit": "fef8dda",
@@ -22,26 +34,14 @@
             "commit": "c32a745",
             "date": "2026-10-27T23:59:29-04:00",
             "message": "Compute the one-pole smoothers in float from precomputed coefficients"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "908822d",
-            "date": "2026-10-27T23:53:48-04:00",
-            "message": "Render voices a block at a time in separate stages"
-        },
-        {
-            "author": "Paul",
-            "commit": "6ea908d",
-            "date": "2026-10-26T19:35:57-04:00",
-            "message": "Restore the 1.0 envelope release curve (#721)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-10-29-fef8dda.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-10-29-fef8dda.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-11-01-ab86cee.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-11-01-ab86cee.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-10-29-fef8dda.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-10-29-fef8dda.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-01-ab86cee.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-01-ab86cee.zip"
     },
     "version": "main"
 }
