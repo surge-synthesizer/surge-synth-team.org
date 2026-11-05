@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-11-03T10:03:59.31823922",
+    "build_time": "2026-11-05T14:03:26.789406773",
     "data": {},
-    "latest_commit": "a224d72",
+    "latest_commit": "9c7599e",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "9c7599e",
+            "date": "2026-11-05T08:43:35-05:00",
+            "message": "Fix the deb dependencies to match what the binaries use (#731)"
+        },
         {
             "author": "EvilDragon",
             "commit": "a224d72",
@@ -28,20 +34,14 @@
             "commit": "134fc1c",
             "date": "2026-11-02T08:43:46-05:00",
             "message": "Bend both oscillators with MPE pitch bend, even with Bend Osc 2 Only on (#727)"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "102bb38",
-            "date": "2026-11-01T16:01:54-05:00",
-            "message": "Smooth MPE pitch bend, with a choice of glide smoothing time"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-11-03-a224d72.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-11-03-a224d72.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-11-05-9c7599e.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-11-05-9c7599e.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-03-a224d72.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-03-a224d72.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-05-9c7599e.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-05-9c7599e.zip"
     },
     "version": "main"
 }
