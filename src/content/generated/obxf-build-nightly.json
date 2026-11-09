@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-11-07T21:01:13.923273875",
+    "build_time": "2026-11-09T17:35:03.697703665",
     "data": {},
-    "latest_commit": "ea96dbb",
+    "latest_commit": "05db3ad",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "05db3ad",
+            "date": "2026-11-09T12:21:12-05:00",
+            "message": "Drop the gcc 12 Linux runner build (#734)"
+        },
+        {
+            "author": "Paul",
+            "commit": "e42c657",
+            "date": "2026-11-09T11:49:43-05:00",
+            "message": "Put the Linux user folder in the right place when Documents is off (#733)"
+        },
         {
             "author": "EvilDragon",
             "commit": "ea96dbb",
@@ -22,26 +34,14 @@
             "commit": "a224d72",
             "date": "2026-11-03T10:49:31+01:00",
             "message": "Move scale-aware tuning options to Dynamic parameter (#730)"
-        },
-        {
-            "author": "Paul",
-            "commit": "3fe9458",
-            "date": "2026-11-02T23:07:51-05:00",
-            "message": "Smooth MPE pressure and timbre, and make MIDI CC smoothing a real 10ms (#729)"
-        },
-        {
-            "author": "Paul",
-            "commit": "5c4a1f5",
-            "date": "2026-11-02T11:30:39-05:00",
-            "message": "Keep parameter smoothing the same length at every sample rate (#728)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-11-07-ea96dbb.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-11-07-ea96dbb.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-11-09-05db3ad.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-11-09-05db3ad.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-07-ea96dbb.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-07-ea96dbb.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-09-05db3ad.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-09-05db3ad.zip"
     },
     "version": "main"
 }
