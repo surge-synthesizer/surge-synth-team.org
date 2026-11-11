@@ -41,3 +41,19 @@ first run. It holds these folders:
 
 To run portably, put a folder called `ShortcircuitXTUserData` next to the plugin, and Shortcircuit
 XT will use that instead.
+
+### On Linux
+
+Linux has no fixed Documents folder, so Shortcircuit XT follows the XDG user directories. Your
+documents folder is the one `XDG_DOCUMENTS_DIR` names in `~/.config/user-dirs.dirs` (or in
+`$XDG_CONFIG_HOME/user-dirs.dirs` if you set that), or `~/Documents` if it isn't set.
+
+- With a documents folder, your files go in `Surge Synth Team/Shortcircuit XT` inside it.
+- If you have switched your documents folder off, which xdg-user-dirs records by setting
+  `XDG_DOCUMENTS_DIR` to your home folder, and there is no `~/Documents`, they go in
+  `~/.Surge Synth Team/Shortcircuit XT`.
+- A folder that already exists is used before a new one is made. That includes a
+  `Shortcircuit XT` folder directly in your documents folder, which is where earlier versions put it.
+
+To keep the files somewhere else, point `XDG_DOCUMENTS_DIR` there, or use a portable
+`ShortcircuitXTUserData` folder.
