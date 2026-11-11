@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-11-11T13:55:50.735350695",
+    "build_time": "2026-11-11T23:53:20.031199986",
     "data": {},
-    "latest_commit": "3197df4",
+    "latest_commit": "d023100",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "d023100",
+            "date": "2026-11-11T18:29:06-05:00",
+            "message": "The anti-aliased zero order hold SRC mode is called Vintage (#2805)"
+        },
+        {
+            "author": "Paul",
+            "commit": "7afec4e",
+            "date": "2026-11-11T08:57:38-05:00",
+            "message": "The MAPPING and SAMPLE side boxes are one processor box wide (#2799)"
+        },
         {
             "author": "Paul",
             "commit": "3197df4",
@@ -22,26 +34,14 @@
             "commit": "5c1491f",
             "date": "2026-11-09T10:59:10-05:00",
             "message": "Restoring a DAW session no longer blocks the host or saves a half-loaded engine (#2795)"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "64ecf8f",
-            "date": "2026-11-07T10:53:06-05:00",
-            "message": "Fix and fade overlaps work against unselected zones in the selected groups"
-        },
-        {
-            "author": "Paul Walker",
-            "commit": "ce763a7",
-            "date": "2026-11-07T09:43:58-05:00",
-            "message": "Toggle buttons show just their name on hover, and value popups stop flickering"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-11-3197df4-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-11-11-3197df4.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-11-d023100-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-11-11-d023100.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-11-3197df4-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-11-3197df4-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-11-d023100-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-11-d023100-Windows-64bit.zip"
     },
     "version": "main"
 }
