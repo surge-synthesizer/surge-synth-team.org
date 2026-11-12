@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-11-11T22:42:10.461930048",
+    "build_time": "2026-11-12T00:25:29.531129518",
     "data": {},
-    "latest_commit": "5c1dd7a",
+    "latest_commit": "f12c16d",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "f12c16d",
+            "date": "2026-11-12T01:13:03+01:00",
+            "message": "Make VST3 program change 0 reachable (#737)"
+        },
         {
             "author": "EvilDragon",
             "commit": "5c1dd7a",
@@ -28,20 +34,14 @@
             "commit": "ea96dbb",
             "date": "2026-11-07T21:46:48+01:00",
             "message": "Fix label-bg-master.svg in Vintage Wood skin (#732)"
-        },
-        {
-            "author": "Paul",
-            "commit": "9c7599e",
-            "date": "2026-11-05T08:43:35-05:00",
-            "message": "Fix the deb dependencies to match what the binaries use (#731)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-11-11-5c1dd7a.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-11-11-5c1dd7a.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-11-12-f12c16d.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-11-12-f12c16d.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-11-5c1dd7a.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-11-5c1dd7a.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-12-f12c16d.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-12-f12c16d.zip"
     },
     "version": "main"
 }
