@@ -15,6 +15,10 @@ export default defineConfig({
         starlight({
             title: "Surge Synth Team Manuals",
             routeMiddleware: "./src/starlightRouteData.ts",
+            components: {
+                PageTitle: "./src/components/starlight/PageTitle.astro",
+                Search: "./src/components/starlight/Search.astro",
+            },
             sidebar: [
                 {
                     label: "OB-Xf Manual",
@@ -45,7 +49,10 @@ export default defineConfig({
                     label: "SpectrumWorx Manual",
                     items: [
                         { label: "Getting Started", slug: "spectrumworx/manual/getting-started" },
-                        { label: "To Update for 3.0", slug: "spectrumworx/manual/to-update-for-3-0" },
+                        {
+                            label: "To Update for 3.0",
+                            slug: "spectrumworx/manual/to-update-for-3-0",
+                        },
                         {
                             label: "Installing SpectrumWorx",
                             slug: "spectrumworx/manual/installing",
@@ -76,7 +83,10 @@ export default defineConfig({
                                     label: "Phase Vocoder",
                                     slug: "spectrumworx/manual/modules-phase-vocoder",
                                 },
-                                { label: "Miscellaneous", slug: "spectrumworx/manual/modules-misc" },
+                                {
+                                    label: "Miscellaneous",
+                                    slug: "spectrumworx/manual/modules-misc",
+                                },
                             ],
                         },
                         { label: "Credits", slug: "spectrumworx/manual/credits" },

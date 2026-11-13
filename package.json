@@ -16,8 +16,9 @@
     "devDependencies": {
         "@astrojs/check": "^0.9.6",
         "@astrojs/mdx": "^7.0.5",
-        "@astrojs/starlight": "latest",
+        "@astrojs/starlight": "0.42.0",
         "@astrojs/ts-plugin": "^1.10.6",
+        "@pagefind/default-ui": "^1.4.0",
         "@tailwindcss/typography": "^0.5.19",
         "@tailwindcss/vite": "^4.2.1",
         "@types/node": "^25.3.3",
