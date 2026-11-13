@@ -1,0 +1,18 @@
+---
+/*
+ * Wraps Starlight's own PageTitle so the indexed body carries a Pagefind
+ * filter naming the product. Starlight marks <main> with data-pagefind-body in
+ * Page.astro, which is not overridable, but Pagefind reads data-pagefind-filter
+ * from any element inside that body — and this component renders there.
+ *
+ * Without it every manual shares one search pool, so searching inside the OB-Xf
+ * manual returns Shortcircuit XT results.
+ */
+
+import Default from "@astrojs/starlight/components/PageTitle.astro";
+
+const product = Astro.locals.starlightRoute.entry.id.split("/")[0];
+---
+
+<span hidden data-pagefind-filter={`product:${product}`}></span>
+<Default><slot /></Default>
