@@ -1,5 +1,6 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import SmoothScroll from "../components/SmoothScroll.astro";
 import "./base.css";
 
 interface Props {
@@ -79,6 +80,7 @@ const { title, project, noindex = false } = Astro.props;
             document.addEventListener("astro:after-swap", setTheme);
         </script>
         <ClientRouter />
+        <SmoothScroll />
     </head>
 
     <body>

@@ -1,0 +1,140 @@
+---
+title: Installing or Building Surge XT
+sidebar:
+  order: 2
+---
+
+## <a name="installing-or-building-surge-xt"></a>Building From Source
+
+To build Surge XT from source code, see [our GitHub repository](https://github.com/surge-synthesizer/surge).
+
+## Installing Surge XT
+
+Download the Surge XT installer from [https://surge-synthesizer.github.io](https://surge-synthesizer.github.io).
+
+### Windows
+
+On the Windows platform, Surge XT installs as a 64-bit VST3 and CLAP insturment, and as a standalone application.
+
+System requirements:
+
+- Windows 10 or newer
+- CPU supporting the x64 (AMD64/EM64T) instruction set with SSE4.2 vector extensions
+- At least 4 GB of RAM
+- VST3- or CLAP-compatible host application
+
+Separate **ARM64** and **ARM64EC** builds are available for Windows on ARM machines.
+
+VST3 and CLAP versions of the plugin install to default plugin locations.
+If your host does not find Surge XT, check if supports VST3 or CLAP, and execute a plugin rescan.
+
+The standalone version supports **ASIO** audio devices in addition to the standard Windows audio backends.
+
+#### Windows Portable Mode
+
+- If Surge XT is installed alongside a `SurgeXTData` folder, Surge XT will use that for factory data rather than the default `%PROGRAMDATA%\Surge XT`.
+- If Surge XT is installed alongside a `SurgeXTUserData` folder, Surge XT will use that for user data rather than the default `%DOCUMENTS%\Surge Synth Team\Surge XT`.
+- The [About screen](/surge-xt/manual-nightly/main-menu/#about-surge-xt) displays the folders Surge XT uses.
+
+
+### macOS
+
+On macOS, Surge XT installs as a 64-bit AU, VST3 and CLAP instrument, and as a standalone application.
+
+System requirements:
+
+- macOS 10.15 or newer
+- 64-bit Intel or Apple Silicon CPU
+- At least 4 GB of RAM
+- 64-bit AU, VST3- or CLAP-compatible host application
+
+To install Surge XT, run the packaged installer, which will install Surge XT for all users of your system.
+
+
+### Linux
+
+On Linux, Surge XT is available as a 64-bit VST3 and CLAP instrument, and as a standalone application.
+The installer is available as `.deb` and `.rpm` packages. An **ARM64** Linux build is also available,
+which should work well on a Raspberry Pi.
+
+System requirements:
+
+- CPU supporting the x64 (AMD64/EM64T) instruction set with SSE4.2 vector extensions
+- At least 4 GB of RAM
+- VST3- or CLAP-compatible host application
+
+The installation package on the **Surge XT website** is a Debian package, built on Ubuntu 18.04.
+
+A list of required packages is listed in the source code and in the `.deb` file.
+
+**Note:** You can use alternative gestures Alt/Option + drag or the scroll wheel, which can conflict with the desktop
+environment. To solve that issue, disable the global gesture in the desktop environment.
+
+#### Linux Portable Mode
+
+- `SurgeXTData` folder must be somewhere in the parent path next to the plugin file.
+- The same condition applies to `SurgeXTUserData` folder, as well.
+- Location of the factory data folder can also be overriden by setting the `SURGE_DATA_HOME` environment variable.
+- The [About screen](/surge-xt/manual-nightly/main-menu/#about-surge-xt) displays the folders Surge XT uses.
+
+
+### Installing Alongside Older Versions
+
+Surge and Surge XT are different plugins. This means that you can install Surge XT alongside Surge 1.9 or earlier.
+Keep Surge 1.9 installed for compatibility with older DAW projects that depend on it.
+
+
+### Standalone Version Options
+
+If you are running Surge XT as a standalone executable, options at the top-left:
+- configure MIDI and audio inputs and outputs
+- save and open state files for the synth
+- reset Surge XT to the default state
+
+The **BPM** setting is to the left of the virtual keyboard at the bottom of the window.
+This sets the tempo for the [Tempo Sync](/surge-xt/manual-nightly/user-interface-basics/#tempo-sync) option in the context menus of time-related parameters.
+
+
+### Locations
+
+**Note**: You can change these locations in the Surge XT main menu. See [Data Folders](/surge-xt/manual-nightly/main-menu/#data-folders).
+
+**Warning**: If you reinstall Surge XT, you will lose any changes you made to the content of the factory folder,
+including custom patches and skins.
+The Surge XT installer never changes files the user area, so save your files there.
+
+**Note on the user data folder**: a fresh installation of Surge XT creates its user data folder under a
+`Surge Synth Team` vendor folder — `Documents/Surge Synth Team/Surge XT`. If a `Documents/Surge XT` folder
+from an earlier version already exists, Surge XT keeps using it, so upgrading does not move your data.
+You can move the folder to the new location yourself if you prefer, and everything will continue to work;
+this is worth doing, because other Surge Synth Team products such as OB-Xf and Shortcircuit XT use the new
+path by default. The paths below show both.
+
+#### Windows
+
+The patch library and wavetables are at `C:\ProgramData\Surge XT`.
+
+The user patches are at `C:\Users\your username\Documents\Surge Synth Team\Surge XT`,
+or `C:\Users\your username\Documents\Surge XT` for installations that predate the change.
+
+#### macOS
+
+The patch library and wavetables are at `/Library/Application Support/Surge XT`.
+
+The user patches are at `~/Documents/Surge Synth Team/Surge XT`, or `~/Documents/Surge XT` for installations
+that predate the change.
+
+#### Linux
+
+The patch library and wavetables are at `/usr/share/surge-xt` with a standard install.
+
+The user patches are at `~/Documents/Surge Synth Team/Surge XT`, or `~/Documents/Surge XT` for installations
+that predate the change. Surge XT creates this directory when you store a patch
+or change the user default settings for the first time.
+
+
+### Playing Your First Note
+
+Surge XT is best used with a [DAW](https://en.wikipedia.org/wiki/Digital_audio_workstation), or a physical device
+like a keyboard. To get started, you can open the virtual keyboard from the main menu > **Workflow** > **Virtual Keyboard**,
+or Alt/Option + K. See [Workflow](/surge-xt/manual-nightly/main-menu/#workflow).

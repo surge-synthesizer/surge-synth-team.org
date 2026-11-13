@@ -13,7 +13,17 @@
 
 import Default from "@astrojs/starlight/components/Head.astro";
 import { ClientRouter } from "astro:transitions";
+import SmoothScroll from "../SmoothScroll.astro";
+
+/*
+ * A nightly manual is linked on purpose — unreleased documentation has to be
+ * reviewable in place — but it must never outrank the released manual in a
+ * search engine.
+ */
+const nightly = Astro.locals.starlightRoute.entry.id.includes("/manual-nightly/");
 ---
 
 <Default />
 <ClientRouter />
+<SmoothScroll />
+{nightly && <meta name="robots" content="noindex, follow" />}

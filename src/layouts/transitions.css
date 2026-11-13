@@ -7,10 +7,24 @@
  * entirely for readers who ask for that.
  */
 
+/* One duration for the site's motion: the page cross-fade and the eased scroll
+   that follows an anchor. SmoothScroll.astro reads it from here, so the two
+   cannot drift apart. */
+:root {
+    --page-motion: 200ms;
+}
+
+/* Fallback for when the SmoothScroll component's JavaScript has not run. It
+   cannot be timed — the browser chooses the duration — which is why the
+   component exists. Unconditional by request. */
+html {
+    scroll-behavior: smooth;
+}
+
 @media (prefers-reduced-motion: no-preference) {
     ::view-transition-old(root),
     ::view-transition-new(root) {
-        animation-duration: 200ms;
+        animation-duration: var(--page-motion);
         animation-timing-function: ease;
     }
 }
