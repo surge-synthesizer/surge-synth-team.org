@@ -12,13 +12,13 @@
  * structural: the nav carries its baseline wherever it is rendered, instead of
  * depending on whichever reset the host page happened to load.
  *
- * Every selector is wrapped in :where() so it contributes no specificity —
+ * Every selector is wrapped in :where() so it contributes no specificity -
  * these are defaults for the nav's utility classes to override, not rules
  * competing with them. A bare `#nav button` would outrank every utility.
  *
  * IMPORTANT: both importers must pull this in with `layer(base)`. Zero
  * specificity is not enough on its own, because an unlayered rule beats every
- * cascade layer regardless of specificity — and base.css puts Tailwind's
+ * cascade layer regardless of specificity - and base.css puts Tailwind's
  * utilities in @layer utilities. Imported unlayered, `padding: 0` below silently
  * won over `px-2`, squashing every nav button and eating `py-2` on the
  * dropdowns.
@@ -51,7 +51,7 @@
 
 /*
  * The nav's surface. Defined here rather than in base.css's surface block
- * because Starlight pages never load base.css — a manual would lose its nav
+ * because Starlight pages never load base.css - a manual would lose its nav
  * colours. A product declares its own by overriding these two; everything else
  * in the bar derives from them, so one pair is the whole decision.
  *
@@ -67,7 +67,7 @@ html[data-theme="dark"] {
     --surface-nav-bg: #171717;
 }
 
-/* OB-Xf's GUI grey, 6% darker — the same value its downloads band uses, for
+/* OB-Xf's GUI grey, 6% darker - the same value its downloads band uses, for
    the same reason: the raw brand grey reaches only 4.44:1 behind white. */
 html[data-project="ob-xf"] {
     --surface-nav-bg: #6b717a;

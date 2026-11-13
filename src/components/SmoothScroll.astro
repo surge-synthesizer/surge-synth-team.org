@@ -2,8 +2,8 @@
 /*
  * A short eased scroll when following a same-page anchor.
  *
- * CSS `scroll-behavior: smooth` cannot be timed — the browser picks a duration,
- * usually several hundred milliseconds — so the animation is run here instead.
+ * CSS `scroll-behavior: smooth` cannot be timed - the browser picks a duration,
+ * usually several hundred milliseconds - so the animation is run here instead.
  * The CSS rule stays as the no-JavaScript fallback.
  *
  * Deliberately not behind prefers-reduced-motion, by request. It is short
@@ -34,7 +34,24 @@
         return document.getElementById(id) ?? document.getElementsByName(id)[0] ?? null;
     }
 
+    /**
+     * A target inside a collapsed <details> has no position to scroll to, so
+     * open its ancestors first. Done here rather than per page so every
+     * accordion on the site behaves the same, and so it cannot race the
+     * scroll - which it would as a separate click handler.
+     */
+    function reveal(element: Element) {
+        let node: Element | null = element;
+
+        while (node) {
+            if (node instanceof HTMLDetailsElement) node.open = true;
+            node = node.parentElement;
+        }
+    }
+
     function scrollTo(element: Element) {
+        reveal(element);
+
         // Starlight sets scroll-padding-top so a heading clears the fixed nav;
         // honour whatever the page asks for rather than hardcoding a height.
         const padding = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop);

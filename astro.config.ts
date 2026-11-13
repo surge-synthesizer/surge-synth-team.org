@@ -2,22 +2,25 @@ import mdx from "@astrojs/mdx";
 import starlight from "@astrojs/starlight";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
+import { nightlyIn, pagesIn } from "./src/sidebar";
 
 // https://astro.build/config
 export default defineConfig({
     vite: { plugins: [tailwindcss()] },
     redirects: {
         // The changelog moved under its product when content went product-first.
-        "/ob-xf-changelog": "/ob-xf/changelog/",
         "/ob-xf/manual/": "/ob-xf/manual/getting-started/",
         "/surge-xt/manual/": "/surge-xt/manual/getting-started/",
         "/surge-xt/manual-nightly/": "/surge-xt/manual-nightly/getting-started/",
+        "/ob-xf-changelog": "/ob-xf/changelog/",
         "/spectrumworx/manual/": "/spectrumworx/manual/getting-started/",
         "/shortcircuit-xt/manual/": "/shortcircuit-xt/manual/getting-started/",
     },
     integrations: [
         starlight({
             title: "Surge Synth Team Manuals",
+            // Starlight defaults to /favicon.svg; this site ships an .ico.
+            favicon: "/favicon.ico",
             routeMiddleware: "./src/starlightRouteData.ts",
             customCss: ["./src/layouts/starlight.css"],
             // Starlight shows H2-H3 by default. The manual's chapters were
@@ -26,7 +29,7 @@ export default defineConfig({
             tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 4 },
             // Base.astro preloads these; Starlight's head did not, so entering a
             // manual reserved nav space with fallback metrics and then reflowed
-            // once Lato arrived — the nav visibly shifting on load. Only the
+            // once Lato arrived - the nav visibly shifting on load. Only the
             // regular weight: the nav carries no italics, and the manual's body
             // text is Starlight's own typeface.
             head: [
@@ -51,6 +54,22 @@ export default defineConfig({
                 Search: "./src/components/starlight/Search.astro",
             },
             sidebar: [
+                {
+                    label: "Surge XT Changelogs",
+                    items: [
+                        ...pagesIn("surge-xt/changelog"),
+                        ...nightlyIn("surge-xt/changelog"),
+                        {
+                            label: "Older releases",
+                            collapsed: true,
+                            items: pagesIn("surge-xt/changelog/archive"),
+                        },
+                    ],
+                },
+                {
+                    label: "OB-Xf Changelogs",
+                    items: [...pagesIn("ob-xf/changelog"), ...nightlyIn("ob-xf/changelog")],
+                },
                 {
                     label: "Surge XT Manual",
                     items: [

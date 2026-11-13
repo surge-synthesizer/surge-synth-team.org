@@ -1,5 +1,5 @@
 /*
- * Every anchor link inside a manual must resolve to a real target.
+ * Every anchor link inside a manual or changelog must resolve to a real target.
  *
  * The Surge manual was one long page, so every cross-reference was a bare
  * #fragment. Split into chapters, a fragment only resolves within its own page:
@@ -7,7 +7,7 @@
  * whichever chapter they were already on.
  *
  * Targets are read from the built HTML rather than recomputed from the MDX,
- * because rehype-slug's output is what ships — it disambiguates repeated
+ * because rehype-slug's output is what ships - it disambiguates repeated
  * headings with a numeric suffix, and slugs a heading containing inline HTML
  * from its text content. Reimplementing that is how a checker invents failures
  * that are not real, and misses ones that are.
@@ -26,7 +26,7 @@ for (const product of readdirSync(DIST, { withFileTypes: true })) {
     if (!product.isDirectory()) continue;
 
     for (const folder of readdirSync(join(DIST, product.name), { withFileTypes: true })) {
-        if (folder.isDirectory() && /^manual(-nightly)?$/.test(folder.name)) {
+        if (folder.isDirectory() && /^(manual(-nightly)?|changelog)$/.test(folder.name)) {
             manuals.push(`${product.name}/${folder.name}`);
         }
     }
@@ -96,5 +96,5 @@ if (broken > 0) {
 }
 
 console.log(
-    `All ${checked} anchor links across ${manuals.length} manual(s) resolve: ${manuals.join(", ")}`,
+    `All ${checked} anchor links across ${manuals.length} doc set(s) resolve: ${manuals.join(", ")}`,
 );

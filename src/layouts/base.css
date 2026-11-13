@@ -35,15 +35,15 @@
 
     /* OB-Xf's GUI grey. A mid-grey is the hard case for contrast: #727882 tops
        out at 4.72:1 against black and 4.44:1 against white, so it cannot carry
-       body text at either polarity. It stays the brand token — scrollbar, and
-       anything that is not text — while surfaces take lightness-shifted
+       body text at either polarity. It stays the brand token - scrollbar, and
+       anything that is not text - while surfaces take lightness-shifted
        variants of the same hue. */
     html[data-project="ob-xf"] {
         --color-product: #727882;
 
         --paper-link: #43474e;
 
-        /* The brand grey itself, 6% darker — enough to clear AA behind white
+        /* The brand grey itself, 6% darker - enough to clear AA behind white
            body text (4.92:1 against 4.44:1), little enough to still read as the
            GUI colour. Going dark enough for AAA means a 30% drop, which no
            longer looks like OB-Xf. */
@@ -60,14 +60,14 @@
     }
 
     /* Beats the generic dark rule below, which aims --paper-link at the brand
-       token — too dark against dark paper at 4.03:1. */
+       token - too dark against dark paper at 4.03:1. */
     html[data-project="ob-xf"][data-theme="dark"] {
         --paper-link: #adb3bd;
     }
 
     /* A surface declares background, foreground and link colour together, so a
        Block never has to smuggle all three through one class string. `solid` is
-       the background's flat equivalent, for elements that invert on hover — a
+       the background's flat equivalent, for elements that invert on hover - a
        gradient cannot be used as a text colour.
 
        Neutral roles (base, raised) follow the theme; branded roles (ink, accent,
@@ -120,7 +120,7 @@
         --paper-link: var(--color-product);
     }
 
-    /* The pre-2026 pairing measured 16.4:1 — glare for ordinary reading, but
+    /* The pre-2026 pairing measured 16.4:1 - glare for ordinary reading, but
        exactly right for anyone who has asked the OS for more contrast. */
     @media (prefers-contrast: more) {
         :root {

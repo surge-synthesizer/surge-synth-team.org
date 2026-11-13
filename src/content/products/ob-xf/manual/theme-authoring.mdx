@@ -5,7 +5,7 @@ sidebar:
 ---
 
 This guide explains how to create a custom skin (theme) for OB-Xf. A theme lives in its own
-folder and consists of a `theme.xml` layout file plus a collection of graphical assets — either
+folder and consists of a `theme.xml` layout file plus a collection of graphical assets - either
 PNG bitmaps or SVG vectors.
 
 ## Where Themes Live
@@ -19,7 +19,7 @@ Themes are stored in the OB-Xf user data directory under:
 To create a new theme, make a new folder with your theme name and place your `theme.xml` and
 assets inside it.
 
-### Default Bitmap Theme — Installed Location
+### Default Bitmap Theme - Installed Location
 
 The built-in **Default** bitmap theme is installed by the OB-Xf installer and is a good
 reference for bitmap-based skins. After running the installer you will find it at:
@@ -36,13 +36,13 @@ reference for bitmap-based skins. After running the installer you will find it a
 > plugin's **About** screen. If the path differs from the defaults above (e.g. because
 > `CMAKE_INSTALL_PREFIX` or `XDG_DATA_HOME` is set), use the path shown there instead.
 
-### Vector Theme — Downloading from GitHub
+### Vector Theme - Downloading from GitHub
 
 The **VectorTheme** is the reference for SVG-based skins. It lives in the OB-Xf source
 repository on GitHub. You can download it without cloning the entire repo using `git
 sparse-checkout`, or simply browse and download the folder directly from GitHub.
 
-**Option 1 — Download the folder via the GitHub web UI:**
+**Option 1 - Download the folder via the GitHub web UI:**
 
 1. Go to (OB-Xf Github)[https://github.com/surge-synthesizer/OB-Xf]
 2. Navigate to `assets/binary/VectorTheme/`
@@ -51,7 +51,7 @@ sparse-checkout`, or simply browse and download the folder directly from GitHub.
 4. Extract the contents into a new folder inside your OB-Xf Themes directory, e.g.
    `UserData/Surge Synth Team/OB-Xf/Themes/MyVectorTheme/`.
 
-**Option 2 — Sparse clone with Git:**
+**Option 2 - Sparse clone with Git:**
 
 ```bash
 git clone --filter=blob:none --sparse \
@@ -64,7 +64,7 @@ The theme files will then be at `ob-xf-src/assets/binary/VectorTheme/`. Copy tha
 (or its contents) into your OB-Xf Themes directory.
 
 
-## theme.xml — Layout File
+## theme.xml - Layout File
 
 Every theme must contain a `theme.xml` at the root of the theme folder. This file tells OB-Xf
 where every widget is positioned on screen and which graphical asset it uses.
@@ -87,13 +87,13 @@ The root element is `<obxf-theme>`. Each child `<widget>` element describes one 
 
 | Attribute | Applies to | Description |
 |-----------|-----------|-------------|
-| `name`    | all       | Unique widget identifier — **must not be changed**. |
+| `name`    | all       | Unique widget identifier - **must not be changed**. |
 | `x`       | all       | Left edge of the widget in pixels (at 1× zoom). |
 | `y`       | all       | Top edge of the widget in pixels (at 1× zoom). |
 | `w`       | buttons, menus, sliders, labels | Width in pixels. |
 | `h`       | buttons, menus, sliders, labels | Height in pixels. |
 | `d`       | knobs (PNG filmstrip) | Diameter of the knob in pixels. Also used as the track length for SVG layered sliders (see below). |
-| `fh`      | sliders, labels | Frame height — the height of a single frame within the filmstrip. |
+| `fh`      | sliders, labels | Frame height - the height of a single frame within the filmstrip. |
 | `pic`     | most widgets | Filename of the asset to use, **without extension**. |
 
 ### Widget Types
@@ -132,7 +132,7 @@ horizontal; if `h > w` it is vertical.
 
 #### Menus
 
-Menus use `w` and `h` but do **not** use a `pic` attribute — their appearance is drawn by the
+Menus use `w` and `h` but do **not** use a `pic` attribute - their appearance is drawn by the
 host/OS. You only control their position and size:
 
 ```xml
@@ -156,10 +156,10 @@ reference `theme.xml` files indicate which widgets have hardcoded names (shown a
 `pic` attributes).
 
 ```xml
-<!-- hardcoded name — pic attribute is optional here -->
+<!-- hardcoded name - pic attribute is optional here -->
 <widget name="polyphonyMenu" x="56" y="235" w="31" h="31" /> <!-- pic="menu-poly" -->
 
-<!-- explicit pic — useful when sharing one asset across multiple widgets -->
+<!-- explicit pic - useful when sharing one asset across multiple widgets -->
 <widget name="volumeKnob" x="52" y="127" d="40" pic="knob" />
 ```
 
@@ -194,7 +194,7 @@ pixel dimensions of the base image, and `@4x` exactly four times.
 A knob asset is a **vertical filmstrip**: a single PNG that contains every rotation frame stacked
 top-to-bottom. The frame size equals the knob diameter `d` × `d` pixels.
 
-**Default theme example — `knob.png`:**
+**Default theme example - `knob.png`:**
 
 - Diameter (`d`): 40 px
 - Frame size: 40 × 40 px
@@ -217,12 +217,12 @@ Most buttons are simple on/off toggles. Their filmstrip has **4 frames**:
 
 | Frame | State |
 |-------|-------|
-| 0 | Off — not pressed |
-| 1 | Off — pressed (mouse held down) |
-| 2 | On — not pressed |
-| 3 | On — pressed (mouse held down) |
+| 0 | Off - not pressed |
+| 1 | Off - pressed (mouse held down) |
+| 2 | On - not pressed |
+| 3 | On - pressed (mouse held down) |
 
-**Default theme example — `button.png`:**
+**Default theme example - `button.png`:**
 
 - Widget size: 23 × 35 px
 - Total frames: 4 (image height 140 px = 4 × 35)
@@ -231,7 +231,7 @@ Most buttons are simple on/off toggles. Their filmstrip has **4 frames**:
 #### Multi-State Buttons (N states, N×2 frames)
 
 Some buttons cycle through more than two states. The noise colour button
-(`button-slim-noise`) is the primary example — it has **3 states** (e.g. white noise,
+(`button-slim-noise`) is the primary example - it has **3 states** (e.g. white noise,
 pink noise, off) and therefore **6 frames**.
 
 The frame layout for an N-state button is:
@@ -244,14 +244,14 @@ So for a 3-state button the filmstrip is:
 
 | Frame | State |
 |-------|-------|
-| 0 | State 0 — not pressed |
-| 1 | State 0 — pressed |
-| 2 | State 1 — not pressed |
-| 3 | State 1 — pressed |
-| 4 | State 2 — not pressed |
-| 5 | State 2 — pressed |
+| 0 | State 0 - not pressed |
+| 1 | State 0 - pressed |
+| 2 | State 1 - not pressed |
+| 3 | State 1 - pressed |
+| 4 | State 2 - not pressed |
+| 5 | State 2 - pressed |
 
-**Default theme example — `button-slim-noise.png`:**
+**Default theme example - `button-slim-noise.png`:**
 
 - Widget size: 18 × 13 px (`h="13"` in `theme.xml`)
 - Total frames: 6 (image height 78 px = 6 × 13)
@@ -266,13 +266,13 @@ So for a 3-state button the filmstrip is:
 Sliders use a filmstrip where each frame is `w` × `fh` pixels (for horizontal sliders) or
 `fh` × `h` pixels (for vertical sliders). The filmstrip encodes every thumb position.
 
-**Default theme example — `slider-h.png` (horizontal):**
+**Default theme example - `slider-h.png` (horizontal):**
 
 - Widget: `w="50" h="13" fh="13"`
 - Frame size: 50 × 13 px
 - Total frames: 190 (image height 2 470 px = 190 × 13)
 
-**Default theme example — `slider-v.png` (vertical):**
+**Default theme example - `slider-v.png` (vertical):**
 
 - Widget: `w="13" h="50" fh="13"` (example)
 - Frame size: 13 × 13 px (one frame per position)
@@ -300,7 +300,7 @@ background@4x.png
 ## Vector (SVG) Themes
 
 In a vector theme, assets are SVG files. Because SVGs scale losslessly, you do **not** need
-`@2x` or `@4x` variants — a single SVG file serves all display densities.
+`@2x` or `@4x` variants - a single SVG file serves all display densities.
 
 ### Simple SVG Assets
 
@@ -323,8 +323,8 @@ Knobs in a vector theme are rendered from **two SVG layers**:
 
 | File             | Role |
 |------------------|------|
-| `knob-layer1.svg`| Static background (body, shadow, ring) — does not rotate. |
-| `knob-layer2.svg`| Rotating indicator (pointer, dot, line) — rotated by OB-Xf. |
+| `knob-layer1.svg`| Static background (body, shadow, ring) - does not rotate. |
+| `knob-layer2.svg`| Rotating indicator (pointer, dot, line) - rotated by OB-Xf. |
 
 OB-Xf composites layer 1 underneath layer 2, rotating layer 2 around the centre of the knob to
 reflect the current parameter value. Both SVGs should be the same size (matching the `d`
@@ -350,7 +350,7 @@ Sliders follow the same two-layer pattern:
 | `slider-v-layer2.svg` | Thumb / handle that moves vertically. |
 
 For SVG sliders the `d` attribute in `theme.xml` is repurposed as the **travel distance** in
-pixels — the number of pixels the thumb moves from its minimum to maximum position. The `w` and
+pixels - the number of pixels the thumb moves from its minimum to maximum position. The `w` and
 `h` attributes set the overall bounding box of the widget.
 
 ### Asset Checklist for a Vector Theme

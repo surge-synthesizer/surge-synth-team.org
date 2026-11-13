@@ -5,11 +5,11 @@
  * Four changes against upstream, each marked SST below:
  *   1. a display:contents wrapper carrying data-project, because Starlight
  *      computes the <html> data attributes in Page.astro, which is not an
- *      overridable component — this is the closest server-rendered hook to the
+ *      overridable component - this is the closest server-rendered hook to the
  *      document root, so there is no theme flash and no JavaScript involved
  *   2. .header height goes from fixed to a minimum, so the site nav's mobile
  *      menu can expand inside it instead of being clipped
- *   3. MobileMenuToggle (fixed, top right) is dropped — it collided with the
+ *   3. MobileMenuToggle (fixed, top right) is dropped - it collided with the
  *      site nav's own hamburger in that same corner
  *   4. a bottom-left rail that collapses the sidebar on desktop and opens the
  *      popover pane on mobile; see src/layouts/starlight.css
@@ -105,7 +105,7 @@ const product = entry.id.split('/')[0];
 									// into the top layer, which outranks any z-index, and paint
 									// over this very button. Opening the popover is the click's
 									// activation behaviour, so cancelling the event suppresses it
-									// — leaving the collapse below as the only effect.
+									// - leaving the collapse below as the only effect.
 									event.preventDefault();
 
 									const collapsed =

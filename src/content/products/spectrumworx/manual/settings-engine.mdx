@@ -22,7 +22,7 @@ All engine parameter changes take effect immediately and it is not required to s
 beforehand; SpectrumWorx was designed and thoroughly tested to take almost anything you throw at
 it. However, unlike for plugin stability, we cannot guarantee sonic stability. If your playback
 is active, depending on the changes you make and on the loaded modules, you may hear (very) loud
-transient noises — which may also sound cool sometimes — until the signal stabilizes with the
+transient noises - which may also sound cool sometimes - until the signal stabilizes with the
 new settings.
 
 Note that changes to the engine setup parameters affect the plugin's latency and/or its I/O
@@ -76,13 +76,13 @@ If you choose a frame size of 128 samples in the time domain, then this chunk wi
 approximated with 128 frequencies (as we said, STFT is just an approximation). A value of 128 is
 in fact rather low, but the trade-off in this case would be that your time resolution would be
 high, resulting in an ability to capture fast changes without smearing them in time. If the
-input sampling rate is 44100 Hz, then 128 samples would represent less than 3 ms of signal —
+input sampling rate is 44100 Hz, then 128 samples would represent less than 3 ms of signal -
 which is a very good time resolution. At the same time, an input frequency spectrum range of
 22050 Hz would be approximated with only 128 uniformly spaced frequencies, i.e. one frequency
 component every 172 Hz, which is rather poor.
 
 Conversely, a setting of 8192 would provide excellent frequency resolution, but wouldn't be so
-great in the time domain — chunks analyzed would be 185 ms long in this case. On the other hand,
+great in the time domain - chunks analyzed would be 185 ms long in this case. On the other hand,
 an input frequency range of 22050 Hz would be approximated with 8192 frequency components, which
 is a great frequency resolution of less than 3 Hz!
 
@@ -155,7 +155,7 @@ You'll notice the Ripple factor displayed at the bottom of the page. This tells 
 current engine settings (Frame Size, Window Type, Overlap) will result in a so-called "perfect
 reconstruction" of the sound, or if some ripple will be introduced by the engine itself
 regardless of the modules being used. Successive windowed frames should overlap in time in such
-a way that all data are weighted equally — this produces no ripple.
+a way that all data are weighted equally - this produces no ripple.
 
 Different window types have different frame sizes and overlap factors where they produce no
 ripple. For example, a Rectangular window can advance (overlap size) by (Frame Size)/k samples,

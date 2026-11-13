@@ -82,7 +82,7 @@ for (const page of pages) {
 
     /*
      * The theme control renders from NavHeader but its behaviour used to live
-     * in Base.astro, which Starlight pages never run — so in a manual the
+     * in Base.astro, which Starlight pages never run - so in a manual the
      * select showed the wrong value and changing it did nothing. Nothing about
      * the rendered markup gave that away, hence the check: the id plus at least
      * one scripted reference to it must both reach the page.
@@ -114,7 +114,7 @@ for (const page of pages) {
 /*
  * The rail button carries popovertarget, which is what opens the pane on mobile
  * with no JavaScript. On desktop that same activation opens the popover into
- * the top layer — which outranks every z-index — and paints over the button
+ * the top layer - which outranks every z-index - and paints over the button
  * itself, so collapsing made the control vanish until a click elsewhere
  * dismissed it. The handler must cancel the activation on desktop.
  */
@@ -177,7 +177,7 @@ for (const bundle of bundles) {
  * Starlight reuses --sl-sidebar-width for the RIGHT-hand table of contents as
  * well as the left pane (TwoColumnContent.astro, PageSidebar.astro). Collapsing
  * the left pane by redefining it therefore shrinks "On this page" to one letter
- * per line — which it did. The collapse must narrow --sl-content-inline-start
+ * per line - which it did. The collapse must narrow --sl-content-inline-start
  * and the pane's own width instead.
  */
 for (const bundle of bundles) {

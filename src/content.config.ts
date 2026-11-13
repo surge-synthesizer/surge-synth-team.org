@@ -7,8 +7,8 @@ import { docsSchema } from "@astrojs/starlight/schema";
  * manual, its metadata, its images. Adding a product is one folder.
  *
  * docsLoader() is a thin wrapper over glob() with src/content/docs hardcoded,
- * so it is replaced rather than configured. The ids it produces are unchanged —
- * "ob-xf/manual/filter" either way — which is what keeps every manual URL and
+ * so it is replaced rather than configured. The ids it produces are unchanged -
+ * "ob-xf/manual/filter" either way - which is what keeps every manual URL and
  * every sidebar slug exactly where it was.
  *
  * Known cost: Starlight's lastUpdated (which walks the docs directory for git
@@ -18,19 +18,34 @@ import { docsSchema } from "@astrojs/starlight/schema";
 const docs = defineCollection({
     loader: glob({
         base: "./src/content/products",
-        pattern: "*/manual*/**/[^_]*.{md,mdx}",
+        pattern: "*/{manual*,changelog}/**/[^_]*.{md,mdx}",
+        /*
+         * Keep the path as written. The default generator slugifies, which
+         * turns a release note named 1.0.0.mdx into the id "100" and the URL
+         * /changelog/100/. Version numbers are the one place dots matter.
+         */
+        generateId: ({ entry }) => entry.replace(/\.mdx?$/, "").replace(/\/index$/, ""),
     }),
-    schema: docsSchema(),
+    schema: docsSchema({
+        extend: z.object({
+            /** Release notes carry the version they describe and when it shipped. */
+            version: z.string().optional(),
+            // YAML parses an unquoted 2022-01-18 as a Date, not a string.
+            date: z.coerce.date().optional(),
+            /** Notes for a release that has not shipped. */
+            nightly: z.boolean().default(false),
+        }),
+    }),
 });
 
 /*
  * Frozen manuals for versions that have shipped and moved on. Kept whole rather
  * than split into chapters: nothing is being written here, splitting serves no
- * reader, and one page means every anchor in it stays valid — which matters,
+ * reader, and one page means every anchor in it stays valid - which matters,
  * because Surge 1.9 shipped with an absolute help_url pointing at this manual.
  *
- * Deliberately kept outside the manual folders, so the docs glob below —
- * which matches any folder whose name starts with "manual" — does not claim it.
+ * Deliberately kept outside the manual folders, so the docs glob below -
+ * which matches any folder whose name starts with "manual" - does not claim it.
  */
 const archives = defineCollection({
     loader: glob({ pattern: "*/archive/*.mdx", base: "./src/content/products" }),
@@ -38,19 +53,6 @@ const archives = defineCollection({
         z.object({
             title: z.string(),
             version: z.string(),
-        }),
-});
-
-/** Release notes, one file per version. `nightly` marks an unreleased one. */
-const changelogs = defineCollection({
-    loader: glob({ pattern: "*/changelog/*.mdx", base: "./src/content/products" }),
-    schema: () =>
-        z.object({
-            title: z.string(),
-            product: z.string(),
-            version: z.string(),
-            order: z.number(),
-            nightly: z.boolean().default(false),
         }),
 });
 
@@ -139,7 +141,6 @@ const generated = defineCollection({
 export const collections = {
     archives,
     docs,
-    changelogs,
     pages,
     projects,
     generated,

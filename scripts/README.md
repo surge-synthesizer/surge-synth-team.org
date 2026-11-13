@@ -15,15 +15,15 @@ python3 scripts/build-manual-pdf.py              # every manual
 python3 scripts/build-manual-pdf.py spectrumworx # just one
 ```
 
-CI does **not** run this — `ubuntu-slim` has neither `pandoc` nor a TeX
+CI does **not** run this - `ubuntu-slim` has neither `pandoc` nor a TeX
 distribution, and installing a TeX would cost minutes per run. The PDFs are
 committed artifacts; regenerate and commit them when you change manual content.
-CI only *checks* that you did — see below.
+CI only *checks* that you did - see below.
 
 Manuals are registered in the `MANUALS` table at the top. Pages are ordered by
 their `sidebar.order` frontmatter and joined with a `\newpage`, so the PDF
 follows the same order as the sidebar. A manual's `exclude` lists page stems to
-leave out — `spectrumworx` uses it to drop `to-update-for-3-0`, which is site
+leave out - `spectrumworx` uses it to drop `to-update-for-3-0`, which is site
 scaffolding rather than manual content.
 
 ### Two rewrites happen before pandoc sees the text
@@ -39,7 +39,7 @@ Both exist because pandoc reads a temp file, not the page's own directory:
 ### Gotcha: images carry `{alt=""}`
 
 Pandoc 3.9 emits `\includegraphics[alt={…}]`, and the `alt` key only arrived in
-`graphicx` in 2022 — against the TeX Live currently in use this fails with
+`graphicx` in 2022 - against the TeX Live currently in use this fails with
 `Package keyval Error: alt undefined` and no PDF. Setting an empty `alt`
 attribute suppresses that key while keeping the figure caption. Drop the
 workaround only after confirming the TeX everyone builds with is new enough.
@@ -60,7 +60,7 @@ shows as a warning in the Actions UI without failing the deploy, and is
 announced on the days the report posts. If the report step itself fails there
 is no Discord post at all, so the notice waits for the next run.
 
-The rubric is **commit dates, not mtimes** — `git log -1 --format=%cI` over the
+The rubric is **commit dates, not mtimes** - `git log -1 --format=%cI` over the
 manual directory and `src/images/<slug>/` versus the same for the PDF. A fresh
 checkout gives every file the same mtime, so mtimes would say nothing. Two
 consequences:
@@ -72,40 +72,40 @@ consequences:
   first thing to look at.
 - **Editing a manual and rebuilding its PDF in the same commit reads as
   fresh**, which is the intended workflow. A commit that touches a manual
-  without changing rendered output still trips the check — rerun the script,
+  without changing rendered output still trips the check - rerun the script,
   commit the (possibly identical) PDF, and it goes quiet.
 
 ## surge_report.py
 
 Generates the page published at
-<https://surge-synth-team.org/reports/surge-repo-activity/> — a daily snapshot
+<https://surge-synth-team.org/reports/surge-repo-activity/> - a daily snapshot
 of every repository in the `surge-synthesizer` org.
 
 ### What the report contains
 
-1. **Open pull requests** — grouped by repo, oldest first, with author, age,
+1. **Open pull requests** - grouped by repo, oldest first, with author, age,
    and badges for draft / approved / changes requested, plus `stale` at 90+
    days.
-2. **Activity** — two tables, a short window and a long window (7 and 90 days
+2. **Activity** - two tables, a short window and a long window (7 and 90 days
    by default): merged PRs, newly opened issues, and closed issues per repo.
    Bars share one scale *within* a table, never across the two.
-3. **New contributors** — authors whose *first ever* merged PR in the org
+3. **New contributors** - authors whose *first ever* merged PR in the org
    landed in the last 30 days, with that PR, its repo, and merges since. Bots
    are excluded via the GraphQL `__typename`.
-4. **Open issue age** — per repo, the open count, a stacked bar splitting the
+4. **Open issue age** - per repo, the open count, a stacked bar splitting the
    backlog into ≤ 1 week / ≤ 1 month / ≤ 1 year / > 1 year, those four counts
    as heatmap cells shaded by each bucket's share of that repo's backlog, and
    how many issues the repo closed in the last 30 days.
-5. **Releases** — for each shipping product, when its nightly was last
+5. **Releases** - for each shipping product, when its nightly was last
    refreshed and what its latest stable release is, with ages.
 
-Every repo name links to the tab its numbers came from — pulls, issues or
+Every repo name links to the tab its numbers came from - pulls, issues or
 releases.
 
 All windows derive from a single long-window fetch, so `--days`,
 `--closed-days` and the 90-day table cost no extra queries between them.
 
-The output is one self-contained HTML file — no external requests, follows the
+The output is one self-contained HTML file - no external requests, follows the
 viewer's light/dark preference, hover tooltips on every bar and cell.
 
 ### How it is published
@@ -113,14 +113,14 @@ viewer's light/dark preference, hover tooltips on every bar and cell.
 `.github/workflows/build.yaml` runs it **before** `pnpm build`, on every push
 to `master` and daily at 12:00 UTC. It writes into
 `public/reports/surge-repo-activity/`, which Astro copies to the site root
-untouched — no Astro page or route is involved.
+untouched - no Astro page or route is involved.
 
 CI commits nothing: the report is regenerated on each deploy, so there is no
 daily churn in git history. The copy that *is* committed is a **fallback**.
 The generate step is `continue-on-error`, so if the GitHub API is unavailable
 the site still deploys with that last-committed copy, which shows its own
 "Generated ..." timestamp rather than pretending to be current. Expect the
-committed copy to look stale in `git log` — that is deliberate, not neglect.
+committed copy to look stale in `git log` - that is deliberate, not neglect.
 
 After a successful deploy, and **only** on the scheduled run (or a manual
 dispatch with `notify_discord` ticked), the workflow posts a one-line summary
@@ -137,7 +137,7 @@ nothing added, so the usual message is unchanged.
 ### Authentication
 
 - **CI** sets `GITHUB_TOKEN`, and the script talks to the GraphQL API directly
-  over HTTPS. It needs no `gh` CLI — important, because the runner is
+  over HTTPS. It needs no `gh` CLI - important, because the runner is
   `ubuntu-slim` and does not have one.
 - **Locally**, with no token in the environment, it shells out to an
   authenticated `gh api graphql` instead.
@@ -151,8 +151,8 @@ in the 90-day activity table).
 ### Which products appear in the release section
 
 `RELEASE_PRODUCTS` is an allowlist, not a skiplist, because several repos
-publish "releases" that are really asset hosts — a manual PDF, a skin
-library — and those sort to the top as the newest release. Add a repo there
+publish "releases" that are really asset hosts - a manual PDF, a skin
+library - and those sort to the top as the newest release. Add a repo there
 when it becomes something people download.
 
 `STABLE_RELEASE_SOURCE` handles products whose stable releases are cut in a
@@ -163,7 +163,7 @@ product's name, links to the source repo, and says "via releases-xt".
 
 Nightly rows use the release's `updatedAt`, not `publishedAt`. A nightly keeps
 one tag and is re-uploaded in place, so `publishedAt` is when the tag was first
-cut — years ago for Surge — while `updatedAt` tracks the newest asset. Ages
+cut - years ago for Surge - while `updatedAt` tracks the newest asset. Ages
 are computed from calendar dates so they always agree with the date shown
 beside them.
 
@@ -182,7 +182,7 @@ JSON and `GITHUB_OUTPUT`'s `key=value` parsing.
 ### Gotcha: Discord needs a User-Agent
 
 Discord sits behind Cloudflare, which **rejects urllib's default
-`Python-urllib/x.y` agent with HTTP 403, Cloudflare error 1010** — before the
+`Python-urllib/x.y` agent with HTTP 403, Cloudflare error 1010** - before the
 request ever reaches Discord. It looks exactly like a bad webhook secret but
 is not. The workflow uses `curl`, which sends an acceptable agent of its own;
 `post_to_discord()` in the script sets one explicitly. If you rewrite either,
@@ -220,27 +220,27 @@ Then `pnpm build && pnpm preview` to see it in place.
 | `--contrib-days` | 30 | new-contributor window |
 | `--closed-days` | 30 | window for the closed-issues column in section 4 |
 | `--org` | `surge-synthesizer` | org to report on |
-| `--publish-dir` | — | site repo root; writes `public/reports/<slug>/` |
+| `--publish-dir` | - | site repo root; writes `public/reports/<slug>/` |
 | `--slug` | `surge-repo-activity` | path under `/reports/` |
 | `--site-name` | `surge-synth-team.org` | name in the page breadcrumb |
-| `--summary-json` | — | writes headline counts as JSON |
-| `--discord-payload` | — | writes the webhook body the deploy job posts |
-| `--stale-manuals` | — | JSON from `build-manual-pdf.py --check`; stale PDFs are called out in the message |
-| `--report-url` | — | link used in the Discord message |
+| `--summary-json` | - | writes headline counts as JSON |
+| `--discord-payload` | - | writes the webhook body the deploy job posts |
+| `--stale-manuals` | - | JSON from `build-manual-pdf.py --check`; stale PDFs are called out in the message |
+| `--report-url` | - | link used in the Discord message |
 | `--public-only` | off | exclude private repos entirely |
-| `--discord-webhook` | — | post the markdown as an attachment (unused by CI) |
+| `--discord-webhook` | - | post the markdown as an attachment (unused by CI) |
 
 ### Changing the report later
 
-- **Add or change a section** — sections are built in `render_markdown()` and
+- **Add or change a section** - sections are built in `render_markdown()` and
   `render_html()`, which are deliberately parallel; update both so the `.md`
   and `.html` stay in step. Data is gathered once in `collect()`.
-- **Add a data source** — add a search in `collect()` via `search_all()`,
+- **Add a data source** - add a search in `collect()` via `search_all()`,
   which paginates. GitHub caps any single search at 1000 results; the script
   warns on stderr if a query exceeds it rather than silently truncating. The
   long window is fetched once and the shorter windows are derived from it, so
   a new window costs no extra queries.
-- **Colors** — the bucket ramp and the heatmap ramp are validated for both
+- **Colors** - the bucket ramp and the heatmap ramp are validated for both
   light and dark surfaces (monotone lightness, adjacent-step separation,
   single hue, contrast). If you change them, re-validate rather than
   eyeballing: the dark heatmap ramp originally failed with adjacent lightness

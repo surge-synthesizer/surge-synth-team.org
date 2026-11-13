@@ -104,7 +104,7 @@ if (exceptions.length > 0) {
     console.log(`\nHeld to the ${AA_BODY_TEXT}:1 AA floor rather than AAA:`);
 
     for (const { name, ratio, why } of exceptions) {
-        console.log(`  ${name} — ${ratio.toFixed(2)}:1 — ${why}`);
+        console.log(`  ${name} - ${ratio.toFixed(2)}:1 - ${why}`);
     }
 }
 
