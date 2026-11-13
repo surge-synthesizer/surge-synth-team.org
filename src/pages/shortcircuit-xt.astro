@@ -4,11 +4,10 @@ import scxt_build_nightly from "../content/generated/scxt-build-nightly.json" wi
 import Block from "../components/Block.astro";
 import Button from "../components/Button.astro";
 import Cell from "../components/Cell.astro";
-import ChangelogSection from "../components/ChangelogSection.astro";
 import DownloadButton from "../components/DownloadButton.astro";
 import FaqList from "../components/FaqList.astro";
 import NavHeader from "../components/NavHeader.astro";
-import ScxtCover from "../content/projects/screenshots/shortcircuit-xt.png";
+import ScxtCover from "../content/products/shortcircuit-xt/images/shortcircuit-xt.png";
 import Base from "../layouts/Base.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 
@@ -131,10 +130,6 @@ const faq = [
                 processor and modulation source.
             </p>
             <Button class="mt-6" href="/shortcircuit-xt/manual/">Open Manual</Button>
-        </Block>
-
-        <Block id="changelog" surface="base" layout="prose">
-            <ChangelogSection productName="Shortcircuit XT" nightly={scxt_build_nightly} />
         </Block>
 
         <Block id="faq" surface="raised" layout="prose">

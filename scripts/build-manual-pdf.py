@@ -24,11 +24,11 @@ class Manual:
 
     @property
     def source_dir(self) -> Path:
-        return ROOT / "src/content/docs" / self.slug / "manual"
+        return ROOT / "src/content/products" / self.slug / "manual"
 
     @property
     def image_dir(self) -> Path:
-        return ROOT / "src/images" / self.slug
+        return self.source_dir / "images"
 
     @property
     def output(self) -> Path:

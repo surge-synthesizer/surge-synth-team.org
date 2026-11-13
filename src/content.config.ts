@@ -1,11 +1,39 @@
 import { glob } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
-import { docsLoader } from "@astrojs/starlight/loaders";
 import { docsSchema } from "@astrojs/starlight/schema";
 
+/*
+ * Everything about one product lives in src/content/products/<slug>/: its
+ * manual, its metadata, its images. Adding a product is one folder.
+ *
+ * docsLoader() is a thin wrapper over glob() with src/content/docs hardcoded,
+ * so it is replaced rather than configured. The ids it produces are unchanged —
+ * "ob-xf/manual/filter" either way — which is what keeps every manual URL and
+ * every sidebar slug exactly where it was.
+ *
+ * Known cost: Starlight's lastUpdated (which walks the docs directory for git
+ * dates) and its i18n (which infers language from the absolute path) both
+ * assume src/content/docs. Neither is configured here, so both are inert.
+ */
 const docs = defineCollection({
-    loader: docsLoader(),
+    loader: glob({
+        base: "./src/content/products",
+        pattern: "*/manual*/**/[^_]*.{md,mdx}",
+    }),
     schema: docsSchema(),
+});
+
+/** Release notes, one file per version. `nightly` marks an unreleased one. */
+const changelogs = defineCollection({
+    loader: glob({ pattern: "*/changelog/*.mdx", base: "./src/content/products" }),
+    schema: () =>
+        z.object({
+            title: z.string(),
+            product: z.string(),
+            version: z.string(),
+            order: z.number(),
+            nightly: z.boolean().default(false),
+        }),
 });
 
 const pages = defineCollection({
@@ -31,7 +59,13 @@ const navItem = z.object({
 });
 
 const projects = defineCollection({
-    loader: glob({ pattern: "**/*.json", base: "./src/content/projects" }),
+    // One meta.json per product folder. generateId strips the filename so ids
+    // stay bare slugs ("ob-xf"), which is what every route and nav lookup uses.
+    loader: glob({
+        pattern: "*/meta.json",
+        base: "./src/content/products",
+        generateId: ({ entry }) => entry.split("/")[0]!,
+    }),
     schema: ({ image }) =>
         z.object({
             title: z.string(),
@@ -43,7 +77,6 @@ const projects = defineCollection({
             repo: z.string().optional(),
             url: z.string().optional(),
             manual: z.string().optional(),
-            changelog: z.string().optional(),
             // Additions to the nav skeleton every product shares. NavHeader
             // supplies the product link, Documentation (with Manual and Changelog
             // filled in where they exist), About and Source Code; this adds the
@@ -87,6 +120,7 @@ const generated = defineCollection({
 
 export const collections = {
     docs,
+    changelogs,
     pages,
     projects,
     generated,
