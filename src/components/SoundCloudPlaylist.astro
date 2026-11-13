@@ -1,0 +1,122 @@
+---
+/*
+ * A set of SoundCloud playlists behind tabs.
+ *
+ * Replaces a <select> whose options were playlists: a dropdown hides how many
+ * there are and takes two interactions to move between them, where the whole
+ * point of the block is that Surge was picked for the One Synth Challenge four
+ * times over.
+ *
+ * Only one iframe, whose src is swapped. Four would mean four SoundCloud
+ * players loading on a page that already carries a YouTube embed.
+ */
+
+interface Props {
+    label: string;
+    playlists: ReadonlyArray<{ label: string; id: string }>;
+}
+
+const { label, playlists } = Astro.props as Props;
+
+const embed = (id: string) =>
+    `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/${id}`;
+
+// getStaticPaths guarantees nothing here; a block with no playlists is a
+// mistake worth failing the build over rather than rendering an empty frame.
+const first = playlists[0];
+if (!first) throw new Error("SoundCloudPlaylist needs at least one playlist");
+---
+
+<div class="soundcloud flex w-full flex-col gap-3">
+    <div class="flex flex-wrap gap-2" role="tablist" aria-label={label}>
+        {
+            playlists.map((playlist, index) => (
+                <button
+                    type="button"
+                    role="tab"
+                    id={`sc-tab-${playlist.id}`}
+                    aria-selected={index === 0 ? "true" : "false"}
+                    aria-controls="sc-panel"
+                    data-embed={embed(playlist.id)}
+                    class="sc-tab rounded-md px-3 py-1.5 text-sm font-semibold">
+                    {playlist.label}
+                </button>
+            ))
+        }
+    </div>
+
+    <iframe
+        id="sc-panel"
+        role="tabpanel"
+        aria-labelledby={`sc-tab-${first.id}`}
+        title={label}
+        src={embed(first.id)}
+        loading="lazy"
+        class="h-[600px] w-full"></iframe>
+
+    <a class="text-xs" href="https://soundcloud.com/pages/cookies">SoundCloud cookie policy</a>
+</div>
+
+<style>
+    /* Derived from the surrounding Block's surface, so the tabs read correctly
+       on the deep gradient here and would on any other band. */
+    .sc-tab {
+        background-color: color-mix(in srgb, currentColor 12%, transparent);
+        cursor: pointer;
+    }
+
+    .sc-tab:hover {
+        background-color: color-mix(in srgb, currentColor 22%, transparent);
+    }
+
+    /* --block-solid, not --block-bg: a surface may be a gradient, and a
+       gradient is not a valid text colour. Pointed at --block-bg the
+       declaration was simply dropped, leaving the label its inherited light
+       foreground on a light chip - invisible. `solid` exists for exactly
+       this. */
+    .sc-tab[aria-selected="true"] {
+        background-color: var(--block-fg, currentColor);
+        color: var(--block-solid, canvas);
+    }
+</style>
+
+<script>
+    function wire(root: Element) {
+        const tabs = [...root.querySelectorAll<HTMLButtonElement>(".sc-tab")];
+        const panel = root.querySelector<HTMLIFrameElement>("#sc-panel");
+        if (!panel) return;
+
+        const select = (tab: HTMLButtonElement) => {
+            for (const other of tabs) other.setAttribute("aria-selected", String(other === tab));
+
+            panel.src = tab.dataset.embed!;
+            panel.setAttribute("aria-labelledby", tab.id);
+        };
+
+        for (const tab of tabs) {
+            tab.addEventListener("click", () => select(tab));
+
+            // Arrow keys move between tabs, which is what a tablist is for;
+            // without it the only way through is Tab, one stop per playlist.
+            tab.addEventListener("keydown", (event) => {
+                const step = event.key === "ArrowRight" ? 1 : event.key === "ArrowLeft" ? -1 : 0;
+                if (step === 0) return;
+
+                event.preventDefault();
+
+                const next = tabs[(tabs.indexOf(tab) + step + tabs.length) % tabs.length]!;
+
+                next.focus();
+                select(next);
+            });
+        }
+    }
+
+    function init() {
+        for (const root of document.querySelectorAll(".soundcloud")) wire(root);
+    }
+
+    init();
+    // ClientRouter swaps the document, taking these listeners with it.
+    document.addEventListener("astro:page-load", init);
+</script>

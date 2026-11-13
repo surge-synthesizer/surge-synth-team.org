@@ -69,7 +69,6 @@ const systemRequirements = [
                         mac={obxf_build_stable.releases.macos}
                         linux={obxf_build_stable.releases.linux64}
                         other={obxf_build_stable.releases.other}
-                        label={`Download ${obxf_build_stable.version}`}
                         id="obxf-release-link"
                         buttonClass="button button-solid"
                     />
@@ -77,6 +76,11 @@ const systemRequirements = [
                     >
                 </div>
                 <p class="mt-4">
+                    <a href="/ob-xf/changelog/">
+                        What's new in OB-Xf {obxf_build_stable.version}?
+                    </a>
+                </p>
+                <p class="mt-2">
                     <a href={obxf_build_stable.releases.other}>Install for other platforms</a>
                 </p>
             </Cell>

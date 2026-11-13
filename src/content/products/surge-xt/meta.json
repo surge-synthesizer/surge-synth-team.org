@@ -9,22 +9,24 @@
     "repo": "surge-synthesizer/surge",
     "url": "https://surge-synthesizer.github.io",
     "nav": {
+        "links": [
+            {
+                "label": "FAQ",
+                "href": "/surge-xt/faq"
+            }
+        ],
         "groups": {
             "Documentation": [
                 {
-                    "label": "FAQ",
-                    "href": "/surge-xt/faq"
-                },
-                {
                     "label": "Accessibility",
                     "href": "/surge-xt/accessibility"
-                },
-                {
-                    "label": "Skin Library",
-                    "href": "/surge-xt/skins"
                 }
             ],
             "Extras": [
+                {
+                    "label": "Skin Library",
+                    "href": "/surge-xt/skins"
+                },
                 {
                     "label": "Reviews and Media",
                     "href": "/surge-xt/reviews"

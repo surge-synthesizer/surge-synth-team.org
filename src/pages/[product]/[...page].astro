@@ -38,11 +38,12 @@ const { Content, headings } = await render(entry);
     <NavHeader slot="nav" currentProject={product} />
 
     <main class:list={[entry.data.toc && "lg:flex"]}>
+        {
+            /* A page with a contents list beside it gets the wider measure and
+               a flush-left column, since the list already takes the margin. */
+        }
         <article
-            class:list={[
-                "mx-auto prose min-w-0 flex-1 px-4 py-8 dark:prose-invert",
-                entry.data.toc ? "max-w-5xl lg:px-10" : "max-w-3xl",
-            ]}>
+            class:list={["page-prose min-w-0 flex-1", entry.data.toc && "lg:max-w-5xl lg:px-10"]}>
             <h1>{entry.data.title}</h1>
             <Content />
         </article>

@@ -15,26 +15,32 @@ widely used, and available for the following platforms.
 
 {/* JSX anchors rather than markdown links: MDX does not evaluate an expression written as a link destination. */}
 
-<ul>
+{/* The old site renders this list as the Downloads component does: flex, spaced, and a size up. */}
+
+<ul class="flex flex-col gap-4 text-lg font-bold">
     <li>
-        <a href={stable.releases.win64}>Windows 64-bit (Standalone, CLAP, VST3)</a>
+        <a href={stable.releases.win64}>&#8681; Windows 64-bit (Standalone, CLAP, VST3)</a>
     </li>
     <li>
-        <a href={stable.releases.win32}>Windows 32-bit (Standalone, VST3)</a>
+        <a href={stable.releases.win32}>&#8681; Windows 32-bit (Standalone, VST3)</a>
     </li>
     <li>
-        <a href={stable.releases.macos}>macOS Intel/ARM universal (Standalone, AU, CLAP, VST3)</a>
+        <a href={stable.releases.macos}>
+            &#8681; macOS Intel/ARM universal (Standalone, AU, CLAP, VST3)
+        </a>
     </li>
     <li>
-        <a href={stable.releases.linux64}>Linux 64-bit (Standalone, CLAP, LV2, VST3)</a> - .deb
-        built on Ubuntu 18.04, LV2 built with the JUCE 6 community branch
+        <a href={stable.releases.linux64}>&#8681; Linux 64-bit (Standalone, CLAP, LV2, VST3)</a> -
+        .deb built on Ubuntu 18.04, LV2 built with the JUCE 6 community branch
     </li>
     <li>
-        <a href={stable.releases.other}>Other formats (RPM, installerless ZIP, source code)</a>
+        <a href={stable.releases.other}>
+            &#8681; Other formats (RPM, installerless ZIP, source code)
+        </a>
     </li>
     <li>
         <a href="https://software.opensuse.org//download.html?project=home%3Asurge-synth-team&package=surge-xt-release">
-            Open Build Service downloads
+            &#8681; Open Build Service downloads
         </a>
     </li>
 </ul>

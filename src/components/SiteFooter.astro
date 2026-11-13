@@ -10,6 +10,12 @@
  *
  * The product's own repository is not linked: the nav already carries Source
  * Code for whichever product you are on.
+ *
+ * It wears the nav's surface rather than a fixed one, so the bar that closes a
+ * page always matches the bar that opens it. A product that declares an accent
+ * for its nav gets its footer in the same breath - Surge orange top and
+ * bottom, OB-Xf slate top and bottom - instead of a black band under a
+ * coloured one.
  */
 
 import Block from "./Block.astro";
@@ -23,7 +29,7 @@ const { variant = "product" } = Astro.props as Props;
 const ORG_URL = "https://github.com/surge-synthesizer";
 ---
 
-<Block as="footer" surface="ink" layout="bar" class="text-center">
+<Block as="footer" surface="nav" layout="bar" class="text-center">
     {
         variant === "product" ? (
             <>

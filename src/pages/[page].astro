@@ -24,7 +24,7 @@ const { Content } = await render(page);
 
 <Base title={page.data.title}>
     <NavHeader slot="nav" />
-    <article>
+    <article class="page-prose">
         <h1>{page.data.title}</h1>
         {
             url && (

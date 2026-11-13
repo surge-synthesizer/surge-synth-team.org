@@ -9,7 +9,7 @@
 
 @theme {
     --font-sans: "Lato";
-    --color-surge-orange: #ff9000;
+    --color-surge-orange: #ff9900;
     --color-surge-orange-bright: color-mix(in srgb, var(--color-surge-orange) 80%, white);
     --color-surge-blue: #005cb6;
     --color-surge-blue-bright: color-mix(in srgb, var(--color-surge-blue) 80%, white);
@@ -65,6 +65,67 @@
         --paper-link: #adb3bd;
     }
 
+    /* Surge's two extra bands, carried over from the site this replaces.
+
+       `ocean` is that site's backgroundBlue, kept at its exact value by
+       request. It measures 5.14:1 behind the light foreground and 6.48:1
+       behind white - AA, below the 7:1 the rest of the palette holds, which is
+       recorded as an exception in scripts/check-contrast.mjs. Darkening it to
+       reach AAA costs about a fifth of its lightness and stops reading as the
+       brand blue.
+
+       `night` is the contributors band's #103364 unchanged: it already
+       measures 9.93:1. */
+    html[data-project="surge-xt"] {
+        --surface-ocean-bg: #005db6;
+        --surface-ocean-fg: #e5e5e5;
+        --surface-ocean-link: #ffffff;
+        --surface-ocean-solid: #005db6;
+
+        --surface-night-bg: #103364;
+        --surface-night-fg: #e5e5e5;
+        --surface-night-link: #ffffff;
+        --surface-night-solid: #103364;
+
+        /* The videos band, kept at the old site's exact stops.
+
+           A gradient with a light end and a dark end cannot be safe for any one
+           foreground, so this is the better of two: measured along the ramp,
+           dark text runs 8.4:1 over the orange and falls to 2.8:1 at the blue
+           corner, while light text does the reverse from 1.7:1 to 5.1:1. They
+           cross at roughly four fifths of the way across, so dark wins over
+           most of the band - including its worst point, the mid-band mauve near
+           #7c7f92, where dark reaches 4.5:1 against light's 3.1:1.
+
+           The blue corner is the one place dark text would fail, and the band
+           puts its video there rather than any copy. That makes the layout load
+           bearing: moving the text to the far side would break it.
+
+           `in oklab` is not decoration: it is what Tailwind emits for its own
+           gradient utilities, and it is the whole difference here. Interpolated
+           in sRGB, orange to blue passes through a muddy grey; in oklab it
+           stays saturated across the band. */
+        --surface-sunset-bg: linear-gradient(to bottom right in oklab, #ff9900, #005db6);
+        --surface-sunset-fg: #171717;
+        --surface-sunset-link: #171717;
+        --surface-sunset-solid: #ff9900;
+
+        /* The hero band. Flat paper would do, and the gradient under it is
+           nearly imperceptible - two steps of grey - but side by side with a
+           flat fill it is the difference between the band having depth and
+           not. Dark is the old site's own pair; light is paper taken a step
+           deeper, so the band stays in this site's warmer palette rather than
+           importing a neutral grey the rest of the page does not use. */
+        --surface-hero-bg: linear-gradient(to bottom in oklab, #f5f2ed, #e2ded6);
+        --surface-hero-fg: var(--paper-ink);
+        --surface-hero-link: var(--paper-link);
+        --surface-hero-solid: var(--paper);
+    }
+
+    html[data-project="surge-xt"][data-theme="dark"] {
+        --surface-hero-bg: linear-gradient(to bottom in oklab, #171717, #0a0a0a);
+    }
+
     /* A surface declares background, foreground and link colour together, so a
        Block never has to smuggle all three through one class string. `solid` is
        the background's flat equivalent, for elements that invert on hover - a
@@ -105,9 +166,10 @@
         --surface-accent-link: #171717;
         --surface-accent-solid: var(--color-product);
 
-        /* Surge's ocean gradient. The bottom stop is darkened from the site's
-           current #004f8a, which reaches only 6.71:1 under this foreground. */
-        --surface-deep-bg: linear-gradient(to bottom, #1d222a, #004a82);
+        /* Surge's ocean gradient, at the stops the old site uses. The bottom
+           one reaches 6.71:1 under this foreground - just short of AAA, and
+           recorded with the rest of Surge's blues. */
+        --surface-deep-bg: linear-gradient(to bottom in oklab, #1d222a, #004f8a);
         --surface-deep-fg: #e5e5e5;
         --surface-deep-link: #ffffff;
         --surface-deep-solid: #1d222a;
@@ -136,14 +198,15 @@
         }
     }
 
+    /* No scrollbar-gutter here. It used to reserve the strip whether or not the
+       page scrolled, so the nav did not jump between a short page and a long
+       one. The document stopped scrolling when the layout moved to a pane below
+       the nav, which settles that by construction - and leaves the reservation
+       as a dead strip down the right of the window, outside the pane, with the
+       real scrollbar inset from the edge by its width. */
     html {
         scrollbar-color: var(--color-product) var(--color-product-track);
         scrollbar-width: auto;
-        /* Reserve the gutter whether or not the page scrolls. Without it a short
-           page (a stub product, a one-screen manual chapter) is a scrollbar
-           wider than a long one, so the nav's right-hand items jump as you move
-           between them. Must match starlight.css, which is a separate layout. */
-        scrollbar-gutter: stable;
     }
 
     body {
@@ -156,7 +219,11 @@
         background-color: var(--paper);
     }
 
-    article {
+    /* Bare articles - the prose body of a long-tail product page, say - get
+       Tailwind's typography. A .page-prose article opts out: it carries the
+       old site's own typography instead, and the two disagree about measure,
+       padding and, most visibly, the colour of a list marker. */
+    article:not(.page-prose) {
         @apply prose max-w-xl place-self-center p-4 dark:prose-invert;
     }
 
@@ -166,6 +233,85 @@
 }
 
 @layer components {
+    /*
+     * A standalone content page - a FAQ, a downloads list, a skin library.
+     * Carries the typography the site this replaces applies globally, scoped to
+     * the pages that want it rather than imposed on every element here.
+     *
+     * Not Tailwind's `prose`: that is a different rhythm and a different
+     * measure, and these pages sit beside manuals and product bands that
+     * already follow the old site's 16px step and 100ch column.
+     *
+     * In `components` rather than unlayered, so a utility class on one of these
+     * elements can still win - the download lists want flex and a larger type
+     * size. An unlayered rule would outrank every utility whatever its
+     * specificity.
+     */
+    .page-prose {
+        @apply m-auto w-full max-w-[100ch] p-8;
+    }
+
+    /* The page title, centred and heavy, as the old site sets `.title`. */
+    .page-prose > h1 {
+        @apply mb-4 block text-center text-4xl font-black tracking-wide;
+    }
+
+    .page-prose :is(h2, h3, h4) {
+        @apply mt-8 mb-4 font-bold;
+    }
+
+    .page-prose h2 {
+        @apply text-2xl;
+    }
+
+    .page-prose h3 {
+        @apply text-xl;
+    }
+
+    .page-prose h4 {
+        @apply text-lg;
+    }
+
+    .page-prose p {
+        @apply mb-4 text-pretty;
+    }
+
+    .page-prose :is(ul, ol) {
+        @apply mb-4 list-outside pl-4;
+    }
+
+    .page-prose ul {
+        @apply list-disc;
+    }
+
+    .page-prose ol {
+        @apply list-decimal;
+    }
+
+    .page-prose li > :is(ul, ol) {
+        @apply mb-4 ml-4;
+    }
+
+    .page-prose :is(pre, img, iframe, table) {
+        @apply mb-4;
+    }
+
+    .page-prose pre {
+        @apply p-4;
+    }
+
+    .page-prose :last-child {
+        @apply mb-0;
+    }
+
+    /* Underlined as well as coloured, for the same reason the blocks are: colour
+       alone does not mark a link. */
+    .page-prose a {
+        color: var(--paper-link);
+        text-decoration: underline dotted;
+        text-underline-offset: 4px;
+    }
+
     .product-image {
         @apply rounded-xl shadow-xl;
     }
@@ -210,11 +356,20 @@
         }
     }
 
+    /* The two hovers mirror the site this replaces, which has exactly these
+       two button kinds: its bordered buttons invert their colours, and its
+       download button grows sideways. Only the inline padding moves, so the
+       button's height - and everything stacked under it - stays put.
+
+       The transition is named rather than left at `all`, so the pair stays
+       deliberate and a future layout utility cannot start animating height. */
     a.button {
         @apply block w-fit rounded-lg border-4 p-4 text-center text-lg font-bold no-underline duration-300;
         border-color: currentColor;
         background: transparent;
         color: var(--block-fg, var(--surface-base-fg));
+        transition-property:
+            background-color, background-image, border-color, color, padding-inline;
     }
 
     a.button:hover {
@@ -231,11 +386,34 @@
         color: var(--surface-accent-fg);
     }
 
+    /* Wider, not recoloured: p-4 to px-6, which is what the old site's
+       download button does. Its colours are restated so the generic
+       a.button:hover above, which inverts, does not take this one with it. */
     a.button-solid:hover {
         background: var(--surface-accent-bg);
         color: var(--surface-accent-fg);
-        filter: brightness(1.15);
+        padding-inline: calc(var(--spacing) * 6);
     }
+}
+
+/*
+ * Starlight's stylesheet is bundled site-wide and carries a bare
+ * `code { font-family: var(--__sl-font-mono) }`. That variable is defined only
+ * inside Starlight's own layout, so everywhere else the declaration is invalid
+ * at computed-value time and falls back to the inherited font - quietly
+ * un-monospacing every piece of inline code on a page that is not a manual.
+ *
+ * Restated here with this site's stack, unlayered and at two elements of
+ * specificity so it wins whichever way that rule is layered.
+ */
+html :is(code, kbd, samp, pre) {
+    font-family: var(--font-mono);
+}
+
+/* The sticky footer. Everything above it keeps its natural height; the footer
+   absorbs whatever is left of the pane. */
+.page-shell > footer {
+    margin-top: auto;
 }
 
 .invert-in-light {

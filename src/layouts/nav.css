@@ -61,6 +61,13 @@
 :root {
     --surface-nav-bg: #000000;
     --surface-nav-fg: #ffffff;
+
+    /* Derived, so a product declaring the pair above gets these for free. The
+       footer renders this surface as a Block, which wants all four. Links are
+       the foreground: the bar is one flat colour and `.block a` underlines
+       them, so a second colour would only cost contrast. */
+    --surface-nav-link: var(--surface-nav-fg);
+    --surface-nav-solid: var(--surface-nav-bg);
 }
 
 html[data-theme="dark"] {
@@ -72,6 +79,16 @@ html[data-theme="dark"] {
 html[data-project="ob-xf"] {
     --surface-nav-bg: #6b717a;
     --surface-nav-fg: #ffffff;
+}
+
+/* The Surge family shares one accent, so it shares one bar. The dark
+   foreground is what makes a colour this bright usable behind text: #171717 on
+   the orange measures 8.4:1, where white would reach 1.7:1. */
+html[data-project="surge-xt"],
+html[data-project="surge-effects"],
+html[data-project="surge-xt-rack"] {
+    --surface-nav-bg: #ff9900;
+    --surface-nav-fg: #171717;
 }
 
 #nav {
@@ -89,6 +106,25 @@ html[data-project="ob-xf"] {
 #nav .nav-group-menu {
     background-color: var(--surface-nav-bg);
     border-color: color-mix(in srgb, var(--surface-nav-fg) 15%, transparent);
+    visibility: hidden;
+}
+
+/* The open state is aria-expanded, not a class: see the note in NavHeader. */
+#nav .nav-group-toggle[aria-expanded="true"] + .nav-group-menu {
+    visibility: visible;
+}
+
+/* Hover opens it where hovering is possible at all, which is how the site this
+   replaces behaves. Guarded on the pointer rather than a width, because a
+   narrow window on a desktop still has a mouse and a tablet at desktop width
+   still has none - and on a touch screen `:hover` sticks after a tap, leaving a
+   menu open with no way to dismiss it. focus-within keeps the keyboard path
+   open through the same rule. */
+@media (hover: hover) and (pointer: fine) {
+    #nav li.group:hover > .nav-group-menu,
+    #nav li.group:focus-within > .nav-group-menu {
+        visibility: visible;
+    }
 }
 
 #nav .nav-group-menu a:hover,
