@@ -1,0 +1,26 @@
+---
+interface Props {
+    heading?: string;
+    platforms: ReadonlyArray<{ name: string; items: ReadonlyArray<string> }>;
+}
+
+const { heading = "System Requirements", platforms } = Astro.props;
+---
+
+<div>
+    <h2 class="mb-8 text-4xl font-bold">{heading}</h2>
+    <div class="space-y-12">
+        {
+            platforms.map((platform) => (
+                <div>
+                    <h3 class="mb-4 text-2xl font-bold">{platform.name}</h3>
+                    <ul class="ml-8 list-disc text-base">
+                        {platform.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+            ))
+        }
+    </div>
+</div>

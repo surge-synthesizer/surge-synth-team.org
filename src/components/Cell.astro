@@ -1,0 +1,27 @@
+---
+/*
+ * One cell of a split or grid Block. Replaces the old PanelItem + PanelText +
+ * PanelMedia trio, whose only difference was that PanelItem supplied the flex
+ * box and the other two supplied identical padding.
+ */
+
+interface Props {
+    /** Vertical placement of the cell's content within its track. */
+    align?: "center" | "start";
+    /** Media that should bleed to the band's edges turns this off. */
+    padded?: boolean;
+    class?: string;
+}
+
+const { align = "center", padded = true, class: className } = Astro.props;
+---
+
+<div
+    class:list={[
+        "flex flex-1 flex-col",
+        padded && "p-8 md:p-16",
+        align === "center" ? "place-content-center" : "place-content-start",
+        className,
+    ]}>
+    <slot />
+</div>

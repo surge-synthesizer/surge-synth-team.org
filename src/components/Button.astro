@@ -1,0 +1,19 @@
+---
+/*
+ * The merge of blue_button.astro and orange_button.astro, which differed only
+ * in colour. Colour now comes from the enclosing Block's surface, so there is
+ * nothing left to vary.
+ */
+
+interface Props {
+    href: string;
+    /** "solid" is the one primary call to action per block; "outline" is everything else. */
+    variant?: "outline" | "solid";
+    class?: string;
+}
+
+const { href, variant = "outline", class: className } = Astro.props;
+---
+
+<a class:list={["button", variant === "solid" && "button-solid", className]} href={href}><slot /></a
+>
