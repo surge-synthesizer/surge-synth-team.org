@@ -1,46 +1,72 @@
 ---
 import { Image } from "astro:assets";
 import spectrumworx_build_nightly from "../content/generated/spectrumworx-build-nightly.json" with { type: "json" };
+import Block from "../components/Block.astro";
+import Button from "../components/Button.astro";
+import Cell from "../components/Cell.astro";
 import ChangelogSection from "../components/ChangelogSection.astro";
 import DownloadButton from "../components/DownloadButton.astro";
+import FaqList from "../components/FaqList.astro";
 import NavHeader from "../components/NavHeader.astro";
 import SpectrumWorxCover from "../content/projects/screenshots/spectrumworx.png";
 import Base from "../layouts/Base.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 import spectrumworx_logo from "../images/spectrumworx/spectrumworx_logo_full.svg";
 
 // Unlisted on purpose: no src/content/projects/spectrumworx.json means this page
 // is absent from the home page and both nav project menus. See the note below.
+
+/*
+ * Copy below the hero is still placeholder, carried over verbatim from the
+ * pre-block page. Each highlight is its own Block, matching Shortcircuit XT, so
+ * real copy and an illustration drop straight in.
+ */
+const highlights = [
+    {
+        title: "Feature Title 01",
+        body: "Short description placeholder for a SpectrumWorx capability.",
+    },
+    {
+        title: "Feature Title 02",
+        body: "Short description placeholder for the modular effect chain.",
+    },
+    {
+        title: "Feature Title 03",
+        body: "Short description placeholder for sidechain and modulation.",
+    },
+];
+
+const faq = [
+    { q: "Question placeholder #1", a: "Answer placeholder text." },
+    { q: "Question placeholder #2", a: "Answer placeholder text." },
+];
 ---
 
 <Base title="SpectrumWorx" project="spectrumworx">
     <NavHeader slot="nav" />
 
-    <main class="sw-page">
-        <section
-            class="mx-auto grid w-full max-w-6xl gap-8 px-4 py-10 md:grid-cols-2 md:items-center md:py-16">
-            <div class="space-y-4">
-                <p
-                    class="text-xs font-bold tracking-[0.2em] text-spectrumworx-blue uppercase dark:text-spectrumworx-blue2">
+    <main>
+        <Block surface="base" layout="split" class="md:min-h-[500px]">
+            <Cell>
+                <p class="text-xs font-bold tracking-[0.2em] uppercase opacity-70">
                     Spectral Audio Effect
                 </p>
-                <!-- <h1 class="text-4xl leading-tight font-extrabold md:text-5xl">SpectrumWorx</h1> -->
                 <img
                     src={spectrumworx_logo.src}
                     alt="SpectrumWorx"
-                    class="w-full max-w-55 md:max-w-75"
+                    class="mt-3 w-full max-w-55 self-start md:max-w-75"
                 />
-                <p class="max-w-prose text-base text-neutral-800 dark:text-neutral-200">
+                <p class="mt-4 max-w-prose">
                     SpectrumWorx is a modular spectral effect: it decomposes your audio into the
                     frequency domain, lets you stack and chain effects on that spectrum, then
                     resynthesizes the result. Originally developed by Little Endian and open sourced
                     in 2024, it now runs as CLAP, VST3, and AU on Windows, macOS, and Linux.
                 </p>
-                <p
-                    class="inline-block rounded-md border border-spectrumworx-yellow/30 bg-spectrumworx-yellow/5 px-3 py-2 text-sm">
+                <p class="mt-4 inline-block rounded-md border border-current/30 px-3 py-2 text-sm">
                     <strong>Work in progress.</strong> Nightly builds are a modernization sprint, not
                     a finished release. Expect rough edges.
                 </p>
-                <div class="flex flex-wrap gap-3">
+                <div class="mt-6 flex flex-wrap items-center gap-3">
                     <DownloadButton
                         windows={spectrumworx_build_nightly.releases.win64}
                         mac={spectrumworx_build_nightly.releases.macos}
@@ -48,35 +74,31 @@ import spectrumworx_logo from "../images/spectrumworx/spectrumworx_logo_full.svg
                         other={spectrumworx_build_nightly.releases.other}
                         label="Download Nightly"
                         id="spectrumworx-release-link"
-                        buttonClass="inline-flex items-center justify-center rounded-md bg-spectrumworx-blue px-4 py-2 font-semibold text-neutral-900 no-underline shadow-md hover:bg-spectrumworx-blue-bright"
+                        buttonClass="button button-solid"
                     />
-                    <a
-                        href="https://github.com/surge-synthesizer/SpectrumWorx"
-                        class="inline-flex items-center justify-center rounded-md border border-neutral-900/25 px-4 py-2 font-semibold text-inherit no-underline hover:bg-neutral-900/5 dark:border-neutral-100/25 dark:hover:bg-neutral-100/10">
+                    <Button href="https://github.com/surge-synthesizer/SpectrumWorx">
                         View on GitHub
-                    </a>
+                    </Button>
                 </div>
-                <p class="text-xs text-neutral-700 dark:text-neutral-300">
+                <p class="mt-4 text-xs opacity-80">
                     Source is GPL-3.0-or-later; released binaries link JUCE 8 under its AGPLv3 arm
                     and are therefore AGPL-3.0-or-later.
                 </p>
-            </div>
-            <div>
+            </Cell>
+
+            <Cell padded={false} class="min-h-[250px] md:min-h-0">
                 <Image
                     src={SpectrumWorxCover}
                     alt="SpectrumWorx interface screenshot"
                     quality="100"
                     format="png"
-                    class="rounded-md"
+                    class="h-full max-h-[400px] w-full object-contain"
                 />
-            </div>
-        </section>
+            </Cell>
+        </Block>
 
-        <section
-            class="mx-auto w-full max-w-6xl px-4 py-6 print:hidden"
-            aria-label="Publishing instructions">
-            <div
-                class="rounded-lg border-2 border-dashed border-spectrumworx-yellow/30 bg-spectrumworx-yellow/5 p-4 text-sm">
+        <Block surface="raised" layout="prose" class="print:hidden">
+            <div class="rounded-lg border-2 border-dashed border-current/30 p-4 text-sm">
                 <p class="font-bold">This page is unlisted.</p>
                 <p class="mt-2 max-w-prose">
                     It is reachable at <code>/spectrumworx</code> but does not appear on the home page
@@ -93,89 +115,44 @@ import spectrumworx_logo from "../images/spectrumworx/spectrumworx_logo_full.svg
                     one, then delete this box.
                 </p>
             </div>
-        </section>
+        </Block>
 
-        <section
-            id="highlights"
-            class="bg-spectrumworx-gray/15 px-4 py-12 dark:bg-spectrumworx-gray">
-            <div class="mx-auto w-full max-w-6xl">
-                <h2 class="text-2xl font-bold">Highlights</h2>
-                <p class="mt-2 max-w-prose text-sm">
-                    Placeholder section for feature callouts. Replace each card with final copy and
-                    imagery.
-                </p>
-                <div class="mt-6 grid gap-4 md:grid-cols-3">
-                    <article
-                        class="place-self-stretch rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
-                        <h3 class="font-bold">Feature Title 01</h3>
-                        <p class="mt-2 text-sm">
-                            Short description placeholder for a SpectrumWorx capability.
-                        </p>
-                    </article>
-                    <article
-                        class="place-self-stretch rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
-                        <h3 class="font-bold">Feature Title 02</h3>
-                        <p class="mt-2 text-sm">
-                            Short description placeholder for the modular effect chain.
-                        </p>
-                    </article>
-                    <article
-                        class="place-self-stretch rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
-                        <h3 class="font-bold">Feature Title 03</h3>
-                        <p class="mt-2 text-sm">
-                            Short description placeholder for sidechain and modulation.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
+        {
+            highlights.map((highlight, index) => (
+                <Block
+                    id={index === 0 ? "highlights" : undefined}
+                    surface={index % 2 === 0 ? "base" : "raised"}
+                    layout="prose">
+                    <h2 class="text-2xl font-bold">{highlight.title}</h2>
+                    <p class="mt-2 max-w-prose">{highlight.body}</p>
+                </Block>
+            ))
+        }
 
-        <section id="manual" class="mx-auto w-full max-w-6xl px-4 py-12">
+        <Block id="manual" surface="accent" layout="prose">
             <h2 class="text-2xl font-bold">Manual</h2>
-            <p class="mt-2 max-w-prose text-sm">
-                Placeholder section for documentation intro and manual links.
+            <p class="mt-2 max-w-prose">
+                The SpectrumWorx manual covers the interface, the module bank, and every spectral
+                module in turn.
             </p>
-            <div
-                class="mt-4 rounded-lg border border-dashed border-neutral-900/30 p-6 text-sm dark:border-neutral-100/30">
-                Add manual copy and supporting media here.
-            </div>
-        </section>
+            <Button class="mt-6" href="/spectrumworx/manual/">Open Manual</Button>
+        </Block>
 
-        <ChangelogSection productName="SpectrumWorx" nightly={spectrumworx_build_nightly} />
+        <Block id="changelog" surface="base" layout="prose">
+            <ChangelogSection productName="SpectrumWorx" nightly={spectrumworx_build_nightly} />
+        </Block>
 
-        <section
-            id="faq"
-            class="border-y border-spectrumworx-blue-dim bg-linear-to-b from-spectrumworx-blue-bright/25 to-spectrumworx-gray/5 px-4 py-12">
-            <div class="mx-auto w-full max-w-6xl">
-                <h2 class="text-2xl font-bold">FAQ</h2>
-                <div class="mt-6 space-y-3">
-                    <details
-                        class="rounded-lg border border-spectrumworx-blue-bright bg-white/80 p-4 shadow-sm dark:bg-neutral-800/80">
-                        <summary class="cursor-pointer font-semibold">
-                            Question placeholder #1
-                        </summary>
-                        <p class="mt-2 text-sm">Answer placeholder text.</p>
-                    </details>
-                    <details
-                        class="rounded-lg border border-spectrumworx-blue-bright bg-white/80 p-4 shadow-sm dark:bg-neutral-800/80">
-                        <summary class="cursor-pointer font-semibold">
-                            Question placeholder #2
-                        </summary>
-                        <p class="mt-2 text-sm">Answer placeholder text.</p>
-                    </details>
-                </div>
-            </div>
-        </section>
+        <Block id="faq" surface="raised" layout="prose">
+            <FaqList items={faq} />
+        </Block>
 
-        <section id="about" class="mx-auto w-full max-w-6xl px-4 py-12">
+        <Block id="about" surface="base" layout="prose">
             <h2 class="text-2xl font-bold">About</h2>
-            <p class="mt-2 max-w-prose text-sm">
+            <p class="mt-2 max-w-prose">
                 Placeholder section for project background, contributors, and links.
             </p>
-            <div
-                class="mt-4 rounded-lg border border-dashed border-neutral-900/30 p-6 text-sm dark:border-neutral-100/30">
-                Add about text, logos, and team imagery here.
-            </div>
-        </section>
+        </Block>
     </main>
+
+    <SiteFooter />
 </Base>

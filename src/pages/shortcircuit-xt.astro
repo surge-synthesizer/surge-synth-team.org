@@ -1,30 +1,94 @@
 ---
 import { Image } from "astro:assets";
 import scxt_build_nightly from "../content/generated/scxt-build-nightly.json" with { type: "json" };
+import Block from "../components/Block.astro";
+import Button from "../components/Button.astro";
+import Cell from "../components/Cell.astro";
 import ChangelogSection from "../components/ChangelogSection.astro";
 import DownloadButton from "../components/DownloadButton.astro";
+import FaqList from "../components/FaqList.astro";
 import NavHeader from "../components/NavHeader.astro";
 import ScxtCover from "../content/projects/screenshots/shortcircuit-xt.png";
 import Base from "../layouts/Base.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+/*
+ * Each highlight is its own Block rather than a cell in a feature grid: they
+ * are due more copy, and an illustration apiece, at which point each becomes a
+ * split band without anything here having to be rearranged.
+ */
+const highlights = [
+    {
+        title: "Sixteen parts",
+        body: "A multi holds 16 parts, each an instrument with its own MIDI channel, macros and four FX. Play several instruments from one instance, or layer and split them.",
+    },
+    {
+        title: "Zones, groups and variants",
+        body: "Map samples across key and velocity, gather zones into groups with their own play mode and trigger conditions, and give a zone up to 16 variants for round robins.",
+    },
+    {
+        title: "Processors per voice",
+        body: "Every zone has four processor slots that run on each voice, and every group has four more on its mix: filters, distortion, EQ, delays, resonators and synth generators.",
+    },
+    {
+        title: "Modulation",
+        body: "Each voice runs its own envelopes, LFOs, step sequencers, phasors, randoms and envelope followers through a modulation matrix, alongside 16 macros per part.",
+    },
+    {
+        title: "Opens your libraries",
+        body: "Import SF2, SFZ, EXS, GIG, Akai AKP and .multisample instruments, and load WAV, FLAC, AIFF, MP3 and Opus samples.",
+    },
+    {
+        title: "Mixer, MPE and tuning",
+        body: "A 21 bus mixer with aux sends and 20 extra stereo outputs, MPE and CLAP note expressions, and microtuning through MTS-ESP or Scala files.",
+    },
+];
+
+const faq = [
+    {
+        q: "Is Shortcircuit XT free?",
+        a: "Yes. It is free and open source. The source is MIT licensed, and released binaries are distributed under the AGPL v3 or later.",
+    },
+    {
+        q: "Is it finished?",
+        a: "No. Shortcircuit XT is in beta, and the download on this page is a nightly build of the current code. Use a limiter while experimenting.",
+    },
+    {
+        q: "Which systems and plugin formats are supported?",
+        a: "Windows, macOS 10.15 or later, and Linux. Shortcircuit XT runs as a CLAP or VST3 plugin, as an Audio Unit on macOS, and as a standalone application.",
+    },
+    {
+        q: "Can it load my sample libraries?",
+        a: "It imports SF2, SFZ, EXS, GIG, Akai AKP and .multisample instruments, and loads WAV, FLAC, AIFF, MP3 and Opus samples. Features a format has that Shortcircuit XT cannot represent are skipped.",
+    },
+    {
+        q: "Where are my patches kept?",
+        a: "In <code>Documents/Surge Synth Team/Shortcircuit XT</code>, which also holds themes and presets. A whole instrument saves as a <code>.scm</code> multi and a single part as a <code>.scp</code>.",
+    },
+    {
+        q: "Where do I get help or report a bug?",
+        a: 'Ask in the <code>#using-shortcircuit</code> channel of the <a href="https://discord.com/invite/spGANHw">Surge Synth Team Discord</a>, and report bugs on the <a href="https://github.com/surge-synthesizer/shortcircuit-xt/issues">issue tracker</a>.',
+    },
+];
 ---
 
-<Base title="Shortcircuit XT">
+<Base title="Shortcircuit XT" project="shortcircuit-xt">
     <NavHeader slot="nav" currentProject="shortcircuit-xt" />
 
     <main>
-        <section
-            class="mx-auto grid w-full max-w-6xl gap-8 px-4 py-10 md:grid-cols-2 md:items-center md:py-16">
-            <div class="space-y-4">
-                <p
-                    class="text-xs font-bold tracking-[0.2em] text-surge-blue uppercase dark:text-surge-blue2">
+        <Block surface="base" layout="split" class="md:min-h-[500px]">
+            <Cell>
+                <p class="text-xs font-bold tracking-[0.2em] uppercase opacity-70">
                     Open Source Sampling Workstation
                 </p>
-                <h1 class="text-4xl leading-tight font-extrabold md:text-5xl">Shortcircuit XT</h1>
-                <p class="max-w-prose text-base text-neutral-800 dark:text-neutral-200">
+                <h1 class="mt-2 text-4xl leading-tight font-extrabold md:text-5xl">
+                    Shortcircuit XT
+                </h1>
+                <p class="mt-4 max-w-prose">
                     Shortcircuit XT is a modern open source software sampler focused on workflow,
                     expressive modulation, and deep sample playback control.
                 </p>
-                <div class="flex flex-wrap gap-3">
+                <div class="mt-6 flex flex-wrap items-center gap-3">
                     <DownloadButton
                         windows={scxt_build_nightly.releases.win64}
                         mac={scxt_build_nightly.releases.macos}
@@ -32,180 +96,54 @@ import Base from "../layouts/Base.astro";
                         other={scxt_build_nightly.releases.other}
                         label="Download Nightly"
                         id="scxt-release-link"
-                        buttonClass="inline-flex items-center justify-center rounded-md bg-surge-orange px-4 py-2 font-semibold text-neutral-900 no-underline shadow-md hover:bg-surge-orange-bright"
+                        buttonClass="button button-solid"
                     />
-                    <a
-                        href="https://github.com/surge-synthesizer/shortcircuit-xt"
-                        class="inline-flex items-center justify-center rounded-md border border-neutral-900/25 px-4 py-2 font-semibold text-inherit no-underline hover:bg-neutral-900/5 dark:border-neutral-100/25 dark:hover:bg-neutral-100/10">
+                    <Button href="https://github.com/surge-synthesizer/shortcircuit-xt">
                         View on GitHub
-                    </a>
+                    </Button>
                 </div>
-            </div>
-            <div>
+            </Cell>
+
+            <Cell padded={false} class="min-h-[250px] md:min-h-0">
                 <Image
                     src={ScxtCover}
                     alt="Shortcircuit XT interface screenshot"
                     quality="100"
                     format="png"
-                    class=""
+                    class="h-full max-h-[400px] w-full object-contain"
                 />
-            </div>
-        </section>
+            </Cell>
+        </Block>
 
-        <section class="bg-surge-orange/15 px-4 py-12">
-            <div class="mx-auto w-full max-w-6xl">
-                <h2 class="text-2xl font-bold">Highlights</h2>
-                <div class="mt-6 grid gap-4 md:grid-cols-3">
-                    <article
-                        class="place-self-stretch rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
-                        <h3 class="font-bold">Sixteen parts</h3>
-                        <p class="mt-2 text-sm">
-                            A multi holds 16 parts, each an instrument with its own MIDI channel,
-                            macros and four FX. Play several instruments from one instance, or layer
-                            and split them.
-                        </p>
-                    </article>
-                    <article
-                        class="place-self-stretch rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
-                        <h3 class="font-bold">Zones, groups and variants</h3>
-                        <p class="mt-2 text-sm">
-                            Map samples across key and velocity, gather zones into groups with their
-                            own play mode and trigger conditions, and give a zone up to 16 variants
-                            for round robins.
-                        </p>
-                    </article>
-                    <article
-                        class="place-self-stretch rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
-                        <h3 class="font-bold">Processors per voice</h3>
-                        <p class="mt-2 text-sm">
-                            Every zone has four processor slots that run on each voice, and every
-                            group has four more on its mix: filters, distortion, EQ, delays,
-                            resonators and synth generators.
-                        </p>
-                    </article>
-                    <article
-                        class="place-self-stretch rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
-                        <h3 class="font-bold">Modulation</h3>
-                        <p class="mt-2 text-sm">
-                            Each voice runs its own envelopes, LFOs, step sequencers, phasors,
-                            randoms and envelope followers through a modulation matrix, alongside 16
-                            macros per part.
-                        </p>
-                    </article>
-                    <article
-                        class="place-self-stretch rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
-                        <h3 class="font-bold">Opens your libraries</h3>
-                        <p class="mt-2 text-sm">
-                            Import SF2, SFZ, EXS, GIG, Akai AKP and .multisample instruments, and
-                            load WAV, FLAC, AIFF, MP3 and Opus samples.
-                        </p>
-                    </article>
-                    <article
-                        class="place-self-stretch rounded-lg border border-neutral-900/10 bg-white/75 p-4 dark:border-neutral-100/10 dark:bg-neutral-800/75">
-                        <h3 class="font-bold">Mixer, MPE and tuning</h3>
-                        <p class="mt-2 text-sm">
-                            A 21 bus mixer with aux sends and 20 extra stereo outputs, MPE and CLAP
-                            note expressions, and microtuning through MTS-ESP or Scala files.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
+        {
+            highlights.map((highlight, index) => (
+                <Block surface={index % 2 === 0 ? "raised" : "base"} layout="prose">
+                    <h2 class="text-2xl font-bold">{highlight.title}</h2>
+                    <p class="mt-2 max-w-prose">{highlight.body}</p>
+                </Block>
+            ))
+        }
 
-        <section id="manual" class="mx-auto w-full max-w-6xl px-4 py-12">
+        <Block id="manual" surface="accent" layout="prose">
             <h2 class="text-2xl font-bold">Manual</h2>
-            <p class="mt-2 max-w-prose text-sm">
-                The Shortcircuit XT manual covers installing, how a multi is built from parts,
-                groups and zones, each screen of the interface, the mixer and routing, importing
-                other formats, MPE, microtuning and the keyboard shortcuts.
+            <p class="mt-2 max-w-prose">
+                The Shortcircuit XT manual covers the instrument structure, the editor, and every
+                processor and modulation source.
             </p>
-            <a
-                href="/shortcircuit-xt/manual/getting-started/"
-                class="mt-4 inline-flex items-center justify-center rounded-md bg-surge-blue px-4 py-2 font-semibold text-white no-underline hover:bg-surge-blue/90 dark:bg-surge-blue2 dark:text-neutral-900 dark:hover:bg-surge-blue2/90">
-                Open Manual
-            </a>
-        </section>
+            <Button class="mt-6" href="/shortcircuit-xt/manual/">Open Manual</Button>
+        </Block>
 
-        <ChangelogSection productName="Shortcircuit XT" nightly={scxt_build_nightly} />
+        <Block id="changelog" surface="base" layout="prose">
+            <ChangelogSection productName="Shortcircuit XT" nightly={scxt_build_nightly} />
+        </Block>
 
-        <section
-            id="faq"
-            class="border-y border-surge-blue/20 bg-linear-to-b from-surge-blue/10 to-neutral-900/5 px-4 py-12 dark:border-surge-blue2/30 dark:from-surge-blue/15 dark:to-neutral-100/5">
-            <div class="mx-auto w-full max-w-6xl">
-                <h2 class="text-2xl font-bold">FAQ</h2>
-                <div class="mt-6 space-y-3">
-                    <details
-                        class="rounded-lg border border-surge-blue/25 bg-white/80 p-4 shadow-sm dark:border-surge-blue2/35 dark:bg-neutral-800/80">
-                        <summary class="cursor-pointer font-semibold"
-                            >Is Shortcircuit XT free?</summary
-                        >
-                        <p class="mt-2 text-sm">
-                            Yes. It is free and open source. The source is MIT licensed, and
-                            released binaries are distributed under the AGPL v3 or later.
-                        </p>
-                    </details>
-                    <details
-                        class="rounded-lg border border-surge-blue/25 bg-white/80 p-4 shadow-sm dark:border-surge-blue2/35 dark:bg-neutral-800/80">
-                        <summary class="cursor-pointer font-semibold">Is it finished?</summary>
-                        <p class="mt-2 text-sm">
-                            No. Shortcircuit XT is in beta, and the download on this page is a
-                            nightly build of the current code. Use a limiter while experimenting.
-                        </p>
-                    </details>
-                    <details
-                        class="rounded-lg border border-surge-blue/25 bg-white/80 p-4 shadow-sm dark:border-surge-blue2/35 dark:bg-neutral-800/80">
-                        <summary class="cursor-pointer font-semibold"
-                            >Which systems and plugin formats are supported?</summary
-                        >
-                        <p class="mt-2 text-sm">
-                            Windows, macOS 10.15 or later, and Linux. Shortcircuit XT runs as a CLAP
-                            or VST3 plugin, as an Audio Unit on macOS, and as a standalone
-                            application.
-                        </p>
-                    </details>
-                    <details
-                        class="rounded-lg border border-surge-blue/25 bg-white/80 p-4 shadow-sm dark:border-surge-blue2/35 dark:bg-neutral-800/80">
-                        <summary class="cursor-pointer font-semibold"
-                            >Can it load my sample libraries?</summary
-                        >
-                        <p class="mt-2 text-sm">
-                            It imports SF2, SFZ, EXS, GIG, Akai AKP and .multisample instruments,
-                            and loads WAV, FLAC, AIFF, MP3 and Opus samples. Features a format has
-                            that Shortcircuit XT cannot represent are skipped.
-                        </p>
-                    </details>
-                    <details
-                        class="rounded-lg border border-surge-blue/25 bg-white/80 p-4 shadow-sm dark:border-surge-blue2/35 dark:bg-neutral-800/80">
-                        <summary class="cursor-pointer font-semibold"
-                            >Where are my patches kept?</summary
-                        >
-                        <p class="mt-2 text-sm">
-                            In <code>Documents/Surge Synth Team/Shortcircuit XT</code>, which also
-                            holds themes and presets. A whole instrument saves as a <code>.scm</code
-                            > multi and a single part as a <code>.scp</code>.
-                        </p>
-                    </details>
-                    <details
-                        class="rounded-lg border border-surge-blue/25 bg-white/80 p-4 shadow-sm dark:border-surge-blue2/35 dark:bg-neutral-800/80">
-                        <summary class="cursor-pointer font-semibold"
-                            >Where do I get help or report a bug?</summary
-                        >
-                        <p class="mt-2 text-sm">
-                            Ask in the <code>#using-shortcircuit</code> channel of the
-                            <a href="https://discord.com/invite/spGANHw">Surge Synth Team Discord</a
-                            >, and report bugs on the
-                            <a href="https://github.com/surge-synthesizer/shortcircuit-xt/issues"
-                                >issue tracker</a
-                            >.
-                        </p>
-                    </details>
-                </div>
-            </div>
-        </section>
+        <Block id="faq" surface="raised" layout="prose">
+            <FaqList items={faq} />
+        </Block>
 
-        <section id="about" class="mx-auto w-full max-w-6xl px-4 py-12">
+        <Block id="about" surface="base" layout="prose">
             <h2 class="text-2xl font-bold">About</h2>
-            <div class="mt-2 max-w-prose space-y-3 text-sm">
+            <div class="mt-2 max-w-prose space-y-3">
                 <p>
                     Shortcircuit XT is a rebuild of Shortcircuit 1 and 2, samplers released by
                     Vember Audio in the mid 2000s. Claes Johanson, who wrote the originals, gave the
@@ -221,6 +159,8 @@ import Base from "../layouts/Base.astro";
                     <a href="/shortcircuit-xt/manual/credits/">manual's credits</a>.
                 </p>
             </div>
-        </section>
+        </Block>
     </main>
+
+    <SiteFooter />
 </Base>

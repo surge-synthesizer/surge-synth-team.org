@@ -1,0 +1,36 @@
+---
+/*
+ * Answers are authored HTML, not user input — several carry <code> and links —
+ * so they are rendered with set:html rather than as text.
+ */
+
+interface Props {
+    heading?: string;
+    items: ReadonlyArray<{ q: string; a: string }>;
+}
+
+const { heading = "FAQ", items } = Astro.props as Props;
+---
+
+<div>
+    <h2 class="text-2xl font-bold">{heading}</h2>
+    <div class="mt-6 space-y-3">
+        {
+            items.map((item) => (
+                <details class="faq-item rounded-lg border p-4">
+                    <summary class="cursor-pointer font-semibold">{item.q}</summary>
+                    <p class="mt-2 max-w-prose" set:html={item.a} />
+                </details>
+            ))
+        }
+    </div>
+</div>
+
+<style>
+    /* Derived from the surrounding Block's surface rather than a fixed palette,
+       so the same component works on every product's chosen colours. */
+    .faq-item {
+        border-color: color-mix(in srgb, currentColor 20%, transparent);
+        background-color: color-mix(in srgb, currentColor 6%, transparent);
+    }
+</style>

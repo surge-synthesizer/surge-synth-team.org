@@ -1,45 +1,115 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import { Image } from "astro:assets";
+import Block from "../components/Block.astro";
+import Button from "../components/Button.astro";
+import Cell from "../components/Cell.astro";
 import NavHeader from "../components/NavHeader.astro";
 import Base from "../layouts/Base.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+/*
+ * The long tail: every product without a hand-built page. It used to render a
+ * title, a bare URL, a cover and one sentence, which is why eight products
+ * looked unfinished next to the three that had pages of their own.
+ *
+ * Composed from the project's own JSON using core surfaces only, so a product
+ * gains a real page the moment it has an entry, and gets a hand-built one later
+ * by adding a route here — which then wins over this one, as OB-Xf,
+ * Shortcircuit XT and SpectrumWorx already do.
+ */
 
 export async function getStaticPaths() {
+    // Declared inside: Astro extracts getStaticPaths into its own module, so it
+    // cannot close over anything in the frontmatter above.
+    const handBuilt = ["ob-xf", "shortcircuit-xt", "spectrumworx"];
     const projects = await getCollection("projects");
 
     return projects
-        .filter((project) => !["ob-xf", "shortcircuit-xt"].includes(project.id))
-        .map((project) => ({
-            params: { project: project.id },
-            props: { project },
-        }));
+        .filter((project) => !handBuilt.includes(project.id))
+        .map((project) => ({ params: { project: project.id }, props: { project } }));
 }
 
 const { project } = Astro.props;
-const url = project.data.url ?? (project.data.repo && `https://github.com/${project.data.repo}`);
+
+/*
+ * Some products also have a prose page in the `pages` collection. Both routes
+ * used to generate the same URL and one silently won, so that copy either
+ * replaced the product page or was never seen. It now renders inside this one,
+ * and [page].astro no longer claims product slugs.
+ */
+const pages = await getCollection("pages");
+const prose = pages.find((entry) => entry.id === project.id);
+const Prose = prose ? (await render(prose)).Content : null;
+const { title, summary, cover, categories, repo, url, manual, issue_tracker } = project.data;
+
+const homepage = url ?? (repo ? `https://github.com/${repo}` : undefined);
+
+const links = [
+    manual && { label: "Read the manual", href: manual },
+    repo && { label: "Source on GitHub", href: `https://github.com/${repo}` },
+    issue_tracker && { label: "Report an issue", href: issue_tracker },
+].filter((link): link is { label: string; href: string } => Boolean(link));
 ---
 
-<Base title={project.data.title}>
+<Base title={title} project={project.id}>
     <NavHeader slot="nav" currentProject={project.id} />
-    <article>
-        <h1>{project.data.title}</h1>
+
+    <main>
+        <Block surface="base" layout="split" class="md:min-h-[460px]">
+            <Cell>
+                <h1 class="text-4xl leading-tight font-extrabold md:text-5xl">{title}</h1>
+                <p class="mt-2 text-xs font-bold tracking-[0.2em] uppercase opacity-70">
+                    {categories.join(" · ")}
+                </p>
+                <p class="mt-4 max-w-prose">{summary}</p>
+                {
+                    homepage && (
+                        <div class="mt-6">
+                            <Button href={homepage} variant="solid">
+                                Get {title}
+                            </Button>
+                        </div>
+                    )
+                }
+            </Cell>
+
+            <Cell padded={false} class="min-h-[250px] md:min-h-0">
+                <Image
+                    class="h-full max-h-[400px] w-full object-contain"
+                    src={cover}
+                    alt={`${title} interface screenshot`}
+                    quality="100"
+                    format="png"
+                />
+            </Cell>
+        </Block>
+
         {
-            url && (
-                <a class="italic" href={url}>
-                    {url}
-                </a>
+            Prose && (
+                <Block surface="raised" layout="prose">
+                    <article class="!max-w-none !p-0">
+                        <Prose />
+                    </article>
+                </Block>
             )
         }
-        <Image
-            class="product-image"
-            src={project.data.cover}
-            alt={project.data.title}
-            quality="100"
-            format="png"
-        />
-        <p>
-            Categories: {project.data.categories.map((cat) => <>{cat + " "}</>)}
-        </p>
-        <p>{project.data.summary}</p>
-    </article>
+
+        {
+            links.length > 0 && (
+                <Block surface={Prose ? "base" : "raised"} layout="prose">
+                    <h2 class="text-2xl font-bold">Links</h2>
+                    <ul class="mt-4 ml-5 list-disc space-y-1">
+                        {links.map((link) => (
+                            <li>
+                                <a href={link.href}>{link.label}</a>
+                            </li>
+                        ))}
+                    </ul>
+                </Block>
+            )
+        }
+    </main>
+
+    <SiteFooter />
 </Base>

@@ -10,13 +10,15 @@
 
 interface Props {
     surface?: string;
-    layout?: "prose" | "split" | "grid";
+    layout?: "prose" | "split" | "grid" | "bar";
     /** Columns for layout="grid" at md and up. Ignored otherwise. */
     cols?: number;
     /** Landmark element to render as. Bands that close a page are footers. */
     as?: "section" | "footer" | "header";
-    id?: string;
-    class?: string;
+    /* `| undefined` so a caller may pass a conditional value under
+       exactOptionalPropertyTypes, e.g. id={isFirst ? "highlights" : undefined}. */
+    id?: string | undefined;
+    class?: string | undefined;
 }
 
 const {

@@ -2,9 +2,14 @@
 import { getCollection, render } from "astro:content";
 import NavHeader from "../components/NavHeader.astro";
 import Base from "../layouts/Base.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 
 export async function getStaticPaths() {
-    const pages = await getCollection("pages");
+    // Products own their own route: [project].astro renders the hero from the
+    // project JSON and this collection's prose below it. Without this filter
+    // both routes emit the same path and one silently wins.
+    const productIds = new Set((await getCollection("projects")).map((p) => p.id));
+    const pages = (await getCollection("pages")).filter((page) => !productIds.has(page.id));
 
     return pages.map((page) => ({
         params: { page: page.id },
@@ -30,4 +35,6 @@ const { Content } = await render(page);
         }
         <Content />
     </article>
+
+    <SiteFooter variant="org" />
 </Base>

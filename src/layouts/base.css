@@ -190,6 +190,12 @@
         @apply mx-auto max-w-2xl p-8 md:p-16;
     }
 
+    /* A single line across the band: wide enough not to wrap a sentence, and a
+       fraction of prose's vertical padding. Footers and one-line notices. */
+    .block-bar > .block-inner {
+        @apply mx-auto max-w-6xl px-4 py-6;
+    }
+
     .block-split > .block-inner {
         @apply grid grid-cols-1 md:grid-cols-2;
     }

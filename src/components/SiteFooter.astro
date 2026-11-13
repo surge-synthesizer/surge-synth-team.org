@@ -1,0 +1,46 @@
+---
+/*
+ * Two wordings: a product page points at the open source project it belongs to,
+ * the org-level pages speak for the team. Both live here so the spacing and the
+ * destination stay in one place.
+ *
+ * The {" "} are load-bearing. The href is long enough that the formatter wraps
+ * the tag, and a wrapped tag is free to swallow the surrounding whitespace —
+ * which is how "the surge-synthesizer open source project" loses a space.
+ *
+ * The product's own repository is not linked: the nav already carries Source
+ * Code for whichever product you are on.
+ */
+
+import Block from "./Block.astro";
+
+interface Props {
+    variant?: "product" | "org";
+}
+
+const { variant = "product" } = Astro.props as Props;
+
+const ORG_URL = "https://github.com/surge-synthesizer";
+---
+
+<Block as="footer" surface="ink" layout="bar" class="text-center">
+    {
+        variant === "product" ? (
+            <>
+                This project is maintained by the community at the{" "}
+                <a href={ORG_URL} target="_blank" rel="noopener">
+                    surge-synthesizer
+                </a>{" "}
+                open source project on GitHub.
+            </>
+        ) : (
+            <>
+                Everything here is built in the open by the{" "}
+                <a href={ORG_URL} target="_blank" rel="noopener">
+                    Surge Synth Team
+                </a>{" "}
+                and the people who show up.
+            </>
+        )
+    }
+</Block>
