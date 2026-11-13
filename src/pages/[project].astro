@@ -22,7 +22,7 @@ import SiteFooter from "../components/SiteFooter.astro";
 export async function getStaticPaths() {
     // Declared inside: Astro extracts getStaticPaths into its own module, so it
     // cannot close over anything in the frontmatter above.
-    const handBuilt = ["ob-xf", "shortcircuit-xt", "spectrumworx"];
+    const handBuilt = ["ob-xf", "shortcircuit-xt", "spectrumworx", "surge-xt"];
     const projects = await getCollection("projects");
 
     return projects

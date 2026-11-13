@@ -24,13 +24,57 @@ const PAIRS = [
     { name: "light raised", bg: "#e5e1da", fg: "#262626" },
     { name: "light raised link", bg: "#e5e1da", fg: "#00468c" },
     { name: "dark base", bg: "#171717", fg: "#f5f5f5" },
-    { name: "dark base link (surge orange)", bg: "#171717", fg: "#ff9000" },
+    { name: "dark base link (surge orange)", bg: "#171717", fg: "#ff9900" },
     { name: "dark raised", bg: "#262626", fg: "#f5f5f5" },
     { name: "ink", bg: "#171717", fg: "#e5e5e5" },
-    { name: "ink link (surge orange)", bg: "#171717", fg: "#ff9000" },
-    { name: "accent (surge orange)", bg: "#ff9000", fg: "#171717" },
+    { name: "ink link (surge orange)", bg: "#171717", fg: "#ff9900" },
+    { name: "accent (surge orange)", bg: "#ff9900", fg: "#171717" },
     { name: "deep top stop", bg: "#1d222a", fg: "#e5e5e5" },
-    { name: "deep bottom stop", bg: "#004a82", fg: "#e5e5e5" },
+    {
+        name: "deep bottom stop",
+        bg: "#004f8a",
+        fg: "#e5e5e5",
+        floor: AA_BODY_TEXT,
+        why: "the old site's stop, kept exact with the rest of Surge's blues",
+    },
+
+    // The nav bar, which the footer now renders too, so both ends of a page are
+    // one decision. Declared in src/layouts/nav.css, not base.css: Starlight
+    // pages never load base.css and would otherwise lose the nav's colours.
+    { name: "nav default", bg: "#000000", fg: "#ffffff" },
+    { name: "nav dark theme", bg: "#171717", fg: "#ffffff" },
+    { name: "nav surge family", bg: "#ff9900", fg: "#171717" },
+
+    // Surge's two extra bands, declared on html[data-project="surge-xt"].
+    {
+        name: "surge ocean band",
+        bg: "#005db6",
+        fg: "#e5e5e5",
+        floor: AA_BODY_TEXT,
+        why: "the old site's backgroundBlue, kept exact by request; AAA needs it a fifth darker, which stops reading as the brand blue",
+    },
+    {
+        name: "surge ocean link",
+        bg: "#005db6",
+        fg: "#ffffff",
+        floor: AA_BODY_TEXT,
+        why: "links on the ocean band, white as on the old site - 6.48:1",
+    },
+    { name: "surge night band", bg: "#103364", fg: "#e5e5e5" },
+    { name: "surge hero top, light", bg: "#f5f2ed", fg: "#262626" },
+    { name: "surge hero bottom, light", bg: "#e2ded6", fg: "#262626" },
+    { name: "surge hero top, dark", bg: "#171717", fg: "#f5f5f5" },
+    { name: "surge hero bottom, dark", bg: "#0a0a0a", fg: "#f5f5f5" },
+    { name: "surge videos gradient, orange stop", bg: "#ff9900", fg: "#171717" },
+    {
+        // Not a declared colour: the oklab midpoint of the two stops, which is
+        // where the ramp is least legible and so the value worth asserting.
+        name: "surge videos gradient, mid band",
+        bg: "#7c7f92",
+        fg: "#171717",
+        floor: AA_BODY_TEXT,
+        why: "a gradient between a light and a dark stop suits no single foreground; dark reaches 4.5:1 here against light's 3.1:1, and the blue corner where dark would fail carries the video, not copy",
+    },
 
     // OB-Xf. The brand grey #727882 appears in none of these pairs on purpose:
     // it reaches only 4.72:1 against black and 4.44:1 against white, so it is

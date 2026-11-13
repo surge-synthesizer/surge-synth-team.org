@@ -45,12 +45,6 @@
     opacity: 0.55;
 }
 
-/* Matches base.css: a chapter with nothing to scroll must not be a scrollbar
-   wider than one that scrolls, or the nav shifts as you move between them. */
-html {
-    scrollbar-gutter: stable;
-}
-
 :root {
     /* Kept in step with base.css. Starlight pads .main-frame by this exact
        value, so a mismatch shows up as the first heading under the nav bar. */
@@ -208,4 +202,13 @@ html {
     .sidebar-content {
         padding-block-end: var(--sl-rail-size);
     }
+}
+
+/* The document must not scroll - PageFrame's .main-frame does. Declared here
+   rather than in that component because a scoped style cannot reach <body>,
+   and Base.astro sets the same pair on every page outside Starlight. */
+html,
+body {
+    height: 100%;
+    overflow: hidden;
 }

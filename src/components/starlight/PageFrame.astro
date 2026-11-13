@@ -2,7 +2,7 @@
 /*
  * Vendored from @astrojs/starlight 0.42.0 components/PageFrame.astro.
  *
- * Four changes against upstream, each marked SST below:
+ * Five changes against upstream, each marked SST below:
  *   1. a display:contents wrapper carrying data-project, because Starlight
  *      computes the <html> data attributes in Page.astro, which is not an
  *      overridable component - this is the closest server-rendered hook to the
@@ -13,8 +13,10 @@
  *      site nav's own hamburger in that same corner
  *   4. a bottom-left rail that collapses the sidebar on desktop and opens the
  *      popover pane on mobile; see src/layouts/starlight.css
+ *   5. the main column scrolls itself rather than the document, so the fixed
+ *      header spans the whole window instead of stopping at the scrollbar
  *
- * On a Starlight upgrade, re-copy the file and re-apply those four.
+ * On a Starlight upgrade, re-copy the file and re-apply those five.
  */
 
 const { hasSidebar, entry } = Astro.locals.starlightRoute;
@@ -163,9 +165,19 @@ const product = entry.id.split('/')[0];
 
 <style>
 	@layer starlight.core {
+		/* SST (5 of 5): the document does not scroll; .main-frame below does.
+		   A classic scrollbar sits outside the viewport and nothing can paint
+		   under it, so the only way to stop it taking a strip off the fixed
+		   header is for the document to have no scrollbar at all. Base.astro
+		   does the same for every page outside Starlight.
+
+		   Cheap here because Starlight already positions the sidebar and the
+		   right-hand contents list `fixed` with their own overflow-y - only the
+		   main column was riding the document. */
 		.page {
 			flex-direction: column;
-			min-height: 100vh;
+			height: 100vh;
+			overflow: hidden;
 		}
 
 		.header {
@@ -216,8 +228,16 @@ const product = entry.id.split('/')[0];
 		}
 
 		.main-frame {
-			padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height));
+			/* Margin, not padding: padding would scroll away with the content
+			   and let it slide under the fixed header. */
+			margin-top: var(--sl-nav-height);
+			height: calc(100vh - var(--sl-nav-height));
+			overflow-y: auto;
+			padding-top: var(--sl-mobile-toc-height);
 			padding-inline-start: var(--sl-content-inline-start);
+			/* Anchors land inside this box now, so the allowance for the header
+			   moves here with them. */
+			scroll-padding-top: 1rem;
 		}
 
 		@media (min-width: 50rem) {

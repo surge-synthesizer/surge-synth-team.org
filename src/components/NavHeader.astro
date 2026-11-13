@@ -1,7 +1,7 @@
 ---
 import ProjectSelector from "./ProjectSelector.astro";
 import ThemeSelector from "./ThemeSelector.astro";
-import { buildNav } from "../nav";
+import { buildNav, isGroup, type NavItem } from "../nav";
 import { getCollection } from "astro:content";
 
 interface Props {
@@ -18,7 +18,7 @@ const projects = (await getCollection("projects")).sort((a, b) => a.data.order -
 const currentProjectData = projects.find((p) => p.id === currentProject);
 const nav = await buildNav(currentProject);
 
-const flat = [...nav.links, ...nav.trailing];
+const flat = [...nav.items.filter((entry): entry is NavItem => !isGroup(entry)), ...nav.trailing];
 ---
 
 <nav
@@ -61,40 +61,38 @@ const flat = [...nav.links, ...nav.trailing];
                 }
 
                 {
-                    nav.links.map((item) => (
-                        <li>
-                            <a
-                                class="rounded px-2 py-1 whitespace-nowrap transition-colors"
-                                href={item.href}>
-                                {item.label}
-                            </a>
-                        </li>
-                    ))
-                }
-
-                {
-                    nav.groups.map((group) => (
-                        <li class="group relative">
-                            <button
-                                type="button"
-                                class="nav-group-toggle cursor-pointer rounded px-2 py-1 whitespace-nowrap transition-colors"
-                                aria-expanded="false"
-                                aria-haspopup="true">
-                                {group.label}
-                            </button>
-                            <ul class="nav-group-menu invisible absolute top-full left-0 z-10 min-w-[180px] rounded border py-2 shadow-lg">
-                                {group.items.map((item) => (
-                                    <li>
-                                        <a
-                                            href={item.href}
-                                            class="block px-4 py-2 whitespace-nowrap transition-colors">
-                                            {item.label}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </li>
-                    ))
+                    nav.items.map((entry) =>
+                        !isGroup(entry) ? (
+                            <li>
+                                <a
+                                    class="rounded px-2 py-1 whitespace-nowrap transition-colors"
+                                    href={entry.href}>
+                                    {entry.label}
+                                </a>
+                            </li>
+                        ) : (
+                            <li class="group relative">
+                                <button
+                                    type="button"
+                                    class="nav-group-toggle cursor-pointer rounded px-2 py-1 whitespace-nowrap transition-colors"
+                                    aria-expanded="false"
+                                    aria-haspopup="true">
+                                    {entry.label}
+                                </button>
+                                <ul class="nav-group-menu absolute top-full left-0 z-10 min-w-[180px] rounded border py-2 shadow-lg">
+                                    {entry.items.map((item) => (
+                                        <li>
+                                            <a
+                                                href={item.href}
+                                                class="block px-4 py-2 whitespace-nowrap transition-colors">
+                                                {item.label}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </li>
+                        ),
+                    )
                 }
 
                 {
@@ -165,7 +163,7 @@ const flat = [...nav.links, ...nav.trailing];
         }
 
         {
-            nav.groups.map((group) => (
+            nav.items.filter(isGroup).map((group) => (
                 <div class="flex flex-col">
                     <button
                         class="mobile-group-toggle nav-mobile-item flex items-center justify-between rounded px-2 py-1 transition-colors"
@@ -229,15 +227,21 @@ const flat = [...nav.links, ...nav.trailing];
             if (list) wireDisclosure(toggle, list);
         });
 
-        // Desktop dropdowns. Click to open rather than hover, so they work on
-        // touch and can be dismissed from the keyboard.
+        /*
+         * Desktop dropdowns. A pointer that can hover opens them on hover, in
+         * CSS - see nav.css. This handles the rest: a tap on a touch screen,
+         * where there is no hover to open with, and the keyboard.
+         *
+         * aria-expanded is the state, and the stylesheet reads it. Toggling a
+         * `invisible` utility instead would put the open state in Tailwind's
+         * utilities layer, which outranks every layer a hover rule could live
+         * in - so hover could never show a menu the class had hidden.
+         */
         const groups = Array.from(document.querySelectorAll<HTMLElement>(".nav-group-toggle"));
 
         function closeAll(except?: HTMLElement) {
             for (const toggle of groups) {
                 if (toggle === except) continue;
-                const list = toggle.nextElementSibling;
-                list?.classList.add("invisible");
                 toggle.setAttribute("aria-expanded", "false");
             }
         }
@@ -248,7 +252,7 @@ const flat = [...nav.links, ...nav.trailing];
 
             toggle.addEventListener("click", (e) => {
                 e.stopPropagation();
-                const open = list.classList.toggle("invisible");
+                const open = toggle.getAttribute("aria-expanded") === "true";
                 toggle.setAttribute("aria-expanded", String(!open));
                 closeAll(toggle);
             });
@@ -256,7 +260,6 @@ const flat = [...nav.links, ...nav.trailing];
             toggle.addEventListener("keydown", (e) => {
                 if (e.key !== "ArrowDown") return;
                 e.preventDefault();
-                list.classList.remove("invisible");
                 toggle.setAttribute("aria-expanded", "true");
                 list.querySelector("a")?.focus();
             });

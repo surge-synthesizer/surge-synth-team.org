@@ -14,18 +14,24 @@ export type NavItem = { label: string; href: string };
 export type NavGroup = { label: string; items: NavItem[] };
 
 export type Nav = {
-    /** Flat items before the groups. */
-    links: NavItem[];
-    groups: NavGroup[];
-    /** Flat items after the groups - the same two everywhere. */
+    /** The bar's middle section in render order: bare links and dropdowns mixed. */
+    items: (NavItem | NavGroup)[];
+    /** Flat items after that - the same two everywhere. */
     trailing: NavItem[];
 };
+
+export const isGroup = (entry: NavItem | NavGroup): entry is NavGroup => "items" in entry;
 
 const ORG_URL = "https://github.com/surge-synthesizer";
 const ABOUT_HREF = "/about";
 
-/** Skeleton groups, in render order. A product's own groups follow these. */
-const GROUP_ORDER = ["Documentation", "Extras"];
+/**
+ * Render order for the bar's middle section. A product's own groups follow
+ * these; LINKS is where its flat `nav.links` land, which is why a bare entry
+ * like Surge's FAQ can sit between two dropdowns instead of ahead of both.
+ */
+const LINKS = "@links";
+const GROUP_ORDER = ["Documentation", LINKS, "Extras"];
 
 const repoUrl = (repo?: string) => (repo ? `https://github.com/${repo}` : ORG_URL);
 
@@ -84,8 +90,7 @@ async function manualHref(slug: string, declared?: string) {
 export async function buildNav(currentProject?: string | null): Promise<Nav> {
     if (!currentProject) {
         return {
-            links: [],
-            groups: [],
+            items: [],
             trailing: [
                 ...(await aboutLinks("org")),
                 ...((await hasPage("clap")) ? [{ label: "CLAP", href: "/clap" }] : []),
@@ -107,8 +112,7 @@ export async function buildNav(currentProject?: string | null): Promise<Nav> {
         const href = await manualHref(currentProject);
 
         return {
-            links: [],
-            groups: href ? [{ label: "Documentation", items: [{ label: "Manual", href }] }] : [],
+            items: href ? [{ label: "Documentation", items: [{ label: "Manual", href }] }] : [],
             trailing: await aboutLinks("product"),
         };
     }
@@ -136,10 +140,13 @@ export async function buildNav(currentProject?: string | null): Promise<Nav> {
     ];
 
     return {
-        links: nav?.links ?? [],
-        groups: ordered
-            .map((label) => ({ label, items: skeleton[label] ?? [] }))
-            .filter((group) => group.items.length > 0),
+        items: ordered.flatMap((label): (NavItem | NavGroup)[] =>
+            label === LINKS
+                ? (nav?.links ?? [])
+                : skeleton[label]?.length
+                  ? [{ label, items: skeleton[label] }]
+                  : [],
+        ),
         trailing: [
             ...(await aboutLinks("product")),
             // Deliberately not `url`: on surge-xt-rack that field holds a manual

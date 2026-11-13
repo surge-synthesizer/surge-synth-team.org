@@ -1,4 +1,17 @@
 ---
+/*
+ * One download, aimed at whatever the reader is running.
+ *
+ * The label reads "<label> for <OS>" on every product, so the button says the
+ * same thing site-wide. `label` carries only the channel where there is one to
+ * name - Shortcircuit XT and SpectrumWorx ship nightlies, and "Download
+ * Nightly for Windows" is worth saying. It does not carry the version: that
+ * belongs to the "what's new" link under the button, where it is a link to the
+ * notes rather than a number on a button.
+ *
+ * Without JavaScript the anchor keeps the bare label and points at `other`,
+ * which lists every platform.
+ */
 type Props = {
     windows: string;
     mac: string;
@@ -56,22 +69,22 @@ const {
 
             switch (platform) {
                 case "windows":
-                    anchor.innerText = `${label} | Windows`;
+                    anchor.innerText = `${label} for Windows`;
                     anchor.href = releases.windows;
                     break;
 
                 case "mac":
-                    anchor.innerText = `${label} | macOS`;
+                    anchor.innerText = `${label} for macOS`;
                     anchor.href = releases.mac;
                     break;
 
                 case "linux":
-                    anchor.innerText = `${label} | Linux`;
+                    anchor.innerText = `${label} for Linux`;
                     anchor.href = releases.linux;
                     break;
 
                 case "bsd":
-                    anchor.innerText = `${label} | FreeBSD`;
+                    anchor.innerText = `${label} for FreeBSD`;
                     anchor.href = releases.bsd ?? releases.other;
                     break;
 

@@ -10,16 +10,20 @@ Every available format for the latest nightly is on
 [its GitHub release page](https://github.com/surge-synthesizer/surge/releases/tag/Nightly). For
 convenience, direct links for our most popular platforms are below.
 
-<ul>
+{/* The old site renders this list as the Downloads component does: flex, spaced, and a size up. */}
+
+<ul class="flex flex-col gap-4 text-lg font-bold">
     <li>
-        <a href={nightly.releases.win64}>Windows 64-bit (Standalone, CLAP, VST3)</a>
+        <a href={nightly.releases.win64}>&#8681; Windows 64-bit (Standalone, CLAP, VST3)</a>
     </li>
     <li>
-        <a href={nightly.releases.macos}>macOS Intel/ARM universal (Standalone, AU, CLAP, VST3)</a>
+        <a href={nightly.releases.macos}>
+            &#8681; macOS Intel/ARM universal (Standalone, AU, CLAP, VST3)
+        </a>
     </li>
     <li>
-        <a href={nightly.releases.linux64}>Linux x64 (Standalone, CLAP, LV2, VST3)</a> - .deb built
-        on Ubuntu 18.04 with gcc 11
+        <a href={nightly.releases.linux64}>&#8681; Linux x64 (Standalone, CLAP, LV2, VST3)</a> -
+        .deb built on Ubuntu 18.04 with gcc 11
     </li>
 </ul>
 

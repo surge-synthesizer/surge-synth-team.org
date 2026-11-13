@@ -1,0 +1,769 @@
+---
+import { Image } from "astro:assets";
+import Block from "../components/Block.astro";
+import Button from "../components/Button.astro";
+import Cell from "../components/Cell.astro";
+import DownloadButton from "../components/DownloadButton.astro";
+import DownloadMatrix from "../components/DownloadMatrix.astro";
+import NavHeader from "../components/NavHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import SoundCloudPlaylist from "../components/SoundCloudPlaylist.astro";
+import SystemRequirements from "../components/SystemRequirements.astro";
+import Base from "../layouts/Base.astro";
+import stable from "../content/generated/surge-build-stable.json" with { type: "json" };
+import nightly from "../content/generated/surge-build-nightly.json" with { type: "json" };
+
+import HeroDark from "../content/products/surge-xt/images/hero_dark.png";
+import HeroLight from "../content/products/surge-xt/images/hero_light.png";
+import Digital from "../content/products/surge-xt/images/digital.png";
+import Patches from "../content/products/surge-xt/images/patches.jpg";
+import Oscillator from "../content/products/surge-xt/images/oscillator.jpg";
+import Filter from "../content/products/surge-xt/images/filter.jpg";
+import Modulation from "../content/products/surge-xt/images/modulation.jpg";
+import Effects from "../content/products/surge-xt/images/effects.jpg";
+import Developers from "../content/products/surge-xt/images/developers.jpg";
+import Designers from "../content/products/surge-xt/images/designers.jpg";
+import Testers from "../content/products/surge-xt/images/testers.jpg";
+import ContentCreators from "../content/products/surge-xt/images/content-creators.jpg";
+
+/*
+ * The feature bands, which were five near-identical Panels differing only in
+ * their copy, their screenshot, which side it sat on and which surface they
+ * wore. Declared as data so adding a feature is adding an entry.
+ *
+ * `surface` and `side` are given per band rather than alternated: the site this
+ * replaces runs blue, plain, orange, blue, plain, and puts the image right on
+ * two consecutive bands. An alternation would be tidier and wrong.
+ *
+ * The copy is that site's, word for word. A band may carry more than one
+ * heading - the first at the band's size, the rest a step down - which is what
+ * lets Factory Sounds share a band with the synthesis summary, and the effect
+ * categories sit under the Effects heading.
+ */
+const features = [
+    {
+        image: Patches,
+        alt: "Surge XT's patch browser",
+        surface: "ocean",
+        side: "left",
+        sections: [
+            {
+                title: "Synthesis method: Subtractive hybrid",
+                paragraphs: [
+                    "Each patch contains two scenes which are separate instances of the entire synthesis engine (except effects) that can be used to create layered or split patches.",
+                    "Quick category-based patch browser with textual search and favorites.",
+                    "Runs on a variety of operating systems, plugin formats, and architectures.",
+                ],
+            },
+            {
+                title: "Factory Sounds",
+                paragraphs: ["Over 2800 patches", "Over 700 wavetables"],
+            },
+        ],
+    },
+    {
+        image: Oscillator,
+        alt: "Surge XT's oscillator section",
+        surface: "base",
+        side: "right",
+        sections: [
+            {
+                title: "Oscillators",
+                paragraphs: [
+                    "3 oscillators per scene, with 12 versatile oscillator algorithms: Classic, Modern, Wavetable, Window, Sine, FM2, FM3, String, Twist, Alias, S&H Noise and Audio Input.",
+                    "Classic oscillator is a morphable pulse/saw/dual saw oscillator with a sub-oscillator and hard sync.",
+                    "Modern oscillator is a mixable saw/pulse/triangle oscillator with an optional sub-oscillator mode for triangle (which can also change to sine or square) and hard sync.",
+                    "FM2/FM3 oscillators consist of a carrier and 2 or 3 modulators and various options.",
+                    "String oscillator uses two filtered waveguides to emulate plucked or bowed string sounds.",
+                    "Twist oscillator is based on a very famous Eurorack macro oscillator, and it offers a myriad of synthesis options in a very simple and quick way.",
+                    "Most algorithms (except FM2, FM3, Twist and Audio Input) offer up to 16-voice unison at the oscillator level.",
+                    "Oscillator FM in 3 different configurations and ring modulation between oscillators 1-2 and 2-3.",
+                    "Most oscillator algorithms (except FM2, FM3, Sine and Alias) are strictly band-limited, yet still cover the entire audible spectrum, delivering a clear, punchy and clean sound.",
+                    "Noise generator with variable spectrum (available directly in the oscillator mixer).",
+                ],
+            },
+        ],
+    },
+    {
+        image: Filter,
+        alt: "Surge XT's filter section",
+        surface: "accent",
+        side: "left",
+        sections: [
+            {
+                title: "Filter Block",
+                paragraphs: [
+                    "Two filter units in 8 different configurations, with feedback loop available in 7 of them.",
+                    "Available filter algorithms: Lowpass (12 and 24 dB/oct, each with 3 variations), Legacy Ladder Lowpass (6-24 dB/oct), Vintage Ladder Lowpass (2 variations, each with and without gain compensation), Highpass (12 and 24 dB/oct, each with 3 variations), Bandpass (12 and 24 dB/oct, each with 3 variations), Notch (12 and 24 dB/oct, each with 2 variations), Allpass (3 variations), Comb (positive and negative), S&H.",
+                    "Open-source additions to our filter algorithms include: K35 and Diode Ladder filter types from Odin 2 synthesizer, 12 and 24 dB/oct multimode filters from OB-Xd, and weird but fascinating Cutoff Warp, Resonance Warp and Tri-Pole filters by Jatin Chowdhury!",
+                    "Filters can self-oscillate (with excitation) and respond amazingly fast to cutoff frequency changes.",
+                    "Waveshaper (43 shapes)",
+                ],
+            },
+        ],
+    },
+    {
+        image: Modulation,
+        alt: "Surge XT's modulation section",
+        surface: "ocean",
+        side: "right",
+        sections: [
+            {
+                title: "Modulation",
+                paragraphs: [
+                    "12 LFO units available, 6 are per voice and 6 are global for the whole scene.",
+                    "DAHDSR envelope generators on every LFO.",
+                    "LFO shapes consist of 7 deformable LFO waveforms, step sequencer, a fully-fledged multi-segment envelope generator (MSEG) with various curves and up to 128 nodes, and last but not the least - a formula modulator which utilizes Lua scripting language to provide completely custom modulator output.",
+                    "Voice LFOs allow envelope retriggering in step sequencer mode.",
+                    "Extremely fast and flexible modulation routing. Almost every continuous parameter can be modulated!",
+                ],
+            },
+        ],
+    },
+    {
+        image: Effects,
+        alt: "Surge XT's effects section",
+        surface: "base",
+        side: "right",
+        sections: [
+            {
+                title: "Effects",
+                paragraphs: [
+                    "16 effect units arranged as 4 inserts per scene, 4 sends and 4 master effects.",
+                    "27 effect algorithms:",
+                ],
+            },
+            {
+                title: "Filtering:",
+                level: 3,
+                items: ["3-band fully parametric EQ", "11-band graphic EQ", "Exciter", "Resonator"],
+            },
+            {
+                title: "Distortion:",
+                level: 3,
+                items: [
+                    "CHOW",
+                    "Distortion",
+                    "Neuron",
+                    "Tape (based on ChowTapeModel !)",
+                    "Waveshaper",
+                ],
+            },
+            {
+                title: "Mangling:",
+                level: 3,
+                items: [
+                    "Combulator",
+                    "Frequency Shifter",
+                    "Nimbus",
+                    "Ring Modulator",
+                    "Treemonster",
+                    "Vocoder",
+                ],
+            },
+            {
+                title: "Modulation:",
+                level: 3,
+                items: ["Chorus", "Ensemble", "Flanger", "Phaser", "Rotary Speaker"],
+            },
+            {
+                title: "Time & Space:",
+                level: 3,
+                items: ["Delay", "Reverb 1", "Reverb 2", "Spring Reverb"],
+            },
+            {
+                title: "Multieffects:",
+                level: 3,
+                items: [
+                    "Airwindows (itself containing 56 effects!)",
+                    "Conditioner",
+                    "Mid-Side Tool",
+                ],
+            },
+        ],
+    },
+];
+
+/*
+ * The recruitment bands. The old page gave each its own component, but none of
+ * them lists a person: they are a role, why you might enjoy it, and a way in.
+ * Copy and button labels are that page's, unchanged.
+ */
+const recruitment = [
+    {
+        title: "Developers",
+        image: Developers,
+        alt: "A developer at work",
+        surface: "ocean",
+        side: "left",
+        paragraphs: [
+            "If you are interested in contributing, we welcome developers who know or want to learn C++, git, graphics and Web design.",
+            "There's plenty of open issues and our Discord server can help you find a good first one if you want. Hop over to the Issues page on GitHub to see what we need help with.",
+        ],
+        links: [
+            {
+                label: "View Surge XT Issue Tracker",
+                href: "https://github.com/surge-synthesizer/surge/issues",
+            },
+        ],
+        // The old site runs tracker button, then this line, then the Discord
+        // button - so the footnote carries its own call to action rather than
+        // both buttons sitting together above it.
+        footnote:
+            "You can also join the conversation in #surge-development channel at the Surge Synth Team Discord server. We'll help get you started!",
+        footnoteLinks: [
+            { label: "Join Surge Synth Team Discord Server", href: "https://discord.gg/spGANHw" },
+        ],
+    },
+    {
+        title: "Designers",
+        image: Designers,
+        alt: "A designer at work",
+        surface: "accent",
+        side: "right",
+        paragraphs: [
+            "If you have an interest in UX, UI, visual design and other design related topics, or you would like to pitch in with a custom skin, let us know!",
+            "The #ui-design channel on Surge Synth Team Discord server can help you find something to get started with.",
+        ],
+        links: [
+            { label: "Join Surge Synth Team Discord Server", href: "https://discord.gg/spGANHw" },
+        ],
+    },
+    {
+        title: "Testers",
+        image: Testers,
+        alt: "A tester at work",
+        surface: "ocean",
+        side: "left",
+        paragraphs: [
+            // Authored emphasis, not user input, so set:html rather than text.
+            { html: "<em>Know any testers? Umm, asking for a friend.</em>" },
+            "Testing is a way that everyone can help contribute. All you would need to do is install a copy of Surge XT and use it in your own workflow.",
+            {
+                html: "There are so many combinations of operating systems and DAWs that it is <em>really difficult</em> to make sure everything gets tested under all contexts.",
+            },
+            "If you would like to get involved, jump in over here:",
+        ],
+        links: [
+            {
+                label: "View Surge XT Issue Tracker",
+                href: "https://github.com/surge-synthesizer/surge/issues",
+            },
+        ],
+    },
+    {
+        title: "Content Creators",
+        image: ContentCreators,
+        alt: "A content creator at work",
+        surface: "accent",
+        side: "right",
+        paragraphs: [
+            "If you love to use Surge XT and make amazing presets or music, we want to hear from you!",
+            "In fact, we would love to have you pitch in and help out with the project!",
+            "We are looking for people that have content which showcases Surge XT in all of its glory.",
+            "If you make patches, write entire songs using only Surge XT or anything in between, we would love for you to be involved!",
+        ],
+        links: [
+            { label: "Join Surge Synth Team Discord Server", href: "https://discord.gg/spGANHw" },
+        ],
+    },
+];
+
+const systemRequirements = [
+    {
+        name: "Windows",
+        items: [
+            "Minimum: Windows 7 and Intel or AMD processor featuring SSE2 instructions",
+            "Recommended: 64-bit Windows 7 or newer, 3 GHz quad-core processor featuring SSE2 instructions or better",
+            "Minimum of 4 GB of RAM",
+            "VST3 or CLAP compatible host application",
+            "x64-compatible CPU, OS and host is required to use the 64-bit version",
+        ],
+    },
+    {
+        name: "macOS",
+        items: [
+            "Surge XT is an Intel/Apple Silicon universal binary. Intel Mac requires macOS 10.11 or later, Apple Silicon Mac will run Surge XT with any Apple Silicon version of macOS",
+            "Minimum of 4 GB of RAM",
+            "VST3, AU or CLAP compatible host application",
+        ],
+    },
+    {
+        name: "Linux",
+        items: [
+            "PC or ARM system running a Linux distribution",
+            "x64-compatible CPU, OS and host is required to use the 64-bit version; for ARM processors you can build Surge XT for ARM on Raspberry Pi and similar (tested with RPi4/arm64)",
+            "Minimum of 4 GB of RAM",
+            "VST3, CLAP or LV2 compatible host application",
+        ],
+    },
+];
+
+const platformLinks = (releases: { win64: string; macos: string; linux64: string }) => [
+    { label: "Windows 64-bit", href: releases.win64 },
+    { label: "macOS 64-bit", href: releases.macos },
+    { label: "Linux 64-bit", href: releases.linux64 },
+];
+---
+
+<Base title="Surge XT" project="surge-xt">
+    <NavHeader slot="nav" currentProject="surge-xt" />
+
+    <main>
+        <Block surface="hero" layout="split" class="md:min-h-[500px]">
+            <Cell>
+                {
+                    /* A plain block between the cell and its copy, which is how
+                                    the old site nests PanelText inside PanelItem. Margins
+                                    collapse between siblings in a block container and do not in
+                                    a flex one, so without it every adjacent pair of margins -
+                                    the two taglines, a paragraph above a sub-heading - came out
+                                    at twice the gap the old site has. */
+                }
+                <div>
+                    {
+                        /* The logo is the page's heading - its alt text supplies the
+                        h1 text, so the document has one without a duplicate title
+                        sitting under the artwork.
+
+                        Two files rather than a CSS invert: the mark carries a blue
+                        and an orange, and invert(1) turns each into the other's
+                        opposite. Only the wordmark differs between the variants.
+
+                        Sized by width, not height: the mark is 666x179, so a height
+                        cap shrinks a very wide logo to a fraction of the column it
+                        has to fill. max-w stops it growing past its natural size,
+                        where an SVG would simply go soft. */
+                    }
+                    <h1>
+                        <img
+                            src="/images/surge-xt-logo.svg"
+                            alt="Surge XT"
+                            class="only-dark h-auto w-full max-w-[666px]"
+                        />
+                        <img
+                            src="/images/surge-xt-logo-black.svg"
+                            alt=""
+                            aria-hidden="true"
+                            class="only-light h-auto w-full max-w-[666px]"
+                        />
+                    </h1>
+
+                    <p class="my-4 text-xl font-bold">A sound designer's dream.</p>
+                    <p class="my-4 text-xl font-bold">A friendly, open community.</p>
+
+                    <p class="mb-4 text-pretty">
+                        Featuring many synthesis techniques, a great selection of filters, a
+                        flexible modulation engine, a smorgasbord of effects, and modern features
+                        like MPE, microtuning (Scala and MTS-ESP), and comprehensive Open Sound
+                        Control (OSC) support.
+                    </p>
+
+                    <p class="mb-4 text-pretty">
+                        Surge XT is a wonderful tool and we love it. We think you will, too!
+                    </p>
+
+                    <div class="my-4">
+                        <DownloadButton
+                            windows={stable.releases.win64}
+                            mac={stable.releases.macos}
+                            linux={stable.releases.linux64}
+                            other={stable.releases.other}
+                            buttonClass="button button-solid"
+                        />
+                    </div>
+
+                    <p class="mb-4">
+                        <a href="/surge-xt/downloads"
+                            >Downloads for other platforms and installers</a
+                        >
+                    </p>
+                    <p class="mb-4">
+                        <a href="/surge-xt/changelog/">What's new in Surge XT {stable.version}?</a>
+                    </p>
+                    <p class="mb-4"><a href="/surge-xt/manual/">Read the manual</a></p>
+                    {
+                        /* The old page links /clap here. That page is org-level and
+                        has not been brought across yet, and its copy has gone stale
+                        - it still offers "Surge XT 1.1 Beta" - so the link returns
+                        with the rewritten page rather than pointing at nothing. */
+                    }
+                    <p class="mb-4">
+                        <a
+                            href="https://github.com/surge-synthesizer/surge/blob/main/doc/Linux%20and%20Other%20Unix-like%20Distributions.md#packages-and-ports">
+                            Surge XT ports maintained by other projects
+                        </a>
+                    </p>
+                </div>
+            </Cell>
+
+            {
+                /* Two screenshots rather than one inverted: these are the light
+                and dark Surge skins, which differ in more than polarity. Swapped
+                in CSS, so there is no flash while JavaScript decides. */
+            }
+            <Cell padded={false} class="relative min-h-[250px] md:min-h-0">
+                {
+                    /* The insets live on a wrapper, not on the image. For an
+                    absolutely positioned replaced element, height:auto is the
+                    intrinsic height and `bottom` is ignored - so the image sized
+                    itself from its aspect ratio and left a gap - while height
+                    100% measures the whole cell and overflows the inset instead.
+                    A plain div honours top and bottom together, giving the frame
+                    a definite height for the image to fill. */
+                }
+                <div
+                    class="only-light absolute top-0 right-0 bottom-0 left-0 md:top-16 md:bottom-16">
+                    <Image
+                        src={HeroLight}
+                        alt="The Surge XT interface"
+                        quality="100"
+                        class="h-full w-full object-cover object-left-top"
+                    />
+                </div>
+                <div
+                    class="only-dark absolute top-0 right-0 bottom-0 left-0 md:top-16 md:bottom-16">
+                    <Image
+                        src={HeroDark}
+                        alt="The Surge XT interface"
+                        quality="100"
+                        class="h-full w-full object-cover object-left-top"
+                    />
+                </div>
+            </Cell>
+        </Block>
+
+        <Block id="videos" surface="sunset" layout="split">
+            <Cell padded={false} class="p-8 md:p-16">
+                <iframe
+                    class="aspect-video w-full"
+                    src="https://www.youtube-nocookie.com/embed/ipk5tRGnL2E"
+                    title="Roger Linn demonstrates Surge on his Linnstrument"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                <p class="mb-4 text-center">Roger Linn demonstrates Surge on his Linnstrument</p>
+            </Cell>
+
+            <Cell>
+                <div>
+                    <h2 class="my-4 text-3xl font-bold">Surge XT Videos</h2>
+                    <p class="mb-4 text-pretty">
+                        We have a collection of great demos on our YouTube channel.
+                    </p>
+                    <p class="mb-4">
+                        <a href="https://www.youtube.com/channel/UCnnNU3VTqBMeUaemAZVWIFg">
+                            Explore the videos!
+                        </a>
+                    </p>
+                </div>
+            </Cell>
+        </Block>
+
+        <Block id="one-synth-challenge" surface="deep" layout="split">
+            <Cell>
+                <div>
+                    <h2 class="my-4 text-3xl font-bold">One Synth Challenge,</h2>
+                    <p class="my-4 text-3xl font-bold">❤️❤️❤️</p>
+                    <p class="my-4 text-3xl font-bold">Thank YOU!</p>
+
+                    <div>
+                        <p class="mb-4 text-pretty">
+                            We think it's pretty cool that you picked Surge XT for the One Synth
+                            Challenge. And then did it again a few more times!
+                        </p>
+                        <p class="mb-4 text-pretty">
+                            Surge XT was in the spotlight of OSC #122, #138, #159, and most
+                            recently, #181. A talented group of musicians created all these tracks
+                            using Surge XT as the only sound generating device. Or - in some
+                            exceptional cases - only Surge XT Effects plugin was used, much to our
+                            awe and amazement!
+                        </p>
+                        <p class="mb-4 text-pretty">
+                            Do give these tracks a listen, as we think they are a brilliant showcase
+                            of flexibility and amazing range of sounds that Surge XT offers.
+                        </p>
+                    </div>
+                </div>
+            </Cell>
+
+            <Cell>
+                <div>
+                    <SoundCloudPlaylist
+                        label="One Synth Challenge playlists"
+                        playlists={[
+                            { label: "OSC #181", id: "1803556615" },
+                            { label: "OSC #159", id: "1447158379" },
+                            { label: "OSC #138", id: "1121073988" },
+                            { label: "OSC #122", id: "769840530" },
+                        ]}
+                    />
+                </div>
+            </Cell>
+        </Block>
+
+        <Block surface="ocean" layout="split">
+            {
+                /* Not a cover-filled photograph like the other bands: the old
+                   site renders this one as a plain image at its natural size,
+                   centred in the column, with 32px above it. */
+            }
+            <Cell padded={false}>
+                <Image
+                    src={Digital}
+                    alt="Surge XT waveform rendering"
+                    class="h-auto max-w-full self-center pt-8"
+                />
+            </Cell>
+
+            <Cell>
+                <div>
+                    <h2 class="my-4 text-3xl font-bold">Digital Beauty</h2>
+                    <p class="my-4 text-2xl font-bold">
+                        Surge XT is a digital synth and makes no bones about it.
+                    </p>
+                    <p class="mb-4 text-pretty">
+                        If you have used it in the past, it will be like welcoming an old friend
+                        back into your life. If you are new to Surge XT, welcome to the party. Come
+                        on in, the water is fine.
+                    </p>
+                </div>
+            </Cell>
+        </Block>
+
+        <Block surface="raised" layout="prose">
+            <h2 class="my-4 text-3xl font-bold">Surge is back, XTended and open source!</h2>
+            <p class="mb-4 text-pretty">
+                Thanks to the generosity of @Kurasu (owner of Vember Audio), Surge has been open
+                sourced and lives on GitHub. This page you're reading right now. Yup! This one right
+                here. It's a part of the surge-synthesizer GitHub project.
+            </p>
+        </Block>
+
+        {
+            features.map((feature) => (
+                <Block surface={feature.surface} layout="split">
+                    {feature.side === "left" && (
+                        <Cell padded={false} class="relative h-36 md:h-auto">
+                            <Image
+                                src={feature.image}
+                                alt={feature.alt}
+                                class="absolute inset-0 h-full w-full object-cover object-left-top"
+                            />
+                        </Cell>
+                    )}
+
+                    <Cell>
+                        <div>
+                            {feature.sections.map((section) => {
+                                const Heading = section.level === 3 ? "h3" : "h2";
+
+                                return (
+                                    <>
+                                        <Heading
+                                            class:list={[
+                                                "my-4 font-bold",
+                                                section.level === 3 ? "text-2xl" : "text-3xl",
+                                            ]}>
+                                            {section.title}
+                                        </Heading>
+
+                                        {section.paragraphs?.map((paragraph) => (
+                                            <p class="mb-4 text-pretty">{paragraph}</p>
+                                        ))}
+
+                                        {section.items && (
+                                            <ul class="mb-4 list-outside list-disc pl-4">
+                                                {section.items.map((item) => (
+                                                    <li>{item}</li>
+                                                ))}
+                                            </ul>
+                                        )}
+                                    </>
+                                );
+                            })}
+                        </div>
+                    </Cell>
+
+                    {feature.side === "right" && (
+                        <Cell padded={false} class="relative h-36 md:h-auto">
+                            <Image
+                                src={feature.image}
+                                alt={feature.alt}
+                                class="absolute inset-0 h-full w-full object-cover object-left-top"
+                            />
+                        </Cell>
+                    )}
+                </Block>
+            ))
+        }
+
+        <Block id="contribute" surface="night" layout="prose">
+            <h2 class="my-4 text-3xl font-bold">Contributors Welcome!</h2>
+            <div>
+                <p class="mb-4 text-pretty">
+                    Surge XT is supported by a community of volunteer open source developers,
+                    designers, testers, musicians, synthesizer enthusiasts, and content creators.
+                </p>
+                <p class="mb-4 text-pretty">
+                    Without them, none of would have been possible. If you're interested in seeing
+                    what's going on with the project, the best thing to do is:
+                </p>
+            </div>
+            {/* Outlined, as on the old site: white border and label on the band. */}
+            <Button class="my-4" href="https://github.com/surge-synthesizer/surge">
+                View the Surge XT Repository
+            </Button>
+        </Block>
+
+        {
+            recruitment.map((role) => (
+                <Block surface={role.surface} layout="split">
+                    {role.side === "left" && (
+                        <Cell padded={false} class="relative h-36 md:h-auto">
+                            <Image
+                                src={role.image}
+                                alt={role.alt}
+                                class="absolute inset-0 h-full w-full object-cover object-left-top"
+                            />
+                        </Cell>
+                    )}
+
+                    <Cell>
+                        <div>
+                            <h2 class="my-4 text-3xl font-bold">{role.title}</h2>
+                            {role.paragraphs.map((paragraph) =>
+                                typeof paragraph === "string" ? (
+                                    <p class="mb-4 text-pretty">{paragraph}</p>
+                                ) : (
+                                    <p class="mb-4 text-pretty" set:html={paragraph.html} />
+                                ),
+                            )}
+                            <div class="my-4 flex flex-wrap gap-3">
+                                {role.links.map((link) => (
+                                    <Button href={link.href}>{link.label}</Button>
+                                ))}
+                            </div>
+                            {role.footnote && <p class="mb-4 text-pretty">{role.footnote}</p>}
+
+                            {role.footnoteLinks && (
+                                <div class="my-4 flex flex-wrap gap-3">
+                                    {role.footnoteLinks.map((link) => (
+                                        <Button href={link.href}>{link.label}</Button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    </Cell>
+
+                    {role.side === "right" && (
+                        <Cell padded={false} class="relative h-36 md:h-auto">
+                            <Image
+                                src={role.image}
+                                alt={role.alt}
+                                class="absolute inset-0 h-full w-full object-cover object-left-top"
+                            />
+                        </Cell>
+                    )}
+                </Block>
+            ))
+        }
+
+        <Block surface="base" layout="prose">
+            <h2 class="my-4 text-3xl font-bold">Community</h2>
+            <div>
+                <p class="mb-4 text-pretty">
+                    We love Surge XT. We{" "}
+                    <strong>
+                        <em>also</em>
+                    </strong>{" "}
+                    love people.
+                </p>
+                <p class="mb-4 text-pretty">
+                    Community is a{" "}
+                    <strong>
+                        <em>big thing to us</em>
+                    </strong>{" "}
+                    on this project. We want an inclusive, positive, and happy community with contributions
+                    from a large set of differing viewpoints and backgrounds.
+                </p>
+                <p class="mb-4 text-pretty">
+                    Let's be kind to each other and treat each other with respect. It takes all of
+                    us working together to make the community great.
+                </p>
+                <p>We are looking forward to your insights and contributions.</p>
+                <p>Let's make something amazing!</p>
+                <p>~Surge Synth Team</p>
+            </div>
+            <Button class="my-4" href="https://discord.gg/spGANHw">Get Involved Here</Button>
+        </Block>
+
+        <Block id="downloads" surface="ocean" layout="split">
+            <Cell align="start">
+                <SystemRequirements platforms={systemRequirements} />
+            </Cell>
+
+            <Cell align="start">
+                <DownloadMatrix
+                    heading="Download Surge XT"
+                    channels={[
+                        {
+                            label: `Version ${stable.version}`,
+                            links: platformLinks(stable.releases),
+                            all: { label: "All available downloads", href: stable.releases.other },
+                        },
+                        {
+                            label: "Nightly Builds",
+                            links: platformLinks(nightly.releases),
+                            all: {
+                                label: "More info about nightly builds",
+                                href: "/surge-xt/nightly",
+                            },
+                        },
+                    ]}
+                />
+            </Cell>
+        </Block>
+    </main>
+
+    <SiteFooter />
+</Base>
+
+<style>
+    /* Theme-swapped artwork: the hero screenshot, which differs between the
+       light and dark Surge skins in more than polarity, and the logo, whose
+       blue and orange a CSS invert would turn into each other's opposites.
+
+       The dark variant is the exception, so it is the one hidden by default - a
+       reader on the default (system) setting with no data-theme attribute then
+       still gets correct artwork. */
+    .only-dark {
+        display: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :global(html:not([data-theme="light"])) .only-light {
+            display: none;
+        }
+
+        :global(html:not([data-theme="light"])) .only-dark {
+            display: block;
+        }
+    }
+
+    :global(html[data-theme="dark"]) .only-light {
+        display: none;
+    }
+
+    :global(html[data-theme="dark"]) .only-dark {
+        display: block;
+    }
+
+    :global(html[data-theme="light"]) .only-light {
+        display: block;
+    }
+
+    :global(html[data-theme="light"]) .only-dark {
+        display: none;
+    }
+</style>

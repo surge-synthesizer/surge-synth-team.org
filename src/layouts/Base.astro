@@ -83,8 +83,37 @@ const { title, project, noindex = false } = Astro.props;
         <SmoothScroll />
     </head>
 
-    <body>
-        <slot name="nav" />
-        <slot />
-    </body>
+    {
+        (
+            /*
+             * The document itself never scrolls: the bar is a flex item and
+             * everything below it lives in a pane that scrolls on its own.
+             *
+             * That is what keeps the nav the full width of the window. A classic
+             * scrollbar sits outside the viewport, and no CSS lets content paint
+             * under it - so the only way to stop it biting a strip off the bar is
+             * for the document not to have one. Starlight's frame does the same
+             * thing, for the same reason.
+             *
+             * Anything that scrolls the page must therefore address this element
+             * rather than window; SmoothScroll finds it by walking up from its
+             * target.
+             */
+
+            <body class="flex h-screen flex-col overflow-hidden">
+                <slot name="nav" />
+                <div class="scroll-pane min-h-0 flex-1 overflow-y-auto">
+                    {/* A column at least as tall as the pane, so a page with
+                           little on it still puts its footer along the bottom
+                           edge rather than halfway up. The footer takes the
+                           slack itself (margin-top: auto in base.css), which
+                           works whatever the page puts above it - <main> on a
+                           product page, <article> on an org one. */}
+                    <div class="page-shell flex min-h-full flex-col">
+                        <slot />
+                    </div>
+                </div>
+            </body>
+        )
+    }
 </html>

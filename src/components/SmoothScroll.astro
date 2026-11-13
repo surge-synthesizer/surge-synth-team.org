@@ -52,22 +52,62 @@
     /** Identifies the in-flight animation, so a newer one can retire it. */
     let animation = 0;
 
+    /**
+     * The box that actually scrolls this element.
+     *
+     * Neither layout scrolls the document any more - Base puts its content in a
+     * pane below the nav, and Starlight's main frame scrolls itself - so
+     * window.scrollY is 0 everywhere and animating it would do nothing. Walk up
+     * instead and take the first ancestor that both can scroll and has
+     * somewhere to scroll to, falling back to the document for any page that
+     * still scrolls the old way.
+     */
+    function scroller(element: Element): HTMLElement {
+        let node = element.parentElement;
+
+        while (node) {
+            const overflow = getComputedStyle(node).overflowY;
+
+            if (
+                (overflow === "auto" || overflow === "scroll") &&
+                node.scrollHeight > node.clientHeight + 1
+            ) {
+                return node;
+            }
+
+            node = node.parentElement;
+        }
+
+        return document.scrollingElement as HTMLElement;
+    }
+
     function scrollTo(element: Element) {
         reveal(element);
 
-        // Starlight sets scroll-padding-top so a heading clears the fixed nav;
-        // honour whatever the page asks for rather than hardcoding a height.
-        const padding = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop);
+        const box = scroller(element);
+
+        /*
+         * scroll-padding-top is read from the scrolling box, not from <html>:
+         * Starlight declares it there to clear its fixed header, and a pane
+         * that starts below the nav needs none at all.
+         */
+        const padding = parseFloat(getComputedStyle(box).scrollPaddingTop);
         const offset = Number.isNaN(padding) ? 0 : padding;
-        const from = window.scrollY;
-        const to = Math.max(0, window.scrollY + element.getBoundingClientRect().top - offset);
+
+        const from = box.scrollTop;
+        // Both rects, so the distance is measured inside the box rather than
+        // against the viewport - they differ by however far the box is down
+        // the page.
+        const delta = element.getBoundingClientRect().top - box.getBoundingClientRect().top;
+        const limit = box.scrollHeight - box.clientHeight;
+        const to = Math.max(0, Math.min(limit, from + delta - offset));
 
         if (Math.abs(to - from) < 2) return;
 
         const started = performance.now();
         const total = duration();
         // A second click mid-animation would otherwise leave two rAF loops
-        // writing to window.scrollY on the same frame, each pulling toward its
+        // writing to the same scrollTop on one frame, each pulling toward its
         // own target.
         const ours = ++animation;
 
@@ -76,7 +116,7 @@
 
             const progress = Math.min(1, (now - started) / total);
 
-            window.scrollTo(0, from + (to - from) * easeOut(progress));
+            box.scrollTop = from + (to - from) * easeOut(progress);
 
             if (progress < 1) requestAnimationFrame(step);
         }
