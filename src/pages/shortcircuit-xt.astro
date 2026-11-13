@@ -6,17 +6,10 @@ import DownloadButton from "../components/DownloadButton.astro";
 import NavHeader from "../components/NavHeader.astro";
 import ScxtCover from "../content/projects/screenshots/shortcircuit-xt.png";
 import Base from "../layouts/Base.astro";
-
-const navLinks = [
-    ["Manual", "/shortcircuit-xt/manual/getting-started/"],
-    ["Changelog", "#changelog"],
-    ["FAQ", "#faq"],
-    ["About", "#about"],
-] as const;
 ---
 
 <Base title="Shortcircuit XT">
-    <NavHeader slot="nav" links={navLinks} currentProject="shortcircuit-xt" />
+    <NavHeader slot="nav" currentProject="shortcircuit-xt" />
 
     <main>
         <section

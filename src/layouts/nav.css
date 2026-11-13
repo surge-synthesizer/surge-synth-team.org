@@ -1,0 +1,125 @@
+/*
+ * The nav's own baseline, imported by both base.css and starlight.css.
+ *
+ * The nav is the one component rendered by two layouts that share no other CSS.
+ * Base.astro pages get Tailwind's Preflight; Starlight pages deliberately do
+ * not, because its reset would strip the manual's typography. Preflight is
+ * what zeroes list padding, flattens button chrome and unstyles anchors, so
+ * without this the same markup rendered indented, bulleted and in the wrong
+ * typeface inside manuals.
+ *
+ * Declaring it here rather than patching starlight.css makes the parity
+ * structural: the nav carries its baseline wherever it is rendered, instead of
+ * depending on whichever reset the host page happened to load.
+ *
+ * Every selector is wrapped in :where() so it contributes no specificity —
+ * these are defaults for the nav's utility classes to override, not rules
+ * competing with them. A bare `#nav button` would outrank every utility.
+ *
+ * IMPORTANT: both importers must pull this in with `layer(base)`. Zero
+ * specificity is not enough on its own, because an unlayered rule beats every
+ * cascade layer regardless of specificity — and base.css puts Tailwind's
+ * utilities in @layer utilities. Imported unlayered, `padding: 0` below silently
+ * won over `px-2`, squashing every nav button and eating `py-2` on the
+ * dropdowns.
+ */
+
+:where(#nav) :where(menu, ul) {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+:where(#nav) :where(button) {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+}
+
+:where(#nav) :where(a) {
+    color: inherit;
+    text-decoration: none;
+}
+
+:where(#nav) :where(img, svg) {
+    display: block;
+}
+
+/*
+ * The nav's surface. Defined here rather than in base.css's surface block
+ * because Starlight pages never load base.css — a manual would lose its nav
+ * colours. A product declares its own by overriding these two; everything else
+ * in the bar derives from them, so one pair is the whole decision.
+ *
+ * Undeclared, the nav is white on black, which is what every product had
+ * before any of them had an accent.
+ */
+:root {
+    --surface-nav-bg: #000000;
+    --surface-nav-fg: #ffffff;
+}
+
+html[data-theme="dark"] {
+    --surface-nav-bg: #171717;
+}
+
+/* OB-Xf's GUI grey, 6% darker — the same value its downloads band uses, for
+   the same reason: the raw brand grey reaches only 4.44:1 behind white. */
+html[data-project="ob-xf"] {
+    --surface-nav-bg: #6b717a;
+    --surface-nav-fg: #ffffff;
+}
+
+#nav {
+    font-family: "Lato", sans-serif;
+    background-color: var(--surface-nav-bg);
+    color: var(--surface-nav-fg);
+}
+
+/* Derived from the surface so a product never has to restate them. */
+#nav .nav-divider {
+    background-color: currentColor;
+    opacity: 0.25;
+}
+
+#nav .nav-group-menu {
+    background-color: var(--surface-nav-bg);
+    border-color: color-mix(in srgb, var(--surface-nav-fg) 15%, transparent);
+}
+
+#nav .nav-group-menu a:hover,
+#nav .nav-group-menu button:hover {
+    background-color: var(--surface-nav-fg);
+    color: var(--surface-nav-bg);
+}
+
+/* The mobile menu is a list in the bar itself, not a panel over it, so a full
+   inversion would be far too loud for a hover. */
+#nav .nav-mobile-item:hover {
+    background-color: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+#nav .nav-divider-top {
+    border-color: color-mix(in srgb, var(--surface-nav-fg) 15%, transparent);
+}
+
+#nav .nav-bar {
+    background-color: currentColor;
+}
+
+/* The theme control shows the icon for the active choice. Its button is a
+   nav-group-toggle like every other dropdown, so NavHeader's delegated handler
+   drives the menu; only the icon swap is specific to it. */
+#theme-control .theme-icon {
+    display: none;
+}
+
+#theme-control[data-theme-value="auto"] .theme-icon[data-for="auto"],
+#theme-control[data-theme-value="dark"] .theme-icon[data-for="dark"],
+#theme-control[data-theme-value="light"] .theme-icon[data-for="light"] {
+    display: block;
+}

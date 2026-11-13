@@ -18,6 +18,18 @@ const pages = defineCollection({
         }),
 });
 
+// Rejects bare fragments and relative paths: nav is shared with manual routes,
+// where "#faq" would resolve against the current chapter rather than the product.
+const navItem = z.object({
+    label: z.string(),
+    href: z
+        .string()
+        .refine(
+            (href) => href.startsWith("/") || /^https?:\/\//.test(href),
+            "nav href must be a site-absolute path or a full URL",
+        ),
+});
+
 const projects = defineCollection({
     loader: glob({ pattern: "**/*.json", base: "./src/content/projects" }),
     schema: ({ image }) =>
@@ -31,6 +43,21 @@ const projects = defineCollection({
             repo: z.string().optional(),
             url: z.string().optional(),
             manual: z.string().optional(),
+            changelog: z.string().optional(),
+            // Additions to the nav skeleton every product shares. NavHeader
+            // supplies the product link, Documentation (with Manual and Changelog
+            // filled in where they exist), About and Source Code; this adds the
+            // rest. A group named here that the skeleton does not have is created.
+            //
+            // Shared by the product page and every page of that product's manual,
+            // so hrefs must be absolute: a bare "#faq" would resolve against the
+            // manual chapter the reader happens to be on.
+            nav: z
+                .object({
+                    links: z.array(navItem).optional(),
+                    groups: z.record(z.string(), z.array(navItem)).optional(),
+                })
+                .optional(),
         }),
 });
 

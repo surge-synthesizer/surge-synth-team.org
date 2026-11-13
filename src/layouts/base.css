@@ -1,24 +1,11 @@
 @import "tailwindcss";
+@import "./fonts.css";
+@import "./nav.css" layer(base);
+@import "./transitions.css";
 
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
-@font-face {
-    font-family: "Lato";
-    src: url("/fonts/Lato-Regular.woff") format("woff");
-    font-style: normal;
-    font-weight: normal;
-    font-display: block;
-}
-
-@font-face {
-    font-family: "Lato";
-    src: url("/fonts/Lato-Italic.woff") format("woff");
-    font-style: italic;
-    font-weight: normal;
-    font-display: block;
-}
 
 @theme {
     --font-sans: "Lato";
@@ -88,6 +75,11 @@
        named surfaces; the core five exist everywhere so block rhythm reads the
        same site-wide. */
     :root {
+        /* The nav's own height, mirrored into Starlight's --sl-nav-height by
+           src/layouts/starlight.css. Starlight pads its main frame by exactly
+           that value, so the two must agree by construction, not by a guess. */
+        --nav-height: 3rem;
+
         --paper: #efece7;
         --paper-raised: #e5e1da;
         --paper-ink: #262626;
@@ -147,6 +139,11 @@
     html {
         scrollbar-color: var(--color-product) var(--color-product-track);
         scrollbar-width: auto;
+        /* Reserve the gutter whether or not the page scrolls. Without it a short
+           page (a stub product, a one-screen manual chapter) is a scrollbar
+           wider than a long one, so the nav's right-hand items jump as you move
+           between them. Must match starlight.css, which is a separate layout. */
+        scrollbar-gutter: stable;
     }
 
     body {

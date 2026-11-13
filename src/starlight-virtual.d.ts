@@ -19,3 +19,11 @@ declare module "virtual:starlight/project-context" {
 declare module "virtual:starlight/pagefind-config" {
     export const pagefindUserConfig: Record<string, unknown>;
 }
+
+// Resolves to whichever component the `components` map in astro.config.ts
+// names, which is how an override reaches another override rather than the
+// stock component.
+declare module "virtual:starlight/components/Search" {
+    const Search: (props: Record<string, unknown>) => unknown;
+    export default Search;
+}

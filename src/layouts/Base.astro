@@ -47,45 +47,33 @@ const { title, project } = Astro.props;
         <link rel="preload" href="/fonts/Lato-Italic.woff" as="font" type="font/woff" crossorigin />
         <title>{`Surge Synth Team | ${title}`}</title>
         <script is:inline>
+            // Dark unless the reader has chosen otherwise. Kept in step with
+            // ThemeSelector and the Starlight ThemeProvider override, which
+            // read the same key and must agree on the default.
             function setTheme() {
-                !localStorage.getItem("theme") && localStorage.setItem("theme", "auto");
+                var stored = null;
 
-                switch (localStorage.getItem("theme")) {
-                    case "auto":
-                        window.matchMedia("(prefers-color-scheme: dark)").matches
-                            ? document.documentElement.setAttribute("data-theme", "dark")
-                            : document.documentElement.setAttribute("data-theme", "light");
-                        break;
-
-                    case "dark":
-                        document.documentElement.setAttribute("data-theme", "dark");
-                        break;
-
-                    case "light":
-                        document.documentElement.setAttribute("data-theme", "light");
-                        break;
+                try {
+                    stored = localStorage.getItem("theme");
+                } catch (e) {
+                    // Storage blocked; fall through to the default.
                 }
+
+                var theme = stored === "light" || stored === "auto" ? stored : "dark";
+                var dark =
+                    theme === "dark" ||
+                    (theme === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+                document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
             }
 
-            function setThemeSelection() {
-                const themeSelect = document.getElementById("theme-select");
-                if (themeSelect) {
-                    themeSelect.value = localStorage.getItem("theme");
-                }
-            }
-
+            // Only the pre-paint application lives here. Reflecting the stored
+            // value in the control, and reacting to changes, belong to
+            // ThemeSelector so they ship wherever that control renders —
+            // Starlight pages never run this layout.
             setTheme();
 
-            document.addEventListener("readystatechange", (event) => {
-                if (event.target.readyState === "interactive") {
-                    setThemeSelection();
-                }
-            });
-
-            document.addEventListener("astro:after-swap", () => {
-                setTheme();
-                setThemeSelection();
-            });
+            document.addEventListener("astro:after-swap", setTheme);
         </script>
         <ClientRouter />
     </head>
@@ -95,48 +83,3 @@ const { title, project } = Astro.props;
         <slot />
     </body>
 </html>
-
-<script>
-    import { navigate } from "astro:transitions/client";
-
-    function setup() {
-        const themeSelect = document.getElementById("theme-select") as HTMLSelectElement | null;
-
-        if (themeSelect) {
-            themeSelect.addEventListener("change", () => {
-                localStorage.setItem("theme", themeSelect.value);
-
-                switch (themeSelect.value) {
-                    case "auto":
-                        window.matchMedia("(prefers-color-scheme: dark)").matches
-                            ? document.documentElement.setAttribute("data-theme", "dark")
-                            : document.documentElement.setAttribute("data-theme", "light");
-                        break;
-
-                    case "dark":
-                        document.documentElement.setAttribute("data-theme", "dark");
-                        break;
-
-                    case "light":
-                        document.documentElement.setAttribute("data-theme", "light");
-                        break;
-                }
-            });
-        }
-
-        const projectSelect = document.getElementById("project-select") as HTMLSelectElement | null;
-
-        if (projectSelect) {
-            projectSelect.addEventListener("change", () => {
-                if (projectSelect.value === "") {
-                    return;
-                }
-
-                navigate(`/${projectSelect.value}`);
-            });
-        }
-    }
-
-    document.addEventListener("astro:after-swap", setup);
-    setup();
-</script>

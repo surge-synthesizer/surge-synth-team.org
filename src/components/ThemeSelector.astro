@@ -1,9 +1,171 @@
-<select
-    aria-label="Theme"
-    name="themes"
-    id="theme-select"
-    class="cursor-pointer rounded border border-white/20 bg-black px-2 py-1 font-semibold text-white transition-colors outline-none hover:bg-white hover:text-black dark:bg-neutral-900">
-    <option value="auto">System</option>
-    <option value="dark">Dark</option>
-    <option value="light">Light</option>
-</select>
+---
+/*
+ * The site's one theme control, on product pages and inside manuals alike.
+ *
+ * Built on the same nav-group-toggle / nav-group-menu pair as every other nav
+ * dropdown, so NavHeader's single delegated handler drives it — including the
+ * arrow-key and Escape handling, and closing when another menu opens. It was a
+ * native <select>, whose option list is drawn by the OS and could only ever be
+ * dark or light, never the bar's own styling.
+ *
+ * It carries its own behaviour rather than relying on the host layout: the
+ * wiring used to live in Base.astro, which Starlight pages never render, so in
+ * a manual the control did nothing.
+ *
+ * Applying the stored theme before first paint is a separate job, done inline
+ * in <head> — by Base.astro here, and by the ThemeProvider override on
+ * Starlight pages. Both write the same "theme" key this reads.
+ */
+
+const options = [
+    { value: "dark", label: "Dark" },
+    { value: "light", label: "Light" },
+    { value: "auto", label: "System" },
+] as const;
+---
+
+{/* Rendered with the default so the right icon shows before the script runs. */}
+<div id="theme-control" class="relative" data-theme-value="dark">
+    <button
+        type="button"
+        class="nav-group-toggle flex cursor-pointer items-center rounded px-2 py-1 transition-colors"
+        aria-haspopup="true"
+        aria-expanded="false"
+        aria-label="Theme">
+        <svg
+            class="theme-icon"
+            data-for="auto"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+            <path d="M8 21h8M12 17v4"></path>
+        </svg>
+        <svg
+            class="theme-icon"
+            data-for="dark"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
+        </svg>
+        <svg
+            class="theme-icon"
+            data-for="light"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+            ></path>
+        </svg>
+    </button>
+
+    {
+        /* Right-aligned: this sits at the end of the bar, so a left-aligned menu
+        would run off the viewport. */
+    }
+    <ul
+        class="nav-group-menu invisible absolute top-full right-0 z-10 min-w-[140px] rounded border py-2 shadow-lg">
+        {
+            options.map((option) => (
+                <li>
+                    <button
+                        type="button"
+                        class="block w-full cursor-pointer px-4 py-2 text-left whitespace-nowrap transition-colors"
+                        data-theme-option={option.value}>
+                        {option.label}
+                    </button>
+                </li>
+            ))
+        }
+    </ul>
+</div>
+
+<script>
+    type Theme = "auto" | "dark" | "light";
+
+    const STORAGE_KEY = "theme";
+    const systemDark = () => window.matchMedia("(prefers-color-scheme: dark)");
+
+    // Dark unless the reader has chosen otherwise. Starlight's own Page.astro
+    // also server-renders data-theme="dark", so this default costs no flash.
+    const DEFAULT: Theme = "dark";
+
+    const read = (): Theme => {
+        try {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            return stored === "dark" || stored === "light" || stored === "auto" ? stored : DEFAULT;
+        } catch {
+            // Private browsing or blocked storage; the control still works for
+            // this page view, the choice just does not persist.
+            return DEFAULT;
+        }
+    };
+
+    function apply(theme: Theme) {
+        const dark = theme === "dark" || (theme === "auto" && systemDark().matches);
+        document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    }
+
+    function reflect(theme: Theme) {
+        const control = document.getElementById("theme-control");
+        if (!control) return;
+
+        // Drives which icon shows, via nav.css.
+        control.dataset.themeValue = theme;
+
+        control.querySelectorAll<HTMLElement>("[data-theme-option]").forEach((option) => {
+            option.classList.toggle("font-bold", option.dataset.themeOption === theme);
+        });
+    }
+
+    function init() {
+        const control = document.getElementById("theme-control");
+        if (!control) return;
+
+        reflect(read());
+
+        control.querySelectorAll<HTMLElement>("[data-theme-option]").forEach((option) => {
+            option.addEventListener("click", () => {
+                const theme = (option.dataset.themeOption ?? DEFAULT) as Theme;
+
+                apply(theme);
+                reflect(theme);
+
+                try {
+                    localStorage.setItem(STORAGE_KEY, theme);
+                } catch {
+                    // As above.
+                }
+            });
+        });
+    }
+
+    // Keep "System" honest: follow the OS if it changes while the page is open.
+    systemDark().addEventListener("change", () => {
+        if (read() === "auto") apply("auto");
+    });
+
+    document.addEventListener("astro:after-swap", init);
+    init();
+</script>

@@ -10,17 +10,10 @@ import spectrumworx_logo from "../images/spectrumworx/spectrumworx_logo_full.svg
 
 // Unlisted on purpose: no src/content/projects/spectrumworx.json means this page
 // is absent from the home page and both nav project menus. See the note below.
-const navLinks = [
-    ["Highlights", "#highlights"],
-    ["Manual", "#manual"],
-    ["Changelog", "#changelog"],
-    ["FAQ", "#faq"],
-    ["About", "#about"],
-] as const;
 ---
 
 <Base title="SpectrumWorx" project="spectrumworx">
-    <NavHeader slot="nav" links={navLinks} />
+    <NavHeader slot="nav" />
 
     <main class="sw-page">
         <section
@@ -102,7 +95,9 @@ const navLinks = [
             </div>
         </section>
 
-        <section id="highlights" class="bg-spectrumworx-gray/15 px-4 py-12 dark:bg-spectrumworx-gray">
+        <section
+            id="highlights"
+            class="bg-spectrumworx-gray/15 px-4 py-12 dark:bg-spectrumworx-gray">
             <div class="mx-auto w-full max-w-6xl">
                 <h2 class="text-2xl font-bold">Highlights</h2>
                 <p class="mt-2 max-w-prose text-sm">
