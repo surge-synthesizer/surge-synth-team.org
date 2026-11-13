@@ -49,6 +49,18 @@ const PAIRS = [
         floor: AA_BODY_TEXT,
         why: "matches the slate band it sits above",
     },
+    // The nav surface, from src/layouts/nav.css. A product that declares none
+    // gets the first two.
+    { name: "nav default, light theme", bg: "#000000", fg: "#ffffff" },
+    { name: "nav default, dark theme", bg: "#171717", fg: "#ffffff" },
+    {
+        name: "ob-xf nav",
+        bg: "#6b717a",
+        fg: "#ffffff",
+        floor: AA_BODY_TEXT,
+        why: "same slate as the downloads band; AAA needs it 30% darker, which stops looking like the product",
+    },
+
     { name: "ob-xf link, light base", bg: "#efece7", fg: "#43474e" },
     { name: "ob-xf link, light raised", bg: "#e5e1da", fg: "#43474e" },
     { name: "ob-xf link, dark base", bg: "#171717", fg: "#adb3bd" },

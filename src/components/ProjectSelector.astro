@@ -9,22 +9,30 @@ const { currentProject = null } = Astro.props;
 const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<li class="relative" id="desktop-projects-dropdown">
+{
+    /*
+    Uses the same nav-group-toggle / nav-group-menu pair as every other dropdown,
+    so NavHeader's single delegated handler drives it. It previously had its own
+    ids and its own handler, which is how it broke: the nav's script was
+    rewritten and only the other mechanism got carried across.
+*/
+}
+<li class="group relative">
     <button
         type="button"
-        id="desktop-projects-toggle"
-        class="cursor-pointer rounded px-2 py-1 text-white transition-colors">
+        class="nav-group-toggle cursor-pointer rounded px-2 py-1 transition-colors"
+        aria-expanded="false"
+        aria-haspopup="true">
         Projects
     </button>
     <ul
-        id="desktop-projects-list"
-        class="invisible absolute top-full left-0 z-10 min-w-[180px] rounded border border-white/10 bg-black py-2 shadow-lg dark:bg-neutral-900">
+        class="nav-group-menu invisible absolute top-full left-0 z-10 min-w-[180px] rounded border py-2 shadow-lg">
         {
             projects.map((project) => (
                 <li>
                     <a
                         href={`/${project.id}`}
-                        class={`block px-4 py-2 text-white transition-colors hover:bg-white hover:text-black ${project.id === currentProject ? "font-bold" : ""}`}>
+                        class={`block px-4 py-2 whitespace-nowrap transition-colors ${project.id === currentProject ? "font-bold" : ""}`}>
                         {project.data.title}
                     </a>
                 </li>

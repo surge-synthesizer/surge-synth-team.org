@@ -1,0 +1,19 @@
+---
+/*
+ * Adds the view-transition router to manual pages.
+ *
+ * Base.astro has carried <ClientRouter /> all along, so product pages
+ * cross-faded between each other while any navigation into or out of a manual
+ * was a hard load — the inconsistency being that manuals are the same site.
+ *
+ * Starlight is not itself view-transition aware, but its interactive parts are
+ * custom elements, which re-run connectedCallback when the swapped-in nodes are
+ * inserted. Our own nav, theme and sidebar scripts listen for astro:after-swap.
+ */
+
+import Default from "@astrojs/starlight/components/Head.astro";
+import { ClientRouter } from "astro:transitions";
+---
+
+<Default />
+<ClientRouter />

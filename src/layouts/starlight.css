@@ -1,0 +1,211 @@
+/*
+ * Binds Starlight's layout to the site's own.
+ *
+ * Starlight pages never render Base.astro, so base.css does not reach them.
+ * Only the values the two layouts must agree on live here; per-manual theming
+ * (--sl-color-* scoped by data-project) is a separate piece of work.
+ */
+
+/*
+ * NavHeader is written in Tailwind utilities and now renders on these pages
+ * too, so the utilities have to come with it. Deliberately NOT `@import
+ * "tailwindcss"`: that bundles Preflight, whose reset would land on top of
+ * Starlight's own and strip the manual's typography.
+ *
+ * Utilities are left unlayered so they outrank Starlight's @layer starlight.*
+ * rules on the nav's elements — a layered import loses to starlight.reset on
+ * things like <menu>, which the nav is built from.
+ */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css";
+
+/* The nav's baseline, shared with base.css. Preflight supplies these on
+   Base.astro pages; here they have to be declared, or the same markup renders
+   indented, bulleted and in Starlight's typeface. */
+@import "./fonts.css";
+@import "./nav.css" layer(base);
+@import "./transitions.css";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/*
+ * Search button trims. Done here rather than in the vendored Search.astro so
+ * that file's diff against upstream stays the three changes its header lists.
+ *
+ * The magnifier already carries the meaning, so the word beside it is
+ * redundant; the button keeps aria-label="Search", so nothing is lost to a
+ * screen reader. The shortcut hint is an affordance, not a label, and should
+ * not compete with the icon for attention.
+ */
+#nav site-search button[data-open-modal] > span {
+    display: none;
+}
+
+#nav site-search button[data-open-modal] kbd {
+    opacity: 0.55;
+}
+
+/* Matches base.css: a chapter with nothing to scroll must not be a scrollbar
+   wider than one that scrolls, or the nav shifts as you move between them. */
+html {
+    scrollbar-gutter: stable;
+}
+
+:root {
+    /* Kept in step with base.css. Starlight pads .main-frame by this exact
+       value, so a mismatch shows up as the first heading under the nav bar. */
+    --nav-height: 3rem;
+    --sl-nav-height: var(--nav-height);
+
+    /* Both the collapsed pane width and the rail height, hence "size". */
+    --sl-rail-size: 2.75rem;
+}
+
+/*
+ * The collapse control. One button serves both layouts: above 50rem it narrows
+ * the sidebar, below it opens Starlight's popover pane (via popovertarget, so
+ * it still works with JavaScript disabled). It is fixed rather than placed in
+ * the pane so that the pane can be hidden out from under it when collapsed.
+ */
+.sidebar-rail {
+    position: fixed;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    z-index: var(--sl-z-index-navbar);
+}
+
+.sidebar-rail button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+.sidebar-rail .icon {
+    flex: none;
+}
+
+/* Below the breakpoint the pane is a closed popover, so the button always
+   opens it — the collapsed/expanded state means nothing there. */
+.sidebar-rail .icon-collapse {
+    display: none;
+}
+
+/* Below Starlight's breakpoint the pane is a popover and there is nothing to
+   collapse, so the control is a thumb-reachable floating button instead. It
+   takes the bottom-left corner that the desktop rail occupies, rather than the
+   top-right one where Starlight puts it and where the site nav's own hamburger
+   already lives. */
+@media (max-width: 49.999rem) {
+    .sidebar-rail {
+        inset-block-end: 1rem;
+        inset-inline-start: 1rem;
+    }
+
+    .sidebar-rail button {
+        padding: 0.75rem;
+        border-radius: 999px;
+        background-color: var(--sl-color-white);
+        color: var(--sl-color-black);
+        box-shadow: var(--sl-shadow-md);
+    }
+
+    .sidebar-rail .label {
+        /* Visually hidden, still announced. */
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+    }
+}
+
+@media (min-width: 50rem) {
+    /*
+     * Collapse narrows two things: the left pane, and the padding that keeps
+     * content clear of it.
+     *
+     * --sl-sidebar-width is deliberately NOT one of them. Starlight reuses that
+     * variable for the RIGHT-hand table of contents too — see
+     * TwoColumnContent.astro's .right-sidebar-container and PageSidebar.astro —
+     * so shrinking it collapsed "On this page" to one letter per line. The
+     * content offset is overridden directly instead; Page.astro declares it
+     * through :where(), so this outranks it without needing !important.
+     */
+    html[data-sidebar="collapsed"] {
+        --sl-content-inline-start: var(--sl-rail-size);
+    }
+
+    html[data-sidebar="collapsed"] .sidebar-pane {
+        width: var(--sl-rail-size);
+        overflow: hidden;
+    }
+
+    /* A manual's sidebar is a list of chapter names, so a collapsed rail has no
+       icons to show — the list goes away entirely and only the control stays. */
+    html[data-sidebar="collapsed"] .sidebar-content {
+        visibility: hidden;
+    }
+
+    .sidebar-rail {
+        width: var(--sl-sidebar-width);
+        height: var(--sl-rail-size);
+        background-color: var(--sl-color-bg-sidebar);
+        border-block-start: 1px solid var(--sl-color-hairline-shade);
+        border-inline-end: 1px solid var(--sl-color-hairline-shade);
+    }
+
+    html[data-sidebar="collapsed"] .sidebar-rail {
+        width: var(--sl-rail-size);
+    }
+
+    .sidebar-rail button {
+        width: 100%;
+        height: 100%;
+        padding-inline: 0.9rem;
+        color: var(--sl-color-gray-2);
+    }
+
+    /* 0.9rem a side leaves less than 1rem for a 1rem icon once the rail is only
+       --sl-rail-size wide, which pushed the expand control out of view. */
+    html[data-sidebar="collapsed"] .sidebar-rail button {
+        justify-content: center;
+        padding-inline: 0;
+    }
+
+    .sidebar-rail button:hover {
+        background-color: var(--sl-color-gray-6);
+        color: var(--sl-color-white);
+    }
+
+    /* The arrow always points where the click will take the pane. */
+    .sidebar-rail .icon-collapse {
+        display: block;
+    }
+
+    .sidebar-rail .icon-expand {
+        display: none;
+    }
+
+    html[data-sidebar="collapsed"] .sidebar-rail .icon-collapse {
+        display: none;
+    }
+
+    html[data-sidebar="collapsed"] .sidebar-rail .icon-expand {
+        display: block;
+    }
+
+    html[data-sidebar="collapsed"] .sidebar-rail .label {
+        display: none;
+    }
+
+    /* Keep the last chapter clear of the rail. */
+    .sidebar-content {
+        padding-block-end: var(--sl-rail-size);
+    }
+}

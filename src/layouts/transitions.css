@@ -1,0 +1,16 @@
+/*
+ * Page transition timing, shared by both layouts so navigating between a
+ * product page and a manual looks the same as navigating within either.
+ *
+ * Astro's ClientRouter ships its own default duration; this pins it. The
+ * reduced-motion guard matches Astro's own behaviour of dropping the animation
+ * entirely for readers who ask for that.
+ */
+
+@media (prefers-reduced-motion: no-preference) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation-duration: 200ms;
+        animation-timing-function: ease;
+    }
+}

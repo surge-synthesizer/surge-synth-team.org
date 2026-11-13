@@ -12,12 +12,6 @@ import SystemRequirements from "../components/SystemRequirements.astro";
 import ObxfCover from "../content/projects/screenshots/ob-xf_3d_render.png";
 import Base from "../layouts/Base.astro";
 
-const navLinks = [
-    ["Manual", "/ob-xf/manual/getting-started/"],
-    ["Changelog", "/ob-xf-changelog/"],
-    ["Downloads", "#downloads"],
-] as const;
-
 const platformLinks = (releases: { win64: string; macos: string; linux64: string }) => [
     { label: "Windows 64-bit", href: releases.win64 },
     { label: "macOS 64-bit", href: releases.macos },
@@ -54,7 +48,7 @@ const systemRequirements = [
 ---
 
 <Base title="OB-Xf" project="ob-xf">
-    <NavHeader slot="nav" links={navLinks} currentProject="ob-xf" />
+    <NavHeader slot="nav" currentProject="ob-xf" />
 
     <main>
         <Block surface="base" layout="split" class="md:min-h-[500px]">

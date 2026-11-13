@@ -1,0 +1,62 @@
+---
+/*
+ * Replaces Starlight's theme bootstrap with the site's own.
+ *
+ * The two systems already agree on everything that matters — the same three
+ * states, the same data-theme attribute on the document element, the same
+ * prefers-color-scheme fallback. They differed only in where the choice is
+ * stored ("starlight-theme" vs "theme") and in how "auto" is encoded (Starlight
+ * writes an empty string). So this is a deletion rather than a reconciliation:
+ * the site's key governs, and a theme chosen on a product page now carries into
+ * that product's manual.
+ *
+ * StarlightThemeProvider is left defined because Starlight's own ThemeSelect
+ * calls updatePickers() on it. That component is overridden away (NavHeader
+ * already carries the one theme control), but the stub keeps any future
+ * Starlight code path from throwing.
+ *
+ * The sidebar state is applied here too, for the same reason the theme is:
+ * these must land before first paint, and this is the only Starlight component
+ * that renders an inline script into <head>.
+ */
+---
+
+<script is:inline>
+    (() => {
+        // Dark unless the reader has chosen otherwise, matching Base.astro and
+        // ThemeSelector. Starlight's Page.astro already server-renders
+        // data-theme="dark", so this default also costs no flash.
+        const apply = () => {
+            const stored = localStorage.getItem("theme");
+            const theme = stored === "light" || stored === "auto" ? stored : "dark";
+            const dark =
+                theme === "dark" ||
+                (theme === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+            document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+        };
+
+        try {
+            apply();
+        } catch {
+            // Storage unavailable; fall back to Starlight's server-rendered dark.
+        }
+
+        try {
+            document.documentElement.dataset.sidebar =
+                localStorage.getItem("sidebar") === "collapsed" ? "collapsed" : "expanded";
+        } catch {
+            document.documentElement.dataset.sidebar = "expanded";
+        }
+
+        window.StarlightThemeProvider = { updatePickers() {} };
+
+        document.addEventListener("astro:after-swap", () => {
+            try {
+                apply();
+            } catch {
+                // As above.
+            }
+        });
+    })();
+</script>

@@ -1,0 +1,19 @@
+---
+/*
+ * Replaces Starlight's title/search/theme row with the site's own nav, so a
+ * manual is visibly the same site as the product page it documents.
+ *
+ * Search resolves through the virtual module rather than a direct import, which
+ * is how it picks up our own Search override (the per-manual Pagefind filter)
+ * instead of Starlight's stock one.
+ */
+
+import NavHeader from "../NavHeader.astro";
+import Search from "virtual:starlight/components/Search";
+
+const product = Astro.locals.starlightRoute.entry.id.split("/")[0] ?? null;
+---
+
+<NavHeader currentProject={product} search position="static">
+    <Search slot="search" />
+</NavHeader>

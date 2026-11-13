@@ -17,15 +17,10 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const url = project.data.url ?? (project.data.repo && `https://github.com/${project.data.repo}`);
-const navLinks = [
-    ["Open Source", "/open-source"],
-    ["Contact", "/contact"],
-    ["GitHub ↗", "https://github.com/surge-synthesizer"],
-] as const;
 ---
 
 <Base title={project.data.title}>
-    <NavHeader slot="nav" links={navLinks} currentProject={project.id} />
+    <NavHeader slot="nav" currentProject={project.id} />
     <article>
         <h1>{project.data.title}</h1>
         {

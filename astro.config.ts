@@ -15,7 +15,30 @@ export default defineConfig({
         starlight({
             title: "Surge Synth Team Manuals",
             routeMiddleware: "./src/starlightRouteData.ts",
+            customCss: ["./src/layouts/starlight.css"],
+            // Base.astro preloads these; Starlight's head did not, so entering a
+            // manual reserved nav space with fallback metrics and then reflowed
+            // once Lato arrived — the nav visibly shifting on load. Only the
+            // regular weight: the nav carries no italics, and the manual's body
+            // text is Starlight's own typeface.
+            head: [
+                {
+                    tag: "link",
+                    attrs: {
+                        rel: "preload",
+                        href: "/fonts/Lato-Regular.woff",
+                        as: "font",
+                        type: "font/woff",
+                        crossorigin: true,
+                    },
+                },
+            ],
             components: {
+                Head: "./src/components/starlight/Head.astro",
+                ThemeProvider: "./src/components/starlight/ThemeProvider.astro",
+                ThemeSelect: "./src/components/starlight/ThemeSelect.astro",
+                PageFrame: "./src/components/starlight/PageFrame.astro",
+                Header: "./src/components/starlight/Header.astro",
                 PageTitle: "./src/components/starlight/PageTitle.astro",
                 Search: "./src/components/starlight/Search.astro",
             },
