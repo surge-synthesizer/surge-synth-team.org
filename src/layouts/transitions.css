@@ -16,7 +16,12 @@
 
 /* Fallback for when the SmoothScroll component's JavaScript has not run. It
    cannot be timed - the browser chooses the duration - which is why the
-   component exists. Unconditional by request. */
+   component exists. Unconditional by request.
+
+   Note that this governs every scroll the browser initiates, the keyboard and
+   the scrollbar track included, not just following an anchor. That is why
+   SmoothScroll switches it off as soon as it runs: left on, a PageDown on a
+   long page animates the whole distance. */
 html {
     scroll-behavior: smooth;
 }

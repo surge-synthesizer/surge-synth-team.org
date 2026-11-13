@@ -4,10 +4,36 @@
     "order": 1,
     "summary": "Surge XT is an open source hybrid synthesizer, and the synth which started the Surge Synth Team project!",
     "cover": "./images/surge-xt.png",
-    "categories": [
-        "Synth"
-    ],
+    "categories": ["Synth"],
     "issue_tracker": "https://github.com/surge-synthesizer/surge/issues",
     "repo": "surge-synthesizer/surge",
-    "url": "https://surge-synthesizer.github.io"
+    "url": "https://surge-synthesizer.github.io",
+    "nav": {
+        "groups": {
+            "Documentation": [
+                {
+                    "label": "FAQ",
+                    "href": "/surge-xt/faq"
+                },
+                {
+                    "label": "Accessibility",
+                    "href": "/surge-xt/accessibility"
+                },
+                {
+                    "label": "Skin Library",
+                    "href": "/surge-xt/skins"
+                }
+            ],
+            "Extras": [
+                {
+                    "label": "Reviews and Media",
+                    "href": "/surge-xt/reviews"
+                },
+                {
+                    "label": "TouchOSC Template",
+                    "href": "/surge-xt/touchosc"
+                }
+            ]
+        }
+    }
 }

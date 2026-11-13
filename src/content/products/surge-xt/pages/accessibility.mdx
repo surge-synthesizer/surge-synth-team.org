@@ -1,0 +1,162 @@
+---
+title: Accessibility
+toc: true
+---
+
+As of Surge XT 1.0, both the plugin and the standalone version include accessibility support for
+screen readers and other assistive technologies on Windows and macOS. This page covers how to
+configure Surge XT to work best with a screen reader, along with some tips for navigating the
+interface faster.
+
+## Recommended configuration options
+
+The Workflow submenu in Surge XT includes a few options that should be turned on for the best
+accessibility experience. To adjust them, open Surge XT in your DAW or as a standalone, find and
+press the Main Menu button, and open the Workflow submenu. Check the following options if they are
+not already on:
+
+- **Use keyboard shortcuts** - enables additional keyboard shortcuts to navigate and save patches,
+  adjust parameters and more.
+- **Shift + F10 and Edit Parameter Value shortcuts > Follow keyboard focus** - lets you bring up
+  context menus on the focused control with Shift+F10.
+- **Send additional accessibility announcements** - makes Surge XT speak extra messages when you
+  change patches or wavetables, add or remove a patch from favorites, and use undo and redo.
+- **Add Sub-menus for Modulation Menu Items** - makes the options to mute, edit and clear
+  modulations easier to reach.
+- **Announce Patch Browser entries** - makes the patch search results list accessible on Windows by
+  speaking the selected patch with SAPI, working around a Windows bug. This option is not present on
+  macOS, where the patch list is spoken correctly by VoiceOver.
+
+Depending on the DAW, some of Surge XT's keyboard shortcuts may not reach the plugin. If that
+happens, refer to your DAW's documentation for a way to pass all keyboard input through to the
+plugin - in REAPER, for example, the option is in the preset menu button of the FX dialog.
+Alternatively, change any of Surge XT's keyboard shortcuts by selecting "Edit keyboard shortcuts…"
+from the Workflow menu, or by pressing Alt+B if you have already enabled keyboard shortcuts.
+
+## Useful shortcuts
+
+### Basic navigation
+
+You can navigate Surge XT's interface with the keys you would use in any other program: on Windows
+with Tab, Shift+Tab and the arrow keys, on macOS with VoiceOver commands. Every control also offers
+a right-click menu with additional options, reachable with Shift+F10, or VO+Shift+M on macOS.
+
+You can also use Alt+Period and Alt+Comma (Option+Period and Option+Comma on macOS) to jump focus
+between major interface sections.
+
+Other useful navigation commands worth remembering:
+
+- Alt/Option+S - change the focused scene
+- Alt/Option+1, 2 or 3 - change the selected oscillator
+- Alt/Option+M - open the Modulation List, which lets you add, modify, mute or delete every
+  modulation in the patch from one place
+
+### Manipulating sliders
+
+When a slider has focus, the following keys apply:
+
+- Up and Down adjust the value. Holding Shift makes smaller adjustments, while holding Control
+  (Command on macOS) moves in quantized steps - semitones when focused on the Pitch slider, for
+  example.
+- Home (Fn+Left on Mac keyboards) jumps to the slider's maximum value, End (Fn+Right) to the
+  minimum.
+- Delete (Fn+Backspace on Mac keyboards) resets the slider to its default value.
+- Enter opens a dialog where you can type an exact value for the parameter.
+
+### Navigating patches
+
+Besides pressing the Patch Browser for a menu of all patches, or using the previous and next
+controls, a number of keyboard shortcuts make navigating patches easier:
+
+- Previous category - Shift+Left
+- Next category - Shift+Right
+- Previous patch - Control/Command+Left
+- Next patch - Control/Command+Right
+- Find a patch by text search - Control/Command+F
+- Add or remove a patch from favorites - Alt/Option+F. Favorites get their own section of the Patch
+  Browser menu.
+
+## Platform-specific hints
+
+### macOS and VoiceOver
+
+If you find that the cursor gets stuck in a submenu, either disable cursor tracking by pressing
+VO+Shift+F3 while you are in the menu, or set the mouse cursor to ignore VoiceOver in the navigation
+section of VoiceOver Utility.
+
+Sliders can be adjusted using the conventional VoiceOver approach of interacting, but you will find
+that Surge XT's native keystrokes give more granular control. See [Manipulating
+sliders](#manipulating-sliders) above for details.
+
+Beyond its standard navigation and interaction keystrokes, VoiceOver's deeper features can boost
+productivity in a complex application like Surge XT. Ones you will likely find helpful are VoiceOver
+Find (VO+F), Item Chooser (VO+I) and Hotspots. Consult the [VoiceOver
+documentation](https://support.apple.com/guide/voiceover/toc) for more.
+
+### Windows
+
+There are currently two things to be aware of when using Surge XT on Windows.
+
+- Search results in the Ctrl+F patch typeahead are not visible to screen readers when you arrow
+  through them. Surge XT should speak them with your default Windows voice if the "Announce Patch
+  Browser entries" option is checked in the Workflow menu. The results will be made accessible to
+  screen readers in a future update.
+- When you close a menu, screen readers do not notice the focus change until you tab to a different
+  control. This appears to be a JUCE bug - for technical details and updates, see [issue
+  #6426](https://github.com/surge-synthesizer/surge/issues/6426) in the Surge XT bug tracker.
+
+## Screen reader navigation hints
+
+Generally speaking, Surge XT can be navigated with Tab and Shift+Tab to move focus through controls,
+the arrow keys to adjust the focused control, and Shift+F10 to open the context menus otherwise
+reached with a right-click. Since Surge XT is a complex application with many controls, you will
+also find the Alt+Period and Alt+Comma shortcuts for jumping between major sections very helpful.
+
+If you want to explore the screen in more detail without moving the system focus, all widely adopted
+Windows screen readers offer a hierarchical way of doing so, much like VoiceOver on macOS. Hints for
+the three most common Windows screen readers follow. For full details of these features, refer to
+their respective documentation.
+
+### NVDA
+
+NVDA's review feature is called the Object Navigator. It can be moved around using the NVDA key with
+the numpad, or with the arrow keys in NVDA's laptop layout. The most important keys:
+
+- Move to the previous or next control in the current group - NVDA+Numpad4 or Numpad6 (desktop),
+  NVDA+Shift+Left or Right (laptop)
+- Move into or out of a group - NVDA+Numpad2 or Numpad8 (desktop), NVDA+Shift+Down or Up (laptop)
+- Activate the control under the navigator - NVDA+Numpad Enter (desktop), NVDA+Enter (laptop). Use
+  this to click buttons, toggle checkboxes and so on.
+- Set the system focus to the navigator - NVDA+Numpad Minus (desktop), NVDA+Shift+Backspace
+  (laptop). Use this to focus a slider for further adjustment with the arrow keys, Home, End, Delete
+  and so on.
+
+If you use Surge XT with REAPER and find that NVDA takes a few seconds to respond when exiting
+menus, telling REAPER to run Surge XT in a dedicated process may help. After you find Surge XT in
+the add FX dialog, bring up the context menu and select **Run as > Dedicated process**. You should
+only need to do this once.
+
+### Narrator
+
+The Narrator cursor performs much like NVDA's Object Navigator. At default settings, however, it
+moves through controls sequentially and ignores grouping information. Change this in Narrator's
+settings (Control+Windows+N) by switching the Navigation mode combo box from Basic to Advanced.
+
+In Advanced mode, Narrator+Left or Right moves between controls within the current group,
+Control+Narrator+Down or Up moves in and out of groups, and Narrator+Enter activates controls.
+
+Narrator synchronizes the system focus automatically, so there is no need to route focus manually
+before adjusting a control with Surge XT's native keystrokes.
+
+Narrator also includes a Find feature for jumping to a specific control. Press Control+Narrator+F,
+type part of the name of the control you want, then press Enter.
+
+### JAWS
+
+The JAWS touch cursor can be activated by pressing Shift+Numpad Plus in desktop layout, or
+JAWS+Shift+Semicolon in laptop layout. At default settings the touch cursor ignores grouping, which
+can be changed by pressing Numpad Star or JAWS+A. Once that is done, Left and Right move through
+controls within a group, Down and Up move into and out of groups, and Enter activates controls.
+
+You can return the arrow keys to normal operation by switching back to the PC cursor - Numpad Plus
+on desktop, or JAWS+Semicolon twice quickly on laptop.

@@ -66,6 +66,58 @@ const pages = defineCollection({
         }),
 });
 
+/*
+ * Pages belonging to one product: its FAQ, downloads, skin library and so on.
+ *
+ * Separate from `pages` above, which is org-level and keyed by a bare slug.
+ * These are keyed by "<product>/<page>", which is both the id and the URL, so
+ * the folder a page sits in decides the product it belongs to - no slug field
+ * to keep in sync, and moving a product's folder moves its pages with it.
+ *
+ * Deliberately not part of `docs`: these wear the product's look and its
+ * blocks, not Starlight's manual chrome.
+ */
+const productPages = defineCollection({
+    loader: glob({
+        base: "./src/content/products",
+        pattern: "*/pages/**/[^_]*.{md,mdx}",
+        // "surge-xt/pages/faq" would put /pages/ in every URL for nothing.
+        generateId: ({ entry }) => entry.replace("/pages/", "/").replace(/\.mdx?$/, ""),
+    }),
+    schema: () =>
+        z.object({
+            title: z.string(),
+            /** A contents list beside the body, for pages long enough to need one. */
+            toc: z.boolean().default(false),
+        }),
+});
+
+/*
+ * Community skins offered for download, one JSON file each, beside the images
+ * they show. Adding a skin is a file and a screenshot - no page to edit.
+ *
+ * Data rather than MDX because none of these entries has a body: the old site
+ * kept twelve .mdx files whose content was entirely frontmatter. The thumbnail
+ * goes through image(), so 5.2 MB of PNGs reach the reader as optimised webp.
+ */
+const skins = defineCollection({
+    loader: glob({
+        base: "./src/content/products",
+        pattern: "*/skins/*.json",
+        generateId: ({ entry }) => entry.replace("/skins/", "/").replace(/\.json$/, ""),
+    }),
+    schema: ({ image }) =>
+        z.object({
+            name: z.string(),
+            order: z.number(),
+            author: z.string(),
+            url: z.url().optional(),
+            download: z.url(),
+            thumbnail: image(),
+            description: z.string().optional(),
+        }),
+});
+
 // Rejects bare fragments and relative paths: nav is shared with manual routes,
 // where "#faq" would resolve against the current chapter rather than the product.
 const navItem = z.object({
@@ -142,6 +194,8 @@ export const collections = {
     archives,
     docs,
     pages,
+    productPages,
     projects,
     generated,
+    skins,
 };

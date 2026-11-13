@@ -1,0 +1,60 @@
+---
+/*
+ * A sticky contents list for a long page outside Starlight.
+ *
+ * Starlight builds one of these for every manual chapter. The archived 1.9
+ * manual and the product pages sit outside it, so they build theirs from the
+ * headings render() hands back - and share this rather than each growing its
+ * own, because the sticky offsets and the overflow rules below are fiddly
+ * enough to be worth getting right once.
+ *
+ * The parent must be a flex row without items-start: the aside has to stretch
+ * the full height of that row, or `sticky` has only its own short box to travel
+ * in and the list scrolls away with the page.
+ */
+
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+    headings: MarkdownHeading[];
+    /** Deepest level to list. Past h3 the list outgrows the sections it indexes. */
+    depth?: number;
+    label?: string;
+}
+
+const { headings, depth = 3, label = "On this page" } = Astro.props as Props;
+
+const contents = headings.filter((heading) => heading.depth <= depth);
+
+// The shallowest heading present, so a page starting at h2 is not indented as
+// though an h1 it does not have were sitting above it.
+const top = Math.min(...contents.map((heading) => heading.depth));
+---
+
+{
+    contents.length > 0 && (
+        /* Sized to its content rather than to a guessed width: with the entries
+        set nowrap, the column comes out exactly as wide as the longest one
+        needs. The cap stops a single long heading taking over, and the list
+        scrolls sideways in that case rather than clipping. */
+        <aside class="order-first hidden shrink-0 px-4 py-8 lg:block lg:w-auto lg:max-w-[22rem] lg:pr-0">
+            <nav
+                aria-label={label}
+                class="sticky top-[calc(var(--nav-height)+1rem)] max-h-[calc(100vh-var(--nav-height)-2rem)] overflow-x-hidden overflow-y-auto pr-3">
+                <p class="text-xs font-bold tracking-[0.2em] uppercase opacity-70">{label}</p>
+                <ul class="mt-3 space-y-1 text-sm">
+                    {contents.map((heading) => (
+                        <li style={`padding-inline-start: ${(heading.depth - top) * 0.75}rem`}>
+                            <a
+                                href={`#${heading.slug}`}
+                                title={heading.text}
+                                class="block truncate py-0.5 no-underline opacity-80 hover:opacity-100">
+                                {heading.text}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
+        </aside>
+    )
+}

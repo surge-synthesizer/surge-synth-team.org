@@ -4,10 +4,24 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import { nightlyIn, pagesIn } from "./src/sidebar";
 
+/*
+ * A stable URL for the draft notes of whatever is next, which otherwise live at
+ * the version number they will ship under and move every release. Pages that
+ * link to the draft changelog - and, after cutover, the redirect shell - point
+ * here instead of chasing the number.
+ */
+const nightlyChangelog = (product: string) => {
+    const [page] = nightlyIn(`${product}/changelog`);
+
+    return page ? { [`/${product}/changelog/nightly`]: `/${page.slug}/` } : {};
+};
+
 // https://astro.build/config
 export default defineConfig({
     vite: { plugins: [tailwindcss()] },
     redirects: {
+        ...nightlyChangelog("surge-xt"),
+        ...nightlyChangelog("ob-xf"),
         // The changelog moved under its product when content went product-first.
         "/ob-xf/manual/": "/ob-xf/manual/getting-started/",
         "/surge-xt/manual/": "/surge-xt/manual/getting-started/",

@@ -1,0 +1,46 @@
+---
+title: Downloads
+---
+
+import stable from "~/content/generated/surge-build-stable.json";
+
+Direct links to our production downloads, plus where to find older versions, betas and nightlies.
+
+{/* A JSX heading, for a stable id: a markdown heading carrying an expression is slugged from the expression as written. */}
+
+<h2 id="stable-version">Stable version: Surge XT {stable.version}</h2>
+
+This is the version we recommend for music making in a normal production environment. It is tested,
+widely used, and available for the following platforms.
+
+{/* JSX anchors rather than markdown links: MDX does not evaluate an expression written as a link destination. */}
+
+<ul>
+    <li>
+        <a href={stable.releases.win64}>Windows 64-bit (Standalone, CLAP, VST3)</a>
+    </li>
+    <li>
+        <a href={stable.releases.win32}>Windows 32-bit (Standalone, VST3)</a>
+    </li>
+    <li>
+        <a href={stable.releases.macos}>macOS Intel/ARM universal (Standalone, AU, CLAP, VST3)</a>
+    </li>
+    <li>
+        <a href={stable.releases.linux64}>Linux 64-bit (Standalone, CLAP, LV2, VST3)</a> - .deb
+        built on Ubuntu 18.04, LV2 built with the JUCE 6 community branch
+    </li>
+    <li>
+        <a href={stable.releases.other}>Other formats (RPM, installerless ZIP, source code)</a>
+    </li>
+    <li>
+        <a href="https://software.opensuse.org//download.html?project=home%3Asurge-synth-team&package=surge-xt-release">
+            Open Build Service downloads
+        </a>
+    </li>
+</ul>
+
+## Other versions
+
+- [All older Surge XT release builds](https://github.com/surge-synthesizer/releases-xt/tags)
+- [Surge XT nightly builds](/surge-xt/nightly)
+- [Surge 1.9 and older versions](https://github.com/surge-synthesizer/releases/tags)
