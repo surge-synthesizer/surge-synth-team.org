@@ -39,10 +39,21 @@ const body = (html) => html.slice(html.indexOf("<main"), html.indexOf("</main>")
 
 for (const manual of manuals) {
     const base = join(DIST, manual);
+    // Archived manuals sit a level deeper (manual/archive/1.9) and are single
+    // pages, so their anchors must all resolve within themselves.
     const chapters = readdirSync(base, { withFileTypes: true })
         .filter((entry) => entry.isDirectory())
-        .map((entry) => entry.name)
-        .filter((name) => existsSync(join(base, name, "index.html")));
+        .flatMap((entry) =>
+            existsSync(join(base, entry.name, "index.html"))
+                ? [entry.name]
+                : readdirSync(join(base, entry.name), { withFileTypes: true })
+                      .filter(
+                          (nested) =>
+                              nested.isDirectory() &&
+                              existsSync(join(base, entry.name, nested.name, "index.html")),
+                      )
+                      .map((nested) => `${entry.name}/${nested.name}`),
+        );
 
     // chapter -> the ids and names that page actually renders
     const targets = new Map();

@@ -23,6 +23,24 @@ const docs = defineCollection({
     schema: docsSchema(),
 });
 
+/*
+ * Frozen manuals for versions that have shipped and moved on. Kept whole rather
+ * than split into chapters: nothing is being written here, splitting serves no
+ * reader, and one page means every anchor in it stays valid — which matters,
+ * because Surge 1.9 shipped with an absolute help_url pointing at this manual.
+ *
+ * Deliberately kept outside the manual folders, so the docs glob below —
+ * which matches any folder whose name starts with "manual" — does not claim it.
+ */
+const archives = defineCollection({
+    loader: glob({ pattern: "*/archive/*.mdx", base: "./src/content/products" }),
+    schema: () =>
+        z.object({
+            title: z.string(),
+            version: z.string(),
+        }),
+});
+
 /** Release notes, one file per version. `nightly` marks an unreleased one. */
 const changelogs = defineCollection({
     loader: glob({ pattern: "*/changelog/*.mdx", base: "./src/content/products" }),
@@ -119,6 +137,7 @@ const generated = defineCollection({
 });
 
 export const collections = {
+    archives,
     docs,
     changelogs,
     pages,
