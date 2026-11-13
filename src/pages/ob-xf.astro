@@ -11,6 +11,7 @@ import NavHeader from "../components/NavHeader.astro";
 import SystemRequirements from "../components/SystemRequirements.astro";
 import ObxfCover from "../content/projects/screenshots/ob-xf_3d_render.png";
 import Base from "../layouts/Base.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 
 const platformLinks = (releases: { win64: string; macos: string; linux64: string }) => [
     { label: "Windows 64-bit", href: releases.win64 },
@@ -130,10 +131,5 @@ const systemRequirements = [
         </Block>
     </main>
 
-    <Block as="footer" surface="ink" layout="prose" class="text-center">
-        This project is maintained by the community at the
-        <a href="https://github.com/surge-synthesizer/OB-Xf" target="_blank" rel="noopener">OB-Xf</a
-        >
-        open source project on GitHub.
-    </Block>
+    <SiteFooter />
 </Base>
