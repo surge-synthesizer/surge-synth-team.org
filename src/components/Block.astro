@@ -1,0 +1,48 @@
+---
+/*
+ * A full-bleed horizontal band. Owns the surface, the vertical rhythm and the
+ * inner layout; everything inside it is a Cell or plain prose.
+ *
+ * `surface` is a name, not a class list: the --block-* locals below indirect
+ * through --surface-<name>-*, so declaring `--surface-ember-*` on a product's
+ * html[data-project] is all it takes to use `surface="ember"` here.
+ */
+
+interface Props {
+    surface?: string;
+    layout?: "prose" | "split" | "grid";
+    /** Columns for layout="grid" at md and up. Ignored otherwise. */
+    cols?: number;
+    /** Landmark element to render as. Bands that close a page are footers. */
+    as?: "section" | "footer" | "header";
+    id?: string;
+    class?: string;
+}
+
+const {
+    surface = "base",
+    layout = "prose",
+    cols,
+    as: Tag = "section",
+    id,
+    class: className,
+} = Astro.props as Props;
+
+const style = [
+    `--block-bg: var(--surface-${surface}-bg)`,
+    `--block-fg: var(--surface-${surface}-fg)`,
+    `--block-link: var(--surface-${surface}-link)`,
+    `--block-solid: var(--surface-${surface}-solid)`,
+    ...(layout === "grid" && cols ? [`--block-cols: ${cols}`] : []),
+].join("; ");
+---
+
+<Tag
+    id={id}
+    data-surface={surface}
+    style={style}
+    class:list={["block", `block-${layout}`, className]}>
+    <div class="block-inner">
+        <slot />
+    </div>
+</Tag>

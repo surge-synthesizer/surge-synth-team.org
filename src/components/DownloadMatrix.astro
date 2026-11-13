@@ -1,0 +1,42 @@
+---
+interface Props {
+    heading: string;
+    channels: ReadonlyArray<{
+        /** Channel caption, e.g. "Version 1.0.3" or "Nightly Builds". */
+        label: string;
+        links: ReadonlyArray<{ label: string; href: string }>;
+        all?: { label: string; href: string };
+    }>;
+}
+
+const { heading, channels } = Astro.props;
+---
+
+<div class="w-full max-w-xs">
+    <h2 class="text-4xl font-bold">{heading}</h2>
+    {
+        channels.map((channel) => (
+            <div class="mt-8 first:mt-4">
+                <span class="mb-2 block text-2xl font-semibold">{channel.label}</span>
+                <ul class="mt-2 ml-5 list-disc space-y-1">
+                    {channel.links.map((link) => (
+                        <li>
+                            <a
+                                class="underline decoration-dotted underline-offset-4 hover:opacity-80"
+                                href={link.href}>
+                                {link.label}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+                {channel.all && (
+                    <a
+                        class="mt-4 block underline decoration-dotted underline-offset-4 hover:opacity-80"
+                        href={channel.all.href}>
+                        {channel.all.label}
+                    </a>
+                )}
+            </div>
+        ))
+    }
+</div>

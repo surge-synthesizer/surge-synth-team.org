@@ -46,17 +46,95 @@
         --color-product-track: var(--color-spectrumworx-gray);
     }
 
+    /* Surge blue (#005cb6) darkened ~8%. The brand colour itself reaches only
+       6.55:1 against white, so a band carrying body text misses AAA; the brand
+       token stays untouched and the surface carries the adjustment. */
+    html[data-project="ob-xf"] {
+        --surface-tide-bg: #0055a7;
+        --surface-tide-fg: #ffffff;
+        --surface-tide-link: #ffffff;
+        --surface-tide-solid: #0055a7;
+    }
+
+    /* A surface declares background, foreground and link colour together, so a
+       Block never has to smuggle all three through one class string. `solid` is
+       the background's flat equivalent, for elements that invert on hover — a
+       gradient cannot be used as a text colour.
+
+       Neutral roles (base, raised) follow the theme; branded roles (ink, accent,
+       deep) are fixed and ship their own foreground. Products may declare extra
+       named surfaces; the core five exist everywhere so block rhythm reads the
+       same site-wide. */
+    :root {
+        --paper: #efece7;
+        --paper-raised: #e5e1da;
+        --paper-ink: #262626;
+        --paper-link: #00468c;
+
+        --surface-base-bg: var(--paper);
+        --surface-base-fg: var(--paper-ink);
+        --surface-base-link: var(--paper-link);
+        --surface-base-solid: var(--paper);
+
+        --surface-raised-bg: var(--paper-raised);
+        --surface-raised-fg: var(--paper-ink);
+        --surface-raised-link: var(--paper-link);
+        --surface-raised-solid: var(--paper-raised);
+
+        --surface-ink-bg: #171717;
+        --surface-ink-fg: #e5e5e5;
+        --surface-ink-link: var(--color-product);
+        --surface-ink-solid: #171717;
+
+        --surface-accent-bg: var(--color-product);
+        --surface-accent-fg: #171717;
+        --surface-accent-link: #171717;
+        --surface-accent-solid: var(--color-product);
+
+        /* Surge's ocean gradient. The bottom stop is darkened from the site's
+           current #004f8a, which reaches only 6.71:1 under this foreground. */
+        --surface-deep-bg: linear-gradient(to bottom, #1d222a, #004a82);
+        --surface-deep-fg: #e5e5e5;
+        --surface-deep-link: #ffffff;
+        --surface-deep-solid: #1d222a;
+    }
+
+    html[data-theme="dark"] {
+        --paper: #171717;
+        --paper-raised: #262626;
+        --paper-ink: #f5f5f5;
+        --paper-link: var(--color-product);
+    }
+
+    /* The pre-2026 pairing measured 16.4:1 — glare for ordinary reading, but
+       exactly right for anyone who has asked the OS for more contrast. */
+    @media (prefers-contrast: more) {
+        :root {
+            --paper: #ffffff;
+            --paper-raised: #f5f5f5;
+            --paper-ink: #171717;
+        }
+
+        html[data-theme="dark"] {
+            --paper: #000000;
+            --paper-raised: #171717;
+            --paper-ink: #ffffff;
+        }
+    }
+
     html {
         scrollbar-color: var(--color-product) var(--color-product-track);
         scrollbar-width: auto;
     }
 
     body {
-        @apply bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100;
+        background-color: var(--surface-base-bg);
+        color: var(--surface-base-fg);
     }
 
     select {
-        @apply rounded border border-r-2 border-neutral-900/15 bg-neutral-100 p-1 text-inherit dark:border-neutral-100/15 dark:bg-neutral-900;
+        @apply rounded border border-r-2 border-neutral-900/15 p-1 text-inherit dark:border-neutral-100/15;
+        background-color: var(--paper);
     }
 
     article {
@@ -71,6 +149,65 @@
 @layer components {
     .product-image {
         @apply rounded-xl shadow-xl;
+    }
+
+    /* Block resolves one surface name into --block-* locals in an inline style,
+       so a product can name a new surface without anyone adding a rule here. */
+    .block {
+        background: var(--block-bg);
+        color: var(--block-fg);
+    }
+
+    .block a {
+        color: var(--block-link);
+    }
+
+    .block-prose > .block-inner {
+        @apply mx-auto max-w-2xl p-8 md:p-16;
+    }
+
+    .block-split > .block-inner {
+        @apply grid grid-cols-1 md:grid-cols-2;
+    }
+
+    .block-grid > .block-inner {
+        @apply grid grid-cols-1;
+    }
+
+    @media (width >= 48rem) {
+        .block-grid > .block-inner {
+            grid-template-columns: repeat(var(--block-cols, 3), minmax(0, 1fr));
+        }
+    }
+
+    /* Outranks `.block a` on specificity, which is the whole point: a button is
+       not a link in the surface's link colour. */
+    .block a.button,
+    a.button {
+        @apply block w-fit rounded-lg border-4 p-4 text-center text-lg font-bold no-underline duration-300;
+        border-color: currentColor;
+        background: transparent;
+        color: var(--block-fg, var(--surface-base-fg));
+    }
+
+    .block a.button:hover,
+    a.button:hover {
+        background: var(--block-fg, var(--surface-base-fg));
+        color: var(--block-solid, var(--surface-base-solid));
+    }
+
+    .block a.button-solid,
+    a.button-solid {
+        background: var(--color-product);
+        border-color: transparent;
+        color: var(--surface-accent-fg);
+    }
+
+    .block a.button-solid:hover,
+    a.button-solid:hover {
+        background: var(--color-product);
+        color: var(--surface-accent-fg);
+        filter: brightness(1.15);
     }
 }
 
