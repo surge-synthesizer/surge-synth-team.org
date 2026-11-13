@@ -1,0 +1,104 @@
+---
+/*
+ * A short eased scroll when following a same-page anchor.
+ *
+ * CSS `scroll-behavior: smooth` cannot be timed — the browser picks a duration,
+ * usually several hundred milliseconds — so the animation is run here instead.
+ * The CSS rule stays as the no-JavaScript fallback.
+ *
+ * Deliberately not behind prefers-reduced-motion, by request. It is short
+ * enough to read as a jump with the edge taken off rather than motion in its
+ * own right, and it keeps the reader's place in a way an instant jump does not.
+ */
+---
+
+<script>
+    /** Matches the page transition: --page-motion in src/layouts/transitions.css. */
+    function duration(): number {
+        const declared = getComputedStyle(document.documentElement).getPropertyValue(
+            "--page-motion",
+        );
+        // Both units matter: the minifier rewrites "200ms" as ".2s", and
+        // parseFloat alone would read that as a fifth of a millisecond.
+        const value = parseFloat(declared);
+        const ms = /\dms/.test(declared.trim()) ? value : value * 1000;
+
+        return Number.isFinite(ms) && ms > 0 ? ms : 200;
+    }
+    const easeOut = (t: number) => 1 - (1 - t) * (1 - t);
+
+    function target(hash: string): Element | null {
+        const id = decodeURIComponent(hash.slice(1));
+        if (!id || id === "_top") return document.body;
+
+        return document.getElementById(id) ?? document.getElementsByName(id)[0] ?? null;
+    }
+
+    function scrollTo(element: Element) {
+        // Starlight sets scroll-padding-top so a heading clears the fixed nav;
+        // honour whatever the page asks for rather than hardcoding a height.
+        const padding = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop);
+        const offset = Number.isNaN(padding) ? 0 : padding;
+        const from = window.scrollY;
+        const to = Math.max(0, window.scrollY + element.getBoundingClientRect().top - offset);
+
+        if (Math.abs(to - from) < 2) return;
+
+        /*
+         * The CSS fallback has to be switched off for the duration, not merely
+         * opted out of per call: a browser that does not honour
+         * behavior:"instant" falls back to "auto", which inherits
+         * scroll-behavior:smooth and starts a fresh smooth scroll on every
+         * frame. They compound, and the longer the page the slower the result.
+         */
+        const root = document.documentElement;
+        const previous = root.style.scrollBehavior;
+
+        root.style.scrollBehavior = "auto";
+
+        const started = performance.now();
+        const total = duration();
+
+        function step(now: number) {
+            const progress = Math.min(1, (now - started) / total);
+
+            window.scrollTo(0, from + (to - from) * easeOut(progress));
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                root.style.scrollBehavior = previous;
+            }
+        }
+
+        requestAnimationFrame(step);
+    }
+
+    function onClick(event: MouseEvent) {
+        if (event.defaultPrevented || event.button !== 0) return;
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+        const link = (event.target as Element | null)?.closest?.("a");
+        if (!(link instanceof HTMLAnchorElement) || link.target === "_blank") return;
+
+        const url = new URL(link.href, location.href);
+        const samePage = url.origin === location.origin && url.pathname === location.pathname;
+        if (!samePage || !url.hash) return;
+
+        const element = target(url.hash);
+        if (!element) return;
+
+        event.preventDefault();
+        history.pushState(null, "", url.hash);
+        scrollTo(element);
+    }
+
+    /*
+     * Capture phase, deliberately. Astro's ClientRouter also listens for link
+     * clicks on the document and handles same-page hash navigation itself; it
+     * is registered first, so a bubbling listener here would run after the
+     * router had already scrolled. Capturing lets this cancel the event before
+     * the router sees it.
+     */
+    document.addEventListener("click", onClick, { capture: true });
+</script>

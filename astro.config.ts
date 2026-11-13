@@ -10,6 +10,8 @@ export default defineConfig({
         // The changelog moved under its product when content went product-first.
         "/ob-xf-changelog": "/ob-xf/changelog/",
         "/ob-xf/manual/": "/ob-xf/manual/getting-started/",
+        "/surge-xt/manual/": "/surge-xt/manual/getting-started/",
+        "/surge-xt/manual-nightly/": "/surge-xt/manual-nightly/getting-started/",
         "/spectrumworx/manual/": "/spectrumworx/manual/getting-started/",
         "/shortcircuit-xt/manual/": "/shortcircuit-xt/manual/getting-started/",
     },
@@ -18,6 +20,10 @@ export default defineConfig({
             title: "Surge Synth Team Manuals",
             routeMiddleware: "./src/starlightRouteData.ts",
             customCss: ["./src/layouts/starlight.css"],
+            // Starlight shows H2-H3 by default. The manual's chapters were
+            // sections of one page, so their structure runs a level deeper than
+            // that: H2-H4 here is what H1-H3 was on the old single-page TOC.
+            tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 4 },
             // Base.astro preloads these; Starlight's head did not, so entering a
             // manual reserved nav space with fallback metrics and then reflowed
             // once Lato arrived — the nav visibly shifting on load. Only the
@@ -45,6 +51,67 @@ export default defineConfig({
                 Search: "./src/components/starlight/Search.astro",
             },
             sidebar: [
+                {
+                    label: "Surge XT Manual",
+                    items: [
+                        { label: "Getting Started", slug: "surge-xt/manual/getting-started" },
+                        {
+                            label: "Installing or Building Surge XT",
+                            slug: "surge-xt/manual/installing-or-building",
+                        },
+                        {
+                            label: "User Interface Basics",
+                            slug: "surge-xt/manual/user-interface-basics",
+                        },
+                        { label: "Header", slug: "surge-xt/manual/header" },
+                        { label: "Scene Controls", slug: "surge-xt/manual/scene-controls" },
+                        { label: "Modulation/Routing", slug: "surge-xt/manual/modulation-routing" },
+                        { label: "Effects", slug: "surge-xt/manual/effects" },
+                        { label: "Microtuning", slug: "surge-xt/manual/microtuning" },
+                        { label: "Main Menu", slug: "surge-xt/manual/main-menu" },
+                        { label: "Oscilloscope", slug: "surge-xt/manual/oscilloscope" },
+                        { label: "Accessibility", slug: "surge-xt/manual/accessibility" },
+                        {
+                            label: "Technical Reference",
+                            slug: "surge-xt/manual/technical-reference",
+                        },
+                    ],
+                },
+                {
+                    // Unreleased: linked for review in place, kept out of search
+                    // engines by the Head override.
+                    label: "Surge XT Manual (nightly)",
+                    collapsed: true,
+                    items: [
+                        {
+                            label: "Getting Started",
+                            slug: "surge-xt/manual-nightly/getting-started",
+                        },
+                        {
+                            label: "Installing or Building Surge XT",
+                            slug: "surge-xt/manual-nightly/installing-or-building",
+                        },
+                        {
+                            label: "User Interface Basics",
+                            slug: "surge-xt/manual-nightly/user-interface-basics",
+                        },
+                        { label: "Header", slug: "surge-xt/manual-nightly/header" },
+                        { label: "Scene Controls", slug: "surge-xt/manual-nightly/scene-controls" },
+                        {
+                            label: "Modulation/Routing",
+                            slug: "surge-xt/manual-nightly/modulation-routing",
+                        },
+                        { label: "Effects", slug: "surge-xt/manual-nightly/effects" },
+                        { label: "Microtuning", slug: "surge-xt/manual-nightly/microtuning" },
+                        { label: "Main Menu", slug: "surge-xt/manual-nightly/main-menu" },
+                        { label: "Oscilloscope", slug: "surge-xt/manual-nightly/oscilloscope" },
+                        { label: "Accessibility", slug: "surge-xt/manual-nightly/accessibility" },
+                        {
+                            label: "Technical Reference",
+                            slug: "surge-xt/manual-nightly/technical-reference",
+                        },
+                    ],
+                },
                 {
                     label: "OB-Xf Manual",
                     items: [

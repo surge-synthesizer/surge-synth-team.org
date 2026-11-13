@@ -1,0 +1,90 @@
+---
+title: Accessibility
+sidebar:
+  order: 11
+---
+
+The Surge XT user interface can be completely navigated from the keyboard. Pressing Tab will allow you to move through all controls
+in the user interface, while pressing the up and down arrow keys will let you adjust them. Just like holding Shift or Ctrl/Command
+while moving a slider with the mouse lets you make more precise adjustments, holding these modifiers while pressing the
+arrow keys will have a similar effect. Pressing Home, End or Delete will let you set a control to its maximum, minimum and default
+value respectively. Finally, pressing Shift + F10 or the Applications key on any control will open its right-click menu.
+
+With the exception of Tab, the other keys mentioned here need to be turned on before they can be used. If you press one of these keys
+with the shortcuts turned off, you will be asked whether you want to turn them on. Alternatively, they can be turned on by checking the
+**Use keyboard shortcuts** option in the [Workflow](/surge-xt/manual-nightly/main-menu/#workflow) section of the menu. A number of additional shortcuts are available
+which allow you to quickly open specific dialogs, change patches or save your work and more.
+
+In addition to full keyboard support, Surge XT is compatible with screen reader software on both Mac and Windows. This means that as
+you navigate through the interface, the screen reader will give you full speech and braille feedback on the control that’s focused
+and what its value is. You can also navigate the interface using your screen reader’s review commands.
+
+Besides the value of the focused control, Surge XT announces the tuning in use when the patch is not in standard tuning,
+and reports the reason when a value you type into a parameter cannot be parsed, instead of silently discarding it.
+
+For additional help on using Surge with specific Screen Readers, refer to <a href="../accessibility">this page</a>.
+
+### Moving Between Control Groups
+
+The larger overlay windows are divided into groups of controls — the MSEG editor, for instance, separates its editing area from
+the footer that holds various options. Rather than tabbing through every control in between,
+press **Alt/Option + .** to move keyboard focus to the next group and **Alt/Option + ,** to move it to the previous one.
+If the window has only one group, Surge XT tells you so rather than moving focus.
+
+These are ordinary keyboard shortcuts, so they require **Use Keyboard Shortcuts** to be enabled, and they can be
+reassigned in the Keyboard Shortcut Editor, reachable from the [Workflow](/surge-xt/manual-nightly/main-menu/#workflow) menu.
+
+### MSEG Editor Keyboard Navigation
+
+The [MSEG editor](/surge-xt/manual-nightly/modulation-routing/#multi-segment-envelope-generator) can be navigated and edited entirely from the keyboard. Use **Alt/Option + ,** and
+**Alt/Option + .** as described above to swap between the editing area and the footer. The shortcuts below apply while the
+editing area has focus, except for the Alt/Option ones, which also work from the footer.
+
+Moving around:
+
+|                      |                                                                          |
+| -------------------- | ------------------------------------------------------------------------ |
+| Tab / Shift + Tab    | Select the next / previous node.                                         |
+| Home / End           | Select the first / last node.                                            |
+| Page Down / Page Up  | Move to the next / previous segment.                                     |
+| Alt/Option + I       | Announce the current state of the editor.                                |
+
+Editing the selected node:
+
+|                            |                                                                                                                             |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Arrow keys                 | Move the node. Left and right move it in time, up and down change its value.                                                |
+| Ctrl/Command + arrow keys  | As above, but quantized to the snap divisions, whether or not the snap toggles are enabled.                                 |
+| Shift + arrow keys         | As above, in fine increments.                                                                                               |
+| Alt/Option + arrow keys    | Adjust the control point of the segment that follows the selected node, with the same Ctrl/Command and Shift modifiers.      |
+| Enter                      | Open a type-in for the node's value.                                                                                        |
+| Alt/Option + Enter         | Open a type-in for the control point of the following segment.                                                              |
+| Alt/Option + R             | Reset the control point to its default position.                                                                            |
+| Alt/Option + N             | Add a node, splitting the selected segment into two equal halves.                                                           |
+| Delete / Backspace         | Delete the selected node, or the whole selection if one is active.                                                          |
+| Shift + F10                | Open the context menu for the segment under the cursor.                                                                     |
+
+Selecting several nodes at once:
+
+|                           |                                                                                                       |
+| ------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Alt/Option + S            | Start a selection, and end it again.                                                                  |
+| Left / right arrow keys   | While a selection is being made, grow or shrink it a node at a time.                                  |
+| Enter or Escape           | End a selection that has been started.                                                                |
+| Ctrl/Command + A          | Select all nodes.                                                                                     |
+
+Once a selection is active, the editing shortcuts above act on every node in it rather than on a single node.
+
+Editor options, all of which mirror the footer controls:
+
+|                  |                                                                       |
+| ---------------- | --------------------------------------------------------------------- |
+| Alt/Option + M   | Cycle through the movement modes (Single, Shift, Draw).               |
+| Alt/Option + T   | Toggle between the Envelope and LFO edit modes.                       |
+| Alt/Option + L   | Cycle through the loop modes (Off, On, Gate).                         |
+| Alt/Option + D   | Toggle **Use Deform** for the current selection.                      |
+| Alt/Option + V   | Toggle **Invert Deform** for the current selection.                   |
+| Alt/Option + F   | Toggle **Trigger Filter EG** for the current selection.               |
+| Alt/Option + A   | Toggle **Trigger Amp EG** for the current selection.                  |
+
+The last two shortcuts are unavailable for scene LFOs.
