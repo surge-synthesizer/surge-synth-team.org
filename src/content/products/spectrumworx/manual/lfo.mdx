@@ -13,7 +13,7 @@ Each knob-based, combo-box based or LED-based parameter in a given module can be
 its own LFO. This allows for some very complex sonic manipulation. When you select a parameter,
 the LFO settings in the main plug-in window will change to reflect the values of the LFO
 attached to that specific parameter. The LFO is activated with the blue LED button just to the
-right of the LFO label — this button is only visible when a parameter is selected.
+right of the LFO label - this button is only visible when a parameter is selected.
 
 ## Period
 
@@ -33,7 +33,7 @@ automatically adjusted according to the active time signature. The minimum durat
 Instead of always using power-of-two ratios as is the usual (and wrong!) practice, the values
 that fall between the durations of one beat and one bar are also carefully calculated based on
 the current time signature. Example: for the 4/4 time signature you get to set the value of
-1/2 bar — which is meaningless for let's say a 9/8 time signature, where you get to set 1/3 of a
+1/2 bar - which is meaningless for let's say a 9/8 time signature, where you get to set 1/3 of a
 bar, or in a third case 1/2, 1/3, 1/4 and 1/6 for 12/8 time signature. Time signatures with
 prime number numerators have no whole number bar duration dividers so, for example if you have
 7/8 time signature, you'll jump straight from 1/1 to 1/7, then to 1/14, 1/28 and 1/56 (which is
@@ -69,12 +69,12 @@ Finally, it is important to note that SpectrumWorx, as a frequency domain effect
 processes data in blocks (or frames) and, as such, cannot update its LFOs (i.e. their phase) for
 each sample but for every block. What this means in practice is that, unlike for time domain
 effects, the SpectrumWorx LFOs do not change perfectly smoothly, and that not all period values
-make sense given a particular setup — values comparable to or smaller than the current block
+make sense given a particular setup - values comparable to or smaller than the current block
 size will cause the LFO to exhibit aliasing effects. Whether or not the effects of "quantized"
 LFO updating will be audibly noticeable depends on the period you set and on your host and
 SpectrumWorx engine setup. Currently, LFOs are updated every frame or every (host) data buffer
 block, whichever is larger. You only need to make sure that your LFO periods do not go near or
-below this value — unless of course you want the "undefined behavior"!
+below this value - unless of course you want the "undefined behavior"!
 
 ## Waveform
 
@@ -84,8 +84,8 @@ steady, even rise and fall of the destination parameter, while the **Square** wa
 abruptly between the high and low parameter values as determined by the Range setting.
 
 In addition to Sine and Square you get **Triangle**, **Sawtooth**, reverse Sawtooth
-(**htootwaS**), **Exponent**, three random waveforms (**Hrandom** — random and hold, **Grandom**
-— random and glide, and **Whacho** — sort of a totally-random waveform), and two impulse
+(**htootwaS**), **Exponent**, three random waveforms (**Hrandom** - random and hold, **Grandom**
+- random and glide, and **Whacho** - sort of a totally-random waveform), and two impulse
 waveforms (**Dirac up** and **Dirac down**).
 
 You can make a pretty good guess at how each will sound by looking at the little graphic that

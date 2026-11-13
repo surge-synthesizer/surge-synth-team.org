@@ -3,8 +3,8 @@ import { getCollection } from "astro:content";
 /*
  * One nav for the whole site.
  *
- * Every product renders the same skeleton — the product link, a Documentation
- * group holding Manual and Changelog, then About and Source Code — and a slot
+ * Every product renders the same skeleton - the product link, a Documentation
+ * group holding Manual and Changelog, then About and Source Code - and a slot
  * appears only where that product has something to put in it. Products add to
  * it through `nav` in their JSON rather than by hand-writing a list, so a
  * product page and every page of that product's manual cannot drift apart.
@@ -17,7 +17,7 @@ export type Nav = {
     /** Flat items before the groups. */
     links: NavItem[];
     groups: NavGroup[];
-    /** Flat items after the groups — the same two everywhere. */
+    /** Flat items after the groups - the same two everywhere. */
     trailing: NavItem[];
 };
 
@@ -32,14 +32,14 @@ const repoUrl = (repo?: string) => (repo ? `https://github.com/${repo}` : ORG_UR
 const hasPage = async (id: string) => (await getCollection("pages")).some((page) => page.id === id);
 
 /**
- * `/about` and `/clap` are org-wide pages that do not exist in this repo yet —
+ * `/about` and `/clap` are org-wide pages that do not exist in this repo yet -
  * About is a merge of the current Open Source and Contact pages with Surge's
  * History page, and CLAP still lives on the Surge site. Each slot appears the
  * moment its MDX lands in src/content/pages.
  *
  * Until About exists, the two pages it will replace stay linked from the org
  * homepage so they remain reachable, but they are org-level concerns and do not
- * belong in a product's nav — so a product simply has no About slot yet.
+ * belong in a product's nav - so a product simply has no About slot yet.
  */
 async function aboutLinks(scope: "org" | "product"): Promise<NavItem[]> {
     if (await hasPage("about")) return [{ label: "About", href: ABOUT_HREF }];
@@ -55,12 +55,15 @@ async function aboutLinks(scope: "org" | "product"): Promise<NavItem[]> {
 /**
  * Changelogs are detected the same way as manuals: from the content, not from a
  * field someone has to remember to set. A product may have a changelog/ folder
- * prepared and empty — a release whose notes are not written, or not wanted —
+ * prepared and empty - a release whose notes are not written, or not wanted -
  * and an empty folder must not put a dead Changelog in the nav.
+ *
+ * Release notes are Starlight pages, so they live in the docs collection
+ * alongside the manuals.
  */
 async function changelogHref(slug: string) {
-    const changelogs = await getCollection("changelogs");
-    const hasNotes = changelogs.some((entry) => entry.data.product === slug);
+    const docs = await getCollection("docs");
+    const hasNotes = docs.some((entry) => entry.id.startsWith(`${slug}/changelog/`));
 
     return hasNotes ? `/${slug}/changelog/` : undefined;
 }
@@ -95,7 +98,7 @@ export async function buildNav(currentProject?: string | null): Promise<Nav> {
     const project = projects.find((entry) => entry.id === currentProject);
 
     /*
-     * A product can have a manual without a projects entry — SpectrumWorx is
+     * A product can have a manual without a projects entry - SpectrumWorx is
      * deliberately unlisted until it is released. Its manual still deserves a
      * way back into its own documentation, so the Documentation group is built
      * from the docs collection alone.

@@ -4,7 +4,7 @@
  *
  * Base.astro has carried <ClientRouter /> all along, so product pages
  * cross-faded between each other while any navigation into or out of a manual
- * was a hard load — the inconsistency being that manuals are the same site.
+ * was a hard load - the inconsistency being that manuals are the same site.
  *
  * Starlight is not itself view-transition aware, but its interactive parts are
  * custom elements, which re-run connectedCallback when the swapped-in nodes are
@@ -16,11 +16,17 @@ import { ClientRouter } from "astro:transitions";
 import SmoothScroll from "../SmoothScroll.astro";
 
 /*
- * A nightly manual is linked on purpose — unreleased documentation has to be
- * reviewable in place — but it must never outrank the released manual in a
- * search engine.
+ * Unreleased documentation - a nightly manual, notes for a release still being
+ * built - is linked on purpose, because it has to be reviewable in place. So
+ * are the release notes of a previous generation. Neither should outrank the
+ * current thing in a search engine.
  */
-const nightly = Astro.locals.starlightRoute.entry.id.includes("/manual-nightly/");
+const { entry } = Astro.locals.starlightRoute;
+
+const nightly =
+    entry.id.includes("/manual-nightly/") ||
+    entry.data.nightly === true ||
+    entry.id.includes("/changelog/archive/");
 ---
 
 <Default />

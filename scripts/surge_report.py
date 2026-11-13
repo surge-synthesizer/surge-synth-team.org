@@ -119,7 +119,7 @@ def _post_via_gh(payload):
     except FileNotFoundError:
         raise GitHubError(
             "no GITHUB_TOKEN/GH_TOKEN in the environment and `gh` is not on "
-            "PATH — set a token or install the GitHub CLI"
+            "PATH - set a token or install the GitHub CLI"
         ) from None
     if proc.returncode != 0:
         raise GitHubError(f"gh api graphql failed:\n{proc.stderr.strip()}")
@@ -127,7 +127,7 @@ def _post_via_gh(payload):
 
 
 def gh_graphql(query, variables, attempts=4):
-    """Run one GraphQL query. Queries only — never a mutation.
+    """Run one GraphQL query. Queries only - never a mutation.
 
     Uses a token from the environment when present (so CI needs no `gh`), and
     falls back to the GitHub CLI for local runs where gh holds the auth.
@@ -258,7 +258,7 @@ def collect_releases(org, public_only, now, verbose=True):
     """Nightly freshness and latest stable release for every product repo.
 
     A nightly release keeps one tag and is re-uploaded in place, so its
-    publishedAt is the date the tag was first cut — often years ago — while
+    publishedAt is the date the tag was first cut - often years ago - while
     updatedAt tracks the most recent asset upload. Use updatedAt for nightlies
     and publishedAt for stable releases.
     """
@@ -592,7 +592,7 @@ def render_markdown(d):
     L = []
     add = L.append
 
-    add(f"# {org} — daily report")
+    add(f"# {org} - daily report")
     add("")
     add(f"*Generated {stamp} · activity windows: {d['days']} and "
         f"{d['long_days']} days · new contributors over {d['contrib_days']} days*")
@@ -667,7 +667,7 @@ def render_markdown(d):
         add(f"| **total** | **{merged_total}** | | **{issue_total}** | | "
             f"**{closed_total}** | |")
         add("")
-        add("`█` merged PRs · `░` new issues · `▒` closed issues — all three "
+        add("`█` merged PRs · `░` new issues · `▒` closed issues - all three "
             "bars share one scale within this table.")
         add("")
 
@@ -1025,7 +1025,7 @@ def render_html(d):
     add("<!doctype html>")
     add('<html lang="en"><head><meta charset="utf-8">')
     add('<meta name="viewport" content="width=device-width, initial-scale=1">')
-    add(f"<title>{esc(org)} daily report — {esc(d['generated'].date())}</title>")
+    add(f"<title>{esc(org)} daily report - {esc(d['generated'].date())}</title>")
     add(f"<style>{CSS}</style></head><body><div id='tip'></div><div class='wrap'>")
 
     # header + stat tiles
@@ -1184,7 +1184,7 @@ def render_html(d):
         f"{esc(org)} landed since {esc(d['since_contrib'])}. Bots excluded.</p>")
     if not d["newcomers"]:
         add(f"<div class='card'><table><tbody><tr><td class='dim'>No new "
-            f"contributors in this window — all {d['contrib_authors']} authors "
+            f"contributors in this window - all {d['contrib_authors']} authors "
             f"with merges are returning.</td></tr></tbody></table></div>")
     else:
         add("<div class='card scroll'><table class='act'><thead><tr>"
@@ -1213,7 +1213,7 @@ def render_html(d):
     add("<section><h2>4 · Open issue age</h2>")
     add("<p class='section-note'>Every open issue bucketed by how long it has been "
         "open. Each bar is that repo's own backlog split into shares, oldest "
-        "darkest — volume is the Open column, sorted descending. Bucket cells are "
+        "darkest - volume is the Open column, sorted descending. Bucket cells are "
         "shaded by that bucket's share of the repo's backlog. The last column counts "
         "issues closed in the window, whenever they were opened; repos with no "
         "open issues are not listed, so that total can exceed its column.</p>")
@@ -1371,7 +1371,7 @@ def stale_manual_notice(path):
     for r in stale:
         built = r.get("pdf_committed") or "never committed"
         lines.append(
-            f"• **{r['title']}** — manual last changed "
+            f"• **{r['title']}** - manual last changed "
             f"{r.get('source_committed')}, PDF last built {built}. "
             f"Rebuild with `{r['fix']}` and commit `{r['pdf']}`."
         )
@@ -1515,7 +1515,7 @@ def main(argv=None):
         site = os.path.abspath(args.publish_dir)
         pubroot = os.path.join(site, "public")
         if not os.path.isdir(pubroot):
-            print(f"error: {pubroot} does not exist — is {site} the site repo "
+            print(f"error: {pubroot} does not exist - is {site} the site repo "
                   f"root?", file=sys.stderr)
             return 1
         dest = os.path.join(pubroot, "reports", args.slug)
@@ -1574,7 +1574,7 @@ def main(argv=None):
             args.discord_attach
         ]
         summary = (
-            f"**{args.org} daily report** — {data['generated'].strftime('%Y-%m-%d')}\n"
+            f"**{args.org} daily report** - {data['generated'].strftime('%Y-%m-%d')}\n"
             f"{data['open_pr_count']} open PRs · {data['merged_total']} merges "
             f"and {data['new_issue_total']} new issues in {args.days}d · "
             f"{len(data['newcomers'])} new contributors in "

@@ -3,7 +3,7 @@
  * The site's one theme control, on product pages and inside manuals alike.
  *
  * Built on the same nav-group-toggle / nav-group-menu pair as every other nav
- * dropdown, so NavHeader's single delegated handler drives it — including the
+ * dropdown, so NavHeader's single delegated handler drives it - including the
  * arrow-key and Escape handling, and closing when another menu opens. It was a
  * native <select>, whose option list is drawn by the OS and could only ever be
  * dark or light, never the bar's own styling.
@@ -13,7 +13,7 @@
  * a manual the control did nothing.
  *
  * Applying the stored theme before first paint is a separate job, done inline
- * in <head> — by Base.astro here, and by the ThemeProvider override on
+ * in <head> - by Base.astro here, and by the ThemeProvider override on
  * Starlight pages. Both write the same "theme" key this reads.
  */
 

@@ -17,7 +17,7 @@
  *
  * Vendoring also makes @pagefind/default-ui a direct devDependency: the style
  * block below imports its CSS, and pnpm does not expose a transitive dependency
- * at the root. Starlight is pinned to 0.42.0 for the same reason — an upgrade
+ * at the root. Starlight is pinned to 0.42.0 for the same reason - an upgrade
  * must be a deliberate act that re-applies the diff above.
  */
 
@@ -158,7 +158,7 @@ dataAttributes['data-product'] = product;
 				translations = JSON.parse(this.dataset.translations || '{}');
 			} catch {}
 
-			// SST: read off the element, not the frontmatter — an Astro <script> is
+			// SST: read off the element, not the frontmatter - an Astro <script> is
 			// bundled separately and cannot close over server-side values.
 			const product = this.dataset.product;
 			const shouldStrip = this.dataset.stripTrailingSlash !== undefined;
@@ -169,7 +169,7 @@ dataAttributes['data-product'] = product;
 				if (import.meta.env.DEV) return;
 				const onIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1));
 				onIdle(async () => {
-					// @ts-expect-error — Missing types for @pagefind/default-ui package.
+					// @ts-expect-error - Missing types for @pagefind/default-ui package.
 					const { PagefindUI } = await import('@pagefind/default-ui');
 					new PagefindUI({
 						...pagefindUserConfig,

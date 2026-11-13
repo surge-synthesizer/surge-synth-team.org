@@ -28,7 +28,7 @@ Phase is set to **Sum**, this is in fact a convolution reverb, where the impulse
 only be as long as the frame size. The IR is fed via external audio.
 
 Convolver has two basic ways of operation, triggered and continuous. The triggered option grabs
-the IR exactly at the time frames when the **Grab IR** button is pressed — this should be LFO
+the IR exactly at the time frames when the **Grab IR** button is pressed - this should be LFO
 controlled! The IR is then constantly convolved with the input signal, until the button is
 pressed again. In continuous mode the IRs are constantly taken from external audio, so every
 frame ends up with a different IR, which produces pretty chaotic results.
@@ -49,7 +49,7 @@ greater than or less than a **Threshold**). It can replace magnitudes or phases,
 
 Like Ethereal, this is another module that provides conditional replacement of the main signal
 with that of the side channel. It works by calculating the RMS value (Root Mean Square) of the
-target signal — which can be the main or side channel — and then, if the **Swap condition** is
+target signal - which can be the main or side channel - and then, if the **Swap condition** is
 satisfied, replaces the main signal with the side channel content. There are eight available
 swap conditions, selectable via a combo box.
 
@@ -65,7 +65,7 @@ This one also transfers the frequency shape from the side channel to the signal 
 the main input. It calculates main divided by side over the selected band width, and then
 applies this "color" to the main channel. There is an option to also replace the phase of the
 main channel with that from the side. This produces some extremely bizarre and inspiring
-effects — for the experimentally minded among you!
+effects - for the experimentally minded among you!
 
 ## Merger
 
@@ -89,7 +89,7 @@ where the spectrum is copied. The **Destination** is the target position in the 
 spectrum. The **Size** knob controls how much of the spectrum is copied.
 
 "bw%" refers to bandwidth percentage. For example, if a signal is sampled at 44100 Hz then 50%
-would be half the spectrum, which is half of the highest frequency (22050 Hz) — so 50% would be
+would be half the spectrum, which is half of the highest frequency (22050 Hz) - so 50% would be
 11025 Hz. You can select whether magnitudes, phases or both will be copied.
 
 ## Burrito

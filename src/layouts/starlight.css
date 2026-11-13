@@ -13,7 +13,7 @@
  * Starlight's own and strip the manual's typography.
  *
  * Utilities are left unlayered so they outrank Starlight's @layer starlight.*
- * rules on the nav's elements — a layered import loses to starlight.reset on
+ * rules on the nav's elements - a layered import loses to starlight.reset on
  * things like <menu>, which the nav is built from.
  */
 @import "tailwindcss/theme.css" layer(theme);
@@ -90,7 +90,7 @@ html {
 }
 
 /* Below the breakpoint the pane is a closed popover, so the button always
-   opens it — the collapsed/expanded state means nothing there. */
+   opens it - the collapsed/expanded state means nothing there. */
 .sidebar-rail .icon-collapse {
     display: none;
 }
@@ -131,8 +131,8 @@ html {
      * content clear of it.
      *
      * --sl-sidebar-width is deliberately NOT one of them. Starlight reuses that
-     * variable for the RIGHT-hand table of contents too — see
-     * TwoColumnContent.astro's .right-sidebar-container and PageSidebar.astro —
+     * variable for the RIGHT-hand table of contents too - see
+     * TwoColumnContent.astro's .right-sidebar-container and PageSidebar.astro -
      * so shrinking it collapsed "On this page" to one letter per line. The
      * content offset is overridden directly instead; Page.astro declares it
      * through :where(), so this outranks it without needing !important.
@@ -147,7 +147,7 @@ html {
     }
 
     /* A manual's sidebar is a list of chapter names, so a collapsed rail has no
-       icons to show — the list goes away entirely and only the control stays. */
+       icons to show - the list goes away entirely and only the control stays. */
     html[data-sidebar="collapsed"] .sidebar-content {
         visibility: hidden;
     }

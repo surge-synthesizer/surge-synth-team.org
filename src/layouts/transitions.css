@@ -15,7 +15,7 @@
 }
 
 /* Fallback for when the SmoothScroll component's JavaScript has not run. It
-   cannot be timed — the browser chooses the duration — which is why the
+   cannot be timed - the browser chooses the duration - which is why the
    component exists. Unconditional by request. */
 html {
     scroll-behavior: smooth;
