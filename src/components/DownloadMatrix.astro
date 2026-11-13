@@ -21,18 +21,14 @@ const { heading, channels } = Astro.props;
                 <ul class="mt-2 ml-5 list-disc space-y-1">
                     {channel.links.map((link) => (
                         <li>
-                            <a
-                                class="underline decoration-dotted underline-offset-4 hover:opacity-80"
-                                href={link.href}>
+                            <a class="hover:opacity-80" href={link.href}>
                                 {link.label}
                             </a>
                         </li>
                     ))}
                 </ul>
                 {channel.all && (
-                    <a
-                        class="mt-4 block underline decoration-dotted underline-offset-4 hover:opacity-80"
-                        href={channel.all.href}>
+                    <a class="mt-4 block hover:opacity-80" href={channel.all.href}>
                         {channel.all.label}
                     </a>
                 )}

@@ -1,0 +1,116 @@
+---
+title: Changes in OB-Xf 1.1.0
+product: ob-xf
+version: 1.1.0
+order: 1
+nightly: true
+---
+
+OB-Xf 1.1.0 is the first release since 1.0.3 in March 2026. The headline additions are MPE
+support built on a new per-voice modulation matrix, import and conversion of OB-Xd patches and
+banks, the Patch Mutator, tabbed settings panels for MPE and MTS-ESP, CLAP preset discovery and
+remote controls, and a rewritten voice renderer that runs four voices at a time.
+
+## MPE
+
+- Added MPE support!
+- Added a per-voice modulation matrix, which allows routing the five MPE gestures (Bend, Press, Slide, Strike, Lift) between 23 different destinations
+- MPE Glide can be optionally smoothed (see Menu -> MPE)
+- Added basic RPN handling; RPN 0 sent on the MPE global channel sets the global pitch bend range
+
+## Tuning
+
+- Added MTS-ESP settings panel, showing connection status, the active scale, and Dynamic mode toggle
+  - Dynamic mode simply means that any scale updates happening during a note will be applied in realtime.
+    This enables scale-aware pitch bend and MPE glides
+- Long scale names will show their full name when hovering above the MTS-ESP status display
+- Added support for MTS-ESP sources with multi-channel tuning tables
+
+## Patch Management
+
+- Clicking the RAND button now mutates the current patch instead of randomizing all parameters.
+  - This method produces usable results far more often
+  - Right-clicking the RAND button offers selecting which sections should be affected by mutation
+- OB-Xd patches and banks can now be imported and converted — `.fxp` and `.fxb` files load from the menu or by drag and drop
+  - Init patches are skipped when importing a bank, and the bank filename is attached to each imported patch as its Project
+- Added "Set Current Patch as Default" function
+- Deleting a patch now asks for confirmation
+- Hovering the patch name now always shows a bubble with the patch's category, plus author and project, if set
+- Right-clicking the patch name now opens the Patch Browser
+- Added more factory patches and updated several existing ones
+
+## DSP
+
+- Added Osc 2 Keytrack function. With keytracking off, Osc 2 holds at middle C and the Osc 2 Pitch knob
+  adjusts from there
+- Added Voice Reassign function, which reuses the same voice when the same key is played repeatedly
+- Parameter smoothing is now sample rate invariant
+- Fixed MIDI CC smoothing not working properly
+- The voice counter now resets when polyphony changes
+- Fixed a crash when stealing voices in HIGHEST mode with all voices at or above MIDI note 120
+
+## User Interface
+
+- Added a lock for the Pitch Bend Up/Down and HQ parameters, so their values are carried through patch changes
+- Filter Cutoff is now displayed in kHz units above 1 kHz
+- Osc 2 Detune now displays its true range - the maximum is 60 cents, not 100
+- Mousewheel handling on dropdown lists no longer occasionally skips an entry, which mostly affected ratcheted wheels
+- User interface now re-derives its size when the theme changes, so switching to a theme with a different size
+  no longer leaves the window at the old size and misplaced widgets
+- Default themes are pinned to the top of the theme list, and themes are rescanned when the menu is opened
+- Filter sub-panels now properly update on patch load and undo
+
+## Themes
+
+- Added the Vintage Wood theme
+- Updated both Default and Default Vector themes to support the new features
+- Text input widget color can now be specified in the theme file
+- Fixed the Vibrato LFO Wave button being assigned the wrong asset in both themes
+- Minor tweaks and fixes to the two default themes
+
+## Undo
+
+- Randomize and various non-parameter changes are now undoable
+- Fixed undo history spam in Ableton Live on patch change
+
+## Host Integration
+
+- Added CLAP preset discovery
+- Added CLAP remote controls
+- Parameters are now grouped by UI section for hosts that display parameter hierarchies
+- VST3 now receives MIDI program changes
+- Host-side context menus are disabled in DaVinci Resolve and in hosts JUCE cannot identify
+- Fixed dropdown list values not round-tripping through host-side context menus
+- Fixed parameter updates being dropped when initializing a patch, which could leave a parameter (say, a long envelope attack) at its previous value
+
+## Performance
+
+- The DSP engine now renders in blocks instead of one sample at a time
+- Voice control, envelopes, oscillators and filter are now processed four voices at a time via SIMD
+- The BLEP and BLAMP tables were transposed to a row-major layout so lookups read contiguously
+- Oscillator and noise color paths are now unbranched
+- Smoothers now run from precomputed coefficients
+- Entering MIDI learn mode no longer rescans all 128 CCs for every learnable widget
+- The all-voices-silent check is now cached rather than recomputed per sample
+
+## Stability
+
+- MIDI events landing at or past the end of a block are no longer dropped
+- Fixed crashes and stale widget state in the Save Patch dialog after a theme reload
+- Fixed a crash when deleting a patch after a browser rescan
+- Fixed a crash when restoring a session or patch with a corrupt version attribute
+- Fixed an out-of-bounds program index in `setCurrentProgram`
+- Fixed a data race between the editor and the audio thread in the parameter callback map
+- Fixed a heap read past the end and a size wraparound in the FXP loader
+
+## Infrastructure
+
+- Added a Catch2 test suite with golden value regression tests
+- Added an iOS/iPad target. Because of the GPLv3 license, this is self-build only and is not distributed
+- Added a Linux ARM build
+- Added Python bindings, including patch lookup and MPE matrix access
+- macOS builds moved to Xcode 16.2
+- On Linux, the user folder now lands in `Documents/Surge Synth Team/OB-Xf` when the XDG Documents folder is disabled, instead of straight in the home directory
+  - An existing `Documents/OB-Xf` folder is still used
+- The Linux release now builds on the Ubuntu 22 container
+- Corrected the `.deb` package dependencies to match what the binaries actually link and load

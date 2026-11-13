@@ -4,12 +4,17 @@
  * The light theme deliberately sits below the old near-white paper: #efece7 on
  * #262626 reads as paper rather than glare. That makes it the pairing most
  * likely to drift further down during a future tweak, so the floor is asserted
- * here rather than left to judgement. WCAG AAA for body text is 7:1.
+ * here rather than left to judgement.
+ *
+ * Surfaces target WCAG AAA for body text (7:1). A surface may drop to the AA
+ * floor (4.5:1) only with a `why` recorded against it, so the exception stays
+ * visible in review instead of being absorbed into the palette.
  *
  * Run: node scripts/check-contrast.mjs
  */
 
 const AAA_BODY_TEXT = 7;
+const AA_BODY_TEXT = 4.5;
 
 // Each pair is a surface as it is actually declared in src/layouts/base.css.
 // Gradients are checked against both stops, since text sits over the whole band.
@@ -26,7 +31,28 @@ const PAIRS = [
     { name: "accent (surge orange)", bg: "#ff9000", fg: "#171717" },
     { name: "deep top stop", bg: "#1d222a", fg: "#e5e5e5" },
     { name: "deep bottom stop", bg: "#004a82", fg: "#e5e5e5" },
-    { name: "ob-xf tide", bg: "#0055a7", fg: "#ffffff" },
+
+    // OB-Xf. The brand grey #727882 appears in none of these pairs on purpose:
+    // it reaches only 4.72:1 against black and 4.44:1 against white, so it is
+    // the scrollbar colour and nothing that sits behind text.
+    {
+        name: "ob-xf slate band",
+        bg: "#6b717a",
+        fg: "#ffffff",
+        floor: AA_BODY_TEXT,
+        why: "holds the OB-Xf GUI grey; AAA needs it 30% darker, which stops looking like the product",
+    },
+    {
+        name: "ob-xf download button",
+        bg: "#6b717a",
+        fg: "#ffffff",
+        floor: AA_BODY_TEXT,
+        why: "matches the slate band it sits above",
+    },
+    { name: "ob-xf link, light base", bg: "#efece7", fg: "#43474e" },
+    { name: "ob-xf link, light raised", bg: "#e5e1da", fg: "#43474e" },
+    { name: "ob-xf link, dark base", bg: "#171717", fg: "#adb3bd" },
+    { name: "ob-xf link, ink footer", bg: "#171717", fg: "#adb3bd" },
 ];
 
 const channel = (eightBit) => {
@@ -46,19 +72,33 @@ const contrast = (a, b) => {
 };
 
 let failed = 0;
+const exceptions = [];
 
-for (const { name, bg, fg } of PAIRS) {
+for (const { name, bg, fg, floor = AAA_BODY_TEXT, why } of PAIRS) {
     const ratio = contrast(bg, fg);
-    const ok = ratio >= AAA_BODY_TEXT;
+    const ok = ratio >= floor;
 
     if (!ok) failed++;
+    if (why) exceptions.push({ name, ratio, floor, why });
 
-    console.log(`${ok ? "pass" : "FAIL"}  ${ratio.toFixed(2)}:1  ${name}  (${fg} on ${bg})`);
+    const level = floor === AAA_BODY_TEXT ? "AAA" : "AA ";
+
+    console.log(
+        `${ok ? "pass" : "FAIL"}  ${level}  ${ratio.toFixed(2)}:1  ${name}  (${fg} on ${bg})`,
+    );
+}
+
+if (exceptions.length > 0) {
+    console.log(`\nHeld to the ${AA_BODY_TEXT}:1 AA floor rather than AAA:`);
+
+    for (const { name, ratio, why } of exceptions) {
+        console.log(`  ${name} — ${ratio.toFixed(2)}:1 — ${why}`);
+    }
 }
 
 if (failed > 0) {
-    console.error(`\n${failed} surface pair(s) below the ${AAA_BODY_TEXT}:1 AAA floor.`);
+    console.error(`\n${failed} surface pair(s) below their floor.`);
     process.exit(1);
 }
 
-console.log(`\nAll ${PAIRS.length} surface pairs meet the ${AAA_BODY_TEXT}:1 AAA floor.`);
+console.log(`\nAll ${PAIRS.length} surface pairs meet their floor.`);

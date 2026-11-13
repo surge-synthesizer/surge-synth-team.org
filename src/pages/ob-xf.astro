@@ -2,303 +2,144 @@
 import { Image } from "astro:assets";
 import obxf_build_stable from "../content/generated/obxf-build-stable.json" with { type: "json" };
 import obxf_build_nightly from "../content/generated/obxf-build-nightly.json" with { type: "json" };
+import Block from "../components/Block.astro";
+import Button from "../components/Button.astro";
+import Cell from "../components/Cell.astro";
 import DownloadButton from "../components/DownloadButton.astro";
+import DownloadMatrix from "../components/DownloadMatrix.astro";
 import NavHeader from "../components/NavHeader.astro";
+import SystemRequirements from "../components/SystemRequirements.astro";
 import ObxfCover from "../content/projects/screenshots/ob-xf_3d_render.png";
 import Base from "../layouts/Base.astro";
 
 const navLinks = [
     ["Manual", "/ob-xf/manual/getting-started/"],
     ["Changelog", "/ob-xf-changelog/"],
-    ["FAQ", "#faq"],
-    ["About", "#about"],
+    ["Downloads", "#downloads"],
 ] as const;
 
-const stableLinks = [
-    { label: "Windows 64-bit", href: obxf_build_stable.releases.win64 },
-    { label: "macOS 64-bit", href: obxf_build_stable.releases.macos },
-    { label: "Linux 64-bit", href: obxf_build_stable.releases.linux64 },
+const platformLinks = (releases: { win64: string; macos: string; linux64: string }) => [
+    { label: "Windows 64-bit", href: releases.win64 },
+    { label: "macOS 64-bit", href: releases.macos },
+    { label: "Linux 64-bit", href: releases.linux64 },
 ];
-const nightlyLinks = [
-    { label: "Windows 64-bit", href: obxf_build_nightly.releases.win64 },
-    { label: "macOS 64-bit", href: obxf_build_nightly.releases.macos },
-    { label: "Linux 64-bit", href: obxf_build_nightly.releases.linux64 },
+
+const systemRequirements = [
+    {
+        name: "Windows",
+        items: [
+            "Windows 10 or above",
+            "Recommended: Windows 10 or newer, 3 GHz quad-core processor",
+            "8 GB RAM or above",
+            "VST3 or CLAP compatible host application",
+        ],
+    },
+    {
+        name: "macOS",
+        items: [
+            "macOS 10.15 or above",
+            "8 GB RAM or above",
+            "VST3, AU or CLAP compatible host application",
+        ],
+    },
+    {
+        name: "Linux",
+        items: [
+            "PC or ARM system running a Linux distribution",
+            "8 GB RAM or above",
+            "VST3, CLAP or LV2 compatible host application",
+        ],
+    },
 ];
 ---
 
-<Base title="OB-Xf">
+<Base title="OB-Xf" project="ob-xf">
     <NavHeader slot="nav" links={navLinks} currentProject="ob-xf" />
 
     <main>
-        <section class="w-full bg-white py-8 md:h-[500px] md:py-0 dark:bg-neutral-900">
-            <div class="flex h-full max-w-none flex-col items-center md:flex-row">
-                <div class="flex flex-1 items-center px-6 py-8 md:py-0 md:pl-12">
-                    <div class="max-w-xl space-y-4">
-                        <img
-                            src="/images/obxf_logo.svg"
-                            alt="OB-Xf logo"
-                            class="invert-in-light h-20 w-auto md:h-28"
-                        />
-                        <p class="max-w-prose text-base text-neutral-800 dark:text-neutral-200">
-                            OB-Xf is a continuation and modernization of the last open source
-                            release of OB-Xd. It is inspired by the venerable Oberheim OB-X.
-                        </p>
-                        <div class="flex flex-wrap gap-3">
-                            <DownloadButton
-                                windows={obxf_build_stable.releases.win64}
-                                mac={obxf_build_stable.releases.macos}
-                                linux={obxf_build_stable.releases.linux64}
-                                other={obxf_build_stable.releases.other}
-                                label={`Download ${obxf_build_stable.version}`}
-                                id="obxf-release-link"
-                                buttonClass="inline-flex items-center justify-center rounded-md bg-surge-orange px-4 py-2 font-semibold text-neutral-900 no-underline shadow-md hover:bg-surge-orange-bright"
-                            />
-                            <a
-                                href="https://github.com/surge-synthesizer/OB-Xf"
-                                class="inline-flex items-center justify-center rounded-md border border-neutral-900/25 px-4 py-2 font-semibold text-inherit no-underline hover:bg-neutral-900/5 dark:border-neutral-100/25 dark:hover:bg-neutral-100/10">
-                                View on GitHub
-                            </a>
-                        </div>
-                        <a
-                            href={obxf_build_stable.releases.other}
-                            class="text-sm text-inherit underline underline-offset-2 hover:opacity-75">
-                            Install for other platforms
-                        </a>
-                    </div>
-                </div>
-                <div class="flex h-[250px] flex-1 items-center justify-center md:h-full">
-                    <Image
-                        src={ObxfCover}
-                        alt="OB-Xf interface screenshot"
-                        quality="100"
-                        format="png"
-                        class="h-full max-h-[400px] w-full object-contain"
+        <Block surface="base" layout="split" class="md:min-h-[500px]">
+            <Cell>
+                <img
+                    src="/images/obxf_logo.svg"
+                    alt="OB-Xf logo"
+                    class="invert-in-light h-20 w-auto self-start md:h-28"
+                />
+                <p class="mt-4 max-w-prose">
+                    OB-Xf is a continuation and modernization of the last open source release of
+                    OB-Xd. It is inspired by the venerable Oberheim OB-X.
+                </p>
+                <div class="mt-6 flex flex-wrap items-center gap-3">
+                    <DownloadButton
+                        windows={obxf_build_stable.releases.win64}
+                        mac={obxf_build_stable.releases.macos}
+                        linux={obxf_build_stable.releases.linux64}
+                        other={obxf_build_stable.releases.other}
+                        label={`Download ${obxf_build_stable.version}`}
+                        id="obxf-release-link"
+                        buttonClass="button button-solid"
                     />
+                    <Button href="https://github.com/surge-synthesizer/OB-Xf">View on GitHub</Button
+                    >
                 </div>
-            </div>
-        </section>
-<!-- 
-        <section class="w-full bg-surge-orange/10 py-8 md:h-[450px] md:py-0">
-            <div class="flex h-full max-w-none flex-col md:flex-row">
-                <div class="h-[250px] flex-1 md:h-full">
-                    <img
-                        src="https://placehold.co/1200x800/png"
-                        alt="Feature 1"
-                        class="h-full w-full object-cover"
-                    />
-                </div>
-                <div class="flex flex-1 items-center px-4 py-8 md:py-0">
-                    <div>
-                        <h2 class="text-3xl font-bold">Feature 1</h2>
-                        <p class="mt-4 text-lg text-neutral-800 dark:text-neutral-200">
-                            Short description placeholder for an OB-Xf capability.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <p class="mt-4">
+                    <a href={obxf_build_stable.releases.other}>Install for other platforms</a>
+                </p>
+            </Cell>
 
-        <section class="w-full bg-white py-8 md:h-[450px] md:py-0 dark:bg-neutral-900">
-            <div class="flex h-full max-w-none flex-col md:flex-row-reverse">
-                <div class="h-[250px] flex-1 md:h-full">
-                    <img
-                        src="https://placehold.co/1200x800/png"
-                        alt="Feature 2"
-                        class="h-full w-full object-cover"
-                    />
-                </div>
-                <div class="flex flex-1 items-center px-4 py-8 md:py-0">
-                    <div>
-                        <h2 class="text-3xl font-bold">Feature 2</h2>
-                        <p class="mt-4 text-lg text-neutral-800 dark:text-neutral-200">
-                            Short description placeholder for a workflow improvement.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+            <Cell padded={false} class="min-h-[250px] md:min-h-0">
+                <Image
+                    src={ObxfCover}
+                    alt="OB-Xf interface screenshot"
+                    quality="100"
+                    format="png"
+                    class="h-full max-h-[400px] w-full object-contain"
+                />
+            </Cell>
+        </Block>
 
-        <section class="w-full bg-surge-orange/10 py-8 md:h-[450px] md:py-0">
-            <div class="flex h-full max-w-none flex-col md:flex-row">
-                <div class="h-[250px] flex-1 md:h-full">
-                    <img
-                        src="https://placehold.co/1200x800/png"
-                        alt="Feaure 3"
-                        class="h-full w-full object-cover"
-                    />
-                </div>
-                <div class="flex flex-1 items-center px-4 py-8 md:py-0">
-                    <div>
-                        <h2 class="text-3xl font-bold">Feature 3</h2>
-                        <p class="mt-4 text-lg text-neutral-800 dark:text-neutral-200">
-                            Short description placeholder for sound design options.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
--->
-
-        <section id="manual" class="mx-auto w-full max-w-6xl px-4 py-12">
+        <Block id="manual" surface="raised" layout="prose">
             <h2 class="text-2xl font-bold">Manual</h2>
-            <p class="mt-2 max-w-prose text-sm">
-                The OB-Xf manual is now available as dedicated docs powered by Astro Starlight.
+            <p class="mt-2 max-w-prose">
+                The OB-Xf manual is available as dedicated docs powered by Astro Starlight.
             </p>
-            <a
-                href="/ob-xf/manual/getting-started/"
-                class="mt-4 inline-flex items-center justify-center rounded-md bg-surge-blue px-4 py-2 font-semibold text-white no-underline hover:bg-surge-blue/90 dark:bg-surge-blue2 dark:text-neutral-900 dark:hover:bg-surge-blue2/90">
-                Open Manual
-            </a>
-        </section>
+            <Button class="mt-6" href="/ob-xf/manual/getting-started/">Open Manual</Button>
+        </Block>
 
-        <!-- <ChangelogSection productName="OB-Xf" nightly={obxf_build_nightly} /> -->
+        <Block id="downloads" surface="slate" layout="split">
+            <Cell align="start">
+                <SystemRequirements platforms={systemRequirements} />
+            </Cell>
 
-<!-- 
-        <section
-            id="faq"
-            class="border-y border-surge-blue/20 bg-linear-to-b from-surge-blue/10 to-neutral-900/5 px-4 py-12 dark:border-surge-blue2/30 dark:from-surge-blue/15 dark:to-neutral-100/5">
-            <div class="mx-auto w-full max-w-6xl">
-                <h2 class="text-2xl font-bold">FAQ</h2>
-                <div class="mt-6 space-y-3">
-                    <details
-                        class="rounded-lg border border-surge-blue/25 bg-white/80 p-4 shadow-sm dark:border-surge-blue2/35 dark:bg-neutral-800/80">
-                        <summary class="cursor-pointer font-semibold"
-                            >Question placeholder #1</summary
-                        >
-                        <p class="mt-2 text-sm">Answer placeholder text.</p>
-                    </details>
-                    <details
-                        class="rounded-lg border border-surge-blue/25 bg-white/80 p-4 shadow-sm dark:border-surge-blue2/35 dark:bg-neutral-800/80">
-                        <summary class="cursor-pointer font-semibold"
-                            >Question placeholder #2</summary
-                        >
-                        <p class="mt-2 text-sm">Answer placeholder text.</p>
-                    </details>
-                </div>
-            </div>
-        </section>
--->
-
-<!--
-        <section id="about" class="mx-auto w-full max-w-6xl px-4 py-12">
-            <h2 class="text-2xl font-bold">About</h2>
-            <p class="mt-2 max-w-prose text-sm">
-                Placeholder section for project background, contributors, and links.
-            </p>
-            <div
-                class="mt-4 rounded-lg border border-dashed border-neutral-900/30 p-6 text-sm dark:border-neutral-100/30">
-                Add about text, logos, and team imagery here.
-            </div>
-        </section>
- -->
-        {/* System Requirements & Downloads Hero */}
-        <section class="w-full bg-surge-blue py-12 text-white">
-            <div class="mx-auto flex max-w-6xl flex-col gap-20 px-10 md:flex-row md:items-start">
-                {/* Specs */}
-                <div class="flex-1">
-                    <h2 class="mb-8 text-4xl font-bold">System Requirements</h2>
-                    <div class="space-y-12 text-sm">
-                        <div>
-                            <h3 class="mb-4 text-2xl font-bold">Windows</h3>
-                            <ul class="ml-8 list-disc text-base">
-                                <li>Windows 10 or above</li>
-                                <li>
-                                    Recommended: Windows 10 or newer, 3 GHz quad-core processor.
-                                </li>
-                                <li>8 GB RAM or above</li>
-                                <li>VST3 or CLAP compatible host application</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="mb-4 text-2xl font-bold">macOS</h3>
-                            <ul class="ml-8 list-disc text-base">
-                                <li>macOS 10.15 or above</li>
-                                <li>8 GB RAM or above</li>
-                                <li>VST3, AU or CLAP compatible host application</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="mb-4 text-2xl font-bold">Linux</h3>
-                            <ul class="ml-8 list-disc text-base">
-                                <li>PC or ARM system running a Linux distribution</li>
-                                <li>8 GB RAM or above</li>
-                                <li>VST3, CLAP or LV2 compatible host application</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Downloads */}
-                <div class="flex flex-1 flex-col items-start md:items-start">
-                    <div class="w-full max-w-xs">
-                        <h2 class="mb-0 p-0 text-4xl font-bold">Download OB-Xf</h2>
-                        <span class="mt-4 mb-2 block text-2xl font-semibold"
-                            >Version {obxf_build_stable.version}</span
-                        >
-                        <ul class="mt-2 ml-5 list-disc space-y-1">
-                            {
-                                stableLinks.map((link) => (
-                                    <li>
-                                        <a
-                                            href={link.href}
-                                            class={`} text-white underline underline-offset-4 hover:opacity-80`}
-                                            style="text-decoration-style: dotted; text-underline-offset: 4px;">
-                                            {link.label}
-                                        </a>
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                        <a
-                            href={obxf_build_stable.releases.other}
-                            class="text-md mt-4 block text-white underline underline-offset-4 hover:opacity-80"
-                            style="text-decoration-style: dotted; text-underline-offset: 4px;">
-                            All available downloads
-                        </a>
-                    </div>
-                    <div class="mt-8 w-full max-w-xs">
-                        <span class="mt-1 mb-2 text-2xl font-semibold">Nightly Builds</span>
-                        <ul class="mt-2 ml-5 list-disc space-y-1">
-                            {
-                                nightlyLinks.map((link) => (
-                                    <li>
-                                        <a
-                                            href={link.href}
-                                            class={`} text-white underline underline-offset-4 hover:opacity-80`}
-                                            style="text-decoration-style: dotted; text-underline-offset: 4px;">
-                                            {link.label}
-                                        </a>
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                        <a
-                            href={obxf_build_nightly.releases.other}
-                            class="text-md mt-4 block text-white underline underline-offset-4 hover:opacity-80"
-                            style="text-decoration-style: dotted; text-underline-offset: 4px;">
-                            All available nightly downloads
-                        </a>
-                        <!-- <a
-                            href="#"
-                            class="text-md mt-1 block pt-2 text-white underline underline-offset-4 hover:opacity-80"
-                            style="text-decoration-style: dotted; text-underline-offset: 4px;">
-                            More info about nightly builds
-                        </a> -->
-                    </div>
-                </div>
-            </div>
-        </section>
+            <Cell align="start">
+                <DownloadMatrix
+                    heading="Download OB-Xf"
+                    channels={[
+                        {
+                            label: `Version ${obxf_build_stable.version}`,
+                            links: platformLinks(obxf_build_stable.releases),
+                            all: {
+                                label: "All available downloads",
+                                href: obxf_build_stable.releases.other,
+                            },
+                        },
+                        {
+                            label: "Nightly Builds",
+                            links: platformLinks(obxf_build_nightly.releases),
+                            all: {
+                                label: "All available nightly downloads",
+                                href: obxf_build_nightly.releases.other,
+                            },
+                        },
+                    ]}
+                />
+            </Cell>
+        </Block>
     </main>
-    <footer class="w-full bg-neutral-900 py-12 text-white">
-        <div class="mx-auto max-w-6xl px-4 text-center text-base">
-            This project is maintained by the community at the
-            <a
-                href="https://github.com/surge-synthesizer/OB-Xf"
-                class="text-surge-orange underline underline-offset-4 hover:opacity-80"
-                target="_blank"
-                rel="noopener">OB-Xf</a
-            >
-            open source project on GitHub.
-        </div>
-    </footer>
+
+    <Block as="footer" surface="ink" layout="prose" class="text-center">
+        This project is maintained by the community at the
+        <a href="https://github.com/surge-synthesizer/OB-Xf" target="_blank" rel="noopener">OB-Xf</a
+        >
+        open source project on GitHub.
+    </Block>
 </Base>
