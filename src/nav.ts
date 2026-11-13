@@ -53,6 +53,19 @@ async function aboutLinks(scope: "org" | "product"): Promise<NavItem[]> {
 }
 
 /**
+ * Changelogs are detected the same way as manuals: from the content, not from a
+ * field someone has to remember to set. A product may have a changelog/ folder
+ * prepared and empty — a release whose notes are not written, or not wanted —
+ * and an empty folder must not put a dead Changelog in the nav.
+ */
+async function changelogHref(slug: string) {
+    const changelogs = await getCollection("changelogs");
+    const hasNotes = changelogs.some((entry) => entry.data.product === slug);
+
+    return hasNotes ? `/${slug}/changelog/` : undefined;
+}
+
+/**
  * Manuals are detected from the docs collection rather than from the `manual`
  * field, which is populated on only one product today and would silently go
  * stale. `/<slug>/manual/` resolves through the redirects in astro.config.ts,
@@ -97,13 +110,15 @@ export async function buildNav(currentProject?: string | null): Promise<Nav> {
         };
     }
 
-    const { nav, repo, manual, changelog } = project.data;
+    const { nav, repo, manual } = project.data;
     const extraGroups = nav?.groups ?? {};
 
     const documentation: NavItem[] = [];
     const href = await manualHref(currentProject, manual);
 
     if (href) documentation.push({ label: "Manual", href });
+    const changelog = await changelogHref(currentProject);
+
     if (changelog) documentation.push({ label: "Changelog", href: changelog });
 
     const skeleton: Record<string, NavItem[]> = { Documentation: documentation, Extras: [] };

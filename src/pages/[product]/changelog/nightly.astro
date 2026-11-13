@@ -1,0 +1,63 @@
+---
+import { getCollection, render } from "astro:content";
+import Block from "../../../components/Block.astro";
+import Button from "../../../components/Button.astro";
+import NavHeader from "../../../components/NavHeader.astro";
+import SiteFooter from "../../../components/SiteFooter.astro";
+import Base from "../../../layouts/Base.astro";
+
+/*
+ * Notes for a release that has not shipped. Linked from the product's changelog
+ * on purpose — it is how unreleased documentation gets reviewed in place — but
+ * noindex, so it never outranks the released notes in a search engine.
+ */
+export async function getStaticPaths() {
+    const changelogs = await getCollection("changelogs");
+    const slugs = new Set(
+        changelogs.filter((entry) => entry.data.nightly).map((entry) => entry.data.product),
+    );
+
+    return [...slugs].map((slug) => ({ params: { product: slug } }));
+}
+
+const { product } = Astro.params;
+
+const projects = await getCollection("projects");
+const title = projects.find((entry) => entry.id === product)?.data.title ?? product;
+
+const entries = (await getCollection("changelogs"))
+    .filter((entry) => entry.data.product === product && entry.data.nightly)
+    .sort((a, b) => b.data.order - a.data.order);
+
+const rendered = await Promise.all(
+    entries.map(async (entry) => ({ entry, Content: (await render(entry)).Content })),
+);
+---
+
+<Base title={`${title} Unreleased Changes`} project={product} noindex>
+    <NavHeader slot="nav" currentProject={product} />
+
+    <main>
+        <Block surface="base" layout="prose">
+            <h1 class="text-4xl font-extrabold">{title} unreleased changes</h1>
+            <p class="mt-4">
+                These notes describe a release that has not shipped yet, and will change before it
+                does.
+            </p>
+            <Button class="mt-6" href={`/${product}/changelog/`}>Released changes</Button>
+        </Block>
+
+        {
+            rendered.map(({ entry, Content }, index) => (
+                <Block surface={index % 2 === 0 ? "raised" : "base"} layout="prose">
+                    <article class="!max-w-none !p-0">
+                        <h2>{entry.data.title}</h2>
+                        <Content />
+                    </article>
+                </Block>
+            ))
+        }
+    </main>
+
+    <SiteFooter />
+</Base>

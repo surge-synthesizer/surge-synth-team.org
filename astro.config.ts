@@ -7,6 +7,8 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
     vite: { plugins: [tailwindcss()] },
     redirects: {
+        // The changelog moved under its product when content went product-first.
+        "/ob-xf-changelog": "/ob-xf/changelog/",
         "/ob-xf/manual/": "/ob-xf/manual/getting-started/",
         "/spectrumworx/manual/": "/spectrumworx/manual/getting-started/",
         "/shortcircuit-xt/manual/": "/shortcircuit-xt/manual/getting-started/",

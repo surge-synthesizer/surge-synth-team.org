@@ -4,16 +4,15 @@ import spectrumworx_build_nightly from "../content/generated/spectrumworx-build-
 import Block from "../components/Block.astro";
 import Button from "../components/Button.astro";
 import Cell from "../components/Cell.astro";
-import ChangelogSection from "../components/ChangelogSection.astro";
 import DownloadButton from "../components/DownloadButton.astro";
 import FaqList from "../components/FaqList.astro";
 import NavHeader from "../components/NavHeader.astro";
-import SpectrumWorxCover from "../content/projects/screenshots/spectrumworx.png";
+import SpectrumWorxCover from "../content/products/spectrumworx/images/spectrumworx.png";
 import Base from "../layouts/Base.astro";
 import SiteFooter from "../components/SiteFooter.astro";
-import spectrumworx_logo from "../images/spectrumworx/spectrumworx_logo_full.svg";
+import spectrumworx_logo from "../content/products/spectrumworx/images/spectrumworx_logo_full.svg";
 
-// Unlisted on purpose: no src/content/projects/spectrumworx.json means this page
+// Unlisted on purpose: no src/content/products/spectrumworx/meta.json means this page
 // is absent from the home page and both nav project menus. See the note below.
 
 /*
@@ -106,8 +105,8 @@ const faq = [
                     <code>projects</code> content collection and SpectrumWorx has no entry in it.
                 </p>
                 <p class="mt-2 max-w-prose">
-                    To make it live, create <code>src/content/projects/spectrumworx.json</code>
-                    alongside the other project files (<code>title</code>, <code>order</code>,
+                    To make it live, create <code>src/content/products/spectrumworx/meta.json</code>
+                    alongside its manual and images (<code>title</code>, <code>order</code>,
                     <code>summary</code>, <code>cover</code>, <code>categories</code>,
                     <code>issue_tracker</code>, <code>repo</code>), add
                     <code>"spectrumworx"</code> to the exclusion list in
@@ -136,10 +135,6 @@ const faq = [
                 module in turn.
             </p>
             <Button class="mt-6" href="/spectrumworx/manual/">Open Manual</Button>
-        </Block>
-
-        <Block id="changelog" surface="base" layout="prose">
-            <ChangelogSection productName="SpectrumWorx" nightly={spectrumworx_build_nightly} />
         </Block>
 
         <Block id="faq" surface="raised" layout="prose">

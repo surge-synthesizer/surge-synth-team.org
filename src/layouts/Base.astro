@@ -5,9 +5,11 @@ import "./base.css";
 interface Props {
     title: string;
     project?: string;
+    /** Unreleased content: linked on purpose, but not for search engines. */
+    noindex?: boolean;
 }
 
-const { title, project } = Astro.props;
+const { title, project, noindex = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -36,6 +38,7 @@ const { title, project } = Astro.props;
         <meta property="og:image:height" content="600" />
         <meta property="ig:image:alt" content="Surge Synth Team" />
         <meta property="og:type" content="website" />
+        {noindex && <meta name="robots" content="noindex, follow" />}
         <link rel="icon" href="/favicon.ico" />
         <link
             rel="preload"
