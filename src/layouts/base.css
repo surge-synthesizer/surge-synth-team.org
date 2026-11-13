@@ -46,14 +46,36 @@
         --color-product-track: var(--color-spectrumworx-gray);
     }
 
-    /* Surge blue (#005cb6) darkened ~8%. The brand colour itself reaches only
-       6.55:1 against white, so a band carrying body text misses AAA; the brand
-       token stays untouched and the surface carries the adjustment. */
+    /* OB-Xf's GUI grey. A mid-grey is the hard case for contrast: #727882 tops
+       out at 4.72:1 against black and 4.44:1 against white, so it cannot carry
+       body text at either polarity. It stays the brand token — scrollbar, and
+       anything that is not text — while surfaces take lightness-shifted
+       variants of the same hue. */
     html[data-project="ob-xf"] {
-        --surface-tide-bg: #0055a7;
-        --surface-tide-fg: #ffffff;
-        --surface-tide-link: #ffffff;
-        --surface-tide-solid: #0055a7;
+        --color-product: #727882;
+
+        --paper-link: #43474e;
+
+        /* The brand grey itself, 6% darker — enough to clear AA behind white
+           body text (4.92:1 against 4.44:1), little enough to still read as the
+           GUI colour. Going dark enough for AAA means a 30% drop, which no
+           longer looks like OB-Xf. */
+        --surface-slate-bg: #6b717a;
+        --surface-slate-fg: #ffffff;
+        --surface-slate-link: #ffffff;
+        --surface-slate-solid: #6b717a;
+
+        --surface-accent-bg: var(--surface-slate-bg);
+        --surface-accent-fg: var(--surface-slate-fg);
+        --surface-accent-solid: var(--surface-slate-solid);
+
+        --surface-ink-link: #adb3bd;
+    }
+
+    /* Beats the generic dark rule below, which aims --paper-link at the brand
+       token — too dark against dark paper at 4.03:1. */
+    html[data-project="ob-xf"][data-theme="dark"] {
+        --paper-link: #adb3bd;
     }
 
     /* A surface declares background, foreground and link colour together, so a
@@ -158,8 +180,13 @@
         color: var(--block-fg);
     }
 
-    .block a {
+    /* Underlined, not just tinted: OB-Xf's link grey is near-neutral, so colour
+       alone would not mark a link (WCAG 1.4.1). Matches the Surge site's
+       existing dotted style. */
+    .block a:not(.button) {
         color: var(--block-link);
+        text-decoration: underline dotted;
+        text-underline-offset: 4px;
     }
 
     .block-prose > .block-inner {
@@ -180,9 +207,6 @@
         }
     }
 
-    /* Outranks `.block a` on specificity, which is the whole point: a button is
-       not a link in the surface's link colour. */
-    .block a.button,
     a.button {
         @apply block w-fit rounded-lg border-4 p-4 text-center text-lg font-bold no-underline duration-300;
         border-color: currentColor;
@@ -190,22 +214,22 @@
         color: var(--block-fg, var(--surface-base-fg));
     }
 
-    .block a.button:hover,
     a.button:hover {
         background: var(--block-fg, var(--surface-base-fg));
         color: var(--block-solid, var(--surface-base-solid));
     }
 
-    .block a.button-solid,
+    /* A solid button is the accent surface in miniature, so it reads its colours
+       from there rather than from --color-product: a brand colour good enough
+       for a scrollbar is not always good enough behind 18px text. */
     a.button-solid {
-        background: var(--color-product);
+        background: var(--surface-accent-bg);
         border-color: transparent;
         color: var(--surface-accent-fg);
     }
 
-    .block a.button-solid:hover,
     a.button-solid:hover {
-        background: var(--color-product);
+        background: var(--surface-accent-bg);
         color: var(--surface-accent-fg);
         filter: brightness(1.15);
     }
