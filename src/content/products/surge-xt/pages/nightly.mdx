@@ -1,0 +1,83 @@
+---
+title: Surge XT Nightly Builds
+---
+
+import nightly from "~/content/generated/surge-build-nightly.json";
+
+**Current build: {nightly.version}, built at {nightly.build_time}**
+
+Every available format for the latest nightly is on
+[its GitHub release page](https://github.com/surge-synthesizer/surge/releases/tag/Nightly). For
+convenience, direct links for our most popular platforms are below.
+
+<ul>
+    <li>
+        <a href={nightly.releases.win64}>Windows 64-bit (Standalone, CLAP, VST3)</a>
+    </li>
+    <li>
+        <a href={nightly.releases.macos}>macOS Intel/ARM universal (Standalone, AU, CLAP, VST3)</a>
+    </li>
+    <li>
+        <a href={nightly.releases.linux64}>Linux x64 (Standalone, CLAP, LV2, VST3)</a> - .deb built
+        on Ubuntu 18.04 with gcc 11
+    </li>
+</ul>
+
+Linux users can also find nightly builds for a wide variety of distributions and architectures,
+including aarch64 for Raspberry Pi, among our
+[Open Build Service `surge-xt-nightly` builds](https://software.opensuse.org//download.html?project=home%3Asurge-synth-team&package=surge-xt-nightly).
+
+Note that the direct links above can break for 90 to 120 seconds while we are releasing a new build.
+The all-formats link is always valid.
+
+The draft changelog for the next release is [here](/surge-xt/changelog/nightly).
+
+Testing the nightlies is how the final release gets good, though, and we need and welcome your
+feedback - either on [GitHub](https://github.com/surge-synthesizer/surge/issues) or on
+[Discord](https://discord.gg/spGANHw).
+
+## Recent changes
+
+<ul>
+    {nightly.recent_commits.map((entry) => (
+        <li>
+            <a href={`https://github.com/surge-synthesizer/surge/commit/${entry.commit}`}>
+                {entry.commit}
+            </a>
+            {" - "}
+            {/* Issue references in a commit subject become links to the issue. */}
+            {entry.message
+                .split(/(#\d+)/g)
+                .map((part) =>
+                    /^#\d+$/.test(part) ? (
+                        <a
+                            href={`https://github.com/surge-synthesizer/surge/issues/${part.slice(1)}`}>
+                            {part}
+                        </a>
+                    ) : (
+                        part
+                    ),
+                )}
+            {" - "}
+            {entry.author}
+        </li>
+    ))}
+</ul>
+
+## Caveats
+
+Please take a moment to understand the nightlies. We build Surge XT automatically for all our
+platforms on every commit to the
+[main branch](https://github.com/surge-synthesizer/surge), which means the code you are about to
+download may be minutes old. Depending on the pace of development, it could contain bugs and new
+features that do not work, and it may even make patches that future Surge XT versions load
+differently, incorrectly, or not at all.
+
+Our minimum advice if you use the nightlies is to **put a limiter on the output**. We have made DSP
+errors in nightlies before, which created nasty clicks and pops, and in the worst cases sudden
+blasts of noise.
+
+Despite that warning, we work really hard to make the nightlies good. Most of the Surge Synth Team
+runs nightlies in their own music-making environment, and the software is generally stable and
+robust. Using the nightly, finding a bug and letting us know is how bugs get fixed - see
+[contact](/contact) for how to reach us.

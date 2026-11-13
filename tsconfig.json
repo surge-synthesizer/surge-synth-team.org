@@ -1,7 +1,13 @@
 {
     "extends": "astro/tsconfigs/strictest",
     "compilerOptions": {
-        "plugins": [{ "name": "@astrojs/ts-plugin" }]
+        "plugins": [{ "name": "@astrojs/ts-plugin" }],
+        // Content sits four levels deep under src/content/products/<slug>/pages/,
+        // so a page reaching for a component would otherwise open with
+        // "../../../../". Astro reads these paths through Vite, so they resolve
+        // in .astro, .ts and .mdx alike.
+        "baseUrl": ".",
+        "paths": { "~/*": ["src/*"] }
     },
     "include": [".astro/types.d.ts", "**/*"],
     "exclude": ["dist"]

@@ -49,6 +49,9 @@
         }
     }
 
+    /** Identifies the in-flight animation, so a newer one can retire it. */
+    let animation = 0;
+
     function scrollTo(element: Element) {
         reveal(element);
 
@@ -61,35 +64,49 @@
 
         if (Math.abs(to - from) < 2) return;
 
-        /*
-         * The CSS fallback has to be switched off for the duration, not merely
-         * opted out of per call: a browser that does not honour
-         * behavior:"instant" falls back to "auto", which inherits
-         * scroll-behavior:smooth and starts a fresh smooth scroll on every
-         * frame. They compound, and the longer the page the slower the result.
-         */
-        const root = document.documentElement;
-        const previous = root.style.scrollBehavior;
-
-        root.style.scrollBehavior = "auto";
-
         const started = performance.now();
         const total = duration();
+        // A second click mid-animation would otherwise leave two rAF loops
+        // writing to window.scrollY on the same frame, each pulling toward its
+        // own target.
+        const ours = ++animation;
 
         function step(now: number) {
+            if (ours !== animation) return;
+
             const progress = Math.min(1, (now - started) / total);
 
             window.scrollTo(0, from + (to - from) * easeOut(progress));
 
-            if (progress < 1) {
-                requestAnimationFrame(step);
-            } else {
-                root.style.scrollBehavior = previous;
-            }
+            if (progress < 1) requestAnimationFrame(step);
         }
 
         requestAnimationFrame(step);
     }
+
+    /*
+     * Hand scrolling back to the browser's own instant behaviour.
+     *
+     * The stylesheet sets scroll-behavior:smooth as the no-JavaScript fallback,
+     * but that applies to every scroll the browser initiates - the keyboard,
+     * and clicking the scrollbar track - not only to following an anchor. The
+     * browser picks the duration from the distance, so on a long page a single
+     * PageDown crawls. With this component running, anchors are animated here
+     * instead and the fallback is no longer wanted.
+     *
+     * It also removes the compounding the old per-animation toggle guarded
+     * against: a browser that ignores behavior:"instant" falls back to "auto",
+     * inherits smooth, and starts a fresh smooth scroll on every frame.
+     *
+     * Reapplied after each navigation: ClientRouter swaps the document, and the
+     * incoming <html> carries the stylesheet's value again.
+     */
+    function ownScrolling() {
+        document.documentElement.style.scrollBehavior = "auto";
+    }
+
+    ownScrolling();
+    document.addEventListener("astro:page-load", ownScrolling);
 
     function onClick(event: MouseEvent) {
         if (event.defaultPrevented || event.button !== 0) return;

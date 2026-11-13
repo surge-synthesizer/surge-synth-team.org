@@ -1,0 +1,8 @@
+{
+    "name": "Andromeda",
+    "order": 2,
+    "author": "Leo Nordmann",
+    "download": "https://github.com/surge-synthesizer/surge-extra-content/releases/download/skin-library/Andromeda.zip",
+    "thumbnail": "./images/andromeda.png",
+    "description": "Contains a set of 9 color theme variations. Shown above is Andromeda - Dub."
+}

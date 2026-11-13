@@ -1,0 +1,54 @@
+---
+import { getCollection, render } from "astro:content";
+import NavHeader from "../../components/NavHeader.astro";
+import PageContents from "../../components/PageContents.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import Base from "../../layouts/Base.astro";
+
+/*
+ * Every page a product owns besides its manual and its changelog: FAQ,
+ * downloads, skin library, and so on. One route for all of them, so adding a
+ * page to a product is adding a file to its pages/ folder.
+ *
+ * A rest parameter rather than a plain one, because a page may nest -
+ * skins/authoring sits under the skin library it documents.
+ *
+ * The product's look comes from Base's `project`, so these pages carry the
+ * same surfaces as the product page itself rather than the org palette.
+ */
+export async function getStaticPaths() {
+    const pages = await getCollection("productPages");
+
+    return pages.map((entry) => {
+        const [product, ...rest] = entry.id.split("/");
+
+        return {
+            params: { product, page: rest.join("/") },
+            props: { entry, product: product! },
+        };
+    });
+}
+
+const { entry, product } = Astro.props;
+
+const { Content, headings } = await render(entry);
+---
+
+<Base title={entry.data.title} project={product}>
+    <NavHeader slot="nav" currentProject={product} />
+
+    <main class:list={[entry.data.toc && "lg:flex"]}>
+        <article
+            class:list={[
+                "mx-auto prose min-w-0 flex-1 px-4 py-8 dark:prose-invert",
+                entry.data.toc ? "max-w-5xl lg:px-10" : "max-w-3xl",
+            ]}>
+            <h1>{entry.data.title}</h1>
+            <Content />
+        </article>
+
+        {entry.data.toc && <PageContents headings={headings} />}
+    </main>
+
+    <SiteFooter />
+</Base>

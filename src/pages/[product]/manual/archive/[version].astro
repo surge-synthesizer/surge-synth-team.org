@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import NavHeader from "../../../../components/NavHeader.astro";
+import PageContents from "../../../../components/PageContents.astro";
 import SiteFooter from "../../../../components/SiteFooter.astro";
 import Base from "../../../../layouts/Base.astro";
 
@@ -33,10 +34,6 @@ const { entry } = Astro.props;
 const product = Astro.params.product!;
 
 const { Content, headings } = await render(entry);
-
-// Down to h3: the archive runs h1-h4, and every level would make a contents
-// list longer than some of the sections it indexes.
-const contents = headings.filter((heading) => heading.depth <= 3);
 ---
 
 <Base title={entry.data.title} project={product} noindex>
@@ -46,45 +43,13 @@ const contents = headings.filter((heading) => heading.depth <= 3);
         /* Full bleed, so the contents sit flush left where Starlight puts a
         manual's sidebar, rather than floating in from a centred container. */
     }
-    {
-        /* No items-start: the aside has to stretch the full height of the flex
-        row, or the sticky contents below have only their own short box to
-        travel in and scroll away with the page. */
-    }
     <main class="lg:flex">
         <article
             class="mx-auto prose max-w-5xl min-w-0 flex-1 px-4 py-8 lg:px-10 dark:prose-invert">
             <Content />
         </article>
 
-        {
-            /* Sized to its content rather than to a guessed width: with the entries
-        set nowrap, the column comes out exactly as wide as the longest one
-        needs. The cap stops a single long heading from taking over, and the
-        nav scrolls sideways in that case rather than clipping. */
-        }
-        <aside
-            class="order-first hidden shrink-0 px-4 py-8 lg:block lg:w-auto lg:max-w-[22rem] lg:pr-0">
-            <nav
-                aria-label="On this page"
-                class="sticky top-[calc(var(--nav-height)+1rem)] max-h-[calc(100vh-var(--nav-height)-2rem)] overflow-x-hidden overflow-y-auto pr-3">
-                <p class="text-xs font-bold tracking-[0.2em] uppercase opacity-70">On this page</p>
-                <ul class="mt-3 space-y-1 text-sm">
-                    {
-                        contents.map((heading) => (
-                            <li style={`padding-inline-start: ${(heading.depth - 1) * 0.75}rem`}>
-                                <a
-                                    href={`#${heading.slug}`}
-                                    title={heading.text}
-                                    class="block truncate py-0.5 no-underline opacity-80 hover:opacity-100">
-                                    {heading.text}
-                                </a>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </nav>
-        </aside>
+        <PageContents headings={headings} />
     </main>
 
     <SiteFooter />

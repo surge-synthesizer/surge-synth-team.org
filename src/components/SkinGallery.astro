@@ -1,0 +1,77 @@
+---
+/*
+ * The community skins for one product: a download link, the author, a
+ * screenshot and a line about it.
+ *
+ * The screenshot is the point of each entry, so it is the largest thing in the
+ * card and links to the full-size original - the thumbnails are full window
+ * captures, and a reader deciding between twelve of them wants to look closely.
+ */
+
+import { getImage, Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+interface Props {
+    product: string;
+}
+
+const { product } = Astro.props as Props;
+
+const entries = (await getCollection("skins"))
+    .filter((skin) => skin.id.startsWith(`${product}/`))
+    .sort((a, b) => a.data.order - b.data.order);
+
+/*
+ * The full-size view is a webp built here rather than the imported file
+ * itself. Linking `thumbnail.src` would work, but it points at the original
+ * PNG, which then ships - 5.2 MB of unoptimised screenshots for a link most
+ * readers never follow.
+ *
+ * The same trap sits in the `widths` below: listing the image's native width
+ * there makes Astro emit the original alongside the webp variants, at the same
+ * cost. Full resolution comes from this link instead.
+ */
+const skins = await Promise.all(
+    entries.map(async (skin) => ({
+        ...skin.data,
+        full: (await getImage({ src: skin.data.thumbnail, format: "webp" })).src,
+    })),
+);
+---
+
+<div class="not-prose space-y-8">
+    {
+        skins.map((skin) => (
+            <article class="skin rounded-lg border p-4">
+                <h2 class="text-xl font-semibold">
+                    <a href={skin.download}>&#11015; {skin.name}</a>
+                    <span class="ml-1 text-base font-normal">
+                        by {skin.url ? <a href={skin.url}>{skin.author}</a> : skin.author}
+                    </span>
+                </h2>
+
+                {skin.description && <p class="mt-2">{skin.description}</p>}
+
+                <a class="mt-4 block" href={skin.full}>
+                    <Image
+                        src={skin.thumbnail}
+                        alt={`The Surge XT window skinned as ${skin.name}`}
+                        widths={[480, 960]}
+                        sizes="(min-width: 64rem) 56rem, 100vw"
+                        loading="lazy"
+                        class="rounded"
+                    />
+                </a>
+            </article>
+        ))
+    }
+</div>
+
+<style>
+    /* Derived from the surrounding surface rather than a fixed palette, so the
+       cards follow whichever product's colours the page is wearing. */
+    .skin {
+        border-color: color-mix(in srgb, currentColor 20%, transparent);
+        background-color: color-mix(in srgb, currentColor 6%, transparent);
+    }
+</style>
