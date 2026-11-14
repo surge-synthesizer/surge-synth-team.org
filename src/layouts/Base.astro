@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import SmoothScroll from "../components/SmoothScroll.astro";
+import { fontType, preloadFonts } from "../fonts";
 import "./base.css";
 
 interface Props {
@@ -41,14 +42,11 @@ const { title, project, noindex = false } = Astro.props;
         <meta property="og:type" content="website" />
         {noindex && <meta name="robots" content="noindex, follow" />}
         <link rel="icon" href="/favicon.ico" />
-        <link
-            rel="preload"
-            href="/fonts/Lato-Regular.woff"
-            as="font"
-            type="font/woff"
-            crossorigin
-        />
-        <link rel="preload" href="/fonts/Lato-Italic.woff" as="font" type="font/woff" crossorigin />
+        {
+            preloadFonts(project).map((href) => (
+                <link rel="preload" href={href} as="font" type={fontType(href)} crossorigin />
+            ))
+        }
         <title>{`Surge Synth Team | ${title}`}</title>
         <script is:inline>
             // Dark unless the reader has chosen otherwise. Kept in step with

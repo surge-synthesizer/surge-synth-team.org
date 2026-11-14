@@ -15,6 +15,8 @@
 import { readFileSync, existsSync } from "node:fs";
 import { execSync } from "node:child_process";
 
+// Must match CHROME in src/fonts.ts.
+const CHROME_FACE = "Blinker-400";
 const DIST = "dist";
 
 // Representative of the nav's layout, colour and spacing. If these resolve, the
@@ -61,10 +63,10 @@ for (const page of pages) {
         continue;
     }
 
-    // nav.css sets the nav in Lato with font-display: block, so until the file
-    // arrives the browser reserves space with fallback metrics and then reflows.
-    // Without a preload that reflow is visible as the nav shifting on load.
-    if (!/rel="preload"[^>]*Lato-Regular/.test(html)) {
+    // The chrome face is font-display: block, so until the file arrives the nav
+    // paints nothing and then reflows. src/fonts.ts preloads it on every page;
+    // this asserts that, since the face is named in two places.
+    if (!new RegExp(`rel="preload"[^>]*${CHROME_FACE}`).test(html)) {
         console.log(`FAIL  ${page}\n      nav typeface is not preloaded; it will reflow on load`);
         failures++;
         continue;

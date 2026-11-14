@@ -16,16 +16,29 @@ const nightlyChangelog = (product: string) => {
     return page ? { [`/${product}/changelog/nightly`]: `/${page.slug}/` } : {};
 };
 
+/*
+ * The newest shipped release. /<product>/changelog/ opens straight on it,
+ * there being no landing page in front of the list any more.
+ */
+const latestChangelog = (product: string) => {
+    const [page] = pagesIn(`${product}/changelog`);
+
+    return page ? { [`/${product}/changelog/`]: `/${page.slug}/` } : {};
+};
+
 // https://astro.build/config
 export default defineConfig({
     vite: { plugins: [tailwindcss()] },
     redirects: {
+        ...latestChangelog("surge-xt"),
+        ...latestChangelog("ob-xf"),
         ...nightlyChangelog("surge-xt"),
         ...nightlyChangelog("ob-xf"),
         // The changelog moved under its product when content went product-first.
         "/ob-xf/manual/": "/ob-xf/manual/getting-started/",
         "/surge-xt/manual/": "/surge-xt/manual/getting-started/",
         "/surge-xt/manual-nightly/": "/surge-xt/manual-nightly/getting-started/",
+        "/surge-xt/manual-rack/": "/surge-xt/manual-rack/getting-started/",
         "/ob-xf-changelog": "/ob-xf/changelog/",
         "/spectrumworx/manual/": "/spectrumworx/manual/getting-started/",
         "/shortcircuit-xt/manual/": "/shortcircuit-xt/manual/getting-started/",
@@ -41,23 +54,8 @@ export default defineConfig({
             // sections of one page, so their structure runs a level deeper than
             // that: H2-H4 here is what H1-H3 was on the old single-page TOC.
             tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 4 },
-            // Base.astro preloads these; Starlight's head did not, so entering a
-            // manual reserved nav space with fallback metrics and then reflowed
-            // once Lato arrived - the nav visibly shifting on load. Only the
-            // regular weight: the nav carries no italics, and the manual's body
-            // text is Starlight's own typeface.
-            head: [
-                {
-                    tag: "link",
-                    attrs: {
-                        rel: "preload",
-                        href: "/fonts/Lato-Regular.woff",
-                        as: "font",
-                        type: "font/woff",
-                        crossorigin: true,
-                    },
-                },
-            ],
+            // Fonts are preloaded per product by the Head override, which can see
+            // the route; this static list cannot.
             components: {
                 Head: "./src/components/starlight/Head.astro",
                 ThemeProvider: "./src/components/starlight/ThemeProvider.astro",
@@ -108,6 +106,25 @@ export default defineConfig({
                             label: "Technical Reference",
                             slug: "surge-xt/manual/technical-reference",
                         },
+                    ],
+                },
+                {
+                    label: "Surge XT VCV Modules Manual",
+                    items: [
+                        { label: "Getting Started", slug: "surge-xt/manual-rack/getting-started" },
+                        { label: "Core Concepts", slug: "surge-xt/manual-rack/core-concepts" },
+                        { label: "VCO Modules", slug: "surge-xt/manual-rack/vco" },
+                        {
+                            label: "VCF, Waveshaper and CXOR",
+                            slug: "surge-xt/manual-rack/vcf-waveshaper",
+                        },
+                        { label: "Effect Modules", slug: "surge-xt/manual-rack/effects" },
+                        { label: "Tuned Delays", slug: "surge-xt/manual-rack/tuned-delays" },
+                        {
+                            label: "Modulation and Envelopes",
+                            slug: "surge-xt/manual-rack/modulation",
+                        },
+                        { label: "Mixer and Manipulators", slug: "surge-xt/manual-rack/mixer" },
                     ],
                 },
                 {

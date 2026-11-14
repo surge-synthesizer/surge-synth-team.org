@@ -1,13 +1,10 @@
 {
     "title": "The SST Libraries",
     "slug": "sst-libraries",
-    "order": 10,
+    "order": 11,
     "summary": "A collection of libraries from the Surge Synth Team.",
     "cover": "./images/sst-libraries.png",
-    "categories": [
-        "Synth",
-        "Microtuning"
-    ],
+    "categories": ["Synth", "Microtuning"],
     "issue_tracker": "https://github.com/surge-synthesizer/tuning-library/issues",
     "repo": "surge-synthesizer/tuning-library"
 }

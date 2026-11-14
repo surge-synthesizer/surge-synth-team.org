@@ -11,7 +11,7 @@ import SiteFooter from "../components/SiteFooter.astro";
 const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<Base title="Home">
+<Base title="Home" project="team">
     <NavHeader slot="nav" />
 
     <main>

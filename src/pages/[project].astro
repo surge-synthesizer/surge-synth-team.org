@@ -43,7 +43,12 @@ const prose = pages.find((entry) => entry.id === project.id);
 const Prose = prose ? (await render(prose)).Content : null;
 const { title, summary, cover, categories, repo, url, manual, issue_tracker } = project.data;
 
-const homepage = url ?? (repo ? `https://github.com/${repo}` : undefined);
+/*
+ * "Download", like every other product's button says - so the destination has
+ * to be one. A bare repo root is not, so a product with no `url` of its own is
+ * sent to its latest release rather than its README.
+ */
+const homepage = url ?? (repo ? `https://github.com/${repo}/releases/latest` : undefined);
 
 const links = [
     manual && { label: "Read the manual", href: manual },
@@ -67,7 +72,7 @@ const links = [
                     homepage && (
                         <div class="mt-6">
                             <Button href={homepage} variant="solid">
-                                Get {title}
+                                Download
                             </Button>
                         </div>
                     )

@@ -118,10 +118,12 @@ export async function buildNav(currentProject?: string | null): Promise<Nav> {
     const documentation: NavItem[] = [];
     const href = await manualHref(currentProject, manual);
 
-    if (href) documentation.push({ label: "Manual", href });
     const changelog = await changelogHref(currentProject);
 
+    // What changed, then how it works: the changelog is the entry people come
+    // back for, where the manual is the one they already know is there.
     if (changelog) documentation.push({ label: "Changelog", href: changelog });
+    if (href) documentation.push({ label: "Manual", href });
 
     const skeleton: Record<string, NavItem[]> = { Documentation: documentation, Extras: [] };
 

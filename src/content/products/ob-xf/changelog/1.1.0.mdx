@@ -1,10 +1,10 @@
 ---
 title: OB-Xf 1.1.0
-version: '1.1.0'
+version: "1.1.0"
 sidebar:
-  hidden: true
-  label: 1.1.0 - unreleased
-  order: 99
+    hidden: true
+    label: 1.1.0 - unreleased
+    order: 95
 nightly: true
 ---
 
@@ -23,18 +23,18 @@ remote controls, and a rewritten voice renderer that runs four voices at a time.
 ## Tuning
 
 - Added MTS-ESP settings panel, showing connection status, the active scale, and Dynamic mode toggle
-  - Dynamic mode simply means that any scale updates happening during a note will be applied in realtime.
-    This enables scale-aware pitch bend and MPE glides
+    - Dynamic mode simply means that any scale updates happening during a note will be applied in realtime.
+      This enables scale-aware pitch bend and MPE glides
 - Long scale names will show their full name when hovering above the MTS-ESP status display
 - Added support for MTS-ESP sources with multi-channel tuning tables
 
 ## Patch Management
 
 - Clicking the RAND button now mutates the current patch instead of randomizing all parameters.
-  - This method produces usable results far more often
-  - Right-clicking the RAND button offers selecting which sections should be affected by mutation
+    - This method produces usable results far more often
+    - Right-clicking the RAND button offers selecting which sections should be affected by mutation
 - OB-Xd patches and banks can now be imported and converted - `.fxp` and `.fxb` files load from the menu or by drag and drop
-  - Init patches are skipped when importing a bank, and the bank filename is attached to each imported patch as its Project
+    - Init patches are skipped when importing a bank, and the bank filename is attached to each imported patch as its Project
 - Added "Set Current Patch as Default" function
 - Deleting a patch now asks for confirmation
 - Hovering the patch name now always shows a bubble with the patch's category, plus author and project, if set
@@ -113,6 +113,6 @@ remote controls, and a rewritten voice renderer that runs four voices at a time.
 - Added Python bindings, including patch lookup and MPE matrix access
 - macOS builds moved to Xcode 16.2
 - On Linux, the user folder now lands in `Documents/Surge Synth Team/OB-Xf` when the XDG Documents folder is disabled, instead of straight in the home directory
-  - An existing `Documents/OB-Xf` folder is still used
+    - An existing `Documents/OB-Xf` folder is still used
 - The Linux release now builds on the Ubuntu 22 container
 - Corrected the `.deb` package dependencies to match what the binaries actually link and load

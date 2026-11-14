@@ -1,27 +1,15 @@
 /*
- * The nav's own baseline, imported by both base.css and starlight.css.
+ * The nav's own baseline, imported by both base.css and starlight.css. The nav
+ * is the one component rendered by two layouts that share no other CSS, and
+ * Starlight pages get no Preflight - without this the same markup renders
+ * indented, bulleted and in the wrong typeface inside a manual.
  *
- * The nav is the one component rendered by two layouts that share no other CSS.
- * Base.astro pages get Tailwind's Preflight; Starlight pages deliberately do
- * not, because its reset would strip the manual's typography. Preflight is
- * what zeroes list padding, flattens button chrome and unstyles anchors, so
- * without this the same markup rendered indented, bulleted and in the wrong
- * typeface inside manuals.
+ * Every selector is :where()-wrapped so it contributes no specificity: these
+ * are defaults for the nav's utility classes to override.
  *
- * Declaring it here rather than patching starlight.css makes the parity
- * structural: the nav carries its baseline wherever it is rendered, instead of
- * depending on whichever reset the host page happened to load.
- *
- * Every selector is wrapped in :where() so it contributes no specificity -
- * these are defaults for the nav's utility classes to override, not rules
- * competing with them. A bare `#nav button` would outrank every utility.
- *
- * IMPORTANT: both importers must pull this in with `layer(base)`. Zero
- * specificity is not enough on its own, because an unlayered rule beats every
- * cascade layer regardless of specificity - and base.css puts Tailwind's
- * utilities in @layer utilities. Imported unlayered, `padding: 0` below silently
- * won over `px-2`, squashing every nav button and eating `py-2` on the
- * dropdowns.
+ * IMPORTANT: both importers must use `layer(base)`. Zero specificity is not
+ * enough, because an unlayered rule beats every layer - imported unlayered,
+ * `padding: 0` below silently won over `px-2` and squashed every nav button.
  */
 
 :where(#nav) :where(menu, ul) {
@@ -50,13 +38,13 @@
 }
 
 /*
- * The nav's surface. Defined here rather than in base.css's surface block
- * because Starlight pages never load base.css - a manual would lose its nav
- * colours. A product declares its own by overriding these two; everything else
- * in the bar derives from them, so one pair is the whole decision.
+ * The nav's surface. Defaults, theme, then product - same one-attribute
+ * selectors and same order dependency as tokens.css, but deliberately
+ * product-last: the bar keeps a product's colour in both themes, where paper
+ * follows the theme instead.
  *
- * Undeclared, the nav is white on black, which is what every product had
- * before any of them had an accent.
+ * A product declares its own by overriding these two; everything else in the
+ * bar derives from them.
  */
 :root {
     --surface-nav-bg: #000000;
@@ -70,13 +58,13 @@
     --surface-nav-solid: var(--surface-nav-bg);
 }
 
-html[data-theme="dark"] {
+[data-theme="dark"] {
     --surface-nav-bg: #171717;
 }
 
 /* OB-Xf's GUI grey, 6% darker - the same value its downloads band uses, for
    the same reason: the raw brand grey reaches only 4.44:1 behind white. */
-html[data-project="ob-xf"] {
+[data-project="ob-xf"] {
     --surface-nav-bg: #6b717a;
     --surface-nav-fg: #ffffff;
 }
@@ -84,15 +72,23 @@ html[data-project="ob-xf"] {
 /* The Surge family shares one accent, so it shares one bar. The dark
    foreground is what makes a colour this bright usable behind text: #171717 on
    the orange measures 8.4:1, where white would reach 1.7:1. */
-html[data-project="surge-xt"],
-html[data-project="surge-effects"],
-html[data-project="surge-xt-rack"] {
+[data-project="surge-xt"],
+[data-project="surge-effects"],
+[data-project="surge-xt-rack"] {
     --surface-nav-bg: #ff9900;
     --surface-nav-fg: #171717;
 }
 
 #nav {
-    font-family: "Lato", sans-serif;
+    /* Chrome, not product: the bar is the same furniture on every product, so
+       it keeps the site's typeface even where the product has its own. */
+    font-family: var(--font-chrome);
+    /* A point over the 16px the bar inherits: Blinker sits lighter and a touch
+       smaller on the body than Lato did at the same size. */
+    font-size: 17px;
+    /* Chrome again: a product setting a light body weight - OB-Xf 300, the org
+       pages 200 - would otherwise inherit straight into the bar. */
+    font-weight: 400;
     background-color: var(--surface-nav-bg);
     color: var(--surface-nav-fg);
 }
@@ -103,9 +99,12 @@ html[data-project="surge-xt-rack"] {
     opacity: 0.25;
 }
 
+/* The bar's own ink, so the edge darkens on Surge's orange and brightens on a
+   dark bar with no per-theme rule. Width is border-2 on the element itself,
+   since Tailwind's utility outranks this layer. */
 #nav .nav-group-menu {
     background-color: var(--surface-nav-bg);
-    border-color: color-mix(in srgb, var(--surface-nav-fg) 15%, transparent);
+    border-color: color-mix(in srgb, var(--surface-nav-fg) 45%, transparent);
     visibility: hidden;
 }
 
@@ -114,15 +113,14 @@ html[data-project="surge-xt-rack"] {
     visibility: visible;
 }
 
-/* Hover opens it where hovering is possible at all, which is how the site this
-   replaces behaves. Guarded on the pointer rather than a width, because a
-   narrow window on a desktop still has a mouse and a tablet at desktop width
-   still has none - and on a touch screen `:hover` sticks after a tap, leaving a
-   menu open with no way to dismiss it. focus-within keeps the keyboard path
-   open through the same rule. */
+/* Guarded on the pointer rather than a width: a narrow desktop window still
+   has a mouse, a wide tablet has none, and on touch `:hover` sticks after a tap
+   and leaves the menu open with no way to dismiss it. */
 @media (hover: hover) and (pointer: fine) {
-    #nav li.group:hover > .nav-group-menu,
-    #nav li.group:focus-within > .nav-group-menu {
+    /* `.group`, not `li.group` - the theme control is a <div>, and an
+       li-qualified selector left it the one dropdown that never opened. */
+    #nav .group:hover > .nav-group-menu,
+    #nav .group:focus-within > .nav-group-menu {
         visibility: visible;
     }
 }
@@ -133,8 +131,8 @@ html[data-project="surge-xt-rack"] {
     color: var(--surface-nav-bg);
 }
 
-/* The mobile menu is a list in the bar itself, not a panel over it, so a full
-   inversion would be far too loud for a hover. */
+/* A list in the bar itself, not a panel over it, so a full inversion is too
+   loud for a hover. */
 #nav .nav-mobile-item:hover {
     background-color: color-mix(in srgb, currentColor 12%, transparent);
 }
@@ -147,9 +145,8 @@ html[data-project="surge-xt-rack"] {
     background-color: currentColor;
 }
 
-/* The theme control shows the icon for the active choice. Its button is a
-   nav-group-toggle like every other dropdown, so NavHeader's delegated handler
-   drives the menu; only the icon swap is specific to it. */
+/* Only the icon swap is specific to the theme control; NavHeader's delegated
+   handler drives its menu like every other dropdown. */
 #theme-control .theme-icon {
     display: none;
 }

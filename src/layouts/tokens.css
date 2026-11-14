@@ -1,0 +1,220 @@
+/*
+ * The site's design tokens, imported by both base.css and starlight.css -
+ * Starlight pages never load base.css. Declarations only; base.css spends
+ * them on Blocks and prose, starlight.css maps them onto --sl-color-*.
+ * scripts/check-contrast.mjs asserts the literal values.
+ *
+ * Three things will bite anyone editing this file:
+ *
+ * 1. Order is the tie-break. :root, theme, product, product+theme - every
+ *    selector is one attribute, so they all weigh the same. A product block
+ *    above the theme block silently loses.
+ *
+ * 2. `[data-project]`, never `html[data-project]`. Base.astro puts it on
+ *    <html>; a manual carries it on the PageFrame wrapper, because Starlight
+ *    owns its own <html>. Hence also the product+theme rules written twice,
+ *    as self and as descendant.
+ *
+ * 3. A var() is substituted on the element the declaration matched, and what
+ *    inherits is the resolved value - so `:root { x: var(--color-product) }`
+ *    bakes in the default product before a manual's wrapper is reached, and
+ *    no amount of specificity fixes it. That is why every rule dereferencing
+ *    a product token carries `:root, [data-project]`, here and in
+ *    starlight.css. Anything reading one must also sit inside the wrapper;
+ *    Starlight's skip link does not.
+ */
+
+@theme {
+    --font-sans: var(--font-product);
+
+    --color-surge-orange: #ff9900;
+    --color-surge-orange-bright: color-mix(in srgb, var(--color-surge-orange) 80%, white);
+    --color-surge-blue: #005cb6;
+    --color-surge-blue-bright: color-mix(in srgb, var(--color-surge-blue) 80%, white);
+    --color-surge-blue2: #2d86fe;
+    --color-surge-blue2-bright: color-mix(in srgb, var(--color-surge-blue2) 80%, white);
+    --color-spectrumworx-blue: #109ac7;
+    --color-spectrumworx-blue-bright: #80c5db;
+    --color-spectrumworx-blue-dim: #65838c;
+    --color-spectrumworx-blue2: #4dbbde;
+    --color-spectrumworx-gray: #2b2b2b;
+    --color-spectrumworx-yellow: #fffb82;
+
+    /* Default Surge product colors */
+    --color-product: var(--color-surge-orange);
+    --color-product-track: var(--color-zinc-950);
+}
+
+@layer base {
+    /* A surface is background, foreground and link colour together; `solid` is
+       the background's flat equivalent, for elements that invert on hover.
+       Neutral roles follow the theme, branded ones ship their own foreground. */
+    :root,
+    [data-project] {
+        /* Mirrored into --sl-nav-height, which Starlight pads .main-frame by. */
+        --nav-height: 3rem;
+
+        /* Chrome is the nav and the footer, the same bar at both ends of every
+           page. Product is the content face, which a product overrides - and
+           must then also declare in fonts.css and add to src/fonts.ts, which is
+           what gets it preloaded. */
+        --font-chrome: "Blinker", sans-serif;
+        --font-product: "Lato", sans-serif;
+
+        --paper: #efece7;
+        --paper-raised: #e5e1da;
+        --paper-ink: #262626;
+        --paper-link: #00468c;
+
+        --surface-base-bg: var(--paper);
+        --surface-base-fg: var(--paper-ink);
+        --surface-base-link: var(--paper-link);
+        --surface-base-solid: var(--paper);
+
+        --surface-raised-bg: var(--paper-raised);
+        --surface-raised-fg: var(--paper-ink);
+        --surface-raised-link: var(--paper-link);
+        --surface-raised-solid: var(--paper-raised);
+
+        --surface-ink-bg: #171717;
+        --surface-ink-fg: #e5e5e5;
+        --surface-ink-link: var(--color-product);
+        --surface-ink-solid: #171717;
+
+        --surface-accent-bg: var(--color-product);
+        --surface-accent-fg: #171717;
+        --surface-accent-link: #171717;
+        --surface-accent-solid: var(--color-product);
+
+        /* The bottom stop reaches 6.71:1, just short of AAA; recorded with the
+           rest of Surge's blues. */
+        --surface-deep-bg: linear-gradient(to bottom in oklab, #1d222a, #004f8a);
+        --surface-deep-fg: #e5e5e5;
+        --surface-deep-link: #ffffff;
+        --surface-deep-solid: #1d222a;
+    }
+
+    /* Second selector: --paper-link dereferences --color-product, so see (3)
+       above. :where() keeps it level with the product blocks, so order settles
+       them on the wrapper exactly as it does on <html>. */
+    [data-theme="dark"],
+    :where([data-theme="dark"]) [data-project] {
+        --paper: #171717;
+        --paper-raised: #262626;
+        --paper-ink: #f5f5f5;
+        --paper-link: var(--color-product);
+    }
+
+    /* The pre-2026 pairing, 16.4:1 - glare for ordinary reading, right for
+       anyone who asked the OS for more contrast. */
+    @media (prefers-contrast: more) {
+        :root,
+        [data-project] {
+            --paper: #ffffff;
+            --paper-raised: #f5f5f5;
+            --paper-ink: #171717;
+        }
+
+        [data-theme="dark"],
+        :where([data-theme="dark"]) [data-project] {
+            --paper: #000000;
+            --paper-raised: #171717;
+            --paper-ink: #ffffff;
+        }
+    }
+
+    [data-project="spectrumworx"] {
+        --color-product: var(--color-spectrumworx-blue);
+        --color-product-track: var(--color-spectrumworx-gray);
+    }
+
+    /* The org pages speak for the team rather than a product, so they wear the
+       chrome face the nav and footer already use. */
+    [data-project="team"] {
+        --font-product: var(--font-chrome);
+    }
+
+    [data-project="shortcircuit-xt"] {
+        --font-product: "Inter", "Lato", sans-serif;
+    }
+
+    /* #727882 tops out at 4.72:1 on black and 4.44:1 on white, so it cannot
+       carry body text at either polarity: brand token only, never behind text.
+       Surfaces take lightness-shifted variants of the same hue. */
+    [data-project="ob-xf"] {
+        --color-product: #727882;
+
+        /* Weights are set alongside the @font-face in fonts.css. */
+        --font-product: "Saira", "Lato", sans-serif;
+
+        --paper-link: #43474e;
+
+        /* The brand grey 6% darker: clears AA behind white (4.92:1). AAA needs
+           a 30% drop, which stops looking like OB-Xf. */
+        --surface-slate-bg: #6b717a;
+        --surface-slate-fg: #ffffff;
+        --surface-slate-link: #ffffff;
+        --surface-slate-solid: #6b717a;
+
+        --surface-accent-bg: var(--surface-slate-bg);
+        --surface-accent-fg: var(--surface-slate-fg);
+        --surface-accent-solid: var(--surface-slate-solid);
+
+        --surface-ink-link: #adb3bd;
+    }
+
+    /* Carried over from the site this replaces, at their exact values by
+       request. `ocean` is AA rather than AAA - recorded as an exception in
+       scripts/check-contrast.mjs, since AAA costs a fifth of its lightness and
+       stops reading as the brand blue. */
+    [data-project="surge-xt"] {
+        /* The brand blue by request, in place of the site default #00468c:
+           5.50:1 against paper where the default reaches 7.90:1, recorded as an
+           AA exception. Light only - the dark pair below hands --paper-link
+           back, since this blue on #171717 is 2.9:1. */
+        --paper-link: #005db6;
+
+        --surface-ocean-bg: #005db6;
+        --surface-ocean-fg: #e5e5e5;
+        --surface-ocean-link: #ffffff;
+        --surface-ocean-solid: #005db6;
+
+        --surface-night-bg: #103364;
+        --surface-night-fg: #e5e5e5;
+        --surface-night-link: #ffffff;
+        --surface-night-solid: #103364;
+
+        /* A light-to-dark gradient suits no single foreground; dark text wins
+           over most of this one, including its worst point near #7c7f92 (4.5:1
+           against light's 3.1:1). The blue corner is where dark would fail, and
+           the band puts its video there rather than copy - so the layout is
+           load bearing. `in oklab` is not decoration: in sRGB this ramp passes
+           through a muddy grey. */
+        --surface-sunset-bg: linear-gradient(to bottom right in oklab, #ff9900, #005db6);
+        --surface-sunset-fg: #171717;
+        --surface-sunset-link: #171717;
+        --surface-sunset-solid: #ff9900;
+
+        /* Two steps of grey, nearly imperceptible alone, but the difference
+           between the band having depth and not. */
+        --surface-hero-bg: linear-gradient(to bottom in oklab, #f5f2ed, #e2ded6);
+        --surface-hero-fg: var(--paper-ink);
+        --surface-hero-link: var(--paper-link);
+        --surface-hero-solid: var(--paper);
+    }
+
+    /* Beats both rules above: the generic dark one lands on the brand token at
+       4.03:1, OB-Xf's own block on the light-theme grey, darker still. */
+    [data-theme="dark"][data-project="ob-xf"],
+    [data-theme="dark"] [data-project="ob-xf"] {
+        --paper-link: #adb3bd;
+    }
+
+    [data-theme="dark"][data-project="surge-xt"],
+    [data-theme="dark"] [data-project="surge-xt"] {
+        --surface-hero-bg: linear-gradient(to bottom in oklab, #171717, #0a0a0a);
+
+        /* Undoes the light-theme brand blue above, 2.9:1 on dark paper. */
+        --paper-link: var(--color-product);
+    }
+}

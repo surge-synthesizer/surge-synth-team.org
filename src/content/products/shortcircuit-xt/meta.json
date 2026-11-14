@@ -4,9 +4,7 @@
     "order": 5,
     "summary": "Shortcircuit XT is a sample player.",
     "cover": "./images/shortcircuit-xt.png",
-    "categories": [
-        "Sampler"
-    ],
+    "categories": ["Sampler"],
     "issue_tracker": "https://github.com/surge-synthesizer/shortcircuit-xt/issues",
     "repo": "surge-synthesizer/shortcircuit-xt",
     "manual": "/shortcircuit-xt/manual/getting-started/",
