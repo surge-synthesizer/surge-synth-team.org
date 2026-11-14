@@ -1,7 +1,7 @@
 {
     "title": "Tuning Note CLAPs",
     "slug": "tuning-note-claps",
-    "order": 10,
+    "order": 8,
     "summary": "Microtuning devices for Bitwig Studio.",
     "cover": "./images/tuning-note-claps.jpg",
     "categories": ["Utility"],

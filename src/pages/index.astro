@@ -7,6 +7,8 @@ import Cell from "../components/Cell.astro";
 import NavHeader from "../components/NavHeader.astro";
 import Base from "../layouts/Base.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import LogoBlack from "../images/logo_sst_black.svg";
+import LogoWhite from "../images/logo_sst_white.svg";
 
 const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
 ---
@@ -15,34 +17,35 @@ const projects = (await getCollection("projects")).sort((a, b) => a.data.order -
     <NavHeader slot="nav" />
 
     <main>
-        {
-            /* Single column: the nav already carries the mark, so repeating it here
-            said nothing the heading does not. */
-        }
-        <Block surface="base" layout="prose" class="text-center">
-            <h1 class="text-4xl leading-tight font-extrabold md:text-5xl">Surge Synth Team</h1>
-            <p class="mt-6">
+        <Block surface="raised" layout="prose" class="text-center">
+            <h1>
+                <img
+                    src={LogoWhite.src}
+                    alt="Surge Synth Team"
+                    class="only-dark mx-auto h-auto max-w-full"
+                />
+                <img
+                    src={LogoBlack.src}
+                    alt=""
+                    aria-hidden="true"
+                    class="only-light mx-auto h-auto max-w-full"
+                />
+            </h1>
+
+            <p>
                 We are a group of musicians, developers, testers, documenters, and general volunteer
                 open source enthusiasts who randomly assembled to work on the Surge Synthesizer. As
                 the Surge project became more successful, and we kept having fun, we decided to
                 branch out into other things too!
             </p>
-            <p class="mt-4">
-                Everything we make is free and open source. Come and build it with us.
-            </p>
+
+            <p>Everything we make is free and open source. Come and build it with us!</p>
+
             <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
                 <Button href="https://discord.gg/aFQDdMV" variant="solid">Join our Discord</Button>
-                <Button href="https://github.com/surge-synthesizer">GitHub</Button>
             </div>
         </Block>
 
-        {
-            /*
-             * One band per product, alternating surface rather than alternating
-             * a hardcoded orange. The image side swaps every other row, which is
-             * what the old grid did with flex-row-reverse.
-             */
-        }
         {
             projects.map((project, index) => {
                 const href = project.data.url || `/${project.id}`;
@@ -54,10 +57,8 @@ const projects = (await getCollection("projects")).sort((a, b) => a.data.order -
                             <a class="text-3xl font-bold" href={href}>
                                 {project.data.title}
                             </a>
+
                             <p class="mt-3 max-w-prose">{project.data.summary}</p>
-                            <p class="mt-4 text-xs font-bold tracking-[0.2em] uppercase opacity-70">
-                                {project.data.categories.join(" · ")}
-                            </p>
                         </Cell>
 
                         <Cell class={flip ? "md:order-1" : ""}>

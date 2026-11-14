@@ -9,8 +9,9 @@ import DownloadButton from "../components/DownloadButton.astro";
 import DownloadMatrix from "../components/DownloadMatrix.astro";
 import NavHeader from "../components/NavHeader.astro";
 import SystemRequirements from "../components/SystemRequirements.astro";
-import ObxfCover from "../content/products/ob-xf/images/ob-xf_3d_render.png";
+import ObxfHero from "../content/products/ob-xf/images/ob-xf-hero.png";
 import Base from "../layouts/Base.astro";
+import { version } from "../version";
 import SiteFooter from "../components/SiteFooter.astro";
 
 const platformLinks = (releases: { win64: string; macos: string; linux64: string }) => [
@@ -52,18 +53,27 @@ const systemRequirements = [
     <NavHeader slot="nav" currentProject="ob-xf" />
 
     <main>
-        <Block surface="base" layout="split" class="md:min-h-[500px]">
-            <Cell>
-                <img
-                    src="/images/obxf_logo.svg"
-                    alt="OB-Xf logo"
-                    class="invert-in-light h-20 w-auto self-start md:h-28"
-                />
+        <Block surface="base" layout="split" class="overflow-hidden">
+            <Cell align="start">
+                {
+                    /* 80% of the column, not the full width the Surge XT mark
+                       takes: this one is 2.97:1 against that one's 3.72:1, so at
+                       equal widths it would stand half again as tall. Scaled by the
+                       difference, the two heroes carry a mark of the same height at
+                       every width. */
+                }
+                <h1>
+                    <img
+                        src="/images/obxf_logo.svg"
+                        alt="OB-Xf"
+                        class="invert-in-light h-auto w-[80%] max-w-[532px]"
+                    />
+                </h1>
                 <p class="mt-4 max-w-prose">
                     OB-Xf is a continuation and modernization of the last open source release of
                     OB-Xd. It is inspired by the venerable Oberheim OB-X.
                 </p>
-                <div class="mt-6 flex flex-wrap items-center gap-3">
+                <div class="flex flex-wrap items-center gap-3">
                     <DownloadButton
                         windows={obxf_build_stable.releases.win64}
                         mac={obxf_build_stable.releases.macos}
@@ -74,35 +84,51 @@ const systemRequirements = [
                     />
                 </div>
                 <p class="mt-4">
-                    <a href="/ob-xf/changelog/">
-                        What's new in OB-Xf {obxf_build_stable.version}?
+                    <a href={obxf_build_stable.releases.other}>
+                        Downloads for other platforms and installers
                     </a>
                 </p>
-                <p class="mt-2">
-                    <a href={obxf_build_stable.releases.other}>Install for other platforms</a>
+                <p>
+                    <a href="/ob-xf/changelog/">
+                        What's new in OB-Xf {version(obxf_build_stable.version)}?
+                    </a>
                 </p>
+                <p><a href="/ob-xf/manual/">Read the manual</a></p>
             </Cell>
 
-            <Cell padded={false} class="min-h-[250px] md:min-h-0">
+            {
+                /* Sized by height and anchored left, so the panel is never cut
+                   across the top or bottom - only the far edge runs past the
+                   column, and the band clips it.
+
+                   Height is pinned below about 1950px, which is what holds the
+                   image steady while the window narrows, the way the Surge XT hero
+                   does; above that it tracks the viewport so the image stays wider
+                   than its column and keeps bleeding rather than leaving a gap.
+
+                   Stacked below the copy on a narrow window it is centred instead:
+                   there is no column for it to run out of, so anchoring it left
+                   would just park the overhang on one side. */
+            }
+            <Cell padded={false} class="py-8">
                 <Image
-                    src={ObxfCover}
-                    alt="OB-Xf interface screenshot"
+                    src={ObxfHero}
+                    alt="The OB-Xf interface"
                     quality="100"
-                    format="png"
-                    class="h-full max-h-[400px] w-full object-contain"
+                    class="h-[220px] w-auto max-w-none self-center md:h-[max(600px,31vw)] md:self-start"
                 />
             </Cell>
         </Block>
 
         <Block id="manual" surface="raised" layout="prose">
-            <h2 class="text-2xl font-bold">Manual</h2>
-            <p class="mt-2 max-w-prose">
+            <h2>Manual</h2>
+            <p class="max-w-prose">
                 The OB-Xf manual is available as dedicated docs powered by Astro Starlight.
             </p>
             <Button class="mt-6" href="/ob-xf/manual/getting-started/">Open Manual</Button>
         </Block>
 
-        <Block id="downloads" surface="slate" layout="split">
+        <Block id="downloads" surface="walnut" layout="split">
             <Cell align="start">
                 <SystemRequirements platforms={systemRequirements} />
             </Cell>
@@ -112,7 +138,7 @@ const systemRequirements = [
                     heading="Download OB-Xf"
                     channels={[
                         {
-                            label: `Version ${obxf_build_stable.version}`,
+                            label: `Version ${version(obxf_build_stable.version)}`,
                             links: platformLinks(obxf_build_stable.releases),
                             all: {
                                 label: "All available downloads",

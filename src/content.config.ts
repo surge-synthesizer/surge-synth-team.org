@@ -77,6 +77,23 @@ const pages = defineCollection({
  * Deliberately not part of `docs`: these wear the product's look and its
  * blocks, not Starlight's manual chrome.
  */
+/*
+ * A product's landing page, composed of blocks rather than hand-written in
+ * src/pages. Optional: a product without one falls back to the three blocks
+ * [project].astro generates from meta.json.
+ *
+ * Prose stays prose here, which is the whole point - a band with a link or an
+ * emphasis in it needs no escaping and no { html } string.
+ */
+const productLanding = defineCollection({
+    loader: glob({
+        base: "./src/content/products",
+        pattern: "*/page.mdx",
+        generateId: ({ entry }) => entry.split("/")[0]!,
+    }),
+    schema: () => z.object({ title: z.string() }),
+});
+
 const productPages = defineCollection({
     loader: glob({
         base: "./src/content/products",
@@ -194,6 +211,7 @@ export const collections = {
     archives,
     docs,
     pages,
+    productLanding,
     productPages,
     projects,
     generated,

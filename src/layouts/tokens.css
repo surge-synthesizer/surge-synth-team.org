@@ -58,6 +58,12 @@
            page. Product is the content face, which a product overrides - and
            must then also declare in fonts.css and add to src/fonts.ts, which is
            what gets it preloaded. */
+        /* Weights, as tokens rather than utility classes, so a product sets how
+           it is set in the same place it sets its typeface - and so block
+           typography can honour that instead of overriding it. */
+        --weight-body: 400;
+        --weight-heading: 700;
+
         --font-chrome: "Blinker", sans-serif;
         --font-product: "Lato", sans-serif;
 
@@ -126,12 +132,21 @@
     [data-project="spectrumworx"] {
         --color-product: var(--color-spectrumworx-blue);
         --color-product-track: var(--color-spectrumworx-gray);
+
+        /* Light, to echo the monoline logo. */
+        --font-product: "Rubik", "Lato", sans-serif;
+        --weight-body: 300;
+        --weight-heading: 600;
     }
 
     /* The org pages speak for the team rather than a product, so they wear the
        chrome face the nav and footer already use. */
     [data-project="team"] {
         --font-product: var(--font-chrome);
+
+        /* Blinker at regular reads heavy in a column of prose; 200 is declared
+           too if it wants to go thinner. */
+        --weight-body: 300;
     }
 
     [data-project="shortcircuit-xt"] {
@@ -144,8 +159,9 @@
     [data-project="ob-xf"] {
         --color-product: #727882;
 
-        /* Weights are set alongside the @font-face in fonts.css. */
         --font-product: "Saira", "Lato", sans-serif;
+        --weight-body: 300;
+        --weight-heading: 600;
 
         --paper-link: #43474e;
 
@@ -159,6 +175,23 @@
         --surface-accent-bg: var(--surface-slate-bg);
         --surface-accent-fg: var(--surface-slate-fg);
         --surface-accent-solid: var(--surface-slate-solid);
+
+        /* Two secondaries off the instrument itself, for the downloads band the
+           way Surge XT gives that band its ocean. `ember` is the top of the red
+           button, `walnut` the wood cheek on the vector skin. Swap which one the
+           band wears in ob-xf.astro.
+
+           Both read better than the slate they replace: white reaches 9.38:1 on
+           ember and 6.77:1 on walnut, against 4.92:1 on the slate. */
+        --surface-ember-bg: #7f282a;
+        --surface-ember-fg: #ffffff;
+        --surface-ember-link: #ffffff;
+        --surface-ember-solid: #7f282a;
+
+        --surface-walnut-bg: #795336;
+        --surface-walnut-fg: #ffffff;
+        --surface-walnut-link: #ffffff;
+        --surface-walnut-solid: #795336;
 
         --surface-ink-link: #adb3bd;
     }

@@ -123,7 +123,7 @@
         text-underline-offset: 4px;
     }
 
-    /* The third link context, after .page-prose and .block: a long-tail
+    /* The third link context, after .page-prose and [data-surface]: a long-tail
        product page's body, which runs on Tailwind's typography. That underlines
        links solid, so without this the site carried two different link
        treatments depending on which prose a page happened to use. The manual's
@@ -138,8 +138,13 @@
     }
 
     /* Block resolves one surface name into --block-* locals in an inline style,
-       so a product can name a new surface without anyone adding a rule here. */
-    .block {
+       so a product can name a new surface without anyone adding a rule here.
+
+       Matched on the attribute, not on Block's `block` class: that is also
+       Tailwind's display utility, so `.block` caught anything carrying it -
+       the nav's hamburger bars among them, which took `background:
+       var(--block-bg)` with nothing to resolve it to and disappeared. */
+    [data-surface] {
         background: var(--block-bg);
         color: var(--block-fg);
     }
@@ -147,10 +152,64 @@
     /* Underlined, not just tinted: OB-Xf's link grey is near-neutral, so colour
        alone would not mark a link (WCAG 1.4.1). Matches the Surge site's
        existing dotted style. */
-    .block a:not(.button) {
+    [data-surface] a:not(.button) {
         color: var(--block-link);
         text-decoration: underline dotted;
         text-underline-offset: 4px;
+    }
+
+    /*
+     * Prose inside a band. Every heading and paragraph used to carry its own
+     * utilities, which drifted: the same band heading was text-3xl with margins
+     * on Surge XT and text-2xl without on the other three products.
+     *
+     * Weight reads --weight-heading / --weight-body rather than naming one, so a
+     * product that sets how it is set - OB-Xf is light with semibold headings -
+     * keeps that here. Size and spacing are Surge's, that page being the one the
+     * consolidation is taking its look from.
+     *
+     * Measure is deliberately not set: the band owns it, through block-prose's
+     * max-width or the width of a split cell.
+     */
+    [data-surface] :is(h1, h2, h3, h4) {
+        @apply my-4;
+        font-weight: var(--weight-heading);
+    }
+
+    [data-surface] :is(h1, h2) {
+        @apply text-3xl;
+    }
+
+    /* Well under the band heading, these being subsections of one rather than
+       headings in their own right. */
+    [data-surface] h3 {
+        @apply text-lg;
+    }
+
+    [data-surface] h4 {
+        @apply text-xl;
+    }
+
+    [data-surface] p {
+        @apply mb-4 text-pretty;
+    }
+
+    [data-surface] :is(ul, ol) {
+        @apply mb-4 list-outside pl-4;
+    }
+
+    [data-surface] ul {
+        @apply list-disc;
+    }
+
+    [data-surface] ol {
+        @apply list-decimal;
+    }
+
+    /* The last child sets no bottom margin, so a band is padded by its own
+       padding rather than by its final paragraph. */
+    [data-surface] :is(p, ul, ol):last-child {
+        @apply mb-0;
     }
 
     .block-prose > .block-inner {
@@ -235,6 +294,40 @@ html :is(code, kbd, samp, pre) {
    absorbs whatever is left of the pane. */
 .page-shell > footer {
     margin-top: auto;
+}
+
+/* Theme-swapped artwork: a logo or screenshot that cannot simply be inverted,
+   because its colours are not each other's opposites. The dark variant is the
+   exception, so it is the one hidden by default - a reader on the system
+   setting, with no data-theme attribute yet, still gets correct artwork. */
+.only-dark {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]) .only-light {
+        display: none;
+    }
+
+    html:not([data-theme="light"]) .only-dark {
+        display: block;
+    }
+}
+
+html[data-theme="dark"] .only-light {
+    display: none;
+}
+
+html[data-theme="dark"] .only-dark {
+    display: block;
+}
+
+html[data-theme="light"] .only-light {
+    display: block;
+}
+
+html[data-theme="light"] .only-dark {
+    display: none;
 }
 
 .invert-in-light {

@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
  * One nav for the whole site.
  *
  * Every product renders the same skeleton - the product link, a Documentation
- * group holding Manual and Changelog, then About and Source Code - and a slot
+ * group holding Manual and Changelog, then About and GitHub - and a slot
  * appears only where that product has something to put in it. Products add to
  * it through `nav` in their JSON rather than by hand-writing a list, so a
  * product page and every page of that product's manual cannot drift apart.
@@ -90,7 +90,7 @@ export async function buildNav(currentProject?: string | null): Promise<Nav> {
     if (!currentProject) {
         return {
             items: [],
-            trailing: [...(await aboutLinks("org")), { label: "Source Code ↗", href: ORG_URL }],
+            trailing: [...(await aboutLinks("org")), { label: "GitHub ↗", href: ORG_URL }],
         };
     }
 
@@ -148,7 +148,7 @@ export async function buildNav(currentProject?: string | null): Promise<Nav> {
             ...(await aboutLinks("product")),
             // Deliberately not `url`: on surge-xt-rack that field holds a manual
             // link, not a repository.
-            { label: "Source Code ↗", href: repoUrl(repo) },
+            { label: "GitHub ↗", href: repoUrl(repo) },
         ],
     };
 }

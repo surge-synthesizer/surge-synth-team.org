@@ -60,6 +60,7 @@ const PAIRS = [
     { name: "nav default", bg: "#000000", fg: "#ffffff" },
     { name: "nav dark theme", bg: "#171717", fg: "#ffffff" },
     { name: "nav surge family", bg: "#ff9900", fg: "#171717" },
+    { name: "nav org pages", bg: "#ff9000", fg: "#171717" },
 
     // Surge's two extra bands, declared on html[data-project="surge-xt"].
     {
@@ -135,6 +136,16 @@ const PAIRS = [
         why: "same slate as the downloads band; AAA needs it 30% darker, which stops looking like the product",
     },
 
+    // OB-Xf's secondaries, off the instrument: the red button and the wood cheek.
+    // One of them wears the downloads band; both are declared.
+    { name: "ob-xf ember band", bg: "#7f282a", fg: "#ffffff" },
+    {
+        name: "ob-xf walnut band",
+        bg: "#795336",
+        fg: "#ffffff",
+        floor: AA_BODY_TEXT,
+        why: "the wood cheek at its own value; 6.77:1, just under AAA",
+    },
     { name: "ob-xf link, light base", bg: "#efece7", fg: "#43474e" },
     { name: "ob-xf link, light raised", bg: "#e5e1da", fg: "#43474e" },
     { name: "ob-xf link, dark base", bg: "#171717", fg: "#adb3bd" },

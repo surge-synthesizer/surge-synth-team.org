@@ -7,8 +7,135 @@ sidebar:
 date: 2026-03-16
 ---
 
-:::caution[Notes still to be written]
-The first release. No detailed notes were written at the time, so
-[the KVR announcement post](https://www.kvraudio.com/forum/viewtopic.php?p=9134120)
-is the fullest account there is - and is known to be missing things.
-:::
+OB-Xf is a continuation of OB-Xd synthesizer, originally developed by Vadim Filatov (2DaT).
+Surge Synth Team, expanded with a new group of team members, centralized several disparate efforts
+around the Web interested in improving this synth. It remains free in all contexts and for all
+uses, with the source available and modifiable under the GPL3 license.
+
+Almost everything above the DSP core was rewritten on the way here - voice allocation,
+the parameter system, patch management, the interface, the build system.
+
+## Voices and Polyphony
+
+- The old VAM button is now Note Priority menu, offering Last, Low and High note priority
+- Unison is now polyphonic - the new Unison Voices parameter sets how many voices are stacked per note (up to 32),
+  independently of the overall voice count
+- Maximum polyphony was increased to 32
+- Voice allocation was rewritten, which fixed a number of stuck note and sustain pedal cases along the way
+
+## Oscillators
+
+- Pitch bend is now taken into account when keytracking
+- Pulse width value displays now show correct duty cycle values
+- The pulse wave graphic in the Oscillators section animates with the actual pulse widt
+- Doubled the range of the Crossmod parameter
+
+ ## Mixer
+
+- Added a ring modulator in the mixer
+- Noise generator gained selectable color - white, pink or red
+- Noise volume now scales the same way the oscillator volume parameters do
+- Mixer parameters were renamed from Mix to Volume
+
+## Filter
+
+- The 4-pole filter has an additional Xpander mode, offering 15 filter types found on its hardware namesake
+- Filter Keytrack is now a knob rather than a switch
+- Resonance and Multimode parameters are now properly smoothed to avoid clicks
+- Fixed resonance being scaled twice
+- Fixed the behavior of the Filter Slop knob
+
+## LFOs and Vibrato
+
+- Added a second LFO, functionally identical to the first, except it is per voice instead of global for all voices
+- Waveform on/off buttons were replaced by crossfade knobs - Sine to Triangle, Pulse to Sawtooth, Sample & Hold to Sample & Glide
+- Added adjustable pulse width for the pulse waveform, which also adjusts tension for the sawtooth waveform
+- Destination buttons are now three-state, so each destination can be modulated in positive or negative polarity
+- Added Volume as a modulation destination
+- LFO Rate now goes up to 250 Hz, and its tooltip shows note values when tempo synced
+- Vibrato LFO can now switch between sine and unipolar square, and Vibrato Rate now covers 2 to 12 Hz
+
+## Envelopes
+
+- Added an Attack Curve control, sweeping the attack stage from logarithmic to linear
+- The old Step button was replaced with Env to Pitch Invert
+- Added envelope inversion for pulse width
+- Fixed a retrigger issue with linear shaped and already completed envelopes
+
+## Voice Variation
+
+- Added Levels, which varies the output level of each voice at the final, post-filter output stage
+- Added Randomize All Pans and Reset All Pans to Center to the pan knob context menu
+
+## Patch Management
+
+- Removed banks. Patches are now individual `.fxp` files in a folder tree below the user directory,
+  scanned at startup, with factory and user locations kept separate
+- Added the Programmer section at the bottom of the interface, containing the patch number and name,
+  previous/next patch, Init, Randomize, Save, and 16 direct access buttons
+  - The direct access buttons address 16 groups of 16 patches in the current folder,
+    so up to 256 patches are reachable without opening a menu
+  - The Group button switches the direct access buttons between selecting a patch and selecting a group of 16 patches
+- Added a Save Patch dialog carrying name, category, author and project metadata
+  - Ctrl/Cmd+click the SAVE button to quicksave over the current patch
+- Added Rename Patch and Delete Patch functions
+- A bullet next to the patch name marks the patch as modified since it was loaded
+- Added an undo stack
+- The init patch is now called Init, and always sits at patch number 000
+- Vestiges of the discoDSP file format have been removed
+- OB-Xf now ships with a factory patch library, contributed by the community during the beta testing cycle
+
+## MIDI
+
+- MIDI learn was rebuilt with a new overlay interface
+- MIDI mappings can be saved to a file, recalled, and cleared from the main menu
+- MIDI CC application is now linear-time, with correct bipolar treatment and lag handling
+- Added MIDI Program Change and Bank Select support (currently unavailable in VST3)
+- MIDI CCs 0, 1, 64, 74, 120 and 123 are reserved and cannot be learned
+- Fixed a bug with MIDI event timing
+
+## User Interface
+
+- Brand new interface by satYatunes and arturrembe!
+- The window resizes freely by dragging, and the Zoom menu covers 75% to 400%, graying out levels
+  too large for the current display
+- Default zoom level can be set, and context menus can be scaled separately
+- Added an About screen, reached by clicking the OB-Xf logo
+- Knobs gained right-click context menus, including value typeins
+- Hold Shift for fine adjustment and Ctrl/Cmd to quantize to whole numbers
+- Tooltips are now active at all times, tooltip option has been removed
+- Added voice activity LEDs, sitting next to the Voice Variation pan knobs
+- Removed the preset bar, the on-screen MIDI keyboard and Eco Mode
+- Added a software renderer option (Windows only)
+- Modal dialogs were replaced with asynchronous ones across the board
+
+## Accessibility
+
+- Implemented full keyboard navigation with a defined focus order
+- Added screenreader support on Windows and macOS
+
+## Themes
+
+- Name change - themes were previously known as skins
+- Two themes ship with OB-Xf:
+    - The default theme by satYatunes and arturrembe
+    - Default Vector, a vectorized version by EvilDragon, embedded into the binary
+- Themes can use PNG and SVG assets for backgrounds, knobs, buttons, sliders and labels
+- Raster themes provide three zoom variants, which are loaded and unloaded as the zoom level crosses between them
+
+## Host Integration
+
+- Available as CLAP, VST3, AU, LV2 and standalone, on Windows, macOS and Linux
+- The standalone supports ASIO on Windows
+- Added host context menus on knobs
+- Added DAW extra state, so per-instance interface state (such as zoom level, for example) travel with the session instead of being global
+- Redundant automation data is no longer sent to the host
+- Fixed a number of data races and thread safety problems
+
+## Infrastructure
+
+- The build moved from Projucer to CMake, and dependencies to git submodules
+- Full CI, with pull request builds and nightlies for Windows (x64, ARM64 and ARM64EC), macOS as a universal binary, and Linux
+- Installers on all three platforms - Inno Setup on Windows, a signed macOS package, and a Linux `.deb`
+- Parameters moved to the ParamMetaData system from `sst-basic-blocks`, which fixed a long list of value display and normalization errors
+- Moved to C++20, added address and thread sanitizer builds, and consistently formatted the source code

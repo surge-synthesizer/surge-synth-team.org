@@ -1,8 +1,8 @@
 {
     "title": "Shortcircuit XT",
     "slug": "shortcircuit-xt",
-    "order": 5,
-    "summary": "Shortcircuit XT is a sample player.",
+    "order": 2,
+    "summary": "Shortcircuit XT is a creative sample-based synthesizer that goes way beyond what you would expect from a sampler. Four per-zone and per-group processors with various routings, extensive group trigger and playback options, in-depth modulation matrices (again, per-zone and per-group), 16-part multi-timbrality, flexible output mixer, modern amenities like MPE and MTS-ESP - all join hands together to form this celebration of sample-based (and then some) sound design.",
     "cover": "./images/shortcircuit-xt.png",
     "categories": ["Sampler"],
     "issue_tracker": "https://github.com/surge-synthesizer/shortcircuit-xt/issues",

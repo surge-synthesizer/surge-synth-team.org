@@ -7,6 +7,15 @@ sidebar:
 date: 2026-03-26
 ---
 
-:::caution[Notes still to be written]
-Release notes for this version have not been written up yet.
-:::
+A packaging-only release. Apart from its version number, the plugin is unchanged from 1.0.1 -
+the whole of this release is in how release builds are versioned and named,
+which the release stage introduced in 1.0.1 had got wrong.
+
+## Infrastructure
+
+- Release builds now take their version from the git tag, through a new `OBXF_BUILD_VERSION`
+  CMake variable. Builds that don't set it (nightlies and local builds), keep the old date and commit SHA naming
+- As a result, release installers are now named after the release - for example
+  `ob-xf-Windows-v1.0.2.exe` rather than `ob-xf-Windows-2026-03-25-a01f3f3.exe`
+- The Linux Docker build receives the release version as well, so tagged builds produce a release
+  `.deb` rather than a nightly one
