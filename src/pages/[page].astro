@@ -22,7 +22,7 @@ const url = page.data.url ?? (page.data.repo && `https://github.com/${page.data.
 const { Content } = await render(page);
 ---
 
-<Base title={page.data.title}>
+<Base title={page.data.title} project="team">
     <NavHeader slot="nav" />
     <article class="page-prose">
         <h1>{page.data.title}</h1>

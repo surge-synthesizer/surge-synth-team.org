@@ -79,7 +79,7 @@ const flat = [...nav.items.filter((entry): entry is NavItem => !isGroup(entry)),
                                     aria-haspopup="true">
                                     {entry.label}
                                 </button>
-                                <ul class="nav-group-menu absolute top-full left-0 z-10 min-w-[180px] rounded border py-2 shadow-lg">
+                                <ul class="nav-group-menu absolute top-full left-0 z-10 min-w-[180px] rounded border-2 py-2 shadow-lg">
                                     {entry.items.map((item) => (
                                         <li>
                                             <a

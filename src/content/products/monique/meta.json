@@ -1,12 +1,10 @@
 {
-    "title": "Monique Monosynth",
+    "title": "Monique",
     "slug": "monique",
-    "order": 7,
+    "order": 8,
     "summary": "Monique is a monophonic synth from Thomas Arndt which became open source in December 2021.",
     "cover": "./images/monique.jpg",
-    "categories": [
-        "Synth"
-    ],
+    "categories": ["Synth"],
     "issue_tracker": "https://github.com/surge-synthesizer/monique-monosynth/issues",
     "repo": "surge-synthesizer/monique-monosynth"
 }

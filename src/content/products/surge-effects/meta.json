@@ -4,9 +4,7 @@
     "order": 2,
     "summary": "The Surge effects module in its own plugin.",
     "cover": "./images/surge-effects.png",
-    "categories": [
-        "Effects"
-    ],
+    "categories": ["Effects"],
     "issue_tracker": "https://github.com/surge-synthesizer/surge-fx/issues",
     "repo": "surge-synthesizer/surge-fx",
     "url": "https://surge-synthesizer.github.io"

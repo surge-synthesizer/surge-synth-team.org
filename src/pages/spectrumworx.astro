@@ -12,9 +12,6 @@ import Base from "../layouts/Base.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import spectrumworx_logo from "../content/products/spectrumworx/images/spectrumworx_logo_full.svg";
 
-// Unlisted on purpose: no src/content/products/spectrumworx/meta.json means this page
-// is absent from the home page and both nav project menus. See the note below.
-
 /*
  * Copy below the hero is still placeholder, carried over verbatim from the
  * pre-block page. Each highlight is its own Block, matching Shortcircuit XT, so
@@ -42,7 +39,7 @@ const faq = [
 ---
 
 <Base title="SpectrumWorx" project="spectrumworx">
-    <NavHeader slot="nav" />
+    <NavHeader slot="nav" currentProject="spectrumworx" />
 
     <main>
         <Block surface="base" layout="split" class="md:min-h-[500px]">
@@ -53,7 +50,7 @@ const faq = [
                 <img
                     src={spectrumworx_logo.src}
                     alt="SpectrumWorx"
-                    class="mt-3 w-full max-w-55 self-start md:max-w-75"
+                    class="invert-in-light mt-3 w-full max-w-55 self-start md:max-w-75"
                 />
                 <p class="mt-4 max-w-prose">
                     SpectrumWorx is a modular spectral effect: it decomposes your audio into the
@@ -71,13 +68,9 @@ const faq = [
                         mac={spectrumworx_build_nightly.releases.macos}
                         linux={spectrumworx_build_nightly.releases.linux64}
                         other={spectrumworx_build_nightly.releases.other}
-                        label="Download Nightly"
                         id="spectrumworx-release-link"
                         buttonClass="button button-solid"
                     />
-                    <Button href="https://github.com/surge-synthesizer/SpectrumWorx">
-                        View on GitHub
-                    </Button>
                 </div>
                 <p class="mt-4 text-xs opacity-80">
                     Source is GPL-3.0-or-later; released binaries link JUCE 8 under its AGPLv3 arm
@@ -94,26 +87,6 @@ const faq = [
                     class="h-full max-h-[400px] w-full object-contain"
                 />
             </Cell>
-        </Block>
-
-        <Block surface="raised" layout="prose" class="print:hidden">
-            <div class="rounded-lg border-2 border-dashed border-current/30 p-4 text-sm">
-                <p class="font-bold">This page is unlisted.</p>
-                <p class="mt-2 max-w-prose">
-                    It is reachable at <code>/spectrumworx</code> but does not appear on the home page
-                    or in either navigation menu, because both are generated from the
-                    <code>projects</code> content collection and SpectrumWorx has no entry in it.
-                </p>
-                <p class="mt-2 max-w-prose">
-                    To make it live, create <code>src/content/products/spectrumworx/meta.json</code>
-                    alongside its manual and images (<code>title</code>, <code>order</code>,
-                    <code>summary</code>, <code>cover</code>, <code>categories</code>,
-                    <code>issue_tracker</code>, <code>repo</code>), add
-                    <code>"spectrumworx"</code> to the exclusion list in
-                    <code>src/pages/[project].astro</code> so this hand-written page wins over the generated
-                    one, then delete this box.
-                </p>
-            </div>
         </Block>
 
         {

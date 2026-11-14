@@ -18,6 +18,10 @@
         "groups": {
             "Documentation": [
                 {
+                    "label": "VCV Modules Manual",
+                    "href": "/surge-xt/manual-rack/"
+                },
+                {
                     "label": "Accessibility",
                     "href": "/surge-xt/accessibility"
                 }

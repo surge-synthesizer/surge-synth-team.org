@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./tokens.css";
 @import "./fonts.css";
 @import "./nav.css" layer(base);
 @import "./transitions.css";
@@ -7,197 +8,7 @@
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-@theme {
-    --font-sans: "Lato";
-    --color-surge-orange: #ff9900;
-    --color-surge-orange-bright: color-mix(in srgb, var(--color-surge-orange) 80%, white);
-    --color-surge-blue: #005cb6;
-    --color-surge-blue-bright: color-mix(in srgb, var(--color-surge-blue) 80%, white);
-    --color-surge-blue2: #2d86fe;
-    --color-surge-blue2-bright: color-mix(in srgb, var(--color-surge-blue2) 80%, white);
-    --color-spectrumworx-blue: #58b6d4;
-    --color-spectrumworx-blue-bright: #80c5db;
-    --color-spectrumworx-blue-dim: #65838c;
-    --color-spectrumworx-blue2: #4dbbde;
-    --color-spectrumworx-gray: #2b2b2b;
-    --color-spectrumworx-yellow: #fffb82;
-
-    /* Default Surge product colors */
-    --color-product: var(--color-surge-orange);
-    --color-product-track: var(--color-zinc-950);
-}
-
 @layer base {
-    html[data-project="spectrumworx"] {
-        --color-product: var(--color-spectrumworx-blue);
-        --color-product-track: var(--color-spectrumworx-gray);
-    }
-
-    /* OB-Xf's GUI grey. A mid-grey is the hard case for contrast: #727882 tops
-       out at 4.72:1 against black and 4.44:1 against white, so it cannot carry
-       body text at either polarity. It stays the brand token - scrollbar, and
-       anything that is not text - while surfaces take lightness-shifted
-       variants of the same hue. */
-    html[data-project="ob-xf"] {
-        --color-product: #727882;
-
-        --paper-link: #43474e;
-
-        /* The brand grey itself, 6% darker - enough to clear AA behind white
-           body text (4.92:1 against 4.44:1), little enough to still read as the
-           GUI colour. Going dark enough for AAA means a 30% drop, which no
-           longer looks like OB-Xf. */
-        --surface-slate-bg: #6b717a;
-        --surface-slate-fg: #ffffff;
-        --surface-slate-link: #ffffff;
-        --surface-slate-solid: #6b717a;
-
-        --surface-accent-bg: var(--surface-slate-bg);
-        --surface-accent-fg: var(--surface-slate-fg);
-        --surface-accent-solid: var(--surface-slate-solid);
-
-        --surface-ink-link: #adb3bd;
-    }
-
-    /* Beats the generic dark rule below, which aims --paper-link at the brand
-       token - too dark against dark paper at 4.03:1. */
-    html[data-project="ob-xf"][data-theme="dark"] {
-        --paper-link: #adb3bd;
-    }
-
-    /* Surge's two extra bands, carried over from the site this replaces.
-
-       `ocean` is that site's backgroundBlue, kept at its exact value by
-       request. It measures 5.14:1 behind the light foreground and 6.48:1
-       behind white - AA, below the 7:1 the rest of the palette holds, which is
-       recorded as an exception in scripts/check-contrast.mjs. Darkening it to
-       reach AAA costs about a fifth of its lightness and stops reading as the
-       brand blue.
-
-       `night` is the contributors band's #103364 unchanged: it already
-       measures 9.93:1. */
-    html[data-project="surge-xt"] {
-        --surface-ocean-bg: #005db6;
-        --surface-ocean-fg: #e5e5e5;
-        --surface-ocean-link: #ffffff;
-        --surface-ocean-solid: #005db6;
-
-        --surface-night-bg: #103364;
-        --surface-night-fg: #e5e5e5;
-        --surface-night-link: #ffffff;
-        --surface-night-solid: #103364;
-
-        /* The videos band, kept at the old site's exact stops.
-
-           A gradient with a light end and a dark end cannot be safe for any one
-           foreground, so this is the better of two: measured along the ramp,
-           dark text runs 8.4:1 over the orange and falls to 2.8:1 at the blue
-           corner, while light text does the reverse from 1.7:1 to 5.1:1. They
-           cross at roughly four fifths of the way across, so dark wins over
-           most of the band - including its worst point, the mid-band mauve near
-           #7c7f92, where dark reaches 4.5:1 against light's 3.1:1.
-
-           The blue corner is the one place dark text would fail, and the band
-           puts its video there rather than any copy. That makes the layout load
-           bearing: moving the text to the far side would break it.
-
-           `in oklab` is not decoration: it is what Tailwind emits for its own
-           gradient utilities, and it is the whole difference here. Interpolated
-           in sRGB, orange to blue passes through a muddy grey; in oklab it
-           stays saturated across the band. */
-        --surface-sunset-bg: linear-gradient(to bottom right in oklab, #ff9900, #005db6);
-        --surface-sunset-fg: #171717;
-        --surface-sunset-link: #171717;
-        --surface-sunset-solid: #ff9900;
-
-        /* The hero band. Flat paper would do, and the gradient under it is
-           nearly imperceptible - two steps of grey - but side by side with a
-           flat fill it is the difference between the band having depth and
-           not. Dark is the old site's own pair; light is paper taken a step
-           deeper, so the band stays in this site's warmer palette rather than
-           importing a neutral grey the rest of the page does not use. */
-        --surface-hero-bg: linear-gradient(to bottom in oklab, #f5f2ed, #e2ded6);
-        --surface-hero-fg: var(--paper-ink);
-        --surface-hero-link: var(--paper-link);
-        --surface-hero-solid: var(--paper);
-    }
-
-    html[data-project="surge-xt"][data-theme="dark"] {
-        --surface-hero-bg: linear-gradient(to bottom in oklab, #171717, #0a0a0a);
-    }
-
-    /* A surface declares background, foreground and link colour together, so a
-       Block never has to smuggle all three through one class string. `solid` is
-       the background's flat equivalent, for elements that invert on hover - a
-       gradient cannot be used as a text colour.
-
-       Neutral roles (base, raised) follow the theme; branded roles (ink, accent,
-       deep) are fixed and ship their own foreground. Products may declare extra
-       named surfaces; the core five exist everywhere so block rhythm reads the
-       same site-wide. */
-    :root {
-        /* The nav's own height, mirrored into Starlight's --sl-nav-height by
-           src/layouts/starlight.css. Starlight pads its main frame by exactly
-           that value, so the two must agree by construction, not by a guess. */
-        --nav-height: 3rem;
-
-        --paper: #efece7;
-        --paper-raised: #e5e1da;
-        --paper-ink: #262626;
-        --paper-link: #00468c;
-
-        --surface-base-bg: var(--paper);
-        --surface-base-fg: var(--paper-ink);
-        --surface-base-link: var(--paper-link);
-        --surface-base-solid: var(--paper);
-
-        --surface-raised-bg: var(--paper-raised);
-        --surface-raised-fg: var(--paper-ink);
-        --surface-raised-link: var(--paper-link);
-        --surface-raised-solid: var(--paper-raised);
-
-        --surface-ink-bg: #171717;
-        --surface-ink-fg: #e5e5e5;
-        --surface-ink-link: var(--color-product);
-        --surface-ink-solid: #171717;
-
-        --surface-accent-bg: var(--color-product);
-        --surface-accent-fg: #171717;
-        --surface-accent-link: #171717;
-        --surface-accent-solid: var(--color-product);
-
-        /* Surge's ocean gradient, at the stops the old site uses. The bottom
-           one reaches 6.71:1 under this foreground - just short of AAA, and
-           recorded with the rest of Surge's blues. */
-        --surface-deep-bg: linear-gradient(to bottom in oklab, #1d222a, #004f8a);
-        --surface-deep-fg: #e5e5e5;
-        --surface-deep-link: #ffffff;
-        --surface-deep-solid: #1d222a;
-    }
-
-    html[data-theme="dark"] {
-        --paper: #171717;
-        --paper-raised: #262626;
-        --paper-ink: #f5f5f5;
-        --paper-link: var(--color-product);
-    }
-
-    /* The pre-2026 pairing measured 16.4:1 - glare for ordinary reading, but
-       exactly right for anyone who has asked the OS for more contrast. */
-    @media (prefers-contrast: more) {
-        :root {
-            --paper: #ffffff;
-            --paper-raised: #f5f5f5;
-            --paper-ink: #171717;
-        }
-
-        html[data-theme="dark"] {
-            --paper: #000000;
-            --paper-raised: #171717;
-            --paper-ink: #ffffff;
-        }
-    }
-
     /* No scrollbar-gutter here. It used to reserve the strip whether or not the
        page scrolled, so the nav did not jump between a short page and a long
        one. The document stopped scrolling when the layout moved to a pane below
@@ -308,6 +119,16 @@
        alone does not mark a link. */
     .page-prose a {
         color: var(--paper-link);
+        text-decoration: underline dotted;
+        text-underline-offset: 4px;
+    }
+
+    /* The third link context, after .page-prose and .block: a long-tail
+       product page's body, which runs on Tailwind's typography. That underlines
+       links solid, so without this the site carried two different link
+       treatments depending on which prose a page happened to use. The manual's
+       equivalent lives in starlight.css. */
+    article:not(.page-prose) :is(p, li, td, th, blockquote) a {
         text-decoration: underline dotted;
         text-underline-offset: 4px;
     }

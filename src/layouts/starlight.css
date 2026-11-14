@@ -2,8 +2,8 @@
  * Binds Starlight's layout to the site's own.
  *
  * Starlight pages never render Base.astro, so base.css does not reach them.
- * Only the values the two layouts must agree on live here; per-manual theming
- * (--sl-color-* scoped by data-project) is a separate piece of work.
+ * The site's design tokens come in through tokens.css, which base.css imports
+ * too; this file spends them on Starlight's own --sl-* surface.
  */
 
 /*
@@ -22,6 +22,7 @@
 /* The nav's baseline, shared with base.css. Preflight supplies these on
    Base.astro pages; here they have to be declared, or the same markup renders
    indented, bulleted and in Starlight's typeface. */
+@import "./tokens.css";
 @import "./fonts.css";
 @import "./nav.css" layer(base);
 @import "./transitions.css";
@@ -41,15 +42,134 @@
     display: none;
 }
 
+/* Outline-only, derived from --surface-nav-fg so it follows whatever surface
+   the bar wears. Starlight fills it with --sl-color-black instead, which is
+   this site's paper - a dark blob on a coloured bar. Unlayered to beat its
+   @layer starlight.core rules, media query included. */
+#nav site-search button[data-open-modal] {
+    height: 2.125rem;
+    padding-inline: 0.5rem;
+    border: 1px solid color-mix(in srgb, var(--surface-nav-fg) 40%, transparent);
+    border-radius: 0.375rem;
+    background-color: color-mix(in srgb, var(--surface-nav-fg) 10%, transparent);
+    color: var(--surface-nav-fg);
+}
+
+#nav site-search button[data-open-modal]:hover {
+    border-color: var(--surface-nav-fg);
+    background-color: color-mix(in srgb, var(--surface-nav-fg) 18%, transparent);
+    color: var(--surface-nav-fg);
+}
+
+/* Transparent, not Starlight's filled chip - that is the blob again, smaller. */
 #nav site-search button[data-open-modal] kbd {
+    background-color: transparent;
+    line-height: 1;
     opacity: 0.55;
 }
 
-:root {
-    /* Kept in step with base.css. Starlight pads .main-frame by this exact
-       value, so a mismatch shows up as the first heading under the nav bar. */
-    --nav-height: 3rem;
+/* --sl-font alone is not enough: Starlight applies it via --__sl-font on
+   <body>, which resolves above the wrapper and bakes in the default face.
+   See the substitution note in tokens.css. */
+[data-project] {
+    font-family: var(--font-product);
+}
+
+/* Starlight paints this one on --sl-color-text-accent, which here is the link
+   colour: #171717 on #00468c, 1.9:1. Ink rather than the accent surface
+   because SkipLink renders outside the wrapper, so product tokens would
+   silently resolve to the default product's. */
+.sl-skip-link:focus {
+    background-color: var(--surface-ink-bg);
+    color: var(--surface-ink-fg);
+}
+
+/* Starlight backgrounds this with --sl-color-text-accent, which only works
+   while that equals bg-accent; here it is the link colour, so OB-Xf got white
+   on #adb3bd at 1.8:1. */
+.sidebar-content a[aria-current="page"] {
+    background-color: var(--surface-accent-bg);
+    color: var(--surface-accent-fg);
+}
+
+/* The accent barely registers where a product's link colour sits close to the
+   ink. White is what Starlight's own mobile TOC (mobile-starlight-toc, left
+   alone here) already uses. */
+starlight-toc a[aria-current="true"] {
+    color: var(--sl-color-white);
+}
+
+/* Colour alone does not mark a link (WCAG 1.4.1) - OB-Xf's is near-neutral.
+   Matches .block a and .page-prose a in base.css. */
+.sl-markdown-content a:not(.sl-anchor-link) {
+    font-weight: 600;
+    text-decoration: underline dotted;
+    text-underline-offset: 4px;
+}
+
+/*
+ * Starlight's palette, derived from the site's tokens. Unlayered, which is
+ * what lets a plain :root beat props.css inside @layer starlight.base.
+ * Properties not named here keep Starlight's own light/dark logic.
+ *
+ * `[data-project]` is not optional: every value below dereferences a product
+ * token, and at :root alone they all resolve against <html>, which in a
+ * manual has no product. See the substitution note in tokens.css.
+ */
+:root,
+[data-project] {
+    /* Starlight's greys swap ends between themes, which is what --paper and
+       --paper-ink already do, so the ramp anchors on those and mixes the
+       middle. Percentages are tuned against scripts/check-contrast.mjs, which
+       resolves these same mixes: gray-2 is body text, gray-3 secondary chrome,
+       gray-5/6 the inline-code background. */
+    --sl-color-black: var(--paper);
+    /* Light-theme only in Starlight, and easy to miss: Expressive Code paints
+       the code-block background with it. */
+    --sl-color-gray-7: color-mix(in oklab, var(--paper-ink) 4%, var(--paper));
+    --sl-color-gray-6: color-mix(in oklab, var(--paper-ink) 8%, var(--paper));
+    --sl-color-gray-5: color-mix(in oklab, var(--paper-ink) 16%, var(--paper));
+    --sl-color-gray-4: color-mix(in oklab, var(--paper-ink) 48%, var(--paper));
+    --sl-color-gray-3: color-mix(in oklab, var(--paper-ink) 72%, var(--paper));
+    --sl-color-gray-2: color-mix(in oklab, var(--paper-ink) 85%, var(--paper));
+    --sl-color-gray-1: color-mix(in oklab, var(--paper-ink) 93%, var(--paper));
+    --sl-color-white: var(--paper-ink);
+
+    /* Not derived from the ramp: Starlight aims this at gray-6 in dark and the
+       page background in light, where the site has a raised paper. */
+    --sl-color-bg-sidebar: var(--paper-raised);
+
+    /* The strip of .header around NavHeader, visible while the mobile menu is
+       open - that expands the header rather than overlaying it. */
+    --sl-color-bg-nav: var(--surface-nav-bg);
+
+    /* --paper-link, not --color-product: a brand colour good enough for a
+       scrollbar is not always good enough behind 16px text. */
+    --sl-color-text-accent: var(--paper-link);
+    --sl-color-accent-high: var(--paper-link);
+
+    /* Accent as a background - banner, file tree. The site's accent surface is
+       already a measured pair per product, so reuse it rather than invent one. */
+    --sl-color-bg-accent: var(--surface-accent-bg);
+    --sl-color-text-invert: var(--surface-accent-fg);
+
+    /* Borders, outlines, accent-color - never text, hence the flat brand value. */
+    --sl-color-accent: var(--surface-accent-solid);
+    --sl-color-accent-low: color-mix(in oklab, var(--color-product) 20%, var(--paper));
+
+    /* The supported hook - Starlight composes these through --__sl-font*.
+       They govern <body>, above the wrapper; the product's own face is applied
+       at the wrapper further down. */
+    --sl-font: var(--font-product);
+    --sl-font-mono: var(--font-mono);
+
+    /* Starlight pads .main-frame by exactly this, so reading the token rather
+       than restating it keeps the two from drifting. */
     --sl-nav-height: var(--nav-height);
+
+    /* 45rem is Starlight's own, which left the manual in a narrow column on a
+       wide window once the contents column stopped hogging the slack. */
+    --sl-content-width: 58rem;
 
     /* Both the collapsed pane width and the rail height, hence "size". */
     --sl-rail-size: 2.75rem;
@@ -211,4 +331,25 @@ html,
 body {
     height: 100%;
     overflow: hidden;
+}
+
+/*
+ * Starlight splits the leftover width between the contents column and the body,
+ * so "On this page" ends up in a column about twice the width of the list it
+ * holds. Pinned to its own width against the right edge instead, with the body
+ * taking everything else.
+ */
+@media (min-width: 72rem) {
+    .right-sidebar-container {
+        width: var(--sl-sidebar-width);
+    }
+
+    html[data-has-sidebar][data-has-toc] .main-pane {
+        /* Starlight hangs the body off the contents column (auto 0). With the
+           slack now all on one side that would strand it against the right, so
+           it is centred in the pane instead. */
+        --sl-content-margin-inline: auto;
+
+        width: calc(100% - var(--sl-sidebar-width));
+    }
 }

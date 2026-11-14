@@ -14,6 +14,7 @@
 import Default from "@astrojs/starlight/components/Head.astro";
 import { ClientRouter } from "astro:transitions";
 import SmoothScroll from "../SmoothScroll.astro";
+import { fontType, preloadFonts } from "../../fonts";
 
 /*
  * Unreleased documentation - a nightly manual, notes for a release still being
@@ -23,6 +24,8 @@ import SmoothScroll from "../SmoothScroll.astro";
  */
 const { entry } = Astro.locals.starlightRoute;
 
+const project = entry.id.split("/")[0];
+
 const nightly =
     entry.id.includes("/manual-nightly/") ||
     entry.data.nightly === true ||
@@ -30,6 +33,11 @@ const nightly =
 ---
 
 <Default />
+{
+    preloadFonts(project).map((href) => (
+        <link rel="preload" href={href} as="font" type={fontType(href)} crossorigin />
+    ))
+}
 <ClientRouter />
 <SmoothScroll />
 {nightly && <meta name="robots" content="noindex, follow" />}

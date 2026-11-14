@@ -16,3 +16,97 @@
     font-weight: normal;
     font-display: block;
 }
+
+/* The product faces, both SIL OFL 1.1 and self-hosted like Lato rather than
+   pulled from Google - a remote @import does not survive the production bundle,
+   which flattens it out of the top-of-file position @import requires.
+
+   Variable files, so weight is a CSS knob rather than another download. Saira
+   carries a width axis too: font-stretch runs to 125%, where its 100% default
+   is fairly narrow. */
+@font-face {
+    font-family: "Saira";
+    src: url("/fonts/Saira-Variable.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 100 900;
+    font-stretch: 50% 125%;
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("/fonts/Inter-Variable.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: block;
+}
+
+@layer base {
+    /* Light text, semibold headings. Weights rather than tokens because this is
+       one product's typographic choice, not a value anything else reads. */
+    [data-project="ob-xf"] {
+        font-weight: 300;
+    }
+
+    [data-project="ob-xf"] :is(h1, h2, h3, h4, h5, h6) {
+        font-weight: 600;
+    }
+
+    /* Blinker at regular reads heavy in a column of prose. Light here; 200 is
+       declared too if it wants to go thinner. Headings keep whatever weight
+       their context gives them. */
+    [data-project="team"] {
+        font-weight: 300;
+    }
+
+    /* A px over the body default, to carry the lighter weight. Both shapes an
+       org page comes in: a prose Block on the home page, .page-prose on the
+       generated ones. Headings size themselves in rem and are unaffected, and
+       the bar and the footer sit outside both. */
+    [data-project="team"] :is(main, .page-prose) {
+        font-size: 17px;
+    }
+}
+
+/* The chrome face: nav, footer, and every product that has not chosen its own
+   - which includes the team pages. Static cuts, not variable, so only the
+   weights the site actually uses are shipped. */
+@font-face {
+    font-family: "Blinker";
+    src: url("/fonts/Blinker-200.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 200;
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Blinker";
+    src: url("/fonts/Blinker-300.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 300;
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Blinker";
+    src: url("/fonts/Blinker-400.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Blinker";
+    src: url("/fonts/Blinker-600.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 600;
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Blinker";
+    src: url("/fonts/Blinker-700.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 700;
+    font-display: block;
+}
