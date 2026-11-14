@@ -38,10 +38,9 @@ const repoUrl = (repo?: string) => (repo ? `https://github.com/${repo}` : ORG_UR
 const hasPage = async (id: string) => (await getCollection("pages")).some((page) => page.id === id);
 
 /**
- * `/about` and `/clap` are org-wide pages that do not exist in this repo yet -
- * About is a merge of the current Open Source and Contact pages with Surge's
- * History page, and CLAP still lives on the Surge site. Each slot appears the
- * moment its MDX lands in src/content/pages.
+ * `/about` is an org-wide page that does not exist in this repo yet - a merge
+ * of the current Open Source and Contact pages with Surge's History page. The
+ * slot appears the moment its MDX lands in src/content/pages.
  *
  * Until About exists, the two pages it will replace stay linked from the org
  * homepage so they remain reachable, but they are org-level concerns and do not
@@ -91,11 +90,7 @@ export async function buildNav(currentProject?: string | null): Promise<Nav> {
     if (!currentProject) {
         return {
             items: [],
-            trailing: [
-                ...(await aboutLinks("org")),
-                ...((await hasPage("clap")) ? [{ label: "CLAP", href: "/clap" }] : []),
-                { label: "Source Code ↗", href: ORG_URL },
-            ],
+            trailing: [...(await aboutLinks("org")), { label: "Source Code ↗", href: ORG_URL }],
         };
     }
 
