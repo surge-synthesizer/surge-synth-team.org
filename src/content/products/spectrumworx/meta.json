@@ -1,7 +1,7 @@
 {
     "title": "SpectrumWorx",
     "slug": "spectrumworx",
-    "order": 6,
+    "order": 4,
     "summary": "SpectrumWorx is a modular spectral effect: it decomposes your audio into the frequency domain, lets you stack and chain effects on that spectrum, then resynthesizes the result.",
     "cover": "./images/spectrumworx.png",
     "categories": ["Effect"],

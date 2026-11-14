@@ -42,27 +42,25 @@ const faq = [
     <NavHeader slot="nav" currentProject="spectrumworx" />
 
     <main>
-        <Block surface="base" layout="split" class="md:min-h-[500px]">
+        <Block surface="base" layout="split" class="overflow-hidden">
             <Cell>
-                <p class="text-xs font-bold tracking-[0.2em] uppercase opacity-70">
+                <h1>
+                    <img
+                        src={spectrumworx_logo.src}
+                        alt="SpectrumWorx"
+                        class="invert-in-light h-auto w-full max-w-[666px]"
+                    />
+                </h1>
+                <p class="mt-2 text-xs font-bold tracking-[0.2em] uppercase opacity-70">
                     Spectral Audio Effect
                 </p>
-                <img
-                    src={spectrumworx_logo.src}
-                    alt="SpectrumWorx"
-                    class="invert-in-light mt-3 w-full max-w-55 self-start md:max-w-75"
-                />
                 <p class="mt-4 max-w-prose">
                     SpectrumWorx is a modular spectral effect: it decomposes your audio into the
                     frequency domain, lets you stack and chain effects on that spectrum, then
                     resynthesizes the result. Originally developed by Little Endian and open sourced
                     in 2024, it now runs as CLAP, VST3, and AU on Windows, macOS, and Linux.
                 </p>
-                <p class="mt-4 inline-block rounded-md border border-current/30 px-3 py-2 text-sm">
-                    <strong>Work in progress.</strong> Nightly builds are a modernization sprint, not
-                    a finished release. Expect rough edges.
-                </p>
-                <div class="mt-6 flex flex-wrap items-center gap-3">
+                <div class="flex flex-wrap items-center gap-3">
                     <DownloadButton
                         windows={spectrumworx_build_nightly.releases.win64}
                         mac={spectrumworx_build_nightly.releases.macos}
@@ -72,19 +70,34 @@ const faq = [
                         buttonClass="button button-solid"
                     />
                 </div>
+                <p class="mt-4">
+                    <a href={spectrumworx_build_nightly.releases.other}>
+                        Downloads for other platforms and installers
+                    </a>
+                </p>
+                <p><a href="/spectrumworx/manual/">Read the manual</a></p>
                 <p class="mt-4 text-xs opacity-80">
                     Source is GPL-3.0-or-later; released binaries link JUCE 8 under its AGPLv3 arm
                     and are therefore AGPL-3.0-or-later.
                 </p>
             </Cell>
 
-            <Cell padded={false} class="min-h-[250px] md:min-h-0">
+            {
+                /* The same treatment as the OB-Xf hero: sized by height so nothing
+                   crops it top or bottom, anchored left so only the far edge runs
+                   past the column, and the band clips that.
+
+                   The height is per product because it is the image's own ratio
+                   that decides how wide it comes out - 2.04:1 here against
+                   OB-Xf's 1.81 - and the aim is the same modest overhang on each.
+                   Worth recomputing when this screenshot is replaced. */
+            }
+            <Cell padded={false} class="py-8">
                 <Image
                     src={SpectrumWorxCover}
-                    alt="SpectrumWorx interface screenshot"
+                    alt="The SpectrumWorx interface"
                     quality="100"
-                    format="png"
-                    class="h-full max-h-[400px] w-full object-contain"
+                    class="h-[220px] w-auto max-w-none self-center md:h-[max(540px,28vw)] md:self-start"
                 />
             </Cell>
         </Block>
@@ -95,15 +108,15 @@ const faq = [
                     id={index === 0 ? "highlights" : undefined}
                     surface={index % 2 === 0 ? "base" : "raised"}
                     layout="prose">
-                    <h2 class="text-2xl font-bold">{highlight.title}</h2>
-                    <p class="mt-2 max-w-prose">{highlight.body}</p>
+                    <h2>{highlight.title}</h2>
+                    <p class="max-w-prose">{highlight.body}</p>
                 </Block>
             ))
         }
 
         <Block id="manual" surface="accent" layout="prose">
-            <h2 class="text-2xl font-bold">Manual</h2>
-            <p class="mt-2 max-w-prose">
+            <h2>Manual</h2>
+            <p class="max-w-prose">
                 The SpectrumWorx manual covers the interface, the module bank, and every spectral
                 module in turn.
             </p>
@@ -115,8 +128,8 @@ const faq = [
         </Block>
 
         <Block id="about" surface="base" layout="prose">
-            <h2 class="text-2xl font-bold">About</h2>
-            <p class="mt-2 max-w-prose">
+            <h2>About</h2>
+            <p class="max-w-prose">
                 Placeholder section for project background, contributors, and links.
             </p>
         </Block>

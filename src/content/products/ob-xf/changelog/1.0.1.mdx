@@ -7,6 +7,30 @@ sidebar:
 date: 2026-03-24
 ---
 
-:::caution[Notes still to be written]
-Release notes for this version have not been written up yet.
-:::
+A small point release a week after 1.0, undoing an envelope legato decision we got wrong,
+extending host context menus to the rest of the widgets, and taking in the first batch of
+community patches to arrive after release.
+
+## Envelopes
+
+- Reverted the 1.0 behavior where envelopes did not retrigger in legato mode while the sustain
+  pedal was held. It was simply wrong, and it prevented Envelope Legato from working properly in the first place
+- All factory Keys patches were updated with Env Legato parameter set to Retrigger, which suits them better
+
+## Host Integration
+
+- Toggle buttons, multi-state buttons and dropdown lists now also offer the host context menu (previously it was knobs only)
+
+## User Interface
+
+- On Linux under Bitwig Studio, menus are no longer parented to the editor, which fixes their spacing at 4K
+
+## Patches
+
+- Added patches from Aleksey Zhehanov
+- Renamed a few factory patches for consistent nomenclature and trailing whitespace removal
+
+## Infrastructure
+
+- CI gained a release stage, so that tagged builds produce release artifacts rather than nightlies
+- Fixed the nightly download URLs

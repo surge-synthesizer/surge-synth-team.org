@@ -8,17 +8,17 @@ sidebar:
 
 #### Overview
 
-![Illustration 65: Block diagram of the synthesizer engine](./images/Pictures/illu16.png)
+![Illustration 65: Block diagram of the synthesizer engine](./images/illu16.png)
 
 _Block diagram of the synthesizer engine._
 
-![Illustration 66: Signal flow of the synthesizer engine](./images/Pictures/signal_flow.png)
+![Illustration 66: Signal flow of the synthesizer engine](./images/signal_flow.png)
 
 Illustration shows an overview of the synthesizer engine of Surge XT.
 
 #### Voices
 
-![Illustration 67: Block diagram of a synthesizer voice](./images/Pictures/illu17.png)
+![Illustration 67: Block diagram of a synthesizer voice](./images/illu17.png)
 
 _Block diagram of a synthesizer voice_
 
@@ -32,7 +32,7 @@ Each voice has 6 configurable LFOs and each scene has an
 additional 6 configurable LFOs, making each voice effectively capable of receiving modulation from
 a total of 12 LFOs.
 
-![Illustration 68: LFO block diagram](./images/Pictures/tech_lfos.png)
+![Illustration 68: LFO block diagram](./images/tech_lfos.png)
 
 _LFO block diagram_
 
@@ -43,7 +43,7 @@ have to think about when using Surge XT. Just activate the modulation mode
 with the desired source and see which of the sliders that become blue.
 Nonetheless, it is useful to know which limitations are present and why.
 
-![Illustration 69: Modulation routing behind the scenes](./images/Pictures/illu19.png)
+![Illustration 69: Modulation routing behind the scenes](./images/illu19.png)
 
 _Modulation routing behind the scenes_
 
@@ -142,7 +142,7 @@ A wavetable in Surge XT consists of up to 512 single-cycle waveforms (frames), e
 Using the **Morph** parameter it is possible to sweep across the waveforms
 in the wavetable.
 
-![Illustration 70: Wavetable](./images/Pictures/tech_wavetable.png)
+![Illustration 70: Wavetable](./images/tech_wavetable.png)
 
 The individual waves are equidistant in the table.
 When the shape setting is between two individual waves, they will be mixed to ensure smooth travel.
@@ -272,7 +272,7 @@ Quite unsurprisingly, this oscillator generates a sine waveform. However, there'
 
 #### FM2
 
-![Illustration 71: FM2 modulation matrix](./images/Pictures/FM2.png)
+![Illustration 71: FM2 modulation matrix](./images/FM2.png)
 
 FM2 provides a miniature FM synthesizer voice in an oscillator that is
 specifically tailored towards making nice and musical FM sounds. A
@@ -294,7 +294,7 @@ effect.
 
 #### FM3
 
-![Illustration 72: FM3 modulation matrix](./images/Pictures/FM3.png)
+![Illustration 72: FM3 modulation matrix](./images/FM3.png)
 
 As a contrast to FM2, FM3 is the algorithm of choice for scraping paint
 off the walls. The modulators have a larger range, the ratios can be
@@ -389,7 +389,7 @@ In addition to the more regular shapes (such as Sine, Ramp, Pulse and Noise), Su
 Going further, there is Additive, which allows you to create a custom waveform by adjusting amplitudes of up to 16
 harmonics, accessible by clicking on the Edit button that appears in this mode:
 
-![Illustration 73: Alias additive editor](./images/Pictures/alias_additive_editor.png)
+![Illustration 73: Alias additive editor](./images/alias_additive_editor.png)
 
 This editor works in a similar way to the step sequencer editor, however there are some additional options available when right-clicking:
 
@@ -605,7 +605,7 @@ Sub-types:
 **Cutoff Warp** - 2-pole filters created using a non-linear biquad filter structure. These non-linearities cause the cutoff frequency to sweep to higher frequencies as the signal level increases (see below).
 Available in **Lowpass**, **Highpass**, **Bandpass**, **Notch** and **Allpass (Effect)** types.
 
-![Illustration 74: Cutoff warp frequency response](./images/Pictures/cutoff_warp.png)
+![Illustration 74: Cutoff warp frequency response](./images/cutoff_warp.png)
 
 For more information on the Cutoff Warp filter, see [this blog post](https://jatinchowdhury18.medium.com/complex-nonlinearities-episode-4-nonlinear-biquad-filters-ae6b3f23cb0e) by Jatin Chowdhury,
 or [this 2020 DAFx paper](https://dafx2020.mdw.ac.at/proceedings/papers/DAFx2020_paper_3.pdf), specifically section 4.
@@ -613,7 +613,7 @@ or [this 2020 DAFx paper](https://dafx2020.mdw.ac.at/proceedings/papers/DAFx2020
 **Resonance Warp** - 2-pole filters created using a non-linear biquad filter structure. These non-linearities cause the resonance of the filter to decrease as the signal level increases (see below).
 Available in **Lowpass**, **Highpass**, **Bandpass**, **Notch** and **Allpass (Effect)** types.
 
-![Illustration 75: Resonance warp frequency response](./images/Pictures/reso_warp.png)
+![Illustration 75: Resonance warp frequency response](./images/reso_warp.png)
 
 For more information on the Cutoff Warp filter, you can see [this blog post](https://jatinchowdhury18.medium.com/complex-nonlinearities-episode-5-nonlinear-feedback-filters-115e65fc0402) by Jatin Chowdhury,
 or [this 2020 DAFx paper](https://dafx2020.mdw.ac.at/proceedings/papers/DAFx2020_paper_3.pdf), specifically section 3.
@@ -819,7 +819,7 @@ The original effect was implemented as an [open source audio plugin](https://git
 Distortion algorithm. Provides plenty of EQ options as well as a
 feedback loop to alter the tonality of the clipping stage.
 
-![Illustration 76: Distortion algorithm block diagram](./images/Pictures/tech_distortion.png)
+![Illustration 76: Distortion algorithm block diagram](./images/tech_distortion.png)
 
 _Distortion algorithm block diagram_
 
@@ -839,7 +839,7 @@ _Distortion algorithm block diagram_
 Neuron is an effect based on a [Gated Recurrent Unit](https://en.wikipedia.org/wiki/Gated_recurrent_unit)
 (GRU), a commonly used building block in recurrent neural networks.
 
-![Illustration 77: Neuron diagram](./images/Pictures/gru.png)
+![Illustration 77: Neuron diagram](./images/gru.png)
 
 For more information on the development of the Neuron effect, you can read
 [this blog post](https://jatinchowdhury18.medium.com/complex-nonlinearities-episode-10-gated-recurrent-distortion-6d60948323cf) by Jatin Chowdhury.
@@ -1130,7 +1130,7 @@ The Convolution effect is currently not available in the Surge XT Effects plugin
 The delay algorithm in Surge XT is very versatile and can work well both as
 an echo/delay and chorus.
 
-![Illustration 78: Delay algorithm block diagram](./images/Pictures/illu20.png)
+![Illustration 78: Delay algorithm block diagram](./images/illu20.png)
 
 _Delay algorithm block diagram_
 
@@ -1242,7 +1242,7 @@ and read the code [here](https://github.com/airwindows/airwindows).
 The Conditioner is a simple EQ, stereo image control and a limiter built
 into one unit. The limiter applies make-up gain automatically.
 
-![Illustration 79: Conditioner block diagram](./images/Pictures/tech_conditioner.png)
+![Illustration 79: Conditioner block diagram](./images/tech_conditioner.png)
 
 |              |                                                                                       |                      |
 | ------------ | ------------------------------------------------------------------------------------- | -------------------- |
@@ -1299,7 +1299,7 @@ with additional separate filtering for the mid and side signal.
 
 ### Wavetable Script Editor
 
-![Illustration 80: Wavetable Script Editor](./images/Pictures/wavetable_script_editor.png)
+![Illustration 80: Wavetable Script Editor](./images/wavetable_script_editor.png)
 
 The Wavetable Script Editor (hereafter shortened as WTSE) is a Lua-powered scripting environment for procedurally generating wavetables. Unlike the Formula modulator, which runs continuously on each sample block in real time, the WTSE outputs only when you press Generate. The result is a new wavetable loaded directly into the corresponding Wavetable oscillator, which can then sweep through its frames via the `Morph` parameter like any other wavetable.
 

@@ -2,7 +2,7 @@
     "title": "Surge XT",
     "slug": "surge-xt",
     "order": 1,
-    "summary": "Surge XT is an open source hybrid synthesizer, and the synth which started the Surge Synth Team project!",
+    "summary": "Surge XT is an absolute chameleon of a hybrid synthesizer, and the plugin which started the whole Surge Synth Team project! As such, it needs no special introduction. Downloaded over 2.5 million times since it was open sourced back in 2018 - make sure to check out what all the fuss is about!",
     "cover": "./images/surge-xt.png",
     "categories": ["Synth"],
     "issue_tracker": "https://github.com/surge-synthesizer/surge/issues",

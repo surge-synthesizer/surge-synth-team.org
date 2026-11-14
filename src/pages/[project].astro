@@ -22,15 +22,24 @@ import SiteFooter from "../components/SiteFooter.astro";
 export async function getStaticPaths() {
     // Declared inside: Astro extracts getStaticPaths into its own module, so it
     // cannot close over anything in the frontmatter above.
+    // Shrinks as each page moves to a page.mdx of its own.
     const handBuilt = ["ob-xf", "shortcircuit-xt", "spectrumworx", "surge-xt"];
     const projects = await getCollection("projects");
+    const landings = await getCollection("productLanding");
 
     return projects
         .filter((project) => !handBuilt.includes(project.id))
-        .map((project) => ({ params: { project: project.id }, props: { project } }));
+        .map((project) => ({
+            params: { project: project.id },
+            props: { project, landing: landings.find((page) => page.id === project.id) },
+        }));
 }
 
-const { project } = Astro.props;
+const { project, landing } = Astro.props;
+
+// A product that writes its own blocks renders them instead of the generated
+// three; everything below is the fallback for one that has not.
+const Landing = landing ? (await render(landing)).Content : null;
 
 /*
  * Some products also have a prose page in the `pages` collection. Both routes
@@ -50,6 +59,14 @@ const { title, summary, cover, categories, repo, url, manual, issue_tracker } = 
  */
 const homepage = url ?? (repo ? `https://github.com/${repo}/releases/latest` : undefined);
 
+/*
+ * The hand-built pages carry this under their download button, so the long
+ * tail does too - but only where it leads somewhere the button does not. A
+ * product with no `url` of its own already has the button pointing here.
+ */
+const releases = repo ? `https://github.com/${repo}/releases/latest` : undefined;
+const otherDownloads = releases === homepage ? undefined : releases;
+
 const links = [
     manual && { label: "Read the manual", href: manual },
     repo && { label: "Source on GitHub", href: `https://github.com/${repo}` },
@@ -61,57 +78,69 @@ const links = [
     <NavHeader slot="nav" currentProject={project.id} />
 
     <main>
-        <Block surface="base" layout="split" class="md:min-h-[460px]">
-            <Cell>
-                <h1 class="text-4xl leading-tight font-extrabold md:text-5xl">{title}</h1>
-                <p class="mt-2 text-xs font-bold tracking-[0.2em] uppercase opacity-70">
-                    {categories.join(" · ")}
-                </p>
-                <p class="mt-4 max-w-prose">{summary}</p>
-                {
-                    homepage && (
-                        <div class="mt-6">
-                            <Button href={homepage} variant="solid">
-                                Download
-                            </Button>
-                        </div>
-                    )
-                }
-            </Cell>
-
-            <Cell padded={false} class="min-h-[250px] md:min-h-0">
-                <Image
-                    class="h-full max-h-[400px] w-full object-contain"
-                    src={cover}
-                    alt={`${title} interface screenshot`}
-                    quality="100"
-                    format="png"
-                />
-            </Cell>
-        </Block>
-
         {
-            Prose && (
-                <Block surface="raised" layout="prose">
-                    <article class="!max-w-none !p-0">
-                        <Prose />
-                    </article>
-                </Block>
-            )
-        }
+            Landing ? (
+                <Landing />
+            ) : (
+                <>
+                    <Block surface="base" layout="split" class="md:min-h-[460px]">
+                        <Cell>
+                            <h1 class="text-4xl leading-tight font-extrabold md:text-5xl">
+                                {title}
+                            </h1>
+                            <p class="mt-2 text-xs font-bold tracking-[0.2em] uppercase opacity-70">
+                                {categories.join(" · ")}
+                            </p>
+                            <p>{summary}</p>
+                            {homepage && (
+                                <div class="mt-6">
+                                    <Button href={homepage} variant="solid">
+                                        Download
+                                    </Button>
+                                </div>
+                            )}
 
-        {
-            links.length > 0 && (
-                <Block surface={Prose ? "base" : "raised"} layout="prose">
-                    <h2 class="text-2xl font-bold">Links</h2>
-                    <ul class="mt-4 ml-5 list-disc space-y-1">
-                        {links.map((link) => (
-                            <li>
-                                <a href={link.href}>{link.label}</a>
-                            </li>
-                        ))}
-                    </ul>
-                </Block>
+                            {otherDownloads && (
+                                <p class="mt-4">
+                                    <a href={otherDownloads}>
+                                        Downloads for other platforms and installers
+                                    </a>
+                                </p>
+                            )}
+                        </Cell>
+
+                        <Cell padded={false} class="min-h-[250px] md:min-h-0">
+                            <Image
+                                class="h-full max-h-[400px] w-full object-contain"
+                                src={cover}
+                                alt={`${title} interface screenshot`}
+                                quality="100"
+                                format="png"
+                            />
+                        </Cell>
+                    </Block>
+
+                    {Prose && (
+                        <Block surface="raised" layout="prose">
+                            <article class="!max-w-none !p-0">
+                                <Prose />
+                            </article>
+                        </Block>
+                    )}
+
+                    {links.length > 0 && (
+                        <Block surface={Prose ? "base" : "raised"} layout="prose">
+                            <h2>Links</h2>
+                            <ul>
+                                {links.map((link) => (
+                                    <li>
+                                        <a href={link.href}>{link.label}</a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </Block>
+                    )}
+                </>
             )
         }
     </main>

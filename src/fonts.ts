@@ -18,6 +18,8 @@ const PRODUCT_FACES: Record<string, string[]> = {
     "team": ["/fonts/Blinker-300.woff2"],
     "ob-xf": ["/fonts/Saira-Variable.woff2"],
     "shortcircuit-xt": ["/fonts/Inter-Variable.woff2"],
+    // The only product face with a real italic, so both are preloaded.
+    "spectrumworx": ["/fonts/Rubik-Variable.woff2", "/fonts/Rubik-Italic-Variable.woff2"],
 };
 
 export const preloadFonts = (project?: string) => [

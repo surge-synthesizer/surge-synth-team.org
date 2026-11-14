@@ -62,6 +62,14 @@
     --surface-nav-bg: #171717;
 }
 
+/* The org pages. A shade off the Surge orange, deliberately: the team is not
+   one of its products. Dark foreground for the same reason Surge has one -
+   #171717 reaches 7.89:1 here where white would manage 2.27. */
+[data-project="team"] {
+    --surface-nav-bg: #ff9000;
+    --surface-nav-fg: #171717;
+}
+
 /* OB-Xf's GUI grey, 6% darker - the same value its downloads band uses, for
    the same reason: the raw brand grey reaches only 4.44:1 behind white. */
 [data-project="ob-xf"] {

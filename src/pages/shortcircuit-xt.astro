@@ -75,19 +75,17 @@ const faq = [
     <NavHeader slot="nav" currentProject="shortcircuit-xt" />
 
     <main>
-        <Block surface="base" layout="split" class="md:min-h-[500px]">
+        <Block surface="base" layout="split" class="overflow-hidden">
             <Cell>
-                <p class="text-xs font-bold tracking-[0.2em] uppercase opacity-70">
+                <h1 class="text-4xl leading-tight font-extrabold md:text-5xl">Shortcircuit XT</h1>
+                <p class="mt-2 text-xs font-bold tracking-[0.2em] uppercase opacity-70">
                     Open Source Sampling Workstation
                 </p>
-                <h1 class="mt-2 text-4xl leading-tight font-extrabold md:text-5xl">
-                    Shortcircuit XT
-                </h1>
-                <p class="mt-4 max-w-prose">
+                <p class="max-w-prose">
                     Shortcircuit XT is a modern open source software sampler focused on workflow,
                     expressive modulation, and deep sample playback control.
                 </p>
-                <div class="mt-6 flex flex-wrap items-center gap-3">
+                <div class="flex flex-wrap items-center gap-3">
                     <DownloadButton
                         windows={scxt_build_nightly.releases.win64}
                         mac={scxt_build_nightly.releases.macos}
@@ -97,15 +95,30 @@ const faq = [
                         buttonClass="button button-solid"
                     />
                 </div>
+                <p class="mt-4">
+                    <a href={scxt_build_nightly.releases.other}>
+                        Downloads for other platforms and installers
+                    </a>
+                </p>
+                <p><a href="/shortcircuit-xt/manual/">Read the manual</a></p>
             </Cell>
 
-            <Cell padded={false} class="min-h-[250px] md:min-h-0">
+            {
+                /* The same treatment as the OB-Xf hero: sized by height so nothing
+                   crops it top or bottom, anchored left so only the far edge runs
+                   past the column, and the band clips that.
+
+                   The height is per product because it is the image's own ratio
+                   that decides how wide it comes out - 1.45:1 here against
+                   OB-Xf's 1.81 - and the aim is the same modest overhang on each.
+                   Worth recomputing when this screenshot is replaced. */
+            }
+            <Cell padded={false} class="py-8">
                 <Image
                     src={ScxtCover}
-                    alt="Shortcircuit XT interface screenshot"
+                    alt="The Shortcircuit XT interface"
                     quality="100"
-                    format="png"
-                    class="h-full max-h-[400px] w-full object-contain"
+                    class="h-[220px] w-auto max-w-none self-center md:h-[max(760px,39vw)] md:self-start"
                 />
             </Cell>
         </Block>
@@ -113,15 +126,15 @@ const faq = [
         {
             highlights.map((highlight, index) => (
                 <Block surface={index % 2 === 0 ? "raised" : "base"} layout="prose">
-                    <h2 class="text-2xl font-bold">{highlight.title}</h2>
-                    <p class="mt-2 max-w-prose">{highlight.body}</p>
+                    <h2>{highlight.title}</h2>
+                    <p class="max-w-prose">{highlight.body}</p>
                 </Block>
             ))
         }
 
         <Block id="manual" surface="accent" layout="prose">
-            <h2 class="text-2xl font-bold">Manual</h2>
-            <p class="mt-2 max-w-prose">
+            <h2>Manual</h2>
+            <p class="max-w-prose">
                 The Shortcircuit XT manual covers the instrument structure, the editor, and every
                 processor and modulation source.
             </p>
@@ -133,7 +146,7 @@ const faq = [
         </Block>
 
         <Block id="about" surface="base" layout="prose">
-            <h2 class="text-2xl font-bold">About</h2>
+            <h2>About</h2>
             <div class="mt-2 max-w-prose space-y-3">
                 <p>
                     Shortcircuit XT is a rebuild of Shortcircuit 1 and 2, samplers released by

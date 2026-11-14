@@ -7,6 +7,14 @@ sidebar:
 date: 2026-03-27
 ---
 
-:::caution[Notes still to be written]
-Release notes for this version have not been written up yet.
-:::
+A single fix, for a patch recall problem serious enough not to leave sitting in a release.
+
+## Host Integration
+
+- OB-Xf no longer exposes its factory patches as host programs
+  - Cubase and Nuendo call `setCurrentProgram` after restoring a project's state, not only when
+    the user picks a program. With a program list present, that call arrived after the project's
+    own patch had been restored and replaced it, so a modified patch saved in a project came
+    back as the factory patch it started from
+  - Other hosts have their own quirks around program lists, so rather than special-case Steinberg's,
+    the program list is now disabled everywhere and OB-Xf reports a single program, like most other plugins do

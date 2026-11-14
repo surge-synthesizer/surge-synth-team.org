@@ -1,7 +1,7 @@
 {
     "title": "B-Step",
     "slug": "b-step",
-    "order": 9,
+    "order": 6,
     "summary": "B-Step is a MIDI generating plugin from Thomas Arndt which became open source in March 2022.",
     "cover": "./images/b-step.jpg",
     "categories": ["Sequencer"],

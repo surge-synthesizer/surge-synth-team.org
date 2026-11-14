@@ -27,7 +27,7 @@ const flat = [...nav.items.filter((entry): entry is NavItem => !isGroup(entry)),
         position === "sticky" && "sticky top-0",
         "z-50 font-semibold shadow-xl backdrop-blur-lg select-none print:hidden",
     ]}>
-    <div class="flex h-[var(--nav-height)] items-center gap-3 px-3">
+    <div class="relative flex h-[var(--nav-height)] items-center gap-3 px-3">
         <a href="/" title="surge-synth-team.org" class="shrink-0">
             <img
                 src="/images/sst-logo.svg"
@@ -40,6 +40,15 @@ const flat = [...nav.items.filter((entry): entry is NavItem => !isGroup(entry)),
             />
         </a>
 
+        <button
+            id="nav-hamburger"
+            class="absolute left-1/2 flex -translate-x-1/2 flex-col gap-[3px] p-1 md:hidden"
+            aria-label="Toggle menu"
+            aria-expanded="false">
+            <span class="nav-bar block h-0.5 w-5"></span>
+            <span class="nav-bar block h-0.5 w-5"></span>
+            <span class="nav-bar block h-0.5 w-5"></span>
+        </button>
         <div class="hidden md:flex md:flex-1 md:items-center md:gap-3">
             <menu class="flex shrink-0 items-center">
                 <ProjectSelector currentProject={currentProject} />
@@ -113,15 +122,6 @@ const flat = [...nav.items.filter((entry): entry is NavItem => !isGroup(entry)),
             {search && <slot name="search" />}
             <div class="nav-divider h-5 w-px"></div>
             <ThemeSelector />
-            <button
-                id="nav-hamburger"
-                class="flex flex-col gap-1 rounded p-1 md:hidden"
-                aria-label="Toggle menu"
-                aria-expanded="false">
-                <span class="nav-bar block h-0.5 w-5"></span>
-                <span class="nav-bar block h-0.5 w-5"></span>
-                <span class="nav-bar block h-0.5 w-5"></span>
-            </button>
         </div>
     </div>
 
