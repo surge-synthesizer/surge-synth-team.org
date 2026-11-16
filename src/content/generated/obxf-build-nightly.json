@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-11-12T00:25:29.531129518",
+    "build_time": "2026-11-16T21:56:55.787215061",
     "data": {},
-    "latest_commit": "f12c16d",
+    "latest_commit": "bd91191",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "EvilDragon",
+            "commit": "bd91191",
+            "date": "2026-11-16T22:41:38+01:00",
+            "message": "Disallow deleting factory patches by hiding the menu entry (#738)"
+        },
         {
             "author": "EvilDragon",
             "commit": "f12c16d",
@@ -28,20 +34,14 @@
             "commit": "e42c657",
             "date": "2026-11-09T11:49:43-05:00",
             "message": "Put the Linux user folder in the right place when Documents is off (#733)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "ea96dbb",
-            "date": "2026-11-07T21:46:48+01:00",
-            "message": "Fix label-bg-master.svg in Vintage Wood skin (#732)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-11-12-f12c16d.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-11-12-f12c16d.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-11-16-bd91191.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-11-16-bd91191.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-12-f12c16d.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-12-f12c16d.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-16-bd91191.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-16-bd91191.zip"
     },
     "version": "main"
 }
