@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-11-17T12:24:43.673283545",
+    "build_time": "2026-11-17T22:10:40.748440709",
     "data": {},
-    "latest_commit": "09b98dd",
+    "latest_commit": "e03452f",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "e03452f",
+            "date": "2026-11-17T16:56:49-05:00",
+            "message": "Use a lower case deb package name (#741)"
+        },
         {
             "author": "Paul",
             "commit": "09b98dd",
@@ -28,20 +34,14 @@
             "commit": "f12c16d",
             "date": "2026-11-12T01:13:03+01:00",
             "message": "Make VST3 program change 0 reachable (#737)"
-        },
-        {
-            "author": "EvilDragon",
-            "commit": "5c1dd7a",
-            "date": "2026-11-11T23:29:23+01:00",
-            "message": "Receive MIDI program changes in VST3 (#736)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-11-17-09b98dd.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-11-17-09b98dd.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-11-17-e03452f.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-11-17-e03452f.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-17-09b98dd.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-17-09b98dd.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-17-e03452f.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-17-e03452f.zip"
     },
     "version": "main"
 }
