@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-11-17T02:20:10.179010136",
+    "build_time": "2026-11-17T12:24:43.673283545",
     "data": {},
-    "latest_commit": "da697be",
+    "latest_commit": "09b98dd",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "09b98dd",
+            "date": "2026-11-17T07:10:04-05:00",
+            "message": "Version linux debs so apt orders nightlies and releases (#740)"
+        },
         {
             "author": "Paul",
             "commit": "da697be",
@@ -28,20 +34,14 @@
             "commit": "5c1dd7a",
             "date": "2026-11-11T23:29:23+01:00",
             "message": "Receive MIDI program changes in VST3 (#736)"
-        },
-        {
-            "author": "Paul",
-            "commit": "05db3ad",
-            "date": "2026-11-09T12:21:12-05:00",
-            "message": "Drop the gcc 12 Linux runner build (#734)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-11-17-da697be.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-11-17-da697be.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-11-17-09b98dd.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-11-17-09b98dd.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-17-da697be.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-17-da697be.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-17-09b98dd.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-17-09b98dd.zip"
     },
     "version": "main"
 }
