@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-11-16T21:56:55.787215061",
+    "build_time": "2026-11-17T02:20:10.179010136",
     "data": {},
-    "latest_commit": "bd91191",
+    "latest_commit": "da697be",
     "name": "ob-xf",
     "project_repo": "https://github.com/surge-synthesizer/OB-Xf",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "da697be",
+            "date": "2026-11-16T21:06:20-05:00",
+            "message": "Update clap-juce-extensions; sndstation-kind deb, aarch64 name (#739)"
+        },
         {
             "author": "EvilDragon",
             "commit": "bd91191",
@@ -28,20 +34,14 @@
             "commit": "05db3ad",
             "date": "2026-11-09T12:21:12-05:00",
             "message": "Drop the gcc 12 Linux runner build (#734)"
-        },
-        {
-            "author": "Paul",
-            "commit": "e42c657",
-            "date": "2026-11-09T11:49:43-05:00",
-            "message": "Put the Linux user folder in the right place when Documents is off (#733)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-11-16-bd91191.deb",
-        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-11-16-bd91191.dmg",
+        "linux64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Linux-2026-11-17-da697be.deb",
+        "macos": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-macOS-2026-11-17-da697be.dmg",
         "other": "https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-16-bd91191.exe",
-        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-16-bd91191.zip"
+        "win64": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-17-da697be.exe",
+        "win64zip": "https://github.com/surge-synthesizer/OB-Xf/releases/download/Nightly/ob-xf-Windows-2026-11-17-da697be.zip"
     },
     "version": "main"
 }
