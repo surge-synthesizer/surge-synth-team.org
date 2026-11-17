@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-11-17T00:01:22.405681488",
+    "build_time": "2026-11-17T12:43:16.243396208",
     "data": {},
-    "latest_commit": "4b2528e",
+    "latest_commit": "9d0150a",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "9d0150a",
+            "date": "2026-11-17T07:10:26-05:00",
+            "message": "Version linux debs so apt orders nightlies and releases (#2814)"
+        },
+        {
+            "author": "Paul",
+            "commit": "cbc8ec6",
+            "date": "2026-11-16T19:43:17-05:00",
+            "message": "Update clap-wrapper to 0.18 and mark the deb as a sndstation clap plugin (#2813)"
+        },
         {
             "author": "Andreya-Autumn",
             "commit": "4b2528e",
@@ -22,26 +34,14 @@
             "commit": "7afec4e",
             "date": "2026-11-11T08:57:38-05:00",
             "message": "The MAPPING and SAMPLE side boxes are one processor box wide (#2799)"
-        },
-        {
-            "author": "Paul",
-            "commit": "3197df4",
-            "date": "2026-11-11T08:35:09-05:00",
-            "message": "Put the Linux user folder in the right place when Documents is off (#2798)"
-        },
-        {
-            "author": "Paul",
-            "commit": "333b822",
-            "date": "2026-11-10T17:19:40-05:00",
-            "message": "Deleting zones or groups leaves nothing selected (#2796)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-17-4b2528e-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-11-17-4b2528e.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-17-9d0150a-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-11-17-9d0150a.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-17-4b2528e-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-17-4b2528e-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-17-9d0150a-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-17-9d0150a-Windows-64bit.zip"
     },
     "version": "main"
 }
