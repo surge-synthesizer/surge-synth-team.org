@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-11-17T12:43:16.243396208",
+    "build_time": "2026-11-17T13:58:12.920892362",
     "data": {},
-    "latest_commit": "9d0150a",
+    "latest_commit": "38b7d47",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Stephan Schmitt",
+            "commit": "38b7d47",
+            "date": "2026-11-17T14:34:15+01:00",
+            "message": "Skip cleaned-up voices in exclusive-group and one-per-key scans (#2815)"
+        },
         {
             "author": "Paul",
             "commit": "9d0150a",
@@ -28,20 +34,14 @@
             "commit": "d023100",
             "date": "2026-11-11T18:29:06-05:00",
             "message": "The anti-aliased zero order hold SRC mode is called Vintage (#2805)"
-        },
-        {
-            "author": "Paul",
-            "commit": "7afec4e",
-            "date": "2026-11-11T08:57:38-05:00",
-            "message": "The MAPPING and SAMPLE side boxes are one processor box wide (#2799)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-17-9d0150a-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-11-17-9d0150a.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-17-38b7d47-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-11-17-38b7d47.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-17-9d0150a-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-17-9d0150a-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-17-38b7d47-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-17-38b7d47-Windows-64bit.zip"
     },
     "version": "main"
 }
