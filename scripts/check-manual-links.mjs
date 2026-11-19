@@ -42,21 +42,30 @@ const body = (html) => html.slice(html.indexOf("<main"), html.indexOf("</main>")
 
 for (const manual of manuals) {
     const base = join(DIST, manual);
-    // Archived manuals sit a level deeper (manual/archive/1.9) and are single
-    // pages, so their anchors must all resolve within themselves.
-    const chapters = readdirSync(base, { withFileTypes: true })
-        .filter((entry) => entry.isDirectory())
-        .flatMap((entry) =>
-            existsSync(join(base, entry.name, "index.html"))
-                ? [entry.name]
-                : readdirSync(join(base, entry.name), { withFileTypes: true })
-                      .filter(
-                          (nested) =>
-                              nested.isDirectory() &&
-                              existsSync(join(base, entry.name, nested.name, "index.html")),
-                      )
-                      .map((nested) => `${entry.name}/${nested.name}`),
-        );
+    /*
+     * Walk to any depth rather than a fixed one or two levels. An archived
+     * manual sits at manual/archive/<version>/<chapter>, three deep, and the
+     * old two-level walk skipped every page of it - so the checker reported
+     * that everything resolved while 30 of Surge 1.9's links dangled. A gate
+     * that quietly stops looking is worse than no gate.
+     */
+    const chapters = [];
+
+    const walk = (relative) => {
+        for (const entry of readdirSync(relative ? join(base, relative) : base, {
+            withFileTypes: true,
+        })) {
+            if (!entry.isDirectory()) continue;
+
+            const next = relative ? `${relative}/${entry.name}` : entry.name;
+
+            if (existsSync(join(base, next, "index.html"))) chapters.push(next);
+
+            walk(next);
+        }
+    };
+
+    walk("");
 
     // chapter -> the ids and names that page actually renders
     const targets = new Map();

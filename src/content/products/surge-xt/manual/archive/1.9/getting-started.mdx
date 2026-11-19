@@ -1,0 +1,121 @@
+---
+title: 'Getting Started'
+sidebar:
+    order: 1
+---
+
+Thank you for using **Surge**\!
+
+Surge is a virtual synthesizer released into
+open source by creator Claes Johanson in September 2018, and maintained by a group of volunteers since then.
+
+This first section is intended to give you a brief overview of some concepts
+that are specific to this synthesizer and an introduction on how to navigate,
+manipulate, and use Surge to its full potential.
+
+For detailed information regarding the synthesis engine and other advanced technical
+specifications and options of this synthesizer, there is a second section dedicated to
+[Technical Reference](/surge-xt/manual/archive/1.9/technical-reference/).
+
+Finally, for more tips and tricks, tutorials, and to download additional content, you can also take a look at [Surge's wiki](https://github.com/surge-synthesizer/surge-synthesizer.github.io/wiki).
+
+## Installing Surge
+
+_Audio Units, AU is a trademark of Apple Computer, Inc  
+VST is a trademark of Steinberg Media Technologies GmbH_
+
+Surge's installer is available at [https://surge-synthesizer.github.io](https://surge-synthesizer.github.io).
+
+### Windows
+
+On the Windows platform, Surge is delivered as both a 32 or 64-bit VST3 plug-in instrument.
+
+The filename for the VST3 is `Surge.vst3`.
+
+System Requirements:
+
+-   Windows 7 or newer
+-   A reasonably fast CPU (Pentium 4/Athlon 64 or above)
+-   At least 4GB of RAM
+-   VST-compatible host application
+
+In addition, to use the 64-bit version on Windows you need the following:
+
+-   A CPU supporting the x64 (AMD64/EM64T) instruction set
+-   A **64-bit** version of Windows
+-   An application capable of hosting 64-bit VST plug-ins
+
+The VST3 version of the plug-in should be automatically installed in the default VST3 plug-in location and
+should be found by your host application. However, the Windows version also comes with a **portable mode**:
+
+-   Portable Mode allows you to store assets in the same directory as your Surge.vst3.
+-   If Surge.vst3 is installed in a folder and in that same folder there is a directory called `SurgeData`, Surge will use that for factory data rather than `%PROGRAMDATA%\Surge`.
+-   If in that same folder there is a directory called `SurgeUserData`, Surge will use that for user data rather than `%DOCUMENTS%\Surge`.
+-   Either none, one, or both of those folders can be there. Surge will fall back to the defaults if they are not present.
+    You can always see your data paths in the [About screen](/surge-xt/manual/archive/1.9/menu-button/#about-surge).
+
+### macOS
+
+On Mac, Surge is delivered as a 64-bit Plug-in Instrument for both the Audio
+Unit (AU) and VST Plug-in interfaces (VST3).
+
+System Requirements:
+
+-   Mac OS X 10.11 or newer
+-   A 64-bit Intel CPU
+-   At least 4GB of RAM
+-   64-bit AU or VST-compatible host application
+
+To install, run the packaged installer. You will be given the option of automatically installing the
+AU `Surge.component` and the VST3 `Surge.vst3` to their correct locations.
+The factory presets and wavetables will also be automatically installed.
+
+Running the packaged installer will install Surge for all of the users of your
+Mac.
+
+### Linux
+
+On Linux, Surge is delivered as a 64-bit VST3.
+
+The system requirements can be hard to determine, as there are a lot of distributions out there and other factors.
+However, the following information might be good to know:
+
+-   The installation package on **Surge's website** is in the form of a Debian package
+-   The distribution package is built on Ubuntu 18.04
+-   The packages required are listed in the source and in the deb file
+
+**Note:** Some actions in Surge are done by doing Alt + Drag or scroll wheel. On certain Linux distributions,
+those shortcuts and gestures may cause conflicts between Surge and the desktop environment. We decided we couldn't
+give up alt-drag for all platforms because one window manager in one distribution used it by default. Therefore,
+it's often possible to disable that global gesture in desktop environments, and would be the easiest way to solve
+that possible issue.
+
+### Building from source
+
+If you would like to build Surge from source, see the instructions on
+[our Github repository](https://github.com/surge-synthesizer/surge).
+
+## Locations
+
+### Windows
+
+The preset library and wavetables are at `C:ProgramData\Surge`.
+The user presets are at `C:\Users\your username\My Documents\Surge`
+
+### macOS
+
+The preset library and wavetables are at `/Library/Application Support/Surge`.
+The user presets are at `~/Documents/Surge`.
+
+### Linux
+
+The plugin itself, preset library and wavetables are at `/usr/share/surge` with a standard install.
+The user presets are at `~/Documents/Surge`, this directory will be created once you store a patch or preset or change the user default settings for the first time.
+
+Note: These locations can be changed in Surge's menu (see [Data Folders](/surge-xt/manual/archive/1.9/menu-button/#data-folders)).
+
+If you put user content in the factory folder or otherwise change it, future installers
+will erase it. Surge's installers never touch anything in the user area.
+
+So, if you want to install a custom skin, set of patches, or otherwise add things to Surge,
+put them in your user data folder instead of here, or risk losing them when you upgrade.

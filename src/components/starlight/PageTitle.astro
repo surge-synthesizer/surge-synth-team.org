@@ -7,12 +7,20 @@
  *
  * Without it every manual shares one search pool, so searching inside the OB-Xf
  * manual returns Shortcircuit XT results.
+ *
+ * A frozen manual gets a pool of its own rather than its product's. It is one
+ * page covering a version that shipped in 2019, so folding it into Surge XT
+ * would answer questions about the current manual with superseded text - and
+ * searching from inside it should return its own content, not the new manual's.
+ * Search.astro derives the same value from the route, so the two agree.
  */
 
 import Default from "@astrojs/starlight/components/PageTitle.astro";
 
-const product = Astro.locals.starlightRoute.entry.id.split("/")[0];
+import { searchPool } from "../../search-pool";
+
+const pool = searchPool(Astro.locals.starlightRoute.entry.id);
 ---
 
-<span hidden data-pagefind-filter={`product:${product}`}></span>
+<span hidden data-pagefind-filter={`product:${pool}`}></span>
 <Default><slot /></Default>
