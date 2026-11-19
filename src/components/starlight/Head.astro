@@ -13,7 +13,9 @@
 
 import Default from "@astrojs/starlight/components/Head.astro";
 import { ClientRouter } from "astro:transitions";
+import PreloadScripts from "../PreloadScripts.astro";
 import SmoothScroll from "../SmoothScroll.astro";
+import SwapRootState from "../SwapRootState.astro";
 import { fontType, preloadFonts } from "../../fonts";
 
 /*
@@ -40,4 +42,6 @@ const nightly =
 }
 <ClientRouter />
 <SmoothScroll />
+<PreloadScripts />
+<SwapRootState />
 {nightly && <meta name="robots" content="noindex, follow" />}

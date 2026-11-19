@@ -16,7 +16,7 @@ export type NavGroup = { label: string; items: NavItem[] };
 export type Nav = {
     /** The bar's middle section in render order: bare links and dropdowns mixed. */
     items: (NavItem | NavGroup)[];
-    /** Flat items after that - the same two everywhere. */
+    /** Flat items after that - the same three everywhere. */
     trailing: NavItem[];
 };
 
@@ -35,26 +35,40 @@ const GROUP_ORDER = ["Documentation", LINKS, "Extras"];
 
 const repoUrl = (repo?: string) => (repo ? `https://github.com/${repo}` : ORG_URL);
 
+/**
+ * A group holding one item renders as a plain link instead of a dropdown -
+ * opening a menu to reach the only thing behind it is a click for nothing.
+ * Shortcircuit XT and SpectrumWorx have a manual and no changelog, so this is
+ * their Documentation slot.
+ *
+ * The group's label wins over the item's: "Documentation" reads better in the
+ * bar than "Manual", and the destination is identical either way.
+ */
+function navEntry(label: string, items: NavItem[]): (NavItem | NavGroup)[] {
+    if (!items.length) return [];
+    if (items.length === 1) return [{ label, href: items[0]!.href }];
+
+    return [{ label, items }];
+}
+
 const hasPage = async (id: string) => (await getCollection("pages")).some((page) => page.id === id);
 
 /**
- * `/about` is an org-wide page that does not exist in this repo yet - a merge
- * of the current Open Source and Contact pages with Surge's History page. The
- * slot appears the moment its MDX lands in src/content/pages.
+ * `/about` is the org-wide page: who we are, how the team started, open
+ * sourcing your freeware, and CLAP. It absorbed the Open Source page, so that
+ * slot becomes About the moment about.mdx is present.
  *
- * Until About exists, the two pages it will replace stay linked from the org
- * homepage so they remain reachable, but they are org-level concerns and do not
- * belong in a product's nav - so a product simply has no About slot yet.
+ * Contact kept its own page - the bug-reporting guidelines are reference
+ * material rather than part of the org's story - and it is reachable from every
+ * nav, product ones included: a bug report is about a product, so the page is
+ * most wanted exactly where `scope` is not "org". About links to it twice.
  */
 async function aboutLinks(scope: "org" | "product"): Promise<NavItem[]> {
-    if (await hasPage("about")) return [{ label: "About", href: ABOUT_HREF }];
+    const contact: NavItem = { label: "Contact", href: "/contact" };
 
-    return scope === "org"
-        ? [
-              { label: "Open Source", href: "/open-source" },
-              { label: "Contact", href: "/contact" },
-          ]
-        : [];
+    if (await hasPage("about")) return [{ label: "About", href: ABOUT_HREF }, contact];
+
+    return scope === "org" ? [{ label: "Open Source", href: "/open-source" }, contact] : [contact];
 }
 
 /**
@@ -107,7 +121,7 @@ export async function buildNav(currentProject?: string | null): Promise<Nav> {
         const href = await manualHref(currentProject);
 
         return {
-            items: href ? [{ label: "Documentation", items: [{ label: "Manual", href }] }] : [],
+            items: navEntry("Documentation", href ? [{ label: "Manual", href }] : []),
             trailing: await aboutLinks("product"),
         };
     }
@@ -138,11 +152,7 @@ export async function buildNav(currentProject?: string | null): Promise<Nav> {
 
     return {
         items: ordered.flatMap((label): (NavItem | NavGroup)[] =>
-            label === LINKS
-                ? (nav?.links ?? [])
-                : skeleton[label]?.length
-                  ? [{ label, items: skeleton[label] }]
-                  : [],
+            label === LINKS ? (nav?.links ?? []) : navEntry(label, skeleton[label] ?? []),
         ),
         trailing: [
             ...(await aboutLinks("product")),

@@ -138,15 +138,12 @@
      * against: a browser that ignores behavior:"instant" falls back to "auto",
      * inherits smooth, and starts a fresh smooth scroll on every frame.
      *
-     * Reapplied after each navigation: ClientRouter swaps the document, and the
-     * incoming <html> carries the stylesheet's value again.
+     * Only the first load is set here. Carrying it across a navigation belongs
+     * to SwapRootState, which stamps the incoming document before the swap -
+     * the router scrolls before astro:after-swap fires, so reapplying it on
+     * this side would always be a step behind the scroll it is meant to govern.
      */
-    function ownScrolling() {
-        document.documentElement.style.scrollBehavior = "auto";
-    }
-
-    ownScrolling();
-    document.addEventListener("astro:page-load", ownScrolling);
+    document.documentElement.style.scrollBehavior = "auto";
 
     function onClick(event: MouseEvent) {
         if (event.defaultPrevented || event.button !== 0) return;

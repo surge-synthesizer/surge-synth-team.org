@@ -18,7 +18,7 @@ import { docsSchema } from "@astrojs/starlight/schema";
 const docs = defineCollection({
     loader: glob({
         base: "./src/content/products",
-        pattern: "*/{manual*,changelog}/**/[^_]*.{md,mdx}",
+        pattern: "*/{manual*,changelog,microtuning-guide}/**/[^_]*.{md,mdx}",
         /*
          * Keep the path as written. The default generator slugifies, which
          * turns a release note named 1.0.0.mdx into the id "100" and the URL

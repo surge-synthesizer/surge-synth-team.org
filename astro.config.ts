@@ -39,6 +39,7 @@ export default defineConfig({
         "/surge-xt/manual/": "/surge-xt/manual/getting-started/",
         "/surge-xt/manual-nightly/": "/surge-xt/manual-nightly/getting-started/",
         "/surge-xt/manual-rack/": "/surge-xt/manual-rack/getting-started/",
+        "/surge-xt/microtuning-guide/": "/surge-xt/microtuning-guide/introduction/",
         "/ob-xf-changelog": "/ob-xf/changelog/",
         "/spectrumworx/manual/": "/spectrumworx/manual/getting-started/",
         "/shortcircuit-xt/manual/": "/shortcircuit-xt/manual/getting-started/",
@@ -125,6 +126,27 @@ export default defineConfig({
                             slug: "surge-xt/manual-rack/modulation",
                         },
                         { label: "Mixer and Manipulators", slug: "surge-xt/manual-rack/mixer" },
+                    ],
+                },
+                {
+                    label: "Surge XT Microtuning Guide",
+                    items: [
+                        { label: "Introduction", slug: "surge-xt/microtuning-guide/introduction" },
+                        { label: "Methods", slug: "surge-xt/microtuning-guide/methods" },
+                        {
+                            label: "Factory Tuning Library",
+                            slug: "surge-xt/microtuning-guide/factory-library",
+                        },
+                        { label: "Tuning Editor", slug: "surge-xt/microtuning-guide/editor" },
+                        {
+                            label: "Microtonal Step Sequencing",
+                            slug: "surge-xt/microtuning-guide/step-sequencing",
+                        },
+                        {
+                            label: "Tuning Note CLAPs",
+                            slug: "surge-xt/microtuning-guide/note-claps",
+                        },
+                        { label: "Questions?", slug: "surge-xt/microtuning-guide/questions" },
                     ],
                 },
                 {
@@ -238,107 +260,60 @@ export default defineConfig({
                     label: "Shortcircuit XT Manual",
                     items: [
                         {
-                            label: "Getting Started",
-                            items: [
-                                {
-                                    label: "What is Shortcircuit XT?",
-                                    slug: "shortcircuit-xt/manual/getting-started",
-                                },
-                                { label: "Installing", slug: "shortcircuit-xt/manual/installing" },
-                            ],
+                            label: "What is Shortcircuit XT?",
+                            slug: "shortcircuit-xt/manual/getting-started",
                         },
                         {
-                            label: "Instrument Structure",
-                            items: [
-                                {
-                                    label: "Parts, Groups and Zones",
-                                    slug: "shortcircuit-xt/manual/structure-parts-groups-zones",
-                                },
-                                {
-                                    label: "Mixer and Mix Buses",
-                                    slug: "shortcircuit-xt/manual/structure-mixer-buses",
-                                },
-                                {
-                                    label: "Routing",
-                                    slug: "shortcircuit-xt/manual/structure-routing",
-                                },
-                            ],
+                            label: "Installing Shortcircuit XT",
+                            slug: "shortcircuit-xt/manual/installing",
                         },
                         {
-                            label: "Navigating the UI",
-                            items: [
-                                {
-                                    label: "Zone, Group and Part Editor",
-                                    slug: "shortcircuit-xt/manual/ui-editor",
-                                },
-                                {
-                                    label: "Mixer Screen",
-                                    slug: "shortcircuit-xt/manual/ui-mixer-screen",
-                                },
-                                { label: "Play Mode", slug: "shortcircuit-xt/manual/ui-play-mode" },
-                                { label: "The Browser", slug: "shortcircuit-xt/manual/ui-browser" },
-                            ],
+                            label: "Parts, Groups and Zones",
+                            slug: "shortcircuit-xt/manual/structure-parts-groups-zones",
                         },
                         {
-                            label: "Inside a Zone",
-                            items: [
-                                {
-                                    label: "The Sample, The Variants, and Empty Zones",
-                                    slug: "shortcircuit-xt/manual/zone-sample",
-                                },
-                                { label: "The Range", slug: "shortcircuit-xt/manual/zone-range" },
-                                {
-                                    label: "Processors",
-                                    slug: "shortcircuit-xt/manual/zone-processors",
-                                },
-                                {
-                                    label: "Modulation",
-                                    slug: "shortcircuit-xt/manual/zone-modulation",
-                                },
-                            ],
+                            label: "Mixer and Mix Buses",
+                            slug: "shortcircuit-xt/manual/structure-mixer-buses",
+                        },
+                        { label: "Routing", slug: "shortcircuit-xt/manual/structure-routing" },
+                        {
+                            label: "Zone, Group and Part Editor",
+                            slug: "shortcircuit-xt/manual/ui-editor",
+                        },
+                        { label: "Mixer Screen", slug: "shortcircuit-xt/manual/ui-mixer-screen" },
+                        { label: "Play Mode", slug: "shortcircuit-xt/manual/ui-play-mode" },
+                        { label: "The Browser", slug: "shortcircuit-xt/manual/ui-browser" },
+                        {
+                            label: "The Sample, The Variants, and Empty Zones",
+                            slug: "shortcircuit-xt/manual/zone-sample",
+                        },
+                        { label: "The Range", slug: "shortcircuit-xt/manual/zone-range" },
+                        { label: "Processors", slug: "shortcircuit-xt/manual/zone-processors" },
+                        { label: "Modulation", slug: "shortcircuit-xt/manual/zone-modulation" },
+                        {
+                            label: "Monophonic vs Polyphonic",
+                            slug: "shortcircuit-xt/manual/group-mono-poly",
                         },
                         {
-                            label: "Inside a Group",
-                            items: [
-                                {
-                                    label: "Monophonic vs Polyphonic",
-                                    slug: "shortcircuit-xt/manual/group-mono-poly",
-                                },
-                                {
-                                    label: "Voice Management",
-                                    slug: "shortcircuit-xt/manual/group-voice-management",
-                                },
-                                {
-                                    label: "Trigger Conditions",
-                                    slug: "shortcircuit-xt/manual/group-triggers",
-                                },
-                            ],
+                            label: "Voice Management",
+                            slug: "shortcircuit-xt/manual/group-voice-management",
                         },
                         {
-                            label: "Using Parts for Multitimbral Playback",
-                            items: [
-                                {
-                                    label: "Multitimbral Playback",
-                                    slug: "shortcircuit-xt/manual/parts-multitimbral",
-                                },
-                                { label: "FX", slug: "shortcircuit-xt/manual/parts-fx" },
-                            ],
+                            label: "Trigger Conditions",
+                            slug: "shortcircuit-xt/manual/group-triggers",
                         },
+                        {
+                            label: "Multitimbral Playback",
+                            slug: "shortcircuit-xt/manual/parts-multitimbral",
+                        },
+                        { label: "Part FX", slug: "shortcircuit-xt/manual/parts-fx" },
                         { label: "Using the Mixer", slug: "shortcircuit-xt/manual/mixer" },
                         { label: "Importing Formats", slug: "shortcircuit-xt/manual/importing" },
+                        { label: "MPE", slug: "shortcircuit-xt/manual/mpe" },
+                        { label: "Microtuning", slug: "shortcircuit-xt/manual/microtuning" },
                         {
-                            label: "Other Features",
-                            items: [
-                                { label: "MPE", slug: "shortcircuit-xt/manual/mpe" },
-                                {
-                                    label: "Microtuning",
-                                    slug: "shortcircuit-xt/manual/microtuning",
-                                },
-                                {
-                                    label: "Keyboard Shortcuts",
-                                    slug: "shortcircuit-xt/manual/keyboard-shortcuts",
-                                },
-                            ],
+                            label: "Keyboard Shortcuts",
+                            slug: "shortcircuit-xt/manual/keyboard-shortcuts",
                         },
                         {
                             label: "License, Source and Credits",
