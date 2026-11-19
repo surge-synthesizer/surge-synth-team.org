@@ -1,0 +1,78 @@
+---
+title: 'FX Section'
+sidebar:
+    order: 6
+---
+
+The FX Section controls the 8 effect units of the effect block
+stored in every patch.
+
+![FX Section](./images/fxsection.png)
+
+## Effect Unit Selector
+
+The effect unit selector can be found towards the top of the FX section. It also represents the signal path
+of the effects block. Here it is in more detail:
+
+![Illustration 18: The effect block](./images/illu18.png)
+
+_The effect block_
+
+A **left-click** on a particular unit in the effect unit selector brings that unit in the editor.
+A **right-click** on a unit disables/enables it. This state is stored within patches,
+unlike the global FX bypass setting.
+
+Moreover, you can drag and drop units over other units to make them switch places. Holding down **Ctrl/Cmd** and
+dragging allows you to duplicate (copy) units on other units instead, and holding **Shift** allows to simply replace
+(overwrite) the target unit with the source one.
+
+Finally, you can right-click on either the **A** or **B** icons in the diagram to bring up output hard clipping
+options, which are the same as explained earlier in the [Scene Output](/surge-xt/manual/archive/1.9/scene-controls-section/#scene-output)
+and [Global Volume](/surge-xt/manual/archive/1.9/patchglobal-section/#fx-bypass-character-and-global-volume) sections.
+
+## Effect and preset picker
+
+Effects can be added or removed from the **Effect and preset picker**
+(just below the FX return sliders). You can also cycle through effects and presets using the
+same arrow buttons as those found in the global [Patch Browser](/surge-xt/manual/archive/1.9/patchglobal-section/#patch-browser).
+
+You can also save your own effect presets which will be stored globally with
+the synth. Finally, at the bottom of this menu, there are **Copy** and **Paste** options, which allows you to copy an effect and its parameters and paste it on another unit. You can also use drag-and-drop gestures to accomplish this
+(see [Effect Unit Selector](#effect-unit-selector)).
+
+## Effect Editor
+
+This is where every effect parameter can be edited. Like with the oscillator editor, the parameter of each slider
+will change depending on the loaded effect.
+
+Here's a list of the available effects:
+
+-   EQ
+-   Exciter
+-   Graphic EQ
+-   Resonator
+-   CHOW
+-   Distortion
+-   Neuron
+-   Tape
+-   Combulator
+-   Frequency Shifter
+-   Nimbus
+-   Ring Modulator
+-   Treemonster
+-   Vocoder
+-   Chorus
+-   Ensemble
+-   Flanger
+-   Phaser
+-   Rotary Speaker
+-   Delay
+-   Reverb 1
+-   Reverb 2
+-   Airwindows (53 effects collection from Airwindows)
+-   Conditioner
+
+See [Effect algorithms](/surge-xt/manual/archive/1.9/technical-reference/#effect-algorithms) in the Technical Reference section for more information about each effect.
+
+Note: remember that **FX parameters are scene controls**. This means that only scene-level modulation sources
+can modulate them.

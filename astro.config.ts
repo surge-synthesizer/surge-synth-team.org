@@ -40,6 +40,9 @@ export default defineConfig({
         "/surge-xt/manual-nightly/": "/surge-xt/manual-nightly/getting-started/",
         "/surge-xt/manual-rack/": "/surge-xt/manual-rack/getting-started/",
         "/surge-xt/microtuning-guide/": "/surge-xt/microtuning-guide/introduction/",
+        // The 1.9 manual was one page at this URL until it was split. Keep it
+        // resolving: both manuals link here, and so does anything outside.
+        "/surge-xt/manual/archive/1.9/": "/surge-xt/manual/archive/1.9/getting-started/",
         "/ob-xf-changelog": "/ob-xf/changelog/",
         "/spectrumworx/manual/": "/spectrumworx/manual/getting-started/",
         "/shortcircuit-xt/manual/": "/shortcircuit-xt/manual/getting-started/",
@@ -147,6 +150,54 @@ export default defineConfig({
                             slug: "surge-xt/microtuning-guide/note-claps",
                         },
                         { label: "Questions?", slug: "surge-xt/microtuning-guide/questions" },
+                    ],
+                },
+                {
+                    /*
+                     * Frozen content for a version that shipped and moved on.
+                     * Collapsed for the same reason the nightly manual is: it
+                     * should be reachable without crowding the current manual.
+                     *
+                     * Each page is named after the anchor it used to be, so the
+                     * 5c shim can map 1.9's in-app help onto it - see
+                     * scripts/anchor-map.mjs, which generates that table and
+                     * fails if any of the 152 anchors stops resolving.
+                     */
+                    label: "Surge 1.9 Manual (archived)",
+                    collapsed: true,
+                    items: [
+                        {
+                            label: "Getting Started",
+                            slug: "surge-xt/manual/archive/1.9/getting-started",
+                        },
+                        {
+                            label: "Introduction to the User Interface",
+                            slug: "surge-xt/manual/archive/1.9/introduction-to-the-user-interface",
+                        },
+                        {
+                            label: "Patch/Global Section",
+                            slug: "surge-xt/manual/archive/1.9/patchglobal-section",
+                        },
+                        {
+                            label: "Scene Controls Section",
+                            slug: "surge-xt/manual/archive/1.9/scene-controls-section",
+                        },
+                        {
+                            label: "Modulation/Routing Section",
+                            slug: "surge-xt/manual/archive/1.9/modulationrouting-section",
+                        },
+                        {
+                            label: "FX Section",
+                            slug: "surge-xt/manual/archive/1.9/fx-section",
+                        },
+                        {
+                            label: "Menu Button",
+                            slug: "surge-xt/manual/archive/1.9/menu-button",
+                        },
+                        {
+                            label: "Technical Reference",
+                            slug: "surge-xt/manual/archive/1.9/technical-reference",
+                        },
                     ],
                 },
                 {

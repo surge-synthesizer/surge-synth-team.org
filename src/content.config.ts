@@ -14,6 +14,17 @@ import { docsSchema } from "@astrojs/starlight/schema";
  * Known cost: Starlight's lastUpdated (which walks the docs directory for git
  * dates) and its i18n (which infers language from the absolute path) both
  * assume src/content/docs. Neither is configured here, so both are inert.
+ *
+ * manual/archive/ holds frozen manuals for versions that have shipped and moved
+ * on. Each is **one page, never split**: Surge 1.9 compiled an absolute
+ * help_url into every binary, so its 152 anchors have to keep resolving
+ * forever, and keeping them on a single page means the 5c shim passes the hash
+ * through with no lookup table to drift. Splitting would need one row per
+ * anchor, correct permanently, for an installed base nobody can patch - and a
+ * single heading edit already broke in-app help once, in 2022.
+ *
+ * They live here, rather than in a collection of their own, so they get
+ * Starlight's chrome, contents and search like any other manual.
  */
 const docs = defineCollection({
     loader: glob({
@@ -36,24 +47,6 @@ const docs = defineCollection({
             nightly: z.boolean().default(false),
         }),
     }),
-});
-
-/*
- * Frozen manuals for versions that have shipped and moved on. Kept whole rather
- * than split into chapters: nothing is being written here, splitting serves no
- * reader, and one page means every anchor in it stays valid - which matters,
- * because Surge 1.9 shipped with an absolute help_url pointing at this manual.
- *
- * Deliberately kept outside the manual folders, so the docs glob below -
- * which matches any folder whose name starts with "manual" - does not claim it.
- */
-const archives = defineCollection({
-    loader: glob({ pattern: "*/archive/*.mdx", base: "./src/content/products" }),
-    schema: () =>
-        z.object({
-            title: z.string(),
-            version: z.string(),
-        }),
 });
 
 const pages = defineCollection({
@@ -208,7 +201,6 @@ const generated = defineCollection({
 });
 
 export const collections = {
-    archives,
     docs,
     pages,
     productLanding,

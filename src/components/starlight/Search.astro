@@ -26,9 +26,13 @@
 import { Icon } from '@astrojs/starlight/components';
 import project from 'virtual:starlight/project-context';
 
-// SST: the manual this page belongs to, matching the data-pagefind-filter that
-// src/components/starlight/PageTitle.astro writes into the indexed body.
-const product = Astro.locals.starlightRoute.entry.id.split('/')[0];
+// SST: the pool this page belongs to, matching the data-pagefind-filter that
+// src/components/starlight/PageTitle.astro writes into the indexed body. Both
+// call searchPool() rather than deriving it, so a frozen manual's separate
+// pool cannot end up written under one name and searched under another.
+import { searchPool } from '../../search-pool';
+
+const product = searchPool(Astro.locals.starlightRoute.entry.id);
 
 const pagefindTranslations = {
 	placeholder: Astro.locals.t('search.label'),
