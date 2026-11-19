@@ -1,0 +1,48 @@
+---
+/*
+ * Carry runtime <html> state onto the incoming document.
+ *
+ * swapRootAttributes() removes every attribute from the document element and
+ * then applies the incoming page's, so anything set at runtime is lost at each
+ * navigation - no server-rendered page can declare it, because it is read from
+ * localStorage. Two values depend on that and were being restored too late:
+ *
+ * - scroll-behavior. transitions.css sets `smooth` as the no-JavaScript
+ *   fallback and SmoothScroll cancels it with an inline style. With the style
+ *   gone, the router's own scroll runs smooth, animating through the fade.
+ *   moveToLocation() happens before astro:after-swap, so only before-swap is
+ *   early enough.
+ *
+ * - data-sidebar. The collapsed sidebar is CSS keyed on it, and it is applied
+ *   by PageFrame's module script - which runs after the swap, and whose
+ *   after-swap listener does not exist at all until a manual has been visited
+ *   once. Until then the manual paints expanded and then snaps narrow.
+ *
+ * Stamping the new document instead of the current one means the swap copies
+ * both across as ordinary attributes, in place before anything paints.
+ */
+---
+
+<script is:inline>
+    (() => {
+        // Both layouts render this, so the script runs again after every swap.
+        // The listener belongs to the session and window survives the swap.
+        if (window.__sstSwapRootState) return;
+        window.__sstSwapRootState = true;
+
+        document.addEventListener("astro:before-swap", (event) => {
+            const root = event.newDocument.documentElement;
+
+            root.style.scrollBehavior = "auto";
+
+            try {
+                root.dataset.sidebar =
+                    localStorage.getItem("sidebar") === "collapsed" ? "collapsed" : "expanded";
+            } catch {
+                // Storage blocked, as elsewhere; the expanded default is the
+                // same one the stylesheet already assumes.
+                root.dataset.sidebar = "expanded";
+            }
+        });
+    })();
+</script>

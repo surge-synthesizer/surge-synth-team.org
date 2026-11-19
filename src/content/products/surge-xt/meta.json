@@ -22,7 +22,11 @@
                     "href": "/surge-xt/manual-rack/"
                 },
                 {
-                    "label": "Accessibility",
+                    "label": "Microtuning Guide",
+                    "href": "/surge-xt/microtuning-guide/"
+                },
+                {
+                    "label": "Accessibility Guide",
                     "href": "/surge-xt/accessibility"
                 }
             ],

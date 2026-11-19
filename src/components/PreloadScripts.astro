@@ -1,0 +1,70 @@
+---
+/*
+ * Warm the incoming page's module scripts before the cross-fade starts.
+ *
+ * Astro's router preloads the stylesheets a navigation is about to need and
+ * waits for them, but does nothing for its scripts: runScripts() fetches those
+ * after the swap, while the transition is already animating.
+ *
+ * That is invisible between product pages, which share one bundle. A manual
+ * pulls in three more - search and the two tables of contents - and each
+ * rewrites the chrome as it lands: Search.astro renders its button `disabled`
+ * and its Ctrl+K badge `display:none`, and the script enables one and reveals
+ * the other. So the first navigation into a manual shows the header assembling
+ * itself mid-fade, and every later one is clean because the bundles are cached.
+ *
+ * Preloading them during preparation puts them in cache before the swap, so
+ * they execute immediately and the page arrives finished. The cost is that the
+ * transition starts a little later on a cold cache, which is the trade being
+ * made deliberately: a slightly later fade over a visibly unfinished one.
+ */
+---
+
+<script is:inline>
+    (() => {
+        // The layouts render this on every page, so the inline script runs
+        // again after each swap. The listener belongs to the session, not the
+        // document, and window survives the swap - so register it once.
+        if (window.__sstScriptPreload) return;
+        window.__sstScriptPreload = true;
+
+        document.addEventListener("astro:before-preparation", (event) => {
+            const load = event.loader;
+
+            event.loader = async () => {
+                await load();
+
+                // newDocument is only populated once the loader has run.
+                const pending = [
+                    ...event.newDocument.querySelectorAll('script[type="module"][src]'),
+                ]
+                    .map((script) => script.src)
+                    .filter(
+                        (src) =>
+                            !document.querySelector(
+                                `script[src="${src}"], link[rel="modulepreload"][href="${src}"]`,
+                            ),
+                    );
+
+                await Promise.all(
+                    pending.map(
+                        (src) =>
+                            new Promise((resolve) => {
+                                const link = document.createElement("link");
+
+                                link.rel = "modulepreload";
+                                link.href = src;
+
+                                // Resolve on failure too: a script that cannot
+                                // be preloaded must not stall the navigation.
+                                link.addEventListener("load", resolve);
+                                link.addEventListener("error", resolve);
+
+                                document.head.append(link);
+                            }),
+                    ),
+                );
+            };
+        });
+    })();
+</script>

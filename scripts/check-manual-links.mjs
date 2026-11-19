@@ -26,7 +26,10 @@ for (const product of readdirSync(DIST, { withFileTypes: true })) {
     if (!product.isDirectory()) continue;
 
     for (const folder of readdirSync(join(DIST, product.name), { withFileTypes: true })) {
-        if (folder.isDirectory() && /^(manual(-[a-z]+)?|changelog)$/.test(folder.name)) {
+        if (
+            folder.isDirectory() &&
+            /^(manual(-[a-z]+)?|changelog|microtuning-guide)$/.test(folder.name)
+        ) {
             manuals.push(`${product.name}/${folder.name}`);
         }
     }

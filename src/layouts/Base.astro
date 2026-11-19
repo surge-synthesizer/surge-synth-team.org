@@ -1,6 +1,8 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import PreloadScripts from "../components/PreloadScripts.astro";
 import SmoothScroll from "../components/SmoothScroll.astro";
+import SwapRootState from "../components/SwapRootState.astro";
 import { fontType, preloadFonts } from "../fonts";
 import "./base.css";
 
@@ -79,6 +81,8 @@ const { title, project, noindex = false } = Astro.props;
         </script>
         <ClientRouter />
         <SmoothScroll />
+        <PreloadScripts />
+        <SwapRootState />
     </head>
 
     {

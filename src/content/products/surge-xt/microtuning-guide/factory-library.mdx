@@ -1,0 +1,108 @@
+---
+title: Factory Tuning Library
+sidebar:
+    order: 3
+---
+
+The Surge Synth Team distributes a collection of 182 basic microtuning table files for developers, musicians, composers, researchers and intonation enthusiasts alike,
+in the popular [Scala SCL/KBM format](/surge-xt/microtuning-guide/methods/#scala-files). Originally compiled as a learning device for newcomers to microtuning, it provides a useful overview of many
+basic musical instrument intonation types, such as equal-temperaments (included are equal divisions of harmonics 2, 3 and 4), just-intonation (harmonic and subharmonic
+series sections), nonoctave systems by Wendy Carlos and others, and a selection of Linear Temperaments. If you've installed Surge XT on your computer, you can easily
+find this collection by opening Surge XT and clicking "Factory Tuning Library...".
+
+## Scales
+
+The lion's share of the collection is found in the SCL folder. As noted above, these scales can be divided up into four categories: Just Intonation, Equal Divisions,
+Non-Octave scales, and Linear Temperaments. We hope that this collection can inspire you to begin (or of course continue) exploring tunings by ear and in practice.
+
+### Non-Octave scales
+
+As the name implies, they're scales which do not contain the octave interval (the frequency ratio 2/1), on which the majority of the worlds tuning systems have been based.
+Each is named after the person who designed it or made it famous. These are seemingly fewest in number of the types found here, but do note that some of the scales in the
+other categories also do not contain a pure octave. If those are counted, the scales without a 2/1 octave make up a little more than a quarter of the scales.
+
+### Just Intonation
+
+There's a world of possibilities with Just tunings, and making a selection from among these is a daunting task.
+We feel that a good place to begin is the Harmonic Series itself, so we've made a collection of segments of the harmonic series, and the so-called
+subharmonic series (which takes the step sizes of the harmonic series in reverse order).
+
+These Just scales (and the equal scales that follow) come in three versions, with different intervals of repetition. Some span the interval of 2/1, which is an octave. They will contain
+all the harmonics or subharmonics between a given one, and its double. For example, the scale called "HD2 04-08" contain harmonics four, five, six, seven and eight.
+As was mentioned above, scales that repeat at the frequency ratio 2/1 (the octave) are most common by far. But they aren't the only good option! You'll also find
+scales here which repeat after 3/1 (which is an octave + a perfect 5th), or after 4/1 (which is two octaves).
+
+The scales whose names start with HD (for "Harmonic Division") are harmonic series segments. Those that start with SD (for "Subharmonic Division") are subharmonic
+series segments. The number after the letters (either 2, 3 or 4) is the repetition interval being divided, the next numbers show how it is divided.
+
+### Equal Divisions
+
+These scales divide some simple Just ratio into equal parts.
+As in the previous category, the repetition interval can be either 2, 3 or 4. Octave, octave + 5th, or double octave.
+These scales have names starting with ED (for "Equal Division"), followed by the interval being divided, followed by the number of parts it's divided into.
+
+A couple of equal scales are actually in the collection twice. The files called 12 Tone Equal Temperament and Bohlen-Pierce, contain exactly the same
+information as the files called "ED2-12" and "ED3-13" respectively. These tunings are so well known by those names, that we felt it made sense to include them
+by those names also.
+
+### Equal Linear Temperaments
+
+Musicians and composers exploring the vast resources of musical instrument intonation systems, will be aware that our Western 12 tone
+equal temperament was arrived at by tempering the intervals of the classical 12-note Pythagorean parent tuning, which is formed from a cycle of
+acoustic 3/2 fifths at 701.955 cents.
+
+When the Pythagorean tuning is mapped to 12-note Halberstadt keyboards or MIDI controllers (starting on C) the interval sequence is generated from three 3/2 fifths down,
+and eight 3/2 fifths up, which places the familiar diatonic modes on the white keys of the keyboard. The same is true for many 12-note meantone systems,
+where the fifths may be tempered slightly flat or sharp from 3/2, thereby improving, or otherwise, changing the tuning of other intervals, such as the thirds of such temperaments.
+
+With this category of linear temperaments, the sizes of these regular diatonic fifth generators will always lie between 4\7 (4 steps of 7 equal divisions of an octave)
+at 685.714 cents to 3\5 (3 steps of 5 equal divisions of an octave) at 720 cents.
+
+Similarly, we find with equal-temperaments, that between 17 and 71 tone equal temperament, there are 32 that meet this criteria of having regular diatonic fifth
+generators within this range, and this SCL collection of 12-note subsets from them, use a file-naming convention where the tunings are in order of the fifth
+generator sizes, starting with 47 tone equal- temperament, having a fifth generator of 689.362 cents, through 42 tone equal-temperament at 714.286 cents.
+
+This collection of 12-note subsets of these equal-temperaments was compiled, and is presented here, in a way that can be used as a device for the study
+of linear-temperaments, which illustrates that as the size of the tempered fifths increase from small to large, how this impacts not only on the tuning of the thirds,
+but all of the intervals of each tuning.
+
+A Scala keyboard mapping file is included with the SCL collection: Halberstadt 60-440-69.kbm, which when used in combination with any of the SCL tables for
+these 12-note tunings, will map the 1/1 starting note on MIDI Note C.60, with the diapason (Reference Pitch/Reference MIDI Note) on A.69 at 440 Hz.
+
+To use these files with any virtual-instruments that supports the complete Scala SCL and KBM microtuning table format (such as Modartt Pianoteq or Surge XT),
+load any combination of an SCL file with the above KBM to explore this exciting collection of temperaments on a 12-note Halberstadt keyboard controller.
+
+These Linear Temperaments are found in a separate folder, where you'll also find a helpful interval-matrix PDF, showing each temperament, and the available
+interval patterns from any starting point of the tunings.
+
+## Keyboard Mappings
+
+This archive contains a collection of basic linear keyboard mapping files (KBM) which may be used in virtual-instruments that support loading both the Scala SCL and KBM
+microtuning format files, such as Pianoteq and Surge, as well as for creating custom microtuning mappings within the Scala application itself for
+exporting to other popular formats, such as TUN, MTS and KSP.
+
+This small linear KBM collection may be used for mapping the starting 1/1 MIDI Note, as well as the Reference Frequency MIDI Note (diapason), to the standard concert-pitch chromatic notes.
+
+The file naming convention indicates:
+
+- The 1/1 starting MIDI Note for the mapping.
+- The rounded Reference Frequency.
+- The mapping for the Reference Frequency MIDI Note.
+- The standard letter format concert-pitch chromatic scale degree.
+
+For example: 60-262-60 Concert C, indicates at a glance that: The 1/1 of the microtuning will be mapped to MIDI Note 60, the Reference Frequency is 262 Hz, and the MIDI Note
+on which the Reference Frequency is mapped is 60.
+
+Please note here that the KBM format is flexible enough that the above parameters can be arbitrarily and independently mapped, such that for instance, a microtuning could
+have its diapason mapped to the standard concert-pitch of MIDI Note A.69 @ 440 Hz, while the 1/1 starting note could be mapped on 60.C, or any other MIDI Note
+required of the musical scenario at hand. Such a mapping would look like this:
+
+60-440-69.kbm
+|
+Range : 0.C .. 127.G
+Middle : 60.C
+Reference : 440.000000 Hertz at note 69.A
+Octave degree : 0 (highest degree of scale)
+Mapping : linear
+
+This potential for arbitrary mapping of pitches to MIDI Notes, is the very nature and definition of what's referred to as 'full keyboard microtuning'.

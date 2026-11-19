@@ -2,10 +2,8 @@
 import { Image } from "astro:assets";
 import scxt_build_nightly from "../content/generated/scxt-build-nightly.json" with { type: "json" };
 import Block from "../components/Block.astro";
-import Button from "../components/Button.astro";
 import Cell from "../components/Cell.astro";
 import DownloadButton from "../components/DownloadButton.astro";
-import FaqList from "../components/FaqList.astro";
 import NavHeader from "../components/NavHeader.astro";
 import ScxtCover from "../content/products/shortcircuit-xt/images/shortcircuit-xt.png";
 import Base from "../layouts/Base.astro";
@@ -40,33 +38,6 @@ const highlights = [
     {
         title: "Mixer, MPE and tuning",
         body: "A 21 bus mixer with aux sends and 20 extra stereo outputs, MPE and CLAP note expressions, and microtuning through MTS-ESP or Scala files.",
-    },
-];
-
-const faq = [
-    {
-        q: "Is Shortcircuit XT free?",
-        a: "Yes. It is free and open source. The source is MIT licensed, and released binaries are distributed under the AGPL v3 or later.",
-    },
-    {
-        q: "Is it finished?",
-        a: "No. Shortcircuit XT is in beta, and the download on this page is a nightly build of the current code. Use a limiter while experimenting.",
-    },
-    {
-        q: "Which systems and plugin formats are supported?",
-        a: "Windows, macOS 10.15 or later, and Linux. Shortcircuit XT runs as a CLAP or VST3 plugin, as an Audio Unit on macOS, and as a standalone application.",
-    },
-    {
-        q: "Can it load my sample libraries?",
-        a: "It imports SF2, SFZ, EXS, GIG, Akai AKP and .multisample instruments, and loads WAV, FLAC, AIFF, MP3 and Opus samples. Features a format has that Shortcircuit XT cannot represent are skipped.",
-    },
-    {
-        q: "Where are my patches kept?",
-        a: "In <code>Documents/Surge Synth Team/Shortcircuit XT</code>, which also holds themes and presets. A whole instrument saves as a <code>.scm</code> multi and a single part as a <code>.scp</code>.",
-    },
-    {
-        q: "Where do I get help or report a bug?",
-        a: 'Ask in the <code>#using-shortcircuit</code> channel of the <a href="https://discord.com/invite/spGANHw">Surge Synth Team Discord</a>, and report bugs on the <a href="https://github.com/surge-synthesizer/shortcircuit-xt/issues">issue tracker</a>.',
     },
 ];
 ---
@@ -132,20 +103,7 @@ const faq = [
             ))
         }
 
-        <Block id="manual" surface="accent" layout="prose">
-            <h2>Manual</h2>
-            <p class="max-w-prose">
-                The Shortcircuit XT manual covers the instrument structure, the editor, and every
-                processor and modulation source.
-            </p>
-            <Button class="mt-6" href="/shortcircuit-xt/manual/">Open Manual</Button>
-        </Block>
-
-        <Block id="faq" surface="raised" layout="prose">
-            <FaqList items={faq} />
-        </Block>
-
-        <Block id="about" surface="base" layout="prose">
+        <Block id="about" surface="raised" layout="prose">
             <h2>About</h2>
             <div class="mt-2 max-w-prose space-y-3">
                 <p>
