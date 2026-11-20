@@ -1,8 +1,10 @@
 ---
-title: "Settings: Engine"
+title: Settings
 sidebar:
   order: 8
 ---
+
+## Engine
 
 Hold on to your beanies, boys and girls, this is where we start to get a little technical! The
 Engine settings are where you tell SpectrumWorx exactly how much effort to put into its
@@ -33,7 +35,7 @@ active (especially in a very rapid manner, like fast scrolling through the prese
 different engine setups) in which case you can try stopping the playback/transport before
 tweaking the engine parameters.
 
-## A brief diversion into how SpectrumWorx does its thing
+### A brief diversion into how SpectrumWorx does its thing
 
 To fully understand how some of the Engine settings work, you need to know a little about how
 SpectrumWorx itself operates. SpectrumWorx uses what is referred to as the "Short Time Fourier
@@ -57,7 +59,7 @@ frequency resolution comparable to human hearing, we must limit that window of t
 The proper way to extract a short time segment from a longer signal is to multiply it by a
 window function. We'll talk about window functions a bit later.
 
-## Frame size
+### Frame size
 
 Now, if you've read the above paragraph, you may be able to understand how setting the Frame
 Size affects our signal. A shorter frame means that we will be able to capture fast changes of
@@ -92,7 +94,7 @@ This also is the best match to the human auditory system's time resolution.
 It is important to note that shorter frames consume more CPU than longer ones, because of the
 overhead of running the whole process more often.
 
-## Overlap factor
+### Overlap factor
 
 We just keep hitting you with these technical terms, don't we? Suffice it to say that the longer
 the overlap, the smoother the results across time. SpectrumWorx allows you to choose four
@@ -111,7 +113,7 @@ Longer overlaps also mean more processing, so your CPU meter is going to go up a
 overlap of 87.5% (factor 8) combined with a short frame length might just not be too healthy for
 your CPU!
 
-## Window type
+### Window type
 
 We've already discussed the importance of the window's frame size, but the window's "shape" is
 also a factor in achieving good results. The main problem is that windowing causes the signal's
@@ -149,7 +151,7 @@ with similar frequencies, and resolving disparate strength signals with dissimil
 SpectrumWorx provides nine different window types to choose from: Hann, Hamming, Blackman,
 Blackman Harris, Gaussian, Flat top, Welch, Triangle and Rectangle. Go experiment!
 
-## Ripple factor
+### Ripple factor
 
 You'll notice the Ripple factor displayed at the bottom of the page. This tells you if the
 current engine settings (Frame Size, Window Type, Overlap) will result in a so-called "perfect
@@ -162,14 +164,14 @@ ripple. For example, a Rectangular window can advance (overlap size) by (Frame S
 where k is any positive integer, and a Hann or Hamming window can use any step size of the form
 (Frame Size/2)/k.
 
-## What is the best engine setup?
+### What is the best engine setup?
 
 In SpectrumWorx there is no "best engine setup". Modules differ vastly in the engine parameters
 they work best with. It is up to the user to find that happy compromise between frequency
 precision and time resolution, or between sonic integrity and bringing your computer huffing and
 puffing to its knees.
 
-## Input mode
+### Input mode
 
 This bit is mostly self-explanatory. SpectrumWorx offers a variety of input and output modes
 tailored to various needs. By default, 2 in / 2 out (Stereo) is assigned, but you can switch that
@@ -192,3 +194,60 @@ The SpectrumWorx engine is not actually limited to the basic I/O modes which are
 accessible through the SpectrumWorx GUI and the Input mode parameter. If your host provides the
 means, you can set SpectrumWorx up to work with more complex channel arrangements, such as
 8-in / 4-out modes.
+
+## GUI and About
+
+As you've probably guessed, this is where you can tell SpectrumWorx how you'd like its interface
+to behave, and affect aspects of its appearance.
+
+### Mouse over reaction
+
+This determines how SpectrumWorx displays the various parameter settings in the main plug-in
+window when using your mouse in the rack. You have three options here:
+
+- **Never** only displays the information for the currently selected parameter.
+- **Module selected** will cause the information for all knobs of a selected module to appear
+  when you mouse over them.
+- **Always / nothing selected** will display information for any knob and/or module any time the
+  cursor passes over it.
+
+### LFO update behavior
+
+This setting determines how and under what circumstances SpectrumWorx updates its various
+parameter displays if those specific parameters are being modulated by an LFO. Basically, it can
+look as if any LFO-affected knobs are being tweaked all by themselves.
+
+We probably needn't tell you what setting this function to **Never** will do. However, setting
+it to **Always** will result in all LFO-driven knobs being updated all of the time. It can look
+pretty cool, too, though it will use slightly more of your CPU. **Control selected** will display
+the LFO action only for a selected knob, while **Control active** will display the action of any
+control you might have moused over, given the appropriate settings of the Mouse over reaction
+function.
+
+### Load last session on startup
+
+A simple on/off switch that does just what it says on the label. Erm, that is, your last session
+will be loaded up when you instantiate the plug-in. Keep in mind that a session includes all
+settings, including Engine settings. If, for instance, you change the frame length, that change
+will only be remembered if you have this option selected.
+
+As already mentioned in the Input mode section, this need not work as expected in all hosts, as
+certain hosts can and will override your last session settings with the settings they have saved
+in their project files (which incidentally might often be the same settings as the ones saved in
+your last session preset).
+
+### Hide cursor on knob drag
+
+Switch this on if you want the cursor to disappear while you turn a knob. Otherwise, leave it
+off.
+
+### Set window and menu opacity
+
+This slider will determine the opacity of your Settings and Presets windows as well as pop-up
+menus. All the way left makes them fairly transparent, while all the way right makes them
+entirely opaque.
+
+### Settings: About
+
+Find out what version you are running and who is behind the superlative SpectrumWorx by clicking
+the **About** tab.

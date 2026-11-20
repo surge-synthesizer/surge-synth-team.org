@@ -12,6 +12,27 @@ const flatten = (entries: SidebarEntry[]): Exclude<SidebarEntry, { type: "group"
 // separate manual, so narrow both down to whichever one this page belongs to
 export const onRequest = defineRouteMiddleware((context) => {
     const route = context.locals.starlightRoute;
+
+    /*
+     * Drop Starlight's "Overview" entry, which heads the contents list with a
+     * link to the page title. The "On this page" heading carries that link now
+     * (see TableOfContents.astro), which is the thing a reader already reads as
+     * the top of the panel.
+     *
+     * Its children are promoted rather than discarded: generateToC() seeds the
+     * tree with this entry at depth 2, so every heading deeper than the minimum
+     * nests underneath it. Deleting the entry alone would take the whole list
+     * with it. Anything that landed beside it is kept, in order.
+     *
+     * Done before the sidebar work below, which returns early for a page that
+     * belongs to no group.
+     */
+    if (route.toc) {
+        const [overview, ...rest] = route.toc.items;
+
+        if (overview?.slug === "_top") route.toc.items = [...overview.children, ...rest];
+    }
+
     const manual = route.sidebar.find(holdsCurrentPage);
     if (manual?.type !== "group") return;
 

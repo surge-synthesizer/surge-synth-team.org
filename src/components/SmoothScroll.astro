@@ -29,9 +29,20 @@
 
     function target(hash: string): Element | null {
         const id = decodeURIComponent(hash.slice(1));
-        if (!id || id === "_top") return document.body;
+        if (!id) return document.body;
 
-        return document.getElementById(id) ?? document.getElementsByName(id)[0] ?? null;
+        const found = document.getElementById(id) ?? document.getElementsByName(id)[0] ?? null;
+
+        /*
+         * "#_top" is Starlight's Overview entry, and it renders a real
+         * <h1 id="_top"> to go with it. Resolve to that element rather than
+         * short-cutting to the body: scroller() walks up from the target to
+         * find the box that scrolls, and from the body it only ever reaches
+         * <html>, which scrolls on neither layout - so the link did nothing.
+         * The body stays the fallback for a bare "back to top" on a page that
+         * renders no such element.
+         */
+        return found ?? (id === "_top" ? document.body : null);
     }
 
     /**

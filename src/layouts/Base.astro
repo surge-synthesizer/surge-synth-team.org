@@ -26,6 +26,11 @@ const { title, project, noindex = false } = Astro.props;
             name="description"
             content="We maintain and contribute to awesome open source audio plugins!"
         />
+        {
+            /* Starlight emits its own; these pages had none until `site` was set,
+            and og:url alone leaves duplicates with no preferred URL named. */
+        }
+        <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).href} />
         <meta property="og:url" content={Astro.url.href} />
         <meta property="og:title" content={title} />
         <meta

@@ -1,5 +1,5 @@
 ---
-title: The Modules
+title: Modules
 sidebar:
   order: 11
 ---
@@ -13,16 +13,478 @@ Modules are grouped into nine categories in the load menu:
 
 | Category | Count | What's in it |
 | --- | --- | --- |
-| [Pitch](/spectrumworx/manual/modules-pitch/) | 7 | Shifting, following, tuning and oscillating pitch |
-| [Timbre](/spectrumworx/manual/modules-timbre/) | 8 | Filtering and reshaping the spectrum |
-| [Time](/spectrumworx/manual/modules-time/) | 6 | Freezing, slicing, reversing and decaying |
-| [Space](/spectrumworx/manual/modules-space/) | 3 | Frequency domain echo and reverb |
-| [Phase](/spectrumworx/manual/modules-phase/) | 4 | Flattening, randomizing and flipping phase |
-| [Loudness](/spectrumworx/manual/modules-loudness/) | 5 | Gain, dynamics and noise |
-| [Combine](/spectrumworx/manual/modules-combine/) | 10 | Everything that mixes main with side channel |
-| [Phase Vocoder](/spectrumworx/manual/modules-phase-vocoder/) | 9 | True-frequency versions of the pitch and eximploder modules |
-| [Miscellaneous](/spectrumworx/manual/modules-misc/) | 5 | The ones that fit nowhere else |
+| [Pitch](#pitch) | 7 | Shifting, following, tuning and oscillating pitch |
+| [Timbre](#timbre) | 8 | Filtering and reshaping the spectrum |
+| [Time](#time) | 6 | Freezing, slicing, reversing and decaying |
+| [Space](#space) | 3 | Frequency domain echo and reverb |
+| [Phase](#phase) | 4 | Flattening, randomizing and flipping phase |
+| [Loudness](#loudness) | 5 | Gain, dynamics and noise |
+| [Combine](#combine) | 10 | Everything that mixes main with side channel |
+| [Phase Vocoder](#phase-vocoder) | 9 | True-frequency versions of the pitch and eximploder modules |
+| [Miscellaneous](#miscellaneous) | 5 | The ones that fit nowhere else |
 
 Remember that every module also has its own Gain, Wet and Frequency range controls in the
 [main window](/spectrumworx/manual/main-window/), and that almost every module parameter can be
 driven by [its own LFO](/spectrumworx/manual/lfo/).
+
+## Pitch
+
+### Pitch Shifter
+
+This module is as straightforward as it gets. It shifts the pitch of the incoming signal in
+semitones and cents. You can go anywhere between two octaves higher and two octaves lower than
+the original signal. It can also act upon a selected frequency range; any frequencies that fall
+outside of this range will not be affected. The selected band of frequencies is determined by
+the **Frequency range** slider located in the Main window.
+
+### Pitch Follower
+
+The main channel is pitch-shifted to the dominant frequency detected in the side channel (via
+**External audio** or via **Settings / Input mode**). The **Speed** parameter determines how
+quickly the pitch-shifting to the target frequency should be done, in order to provide a
+smoother result.
+
+### TuneWorx
+
+You know the sound: it's the classic Autotune effect. The main channel's pitch is detected and
+shifted to the nearest selected semitone. If all semitones are selected, you'll get a chromatic
+scale. Check out the Autotune subfolder in the Presets browser for some musical scale presets!
+
+### Pitch Magnet
+
+This one forces the input channel pitch to the pitch selected with the **Target** knob. The
+**Strength** knob determines the speed with which to reach the target pitch.
+
+### Sumo Pitch
+
+What happens when your channels are pitted against one another like Sumo wrestlers? The input
+signal and side channel are analyzed with the internal pitch detector. Both are then
+pitch-shifted towards each other and towards a center pitch. The speed of the shift is
+selectable with the **Speed** knob. After both signals have been shifted, they are blended
+together. The amount of blending is controlled with the **Blend** knob: when set to 0, only the
+main channel is output; a setting of 100% sends only the side channel to the output.
+
+### Pitch Spring
+
+This is a pitch oscillator. You can choose the **Depth** and **Period** (rate) of the
+oscillation. There is also a direction combo box where you can select how the "spring"
+oscillates:
+
+- **Up** will cause the spring to oscillate between the incoming pitch and a positive (higher)
+  pitch determined by the Depth knob's setting.
+- **Down** will cause it to swing from the incoming pitch to a negative (lower) pitch as
+  determined by the Depth knob.
+- **Symmetric** will result in the pitch oscillating back and forth from a negative pitch,
+  through the original pitch of the incoming signal, and towards a positive pitch.
+
+### Octaver
+
+This is an octaver effect: it adds two (or just one) octaves onto the original signal. It can
+add an octave that is two octaves down or one octave down from the original signal (to turn your
+guitar into a bass, for example), or it can add two or one octave up from the original sound to
+achieve a kind of harmonizer effect (a 12 string guitar, for example). It can also mix down and
+up octaves. Each octave has a gain control, and both octaves share a common cut-off frequency to
+limit the operation to only the low-passed signal. Fun!
+
+## Timbre
+
+### Bandpass
+
+This is a simple bandpass filter with a variable range. An **Attenuation** knob controls how
+much of the signal is filtered. **Start frequency** and **Stop frequency** controls (located in
+the Main window) control the lower and upper range of the bandpass.
+
+### Bandstop
+
+A simple bandstop or "notch" filter. The user controls attenuation and the start and stop
+frequencies that will be suppressed. It's the exact opposite of the Bandpass module.
+
+### Ah-ah
+
+This is sort of like a wah-wah. It filters a region with a variable center frequency. You must
+use an LFO to modulate the **Center frequency** knob for the intended effect. We recommend an
+LFO with a period of 0.5 seconds and a range from 300 to 1300 Hz. **Width** determines the width
+of the moving region, and **Gain** controls how much gain is applied to it.
+
+### Smoother
+
+Smooths the frequency spectrum of the incoming signal, causing it to lose sharpness and detail
+for a blurred image.
+
+### Sharper
+
+The opposite of the above module: this one sharpens the spectrum. The smoothed signal is
+subtracted from the original to arrive at the sharpened signal. The amount of sharpening is
+controlled by the **Sharpness** knob, which represents the length of the averaging filter in Hz.
+The sharpness is increased with the **Intensity** knob and then hard-limited with the **Limit**
+control to make it more stable.
+
+### Centroid
+
+Centroid is an adaptive, self-tuning bandpass filter which follows the center frequency with a
+controllable symmetric band curve (**Border slope**). The module determines the time-variable
+center frequency with different processing modes:
+
+- **Centroid** finds the weighted center frequency.
+- **Peak** finds the highest peak in the spectrum.
+- **Dominant** estimates the dominant pitch.
+
+Frequencies outside the **Bandwidth** region around the centroid frequency are removed; the rest
+inside the band is smoothed with the Border slope from center to borders.
+
+### Tonal
+
+This one lets through only highly tonal frequencies. First the module finds peaks in the
+spectrum, then it estimates the peak strength (how strong the peak is when compared to its
+neighbors), and if the strength is above the value determined by the **Peak strength** knob, and
+if the peak is stronger than that determined by the **Global threshold** or **Local threshold**
+settings, the peak will be passed through. The rest of the signal is attenuated by the
+**Attenuation** control.
+
+### Atonal
+
+Similar to the Tonal module described above, but instead it attenuates the peaks and allows the
+non-peak components to pass through.
+
+## Time
+
+### Freeze
+
+A module with an attitude! Freeze is a time freezer: press the **Freeze** button and the
+incoming sound will freeze in its current state, and will stay that way until another **Freeze**
+or until it is sent back to normal state via the **Melt** button. The transition from one frozen
+state to the next, and from frozen to normal state, is controlled with the **Transition time**
+knob - this enables the transition to be smooth and gradual.
+
+### Slicer
+
+![The Slicer module](./images/slicer-module.png)
+
+This is one of the coolest modules in the collection. It slices the signal into chunks that are
+alternated with one of three different options, defined by the combo box on the module's face:
+
+- **Sample & Hold** fills the gaps with a "frozen" sample of the last frame from the main input
+  before the slice began.
+- **Silence**.
+- **Side channel** or external audio.
+
+The **On time** knob determines the length of the main input slices (normal mode), and the
+**Slice time** knob controls the length of the silence, Sample & Hold or side channel slices.
+Some very cool effects can be obtained by using very small values.
+
+### Wobbler
+
+As you can probably guess, this module creates a sinusoidal-based "wobbling" sound by changing
+the amplitudes of the input frequencies. The **Amplitude** knob defines the intensity of the
+wobbling (or how much the sound seems to go up and down). An **Offset** parameter is provided so
+that you can shift the whole input down before the wobbling stage - it might therefore be
+advisable to start with a negative Offset value that reflects the positive setting of the
+Amplitude setting. The **Period** function defines the rate of wobbling.
+
+### Reverser
+
+This one breaks the input down into chunks and reverses them. For instance, the name
+"SpectrumWorx" might be output as "cepSmurtxroW". There is only one parameter: **Chunk length**.
+You can achieve some supremely alien effects with this one. One warning note: Reverser
+introduces delay. However, that delay can actually be used to create some interest as well.
+
+### Imploder
+
+Imploder freezes incoming high amplitudes and introduces a slow decay towards the selected
+**Limit** level. Additionally, the frequency is gradually altered, controlled by the
+**Glissando** knob; glissandos are given in cents per second. **Decay** governs the time needed
+to decay from the current amplitude value down to the Limit value. Amplitudes lower than the
+**Gate** parameter are left untouched. Amplitudes are decayed until a higher signal is received
+at the input or until the Limit is reached.
+
+### Exploder
+
+Pretty much the same idea found in the Imploder: this one also freezes amplitudes, but instead
+of introducing decay it ramps them up towards the **Limit**. Glissando is applied in the same
+way as it is in the Imploder. Amplitudes are ramped up until a louder signal is received at the
+input or until the Limit is reached. Amplitudes lower than the **Gate** parameter are left
+untouched.
+
+## Space
+
+### Frecho
+
+This is a frequency domain echo that functions with pitch. The **Distance** control determines
+the perceived distance of the reflection; the minimum is set to 17 meters, resulting in 34
+meters for the sound to return to the signal's perceived source, simply because any less than
+that and we wouldn't have echo but reverberation. **Absorption** controls how much of the sound
+is absorbed and how much is reflected back.
+
+Using the **Pitch** function you can pitch-shift each echoed sound, and that is precisely what
+Frecho is all about! The values are given as semitones per echo. The **Mix** knob controls how
+much of the original sound is heard as compared to the echoes: a setting of 0 provides no echo,
+while a value of 100 provides only the echo.
+
+### Frevcho
+
+Similar to Frecho, but the echoes are reversed! The controls are the same as in Frecho, but the
+sound is quite unique and different.
+
+### Freqverb
+
+Similar to Frecho, but this time it is a frequency domain reverb, with an ability to pitch-shift
+every single reverberation. In other words, there are so many echoes in such a short time period
+that our ears can't differentiate between them.
+
+The **Life time** function governs how long the sound reverberates. The longer the setting, the
+more sound builds up - it can even be driven into saturation! The **Room size** parameter is
+similar to the Absorption function in Frecho, and controls how much attenuation is applied to
+each reflection. **Pitch** functions the same as it does in Frecho: each reverberation can be
+pitch shifted, and once again the values are given as semitones per echo. The **Mix** knob
+controls the ratio of affected and unaffected signal.
+
+## Phase
+
+### Robotizer
+
+Produces a classic robotic effect in the usual manner: by flattening the phase of the signal.
+Don't forget that you can adjust the desired start and stop frequencies, wetness and gain via
+the three controls in the Main window! Effects run the gamut from pseudo-vocoder effects to
+unusual phase-cancellation filtering.
+
+### Whisperer
+
+This one provides a sort of whispering effect by randomizing the phases. Note: you'll need a
+short frame size for proper operation.
+
+### Phasevolution
+
+This one creates an accelerated change in phase over time, which results in a sort of pulsating
+pitch effect. As with the Whisperer, this one demands a short frame size for proper operation.
+It also works better on signals with lots of clear harmonics. The **Period** knob controls the
+rate at which the phase comes full circle.
+
+### Phlip
+
+As you might guess, this module flips the phase, but don't confuse it with the "flip" button on
+your mixing console - this one creates some pretty unusual effects! The effect is quite
+variable, depending very much on the harmonic content of the incoming signal. Odd harmonics tend
+to result in a more dissonant sound, while even harmonics are more consonant and pleasant to the
+ear. Also, the shorter the frame size, the more audible the effect will be.
+
+## Loudness
+
+### Gain
+
+Really, this is just a simple gain function. Try it with a selected frequency range, as
+determined by the Start and Stop frequency slider - and randomize this fellow with an LFO!
+
+### Exaggerator
+
+With its single knob, the Exaggerator is a deceptively simple-looking module. However, the
+results are anything but standard! Exaggerator applies an exponential function to magnitudes,
+emphasizing or suppressing peaks. The **Intensity** knob is bipolar, with no effect when set to
+the 12 o'clock position. If a positive setting is dialed in, the higher the amplitude of the
+incoming signal the more it will be amplified. If a negative setting is selected, the higher the
+amplitude of the incoming signal the more it will be suppressed.
+
+### Denoiser
+
+This effect applies the standard de-noising formula. SpectrumWorx's algorithm uses the side
+channel input as a noise footprint, or a sum of main and side channel. The main channel will be
+attenuated when the side channel contains noise (in the latter case). The **Amount** knob
+controls the intensity of the de-noising algorithm.
+
+### Quiet Boost
+
+This module boosts low gain components. It amplifies signal below the desired **Threshold**,
+working as a sort of expander in the time domain. The **Ratio** of expansion can be selected,
+and there's a **Noise threshold** control - the module won't boost anything below this
+threshold, because we don't want to boost all the noise!
+
+### Freqnamics
+
+Freqnamics provides dynamics processing in the frequency domain, just like the Quiet Boost
+module described above, except this one compresses rather than expands. Freqnamics acts as both
+a limiter and a noise gate. Use the **Limiter** knob to set the threshold of the hard limiter,
+and the **Noise gate** knob to set the threshold of the noise gate.
+
+## Combine
+
+Every module on this page mixes the main input with a side channel, which you supply either by
+loading a file into the [External audio](/spectrumworx/manual/main-window/) area or by routing a
+side chain from your host.
+
+### Talking Wind
+
+This is a classic vocoding effect, but with a SpectrumWorx twist! As you probably already know,
+vocoding uses the frequency spectrum and amplitude of one signal (the modulator) to modulate
+another (the carrier). Often a human voice will be used as the modulator and then applied to a
+sound such as white noise to produce the familiar "talking wind" effect.
+
+The Talking Wind module offers a handful of controls. The **Envelope border** knob controls the
+perceived smoothness of the modulator. An **Envelope gain** knob can be used to add some gain to
+the envelope to amplify the effect. The **Gain** knob is provided to tame the final output,
+since it can often become quite loud. The carrier is loaded as an external audio file or fed
+into a side channel input; the modulator is passed through the main input.
+
+### Convolver
+
+A multi-effect: a convolution reverb or a vocoder, depending on the **Phase** parameter! If
+Phase is set to **Sum**, this is in fact a convolution reverb, where the impulse response can
+only be as long as the frame size. The IR is fed via external audio.
+
+Convolver has two basic ways of operation, triggered and continuous. The triggered option grabs
+the IR exactly at the time frames when the **Grab IR** button is pressed - this should be LFO
+controlled! The IR is then constantly convolved with the input signal, until the button is
+pressed again. In continuous mode the IRs are constantly taken from external audio, so every
+frame ends up with a different IR, which produces pretty chaotic results.
+
+The **Phase** parameter controls what happens with the main and side channel phases. If **Sum**
+is selected, phases are added, representing a "normal" convolution. If **Side** is selected,
+phases are taken from the side channel, enabling a vocoding effect. The third option takes
+phases from the main channel, which is also a vocoding effect, but this time the main channel
+becomes the carrier.
+
+### Ethereal
+
+This is a strange one! It compares the side channel signal with that of the main channel, and it
+replaces the main signal with the side signal if certain conditions are met (main minus side
+greater than or less than a **Threshold**). It can replace magnitudes or phases, or both.
+
+### Vaxateer
+
+Like Ethereal, this is another module that provides conditional replacement of the main signal
+with that of the side channel. It works by calculating the RMS value (Root Mean Square) of the
+target signal - which can be the main or side channel - and then, if the **Swap condition** is
+satisfied, replaces the main signal with the side channel content. There are eight available
+swap conditions, selectable via a combo box.
+
+### Shapeless
+
+An interesting effect that transfers the frequency "shape" from the side channel to the signal
+passing through the main input. A **Shape width** parameter regulates the coarseness of the
+shape estimators.
+
+### Colorifer
+
+This one also transfers the frequency shape from the side channel to the signal arriving through
+the main input. It calculates main divided by side over the selected band width, and then
+applies this "color" to the main channel. There is an option to also replace the phase of the
+main channel with that from the side. This produces some extremely bizarre and inspiring
+effects - for the experimentally minded among you!
+
+### Merger
+
+This effect provides conditional combinations of the main signal with that of the side channel.
+It copies the side channel to the main channel if the selected conditions are met, and depending
+on the **Threshold** setting. The conditions are available in the combo box.
+
+### Blender
+
+Provides linear blending of two channels. In the modules above, some frequencies in the main
+channel were replaced with side channel frequencies; in the Blender, all frequencies are instead
+combined. The **Amount** knob controls how much of each channel is sent to the output. A setting
+of 0 results in only the main channel passing through, 50 means both channels are equally
+considered, and 100 results in only the side channel material being heard.
+
+### Inserter
+
+We're getting pretty esoteric here! This module inserts a band of frequency bins from the side
+channel into the main channel. The **Source** value is the position (given in percentages) from
+where the spectrum is copied. The **Destination** is the target position in the main channel's
+spectrum. The **Size** knob controls how much of the spectrum is copied.
+
+"bw%" refers to bandwidth percentage. For example, if a signal is sampled at 44100 Hz then 50%
+would be half the spectrum, which is half of the highest frequency (22050 Hz) - so 50% would be
+11025 Hz. You can select whether magnitudes, phases or both will be copied.
+
+### Burrito
+
+The Burrito module copies the side channel to the main channel from random locations. The
+**Range period** parameter controls how often it will randomly change positions. The **Target
+range** value defines how many locations are to be replaced, or added if **Sum** is selected in
+the combo box.
+
+## Phase Vocoder
+
+All of these are special versions of modules that also appear in other categories. However,
+Phase Vocoder modules operate differently under the hood.
+
+"PV" stands for "Phase Vocoder", but you should not confuse this with the familiar sort of
+"robot voice" vocoder - though it should be obvious that SpectrumWorx can provide all manner of
+robotic voices. Normally, SpectrumWorx draws upon Fourier transform algorithms to work its magic
+in the frequency domain. The Fourier transform is used to transform time samples to the
+frequency domain, so we end up with various amplitudes and phases of the resulting sine waves -
+but the sine waves produced by the Fourier transform are only approximations; they don't
+represent the "true" frequencies present in the input signal.
+
+Phase vocoding, on the other hand, can be used to find the true frequencies. After the true
+frequencies are found, we can manipulate amplitudes and frequencies rather than simply
+amplitudes and phases. This opens up new territory for effects processing. For example, accurate
+pitch shifting is possible since we know the true frequencies.
+
+### To PV and From PV
+
+**To PV** and **From PV** are the pair of modules that enter and leave the phase vocoder domain.
+Modules placed between them in the bank operate on true frequencies rather than on magnitude and
+phase.
+
+### The variants
+
+The remaining seven modules are the phase vocoder versions of modules documented elsewhere in
+this manual. Their controls are the same, so those descriptions are not repeated here:
+
+- **Pitch Shifter (PV)** - see [Pitch Shifter](#pitch)
+- **Pitch Follower (PV)** - see [Pitch Follower](#pitch)
+- **TuneWorx (PV)** - see [TuneWorx](#pitch)
+- **Pitch Magnet (PV)** - see [Pitch Magnet](#pitch)
+- **Pitch Spring (PV)** - see [Pitch Spring](#pitch)
+- **Imploder (PV)** - see [Imploder](#time)
+- **Exploder (PV)** - see [Exploder](#time)
+
+Many modules that are not designed to work in the phase vocoder domain can provide some
+surprising results when used in it, so experiment - but proceed with caution!
+
+## Miscellaneous
+
+### Armonizer
+
+A familiar pitch harmonizer like that found on the Eventide Clockworks devices, this module adds
+a pitch-shifted copy of an incoming signal to the original. Use the **Interval** knob to select
+how many semitones to shift the signal. The **Blend amount** knob controls the blending of
+original and shifted signals.
+
+### Slew Limiter
+
+Limits the speed of the change of magnitudes. It's kind of like the familiar slew limiter in the
+time domain (used to create portamento), but here it's in the frequency domain of course! As
+with any slew limiter, you can select the direction of the slew using the combo box, and the
+**Slew rate** itself.
+
+Note: if the signal is silent at the beginning and then abruptly rises, it might take some time
+for the slew to produce a sound - if the slew rate is short, the signal will climb slowly from
+silence to the target frequency.
+
+### Shifter
+
+This module shifts frequency bins along the frequency axis to produce unusual clangorous and
+metallic effects. You can control the **Target** (whether you want to shift only magnitudes,
+only phases, or both), the amount of shift with the **Offset** knob (in %bw, percentage of the
+bandwidth), and use the **Tail** combo box to determine what shall be done with the tail data.
+
+An example from the factory floor: if your input is, say, "ABCDEFGHIJKLMN" and is shifted by
+three places, then **Leave** will produce `ABCABCDEFGHI`, **Clear** will produce `000ABCDEFGHI`
+and **Circular** will produce `JKLABCDEFGHI`.
+
+Note: in some cases Shifter will produce silent output due to sinusoids cancelling out at some
+shift ranges. This happens only when both magnitudes and phases are shifted, and depends very
+much on the engine settings (Overlap and Window type).
+
+### Swappah
+
+Swaps the three frequency bands determined by the band borders. Swap order is determined by the
+**Swap order** combo box selection. For example, "High Low Mid" copies the high to low, mid to
+high, and low to mid.
+
+### Quantizer
+
+This quantizes the spectrum. The range is cut into bands of a given width, and all frequencies
+in any region will have the same amplitude, determined by the first frequency component in that
+band. The **Origami** knob allows frequency components to differ from the first one, but to
+linearly ascend towards the end of the band.
