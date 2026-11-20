@@ -28,6 +28,13 @@ const latestChangelog = (product: string) => {
 
 // https://astro.build/config
 export default defineConfig({
+    /*
+     * The deployed origin. Without it Astro has no absolute base to build on:
+     * og:url went out as http://localhost:4321/..., there was no canonical
+     * link, and the sitemap Starlight bundles skipped every build with "The
+     * Sitemap integration requires the `site` astro.config option".
+     */
+    site: "https://surge-synth-team.org",
     vite: { plugins: [tailwindcss()] },
     redirects: {
         ...latestChangelog("surge-xt"),
@@ -68,6 +75,7 @@ export default defineConfig({
                 Header: "./src/components/starlight/Header.astro",
                 PageTitle: "./src/components/starlight/PageTitle.astro",
                 Search: "./src/components/starlight/Search.astro",
+                TableOfContents: "./src/components/starlight/TableOfContents.astro",
             },
             sidebar: [
                 {
@@ -149,7 +157,6 @@ export default defineConfig({
                             label: "Tuning Note CLAPs",
                             slug: "surge-xt/microtuning-guide/note-claps",
                         },
-                        { label: "Questions?", slug: "surge-xt/microtuning-guide/questions" },
                     ],
                 },
                 {
@@ -272,38 +279,16 @@ export default defineConfig({
                             label: "Installing SpectrumWorx",
                             slug: "spectrumworx/manual/installing",
                         },
-                        { label: "The Interface", slug: "spectrumworx/manual/the-interface" },
-                        { label: "The Main Window", slug: "spectrumworx/manual/main-window" },
+                        { label: "Interface", slug: "spectrumworx/manual/the-interface" },
+                        { label: "Main Window", slug: "spectrumworx/manual/main-window" },
                         { label: "LFOs", slug: "spectrumworx/manual/lfo" },
-                        { label: "The Module Bank", slug: "spectrumworx/manual/module-bank" },
-                        { label: "Settings: Engine", slug: "spectrumworx/manual/settings-engine" },
-                        {
-                            label: "Settings: GUI and About",
-                            slug: "spectrumworx/manual/settings-gui",
-                        },
+                        { label: "Module Bank", slug: "spectrumworx/manual/module-bank" },
+                        { label: "Settings", slug: "spectrumworx/manual/settings" },
                         { label: "Presets", slug: "spectrumworx/manual/presets" },
-                        {
-                            label: "The Modules",
-                            collapsed: true,
-                            items: [
-                                { label: "Overview", slug: "spectrumworx/manual/modules" },
-                                { label: "Pitch", slug: "spectrumworx/manual/modules-pitch" },
-                                { label: "Timbre", slug: "spectrumworx/manual/modules-timbre" },
-                                { label: "Time", slug: "spectrumworx/manual/modules-time" },
-                                { label: "Space", slug: "spectrumworx/manual/modules-space" },
-                                { label: "Phase", slug: "spectrumworx/manual/modules-phase" },
-                                { label: "Loudness", slug: "spectrumworx/manual/modules-loudness" },
-                                { label: "Combine", slug: "spectrumworx/manual/modules-combine" },
-                                {
-                                    label: "Phase Vocoder",
-                                    slug: "spectrumworx/manual/modules-phase-vocoder",
-                                },
-                                {
-                                    label: "Miscellaneous",
-                                    slug: "spectrumworx/manual/modules-misc",
-                                },
-                            ],
-                        },
+                        // One page: the nine categories are sections of it, so
+                        // they and their 50 modules belong in the contents
+                        // panel rather than the sidebar.
+                        { label: "Modules", slug: "spectrumworx/manual/modules" },
                         { label: "Credits", slug: "spectrumworx/manual/credits" },
                     ],
                 },
@@ -333,12 +318,12 @@ export default defineConfig({
                         },
                         { label: "Mixer Screen", slug: "shortcircuit-xt/manual/ui-mixer-screen" },
                         { label: "Play Mode", slug: "shortcircuit-xt/manual/ui-play-mode" },
-                        { label: "The Browser", slug: "shortcircuit-xt/manual/ui-browser" },
+                        { label: "Browser", slug: "shortcircuit-xt/manual/ui-browser" },
                         {
-                            label: "The Sample, The Variants, and Empty Zones",
+                            label: "Sample, Variants and Empty Zones",
                             slug: "shortcircuit-xt/manual/zone-sample",
                         },
-                        { label: "The Range", slug: "shortcircuit-xt/manual/zone-range" },
+                        { label: "Range", slug: "shortcircuit-xt/manual/zone-range" },
                         { label: "Processors", slug: "shortcircuit-xt/manual/zone-processors" },
                         { label: "Modulation", slug: "shortcircuit-xt/manual/zone-modulation" },
                         {

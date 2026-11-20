@@ -112,10 +112,15 @@ export async function buildNav(currentProject?: string | null): Promise<Nav> {
     const project = projects.find((entry) => entry.id === currentProject);
 
     /*
-     * A product can have a manual without a projects entry - SpectrumWorx is
-     * deliberately unlisted until it is released. Its manual still deserves a
-     * way back into its own documentation, so the Documentation group is built
-     * from the docs collection alone.
+     * A product can have a manual without a projects entry, and its manual
+     * still deserves a way back into its own documentation - so the
+     * Documentation group is built from the docs collection alone.
+     *
+     * No product is in that state today. SpectrumWorx used to be, unlisted
+     * until release, and is listed now; every folder under products/ with a
+     * manual carries a meta.json. Kept because the docs collection and the
+     * projects collection are populated independently and nothing enforces
+     * that one implies the other.
      */
     if (!project) {
         const href = await manualHref(currentProject);

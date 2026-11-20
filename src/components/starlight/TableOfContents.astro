@@ -1,0 +1,72 @@
+---
+/*
+ * Vendored from @astrojs/starlight with two changes, both about the "Overview"
+ * entry that used to head this list:
+ *
+ * 1. The heading is the link back to the top. Starlight puts a first entry in
+ *    the list for it, labelled with the page title; here the "On this page"
+ *    heading itself carries the link, which is the thing a reader already
+ *    reads as the top of the panel.
+ * 2. The entry itself is dropped from the list - by starlightRouteData.ts,
+ *    which promotes its children, so this component needs no filtering.
+ *
+ * TableOfContentsList is vendored alongside it, unmodified, only because
+ * Starlight does not export it: it lives under components-internals, which is
+ * absent from the package's exports map. Re-copy both on a Starlight upgrade
+ * and re-apply the <a> below.
+ *
+ * Upstream ends with a <script> importing starlight-toc, which is deliberately
+ * dropped here. That module defines the <starlight-toc> custom element on
+ * import, and MobileTableOfContents - Starlight's own, rendered beside this one
+ * by PageSidebar whenever a page has a contents list - already imports it.
+ * Importing it again would call customElements.define() twice and throw. So the
+ * scroll highlighting still works, by way of the mobile component; if a future
+ * Starlight stops rendering that, this needs the script back.
+ */
+
+import TableOfContentsList from "./TableOfContentsList.astro";
+
+const { toc } = Astro.locals.starlightRoute;
+---
+
+{
+    toc && (
+        <starlight-toc data-min-h={toc.minHeadingLevel} data-max-h={toc.maxHeadingLevel}>
+            <nav aria-labelledby="starlight__on-this-page">
+                <h2 id="starlight__on-this-page">
+                    <a href="#_top">{Astro.locals.t("tableOfContents.onThisPage")}</a>
+                </h2>
+                <TableOfContentsList toc={toc.items} />
+            </nav>
+        </starlight-toc>
+    )
+}
+
+<style>
+    /*
+     * The heading keeps its own type; only the hover tells the reader it now
+     * does something.
+     *
+     * Every one of these has to be stated. PageSidebar styles the panel's
+     * anchors as list rows - `:global(:where(a))` with the extra-small contents
+     * size, the muted grey and no underline - and that lands on this one too,
+     * now that the heading has a link inside it. Declaring nothing inherits
+     * nothing: the link rendered at the contents size until `font-size` was
+     * named here.
+     *
+     * Specificity does not come into it. That rule sits in @layer
+     * starlight.core and this scoped block is unlayered, so it wins whatever it
+     * says - the same reason starlight.css is unlayered to beat props.css.
+     */
+    h2 a {
+        color: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        text-decoration: none;
+    }
+
+    h2 a:hover {
+        color: var(--sl-color-text-accent);
+    }
+</style>

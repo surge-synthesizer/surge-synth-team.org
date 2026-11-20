@@ -5,3 +5,4 @@ public/reports/
 # small and re-appliable on upgrade. Reformatting it would hide that diff.
 src/components/starlight/Search.astro
 src/components/starlight/PageFrame.astro
+src/components/starlight/TableOfContentsList.astro
