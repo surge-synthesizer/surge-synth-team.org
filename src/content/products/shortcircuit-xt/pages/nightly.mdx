@@ -1,0 +1,88 @@
+---
+title: Shortcircuit XT Nightly Builds
+---
+
+import nightly from "~/content/generated/scxt-build-nightly.json";
+
+**Current build: {nightly.latest_commit}, built at {nightly.build_time}**
+
+Shortcircuit XT has not had a stable release yet, so the nightly is the build - there is no tested
+version sitting alongside it. Please read the caveats at the foot of this page before you install it.
+
+Every available format is on
+[its GitHub release page](https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly).
+For convenience, direct links for our most popular platforms are below.
+
+{/* The old site renders this list as the Downloads component does: flex, spaced, and a size up. */}
+
+<ul class="flex flex-col gap-4 text-lg font-bold">
+    <li>
+        <a href={nightly.releases.win64}>&#8681; Windows 64-bit (Standalone, CLAP, VST3)</a>
+    </li>
+    <li>
+        <a href={nightly.releases.win64zip}>&#8681; Windows 64-bit, installerless ZIP</a>
+    </li>
+    <li>
+        <a href={nightly.releases.macos}>
+            &#8681; macOS Intel/ARM universal (Standalone, AU, CLAP, VST3)
+        </a>
+    </li>
+    <li>
+        <a href={nightly.releases.linux64}>&#8681; Linux x64 (Standalone, CLAP, VST3)</a> - built on
+        Ubuntu 22, with a .deb alongside the ZIP
+    </li>
+</ul>
+
+Windows on ARM and Linux on aarch64 are built too, and are on the release page above rather than in
+the list here.
+
+## Recent changes
+
+<ul>
+    {nightly.recent_commits.map((entry) => (
+        <li>
+            <a href={`https://github.com/surge-synthesizer/shortcircuit-xt/commit/${entry.commit}`}>
+                {entry.commit}
+            </a>
+            {" - "}
+            {/* Issue references in a commit subject become links to the issue. */}
+            {entry.message
+                .split(/(#\d+)/g)
+                .map((part) =>
+                    /^#\d+$/.test(part) ? (
+                        <a
+                            href={`https://github.com/surge-synthesizer/shortcircuit-xt/issues/${part.slice(1)}`}>
+                            {part}
+                        </a>
+                    ) : (
+                        part
+                    ),
+                )}
+            {" - "}
+            {entry.author}
+        </li>
+    ))}
+</ul>
+
+## Caveats
+
+Please take a moment to understand the nightlies. We build Shortcircuit XT automatically for all our
+platforms on every commit to the
+[main branch](https://github.com/surge-synthesizer/shortcircuit-xt), which means the code you are
+about to download may be minutes old. Depending on the pace of development, it could contain bugs
+and new features that do not work.
+
+Shortcircuit XT is also still pre-release, so the format it saves in is not yet frozen: a multi you
+build today may load differently, incorrectly, or not at all in a later build. Keep your samples,
+and do not count on a session surviving an update.
+
+Our minimum advice if you use the nightlies is to **put a limiter on the output**. We have made DSP
+errors in nightlies before, which created nasty clicks and pops, and in the worst cases sudden
+blasts of noise.
+
+Despite that warning, we work really hard to make the nightlies good. Most of the Surge Synth Team
+runs nightlies in their own music-making environment. Using the nightly, finding a bug and letting
+us know is how bugs get fixed - either on
+[GitHub](https://github.com/surge-synthesizer/shortcircuit-xt/issues) or in the `#sc-development`
+channel of our [Discord](https://discord.gg/spGANHw); see [contact](/contact) for more ways to reach
+us.

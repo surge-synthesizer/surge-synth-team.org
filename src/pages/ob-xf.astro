@@ -10,6 +10,7 @@ import DownloadMatrix from "../components/DownloadMatrix.astro";
 import NavHeader from "../components/NavHeader.astro";
 import SystemRequirements from "../components/SystemRequirements.astro";
 import ObxfHero from "../content/products/ob-xf/images/ob-xf-hero.png";
+import obxf_logo from "../content/products/ob-xf/images/obxf_logo.svg";
 import Base from "../layouts/Base.astro";
 import { version } from "../version";
 import SiteFooter from "../components/SiteFooter.astro";
@@ -33,7 +34,7 @@ const systemRequirements = [
     {
         name: "macOS",
         items: [
-            "macOS 10.15 or above",
+            "macOS 10.14 or above",
             "8 GB RAM or above",
             "VST3, AU or CLAP compatible host application",
         ],
@@ -64,7 +65,7 @@ const systemRequirements = [
                 }
                 <h1>
                     <img
-                        src="/images/obxf_logo.svg"
+                        src={obxf_logo.src}
                         alt="OB-Xf"
                         class="invert-in-light h-auto w-[80%] max-w-[532px]"
                     />
@@ -149,8 +150,8 @@ const systemRequirements = [
                             label: "Nightly Builds",
                             links: platformLinks(obxf_build_nightly.releases),
                             all: {
-                                label: "All available nightly downloads",
-                                href: obxf_build_nightly.releases.other,
+                                label: "More info about nightly builds",
+                                href: "/ob-xf/nightly",
                             },
                         },
                     ]}

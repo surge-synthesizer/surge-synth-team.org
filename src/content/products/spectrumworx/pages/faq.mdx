@@ -1,0 +1,43 @@
+---
+title: Frequently Asked Questions
+---
+
+import FaqItem from "~/components/FaqItem.astro";
+
+<FaqItem q="Is SpectrumWorx free?">
+
+Yes. It is free and open source. The source is GPL-3.0-or-later, and released binaries link JUCE 8
+under its AGPLv3 arm, so they are distributed under the AGPL v3 or later.
+
+</FaqItem>
+
+<FaqItem q="What does a spectral effect actually do?">
+
+It decomposes the incoming audio into the frequency domain, applies its effects to that spectrum
+rather than to the waveform, and resynthesizes the result. Effects stack and chain, so a module
+works on what the one above it produced.
+
+</FaqItem>
+
+<FaqItem q="Is it finished?">
+
+Not yet. There has been no stable release since SpectrumWorx was open sourced, and the download on
+the [SpectrumWorx page](/spectrumworx) is a nightly build of the current code. Use a limiter while
+experimenting - see the [nightly builds page](/spectrumworx/nightly) for what that means.
+
+</FaqItem>
+
+<FaqItem q="Which systems and plugin formats are supported?">
+
+Windows, macOS 10.15 or later, and Linux, all 64-bit. SpectrumWorx runs as a CLAP or VST3 plugin, as
+an Audio Unit on macOS, and as a standalone application.
+
+</FaqItem>
+
+<FaqItem q="Where did it come from?">
+
+SpectrumWorx was a commercial plugin from Little Endian, who open sourced it in 2024. It is now
+maintained by the Surge Synth Team on
+[GitHub](https://github.com/surge-synthesizer/SpectrumWorx).
+
+</FaqItem>

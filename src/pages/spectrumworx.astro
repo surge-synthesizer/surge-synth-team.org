@@ -2,11 +2,11 @@
 import { Image } from "astro:assets";
 import spectrumworx_build_nightly from "../content/generated/spectrumworx-build-nightly.json" with { type: "json" };
 import Block from "../components/Block.astro";
-import Button from "../components/Button.astro";
 import Cell from "../components/Cell.astro";
 import DownloadButton from "../components/DownloadButton.astro";
-import FaqList from "../components/FaqList.astro";
+import DownloadMatrix from "../components/DownloadMatrix.astro";
 import NavHeader from "../components/NavHeader.astro";
+import SystemRequirements from "../components/SystemRequirements.astro";
 import SpectrumWorxCover from "../content/products/spectrumworx/images/spectrumworx.png";
 import Base from "../layouts/Base.astro";
 import SiteFooter from "../components/SiteFooter.astro";
@@ -32,9 +32,42 @@ const highlights = [
     },
 ];
 
-const faq = [
-    { q: "Question placeholder #1", a: "Answer placeholder text." },
-    { q: "Question placeholder #2", a: "Answer placeholder text." },
+/*
+ * No SSE level on the list, unlike Shortcircuit XT: SpectrumWorx names no
+ * -march at all, so it is whatever the baseline x86-64 of its compilers is.
+ * macOS 10.15 is CMAKE_OSX_DEPLOYMENT_TARGET in its CMakeLists.
+ */
+const systemRequirements = [
+    {
+        name: "Windows",
+        items: [
+            "Windows 10 or above, 64-bit",
+            "8 GB RAM or above",
+            "VST3 or CLAP compatible host application",
+        ],
+    },
+    {
+        name: "macOS",
+        items: [
+            "macOS 10.15 or above; SpectrumWorx is an Intel/Apple Silicon universal binary",
+            "8 GB RAM or above",
+            "VST3, AU or CLAP compatible host application",
+        ],
+    },
+    {
+        name: "Linux",
+        items: [
+            "64-bit PC running a Linux distribution",
+            "8 GB RAM or above",
+            "VST3 or CLAP compatible host application",
+        ],
+    },
+];
+
+const platformLinks = (releases: { win64: string; macos: string; linux64: string }) => [
+    { label: "Windows 64-bit", href: releases.win64 },
+    { label: "macOS 64-bit", href: releases.macos },
+    { label: "Linux 64-bit", href: releases.linux64 },
 ];
 ---
 
@@ -51,10 +84,8 @@ const faq = [
                         class="invert-in-light h-auto w-full max-w-[666px]"
                     />
                 </h1>
-                <p class="mt-2 text-xs font-bold tracking-[0.2em] uppercase opacity-70">
-                    Spectral Audio Effect
-                </p>
-                <p class="mt-4 max-w-prose">
+                <p class="my-4 text-xl font-bold">Spectral Audio Effect</p>
+                <p class="max-w-prose">
                     SpectrumWorx is a modular spectral effect: it decomposes your audio into the
                     frequency domain, lets you stack and chain effects on that spectrum, then
                     resynthesizes the result. Originally developed by Little Endian and open sourced
@@ -71,7 +102,7 @@ const faq = [
                     />
                 </div>
                 <p class="mt-4">
-                    <a href={spectrumworx_build_nightly.releases.other}>
+                    <a href="/spectrumworx/nightly">
                         Downloads for other platforms and installers
                     </a>
                 </p>
@@ -106,7 +137,7 @@ const faq = [
             highlights.map((highlight, index) => (
                 <Block
                     id={index === 0 ? "highlights" : undefined}
-                    surface={index % 2 === 0 ? "base" : "raised"}
+                    surface={index % 2 === 0 ? "raised" : "base"}
                     layout="prose">
                     <h2>{highlight.title}</h2>
                     <p class="max-w-prose">{highlight.body}</p>
@@ -114,24 +145,32 @@ const faq = [
             ))
         }
 
-        <Block id="manual" surface="accent" layout="prose">
-            <h2>Manual</h2>
-            <p class="max-w-prose">
-                The SpectrumWorx manual covers the interface, the module bank, and every spectral
-                module in turn.
-            </p>
-            <Button class="mt-6" href="/spectrumworx/manual/">Open Manual</Button>
-        </Block>
+        {
+            /* The band that closed the page as About, now carrying what it is
+               worth closing on. One download channel, not Surge XT's two:
+               SpectrumWorx has no stable release, so the nightly is the
+               download rather than the bleeding edge beside one. */
+        }
+        <Block id="downloads" surface="base" layout="split">
+            <Cell align="start">
+                <SystemRequirements platforms={systemRequirements} />
+            </Cell>
 
-        <Block id="faq" surface="raised" layout="prose">
-            <FaqList items={faq} />
-        </Block>
-
-        <Block id="about" surface="base" layout="prose">
-            <h2>About</h2>
-            <p class="max-w-prose">
-                Placeholder section for project background, contributors, and links.
-            </p>
+            <Cell align="start">
+                <DownloadMatrix
+                    heading="Download SpectrumWorx"
+                    channels={[
+                        {
+                            label: "Nightly Builds",
+                            links: platformLinks(spectrumworx_build_nightly.releases),
+                            all: {
+                                label: "More info about nightly builds",
+                                href: "/spectrumworx/nightly",
+                            },
+                        },
+                    ]}
+                />
+            </Cell>
         </Block>
     </main>
 

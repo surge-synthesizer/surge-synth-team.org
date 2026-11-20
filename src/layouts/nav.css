@@ -77,6 +77,23 @@
     --surface-nav-fg: #ffffff;
 }
 
+/* The same blue the hero spends on its links and its download button - the
+   product colour, which is the one blue the page already has. Dark foreground
+   for the reason Surge's orange has one: #171717 reaches 5.52:1 here, white
+   2.91:1. */
+[data-project="spectrumworx"] {
+    --surface-nav-bg: #109ac7;
+    --surface-nav-fg: #171717;
+}
+
+/* Shortcircuit XT's own graphite, the plugin's panel grey. A near-neutral bar
+   rather than the amber: that colour is already the hero's links and the
+   accent band, and a full-width bar of it would swamp both. */
+[data-project="shortcircuit-xt"] {
+    --surface-nav-bg: #262a2f;
+    --surface-nav-fg: #ffffff;
+}
+
 /* The Surge family shares one accent, so it shares one bar. The dark
    foreground is what makes a colour this bright usable behind text: #171717 on
    the orange measures 8.4:1, where white would reach 1.7:1. */

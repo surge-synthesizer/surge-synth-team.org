@@ -39,12 +39,54 @@ const PAIRS = [
         why: "the SpectrumWorx product colour, by request; the lighter #58b6d4 it replaces reached 7.73:1",
     },
     {
+        name: "spectrumworx nav",
+        bg: "#109ac7",
+        fg: "#171717",
+        floor: AA_BODY_TEXT,
+        why: "the bar wears the product colour, so it carries that colour's 5.52:1",
+    },
+    {
         name: "spectrumworx link, dark base",
         bg: "#171717",
         fg: "#109ac7",
         floor: AA_BODY_TEXT,
         why: "--paper-link follows the product colour in dark, so it carries the same 5.52:1",
     },
+    // Shortcircuit XT. The hero is the one band declared outside the theme -
+    // #1b1d20 at both polarities - so its pairs are asserted once, not twice.
+    { name: "scxt accent (amber)", bg: "#ffb949", fg: "#171717" },
+    { name: "scxt link, dark base (amber)", bg: "#171717", fg: "#ffb949" },
+    { name: "scxt hero band", bg: "#1b1d20", fg: "#f5f5f5" },
+    { name: "scxt hero link (amber)", bg: "#1b1d20", fg: "#ffb949" },
+    { name: "scxt nav", bg: "#262a2f", fg: "#ffffff" },
+    // The feature bands, dark theme only - in light they are the paper pair
+    // already asserted above.
+    { name: "scxt feature band, dark", bg: "#333333", fg: "#f5f5f5" },
+    { name: "scxt feature band link, dark", bg: "#333333", fg: "#ffb949" },
+    { name: "scxt feature alt band, dark", bg: "#262a2f", fg: "#f5f5f5" },
+    { name: "scxt feature alt band link, dark", bg: "#262a2f", fg: "#ffb949" },
+    {
+        name: "scxt blue band",
+        bg: "#005da3",
+        fg: "#ffffff",
+        floor: AA_BODY_TEXT,
+        why: "the secondary brand blue at its given value - 6.79:1, just under AAA",
+    },
+    {
+        name: "scxt link, light base",
+        bg: "#efece7",
+        fg: "#005da3",
+        floor: AA_BODY_TEXT,
+        why: "the brand blue for links on light paper, by request; 5.76:1",
+    },
+    {
+        name: "scxt link, light raised",
+        bg: "#e5e1da",
+        fg: "#005da3",
+        floor: AA_BODY_TEXT,
+        why: "as above, over raised paper",
+    },
+
     { name: "deep top stop", bg: "#1d222a", fg: "#e5e5e5" },
     {
         name: "deep bottom stop",

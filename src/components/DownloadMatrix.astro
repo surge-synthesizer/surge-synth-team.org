@@ -13,7 +13,18 @@ const { heading, channels } = Astro.props;
 ---
 
 <div class="w-full max-w-xs">
-    <h2 class="text-4xl font-bold">{heading}</h2>
+    {
+        /* The heading is allowed to run past max-w-xs rather than wrap: that cap
+           is there to keep the link list narrow, and "Download Shortcircuit XT"
+           needs about 426px at this size where the cap gives 320.
+
+           Guarded on lg because the overflow has to stay inside the cell. The
+           cell is half the band with 64px of padding, so the heading fits within
+           it from about 980px of window up; below that it would spill past the
+           band's edge and scroll the page, and wrapping is the better failure.
+           A heading longer than these three wants that number rechecked. */
+    }
+    <h2 class="text-4xl font-bold lg:whitespace-nowrap">{heading}</h2>
     {
         channels.map((channel) => (
             <div class="mt-8 first:mt-4">

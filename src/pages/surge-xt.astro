@@ -14,6 +14,8 @@ import { version } from "../version";
 import stable from "../content/generated/surge-build-stable.json" with { type: "json" };
 import nightly from "../content/generated/surge-build-nightly.json" with { type: "json" };
 
+import surge_logo from "../content/products/surge-xt/images/surge-xt-logo.svg";
+import surge_logo_black from "../content/products/surge-xt/images/surge-xt-logo-black.svg";
 import HeroDark from "../content/products/surge-xt/images/hero_dark.png";
 import HeroLight from "../content/products/surge-xt/images/hero_light.png";
 import Digital from "../content/products/surge-xt/images/digital.png";
@@ -377,12 +379,12 @@ const platformLinks = (releases: { win64: string; macos: string; linux64: string
                     }
                     <h1>
                         <img
-                            src="/images/surge-xt-logo.svg"
+                            src={surge_logo.src}
                             alt="Surge XT"
                             class="only-dark h-auto w-full max-w-[666px]"
                         />
                         <img
-                            src="/images/surge-xt-logo-black.svg"
+                            src={surge_logo_black.src}
                             alt=""
                             aria-hidden="true"
                             class="only-light h-auto w-full max-w-[666px]"
@@ -394,8 +396,7 @@ const platformLinks = (releases: { win64: string; macos: string; linux64: string
                     <p>
                         Featuring many synthesis techniques, a great selection of filters, a
                         flexible modulation engine, a smorgasbord of effects, and modern features
-                        like MPE, MTS-ESP, and comprehensive OSC (Open Sound
-                        Control) support.
+                        like MPE, MTS-ESP, and comprehensive OSC (Open Sound Control) support.
                     </p>
 
                     <p>Surge XT is a wonderful tool and we love it. We think you will, too!</p>
