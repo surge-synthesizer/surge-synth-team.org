@@ -81,6 +81,12 @@ jobs:
             printf 'discord_payload=%s\n' "$(cat "$RUNNER_TEMP/discord.json")"
           } >> "$GITHUB_OUTPUT"
       - run: pnpm build
+      # The gates, between the build and the upload, so a failing one stops the
+      # deploy rather than being noticed afterwards. They need dist/, and they
+      # are deliberately not continue-on-error: a dangling in-app help link or
+      # an unreleased manual gone indexable is worth holding a deploy for.
+      # checks.yaml runs the same thing on branches and pull requests.
+      - run: pnpm gates
       - uses: actions/upload-pages-artifact@v4
         with:
           path: dist
