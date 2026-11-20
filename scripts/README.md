@@ -1,7 +1,53 @@
 # scripts/
 
-Helper scripts run by CI or by hand. Both are plain Python 3, stdlib only
-(`build-manual-pdf.py` additionally shells out to `pandoc`).
+Helper scripts run by CI or by hand. The two Python ones are plain Python 3,
+stdlib only (`build-manual-pdf.py` additionally shells out to `pandoc`); the
+`.mjs` gates are Node with no dependencies.
+
+---
+
+## The gates
+
+Six checks over `dist/`, run as one step by `pnpm gates` after `pnpm build`.
+`build.yaml` runs them before uploading the Pages artifact, so a failure stops
+the deploy; `checks.yaml` runs the same thing on branches and pull requests.
+None is `continue-on-error`.
+
+| | |
+|---|---|
+| `check-contrast.mjs` | every surface pair against its contrast floor |
+| `check-manual-links.mjs` | anchors within a doc set, reported per manual |
+| `check-links.mjs` | every internal link on every page, site-wide |
+| `check-nav.mjs` | each page carrying the nav has its styles and wired dropdowns |
+| `check-noindex.mjs` | unreleased and superseded pages carry `noindex`, nothing else does |
+| `anchor-map.mjs` | Surge 1.9's 152 anchors still resolve, and writes the table 5c needs |
+
+They all read the **built HTML**, never the sources. `rehype-slug` is what
+decides an anchor's final name - it suffixes repeated headings - so a checker
+that recomputed slugs would both invent failures and miss real ones.
+
+Two are worth knowing in more detail.
+
+**`check-links.mjs`** is the site-wide sweep, and the broadest net here: it
+resolves relative links against the page carrying them rather than assuming
+they are wrong, follows root-absolute ones, accepts files and redirect stubs,
+and checks that any fragment names an id the destination actually renders. It
+does not fetch external links - a build gate must not depend on the network.
+It found eight dangling links on its first run, including four aimed at
+`/manual-xt/`, which is a path on the *old* site.
+
+**`check-noindex.mjs`** fails in both directions. An unreleased page that is
+indexable competes with the shipped one; a shipped page that is not indexable
+disappears from search. The nightly release notes are found by reading
+`nightly: true` from the frontmatter rather than by matching a path, because
+their URL is a version number that changes every release.
+
+### When a count changes
+
+Each gate prints a total. If one moves and the content did not, suspect the
+checker's reach before the site: `check-manual-links.mjs` once walked a fixed
+two levels deep, silently skipped an eight-page manual nested three deep, and
+reported that everything resolved while 30 links dangled.
 
 ---
 

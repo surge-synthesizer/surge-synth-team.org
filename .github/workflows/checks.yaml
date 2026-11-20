@@ -1,0 +1,51 @@
+# Build and gate every branch and pull request, without deploying.
+#
+# build.yaml owns the deploy and runs the same `pnpm gates`, but it only fires
+# on master - so until a branch merged there was nothing to tell you whether it
+# built at all. This is that feedback, and it is deliberately a separate
+# workflow rather than another trigger on build.yaml: that one requests Pages
+# permissions, holds the `pages` concurrency group and has a deploy job behind
+# its build: giving it a pull_request trigger risks publishing from a branch.
+#
+# No report step either. surge_report.py talks to the GitHub API and writes
+# public/reports/, which matters for a deploy and not for a check.
+
+name: Checks
+
+on:
+  pull_request:
+  push:
+    branches-ignore: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-slim
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          # the manual PDF check compares commit dates; a shallow clone has none
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: "package.json"
+          cache: "pnpm"
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
+      - run: pnpm install
+      # Same verdict as build.yaml, and warning-only for the same reason: the
+      # runner has no pandoc or TeX, so it can only notice a PDF has fallen
+      # behind its manual, never rebuild it.
+      - name: Check the manual PDFs against their manuals
+        continue-on-error: true
+        run: python3 scripts/build-manual-pdf.py --check
+      - run: pnpm build
+      - run: pnpm gates

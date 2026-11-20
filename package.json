@@ -10,6 +10,7 @@
         "sync": "astro sync",
         "check": "astro check",
         "build": "astro check && astro build",
+        "gates": "node scripts/check-contrast.mjs && node scripts/check-manual-links.mjs && node scripts/check-links.mjs && node scripts/check-nav.mjs && node scripts/check-noindex.mjs && node scripts/anchor-map.mjs",
         "preview": "astro preview",
         "preinstall": "astro telemetry disable"
     },
