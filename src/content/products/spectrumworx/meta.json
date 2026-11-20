@@ -7,5 +7,13 @@
     "categories": ["Effect"],
     "issue_tracker": "https://github.com/surge-synthesizer/SpectrumWorx/issues",
     "repo": "surge-synthesizer/SpectrumWorx",
-    "manual": "/spectrumworx/manual/getting-started/"
+    "manual": "/spectrumworx/manual/getting-started/",
+    "nav": {
+        "links": [
+            {
+                "label": "FAQ",
+                "href": "/spectrumworx/faq"
+            }
+        ]
+    }
 }

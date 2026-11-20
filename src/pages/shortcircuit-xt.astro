@@ -4,16 +4,14 @@ import scxt_build_nightly from "../content/generated/scxt-build-nightly.json" wi
 import Block from "../components/Block.astro";
 import Cell from "../components/Cell.astro";
 import DownloadButton from "../components/DownloadButton.astro";
+import DownloadMatrix from "../components/DownloadMatrix.astro";
 import NavHeader from "../components/NavHeader.astro";
+import SystemRequirements from "../components/SystemRequirements.astro";
 import ScxtCover from "../content/products/shortcircuit-xt/images/shortcircuit-xt.png";
+import scxt_logo from "../content/products/shortcircuit-xt/images/scxt-logo.svg";
 import Base from "../layouts/Base.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 
-/*
- * Each highlight is its own Block rather than a cell in a feature grid: they
- * are due more copy, and an illustration apiece, at which point each becomes a
- * split band without anything here having to be rearranged.
- */
 const highlights = [
     {
         title: "Sixteen parts",
@@ -40,21 +38,63 @@ const highlights = [
         body: "A 21 bus mixer with aux sends and 20 extra stereo outputs, MPE and CLAP note expressions, and microtuning through MTS-ESP or Scala files.",
     },
 ];
+
+const systemRequirements = [
+    {
+        name: "Windows",
+        items: [
+            "Windows 10 or above, on an Intel or AMD processor featuring SSE4.2 instructions",
+            "8 GB RAM or above",
+            "VST3 or CLAP compatible host application",
+        ],
+    },
+    {
+        name: "macOS",
+        items: [
+            "macOS 10.15 or above; Shortcircuit XT is an Intel/Apple Silicon universal binary",
+            "8 GB RAM or above",
+            "VST3, AU or CLAP compatible host application",
+        ],
+    },
+    {
+        name: "Linux",
+        items: [
+            "PC or ARM system running a Linux distribution",
+            "8 GB RAM or above",
+            "VST3 or CLAP compatible host application",
+        ],
+    },
+];
+
+const platformLinks = (releases: { win64: string; macos: string; linux64: string }) => [
+    { label: "Windows 64-bit", href: releases.win64 },
+    { label: "macOS 64-bit", href: releases.macos },
+    { label: "Linux 64-bit", href: releases.linux64 },
+];
 ---
 
 <Base title="Shortcircuit XT" project="shortcircuit-xt">
     <NavHeader slot="nav" currentProject="shortcircuit-xt" />
 
     <main>
-        <Block surface="base" layout="split" class="overflow-hidden">
-            <Cell>
-                <h1 class="text-4xl leading-tight font-extrabold md:text-5xl">Shortcircuit XT</h1>
-                <p class="mt-2 text-xs font-bold tracking-[0.2em] uppercase opacity-70">
-                    Open Source Sampling Workstation
+        <Block surface="hero" layout="split" class="overflow-hidden">
+            <Cell align="start">
+                <h1>
+                    <img
+                        src={scxt_logo.src}
+                        alt="Shortcircuit XT"
+                        class="h-auto w-full max-w-[666px]"
+                    />
+                </h1>
+                <p class="my-4 text-xl font-bold">Creative sample player and synthesis powerhouse.</p>
+                <p class="max-w-prose">
+                    A modern multi-timbral open source sampler focused on workflow,
+                    expressive modulation, deep sample playback control, sprinkled with a myriad of
+                    additional synthesis capabilities.
                 </p>
                 <p class="max-w-prose">
-                    Shortcircuit XT is a modern open source software sampler focused on workflow,
-                    expressive modulation, and deep sample playback control.
+                    Shortcircuit XT is a spiritual successor of the beloved Vember Audio Shortcircuit sampler,
+                    reimagined from the ground up.
                 </p>
                 <div class="flex flex-wrap items-center gap-3">
                     <DownloadButton
@@ -67,36 +107,26 @@ const highlights = [
                     />
                 </div>
                 <p class="mt-4">
-                    <a href={scxt_build_nightly.releases.other}>
+                    <a href="/shortcircuit-xt/nightly">
                         Downloads for other platforms and installers
                     </a>
                 </p>
                 <p><a href="/shortcircuit-xt/manual/">Read the manual</a></p>
             </Cell>
 
-            {
-                /* The same treatment as the OB-Xf hero: sized by height so nothing
-                   crops it top or bottom, anchored left so only the far edge runs
-                   past the column, and the band clips that.
-
-                   The height is per product because it is the image's own ratio
-                   that decides how wide it comes out - 1.45:1 here against
-                   OB-Xf's 1.81 - and the aim is the same modest overhang on each.
-                   Worth recomputing when this screenshot is replaced. */
-            }
             <Cell padded={false} class="py-8">
                 <Image
                     src={ScxtCover}
                     alt="The Shortcircuit XT interface"
                     quality="100"
-                    class="h-[220px] w-auto max-w-none self-center md:h-[max(760px,39vw)] md:self-start"
+                    class="h-[165px] w-auto max-w-none self-center md:ml-[max(0px,50vw_-_783px)] md:h-[570px] md:self-start"
                 />
             </Cell>
         </Block>
 
         {
             highlights.map((highlight, index) => (
-                <Block surface={index % 2 === 0 ? "raised" : "base"} layout="prose">
+                <Block surface={index % 2 === 0 ? "feature" : "feature-alt"} layout="prose">
                     <h2>{highlight.title}</h2>
                     <p class="max-w-prose">{highlight.body}</p>
                 </Block>
@@ -112,15 +142,29 @@ const highlights = [
                     Shortcircuit 2 source to the Surge Synth Team, and Shortcircuit XT keeps much of
                     that design and DSP while rewriting the rest in modern C++.
                 </p>
-                <p>
-                    It is developed in the open by the Surge Synth Team, on
-                    <a href="https://github.com/surge-synthesizer/shortcircuit-xt">GitHub</a> and in the
-                    <code>#sc-development</code> channel of our
-                    <a href="https://discord.com/invite/spGANHw">Discord</a>. The open source
-                    projects it is built on are listed in the
-                    <a href="/shortcircuit-xt/manual/credits/">manual's credits</a>.
-                </p>
             </div>
+        </Block>
+
+        <Block id="downloads" surface="blue" layout="split">
+            <Cell align="start">
+                <SystemRequirements platforms={systemRequirements} />
+            </Cell>
+
+            <Cell align="start">
+                <DownloadMatrix
+                    heading="Download Shortcircuit XT"
+                    channels={[
+                        {
+                            label: "Nightly Builds",
+                            links: platformLinks(scxt_build_nightly.releases),
+                            all: {
+                                label: "More info about nightly builds",
+                                href: "/shortcircuit-xt/nightly",
+                            },
+                        },
+                    ]}
+                />
+            </Cell>
         </Block>
     </main>
 

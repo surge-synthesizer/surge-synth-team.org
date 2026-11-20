@@ -1,0 +1,89 @@
+---
+title: OB-Xf Nightly Builds
+---
+
+import nightly from "~/content/generated/obxf-build-nightly.json";
+import stable from "~/content/generated/obxf-build-stable.json";
+
+**Current build: {nightly.latest_commit}, built at {nightly.build_time}**
+
+Unlike the nightlies, OB-Xf {stable.version} is a tested release, and it is what we recommend for
+music making - it is on the [OB-Xf page](/ob-xf#downloads). What is below is the current state of
+the code instead.
+
+Every available format for the latest nightly is on
+[its GitHub release page](https://github.com/surge-synthesizer/OB-Xf/releases/tag/Nightly). For
+convenience, direct links for our most popular platforms are below.
+
+{/* The old site renders this list as the Downloads component does: flex, spaced, and a size up. */}
+
+<ul class="flex flex-col gap-4 text-lg font-bold">
+    <li>
+        <a href={nightly.releases.win64}>&#8681; Windows 64-bit (Standalone, CLAP, VST3)</a>
+    </li>
+    <li>
+        <a href={nightly.releases.win64zip}>&#8681; Windows 64-bit, installerless ZIP</a>
+    </li>
+    <li>
+        <a href={nightly.releases.macos}>
+            &#8681; macOS Intel/ARM universal (Standalone, AU, CLAP, VST3)
+        </a>
+    </li>
+    <li>
+        <a href={nightly.releases.linux64}>&#8681; Linux x64 (Standalone, CLAP, LV2, VST3)</a> - as
+        a .deb
+    </li>
+</ul>
+
+Windows on ARM and Linux on aarch64 are built too, and are on the release page above rather than in
+the list here.
+
+Note that the direct links above can break for 90 to 120 seconds while we are releasing a new build.
+The all-formats link is always valid.
+
+The draft changelog for the next release is [here](/ob-xf/changelog/nightly).
+
+## Recent changes
+
+<ul>
+    {nightly.recent_commits.map((entry) => (
+        <li>
+            <a href={`https://github.com/surge-synthesizer/OB-Xf/commit/${entry.commit}`}>
+                {entry.commit}
+            </a>
+            {" - "}
+            {/* Issue references in a commit subject become links to the issue. */}
+            {entry.message
+                .split(/(#\d+)/g)
+                .map((part) =>
+                    /^#\d+$/.test(part) ? (
+                        <a
+                            href={`https://github.com/surge-synthesizer/OB-Xf/issues/${part.slice(1)}`}>
+                            {part}
+                        </a>
+                    ) : (
+                        part
+                    ),
+                )}
+            {" - "}
+            {entry.author}
+        </li>
+    ))}
+</ul>
+
+## Caveats
+
+Please take a moment to understand the nightlies. We build OB-Xf automatically for all our platforms
+on every commit to the [main branch](https://github.com/surge-synthesizer/OB-Xf), which means the
+code you are about to download may be minutes old. Depending on the pace of development, it could
+contain bugs and new features that do not work, and it may even make patches that future OB-Xf
+versions load differently, incorrectly, or not at all.
+
+Our minimum advice if you use the nightlies is to **put a limiter on the output**. We have made DSP
+errors in nightlies before, which created nasty clicks and pops, and in the worst cases sudden
+blasts of noise.
+
+Despite that warning, we work really hard to make the nightlies good. Testing them is how the final
+release gets good, and we need and welcome your feedback - either on
+[GitHub](https://github.com/surge-synthesizer/OB-Xf/issues) or on
+[Discord](https://discord.gg/spGANHw); see [contact](/contact) for how to reach us.
