@@ -109,23 +109,45 @@ const productPages = defineCollection({
  * Data rather than MDX because none of these entries has a body: the old site
  * kept twelve .mdx files whose content was entirely frontmatter. The thumbnail
  * goes through image(), so 5.2 MB of PNGs reach the reader as optimised webp.
+ *
+ * The leading-underscore exclusion keeps _order.json out of the collection; it
+ * sits in the same folder but describes the set rather than a member of it.
  */
 const skins = defineCollection({
     loader: glob({
         base: "./src/content/products",
-        pattern: "*/skins/*.json",
+        pattern: "*/skins/[^_]*.json",
         generateId: ({ entry }) => entry.replace("/skins/", "/").replace(/\.json$/, ""),
     }),
     schema: ({ image }) =>
         z.object({
             name: z.string(),
-            order: z.number(),
             author: z.string(),
             url: z.url().optional(),
             download: z.url(),
             thumbnail: image(),
             description: z.string().optional(),
         }),
+});
+
+/*
+ * The running order of one product's skin library, listed top to bottom as
+ * file slugs - the skin JSON names without their extension.
+ *
+ * One file for the whole set, rather than an `order` number in each skin:
+ * inserting a skin at the top used to mean renumbering every file below it,
+ * and the two entries that ended up sharing order 3 showed how well that went.
+ * A skin missing from the list is not an error - SkinGallery puts it after the
+ * listed ones, by name - so adding a skin and forgetting the list still shows
+ * the skin.
+ */
+const skinOrder = defineCollection({
+    loader: glob({
+        base: "./src/content/products",
+        pattern: "*/skins/_order.json",
+        generateId: ({ entry }) => entry.split("/")[0]!,
+    }),
+    schema: () => z.object({ order: z.array(z.string()) }),
 });
 
 // Rejects bare fragments and relative paths: nav is shared with manual routes,
@@ -208,4 +230,5 @@ export const collections = {
     projects,
     generated,
     skins,
+    skinOrder,
 };

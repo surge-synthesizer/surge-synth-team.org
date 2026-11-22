@@ -17,9 +17,25 @@ interface Props {
 
 const { product } = Astro.props as Props;
 
+/*
+ * The running order comes from the product's skins/_order.json, so changing it
+ * is one file rather than a renumbering of every skin below the insertion.
+ *
+ * A skin the list does not mention sorts after every listed one, by name: the
+ * fallback index is Infinity, which keeps `sort` stable among the unlisted.
+ */
+const ranking = (await getCollection("skinOrder")).find((list) => list.id === product);
+const rank = new Map(ranking?.data.order.map((slug, index) => [slug, index]));
+
 const entries = (await getCollection("skins"))
     .filter((skin) => skin.id.startsWith(`${product}/`))
-    .sort((a, b) => a.data.order - b.data.order);
+    .sort((a, b) => {
+        const [x, y] = [a, b].map(
+            (skin) => rank.get(skin.id.slice(product.length + 1)) ?? Infinity,
+        ) as [number, number];
+
+        return x === y ? a.data.name.localeCompare(b.data.name) : x - y;
+    });
 
 /*
  * The full-size view is a webp built here rather than the imported file
@@ -39,10 +55,10 @@ const skins = await Promise.all(
 );
 ---
 
-<div class="not-prose space-y-8">
+<div class="gallery not-prose">
     {
         skins.map((skin) => (
-            <article class="skin rounded-lg border p-4">
+            <article class="skin rounded-lg border">
                 <h2 class="text-xl font-semibold">
                     <a href={skin.download}>&#11015; {skin.name}</a>
                     <span class="ml-1 text-base font-normal">
@@ -50,14 +66,14 @@ const skins = await Promise.all(
                     </span>
                 </h2>
 
-                {skin.description && <p class="mt-2">{skin.description}</p>}
+                {skin.description && <p>{skin.description}</p>}
 
-                <a class="mt-4 block" href={skin.full}>
+                <a class="shot" href={skin.full}>
                     <Image
                         src={skin.thumbnail}
                         alt={`The Surge XT window skinned as ${skin.name}`}
                         widths={[480, 960]}
-                        sizes="(min-width: 64rem) 56rem, 100vw"
+                        sizes="(min-width: 80rem) 54rem, (min-width: 64rem) 46rem, 100vw"
                         loading="lazy"
                         class="rounded"
                     />
@@ -68,10 +84,101 @@ const skins = await Promise.all(
 </div>
 
 <style>
-    /* Derived from the surrounding surface rather than a fixed palette, so the
-       cards follow whichever product's colours the page is wearing. */
+    /*
+     * Two columns once the page is wide enough for them, and wider than the
+     * 100ch measure it sits in so the second column comes out of the margins
+     * rather than out of the screenshots - they are the point of the card.
+     *
+     * It caps at two 56rem cards plus the gap, 56rem being the width the
+     * single-column `sizes` hint has always assumed, so the cards stop growing
+     * on a very wide screen rather than following the viewport out.
+     *
+     * The negative margins are how a block exceeds its parent: `50% - width / 2`
+     * is measured against the parent, so it centres whichever is wider. The
+     * max() stops the viewport term making the gallery narrower than the column
+     * it sits in at widths where no breakout happens.
+     */
+    .gallery {
+        --gap: 3rem;
+        --edges: 9rem;
+        --gallery: max(100%, min(calc(2 * 56rem + var(--gap)), 100vw - var(--edges)));
+        display: grid;
+        gap: var(--gap);
+        width: var(--gallery);
+        /* The prose above ends on a 1rem paragraph margin, which collapses into
+           this one, so the gallery clears the text by exactly the distance that
+           separates its own rows. */
+        margin-top: var(--gap);
+        margin-inline: calc(50% - var(--gallery) / 2);
+    }
+
+    /* 80rem is where a column is still at least as wide as a card was before
+       the gallery had columns at all, so the second one never costs the
+       screenshots anything. */
+    @media (min-width: 80rem) {
+        .gallery {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        /* An odd last card centres across the row instead of hanging left,
+           keeping a column's width so it matches the cards above it. */
+        .gallery > :last-child:nth-child(odd) {
+            grid-column: 1 / -1;
+            justify-self: center;
+            width: calc(50% - var(--gap) / 2);
+        }
+    }
+
+    /*
+     * Colours derived from the surrounding surface rather than a fixed palette,
+     * so the cards follow whichever product's the page is wearing.
+     *
+     * The sizing is not cosmetic. base.css dresses every
+     * `article:not(.page-prose)` as the body of a long-tail product page -
+     * `prose max-w-xl place-self-center p-4` - and a card is an article too, so
+     * it arrived 36rem wide and centred in its cell however wide the cell was.
+     * A cell is the card's size, and stretch is how it takes it; centring is
+     * what left cards in a row at visibly different heights. The padding is
+     * here rather than a `p-4` class for the same reason: one place to set it.
+     *
+     * A column, in turn, so the screenshot can take the slack a stretched card
+     * inherits from its taller neighbour, rather than growing a strip of dead
+     * space under it.
+     */
     .skin {
+        display: flex;
+        flex-direction: column;
+        max-width: none;
+        padding: 1rem;
+        place-self: stretch;
         border-color: color-mix(in srgb, currentColor 20%, transparent);
         background-color: color-mix(in srgb, currentColor 6%, transparent);
+    }
+
+    /*
+     * The page's prose rhythm reaches in here - 2rem above an h2, 1rem below it
+     * and below an img - which reads as slack between the border and the title.
+     * Unlayered, so these win over both .page-prose and any utility class:
+     * spacing inside a card is the card's own.
+     */
+    .skin :is(h2, p, img) {
+        margin: 0;
+    }
+
+    .skin p {
+        margin-top: 0.5rem;
+    }
+
+    /* The screenshot's gap from whatever sits above it belongs to that element,
+       so `auto` here is free to absorb the extra height the row's taller card
+       imposes - which is what lands every screenshot in a row on the same
+       bottom edge. Flex margins do not collapse, so the two add up. */
+    .skin :is(h2, p):has(+ .shot) {
+        margin-bottom: 1rem;
+    }
+
+    .skin .shot {
+        display: block;
+        margin-top: auto;
     }
 </style>

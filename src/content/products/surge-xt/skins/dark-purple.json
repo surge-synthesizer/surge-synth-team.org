@@ -1,8 +1,6 @@
 {
     "name": "Dark Purple",
-    "order": 10,
     "author": "RovingEye",
-    "url": "https://mthierman.pages.dev",
     "download": "https://github.com/surge-synthesizer/surge-extra-content/releases/download/skin-library/dark-purple.surge-skin.zip",
     "thumbnail": "./images/dark-purple.png"
 }
