@@ -1,10 +1,22 @@
 {
-    "build_time": "2026-11-21T19:26:41.517201175",
+    "build_time": "2026-11-22T20:11:07.207267157",
     "data": {},
-    "latest_commit": "2c1f0a1",
+    "latest_commit": "37877fc",
     "name": "shortcircuit-xt",
     "project_repo": "https://github.com/surge-synthesizer/shortcircuit-xt",
     "recent_commits": [
+        {
+            "author": "Paul Walker",
+            "commit": "37877fc",
+            "date": "2026-11-22T10:21:40-05:00",
+            "message": "Ask for a rescan as soon as state loads, and start no release voice on a wildcard note off"
+        },
+        {
+            "author": "Paul Walker",
+            "commit": "11e243e",
+            "date": "2026-11-22T10:14:00-05:00",
+            "message": "Update sst-basic-blocks, sst-voicemanager and sst-plugininfra"
+        },
         {
             "author": "Paul",
             "commit": "2c1f0a1",
@@ -22,26 +34,14 @@
             "commit": "38b7d47",
             "date": "2026-11-17T14:34:15+01:00",
             "message": "Skip cleaned-up voices in exclusive-group and one-per-key scans (#2815)"
-        },
-        {
-            "author": "Paul",
-            "commit": "9d0150a",
-            "date": "2026-11-17T07:10:26-05:00",
-            "message": "Version linux debs so apt orders nightlies and releases (#2814)"
-        },
-        {
-            "author": "Paul",
-            "commit": "cbc8ec6",
-            "date": "2026-11-16T19:43:17-05:00",
-            "message": "Update clap-wrapper to 0.18 and mark the deb as a sndstation clap plugin (#2813)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-21-2c1f0a1-Linux.zip",
-        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-11-21-2c1f0a1.dmg",
+        "linux64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-22-37877fc-Linux.zip",
+        "macos": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/shortcircuit-xt-macOS-2026-11-22-37877fc.dmg",
         "other": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-21-2c1f0a1-Windows-64bit.exe",
-        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-21-2c1f0a1-Windows-64bit.zip"
+        "win64": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-22-37877fc-Windows-64bit.exe",
+        "win64zip": "https://github.com/surge-synthesizer/shortcircuit-xt/releases/download/Nightly/ShortcircuitXT-2026-11-22-37877fc-Windows-64bit.zip"
     },
     "version": "main"
 }
