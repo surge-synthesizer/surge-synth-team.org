@@ -1,10 +1,16 @@
 {
-    "build_time": "2026-11-22T22:05:44.64514409",
+    "build_time": "2026-11-23T14:13:46.114226056",
     "data": {},
-    "latest_commit": "bd57c7a",
+    "latest_commit": "3d36703",
     "name": "spectrumworx",
     "project_repo": "https://github.com/surge-synthesizer/SpectrumWorx",
     "recent_commits": [
+        {
+            "author": "Paul",
+            "commit": "3d36703",
+            "date": "2026-11-23T08:42:17-05:00",
+            "message": "Prefer ~/Music for user data on macOS (#278)"
+        },
         {
             "author": "Paul",
             "commit": "bd57c7a",
@@ -28,20 +34,14 @@
             "commit": "f3966af",
             "date": "2026-11-17T08:04:07-05:00",
             "message": "Version linux debs so apt orders nightlies and releases (#274)"
-        },
-        {
-            "author": "Paul",
-            "commit": "7204487",
-            "date": "2026-11-16T20:21:53-05:00",
-            "message": "Update clap-wrapper to 0.18 and build a linux deb on x64 and arm (#273)"
         }
     ],
     "releases": {
-        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-3.0.0-nightly-2026-11-22-bd57c7a1.zip",
-        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-3.0.0-nightly-2026-11-22-bd57c7a1.dmg",
+        "linux64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Linux-3.0.0-nightly-2026-11-23-3d36703f.zip",
+        "macos": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-macOS-3.0.0-nightly-2026-11-23-3d36703f.dmg",
         "other": "https://github.com/surge-synthesizer/SpectrumWorx/releases/tag/Nightly",
-        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-3.0.0-nightly-2026-11-22-bd57c7a1.exe",
-        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-3.0.0-nightly-2026-11-22-bd57c7a1.zip"
+        "win64": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-3.0.0-nightly-2026-11-23-3d36703f.exe",
+        "win64zip": "https://github.com/surge-synthesizer/SpectrumWorx/releases/download/Nightly/spectrumworx-Windows-3.0.0-nightly-2026-11-23-3d36703f.zip"
     },
     "version": "main"
 }
